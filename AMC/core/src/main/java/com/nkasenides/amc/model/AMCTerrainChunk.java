@@ -12,7 +12,9 @@ import java.util.Map;
 import com.nkasenides.athlos.proto.Transmittable;
 import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
+import com.raylabz.firestorm.annotation.FirestormObject;
 
+@FirestormObject
 public class AMCTerrainChunk implements Transmittable<AMCTerrainChunkProto.Builder>, ITerrainChunk {
     private HashMap<String, AMCTerrainCell> cells = new HashMap<>();
     private String worldID;    

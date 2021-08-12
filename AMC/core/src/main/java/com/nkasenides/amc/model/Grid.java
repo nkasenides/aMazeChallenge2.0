@@ -10,7 +10,9 @@ package com.nkasenides.amc.model;
 import com.nkasenides.athlos.proto.Transmittable;
 import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
+import com.raylabz.firestorm.annotation.FirestormObject;
 
+@FirestormObject
 public class Grid implements Transmittable<GridProto.Builder> {
     private Direction4 startingDirection;    
     private String data;    
@@ -79,7 +81,18 @@ public class Grid implements Transmittable<GridProto.Builder> {
         protoBuilder.setStartingPosition(startingPosition.toProto().build());        
         protoBuilder.setHeight(height);        
         return protoBuilder;        
-    }    
+    }
+
+    public Grid clone() {
+        Grid grid = new Grid();
+        grid.setData(data);
+        grid.setHeight(height);
+        grid.setWidth(width);
+        grid.setStartingDirection(startingDirection);
+        grid.setTargetPosition(targetPosition);
+        grid.setStartingPosition(startingPosition);
+        return grid;
+    }
     
 
 }

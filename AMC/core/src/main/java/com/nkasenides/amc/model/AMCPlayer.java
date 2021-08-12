@@ -10,7 +10,9 @@ package com.nkasenides.amc.model;
 import com.nkasenides.athlos.proto.Transmittable;
 import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
+import com.raylabz.firestorm.annotation.FirestormObject;
 
+@FirestormObject
 public class AMCPlayer implements Transmittable<AMCPlayerProto.Builder>, IPlayer {
     private String password;    
     private AmazeColor color;    

@@ -10,7 +10,9 @@ package com.nkasenides.amc.model;
 import com.nkasenides.athlos.proto.Transmittable;
 import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
+import com.raylabz.firestorm.annotation.FirestormObject;
 
+@FirestormObject
 public class Challenge implements Transmittable<ChallengeProto.Builder> {
     private boolean canJoinAfterStart;    
     private boolean canStepOnEachOther;    

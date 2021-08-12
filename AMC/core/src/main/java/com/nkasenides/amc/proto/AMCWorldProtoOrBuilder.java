@@ -26,36 +26,51 @@ public interface AMCWorldProtoOrBuilder extends
   long getSeed();
 
   /**
-   * <code>string name = 4;</code>
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return Whether the grid field is set.
+   */
+  boolean hasGrid();
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return The grid.
+   */
+  GridProto getGrid();
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   */
+  GridProtoOrBuilder getGridOrBuilder();
+
+  /**
+   * <code>string name = 5;</code>
    * @return The name.
    */
-  java.lang.String getName();
+  String getName();
   /**
-   * <code>string name = 4;</code>
+   * <code>string name = 5;</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @return A list containing the chunkIDs.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getChunkIDsList();
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @return The count of chunkIDs.
    */
   int getChunkIDsCount();
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @param index The index of the element to return.
    * @return The chunkIDs at the given index.
    */
-  java.lang.String getChunkIDs(int index);
+  String getChunkIDs(int index);
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @param index The index of the value to return.
    * @return The bytes of the chunkIDs at the given index.
    */
@@ -63,60 +78,60 @@ public interface AMCWorldProtoOrBuilder extends
       getChunkIDsBytes(int index);
 
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
-   * <code>string ownerID = 7;</code>
+   * <code>string ownerID = 8;</code>
    * @return The ownerID.
    */
-  java.lang.String getOwnerID();
+  String getOwnerID();
   /**
-   * <code>string ownerID = 7;</code>
+   * <code>string ownerID = 8;</code>
    * @return The bytes for ownerID.
    */
   com.google.protobuf.ByteString
       getOwnerIDBytes();
 
   /**
-   * <code>uint64 createdOn = 8;</code>
+   * <code>uint64 createdOn = 9;</code>
    * @return The createdOn.
    */
   long getCreatedOn();
 
   /**
-   * <code>sint64 maxCols = 9;</code>
+   * <code>sint64 maxCols = 10;</code>
    * @return The maxCols.
    */
   long getMaxCols();
 
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @return A list containing the subscribedSessionIDs.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getSubscribedSessionIDsList();
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @return The count of subscribedSessionIDs.
    */
   int getSubscribedSessionIDsCount();
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @param index The index of the element to return.
    * @return The subscribedSessionIDs at the given index.
    */
-  java.lang.String getSubscribedSessionIDs(int index);
+  String getSubscribedSessionIDs(int index);
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @param index The index of the value to return.
    * @return The bytes of the subscribedSessionIDs at the given index.
    */

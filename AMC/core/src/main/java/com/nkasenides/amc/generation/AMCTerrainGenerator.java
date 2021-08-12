@@ -17,15 +17,33 @@ import java.util.UUID;
 
 public class AMCTerrainGenerator extends TerrainGenerator<AMCWorld, AMCTerrainChunk, AMCTerrainCell>{
 
+    //Imported from v1.
+    public static final int SHAPE_ONLY_UPPER_SIDE = 0x1; // -
+    public static final int SHAPE_ONLY_LOWER_SIDE = 0x2; // _
+    public static final int SHAPE_ONLY_LEFT_SIDE  = 0x4; // |
+    public static final int SHAPE_ONLY_RIGHT_SIDE = 0x8; //  |
+
     public AMCTerrainGenerator(AMCWorld world) {
         super(world);
     }
 
-    protected final AMCTerrainCell generateCell(int cellRow, int cellCol) {    
-        final AMCTerrainCell cell = new AMCTerrainCell();        
-        cell.setPosition(new MatrixPosition(cellRow, cellCol));        
-        //TODO - Define custom cell properties here.        
-        return cell;        
+    //Imported from v1.
+    public static int getGridCell(final Grid grid, final int row, final int col) throws IndexOutOfBoundsException {
+        if(col < 0 || col > grid.getWidth()) throw new IndexOutOfBoundsException("col not in bounds [0, " + grid.getWidth() + ")");
+        if(row < 0 || row > grid.getHeight()) throw new IndexOutOfBoundsException("row not in bounds [0, " + grid.getHeight() + ")");
+        final char c = grid.getData().charAt(row * grid.getWidth() + col);
+        return Integer.parseInt(Character.toString(c), 16);
+    }
+
+    protected final AMCTerrainCell generateCell(int cellRow, int cellCol) {
+        final int gridCell = getGridCell(getWorld().getGrid(), cellRow, cellCol);
+        final AMCTerrainCell cell = new AMCTerrainCell();
+        cell.setPosition(new MatrixPosition(cellRow, cellCol));
+        cell.setUpWall((gridCell & SHAPE_ONLY_UPPER_SIDE) != 0);
+        cell.setDownWall((gridCell & SHAPE_ONLY_LOWER_SIDE) != 0);
+        cell.setLeftWall((gridCell & SHAPE_ONLY_LEFT_SIDE) != 0);
+        cell.setRightWall((gridCell & SHAPE_ONLY_RIGHT_SIDE) != 0);
+        return cell;
     }    
     
     public final AMCTerrainCell acquireCell(final int cellRow, final int cellCol) throws ChunkOutOfBoundsException {

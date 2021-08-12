@@ -23,14 +23,14 @@ private static final long serialVersionUID = 0L;
     subscribedSessionIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCWorldProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -41,7 +41,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -70,13 +70,26 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            GridProto.Builder subBuilder = null;
+            if (grid_ != null) {
+              subBuilder = grid_.toBuilder();
+            }
+            grid_ = input.readMessage(GridProto.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(grid_);
+              grid_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            String s = input.readStringRequireUtf8();
 
             name_ = s;
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 50: {
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               chunkIDs_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
@@ -84,30 +97,30 @@ private static final long serialVersionUID = 0L;
             chunkIDs_.add(s);
             break;
           }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 58: {
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 66: {
+            String s = input.readStringRequireUtf8();
 
             ownerID_ = s;
             break;
           }
-          case 64: {
+          case 72: {
 
             createdOn_ = input.readUInt64();
             break;
           }
-          case 72: {
+          case 80: {
 
             maxCols_ = input.readSInt64();
             break;
           }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 90: {
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               subscribedSessionIDs_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000002;
@@ -142,15 +155,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCWorldProto.class, com.nkasenides.amc.proto.AMCWorldProto.Builder.class);
+            AMCWorldProto.class, Builder.class);
   }
 
   public static final int MAXROWS_FIELD_NUMBER = 1;
@@ -159,7 +172,7 @@ private static final long serialVersionUID = 0L;
    * <code>sint64 maxRows = 1;</code>
    * @return The maxRows.
    */
-  @java.lang.Override
+  @Override
   public long getMaxRows() {
     return maxRows_;
   }
@@ -170,7 +183,7 @@ private static final long serialVersionUID = 0L;
    * <code>uint32 heightLimit = 2;</code>
    * @return The heightLimit.
    */
-  @java.lang.Override
+  @Override
   public int getHeightLimit() {
     return heightLimit_;
   }
@@ -181,42 +194,68 @@ private static final long serialVersionUID = 0L;
    * <code>sint64 seed = 3;</code>
    * @return The seed.
    */
-  @java.lang.Override
+  @Override
   public long getSeed() {
     return seed_;
   }
 
-  public static final int NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object name_;
+  public static final int GRID_FIELD_NUMBER = 4;
+  private GridProto grid_;
   /**
-   * <code>string name = 4;</code>
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return Whether the grid field is set.
+   */
+  @Override
+  public boolean hasGrid() {
+    return grid_ != null;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return The grid.
+   */
+  @Override
+  public GridProto getGrid() {
+    return grid_ == null ? GridProto.getDefaultInstance() : grid_;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   */
+  @Override
+  public GridProtoOrBuilder getGridOrBuilder() {
+    return getGrid();
+  }
+
+  public static final int NAME_FIELD_NUMBER = 5;
+  private volatile Object name_;
+  /**
+   * <code>string name = 5;</code>
    * @return The name.
    */
-  @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getName() {
+    Object ref = name_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       name_ = s;
       return s;
     }
   }
   /**
-   * <code>string name = 4;</code>
+   * <code>string name = 5;</code>
    * @return The bytes for name.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
+    Object ref = name_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       name_ = b;
       return b;
     } else {
@@ -224,10 +263,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHUNKIDS_FIELD_NUMBER = 5;
+  public static final int CHUNKIDS_FIELD_NUMBER = 6;
   private com.google.protobuf.LazyStringList chunkIDs_;
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @return A list containing the chunkIDs.
    */
   public com.google.protobuf.ProtocolStringList
@@ -235,22 +274,22 @@ private static final long serialVersionUID = 0L;
     return chunkIDs_;
   }
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @return The count of chunkIDs.
    */
   public int getChunkIDsCount() {
     return chunkIDs_.size();
   }
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @param index The index of the element to return.
    * @return The chunkIDs at the given index.
    */
-  public java.lang.String getChunkIDs(int index) {
+  public String getChunkIDs(int index) {
     return chunkIDs_.get(index);
   }
   /**
-   * <code>repeated string chunkIDs = 5;</code>
+   * <code>repeated string chunkIDs = 6;</code>
    * @param index The index of the value to return.
    * @return The bytes of the chunkIDs at the given index.
    */
@@ -259,37 +298,37 @@ private static final long serialVersionUID = 0L;
     return chunkIDs_.getByteString(index);
   }
 
-  public static final int ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object id_;
+  public static final int ID_FIELD_NUMBER = 7;
+  private volatile Object id_;
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
   }
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -297,37 +336,37 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int OWNERID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object ownerID_;
+  public static final int OWNERID_FIELD_NUMBER = 8;
+  private volatile Object ownerID_;
   /**
-   * <code>string ownerID = 7;</code>
+   * <code>string ownerID = 8;</code>
    * @return The ownerID.
    */
-  @java.lang.Override
-  public java.lang.String getOwnerID() {
-    java.lang.Object ref = ownerID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getOwnerID() {
+    Object ref = ownerID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       ownerID_ = s;
       return s;
     }
   }
   /**
-   * <code>string ownerID = 7;</code>
+   * <code>string ownerID = 8;</code>
    * @return The bytes for ownerID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getOwnerIDBytes() {
-    java.lang.Object ref = ownerID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = ownerID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       ownerID_ = b;
       return b;
     } else {
@@ -335,32 +374,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATEDON_FIELD_NUMBER = 8;
+  public static final int CREATEDON_FIELD_NUMBER = 9;
   private long createdOn_;
   /**
-   * <code>uint64 createdOn = 8;</code>
+   * <code>uint64 createdOn = 9;</code>
    * @return The createdOn.
    */
-  @java.lang.Override
+  @Override
   public long getCreatedOn() {
     return createdOn_;
   }
 
-  public static final int MAXCOLS_FIELD_NUMBER = 9;
+  public static final int MAXCOLS_FIELD_NUMBER = 10;
   private long maxCols_;
   /**
-   * <code>sint64 maxCols = 9;</code>
+   * <code>sint64 maxCols = 10;</code>
    * @return The maxCols.
    */
-  @java.lang.Override
+  @Override
   public long getMaxCols() {
     return maxCols_;
   }
 
-  public static final int SUBSCRIBEDSESSIONIDS_FIELD_NUMBER = 10;
+  public static final int SUBSCRIBEDSESSIONIDS_FIELD_NUMBER = 11;
   private com.google.protobuf.LazyStringList subscribedSessionIDs_;
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @return A list containing the subscribedSessionIDs.
    */
   public com.google.protobuf.ProtocolStringList
@@ -368,22 +407,22 @@ private static final long serialVersionUID = 0L;
     return subscribedSessionIDs_;
   }
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @return The count of subscribedSessionIDs.
    */
   public int getSubscribedSessionIDsCount() {
     return subscribedSessionIDs_.size();
   }
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @param index The index of the element to return.
    * @return The subscribedSessionIDs at the given index.
    */
-  public java.lang.String getSubscribedSessionIDs(int index) {
+  public String getSubscribedSessionIDs(int index) {
     return subscribedSessionIDs_.get(index);
   }
   /**
-   * <code>repeated string subscribedSessionIDs = 10;</code>
+   * <code>repeated string subscribedSessionIDs = 11;</code>
    * @param index The index of the value to return.
    * @return The bytes of the subscribedSessionIDs at the given index.
    */
@@ -393,7 +432,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -403,7 +442,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (maxRows_ != 0L) {
@@ -415,31 +454,34 @@ private static final long serialVersionUID = 0L;
     if (seed_ != 0L) {
       output.writeSInt64(3, seed_);
     }
+    if (grid_ != null) {
+      output.writeMessage(4, getGrid());
+    }
     if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, name_);
     }
     for (int i = 0; i < chunkIDs_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, chunkIDs_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, chunkIDs_.getRaw(i));
     }
     if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, id_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, id_);
     }
     if (!getOwnerIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, ownerID_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, ownerID_);
     }
     if (createdOn_ != 0L) {
-      output.writeUInt64(8, createdOn_);
+      output.writeUInt64(9, createdOn_);
     }
     if (maxCols_ != 0L) {
-      output.writeSInt64(9, maxCols_);
+      output.writeSInt64(10, maxCols_);
     }
     for (int i = 0; i < subscribedSessionIDs_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, subscribedSessionIDs_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, subscribedSessionIDs_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -457,8 +499,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeSInt64Size(3, seed_);
     }
+    if (grid_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getGrid());
+    }
     if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, name_);
     }
     {
       int dataSize = 0;
@@ -469,18 +515,18 @@ private static final long serialVersionUID = 0L;
       size += 1 * getChunkIDsList().size();
     }
     if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, id_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, id_);
     }
     if (!getOwnerIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, ownerID_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, ownerID_);
     }
     if (createdOn_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(8, createdOn_);
+        .computeUInt64Size(9, createdOn_);
     }
     if (maxCols_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeSInt64Size(9, maxCols_);
+        .computeSInt64Size(10, maxCols_);
     }
     {
       int dataSize = 0;
@@ -495,15 +541,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCWorldProto)) {
+    if (!(obj instanceof AMCWorldProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCWorldProto other = (com.nkasenides.amc.proto.AMCWorldProto) obj;
+    AMCWorldProto other = (AMCWorldProto) obj;
 
     if (getMaxRows()
         != other.getMaxRows()) return false;
@@ -511,6 +557,11 @@ private static final long serialVersionUID = 0L;
         != other.getHeightLimit()) return false;
     if (getSeed()
         != other.getSeed()) return false;
+    if (hasGrid() != other.hasGrid()) return false;
+    if (hasGrid()) {
+      if (!getGrid()
+          .equals(other.getGrid())) return false;
+    }
     if (!getName()
         .equals(other.getName())) return false;
     if (!getChunkIDsList()
@@ -529,7 +580,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -544,6 +595,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SEED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSeed());
+    if (hasGrid()) {
+      hash = (37 * hash) + GRID_FIELD_NUMBER;
+      hash = (53 * hash) + getGrid().hashCode();
+    }
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     if (getChunkIDsCount() > 0) {
@@ -569,69 +624,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(byte[] data)
+  public static AMCWorldProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(java.io.InputStream input)
+  public static AMCWorldProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCWorldProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseDelimitedFrom(
+  public static AMCWorldProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCWorldProto parseFrom(
+  public static AMCWorldProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -639,23 +694,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCWorldProto prototype) {
+  public static Builder newBuilder(AMCWorldProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -665,12 +720,13 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IWorld, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCWorld>, 
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCWorldProto)
-      com.nkasenides.amc.proto.AMCWorldProtoOrBuilder {    @java.lang.Override    
+      AMCWorldProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.AMCWorld toObject() {    
         com.nkasenides.amc.model.AMCWorld item = new com.nkasenides.amc.model.AMCWorld();        
         item.setMaxRows(getMaxRows());        
         item.setHeightLimit(getHeightLimit());        
         item.setSeed(getSeed());        
+        item.setGrid(getGrid().toObject());        
         item.setName(getName());        
         java.util.ArrayList<String> chunkIDsList = new java.util.ArrayList<>();        
         for (int i = 0; i < getChunkIDsCount(); i++) {        
@@ -700,15 +756,15 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCWorldProto.class, com.nkasenides.amc.proto.AMCWorldProto.Builder.class);
+              AMCWorldProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCWorldProto.newBuilder()
@@ -717,7 +773,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -726,7 +782,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       maxRows_ = 0L;
@@ -735,6 +791,12 @@ private static final long serialVersionUID = 0L;
 
       seed_ = 0L;
 
+      if (gridBuilder_ == null) {
+        grid_ = null;
+      } else {
+        grid_ = null;
+        gridBuilder_ = null;
+      }
       name_ = "";
 
       chunkIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -752,33 +814,38 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCWorldProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCWorldProto.getDefaultInstance();
+    @Override
+    public AMCWorldProto getDefaultInstanceForType() {
+      return AMCWorldProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCWorldProto build() {
-      com.nkasenides.amc.proto.AMCWorldProto result = buildPartial();
+    @Override
+    public AMCWorldProto build() {
+      AMCWorldProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCWorldProto buildPartial() {
-      com.nkasenides.amc.proto.AMCWorldProto result = new com.nkasenides.amc.proto.AMCWorldProto(this);
+    @Override
+    public AMCWorldProto buildPartial() {
+      AMCWorldProto result = new AMCWorldProto(this);
       int from_bitField0_ = bitField0_;
       result.maxRows_ = maxRows_;
       result.heightLimit_ = heightLimit_;
       result.seed_ = seed_;
+      if (gridBuilder_ == null) {
+        result.grid_ = grid_;
+      } else {
+        result.grid_ = gridBuilder_.build();
+      }
       result.name_ = name_;
       if (((bitField0_ & 0x00000001) != 0)) {
         chunkIDs_ = chunkIDs_.getUnmodifiableView();
@@ -798,50 +865,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCWorldProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCWorldProto)other);
+      if (other instanceof AMCWorldProto) {
+        return mergeFrom((AMCWorldProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCWorldProto other) {
-      if (other == com.nkasenides.amc.proto.AMCWorldProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCWorldProto other) {
+      if (other == AMCWorldProto.getDefaultInstance()) return this;
       if (other.getMaxRows() != 0L) {
         setMaxRows(other.getMaxRows());
       }
@@ -850,6 +917,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getSeed() != 0L) {
         setSeed(other.getSeed());
+      }
+      if (other.hasGrid()) {
+        mergeGrid(other.getGrid());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -894,21 +964,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCWorldProto parsedMessage = null;
+      AMCWorldProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCWorldProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCWorldProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -924,7 +994,7 @@ private static final long serialVersionUID = 0L;
      * <code>sint64 maxRows = 1;</code>
      * @return The maxRows.
      */
-    @java.lang.Override
+    @Override
     public long getMaxRows() {
       return maxRows_;
     }
@@ -955,7 +1025,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint32 heightLimit = 2;</code>
      * @return The heightLimit.
      */
-    @java.lang.Override
+    @Override
     public int getHeightLimit() {
       return heightLimit_;
     }
@@ -986,7 +1056,7 @@ private static final long serialVersionUID = 0L;
      * <code>sint64 seed = 3;</code>
      * @return The seed.
      */
-    @java.lang.Override
+    @Override
     public long getSeed() {
       return seed_;
     }
@@ -1012,34 +1082,153 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private GridProto grid_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        GridProto, GridProto.Builder, GridProtoOrBuilder> gridBuilder_;
     /**
-     * <code>string name = 4;</code>
-     * @return The name.
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     * @return Whether the grid field is set.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
+    public boolean hasGrid() {
+      return gridBuilder_ != null || grid_ != null;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     * @return The grid.
+     */
+    public GridProto getGrid() {
+      if (gridBuilder_ == null) {
+        return grid_ == null ? GridProto.getDefaultInstance() : grid_;
       } else {
-        return (java.lang.String) ref;
+        return gridBuilder_.getMessage();
       }
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder setGrid(GridProto value) {
+      if (gridBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        grid_ = value;
+        onChanged();
+      } else {
+        gridBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder setGrid(
+        GridProto.Builder builderForValue) {
+      if (gridBuilder_ == null) {
+        grid_ = builderForValue.build();
+        onChanged();
+      } else {
+        gridBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder mergeGrid(GridProto value) {
+      if (gridBuilder_ == null) {
+        if (grid_ != null) {
+          grid_ =
+            GridProto.newBuilder(grid_).mergeFrom(value).buildPartial();
+        } else {
+          grid_ = value;
+        }
+        onChanged();
+      } else {
+        gridBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder clearGrid() {
+      if (gridBuilder_ == null) {
+        grid_ = null;
+        onChanged();
+      } else {
+        grid_ = null;
+        gridBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public GridProto.Builder getGridBuilder() {
+      
+      onChanged();
+      return getGridFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public GridProtoOrBuilder getGridOrBuilder() {
+      if (gridBuilder_ != null) {
+        return gridBuilder_.getMessageOrBuilder();
+      } else {
+        return grid_ == null ?
+            GridProto.getDefaultInstance() : grid_;
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        GridProto, GridProto.Builder, GridProtoOrBuilder>
+        getGridFieldBuilder() {
+      if (gridBuilder_ == null) {
+        gridBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            GridProto, GridProto.Builder, GridProtoOrBuilder>(
+                getGrid(),
+                getParentForChildren(),
+                isClean());
+        grid_ = null;
+      }
+      return gridBuilder_;
+    }
+
+    private Object name_ = "";
+    /**
+     * <code>string name = 5;</code>
+     * @return The name.
+     */
+    public String getName() {
+      Object ref = name_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string name = 5;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
-      java.lang.Object ref = name_;
+      Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         name_ = b;
         return b;
       } else {
@@ -1047,12 +1236,12 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 5;</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
     public Builder setName(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1062,7 +1251,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1072,7 +1261,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 5;</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1096,7 +1285,7 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @return A list containing the chunkIDs.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1104,22 +1293,22 @@ private static final long serialVersionUID = 0L;
       return chunkIDs_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @return The count of chunkIDs.
      */
     public int getChunkIDsCount() {
       return chunkIDs_.size();
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param index The index of the element to return.
      * @return The chunkIDs at the given index.
      */
-    public java.lang.String getChunkIDs(int index) {
+    public String getChunkIDs(int index) {
       return chunkIDs_.get(index);
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param index The index of the value to return.
      * @return The bytes of the chunkIDs at the given index.
      */
@@ -1128,13 +1317,13 @@ private static final long serialVersionUID = 0L;
       return chunkIDs_.getByteString(index);
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param index The index to set the value at.
      * @param value The chunkIDs to set.
      * @return This builder for chaining.
      */
     public Builder setChunkIDs(
-        int index, java.lang.String value) {
+        int index, String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1144,12 +1333,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param value The chunkIDs to add.
      * @return This builder for chaining.
      */
     public Builder addChunkIDs(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1159,12 +1348,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param values The chunkIDs to add.
      * @return This builder for chaining.
      */
     public Builder addAllChunkIDs(
-        java.lang.Iterable<java.lang.String> values) {
+        Iterable<String> values) {
       ensureChunkIDsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, chunkIDs_);
@@ -1172,7 +1361,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearChunkIDs() {
@@ -1182,7 +1371,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string chunkIDs = 5;</code>
+     * <code>repeated string chunkIDs = 6;</code>
      * @param value The bytes of the chunkIDs to add.
      * @return This builder for chaining.
      */
@@ -1198,34 +1387,34 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -1233,12 +1422,12 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1248,7 +1437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1258,7 +1447,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1274,34 +1463,34 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object ownerID_ = "";
+    private Object ownerID_ = "";
     /**
-     * <code>string ownerID = 7;</code>
+     * <code>string ownerID = 8;</code>
      * @return The ownerID.
      */
-    public java.lang.String getOwnerID() {
-      java.lang.Object ref = ownerID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getOwnerID() {
+      Object ref = ownerID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         ownerID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
-     * <code>string ownerID = 7;</code>
+     * <code>string ownerID = 8;</code>
      * @return The bytes for ownerID.
      */
     public com.google.protobuf.ByteString
         getOwnerIDBytes() {
-      java.lang.Object ref = ownerID_;
+      Object ref = ownerID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         ownerID_ = b;
         return b;
       } else {
@@ -1309,12 +1498,12 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string ownerID = 7;</code>
+     * <code>string ownerID = 8;</code>
      * @param value The ownerID to set.
      * @return This builder for chaining.
      */
     public Builder setOwnerID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1324,7 +1513,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string ownerID = 7;</code>
+     * <code>string ownerID = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearOwnerID() {
@@ -1334,7 +1523,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string ownerID = 7;</code>
+     * <code>string ownerID = 8;</code>
      * @param value The bytes for ownerID to set.
      * @return This builder for chaining.
      */
@@ -1352,15 +1541,15 @@ private static final long serialVersionUID = 0L;
 
     private long createdOn_ ;
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @return The createdOn.
      */
-    @java.lang.Override
+    @Override
     public long getCreatedOn() {
       return createdOn_;
     }
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @param value The createdOn to set.
      * @return This builder for chaining.
      */
@@ -1371,7 +1560,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreatedOn() {
@@ -1383,15 +1572,15 @@ private static final long serialVersionUID = 0L;
 
     private long maxCols_ ;
     /**
-     * <code>sint64 maxCols = 9;</code>
+     * <code>sint64 maxCols = 10;</code>
      * @return The maxCols.
      */
-    @java.lang.Override
+    @Override
     public long getMaxCols() {
       return maxCols_;
     }
     /**
-     * <code>sint64 maxCols = 9;</code>
+     * <code>sint64 maxCols = 10;</code>
      * @param value The maxCols to set.
      * @return This builder for chaining.
      */
@@ -1402,7 +1591,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>sint64 maxCols = 9;</code>
+     * <code>sint64 maxCols = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxCols() {
@@ -1420,7 +1609,7 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @return A list containing the subscribedSessionIDs.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1428,22 +1617,22 @@ private static final long serialVersionUID = 0L;
       return subscribedSessionIDs_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @return The count of subscribedSessionIDs.
      */
     public int getSubscribedSessionIDsCount() {
       return subscribedSessionIDs_.size();
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param index The index of the element to return.
      * @return The subscribedSessionIDs at the given index.
      */
-    public java.lang.String getSubscribedSessionIDs(int index) {
+    public String getSubscribedSessionIDs(int index) {
       return subscribedSessionIDs_.get(index);
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param index The index of the value to return.
      * @return The bytes of the subscribedSessionIDs at the given index.
      */
@@ -1452,13 +1641,13 @@ private static final long serialVersionUID = 0L;
       return subscribedSessionIDs_.getByteString(index);
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param index The index to set the value at.
      * @param value The subscribedSessionIDs to set.
      * @return This builder for chaining.
      */
     public Builder setSubscribedSessionIDs(
-        int index, java.lang.String value) {
+        int index, String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1468,12 +1657,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param value The subscribedSessionIDs to add.
      * @return This builder for chaining.
      */
     public Builder addSubscribedSessionIDs(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1483,12 +1672,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param values The subscribedSessionIDs to add.
      * @return This builder for chaining.
      */
     public Builder addAllSubscribedSessionIDs(
-        java.lang.Iterable<java.lang.String> values) {
+        Iterable<String> values) {
       ensureSubscribedSessionIDsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, subscribedSessionIDs_);
@@ -1496,7 +1685,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearSubscribedSessionIDs() {
@@ -1506,7 +1695,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string subscribedSessionIDs = 10;</code>
+     * <code>repeated string subscribedSessionIDs = 11;</code>
      * @param value The bytes of the subscribedSessionIDs to add.
      * @return This builder for chaining.
      */
@@ -1521,13 +1710,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1538,18 +1727,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCWorldProto)
-  private static final com.nkasenides.amc.proto.AMCWorldProto DEFAULT_INSTANCE;
+  private static final AMCWorldProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCWorldProto();
+    DEFAULT_INSTANCE = new AMCWorldProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCWorldProto getDefaultInstance() {
+  public static AMCWorldProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCWorldProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCWorldProto>() {
-    @java.lang.Override
+    @Override
     public AMCWorldProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1562,22 +1751,23 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCWorldProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCWorldProto getDefaultInstanceForType() {
+  @Override
+  public AMCWorldProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.AMCWorld toObject() {    
         com.nkasenides.amc.model.AMCWorld item = new com.nkasenides.amc.model.AMCWorld();        
         item.setMaxRows(getMaxRows());        
         item.setHeightLimit(getHeightLimit());        
         item.setSeed(getSeed());        
+        item.setGrid(getGrid().toObject());        
         item.setName(getName());        
         java.util.ArrayList<String> chunkIDsList = new java.util.ArrayList<>();        
         for (int i = 0; i < getChunkIDsCount(); i++) {        
