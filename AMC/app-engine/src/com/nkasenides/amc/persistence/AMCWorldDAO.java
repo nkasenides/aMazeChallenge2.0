@@ -10,6 +10,10 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.FirestormBatch;
+import com.raylabz.firestorm.QueryResult;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,56 +23,104 @@ public class AMCWorldDAO implements MultiDAO<AMCWorld> {
 
     @Override
     public boolean create(AMCWorld object) {
-        //TODO - Implement
-        return false;
+        Firestorm.create(object);
+        return true;
     }
 
     @Override
     public boolean update(AMCWorld object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(AMCWorld object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
     public AMCWorld get(String id) {
-        //TODO - Implement
-        return null;
+        return Firestorm.get(AMCWorld.class, id);
     }
 
     @Override
     public Collection<AMCWorld> getMany(String... ids) {
-        //TODO - Implement
-        return null;
+        return Firestorm.getMany(AMCWorld.class, ids);
     }
 
     @Override
     public Collection<AMCWorld> list() {
-        //TODO - Implement
-        return null;
+        return Firestorm.listAll(AMCWorld.class);
     }
 
     @Override
     public boolean create(Collection<AMCWorld> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCWorld object : objects) {
+                    create(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean update(Collection<AMCWorld> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCWorld object : objects) {
+                    update(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean delete(Collection<AMCWorld> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCWorld object : objects) {
+                    delete(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
 
@@ -78,17 +130,27 @@ public class AMCWorldDAO implements MultiDAO<AMCWorld> {
      * @return Returns a World object.
      */
     public AMCWorld getByName(String name) {
-        //TODO - Implement
+        final QueryResult<AMCWorld> result = Firestorm.filter(AMCWorld.class)
+                .whereEqualTo("name", name)
+                .limit(1)
+                .fetch();
+        if (result.hasItems()) {
+            return result.getItems().get(0);
+        }
         return null;
     }
+
     /**
      * Lists a player's worlds.
      * @param playerID The player.
      * @return Returns a collection of worlds.
      */
     public Collection<AMCWorld> listByPlayer(String playerID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(AMCWorld.class)
+                .whereEqualTo("playerID", playerID)
+                .limit(1)
+                .fetch()
+                .getItems();
     }
 
 }

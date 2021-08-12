@@ -10,6 +10,10 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.FirestormBatch;
+import com.raylabz.firestorm.QueryResult;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,56 +23,104 @@ public class AMCPlayerDAO implements MultiDAO<AMCPlayer> {
 
     @Override
     public boolean create(AMCPlayer object) {
-        //TODO - Implement
-        return false;
+        Firestorm.create(object);
+        return true;
     }
 
     @Override
     public boolean update(AMCPlayer object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(AMCPlayer object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
     public AMCPlayer get(String id) {
-        //TODO - Implement
-        return null;
+        return Firestorm.get(AMCPlayer.class, id);
     }
 
     @Override
     public Collection<AMCPlayer> getMany(String... ids) {
-        //TODO - Implement
-        return null;
+        return Firestorm.getMany(AMCPlayer.class, ids);
     }
 
     @Override
     public Collection<AMCPlayer> list() {
-        //TODO - Implement
-        return null;
+        return Firestorm.listAll(AMCPlayer.class);
     }
 
     @Override
     public boolean create(Collection<AMCPlayer> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCPlayer object : objects) {
+                    create(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean update(Collection<AMCPlayer> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCPlayer object : objects) {
+                    update(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean delete(Collection<AMCPlayer> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (AMCPlayer object : objects) {
+                    delete(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
 
@@ -78,7 +130,13 @@ public class AMCPlayerDAO implements MultiDAO<AMCPlayer> {
      * @return Returns a Player object.
      */
     public AMCPlayer getByName(String name) {
-        //TODO - Implement
+        final QueryResult<AMCPlayer> playerResult = Firestorm.filter(AMCPlayer.class)
+                .whereEqualTo("name", name)
+                .limit(1)
+                .fetch();
+        if (playerResult.hasItems()) {
+            return playerResult.getItems().get(0);
+        }
         return null;
     }
 

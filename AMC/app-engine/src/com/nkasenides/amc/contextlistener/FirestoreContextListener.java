@@ -1,5 +1,8 @@
 package com.nkasenides.amc.contextlistener;
 
+import com.nkasenides.amc.model.*;
+import com.nkasenides.amc.persistence.AMCPlayerDAO;
+import com.nkasenides.amc.persistence.AMCWorldDAO;
 import com.raylabz.firestorm.Firestorm;
 import com.raylabz.firestorm.util.FirebaseUtils;
 
@@ -32,9 +35,17 @@ public class FirestoreContextListener implements ServletContextListener {
         }
 
         Firestorm.init();
-
-
-
+        Firestorm.register(AMCPlayer.class);
+        Firestorm.register(AMCTerrainChunk.class);
+        Firestorm.register(AMCTerrainIdentifier.class);
+        Firestorm.register(AMCWorld.class);
+        Firestorm.register(AMCWorldSession.class);
+        Firestorm.register(Challenge.class);
+        Firestorm.register(Grid.class);
+        Firestorm.register(PickableEntity.class);
+        Firestorm.register(PlayerEntity.class);
+        Firestorm.register(QuestionEntry.class);
+        Firestorm.register(QuestionnaireEntry.class);
     }
 
     @Override

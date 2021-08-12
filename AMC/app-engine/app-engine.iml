@@ -28,6 +28,6 @@
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="com.raylabz:athlos-serverless:0.0.21" level="project" />
-    <orderEntry type="library" name="com.raylabz:firestorm:1.1.0" level="project" />
+    <orderEntry type="library" name="com.raylabz:firestorm:1.2.0" level="project" />
   </component>
 </module>

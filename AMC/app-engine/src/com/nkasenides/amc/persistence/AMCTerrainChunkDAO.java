@@ -10,6 +10,9 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.QueryResult;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,38 +22,46 @@ public class AMCTerrainChunkDAO implements WorldBasedDAO<AMCTerrainChunk> {
 
     @Override
     public boolean create(AMCTerrainChunk object) {
-        //TODO - Implement
-        return false;
+        Firestorm.create(object);
+        return true;
     }
 
     @Override
     public boolean update(AMCTerrainChunk object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(AMCTerrainChunk object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
     public AMCTerrainChunk get(String itemID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.get(AMCTerrainChunk.class, itemID);
     }
 
     @Override
     public AMCTerrainChunk getForWorld(String worldID, String itemID) {
-        //TODO - Implement
+        final QueryResult<AMCTerrainChunk> result = Firestorm.filter(AMCTerrainChunk.class)
+                .whereEqualTo("worldID", worldID)
+                .whereEqualTo("id", itemID)
+                .limit(1)
+                .fetch();
+        if (result.hasItems()) {
+            return result.getItems().get(0);
+        }
         return null;
     }
 
     @Override
     public Collection<AMCTerrainChunk> listForWorld(String worldID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(AMCTerrainChunk.class)
+                .whereEqualTo("worldID", worldID)
+                .fetch()
+                .getItems();
     }
 
 }
