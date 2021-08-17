@@ -83,34 +83,34 @@ public interface RequestOrBuilder extends
   UnsubscribeRequestOrBuilder getUnsubscribeRequestOrBuilder();
 
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
-   * @return Whether the updateStateRequest field is set.
-   */
-  boolean hasUpdateStateRequest();
-  /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
-   * @return The updateStateRequest.
-   */
-  UpdateStateRequest getUpdateStateRequest();
-  /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
-   */
-  UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder();
-
-  /**
-   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 6;</code>
    * @return Whether the submitCodeRequest field is set.
    */
   boolean hasSubmitCodeRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 6;</code>
    * @return The submitCodeRequest.
    */
   SubmitCodeRequest getSubmitCodeRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 6;</code>
    */
   SubmitCodeRequestOrBuilder getSubmitCodeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 7;</code>
+   * @return Whether the updateStateRequest field is set.
+   */
+  boolean hasUpdateStateRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 7;</code>
+   * @return The updateStateRequest.
+   */
+  UpdateStateRequest getUpdateStateRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 7;</code>
+   */
+  UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder();
 
   /**
    * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>

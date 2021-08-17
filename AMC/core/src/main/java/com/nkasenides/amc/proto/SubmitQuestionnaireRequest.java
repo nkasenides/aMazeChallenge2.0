@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private SubmitQuestionnaireRequest() {
+    worldSessionID_ = "";
   }
 
   @Override
@@ -62,16 +63,9 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            AMCWorldSessionProto.Builder subBuilder = null;
-            if (worldSession_ != null) {
-              subBuilder = worldSession_.toBuilder();
-            }
-            worldSession_ = input.readMessage(AMCWorldSessionProto.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(worldSession_);
-              worldSession_ = subBuilder.buildPartial();
-            }
+            String s = input.readStringRequireUtf8();
 
+            worldSessionID_ = s;
             break;
           }
           default: {
@@ -132,30 +126,42 @@ private static final long serialVersionUID = 0L;
     return getQuestionnaireEntry();
   }
 
-  public static final int WORLDSESSION_FIELD_NUMBER = 2;
-  private AMCWorldSessionProto worldSession_;
+  public static final int WORLDSESSIONID_FIELD_NUMBER = 2;
+  private volatile Object worldSessionID_;
   /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return Whether the worldSession field is set.
+   * <code>string worldSessionID = 2;</code>
+   * @return The worldSessionID.
    */
   @Override
-  public boolean hasWorldSession() {
-    return worldSession_ != null;
+  public String getWorldSessionID() {
+    Object ref = worldSessionID_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      worldSessionID_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return The worldSession.
+   * <code>string worldSessionID = 2;</code>
+   * @return The bytes for worldSessionID.
    */
   @Override
-  public AMCWorldSessionProto getWorldSession() {
-    return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
-  }
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   */
-  @Override
-  public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
-    return getWorldSession();
+  public com.google.protobuf.ByteString
+      getWorldSessionIDBytes() {
+    Object ref = worldSessionID_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      worldSessionID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -175,8 +181,8 @@ private static final long serialVersionUID = 0L;
     if (questionnaireEntry_ != null) {
       output.writeMessage(1, getQuestionnaireEntry());
     }
-    if (worldSession_ != null) {
-      output.writeMessage(2, getWorldSession());
+    if (!getWorldSessionIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, worldSessionID_);
     }
     unknownFields.writeTo(output);
   }
@@ -191,9 +197,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getQuestionnaireEntry());
     }
-    if (worldSession_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getWorldSession());
+    if (!getWorldSessionIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, worldSessionID_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -215,11 +220,8 @@ private static final long serialVersionUID = 0L;
       if (!getQuestionnaireEntry()
           .equals(other.getQuestionnaireEntry())) return false;
     }
-    if (hasWorldSession() != other.hasWorldSession()) return false;
-    if (hasWorldSession()) {
-      if (!getWorldSession()
-          .equals(other.getWorldSession())) return false;
-    }
+    if (!getWorldSessionID()
+        .equals(other.getWorldSessionID())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -235,10 +237,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + QUESTIONNAIREENTRY_FIELD_NUMBER;
       hash = (53 * hash) + getQuestionnaireEntry().hashCode();
     }
-    if (hasWorldSession()) {
-      hash = (37 * hash) + WORLDSESSION_FIELD_NUMBER;
-      hash = (53 * hash) + getWorldSession().hashCode();
-    }
+    hash = (37 * hash) + WORLDSESSIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getWorldSessionID().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -378,12 +378,8 @@ private static final long serialVersionUID = 0L;
         questionnaireEntry_ = null;
         questionnaireEntryBuilder_ = null;
       }
-      if (worldSessionBuilder_ == null) {
-        worldSession_ = null;
-      } else {
-        worldSession_ = null;
-        worldSessionBuilder_ = null;
-      }
+      worldSessionID_ = "";
+
       return this;
     }
 
@@ -415,11 +411,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.questionnaireEntry_ = questionnaireEntryBuilder_.build();
       }
-      if (worldSessionBuilder_ == null) {
-        result.worldSession_ = worldSession_;
-      } else {
-        result.worldSession_ = worldSessionBuilder_.build();
-      }
+      result.worldSessionID_ = worldSessionID_;
       onBuilt();
       return result;
     }
@@ -471,8 +463,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasQuestionnaireEntry()) {
         mergeQuestionnaireEntry(other.getQuestionnaireEntry());
       }
-      if (other.hasWorldSession()) {
-        mergeWorldSession(other.getWorldSession());
+      if (!other.getWorldSessionID().isEmpty()) {
+        worldSessionID_ = other.worldSessionID_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -622,123 +615,80 @@ private static final long serialVersionUID = 0L;
       return questionnaireEntryBuilder_;
     }
 
-    private AMCWorldSessionProto worldSession_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
+    private Object worldSessionID_ = "";
     /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     * @return Whether the worldSession field is set.
+     * <code>string worldSessionID = 2;</code>
+     * @return The worldSessionID.
      */
-    public boolean hasWorldSession() {
-      return worldSessionBuilder_ != null || worldSession_ != null;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     * @return The worldSession.
-     */
-    public AMCWorldSessionProto getWorldSession() {
-      if (worldSessionBuilder_ == null) {
-        return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+    public String getWorldSessionID() {
+      Object ref = worldSessionID_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        worldSessionID_ = s;
+        return s;
       } else {
-        return worldSessionBuilder_.getMessage();
+        return (String) ref;
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
+     * <code>string worldSessionID = 2;</code>
+     * @return The bytes for worldSessionID.
      */
-    public Builder setWorldSession(AMCWorldSessionProto value) {
-      if (worldSessionBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        worldSession_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getWorldSessionIDBytes() {
+      Object ref = worldSessionID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        worldSessionID_ = b;
+        return b;
       } else {
-        worldSessionBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
+     * <code>string worldSessionID = 2;</code>
+     * @param value The worldSessionID to set.
+     * @return This builder for chaining.
      */
-    public Builder setWorldSession(
-        AMCWorldSessionProto.Builder builderForValue) {
-      if (worldSessionBuilder_ == null) {
-        worldSession_ = builderForValue.build();
-        onChanged();
-      } else {
-        worldSessionBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder mergeWorldSession(AMCWorldSessionProto value) {
-      if (worldSessionBuilder_ == null) {
-        if (worldSession_ != null) {
-          worldSession_ =
-            AMCWorldSessionProto.newBuilder(worldSession_).mergeFrom(value).buildPartial();
-        } else {
-          worldSession_ = value;
-        }
-        onChanged();
-      } else {
-        worldSessionBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder clearWorldSession() {
-      if (worldSessionBuilder_ == null) {
-        worldSession_ = null;
-        onChanged();
-      } else {
-        worldSession_ = null;
-        worldSessionBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public AMCWorldSessionProto.Builder getWorldSessionBuilder() {
-      
+    public Builder setWorldSessionID(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      worldSessionID_ = value;
       onChanged();
-      return getWorldSessionFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
+     * <code>string worldSessionID = 2;</code>
+     * @return This builder for chaining.
      */
-    public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
-      if (worldSessionBuilder_ != null) {
-        return worldSessionBuilder_.getMessageOrBuilder();
-      } else {
-        return worldSession_ == null ?
-            AMCWorldSessionProto.getDefaultInstance() : worldSession_;
-      }
+    public Builder clearWorldSessionID() {
+      
+      worldSessionID_ = getDefaultInstance().getWorldSessionID();
+      onChanged();
+      return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
+     * <code>string worldSessionID = 2;</code>
+     * @param value The bytes for worldSessionID to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>
-        getWorldSessionFieldBuilder() {
-      if (worldSessionBuilder_ == null) {
-        worldSessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>(
-                getWorldSession(),
-                getParentForChildren(),
-                isClean());
-        worldSession_ = null;
-      }
-      return worldSessionBuilder_;
+    public Builder setWorldSessionIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      worldSessionID_ = value;
+      onChanged();
+      return this;
     }
     @Override
     public final Builder setUnknownFields(

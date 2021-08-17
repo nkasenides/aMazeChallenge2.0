@@ -6,6 +6,7 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.auth;
+import com.nkasenides.amc.model.AMCWorldSession;
 import com.nkasenides.amc.persistence.*;
 import com.nkasenides.amc.model.AMCPlayer;
 
@@ -15,8 +16,8 @@ public final class Auth {
 //        return DBManager.gameSession.getPlayer(gameSessionID);
 //    }
 
-    public static AMCPlayer verifyWorldSessionID(final String worldSessionID) {
-        return DBManager.worldSession.getPlayer(worldSessionID);
+    public static AMCWorldSession verifyWorldSessionID(final String worldSessionID) {
+        return DBManager.worldSession.get(worldSessionID);
     }
 
 }

@@ -23,17 +23,14 @@ public interface SubmitQuestionnaireRequestOrBuilder extends
   QuestionnaireEntryProtoOrBuilder getQuestionnaireEntryOrBuilder();
 
   /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return Whether the worldSession field is set.
+   * <code>string worldSessionID = 2;</code>
+   * @return The worldSessionID.
    */
-  boolean hasWorldSession();
+  String getWorldSessionID();
   /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return The worldSession.
+   * <code>string worldSessionID = 2;</code>
+   * @return The bytes for worldSessionID.
    */
-  AMCWorldSessionProto getWorldSession();
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   */
-  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
+  com.google.protobuf.ByteString
+      getWorldSessionIDBytes();
 }

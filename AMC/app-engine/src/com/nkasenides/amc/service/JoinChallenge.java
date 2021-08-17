@@ -116,9 +116,8 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         AMCWorldSession worldSession = new AMCWorldSession();
         worldSession.setCameraPosition(challenge.getGrid().getStartingPosition());
         worldSession.setWorldID(challengeID);
-        final Health health = new Health();
-        health.setHealth(100);
-        worldSession.setHealth(health);
+        worldSession.setCode("");
+        worldSession.setHealth(new Health());
         worldSession.setCreatedOn(System.currentTimeMillis());
         worldSession.setExpiresOn(System.currentTimeMillis() + 3600*24); //24h
         worldSession.setIpAddress((String) additionalParams[0]);

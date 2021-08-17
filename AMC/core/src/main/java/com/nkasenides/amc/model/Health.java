@@ -12,9 +12,18 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 
 public class Health implements Transmittable<HealthProto.Builder> {
-    private int health;    
 
-    public int getHealth() {    
+    private int health;
+
+    public Health() {
+        this.health = 100;
+    }
+
+    public Health(int health) {
+        this.health = health;
+    }
+
+    public int getHealth() {
         return health;        
     }    
     

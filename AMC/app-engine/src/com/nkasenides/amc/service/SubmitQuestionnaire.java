@@ -6,6 +6,10 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.service;
+import com.nkasenides.amc.model.AMCWorldSession;
+import com.nkasenides.amc.model.QuestionnaireEntry;
+import com.nkasenides.amc.persistence.DBManager;
+import com.nkasenides.amc.proto.SubmitCodeResponse;
 import com.nkasenides.athlos.backend.AthlosService;
 import com.nkasenides.amc.proto.SubmitQuestionnaireRequest;
 import com.nkasenides.amc.auth.*;
@@ -14,10 +18,43 @@ import com.nkasenides.amc.proto.SubmitQuestionnaireResponse;
 public class SubmitQuestionnaire implements AthlosService<SubmitQuestionnaireRequest, SubmitQuestionnaireResponse> {
 
     @Override    
-    public SubmitQuestionnaireResponse serve(SubmitQuestionnaireRequest request, Object... additionalParams) {    
-        //TODO - Implement this service.        
-        return null;        
-    }    
+    public SubmitQuestionnaireResponse serve(SubmitQuestionnaireRequest request, Object... additionalParams) {
+
+        //Check world session ID:
+        if (request.getWorldSessionID().isEmpty()) {
+            return SubmitQuestionnaireResponse.newBuilder()
+                    .setStatus(SubmitQuestionnaireResponse.Status.CANNOT_SUBMIT)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Verify world session:
+        final AMCWorldSession worldSession = Auth.verifyWorldSessionID(request.getWorldSessionID());
+        if (worldSession == null) {
+            return SubmitQuestionnaireResponse.newBuilder()
+                    .setStatus(SubmitQuestionnaireResponse.Status.CANNOT_SUBMIT)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Get questionnaire, save to DB:
+        final QuestionnaireEntry questionnaireEntry = request.getQuestionnaireEntry().toObject();
+
+        final boolean result = DBManager.questionnaireEntry.create(questionnaireEntry);
+        if (result) {
+            return SubmitQuestionnaireResponse.newBuilder()
+                    .setStatus(SubmitQuestionnaireResponse.Status.OK)
+                    .setMessage("OK")
+                    .build();
+        }
+        else {
+            return SubmitQuestionnaireResponse.newBuilder()
+                    .setStatus(SubmitQuestionnaireResponse.Status.DATA_ERROR)
+                    .setMessage("DATA_ERROR")
+                    .build();
+        }
+
+    }
     
 }
 

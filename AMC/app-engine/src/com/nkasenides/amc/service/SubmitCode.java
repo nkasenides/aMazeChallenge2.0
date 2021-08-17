@@ -6,6 +6,13 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.service;
+import com.google.appengine.api.memcache.AsyncMemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+import com.nkasenides.amc.model.AMCWorldSession;
+import com.nkasenides.amc.persistence.DBManager;
+import com.nkasenides.amc.persistence.KeyUtils;
+import com.nkasenides.amc.proto.AMCWorldSessionProto;
+import com.nkasenides.amc.proto.SubmitQuestionnaireResponse;
 import com.nkasenides.athlos.backend.AthlosService;
 import com.nkasenides.amc.proto.SubmitCodeRequest;
 import com.nkasenides.amc.auth.*;
@@ -14,9 +21,48 @@ import com.nkasenides.amc.proto.SubmitCodeResponse;
 public class SubmitCode implements AthlosService<SubmitCodeRequest, SubmitCodeResponse> {
 
     @Override    
-    public SubmitCodeResponse serve(SubmitCodeRequest request, Object... additionalParams) {    
-        //TODO - Implement this service.        
-        return null;        
+    public SubmitCodeResponse serve(SubmitCodeRequest request, Object... additionalParams) {
+
+        //Check world session ID:
+        if (request.getWorldSessionID().isEmpty()) {
+            return SubmitCodeResponse.newBuilder()
+                    .setStatus(SubmitCodeResponse.Status.INVALID_WORLD_SESSION)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Verify world session:
+        final AMCWorldSession worldSession = Auth.verifyWorldSessionID(request.getWorldSessionID());
+        if (worldSession == null) {
+            return SubmitCodeResponse.newBuilder()
+                    .setStatus(SubmitCodeResponse.Status.INVALID_WORLD_SESSION)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Code cannot be empty:
+        final String code = request.getCode();
+        if (code.isEmpty()) {
+            return SubmitCodeResponse.newBuilder()
+                    .setStatus(SubmitCodeResponse.Status.INVALID_CODE)
+                    .setMessage("CODE_EMPTY")
+                    .build();
+        }
+
+        worldSession.setCode(code);
+
+        //Save world session with code:
+        DBManager.worldSession.update(worldSession);
+
+        //Save code in MemCache:
+        final AsyncMemcacheService memcache = MemcacheServiceFactory.getAsyncMemcacheService();
+        memcache.put(KeyUtils.getCodeKey(worldSession.getWorldID(), worldSession.getPlayerID()), code);
+
+        return SubmitCodeResponse.newBuilder()
+                .setStatus(SubmitCodeResponse.Status.OK)
+                .setMessage("OK")
+                .build();
+
     }    
     
 }

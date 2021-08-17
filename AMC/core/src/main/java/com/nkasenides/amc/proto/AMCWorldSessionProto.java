@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private AMCWorldSessionProto() {
+    code_ = "";
     worldID_ = "";
     ipAddress_ = "";
     id_ = "";
@@ -55,16 +56,22 @@ private static final long serialVersionUID = 0L;
           case 10: {
             String s = input.readStringRequireUtf8();
 
-            worldID_ = s;
+            code_ = s;
             break;
           }
           case 18: {
             String s = input.readStringRequireUtf8();
 
-            ipAddress_ = s;
+            worldID_ = s;
             break;
           }
           case 26: {
+            String s = input.readStringRequireUtf8();
+
+            ipAddress_ = s;
+            break;
+          }
+          case 34: {
             MatrixPositionProto.Builder subBuilder = null;
             if (cameraPosition_ != null) {
               subBuilder = cameraPosition_.toBuilder();
@@ -77,7 +84,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
+          case 42: {
             HealthProto.Builder subBuilder = null;
             if (health_ != null) {
               subBuilder = health_.toBuilder();
@@ -90,29 +97,29 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 40: {
+          case 48: {
 
             expiresOn_ = input.readUInt64();
             break;
           }
-          case 50: {
+          case 58: {
             String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
-          case 56: {
+          case 64: {
 
             createdOn_ = input.readUInt64();
             break;
           }
-          case 66: {
+          case 74: {
             String s = input.readStringRequireUtf8();
 
             playerID_ = s;
             break;
           }
-          case 72: {
+          case 80: {
 
             points_ = input.readInt32();
             break;
@@ -149,10 +156,48 @@ private static final long serialVersionUID = 0L;
             AMCWorldSessionProto.class, Builder.class);
   }
 
-  public static final int WORLDID_FIELD_NUMBER = 1;
+  public static final int CODE_FIELD_NUMBER = 1;
+  private volatile Object code_;
+  /**
+   * <code>string code = 1;</code>
+   * @return The code.
+   */
+  @Override
+  public String getCode() {
+    Object ref = code_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      code_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string code = 1;</code>
+   * @return The bytes for code.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getCodeBytes() {
+    Object ref = code_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      code_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int WORLDID_FIELD_NUMBER = 2;
   private volatile Object worldID_;
   /**
-   * <code>string worldID = 1;</code>
+   * <code>string worldID = 2;</code>
    * @return The worldID.
    */
   @Override
@@ -169,7 +214,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string worldID = 1;</code>
+   * <code>string worldID = 2;</code>
    * @return The bytes for worldID.
    */
   @Override
@@ -187,10 +232,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IPADDRESS_FIELD_NUMBER = 2;
+  public static final int IPADDRESS_FIELD_NUMBER = 3;
   private volatile Object ipAddress_;
   /**
-   * <code>string ipAddress = 2;</code>
+   * <code>string ipAddress = 3;</code>
    * @return The ipAddress.
    */
   @Override
@@ -207,7 +252,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string ipAddress = 2;</code>
+   * <code>string ipAddress = 3;</code>
    * @return The bytes for ipAddress.
    */
   @Override
@@ -225,10 +270,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CAMERAPOSITION_FIELD_NUMBER = 3;
+  public static final int CAMERAPOSITION_FIELD_NUMBER = 4;
   private MatrixPositionProto cameraPosition_;
   /**
-   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return Whether the cameraPosition field is set.
    */
   @Override
@@ -236,7 +281,7 @@ private static final long serialVersionUID = 0L;
     return cameraPosition_ != null;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return The cameraPosition.
    */
   @Override
@@ -244,17 +289,17 @@ private static final long serialVersionUID = 0L;
     return cameraPosition_ == null ? MatrixPositionProto.getDefaultInstance() : cameraPosition_;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+   * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
    */
   @Override
   public MatrixPositionProtoOrBuilder getCameraPositionOrBuilder() {
     return getCameraPosition();
   }
 
-  public static final int HEALTH_FIELD_NUMBER = 4;
+  public static final int HEALTH_FIELD_NUMBER = 5;
   private HealthProto health_;
   /**
-   * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+   * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
    * @return Whether the health field is set.
    */
   @Override
@@ -262,7 +307,7 @@ private static final long serialVersionUID = 0L;
     return health_ != null;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+   * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
    * @return The health.
    */
   @Override
@@ -270,17 +315,17 @@ private static final long serialVersionUID = 0L;
     return health_ == null ? HealthProto.getDefaultInstance() : health_;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+   * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
    */
   @Override
   public HealthProtoOrBuilder getHealthOrBuilder() {
     return getHealth();
   }
 
-  public static final int EXPIRESON_FIELD_NUMBER = 5;
+  public static final int EXPIRESON_FIELD_NUMBER = 6;
   private long expiresOn_;
   /**
-   * <code>uint64 expiresOn = 5;</code>
+   * <code>uint64 expiresOn = 6;</code>
    * @return The expiresOn.
    */
   @Override
@@ -288,10 +333,10 @@ private static final long serialVersionUID = 0L;
     return expiresOn_;
   }
 
-  public static final int ID_FIELD_NUMBER = 6;
+  public static final int ID_FIELD_NUMBER = 7;
   private volatile Object id_;
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The id.
    */
   @Override
@@ -308,7 +353,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string id = 6;</code>
+   * <code>string id = 7;</code>
    * @return The bytes for id.
    */
   @Override
@@ -326,10 +371,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATEDON_FIELD_NUMBER = 7;
+  public static final int CREATEDON_FIELD_NUMBER = 8;
   private long createdOn_;
   /**
-   * <code>uint64 createdOn = 7;</code>
+   * <code>uint64 createdOn = 8;</code>
    * @return The createdOn.
    */
   @Override
@@ -337,10 +382,10 @@ private static final long serialVersionUID = 0L;
     return createdOn_;
   }
 
-  public static final int PLAYERID_FIELD_NUMBER = 8;
+  public static final int PLAYERID_FIELD_NUMBER = 9;
   private volatile Object playerID_;
   /**
-   * <code>string playerID = 8;</code>
+   * <code>string playerID = 9;</code>
    * @return The playerID.
    */
   @Override
@@ -357,7 +402,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string playerID = 8;</code>
+   * <code>string playerID = 9;</code>
    * @return The bytes for playerID.
    */
   @Override
@@ -375,10 +420,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int POINTS_FIELD_NUMBER = 9;
+  public static final int POINTS_FIELD_NUMBER = 10;
   private int points_;
   /**
-   * <code>int32 points = 9;</code>
+   * <code>int32 points = 10;</code>
    * @return The points.
    */
   @Override
@@ -400,32 +445,35 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getCodeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, code_);
+    }
     if (!getWorldIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, worldID_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, worldID_);
     }
     if (!getIpAddressBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ipAddress_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ipAddress_);
     }
     if (cameraPosition_ != null) {
-      output.writeMessage(3, getCameraPosition());
+      output.writeMessage(4, getCameraPosition());
     }
     if (health_ != null) {
-      output.writeMessage(4, getHealth());
+      output.writeMessage(5, getHealth());
     }
     if (expiresOn_ != 0L) {
-      output.writeUInt64(5, expiresOn_);
+      output.writeUInt64(6, expiresOn_);
     }
     if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, id_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, id_);
     }
     if (createdOn_ != 0L) {
-      output.writeUInt64(7, createdOn_);
+      output.writeUInt64(8, createdOn_);
     }
     if (!getPlayerIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, playerID_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, playerID_);
     }
     if (points_ != 0) {
-      output.writeInt32(9, points_);
+      output.writeInt32(10, points_);
     }
     unknownFields.writeTo(output);
   }
@@ -436,37 +484,40 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getCodeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, code_);
+    }
     if (!getWorldIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, worldID_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, worldID_);
     }
     if (!getIpAddressBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, ipAddress_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ipAddress_);
     }
     if (cameraPosition_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getCameraPosition());
+        .computeMessageSize(4, getCameraPosition());
     }
     if (health_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getHealth());
+        .computeMessageSize(5, getHealth());
     }
     if (expiresOn_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(5, expiresOn_);
+        .computeUInt64Size(6, expiresOn_);
     }
     if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, id_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, id_);
     }
     if (createdOn_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(7, createdOn_);
+        .computeUInt64Size(8, createdOn_);
     }
     if (!getPlayerIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, playerID_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, playerID_);
     }
     if (points_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(9, points_);
+        .computeInt32Size(10, points_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -483,6 +534,8 @@ private static final long serialVersionUID = 0L;
     }
     AMCWorldSessionProto other = (AMCWorldSessionProto) obj;
 
+    if (!getCode()
+        .equals(other.getCode())) return false;
     if (!getWorldID()
         .equals(other.getWorldID())) return false;
     if (!getIpAddress()
@@ -518,6 +571,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getCode().hashCode();
     hash = (37 * hash) + WORLDID_FIELD_NUMBER;
     hash = (53 * hash) + getWorldID().hashCode();
     hash = (37 * hash) + IPADDRESS_FIELD_NUMBER;
@@ -646,6 +701,7 @@ private static final long serialVersionUID = 0L;
       AMCWorldSessionProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.AMCWorldSession toObject() {    
         com.nkasenides.amc.model.AMCWorldSession item = new com.nkasenides.amc.model.AMCWorldSession();        
+        item.setCode(getCode());        
         item.setWorldID(getWorldID());        
         item.setIpAddress(getIpAddress());        
         item.setCameraPosition(getCameraPosition().toObject());        
@@ -690,6 +746,8 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
+      code_ = "";
+
       worldID_ = "";
 
       ipAddress_ = "";
@@ -742,6 +800,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public AMCWorldSessionProto buildPartial() {
       AMCWorldSessionProto result = new AMCWorldSessionProto(this);
+      result.code_ = code_;
       result.worldID_ = worldID_;
       result.ipAddress_ = ipAddress_;
       if (cameraPositionBuilder_ == null) {
@@ -807,6 +866,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(AMCWorldSessionProto other) {
       if (other == AMCWorldSessionProto.getDefaultInstance()) return this;
+      if (!other.getCode().isEmpty()) {
+        code_ = other.code_;
+        onChanged();
+      }
       if (!other.getWorldID().isEmpty()) {
         worldID_ = other.worldID_;
         onChanged();
@@ -867,9 +930,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private Object code_ = "";
+    /**
+     * <code>string code = 1;</code>
+     * @return The code.
+     */
+    public String getCode() {
+      Object ref = code_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        code_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string code = 1;</code>
+     * @return The bytes for code.
+     */
+    public com.google.protobuf.ByteString
+        getCodeBytes() {
+      Object ref = code_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        code_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string code = 1;</code>
+     * @param value The code to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCode(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      code_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string code = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCode() {
+      
+      code_ = getDefaultInstance().getCode();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string code = 1;</code>
+     * @param value The bytes for code to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCodeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      code_ = value;
+      onChanged();
+      return this;
+    }
+
     private Object worldID_ = "";
     /**
-     * <code>string worldID = 1;</code>
+     * <code>string worldID = 2;</code>
      * @return The worldID.
      */
     public String getWorldID() {
@@ -885,7 +1024,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string worldID = 1;</code>
+     * <code>string worldID = 2;</code>
      * @return The bytes for worldID.
      */
     public com.google.protobuf.ByteString
@@ -902,7 +1041,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string worldID = 1;</code>
+     * <code>string worldID = 2;</code>
      * @param value The worldID to set.
      * @return This builder for chaining.
      */
@@ -917,7 +1056,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string worldID = 1;</code>
+     * <code>string worldID = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearWorldID() {
@@ -927,7 +1066,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string worldID = 1;</code>
+     * <code>string worldID = 2;</code>
      * @param value The bytes for worldID to set.
      * @return This builder for chaining.
      */
@@ -945,7 +1084,7 @@ private static final long serialVersionUID = 0L;
 
     private Object ipAddress_ = "";
     /**
-     * <code>string ipAddress = 2;</code>
+     * <code>string ipAddress = 3;</code>
      * @return The ipAddress.
      */
     public String getIpAddress() {
@@ -961,7 +1100,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string ipAddress = 2;</code>
+     * <code>string ipAddress = 3;</code>
      * @return The bytes for ipAddress.
      */
     public com.google.protobuf.ByteString
@@ -978,7 +1117,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string ipAddress = 2;</code>
+     * <code>string ipAddress = 3;</code>
      * @param value The ipAddress to set.
      * @return This builder for chaining.
      */
@@ -993,7 +1132,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string ipAddress = 2;</code>
+     * <code>string ipAddress = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearIpAddress() {
@@ -1003,7 +1142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string ipAddress = 2;</code>
+     * <code>string ipAddress = 3;</code>
      * @param value The bytes for ipAddress to set.
      * @return This builder for chaining.
      */
@@ -1023,14 +1162,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder> cameraPositionBuilder_;
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      * @return Whether the cameraPosition field is set.
      */
     public boolean hasCameraPosition() {
       return cameraPositionBuilder_ != null || cameraPosition_ != null;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      * @return The cameraPosition.
      */
     public MatrixPositionProto getCameraPosition() {
@@ -1041,7 +1180,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder setCameraPosition(MatrixPositionProto value) {
       if (cameraPositionBuilder_ == null) {
@@ -1057,7 +1196,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder setCameraPosition(
         MatrixPositionProto.Builder builderForValue) {
@@ -1071,7 +1210,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder mergeCameraPosition(MatrixPositionProto value) {
       if (cameraPositionBuilder_ == null) {
@@ -1089,7 +1228,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder clearCameraPosition() {
       if (cameraPositionBuilder_ == null) {
@@ -1103,7 +1242,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public MatrixPositionProto.Builder getCameraPositionBuilder() {
       
@@ -1111,7 +1250,7 @@ private static final long serialVersionUID = 0L;
       return getCameraPositionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public MatrixPositionProtoOrBuilder getCameraPositionOrBuilder() {
       if (cameraPositionBuilder_ != null) {
@@ -1122,7 +1261,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
+     * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>
@@ -1142,14 +1281,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         HealthProto, HealthProto.Builder, HealthProtoOrBuilder> healthBuilder_;
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      * @return Whether the health field is set.
      */
     public boolean hasHealth() {
       return healthBuilder_ != null || health_ != null;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      * @return The health.
      */
     public HealthProto getHealth() {
@@ -1160,7 +1299,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public Builder setHealth(HealthProto value) {
       if (healthBuilder_ == null) {
@@ -1176,7 +1315,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public Builder setHealth(
         HealthProto.Builder builderForValue) {
@@ -1190,7 +1329,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public Builder mergeHealth(HealthProto value) {
       if (healthBuilder_ == null) {
@@ -1208,7 +1347,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public Builder clearHealth() {
       if (healthBuilder_ == null) {
@@ -1222,7 +1361,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public HealthProto.Builder getHealthBuilder() {
       
@@ -1230,7 +1369,7 @@ private static final long serialVersionUID = 0L;
       return getHealthFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     public HealthProtoOrBuilder getHealthOrBuilder() {
       if (healthBuilder_ != null) {
@@ -1241,7 +1380,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
+     * <code>.com.nkasenides.amc.proto.HealthProto health = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         HealthProto, HealthProto.Builder, HealthProtoOrBuilder>
@@ -1259,7 +1398,7 @@ private static final long serialVersionUID = 0L;
 
     private long expiresOn_ ;
     /**
-     * <code>uint64 expiresOn = 5;</code>
+     * <code>uint64 expiresOn = 6;</code>
      * @return The expiresOn.
      */
     @Override
@@ -1267,7 +1406,7 @@ private static final long serialVersionUID = 0L;
       return expiresOn_;
     }
     /**
-     * <code>uint64 expiresOn = 5;</code>
+     * <code>uint64 expiresOn = 6;</code>
      * @param value The expiresOn to set.
      * @return This builder for chaining.
      */
@@ -1278,7 +1417,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 expiresOn = 5;</code>
+     * <code>uint64 expiresOn = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearExpiresOn() {
@@ -1290,7 +1429,7 @@ private static final long serialVersionUID = 0L;
 
     private Object id_ = "";
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return The id.
      */
     public String getId() {
@@ -1306,7 +1445,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1323,7 +1462,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1338,7 +1477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1348,7 +1487,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 6;</code>
+     * <code>string id = 7;</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1366,7 +1505,7 @@ private static final long serialVersionUID = 0L;
 
     private long createdOn_ ;
     /**
-     * <code>uint64 createdOn = 7;</code>
+     * <code>uint64 createdOn = 8;</code>
      * @return The createdOn.
      */
     @Override
@@ -1374,7 +1513,7 @@ private static final long serialVersionUID = 0L;
       return createdOn_;
     }
     /**
-     * <code>uint64 createdOn = 7;</code>
+     * <code>uint64 createdOn = 8;</code>
      * @param value The createdOn to set.
      * @return This builder for chaining.
      */
@@ -1385,7 +1524,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 createdOn = 7;</code>
+     * <code>uint64 createdOn = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreatedOn() {
@@ -1397,7 +1536,7 @@ private static final long serialVersionUID = 0L;
 
     private Object playerID_ = "";
     /**
-     * <code>string playerID = 8;</code>
+     * <code>string playerID = 9;</code>
      * @return The playerID.
      */
     public String getPlayerID() {
@@ -1413,7 +1552,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 8;</code>
+     * <code>string playerID = 9;</code>
      * @return The bytes for playerID.
      */
     public com.google.protobuf.ByteString
@@ -1430,7 +1569,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 8;</code>
+     * <code>string playerID = 9;</code>
      * @param value The playerID to set.
      * @return This builder for chaining.
      */
@@ -1445,7 +1584,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 8;</code>
+     * <code>string playerID = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayerID() {
@@ -1455,7 +1594,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 8;</code>
+     * <code>string playerID = 9;</code>
      * @param value The bytes for playerID to set.
      * @return This builder for chaining.
      */
@@ -1473,7 +1612,7 @@ private static final long serialVersionUID = 0L;
 
     private int points_ ;
     /**
-     * <code>int32 points = 9;</code>
+     * <code>int32 points = 10;</code>
      * @return The points.
      */
     @Override
@@ -1481,7 +1620,7 @@ private static final long serialVersionUID = 0L;
       return points_;
     }
     /**
-     * <code>int32 points = 9;</code>
+     * <code>int32 points = 10;</code>
      * @param value The points to set.
      * @return This builder for chaining.
      */
@@ -1492,7 +1631,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 points = 9;</code>
+     * <code>int32 points = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearPoints() {
@@ -1555,6 +1694,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.nkasenides.amc.model.AMCWorldSession toObject() {    
         com.nkasenides.amc.model.AMCWorldSession item = new com.nkasenides.amc.model.AMCWorldSession();        
+        item.setCode(getCode());        
         item.setWorldID(getWorldID());        
         item.setIpAddress(getIpAddress());        
         item.setCameraPosition(getCameraPosition().toObject());        
