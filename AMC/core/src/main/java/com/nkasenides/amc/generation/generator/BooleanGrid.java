@@ -1,7 +1,5 @@
 package com.nkasenides.amc.generation.generator;
 
-import org.inspirecenter.amazechallenge.model.Position;
-
 import java.util.Random;
 
 class BooleanGrid {

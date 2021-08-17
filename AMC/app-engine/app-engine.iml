@@ -30,5 +30,6 @@
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="com.raylabz:athlos-serverless:0.0.21" level="project" />
     <orderEntry type="library" name="com.raylabz:firestorm:1.2.0" level="project" />
+    <orderEntry type="library" name="io.ably:ably-java:1.2.7" level="project" />
   </component>
 </module>

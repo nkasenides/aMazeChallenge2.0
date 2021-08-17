@@ -6,6 +6,10 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.service;
+import com.nkasenides.amc.model.AMCWorldSession;
+import com.nkasenides.amc.proto.AMCPartialStateProto;
+import com.nkasenides.amc.proto.SubmitQuestionnaireResponse;
+import com.nkasenides.amc.state.State;
 import com.nkasenides.athlos.backend.AthlosService;
 import com.nkasenides.amc.proto.GetStateRequest;
 import com.nkasenides.amc.auth.*;
@@ -14,9 +18,34 @@ import com.nkasenides.amc.proto.GetStateResponse;
 public class GetState implements AthlosService<GetStateRequest, GetStateResponse> {
 
     @Override    
-    public GetStateResponse serve(GetStateRequest request, Object... additionalParams) {    
-        //TODO - Implement this service.        
-        return null;        
+    public GetStateResponse serve(GetStateRequest request, Object... additionalParams) {
+
+        //Check world session ID:
+        if (request.getWorldSessionID().isEmpty()) {
+            return GetStateResponse.newBuilder()
+                    .setStatus(GetStateResponse.Status.INVALID_DATA)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Verify world session:
+        final AMCWorldSession worldSession = Auth.verifyWorldSessionID(request.getWorldSessionID());
+        if (worldSession == null) {
+            return GetStateResponse.newBuilder()
+                    .setStatus(GetStateResponse.Status.INVALID_DATA)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Retrieve the partial state:
+        final AMCPartialStateProto partialStateSnapshot = State.forWorld(worldSession.getWorldID()).getPartialStateSnapshot(worldSession);
+
+        return GetStateResponse.newBuilder()
+                .setStatus(GetStateResponse.Status.OK)
+                .setMessage("OK")
+                .setPartialState(partialStateSnapshot)
+                .build();
+
     }    
     
 }
