@@ -6,17 +6,32 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.service;
+import com.nkasenides.amc.model.Challenge;
+import com.nkasenides.amc.persistence.DBManager;
+import com.nkasenides.amc.proto.ChallengeProto;
 import com.nkasenides.athlos.backend.AthlosService;
 import com.nkasenides.amc.proto.ListChallengesRequest;
 import com.nkasenides.amc.auth.*;
 import com.nkasenides.amc.proto.ListChallengesResponse;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.function.Consumer;
+
 public class ListChallenges implements AthlosService<ListChallengesRequest, ListChallengesResponse> {
 
     @Override    
-    public ListChallengesResponse serve(ListChallengesRequest request, Object... additionalParams) {    
-        //TODO - Implement this service.        
-        return null;        
+    public ListChallengesResponse serve(ListChallengesRequest request, Object... additionalParams) {
+
+        ArrayList<ChallengeProto> challenges = new ArrayList<>();
+        DBManager.challenge.list().forEach(challenge -> challenges.add(challenge.toProto().build()));
+
+        return ListChallengesResponse.newBuilder()
+                .setStatus(ListChallengesResponse.Status.OK)
+                .setMessage("OK")
+                .addAllChallenges(challenges)
+                .build();
+
     }    
     
 }
