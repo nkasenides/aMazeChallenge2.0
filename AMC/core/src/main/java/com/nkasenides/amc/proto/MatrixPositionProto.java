@@ -20,14 +20,14 @@ private static final long serialVersionUID = 0L;
     chunkHash_ = "";
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new MatrixPositionProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -38,7 +38,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -61,13 +61,13 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             cellHash_ = s;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             chunkHash_ = s;
             break;
@@ -93,15 +93,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.MatrixPositionProto.class, com.nkasenides.amc.proto.MatrixPositionProto.Builder.class);
+            MatrixPositionProto.class, Builder.class);
   }
 
   public static final int ROW_FIELD_NUMBER = 1;
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
    * <code>sint32 row = 1;</code>
    * @return The row.
    */
-  @java.lang.Override
+  @Override
   public int getRow() {
     return row_;
   }
@@ -121,26 +121,26 @@ private static final long serialVersionUID = 0L;
    * <code>sint32 col = 2;</code>
    * @return The col.
    */
-  @java.lang.Override
+  @Override
   public int getCol() {
     return col_;
   }
 
   public static final int CELLHASH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object cellHash_;
+  private volatile Object cellHash_;
   /**
    * <code>string cellHash = 3;</code>
    * @return The cellHash.
    */
-  @java.lang.Override
-  public java.lang.String getCellHash() {
-    java.lang.Object ref = cellHash_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getCellHash() {
+    Object ref = cellHash_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       cellHash_ = s;
       return s;
     }
@@ -149,14 +149,14 @@ private static final long serialVersionUID = 0L;
    * <code>string cellHash = 3;</code>
    * @return The bytes for cellHash.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getCellHashBytes() {
-    java.lang.Object ref = cellHash_;
-    if (ref instanceof java.lang.String) {
+    Object ref = cellHash_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       cellHash_ = b;
       return b;
     } else {
@@ -165,20 +165,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHUNKHASH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object chunkHash_;
+  private volatile Object chunkHash_;
   /**
    * <code>string chunkHash = 4;</code>
    * @return The chunkHash.
    */
-  @java.lang.Override
-  public java.lang.String getChunkHash() {
-    java.lang.Object ref = chunkHash_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getChunkHash() {
+    Object ref = chunkHash_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       chunkHash_ = s;
       return s;
     }
@@ -187,14 +187,14 @@ private static final long serialVersionUID = 0L;
    * <code>string chunkHash = 4;</code>
    * @return The bytes for chunkHash.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getChunkHashBytes() {
-    java.lang.Object ref = chunkHash_;
-    if (ref instanceof java.lang.String) {
+    Object ref = chunkHash_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       chunkHash_ = b;
       return b;
     } else {
@@ -203,7 +203,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -213,7 +213,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (row_ != 0) {
@@ -231,7 +231,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -256,15 +256,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.MatrixPositionProto)) {
+    if (!(obj instanceof MatrixPositionProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.MatrixPositionProto other = (com.nkasenides.amc.proto.MatrixPositionProto) obj;
+    MatrixPositionProto other = (MatrixPositionProto) obj;
 
     if (getRow()
         != other.getRow()) return false;
@@ -278,7 +278,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -298,69 +298,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(byte[] data)
+  public static MatrixPositionProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(java.io.InputStream input)
+  public static MatrixPositionProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseDelimitedFrom(java.io.InputStream input)
+  public static MatrixPositionProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseDelimitedFrom(
+  public static MatrixPositionProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.MatrixPositionProto parseFrom(
+  public static MatrixPositionProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -368,23 +368,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.MatrixPositionProto prototype) {
+  public static Builder newBuilder(MatrixPositionProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -394,18 +394,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.MatrixPositionProto)
-      com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder {
+      MatrixPositionProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.MatrixPositionProto.class, com.nkasenides.amc.proto.MatrixPositionProto.Builder.class);
+              MatrixPositionProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.MatrixPositionProto.newBuilder()
@@ -414,7 +414,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -423,7 +423,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       row_ = 0;
@@ -437,29 +437,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.MatrixPositionProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance();
+    @Override
+    public MatrixPositionProto getDefaultInstanceForType() {
+      return MatrixPositionProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.MatrixPositionProto build() {
-      com.nkasenides.amc.proto.MatrixPositionProto result = buildPartial();
+    @Override
+    public MatrixPositionProto build() {
+      MatrixPositionProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.MatrixPositionProto buildPartial() {
-      com.nkasenides.amc.proto.MatrixPositionProto result = new com.nkasenides.amc.proto.MatrixPositionProto(this);
+    @Override
+    public MatrixPositionProto buildPartial() {
+      MatrixPositionProto result = new MatrixPositionProto(this);
       result.row_ = row_;
       result.col_ = col_;
       result.cellHash_ = cellHash_;
@@ -468,50 +468,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.MatrixPositionProto) {
-        return mergeFrom((com.nkasenides.amc.proto.MatrixPositionProto)other);
+      if (other instanceof MatrixPositionProto) {
+        return mergeFrom((MatrixPositionProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.MatrixPositionProto other) {
-      if (other == com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(MatrixPositionProto other) {
+      if (other == MatrixPositionProto.getDefaultInstance()) return this;
       if (other.getRow() != 0) {
         setRow(other.getRow());
       }
@@ -531,21 +531,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.MatrixPositionProto parsedMessage = null;
+      MatrixPositionProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.MatrixPositionProto) e.getUnfinishedMessage();
+        parsedMessage = (MatrixPositionProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
      * <code>sint32 row = 1;</code>
      * @return The row.
      */
-    @java.lang.Override
+    @Override
     public int getRow() {
       return row_;
     }
@@ -591,7 +591,7 @@ private static final long serialVersionUID = 0L;
      * <code>sint32 col = 2;</code>
      * @return The col.
      */
-    @java.lang.Override
+    @Override
     public int getCol() {
       return col_;
     }
@@ -617,21 +617,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cellHash_ = "";
+    private Object cellHash_ = "";
     /**
      * <code>string cellHash = 3;</code>
      * @return The cellHash.
      */
-    public java.lang.String getCellHash() {
-      java.lang.Object ref = cellHash_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getCellHash() {
+      Object ref = cellHash_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         cellHash_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -640,11 +640,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getCellHashBytes() {
-      java.lang.Object ref = cellHash_;
+      Object ref = cellHash_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         cellHash_ = b;
         return b;
       } else {
@@ -657,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCellHash(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -693,21 +693,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object chunkHash_ = "";
+    private Object chunkHash_ = "";
     /**
      * <code>string chunkHash = 4;</code>
      * @return The chunkHash.
      */
-    public java.lang.String getChunkHash() {
-      java.lang.Object ref = chunkHash_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getChunkHash() {
+      Object ref = chunkHash_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         chunkHash_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -716,11 +716,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getChunkHashBytes() {
-      java.lang.Object ref = chunkHash_;
+      Object ref = chunkHash_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         chunkHash_ = b;
         return b;
       } else {
@@ -733,7 +733,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setChunkHash(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -768,13 +768,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -785,18 +785,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.MatrixPositionProto)
-  private static final com.nkasenides.amc.proto.MatrixPositionProto DEFAULT_INSTANCE;
+  private static final MatrixPositionProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.MatrixPositionProto();
+    DEFAULT_INSTANCE = new MatrixPositionProto();
   }
 
-  public static com.nkasenides.amc.proto.MatrixPositionProto getDefaultInstance() {
+  public static MatrixPositionProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<MatrixPositionProto>
       PARSER = new com.google.protobuf.AbstractParser<MatrixPositionProto>() {
-    @java.lang.Override
+    @Override
     public MatrixPositionProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -809,17 +809,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<MatrixPositionProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.MatrixPositionProto getDefaultInstanceForType() {
+  @Override
+  public MatrixPositionProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.MatrixPosition toObject() {    
         com.nkasenides.amc.model.MatrixPosition item = new com.nkasenides.amc.model.MatrixPosition();        
         item.setCol(getCol());        

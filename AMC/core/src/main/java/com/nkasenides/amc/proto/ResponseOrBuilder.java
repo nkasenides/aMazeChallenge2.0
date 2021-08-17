@@ -8,34 +8,139 @@ public interface ResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 1;</code>
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireResponse submitQuestionnaireResponse = 1;</code>
+   * @return Whether the submitQuestionnaireResponse field is set.
+   */
+  boolean hasSubmitQuestionnaireResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireResponse submitQuestionnaireResponse = 1;</code>
+   * @return The submitQuestionnaireResponse.
+   */
+  SubmitQuestionnaireResponse getSubmitQuestionnaireResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireResponse submitQuestionnaireResponse = 1;</code>
+   */
+  SubmitQuestionnaireResponseOrBuilder getSubmitQuestionnaireResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 2;</code>
    * @return Whether the getStateResponse field is set.
    */
   boolean hasGetStateResponse();
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 1;</code>
+   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 2;</code>
    * @return The getStateResponse.
    */
-  com.nkasenides.amc.proto.GetStateResponse getGetStateResponse();
+  GetStateResponse getGetStateResponse();
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 1;</code>
+   * <code>.com.nkasenides.amc.proto.GetStateResponse getStateResponse = 2;</code>
    */
-  com.nkasenides.amc.proto.GetStateResponseOrBuilder getGetStateResponseOrBuilder();
+  GetStateResponseOrBuilder getGetStateResponseOrBuilder();
 
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 2;</code>
+   * <code>.com.nkasenides.amc.proto.JoinChallengeResponse joinChallengeResponse = 3;</code>
+   * @return Whether the joinChallengeResponse field is set.
+   */
+  boolean hasJoinChallengeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeResponse joinChallengeResponse = 3;</code>
+   * @return The joinChallengeResponse.
+   */
+  JoinChallengeResponse getJoinChallengeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeResponse joinChallengeResponse = 3;</code>
+   */
+  JoinChallengeResponseOrBuilder getJoinChallengeResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 4;</code>
    * @return Whether the updateStateResponse field is set.
    */
   boolean hasUpdateStateResponse();
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 2;</code>
+   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 4;</code>
    * @return The updateStateResponse.
    */
-  com.nkasenides.amc.proto.UpdateStateResponse getUpdateStateResponse();
+  UpdateStateResponse getUpdateStateResponse();
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 2;</code>
+   * <code>.com.nkasenides.amc.proto.UpdateStateResponse updateStateResponse = 4;</code>
    */
-  com.nkasenides.amc.proto.UpdateStateResponseOrBuilder getUpdateStateResponseOrBuilder();
+  UpdateStateResponseOrBuilder getUpdateStateResponseOrBuilder();
 
-  public com.nkasenides.amc.proto.Response.ResponseCase getResponseCase();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeResponse submitCodeResponse = 5;</code>
+   * @return Whether the submitCodeResponse field is set.
+   */
+  boolean hasSubmitCodeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeResponse submitCodeResponse = 5;</code>
+   * @return The submitCodeResponse.
+   */
+  SubmitCodeResponse getSubmitCodeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeResponse submitCodeResponse = 5;</code>
+   */
+  SubmitCodeResponseOrBuilder getSubmitCodeResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeResponse subscribeResponse = 6;</code>
+   * @return Whether the subscribeResponse field is set.
+   */
+  boolean hasSubscribeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeResponse subscribeResponse = 6;</code>
+   * @return The subscribeResponse.
+   */
+  SubscribeResponse getSubscribeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeResponse subscribeResponse = 6;</code>
+   */
+  SubscribeResponseOrBuilder getSubscribeResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeResponse unsubscribeResponse = 7;</code>
+   * @return Whether the unsubscribeResponse field is set.
+   */
+  boolean hasUnsubscribeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeResponse unsubscribeResponse = 7;</code>
+   * @return The unsubscribeResponse.
+   */
+  UnsubscribeResponse getUnsubscribeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeResponse unsubscribeResponse = 7;</code>
+   */
+  UnsubscribeResponseOrBuilder getUnsubscribeResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesResponse listChallengesResponse = 8;</code>
+   * @return Whether the listChallengesResponse field is set.
+   */
+  boolean hasListChallengesResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesResponse listChallengesResponse = 8;</code>
+   * @return The listChallengesResponse.
+   */
+  ListChallengesResponse getListChallengesResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesResponse listChallengesResponse = 8;</code>
+   */
+  ListChallengesResponseOrBuilder getListChallengesResponseOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.AddChallengeResponse addChallengeResponse = 9;</code>
+   * @return Whether the addChallengeResponse field is set.
+   */
+  boolean hasAddChallengeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.AddChallengeResponse addChallengeResponse = 9;</code>
+   * @return The addChallengeResponse.
+   */
+  AddChallengeResponse getAddChallengeResponse();
+  /**
+   * <code>.com.nkasenides.amc.proto.AddChallengeResponse addChallengeResponse = 9;</code>
+   */
+  AddChallengeResponseOrBuilder getAddChallengeResponseOrBuilder();
+
+  public Response.ResponseCase getResponseCase();
 }

@@ -11,7 +11,7 @@ public interface UpdateStateResponseOrBuilder extends
    * <code>string message = 1;</code>
    * @return The message.
    */
-  java.lang.String getMessage();
+  String getMessage();
   /**
    * <code>string message = 1;</code>
    * @return The bytes for message.
@@ -28,11 +28,11 @@ public interface UpdateStateResponseOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AMCStateUpdateProto stateUpdate = 2;</code>
    * @return The stateUpdate.
    */
-  com.nkasenides.amc.proto.AMCStateUpdateProto getStateUpdate();
+  AMCStateUpdateProto getStateUpdate();
   /**
    * <code>.com.nkasenides.amc.proto.AMCStateUpdateProto stateUpdate = 2;</code>
    */
-  com.nkasenides.amc.proto.AMCStateUpdateProtoOrBuilder getStateUpdateOrBuilder();
+  AMCStateUpdateProtoOrBuilder getStateUpdateOrBuilder();
 
   /**
    * <code>.com.nkasenides.amc.proto.UpdateStateResponse.Status status = 3;</code>
@@ -43,5 +43,5 @@ public interface UpdateStateResponseOrBuilder extends
    * <code>.com.nkasenides.amc.proto.UpdateStateResponse.Status status = 3;</code>
    * @return The status.
    */
-  com.nkasenides.amc.proto.UpdateStateResponse.Status getStatus();
+  UpdateStateResponse.Status getStatus();
 }

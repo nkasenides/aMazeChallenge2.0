@@ -11,7 +11,7 @@ public interface QuestionEntryProtoOrBuilder extends
    * <code>string answerText = 1;</code>
    * @return The answerText.
    */
-  java.lang.String getAnswerText();
+  String getAnswerText();
   /**
    * <code>string answerText = 1;</code>
    * @return The bytes for answerText.
@@ -23,7 +23,7 @@ public interface QuestionEntryProtoOrBuilder extends
    * <code>string questionText = 2;</code>
    * @return The questionText.
    */
-  java.lang.String getQuestionText();
+  String getQuestionText();
   /**
    * <code>string questionText = 2;</code>
    * @return The bytes for questionText.

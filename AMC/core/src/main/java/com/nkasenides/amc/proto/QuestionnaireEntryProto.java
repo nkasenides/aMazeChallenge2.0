@@ -21,14 +21,14 @@ private static final long serialVersionUID = 0L;
     id_ = "";
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new QuestionnaireEntryProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -53,22 +53,22 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             challengeID_ = s;
             break;
           }
           case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              questionEntry_ = new java.util.ArrayList<com.nkasenides.amc.proto.QuestionEntryProto>();
+              questionEntry_ = new java.util.ArrayList<QuestionEntryProto>();
               mutable_bitField0_ |= 0x00000001;
             }
             questionEntry_.add(
-                input.readMessage(com.nkasenides.amc.proto.QuestionEntryProto.parser(), extensionRegistry));
+                input.readMessage(QuestionEntryProto.parser(), extensionRegistry));
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
@@ -97,32 +97,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.QuestionnaireEntryProto.class, com.nkasenides.amc.proto.QuestionnaireEntryProto.Builder.class);
+            QuestionnaireEntryProto.class, Builder.class);
   }
 
   public static final int CHALLENGEID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object challengeID_;
+  private volatile Object challengeID_;
   /**
    * <code>string challengeID = 1;</code>
    * @return The challengeID.
    */
-  @java.lang.Override
-  public java.lang.String getChallengeID() {
-    java.lang.Object ref = challengeID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getChallengeID() {
+    Object ref = challengeID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       challengeID_ = s;
       return s;
     }
@@ -131,14 +131,14 @@ private static final long serialVersionUID = 0L;
    * <code>string challengeID = 1;</code>
    * @return The bytes for challengeID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getChallengeIDBytes() {
-    java.lang.Object ref = challengeID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = challengeID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       challengeID_ = b;
       return b;
     } else {
@@ -147,60 +147,60 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUESTIONENTRY_FIELD_NUMBER = 2;
-  private java.util.List<com.nkasenides.amc.proto.QuestionEntryProto> questionEntry_;
+  private java.util.List<QuestionEntryProto> questionEntry_;
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  @java.lang.Override
-  public java.util.List<com.nkasenides.amc.proto.QuestionEntryProto> getQuestionEntryList() {
+  @Override
+  public java.util.List<QuestionEntryProto> getQuestionEntryList() {
     return questionEntry_;
   }
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  @java.lang.Override
-  public java.util.List<? extends com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder> 
+  @Override
+  public java.util.List<? extends QuestionEntryProtoOrBuilder>
       getQuestionEntryOrBuilderList() {
     return questionEntry_;
   }
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  @java.lang.Override
+  @Override
   public int getQuestionEntryCount() {
     return questionEntry_.size();
   }
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.QuestionEntryProto getQuestionEntry(int index) {
+  @Override
+  public QuestionEntryProto getQuestionEntry(int index) {
     return questionEntry_.get(index);
   }
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
+  @Override
+  public QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
       int index) {
     return questionEntry_.get(index);
   }
 
   public static final int ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 3;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -209,14 +209,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 3;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getChallengeIDBytes().isEmpty()) {
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -271,15 +271,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.QuestionnaireEntryProto)) {
+    if (!(obj instanceof QuestionnaireEntryProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.QuestionnaireEntryProto other = (com.nkasenides.amc.proto.QuestionnaireEntryProto) obj;
+    QuestionnaireEntryProto other = (QuestionnaireEntryProto) obj;
 
     if (!getChallengeID()
         .equals(other.getChallengeID())) return false;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -311,69 +311,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(byte[] data)
+  public static QuestionnaireEntryProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(java.io.InputStream input)
+  public static QuestionnaireEntryProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseDelimitedFrom(java.io.InputStream input)
+  public static QuestionnaireEntryProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseDelimitedFrom(
+  public static QuestionnaireEntryProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto parseFrom(
+  public static QuestionnaireEntryProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -381,23 +381,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.QuestionnaireEntryProto prototype) {
+  public static Builder newBuilder(QuestionnaireEntryProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -407,18 +407,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.QuestionnaireEntryProto)
-      com.nkasenides.amc.proto.QuestionnaireEntryProtoOrBuilder {
+      QuestionnaireEntryProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.QuestionnaireEntryProto.class, com.nkasenides.amc.proto.QuestionnaireEntryProto.Builder.class);
+              QuestionnaireEntryProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.QuestionnaireEntryProto.newBuilder()
@@ -427,7 +427,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
         getQuestionEntryFieldBuilder();
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       challengeID_ = "";
@@ -453,29 +453,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.QuestionnaireEntryProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.QuestionnaireEntryProto.getDefaultInstance();
+    @Override
+    public QuestionnaireEntryProto getDefaultInstanceForType() {
+      return QuestionnaireEntryProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.QuestionnaireEntryProto build() {
-      com.nkasenides.amc.proto.QuestionnaireEntryProto result = buildPartial();
+    @Override
+    public QuestionnaireEntryProto build() {
+      QuestionnaireEntryProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.QuestionnaireEntryProto buildPartial() {
-      com.nkasenides.amc.proto.QuestionnaireEntryProto result = new com.nkasenides.amc.proto.QuestionnaireEntryProto(this);
+    @Override
+    public QuestionnaireEntryProto buildPartial() {
+      QuestionnaireEntryProto result = new QuestionnaireEntryProto(this);
       int from_bitField0_ = bitField0_;
       result.challengeID_ = challengeID_;
       if (questionEntryBuilder_ == null) {
@@ -492,50 +492,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.QuestionnaireEntryProto) {
-        return mergeFrom((com.nkasenides.amc.proto.QuestionnaireEntryProto)other);
+      if (other instanceof QuestionnaireEntryProto) {
+        return mergeFrom((QuestionnaireEntryProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.QuestionnaireEntryProto other) {
-      if (other == com.nkasenides.amc.proto.QuestionnaireEntryProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(QuestionnaireEntryProto other) {
+      if (other == QuestionnaireEntryProto.getDefaultInstance()) return this;
       if (!other.getChallengeID().isEmpty()) {
         challengeID_ = other.challengeID_;
         onChanged();
@@ -575,21 +575,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.QuestionnaireEntryProto parsedMessage = null;
+      QuestionnaireEntryProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.QuestionnaireEntryProto) e.getUnfinishedMessage();
+        parsedMessage = (QuestionnaireEntryProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -600,21 +600,21 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object challengeID_ = "";
+    private Object challengeID_ = "";
     /**
      * <code>string challengeID = 1;</code>
      * @return The challengeID.
      */
-    public java.lang.String getChallengeID() {
-      java.lang.Object ref = challengeID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getChallengeID() {
+      Object ref = challengeID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         challengeID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -623,11 +623,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getChallengeIDBytes() {
-      java.lang.Object ref = challengeID_;
+      Object ref = challengeID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         challengeID_ = b;
         return b;
       } else {
@@ -640,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setChallengeID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -676,22 +676,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.nkasenides.amc.proto.QuestionEntryProto> questionEntry_ =
+    private java.util.List<QuestionEntryProto> questionEntry_ =
       java.util.Collections.emptyList();
     private void ensureQuestionEntryIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        questionEntry_ = new java.util.ArrayList<com.nkasenides.amc.proto.QuestionEntryProto>(questionEntry_);
+        questionEntry_ = new java.util.ArrayList<QuestionEntryProto>(questionEntry_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nkasenides.amc.proto.QuestionEntryProto, com.nkasenides.amc.proto.QuestionEntryProto.Builder, com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder> questionEntryBuilder_;
+        QuestionEntryProto, QuestionEntryProto.Builder, QuestionEntryProtoOrBuilder> questionEntryBuilder_;
 
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public java.util.List<com.nkasenides.amc.proto.QuestionEntryProto> getQuestionEntryList() {
+    public java.util.List<QuestionEntryProto> getQuestionEntryList() {
       if (questionEntryBuilder_ == null) {
         return java.util.Collections.unmodifiableList(questionEntry_);
       } else {
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public com.nkasenides.amc.proto.QuestionEntryProto getQuestionEntry(int index) {
+    public QuestionEntryProto getQuestionEntry(int index) {
       if (questionEntryBuilder_ == null) {
         return questionEntry_.get(index);
       } else {
@@ -722,7 +722,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder setQuestionEntry(
-        int index, com.nkasenides.amc.proto.QuestionEntryProto value) {
+        int index, QuestionEntryProto value) {
       if (questionEntryBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder setQuestionEntry(
-        int index, com.nkasenides.amc.proto.QuestionEntryProto.Builder builderForValue) {
+        int index, QuestionEntryProto.Builder builderForValue) {
       if (questionEntryBuilder_ == null) {
         ensureQuestionEntryIsMutable();
         questionEntry_.set(index, builderForValue.build());
@@ -752,7 +752,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public Builder addQuestionEntry(com.nkasenides.amc.proto.QuestionEntryProto value) {
+    public Builder addQuestionEntry(QuestionEntryProto value) {
       if (questionEntryBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder addQuestionEntry(
-        int index, com.nkasenides.amc.proto.QuestionEntryProto value) {
+        int index, QuestionEntryProto value) {
       if (questionEntryBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -786,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder addQuestionEntry(
-        com.nkasenides.amc.proto.QuestionEntryProto.Builder builderForValue) {
+        QuestionEntryProto.Builder builderForValue) {
       if (questionEntryBuilder_ == null) {
         ensureQuestionEntryIsMutable();
         questionEntry_.add(builderForValue.build());
@@ -800,7 +800,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder addQuestionEntry(
-        int index, com.nkasenides.amc.proto.QuestionEntryProto.Builder builderForValue) {
+        int index, QuestionEntryProto.Builder builderForValue) {
       if (questionEntryBuilder_ == null) {
         ensureQuestionEntryIsMutable();
         questionEntry_.add(index, builderForValue.build());
@@ -814,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
     public Builder addAllQuestionEntry(
-        java.lang.Iterable<? extends com.nkasenides.amc.proto.QuestionEntryProto> values) {
+        Iterable<? extends QuestionEntryProto> values) {
       if (questionEntryBuilder_ == null) {
         ensureQuestionEntryIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -854,14 +854,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public com.nkasenides.amc.proto.QuestionEntryProto.Builder getQuestionEntryBuilder(
+    public QuestionEntryProto.Builder getQuestionEntryBuilder(
         int index) {
       return getQuestionEntryFieldBuilder().getBuilder(index);
     }
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
+    public QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
         int index) {
       if (questionEntryBuilder_ == null) {
         return questionEntry_.get(index);  } else {
@@ -871,7 +871,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public java.util.List<? extends com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder> 
+    public java.util.List<? extends QuestionEntryProtoOrBuilder>
          getQuestionEntryOrBuilderList() {
       if (questionEntryBuilder_ != null) {
         return questionEntryBuilder_.getMessageOrBuilderList();
@@ -882,31 +882,31 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public com.nkasenides.amc.proto.QuestionEntryProto.Builder addQuestionEntryBuilder() {
+    public QuestionEntryProto.Builder addQuestionEntryBuilder() {
       return getQuestionEntryFieldBuilder().addBuilder(
-          com.nkasenides.amc.proto.QuestionEntryProto.getDefaultInstance());
+          QuestionEntryProto.getDefaultInstance());
     }
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public com.nkasenides.amc.proto.QuestionEntryProto.Builder addQuestionEntryBuilder(
+    public QuestionEntryProto.Builder addQuestionEntryBuilder(
         int index) {
       return getQuestionEntryFieldBuilder().addBuilder(
-          index, com.nkasenides.amc.proto.QuestionEntryProto.getDefaultInstance());
+          index, QuestionEntryProto.getDefaultInstance());
     }
     /**
      * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
      */
-    public java.util.List<com.nkasenides.amc.proto.QuestionEntryProto.Builder> 
+    public java.util.List<QuestionEntryProto.Builder>
          getQuestionEntryBuilderList() {
       return getQuestionEntryFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nkasenides.amc.proto.QuestionEntryProto, com.nkasenides.amc.proto.QuestionEntryProto.Builder, com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder> 
+        QuestionEntryProto, QuestionEntryProto.Builder, QuestionEntryProtoOrBuilder>
         getQuestionEntryFieldBuilder() {
       if (questionEntryBuilder_ == null) {
         questionEntryBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.nkasenides.amc.proto.QuestionEntryProto, com.nkasenides.amc.proto.QuestionEntryProto.Builder, com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder>(
+            QuestionEntryProto, QuestionEntryProto.Builder, QuestionEntryProtoOrBuilder>(
                 questionEntry_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
@@ -916,21 +916,21 @@ private static final long serialVersionUID = 0L;
       return questionEntryBuilder_;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 3;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -939,11 +939,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -956,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -991,13 +991,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1008,18 +1008,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.QuestionnaireEntryProto)
-  private static final com.nkasenides.amc.proto.QuestionnaireEntryProto DEFAULT_INSTANCE;
+  private static final QuestionnaireEntryProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.QuestionnaireEntryProto();
+    DEFAULT_INSTANCE = new QuestionnaireEntryProto();
   }
 
-  public static com.nkasenides.amc.proto.QuestionnaireEntryProto getDefaultInstance() {
+  public static QuestionnaireEntryProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<QuestionnaireEntryProto>
       PARSER = new com.google.protobuf.AbstractParser<QuestionnaireEntryProto>() {
-    @java.lang.Override
+    @Override
     public QuestionnaireEntryProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1032,17 +1032,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<QuestionnaireEntryProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.QuestionnaireEntryProto getDefaultInstanceForType() {
+  @Override
+  public QuestionnaireEntryProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.QuestionnaireEntry toObject() {    
         com.nkasenides.amc.model.QuestionnaireEntry item = new com.nkasenides.amc.model.QuestionnaireEntry();        
         item.setChallengeID(getChallengeID());        

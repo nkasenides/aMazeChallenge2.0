@@ -11,7 +11,7 @@ public interface AMCPlayerProtoOrBuilder extends
    * <code>string password = 1;</code>
    * @return The password.
    */
-  java.lang.String getPassword();
+  String getPassword();
   /**
    * <code>string password = 1;</code>
    * @return The bytes for password.
@@ -28,13 +28,13 @@ public interface AMCPlayerProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AmazeColor color = 2;</code>
    * @return The color.
    */
-  com.nkasenides.amc.proto.AmazeColor getColor();
+  AmazeColor getColor();
 
   /**
    * <code>string teamID = 3;</code>
    * @return The teamID.
    */
-  java.lang.String getTeamID();
+  String getTeamID();
   /**
    * <code>string teamID = 3;</code>
    * @return The bytes for teamID.
@@ -46,7 +46,7 @@ public interface AMCPlayerProtoOrBuilder extends
    * <code>string name = 4;</code>
    * @return The name.
    */
-  java.lang.String getName();
+  String getName();
   /**
    * <code>string name = 4;</code>
    * @return The bytes for name.
@@ -63,13 +63,13 @@ public interface AMCPlayerProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AmazeIcon icon = 5;</code>
    * @return The icon.
    */
-  com.nkasenides.amc.proto.AmazeIcon getIcon();
+  AmazeIcon getIcon();
 
   /**
    * <code>string id = 6;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 6;</code>
    * @return The bytes for id.
@@ -87,7 +87,7 @@ public interface AMCPlayerProtoOrBuilder extends
    * <code>string email = 8;</code>
    * @return The email.
    */
-  java.lang.String getEmail();
+  String getEmail();
   /**
    * <code>string email = 8;</code>
    * @return The bytes for email.

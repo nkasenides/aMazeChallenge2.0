@@ -11,7 +11,7 @@ public interface QuestionnaireEntryProtoOrBuilder extends
    * <code>string challengeID = 1;</code>
    * @return The challengeID.
    */
-  java.lang.String getChallengeID();
+  String getChallengeID();
   /**
    * <code>string challengeID = 1;</code>
    * @return The bytes for challengeID.
@@ -22,12 +22,12 @@ public interface QuestionnaireEntryProtoOrBuilder extends
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  java.util.List<com.nkasenides.amc.proto.QuestionEntryProto> 
+  java.util.List<QuestionEntryProto>
       getQuestionEntryList();
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  com.nkasenides.amc.proto.QuestionEntryProto getQuestionEntry(int index);
+  QuestionEntryProto getQuestionEntry(int index);
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
@@ -35,19 +35,19 @@ public interface QuestionnaireEntryProtoOrBuilder extends
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  java.util.List<? extends com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder> 
+  java.util.List<? extends QuestionEntryProtoOrBuilder>
       getQuestionEntryOrBuilderList();
   /**
    * <code>repeated .com.nkasenides.amc.proto.QuestionEntryProto questionEntry = 2;</code>
    */
-  com.nkasenides.amc.proto.QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
+  QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
       int index);
 
   /**
    * <code>string id = 3;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 3;</code>
    * @return The bytes for id.

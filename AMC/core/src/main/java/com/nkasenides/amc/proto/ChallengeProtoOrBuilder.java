@@ -28,7 +28,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
    * @return The penalties.
    */
-  com.nkasenides.amc.proto.PickableIntensity getPenalties();
+  PickableIntensity getPenalties();
 
   /**
    * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
@@ -39,13 +39,13 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
    * @return The backgroundImage.
    */
-  com.nkasenides.amc.proto.BackgroundImage getBackgroundImage();
+  BackgroundImage getBackgroundImage();
 
   /**
    * <code>string description = 5;</code>
    * @return The description.
    */
-  java.lang.String getDescription();
+  String getDescription();
   /**
    * <code>string description = 5;</code>
    * @return The bytes for description.
@@ -62,7 +62,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
    * @return The lineColor.
    */
-  com.nkasenides.amc.proto.AmazeColor getLineColor();
+  AmazeColor getLineColor();
 
   /**
    * <code>bool canRepeat = 7;</code>
@@ -91,7 +91,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
    * @return The difficulty.
    */
-  com.nkasenides.amc.proto.Difficulty getDifficulty();
+  Difficulty getDifficulty();
 
   /**
    * <code>int32 apiVersion = 11;</code>
@@ -114,11 +114,11 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
    * @return The grid.
    */
-  com.nkasenides.amc.proto.GridProto getGrid();
+  GridProto getGrid();
   /**
    * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
    */
-  com.nkasenides.amc.proto.GridProtoOrBuilder getGridOrBuilder();
+  GridProtoOrBuilder getGridOrBuilder();
 
   /**
    * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
@@ -129,7 +129,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
    * @return The backgroundAudio.
    */
-  com.nkasenides.amc.proto.Audio getBackgroundAudio();
+  Audio getBackgroundAudio();
 
   /**
    * <code>int32 minActivePlayers = 15;</code>
@@ -141,7 +141,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>string name = 16;</code>
    * @return The name.
    */
-  java.lang.String getName();
+  String getName();
   /**
    * <code>string name = 16;</code>
    * @return The bytes for name.
@@ -165,7 +165,7 @@ public interface ChallengeProtoOrBuilder extends
    * <code>string id = 19;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 19;</code>
    * @return The bytes for id.
@@ -182,13 +182,13 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
    * @return The rewards.
    */
-  com.nkasenides.amc.proto.PickableIntensity getRewards();
+  PickableIntensity getRewards();
 
   /**
    * <code>string createdByID = 21;</code>
    * @return The createdByID.
    */
-  java.lang.String getCreatedByID();
+  String getCreatedByID();
   /**
    * <code>string createdByID = 21;</code>
    * @return The bytes for createdByID.
@@ -205,5 +205,5 @@ public interface ChallengeProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
    * @return The algorithm.
    */
-  com.nkasenides.amc.proto.Algorithm getAlgorithm();
+  Algorithm getAlgorithm();
 }

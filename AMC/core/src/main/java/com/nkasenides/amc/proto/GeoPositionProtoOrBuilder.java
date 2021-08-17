@@ -29,7 +29,7 @@ public interface GeoPositionProtoOrBuilder extends
    * <code>string positionHash = 4;</code>
    * @return The positionHash.
    */
-  java.lang.String getPositionHash();
+  String getPositionHash();
   /**
    * <code>string positionHash = 4;</code>
    * @return The bytes for positionHash.

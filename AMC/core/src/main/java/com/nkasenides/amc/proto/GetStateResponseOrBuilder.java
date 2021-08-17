@@ -16,17 +16,17 @@ public interface GetStateResponseOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    * @return The partialState.
    */
-  com.nkasenides.amc.proto.AMCPartialStateProto getPartialState();
+  AMCPartialStateProto getPartialState();
   /**
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    */
-  com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder getPartialStateOrBuilder();
+  AMCPartialStateProtoOrBuilder getPartialStateOrBuilder();
 
   /**
    * <code>string message = 2;</code>
    * @return The message.
    */
-  java.lang.String getMessage();
+  String getMessage();
   /**
    * <code>string message = 2;</code>
    * @return The bytes for message.
@@ -43,5 +43,5 @@ public interface GetStateResponseOrBuilder extends
    * <code>.com.nkasenides.amc.proto.GetStateResponse.Status status = 3;</code>
    * @return The status.
    */
-  com.nkasenides.amc.proto.GetStateResponse.Status getStatus();
+  GetStateResponse.Status getStatus();
 }

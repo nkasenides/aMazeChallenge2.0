@@ -29,14 +29,14 @@ private static final long serialVersionUID = 0L;
     algorithm_ = 0;
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new ChallengeProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -47,7 +47,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             description_ = s;
             break;
@@ -125,11 +125,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 106: {
-            com.nkasenides.amc.proto.GridProto.Builder subBuilder = null;
+            GridProto.Builder subBuilder = null;
             if (grid_ != null) {
               subBuilder = grid_.toBuilder();
             }
-            grid_ = input.readMessage(com.nkasenides.amc.proto.GridProto.parser(), extensionRegistry);
+            grid_ = input.readMessage(GridProto.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(grid_);
               grid_ = subBuilder.buildPartial();
@@ -149,7 +149,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             name_ = s;
             break;
@@ -165,7 +165,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
@@ -177,7 +177,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             createdByID_ = s;
             break;
@@ -209,15 +209,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.ChallengeProto.class, com.nkasenides.amc.proto.ChallengeProto.Builder.class);
+            ChallengeProto.class, Builder.class);
   }
 
   public static final int CANJOINAFTERSTART_FIELD_NUMBER = 1;
@@ -226,7 +226,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool canJoinAfterStart = 1;</code>
    * @return The canJoinAfterStart.
    */
-  @java.lang.Override
+  @Override
   public boolean getCanJoinAfterStart() {
     return canJoinAfterStart_;
   }
@@ -237,7 +237,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool canStepOnEachOther = 2;</code>
    * @return The canStepOnEachOther.
    */
-  @java.lang.Override
+  @Override
   public boolean getCanStepOnEachOther() {
     return canStepOnEachOther_;
   }
@@ -248,17 +248,17 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
    * @return The enum numeric value on the wire for penalties.
    */
-  @java.lang.Override public int getPenaltiesValue() {
+  @Override public int getPenaltiesValue() {
     return penalties_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
    * @return The penalties.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.PickableIntensity getPenalties() {
+  @Override public PickableIntensity getPenalties() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.PickableIntensity result = com.nkasenides.amc.proto.PickableIntensity.valueOf(penalties_);
-    return result == null ? com.nkasenides.amc.proto.PickableIntensity.UNRECOGNIZED : result;
+    PickableIntensity result = PickableIntensity.valueOf(penalties_);
+    return result == null ? PickableIntensity.UNRECOGNIZED : result;
   }
 
   public static final int BACKGROUNDIMAGE_FIELD_NUMBER = 4;
@@ -267,34 +267,34 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
    * @return The enum numeric value on the wire for backgroundImage.
    */
-  @java.lang.Override public int getBackgroundImageValue() {
+  @Override public int getBackgroundImageValue() {
     return backgroundImage_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
    * @return The backgroundImage.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.BackgroundImage getBackgroundImage() {
+  @Override public BackgroundImage getBackgroundImage() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.BackgroundImage result = com.nkasenides.amc.proto.BackgroundImage.valueOf(backgroundImage_);
-    return result == null ? com.nkasenides.amc.proto.BackgroundImage.UNRECOGNIZED : result;
+    BackgroundImage result = BackgroundImage.valueOf(backgroundImage_);
+    return result == null ? BackgroundImage.UNRECOGNIZED : result;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object description_;
+  private volatile Object description_;
   /**
    * <code>string description = 5;</code>
    * @return The description.
    */
-  @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getDescription() {
+    Object ref = description_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       description_ = s;
       return s;
     }
@@ -303,14 +303,14 @@ private static final long serialVersionUID = 0L;
    * <code>string description = 5;</code>
    * @return The bytes for description.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getDescriptionBytes() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
+    Object ref = description_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       description_ = b;
       return b;
     } else {
@@ -324,17 +324,17 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
    * @return The enum numeric value on the wire for lineColor.
    */
-  @java.lang.Override public int getLineColorValue() {
+  @Override public int getLineColorValue() {
     return lineColor_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
    * @return The lineColor.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.AmazeColor getLineColor() {
+  @Override public AmazeColor getLineColor() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.AmazeColor result = com.nkasenides.amc.proto.AmazeColor.valueOf(lineColor_);
-    return result == null ? com.nkasenides.amc.proto.AmazeColor.UNRECOGNIZED : result;
+    AmazeColor result = AmazeColor.valueOf(lineColor_);
+    return result == null ? AmazeColor.UNRECOGNIZED : result;
   }
 
   public static final int CANREPEAT_FIELD_NUMBER = 7;
@@ -343,7 +343,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool canRepeat = 7;</code>
    * @return The canRepeat.
    */
-  @java.lang.Override
+  @Override
   public boolean getCanRepeat() {
     return canRepeat_;
   }
@@ -354,7 +354,7 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 createdOn = 8;</code>
    * @return The createdOn.
    */
-  @java.lang.Override
+  @Override
   public long getCreatedOn() {
     return createdOn_;
   }
@@ -365,7 +365,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool hasQuestionnaire = 9;</code>
    * @return The hasQuestionnaire.
    */
-  @java.lang.Override
+  @Override
   public boolean getHasQuestionnaire() {
     return hasQuestionnaire_;
   }
@@ -376,17 +376,17 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
    * @return The enum numeric value on the wire for difficulty.
    */
-  @java.lang.Override public int getDifficultyValue() {
+  @Override public int getDifficultyValue() {
     return difficulty_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
    * @return The difficulty.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.Difficulty getDifficulty() {
+  @Override public Difficulty getDifficulty() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.Difficulty result = com.nkasenides.amc.proto.Difficulty.valueOf(difficulty_);
-    return result == null ? com.nkasenides.amc.proto.Difficulty.UNRECOGNIZED : result;
+    Difficulty result = Difficulty.valueOf(difficulty_);
+    return result == null ? Difficulty.UNRECOGNIZED : result;
   }
 
   public static final int APIVERSION_FIELD_NUMBER = 11;
@@ -395,7 +395,7 @@ private static final long serialVersionUID = 0L;
    * <code>int32 apiVersion = 11;</code>
    * @return The apiVersion.
    */
-  @java.lang.Override
+  @Override
   public int getApiVersion() {
     return apiVersion_;
   }
@@ -406,18 +406,18 @@ private static final long serialVersionUID = 0L;
    * <code>int32 maxActivePlayers = 12;</code>
    * @return The maxActivePlayers.
    */
-  @java.lang.Override
+  @Override
   public int getMaxActivePlayers() {
     return maxActivePlayers_;
   }
 
   public static final int GRID_FIELD_NUMBER = 13;
-  private com.nkasenides.amc.proto.GridProto grid_;
+  private GridProto grid_;
   /**
    * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
    * @return Whether the grid field is set.
    */
-  @java.lang.Override
+  @Override
   public boolean hasGrid() {
     return grid_ != null;
   }
@@ -425,15 +425,15 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
    * @return The grid.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.GridProto getGrid() {
-    return grid_ == null ? com.nkasenides.amc.proto.GridProto.getDefaultInstance() : grid_;
+  @Override
+  public GridProto getGrid() {
+    return grid_ == null ? GridProto.getDefaultInstance() : grid_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.GridProtoOrBuilder getGridOrBuilder() {
+  @Override
+  public GridProtoOrBuilder getGridOrBuilder() {
     return getGrid();
   }
 
@@ -443,17 +443,17 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
    * @return The enum numeric value on the wire for backgroundAudio.
    */
-  @java.lang.Override public int getBackgroundAudioValue() {
+  @Override public int getBackgroundAudioValue() {
     return backgroundAudio_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
    * @return The backgroundAudio.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.Audio getBackgroundAudio() {
+  @Override public Audio getBackgroundAudio() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.Audio result = com.nkasenides.amc.proto.Audio.valueOf(backgroundAudio_);
-    return result == null ? com.nkasenides.amc.proto.Audio.UNRECOGNIZED : result;
+    Audio result = Audio.valueOf(backgroundAudio_);
+    return result == null ? Audio.UNRECOGNIZED : result;
   }
 
   public static final int MINACTIVEPLAYERS_FIELD_NUMBER = 15;
@@ -462,26 +462,26 @@ private static final long serialVersionUID = 0L;
    * <code>int32 minActivePlayers = 15;</code>
    * @return The minActivePlayers.
    */
-  @java.lang.Override
+  @Override
   public int getMinActivePlayers() {
     return minActivePlayers_;
   }
 
   public static final int NAME_FIELD_NUMBER = 16;
-  private volatile java.lang.Object name_;
+  private volatile Object name_;
   /**
    * <code>string name = 16;</code>
    * @return The name.
    */
-  @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getName() {
+    Object ref = name_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       name_ = s;
       return s;
     }
@@ -490,14 +490,14 @@ private static final long serialVersionUID = 0L;
    * <code>string name = 16;</code>
    * @return The bytes for name.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
+    Object ref = name_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       name_ = b;
       return b;
     } else {
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 startTime = 17;</code>
    * @return The startTime.
    */
-  @java.lang.Override
+  @Override
   public long getStartTime() {
     return startTime_;
   }
@@ -522,26 +522,26 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 endTime = 18;</code>
    * @return The endTime.
    */
-  @java.lang.Override
+  @Override
   public long getEndTime() {
     return endTime_;
   }
 
   public static final int ID_FIELD_NUMBER = 19;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 19;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -550,14 +550,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 19;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -571,34 +571,34 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
    * @return The enum numeric value on the wire for rewards.
    */
-  @java.lang.Override public int getRewardsValue() {
+  @Override public int getRewardsValue() {
     return rewards_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
    * @return The rewards.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.PickableIntensity getRewards() {
+  @Override public PickableIntensity getRewards() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.PickableIntensity result = com.nkasenides.amc.proto.PickableIntensity.valueOf(rewards_);
-    return result == null ? com.nkasenides.amc.proto.PickableIntensity.UNRECOGNIZED : result;
+    PickableIntensity result = PickableIntensity.valueOf(rewards_);
+    return result == null ? PickableIntensity.UNRECOGNIZED : result;
   }
 
   public static final int CREATEDBYID_FIELD_NUMBER = 21;
-  private volatile java.lang.Object createdByID_;
+  private volatile Object createdByID_;
   /**
    * <code>string createdByID = 21;</code>
    * @return The createdByID.
    */
-  @java.lang.Override
-  public java.lang.String getCreatedByID() {
-    java.lang.Object ref = createdByID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getCreatedByID() {
+    Object ref = createdByID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       createdByID_ = s;
       return s;
     }
@@ -607,14 +607,14 @@ private static final long serialVersionUID = 0L;
    * <code>string createdByID = 21;</code>
    * @return The bytes for createdByID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getCreatedByIDBytes() {
-    java.lang.Object ref = createdByID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = createdByID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       createdByID_ = b;
       return b;
     } else {
@@ -628,21 +628,21 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
    * @return The enum numeric value on the wire for algorithm.
    */
-  @java.lang.Override public int getAlgorithmValue() {
+  @Override public int getAlgorithmValue() {
     return algorithm_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
    * @return The algorithm.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.Algorithm getAlgorithm() {
+  @Override public Algorithm getAlgorithm() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.Algorithm result = com.nkasenides.amc.proto.Algorithm.valueOf(algorithm_);
-    return result == null ? com.nkasenides.amc.proto.Algorithm.UNRECOGNIZED : result;
+    Algorithm result = Algorithm.valueOf(algorithm_);
+    return result == null ? Algorithm.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (canJoinAfterStart_ != false) {
@@ -661,16 +661,16 @@ private static final long serialVersionUID = 0L;
     if (canStepOnEachOther_ != false) {
       output.writeBool(2, canStepOnEachOther_);
     }
-    if (penalties_ != com.nkasenides.amc.proto.PickableIntensity.HIGH_PickableIntensity.getNumber()) {
+    if (penalties_ != PickableIntensity.HIGH_PickableIntensity.getNumber()) {
       output.writeEnum(3, penalties_);
     }
-    if (backgroundImage_ != com.nkasenides.amc.proto.BackgroundImage.TEXTURE_WATER_BackgroundImage.getNumber()) {
+    if (backgroundImage_ != BackgroundImage.TEXTURE_WATER_BackgroundImage.getNumber()) {
       output.writeEnum(4, backgroundImage_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
     }
-    if (lineColor_ != com.nkasenides.amc.proto.AmazeColor.GOLD_AmazeColor.getNumber()) {
+    if (lineColor_ != AmazeColor.GOLD_AmazeColor.getNumber()) {
       output.writeEnum(6, lineColor_);
     }
     if (canRepeat_ != false) {
@@ -682,7 +682,7 @@ private static final long serialVersionUID = 0L;
     if (hasQuestionnaire_ != false) {
       output.writeBool(9, hasQuestionnaire_);
     }
-    if (difficulty_ != com.nkasenides.amc.proto.Difficulty.EASY_Difficulty.getNumber()) {
+    if (difficulty_ != Difficulty.EASY_Difficulty.getNumber()) {
       output.writeEnum(10, difficulty_);
     }
     if (apiVersion_ != 0) {
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
     if (grid_ != null) {
       output.writeMessage(13, getGrid());
     }
-    if (backgroundAudio_ != com.nkasenides.amc.proto.Audio.EVENT_GIFTBOX_Audio.getNumber()) {
+    if (backgroundAudio_ != Audio.EVENT_GIFTBOX_Audio.getNumber()) {
       output.writeEnum(14, backgroundAudio_);
     }
     if (minActivePlayers_ != 0) {
@@ -712,19 +712,19 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 19, id_);
     }
-    if (rewards_ != com.nkasenides.amc.proto.PickableIntensity.HIGH_PickableIntensity.getNumber()) {
+    if (rewards_ != PickableIntensity.HIGH_PickableIntensity.getNumber()) {
       output.writeEnum(20, rewards_);
     }
     if (!getCreatedByIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 21, createdByID_);
     }
-    if (algorithm_ != com.nkasenides.amc.proto.Algorithm.MANY_SOLUTIONS_Algorithm.getNumber()) {
+    if (algorithm_ != Algorithm.MANY_SOLUTIONS_Algorithm.getNumber()) {
       output.writeEnum(22, algorithm_);
     }
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -738,18 +738,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, canStepOnEachOther_);
     }
-    if (penalties_ != com.nkasenides.amc.proto.PickableIntensity.HIGH_PickableIntensity.getNumber()) {
+    if (penalties_ != PickableIntensity.HIGH_PickableIntensity.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, penalties_);
     }
-    if (backgroundImage_ != com.nkasenides.amc.proto.BackgroundImage.TEXTURE_WATER_BackgroundImage.getNumber()) {
+    if (backgroundImage_ != BackgroundImage.TEXTURE_WATER_BackgroundImage.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, backgroundImage_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
     }
-    if (lineColor_ != com.nkasenides.amc.proto.AmazeColor.GOLD_AmazeColor.getNumber()) {
+    if (lineColor_ != AmazeColor.GOLD_AmazeColor.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, lineColor_);
     }
@@ -765,7 +765,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, hasQuestionnaire_);
     }
-    if (difficulty_ != com.nkasenides.amc.proto.Difficulty.EASY_Difficulty.getNumber()) {
+    if (difficulty_ != Difficulty.EASY_Difficulty.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(10, difficulty_);
     }
@@ -781,7 +781,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getGrid());
     }
-    if (backgroundAudio_ != com.nkasenides.amc.proto.Audio.EVENT_GIFTBOX_Audio.getNumber()) {
+    if (backgroundAudio_ != Audio.EVENT_GIFTBOX_Audio.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(14, backgroundAudio_);
     }
@@ -803,14 +803,14 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, id_);
     }
-    if (rewards_ != com.nkasenides.amc.proto.PickableIntensity.HIGH_PickableIntensity.getNumber()) {
+    if (rewards_ != PickableIntensity.HIGH_PickableIntensity.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(20, rewards_);
     }
     if (!getCreatedByIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, createdByID_);
     }
-    if (algorithm_ != com.nkasenides.amc.proto.Algorithm.MANY_SOLUTIONS_Algorithm.getNumber()) {
+    if (algorithm_ != Algorithm.MANY_SOLUTIONS_Algorithm.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(22, algorithm_);
     }
@@ -819,15 +819,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.ChallengeProto)) {
+    if (!(obj instanceof ChallengeProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.ChallengeProto other = (com.nkasenides.amc.proto.ChallengeProto) obj;
+    ChallengeProto other = (ChallengeProto) obj;
 
     if (getCanJoinAfterStart()
         != other.getCanJoinAfterStart()) return false;
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -938,69 +938,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(byte[] data)
+  public static ChallengeProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(java.io.InputStream input)
+  public static ChallengeProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseDelimitedFrom(java.io.InputStream input)
+  public static ChallengeProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseDelimitedFrom(
+  public static ChallengeProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.ChallengeProto parseFrom(
+  public static ChallengeProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -1008,23 +1008,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.ChallengeProto prototype) {
+  public static Builder newBuilder(ChallengeProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -1034,18 +1034,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.ChallengeProto)
-      com.nkasenides.amc.proto.ChallengeProtoOrBuilder {
+      ChallengeProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.ChallengeProto.class, com.nkasenides.amc.proto.ChallengeProto.Builder.class);
+              ChallengeProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.ChallengeProto.newBuilder()
@@ -1054,7 +1054,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       canJoinAfterStart_ = false;
@@ -1117,29 +1117,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.ChallengeProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.ChallengeProto.getDefaultInstance();
+    @Override
+    public ChallengeProto getDefaultInstanceForType() {
+      return ChallengeProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.ChallengeProto build() {
-      com.nkasenides.amc.proto.ChallengeProto result = buildPartial();
+    @Override
+    public ChallengeProto build() {
+      ChallengeProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.ChallengeProto buildPartial() {
-      com.nkasenides.amc.proto.ChallengeProto result = new com.nkasenides.amc.proto.ChallengeProto(this);
+    @Override
+    public ChallengeProto buildPartial() {
+      ChallengeProto result = new ChallengeProto(this);
       result.canJoinAfterStart_ = canJoinAfterStart_;
       result.canStepOnEachOther_ = canStepOnEachOther_;
       result.penalties_ = penalties_;
@@ -1170,50 +1170,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.ChallengeProto) {
-        return mergeFrom((com.nkasenides.amc.proto.ChallengeProto)other);
+      if (other instanceof ChallengeProto) {
+        return mergeFrom((ChallengeProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.ChallengeProto other) {
-      if (other == com.nkasenides.amc.proto.ChallengeProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(ChallengeProto other) {
+      if (other == ChallengeProto.getDefaultInstance()) return this;
       if (other.getCanJoinAfterStart() != false) {
         setCanJoinAfterStart(other.getCanJoinAfterStart());
       }
@@ -1289,21 +1289,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.ChallengeProto parsedMessage = null;
+      ChallengeProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.ChallengeProto) e.getUnfinishedMessage();
+        parsedMessage = (ChallengeProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1318,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool canJoinAfterStart = 1;</code>
      * @return The canJoinAfterStart.
      */
-    @java.lang.Override
+    @Override
     public boolean getCanJoinAfterStart() {
       return canJoinAfterStart_;
     }
@@ -1349,7 +1349,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool canStepOnEachOther = 2;</code>
      * @return The canStepOnEachOther.
      */
-    @java.lang.Override
+    @Override
     public boolean getCanStepOnEachOther() {
       return canStepOnEachOther_;
     }
@@ -1380,7 +1380,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
      * @return The enum numeric value on the wire for penalties.
      */
-    @java.lang.Override public int getPenaltiesValue() {
+    @Override public int getPenaltiesValue() {
       return penalties_;
     }
     /**
@@ -1398,18 +1398,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
      * @return The penalties.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableIntensity getPenalties() {
+    @Override
+    public PickableIntensity getPenalties() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.PickableIntensity result = com.nkasenides.amc.proto.PickableIntensity.valueOf(penalties_);
-      return result == null ? com.nkasenides.amc.proto.PickableIntensity.UNRECOGNIZED : result;
+      PickableIntensity result = PickableIntensity.valueOf(penalties_);
+      return result == null ? PickableIntensity.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.PickableIntensity penalties = 3;</code>
      * @param value The penalties to set.
      * @return This builder for chaining.
      */
-    public Builder setPenalties(com.nkasenides.amc.proto.PickableIntensity value) {
+    public Builder setPenalties(PickableIntensity value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1434,7 +1434,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
      * @return The enum numeric value on the wire for backgroundImage.
      */
-    @java.lang.Override public int getBackgroundImageValue() {
+    @Override public int getBackgroundImageValue() {
       return backgroundImage_;
     }
     /**
@@ -1452,18 +1452,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
      * @return The backgroundImage.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.BackgroundImage getBackgroundImage() {
+    @Override
+    public BackgroundImage getBackgroundImage() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.BackgroundImage result = com.nkasenides.amc.proto.BackgroundImage.valueOf(backgroundImage_);
-      return result == null ? com.nkasenides.amc.proto.BackgroundImage.UNRECOGNIZED : result;
+      BackgroundImage result = BackgroundImage.valueOf(backgroundImage_);
+      return result == null ? BackgroundImage.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.BackgroundImage backgroundImage = 4;</code>
      * @param value The backgroundImage to set.
      * @return This builder for chaining.
      */
-    public Builder setBackgroundImage(com.nkasenides.amc.proto.BackgroundImage value) {
+    public Builder setBackgroundImage(BackgroundImage value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1483,21 +1483,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object description_ = "";
+    private Object description_ = "";
     /**
      * <code>string description = 5;</code>
      * @return The description.
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getDescription() {
+      Object ref = description_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         description_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -1506,11 +1506,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
-      java.lang.Object ref = description_;
+      Object ref = description_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         description_ = b;
         return b;
       } else {
@@ -1523,7 +1523,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDescription(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1564,7 +1564,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
      * @return The enum numeric value on the wire for lineColor.
      */
-    @java.lang.Override public int getLineColorValue() {
+    @Override public int getLineColorValue() {
       return lineColor_;
     }
     /**
@@ -1582,18 +1582,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
      * @return The lineColor.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AmazeColor getLineColor() {
+    @Override
+    public AmazeColor getLineColor() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.AmazeColor result = com.nkasenides.amc.proto.AmazeColor.valueOf(lineColor_);
-      return result == null ? com.nkasenides.amc.proto.AmazeColor.UNRECOGNIZED : result;
+      AmazeColor result = AmazeColor.valueOf(lineColor_);
+      return result == null ? AmazeColor.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
      * @param value The lineColor to set.
      * @return This builder for chaining.
      */
-    public Builder setLineColor(com.nkasenides.amc.proto.AmazeColor value) {
+    public Builder setLineColor(AmazeColor value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1618,7 +1618,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool canRepeat = 7;</code>
      * @return The canRepeat.
      */
-    @java.lang.Override
+    @Override
     public boolean getCanRepeat() {
       return canRepeat_;
     }
@@ -1649,7 +1649,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 createdOn = 8;</code>
      * @return The createdOn.
      */
-    @java.lang.Override
+    @Override
     public long getCreatedOn() {
       return createdOn_;
     }
@@ -1680,7 +1680,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool hasQuestionnaire = 9;</code>
      * @return The hasQuestionnaire.
      */
-    @java.lang.Override
+    @Override
     public boolean getHasQuestionnaire() {
       return hasQuestionnaire_;
     }
@@ -1711,7 +1711,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
      * @return The enum numeric value on the wire for difficulty.
      */
-    @java.lang.Override public int getDifficultyValue() {
+    @Override public int getDifficultyValue() {
       return difficulty_;
     }
     /**
@@ -1729,18 +1729,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
      * @return The difficulty.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Difficulty getDifficulty() {
+    @Override
+    public Difficulty getDifficulty() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.Difficulty result = com.nkasenides.amc.proto.Difficulty.valueOf(difficulty_);
-      return result == null ? com.nkasenides.amc.proto.Difficulty.UNRECOGNIZED : result;
+      Difficulty result = Difficulty.valueOf(difficulty_);
+      return result == null ? Difficulty.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.Difficulty difficulty = 10;</code>
      * @param value The difficulty to set.
      * @return This builder for chaining.
      */
-    public Builder setDifficulty(com.nkasenides.amc.proto.Difficulty value) {
+    public Builder setDifficulty(Difficulty value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1765,7 +1765,7 @@ private static final long serialVersionUID = 0L;
      * <code>int32 apiVersion = 11;</code>
      * @return The apiVersion.
      */
-    @java.lang.Override
+    @Override
     public int getApiVersion() {
       return apiVersion_;
     }
@@ -1796,7 +1796,7 @@ private static final long serialVersionUID = 0L;
      * <code>int32 maxActivePlayers = 12;</code>
      * @return The maxActivePlayers.
      */
-    @java.lang.Override
+    @Override
     public int getMaxActivePlayers() {
       return maxActivePlayers_;
     }
@@ -1822,9 +1822,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.nkasenides.amc.proto.GridProto grid_;
+    private GridProto grid_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.GridProto, com.nkasenides.amc.proto.GridProto.Builder, com.nkasenides.amc.proto.GridProtoOrBuilder> gridBuilder_;
+        GridProto, GridProto.Builder, GridProtoOrBuilder> gridBuilder_;
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      * @return Whether the grid field is set.
@@ -1836,9 +1836,9 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      * @return The grid.
      */
-    public com.nkasenides.amc.proto.GridProto getGrid() {
+    public GridProto getGrid() {
       if (gridBuilder_ == null) {
-        return grid_ == null ? com.nkasenides.amc.proto.GridProto.getDefaultInstance() : grid_;
+        return grid_ == null ? GridProto.getDefaultInstance() : grid_;
       } else {
         return gridBuilder_.getMessage();
       }
@@ -1846,7 +1846,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
-    public Builder setGrid(com.nkasenides.amc.proto.GridProto value) {
+    public Builder setGrid(GridProto value) {
       if (gridBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1863,7 +1863,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
     public Builder setGrid(
-        com.nkasenides.amc.proto.GridProto.Builder builderForValue) {
+        GridProto.Builder builderForValue) {
       if (gridBuilder_ == null) {
         grid_ = builderForValue.build();
         onChanged();
@@ -1876,11 +1876,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
-    public Builder mergeGrid(com.nkasenides.amc.proto.GridProto value) {
+    public Builder mergeGrid(GridProto value) {
       if (gridBuilder_ == null) {
         if (grid_ != null) {
           grid_ =
-            com.nkasenides.amc.proto.GridProto.newBuilder(grid_).mergeFrom(value).buildPartial();
+            GridProto.newBuilder(grid_).mergeFrom(value).buildPartial();
         } else {
           grid_ = value;
         }
@@ -1908,7 +1908,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
-    public com.nkasenides.amc.proto.GridProto.Builder getGridBuilder() {
+    public GridProto.Builder getGridBuilder() {
       
       onChanged();
       return getGridFieldBuilder().getBuilder();
@@ -1916,23 +1916,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
-    public com.nkasenides.amc.proto.GridProtoOrBuilder getGridOrBuilder() {
+    public GridProtoOrBuilder getGridOrBuilder() {
       if (gridBuilder_ != null) {
         return gridBuilder_.getMessageOrBuilder();
       } else {
         return grid_ == null ?
-            com.nkasenides.amc.proto.GridProto.getDefaultInstance() : grid_;
+            GridProto.getDefaultInstance() : grid_;
       }
     }
     /**
      * <code>.com.nkasenides.amc.proto.GridProto grid = 13;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.GridProto, com.nkasenides.amc.proto.GridProto.Builder, com.nkasenides.amc.proto.GridProtoOrBuilder> 
+        GridProto, GridProto.Builder, GridProtoOrBuilder>
         getGridFieldBuilder() {
       if (gridBuilder_ == null) {
         gridBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.GridProto, com.nkasenides.amc.proto.GridProto.Builder, com.nkasenides.amc.proto.GridProtoOrBuilder>(
+            GridProto, GridProto.Builder, GridProtoOrBuilder>(
                 getGrid(),
                 getParentForChildren(),
                 isClean());
@@ -1946,7 +1946,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
      * @return The enum numeric value on the wire for backgroundAudio.
      */
-    @java.lang.Override public int getBackgroundAudioValue() {
+    @Override public int getBackgroundAudioValue() {
       return backgroundAudio_;
     }
     /**
@@ -1964,18 +1964,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
      * @return The backgroundAudio.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Audio getBackgroundAudio() {
+    @Override
+    public Audio getBackgroundAudio() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.Audio result = com.nkasenides.amc.proto.Audio.valueOf(backgroundAudio_);
-      return result == null ? com.nkasenides.amc.proto.Audio.UNRECOGNIZED : result;
+      Audio result = Audio.valueOf(backgroundAudio_);
+      return result == null ? Audio.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.Audio backgroundAudio = 14;</code>
      * @param value The backgroundAudio to set.
      * @return This builder for chaining.
      */
-    public Builder setBackgroundAudio(com.nkasenides.amc.proto.Audio value) {
+    public Builder setBackgroundAudio(Audio value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -2000,7 +2000,7 @@ private static final long serialVersionUID = 0L;
      * <code>int32 minActivePlayers = 15;</code>
      * @return The minActivePlayers.
      */
-    @java.lang.Override
+    @Override
     public int getMinActivePlayers() {
       return minActivePlayers_;
     }
@@ -2026,21 +2026,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private Object name_ = "";
     /**
      * <code>string name = 16;</code>
      * @return The name.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getName() {
+      Object ref = name_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         name_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -2049,11 +2049,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
-      java.lang.Object ref = name_;
+      Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         name_ = b;
         return b;
       } else {
@@ -2066,7 +2066,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setName(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -2107,7 +2107,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 startTime = 17;</code>
      * @return The startTime.
      */
-    @java.lang.Override
+    @Override
     public long getStartTime() {
       return startTime_;
     }
@@ -2138,7 +2138,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 endTime = 18;</code>
      * @return The endTime.
      */
-    @java.lang.Override
+    @Override
     public long getEndTime() {
       return endTime_;
     }
@@ -2164,21 +2164,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 19;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -2187,11 +2187,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -2204,7 +2204,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -2245,7 +2245,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
      * @return The enum numeric value on the wire for rewards.
      */
-    @java.lang.Override public int getRewardsValue() {
+    @Override public int getRewardsValue() {
       return rewards_;
     }
     /**
@@ -2263,18 +2263,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
      * @return The rewards.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableIntensity getRewards() {
+    @Override
+    public PickableIntensity getRewards() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.PickableIntensity result = com.nkasenides.amc.proto.PickableIntensity.valueOf(rewards_);
-      return result == null ? com.nkasenides.amc.proto.PickableIntensity.UNRECOGNIZED : result;
+      PickableIntensity result = PickableIntensity.valueOf(rewards_);
+      return result == null ? PickableIntensity.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.PickableIntensity rewards = 20;</code>
      * @param value The rewards to set.
      * @return This builder for chaining.
      */
-    public Builder setRewards(com.nkasenides.amc.proto.PickableIntensity value) {
+    public Builder setRewards(PickableIntensity value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -2294,21 +2294,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object createdByID_ = "";
+    private Object createdByID_ = "";
     /**
      * <code>string createdByID = 21;</code>
      * @return The createdByID.
      */
-    public java.lang.String getCreatedByID() {
-      java.lang.Object ref = createdByID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getCreatedByID() {
+      Object ref = createdByID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         createdByID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -2317,11 +2317,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getCreatedByIDBytes() {
-      java.lang.Object ref = createdByID_;
+      Object ref = createdByID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         createdByID_ = b;
         return b;
       } else {
@@ -2334,7 +2334,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCreatedByID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -2375,7 +2375,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
      * @return The enum numeric value on the wire for algorithm.
      */
-    @java.lang.Override public int getAlgorithmValue() {
+    @Override public int getAlgorithmValue() {
       return algorithm_;
     }
     /**
@@ -2393,18 +2393,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
      * @return The algorithm.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Algorithm getAlgorithm() {
+    @Override
+    public Algorithm getAlgorithm() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.Algorithm result = com.nkasenides.amc.proto.Algorithm.valueOf(algorithm_);
-      return result == null ? com.nkasenides.amc.proto.Algorithm.UNRECOGNIZED : result;
+      Algorithm result = Algorithm.valueOf(algorithm_);
+      return result == null ? Algorithm.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.Algorithm algorithm = 22;</code>
      * @param value The algorithm to set.
      * @return This builder for chaining.
      */
-    public Builder setAlgorithm(com.nkasenides.amc.proto.Algorithm value) {
+    public Builder setAlgorithm(Algorithm value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -2423,13 +2423,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -2440,18 +2440,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.ChallengeProto)
-  private static final com.nkasenides.amc.proto.ChallengeProto DEFAULT_INSTANCE;
+  private static final ChallengeProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.ChallengeProto();
+    DEFAULT_INSTANCE = new ChallengeProto();
   }
 
-  public static com.nkasenides.amc.proto.ChallengeProto getDefaultInstance() {
+  public static ChallengeProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<ChallengeProto>
       PARSER = new com.google.protobuf.AbstractParser<ChallengeProto>() {
-    @java.lang.Override
+    @Override
     public ChallengeProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2464,17 +2464,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<ChallengeProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.ChallengeProto getDefaultInstanceForType() {
+  @Override
+  public ChallengeProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.Challenge toObject() {    
         com.nkasenides.amc.model.Challenge item = new com.nkasenides.amc.model.Challenge();        
         item.setCanJoinAfterStart(getCanJoinAfterStart());        

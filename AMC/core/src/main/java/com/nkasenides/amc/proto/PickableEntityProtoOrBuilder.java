@@ -11,7 +11,7 @@ public interface PickableEntityProtoOrBuilder extends
    * <code>string worldID = 1;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 1;</code>
    * @return The bytes for worldID.
@@ -34,13 +34,13 @@ public interface PickableEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
    * @return The pickableType.
    */
-  com.nkasenides.amc.proto.PickableType getPickableType();
+  PickableType getPickableType();
 
   /**
    * <code>string id = 4;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 4;</code>
    * @return The bytes for id.
@@ -57,17 +57,17 @@ public interface PickableEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
    * @return The position.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getPosition();
+  MatrixPositionProto getPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
    * <code>string playerID = 6;</code>
    * @return The playerID.
    */
-  java.lang.String getPlayerID();
+  String getPlayerID();
   /**
    * <code>string playerID = 6;</code>
    * @return The bytes for playerID.
@@ -84,5 +84,5 @@ public interface PickableEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
    * @return The direction.
    */
-  com.nkasenides.amc.proto.Direction4 getDirection();
+  Direction4 getDirection();
 }

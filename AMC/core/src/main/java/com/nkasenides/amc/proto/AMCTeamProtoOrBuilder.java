@@ -11,7 +11,7 @@ public interface AMCTeamProtoOrBuilder extends
    * <code>string name = 1;</code>
    * @return The name.
    */
-  java.lang.String getName();
+  String getName();
   /**
    * <code>string name = 1;</code>
    * @return The bytes for name.
@@ -23,7 +23,7 @@ public interface AMCTeamProtoOrBuilder extends
    * <code>string id = 2;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 2;</code>
    * @return The bytes for id.
@@ -35,7 +35,7 @@ public interface AMCTeamProtoOrBuilder extends
    * <code>string ownerID = 3;</code>
    * @return The ownerID.
    */
-  java.lang.String getOwnerID();
+  String getOwnerID();
   /**
    * <code>string ownerID = 3;</code>
    * @return The bytes for ownerID.
@@ -47,7 +47,7 @@ public interface AMCTeamProtoOrBuilder extends
    * <code>repeated string playerIDs = 4;</code>
    * @return A list containing the playerIDs.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getPlayerIDsList();
   /**
    * <code>repeated string playerIDs = 4;</code>
@@ -59,7 +59,7 @@ public interface AMCTeamProtoOrBuilder extends
    * @param index The index of the element to return.
    * @return The playerIDs at the given index.
    */
-  java.lang.String getPlayerIDs(int index);
+  String getPlayerIDs(int index);
   /**
    * <code>repeated string playerIDs = 4;</code>
    * @param index The index of the value to return.

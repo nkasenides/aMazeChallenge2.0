@@ -19,14 +19,14 @@ private static final long serialVersionUID = 0L;
     positionHash_ = "";
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new GeoPositionProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -37,7 +37,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             positionHash_ = s;
             break;
@@ -91,15 +91,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.GeoPositionProto.class, com.nkasenides.amc.proto.GeoPositionProto.Builder.class);
+            GeoPositionProto.class, Builder.class);
   }
 
   public static final int X_FIELD_NUMBER = 1;
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
    * <code>float x = 1;</code>
    * @return The x.
    */
-  @java.lang.Override
+  @Override
   public float getX() {
     return x_;
   }
@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
    * <code>float y = 2;</code>
    * @return The y.
    */
-  @java.lang.Override
+  @Override
   public float getY() {
     return y_;
   }
@@ -130,26 +130,26 @@ private static final long serialVersionUID = 0L;
    * <code>float z = 3;</code>
    * @return The z.
    */
-  @java.lang.Override
+  @Override
   public float getZ() {
     return z_;
   }
 
   public static final int POSITIONHASH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object positionHash_;
+  private volatile Object positionHash_;
   /**
    * <code>string positionHash = 4;</code>
    * @return The positionHash.
    */
-  @java.lang.Override
-  public java.lang.String getPositionHash() {
-    java.lang.Object ref = positionHash_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getPositionHash() {
+    Object ref = positionHash_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       positionHash_ = s;
       return s;
     }
@@ -158,14 +158,14 @@ private static final long serialVersionUID = 0L;
    * <code>string positionHash = 4;</code>
    * @return The bytes for positionHash.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getPositionHashBytes() {
-    java.lang.Object ref = positionHash_;
-    if (ref instanceof java.lang.String) {
+    Object ref = positionHash_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       positionHash_ = b;
       return b;
     } else {
@@ -174,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (x_ != 0F) {
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -228,24 +228,24 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.GeoPositionProto)) {
+    if (!(obj instanceof GeoPositionProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.GeoPositionProto other = (com.nkasenides.amc.proto.GeoPositionProto) obj;
+    GeoPositionProto other = (GeoPositionProto) obj;
 
-    if (java.lang.Float.floatToIntBits(getX())
-        != java.lang.Float.floatToIntBits(
+    if (Float.floatToIntBits(getX())
+        != Float.floatToIntBits(
             other.getX())) return false;
-    if (java.lang.Float.floatToIntBits(getY())
-        != java.lang.Float.floatToIntBits(
+    if (Float.floatToIntBits(getY())
+        != Float.floatToIntBits(
             other.getY())) return false;
-    if (java.lang.Float.floatToIntBits(getZ())
-        != java.lang.Float.floatToIntBits(
+    if (Float.floatToIntBits(getZ())
+        != Float.floatToIntBits(
             other.getZ())) return false;
     if (!getPositionHash()
         .equals(other.getPositionHash())) return false;
@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -261,13 +261,13 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + X_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+    hash = (53 * hash) + Float.floatToIntBits(
         getX());
     hash = (37 * hash) + Y_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+    hash = (53 * hash) + Float.floatToIntBits(
         getY());
     hash = (37 * hash) + Z_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+    hash = (53 * hash) + Float.floatToIntBits(
         getZ());
     hash = (37 * hash) + POSITIONHASH_FIELD_NUMBER;
     hash = (53 * hash) + getPositionHash().hashCode();
@@ -276,69 +276,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(byte[] data)
+  public static GeoPositionProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(java.io.InputStream input)
+  public static GeoPositionProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseDelimitedFrom(java.io.InputStream input)
+  public static GeoPositionProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseDelimitedFrom(
+  public static GeoPositionProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.GeoPositionProto parseFrom(
+  public static GeoPositionProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -346,23 +346,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.GeoPositionProto prototype) {
+  public static Builder newBuilder(GeoPositionProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -372,18 +372,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.GeoPositionProto)
-      com.nkasenides.amc.proto.GeoPositionProtoOrBuilder {
+      GeoPositionProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.GeoPositionProto.class, com.nkasenides.amc.proto.GeoPositionProto.Builder.class);
+              GeoPositionProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.GeoPositionProto.newBuilder()
@@ -392,7 +392,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -401,7 +401,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       x_ = 0F;
@@ -415,29 +415,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.GeoPositionProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.GeoPositionProto.getDefaultInstance();
+    @Override
+    public GeoPositionProto getDefaultInstanceForType() {
+      return GeoPositionProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.GeoPositionProto build() {
-      com.nkasenides.amc.proto.GeoPositionProto result = buildPartial();
+    @Override
+    public GeoPositionProto build() {
+      GeoPositionProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.GeoPositionProto buildPartial() {
-      com.nkasenides.amc.proto.GeoPositionProto result = new com.nkasenides.amc.proto.GeoPositionProto(this);
+    @Override
+    public GeoPositionProto buildPartial() {
+      GeoPositionProto result = new GeoPositionProto(this);
       result.x_ = x_;
       result.y_ = y_;
       result.z_ = z_;
@@ -446,50 +446,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.GeoPositionProto) {
-        return mergeFrom((com.nkasenides.amc.proto.GeoPositionProto)other);
+      if (other instanceof GeoPositionProto) {
+        return mergeFrom((GeoPositionProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.GeoPositionProto other) {
-      if (other == com.nkasenides.amc.proto.GeoPositionProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(GeoPositionProto other) {
+      if (other == GeoPositionProto.getDefaultInstance()) return this;
       if (other.getX() != 0F) {
         setX(other.getX());
       }
@@ -508,21 +508,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.GeoPositionProto parsedMessage = null;
+      GeoPositionProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.GeoPositionProto) e.getUnfinishedMessage();
+        parsedMessage = (GeoPositionProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -537,7 +537,7 @@ private static final long serialVersionUID = 0L;
      * <code>float x = 1;</code>
      * @return The x.
      */
-    @java.lang.Override
+    @Override
     public float getX() {
       return x_;
     }
@@ -568,7 +568,7 @@ private static final long serialVersionUID = 0L;
      * <code>float y = 2;</code>
      * @return The y.
      */
-    @java.lang.Override
+    @Override
     public float getY() {
       return y_;
     }
@@ -599,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * <code>float z = 3;</code>
      * @return The z.
      */
-    @java.lang.Override
+    @Override
     public float getZ() {
       return z_;
     }
@@ -625,21 +625,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object positionHash_ = "";
+    private Object positionHash_ = "";
     /**
      * <code>string positionHash = 4;</code>
      * @return The positionHash.
      */
-    public java.lang.String getPositionHash() {
-      java.lang.Object ref = positionHash_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getPositionHash() {
+      Object ref = positionHash_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         positionHash_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -648,11 +648,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getPositionHashBytes() {
-      java.lang.Object ref = positionHash_;
+      Object ref = positionHash_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         positionHash_ = b;
         return b;
       } else {
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPositionHash(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -700,13 +700,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -717,18 +717,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.GeoPositionProto)
-  private static final com.nkasenides.amc.proto.GeoPositionProto DEFAULT_INSTANCE;
+  private static final GeoPositionProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.GeoPositionProto();
+    DEFAULT_INSTANCE = new GeoPositionProto();
   }
 
-  public static com.nkasenides.amc.proto.GeoPositionProto getDefaultInstance() {
+  public static GeoPositionProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<GeoPositionProto>
       PARSER = new com.google.protobuf.AbstractParser<GeoPositionProto>() {
-    @java.lang.Override
+    @Override
     public GeoPositionProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -741,17 +741,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<GeoPositionProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.GeoPositionProto getDefaultInstanceForType() {
+  @Override
+  public GeoPositionProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.GeoPosition toObject() {    
         com.nkasenides.amc.model.GeoPosition item = new com.nkasenides.amc.model.GeoPosition();        
         item.setX(getX());        

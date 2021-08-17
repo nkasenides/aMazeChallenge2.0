@@ -16,17 +16,17 @@ public interface AMCStateUpdateProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    * @return The partialState.
    */
-  com.nkasenides.amc.proto.AMCPartialStateProto getPartialState();
+  AMCPartialStateProto getPartialState();
   /**
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    */
-  com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder getPartialStateOrBuilder();
+  AMCPartialStateProtoOrBuilder getPartialStateOrBuilder();
 
   /**
    * <code>string worldSessionID = 2;</code>
    * @return The worldSessionID.
    */
-  java.lang.String getWorldSessionID();
+  String getWorldSessionID();
   /**
    * <code>string worldSessionID = 2;</code>
    * @return The bytes for worldSessionID.
@@ -38,7 +38,7 @@ public interface AMCStateUpdateProtoOrBuilder extends
    * <code>repeated string removedEntities = 3;</code>
    * @return A list containing the removedEntities.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getRemovedEntitiesList();
   /**
    * <code>repeated string removedEntities = 3;</code>
@@ -50,7 +50,7 @@ public interface AMCStateUpdateProtoOrBuilder extends
    * @param index The index of the element to return.
    * @return The removedEntities at the given index.
    */
-  java.lang.String getRemovedEntities(int index);
+  String getRemovedEntities(int index);
   /**
    * <code>repeated string removedEntities = 3;</code>
    * @param index The index of the value to return.
@@ -63,7 +63,7 @@ public interface AMCStateUpdateProtoOrBuilder extends
    * <code>repeated string removedTerrain = 4;</code>
    * @return A list containing the removedTerrain.
    */
-  java.util.List<java.lang.String>
+  java.util.List<String>
       getRemovedTerrainList();
   /**
    * <code>repeated string removedTerrain = 4;</code>
@@ -75,7 +75,7 @@ public interface AMCStateUpdateProtoOrBuilder extends
    * @param index The index of the element to return.
    * @return The removedTerrain at the given index.
    */
-  java.lang.String getRemovedTerrain(int index);
+  String getRemovedTerrain(int index);
   /**
    * <code>repeated string removedTerrain = 4;</code>
    * @param index The index of the value to return.

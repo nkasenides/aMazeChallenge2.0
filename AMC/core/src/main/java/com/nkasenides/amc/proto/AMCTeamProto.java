@@ -22,14 +22,14 @@ private static final long serialVersionUID = 0L;
     playerIDs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCTeamProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -40,7 +40,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -54,25 +54,25 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             name_ = s;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             ownerID_ = s;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               playerIDs_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
@@ -109,32 +109,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCTeamProto.class, com.nkasenides.amc.proto.AMCTeamProto.Builder.class);
+            AMCTeamProto.class, Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  private volatile Object name_;
   /**
    * <code>string name = 1;</code>
    * @return The name.
    */
-  @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getName() {
+    Object ref = name_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       name_ = s;
       return s;
     }
@@ -143,14 +143,14 @@ private static final long serialVersionUID = 0L;
    * <code>string name = 1;</code>
    * @return The bytes for name.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
+    Object ref = name_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       name_ = b;
       return b;
     } else {
@@ -159,20 +159,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 2;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -181,14 +181,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 2;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -197,20 +197,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OWNERID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object ownerID_;
+  private volatile Object ownerID_;
   /**
    * <code>string ownerID = 3;</code>
    * @return The ownerID.
    */
-  @java.lang.Override
-  public java.lang.String getOwnerID() {
-    java.lang.Object ref = ownerID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getOwnerID() {
+    Object ref = ownerID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       ownerID_ = s;
       return s;
     }
@@ -219,14 +219,14 @@ private static final long serialVersionUID = 0L;
    * <code>string ownerID = 3;</code>
    * @return The bytes for ownerID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getOwnerIDBytes() {
-    java.lang.Object ref = ownerID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = ownerID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       ownerID_ = b;
       return b;
     } else {
@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
    * @param index The index of the element to return.
    * @return The playerIDs at the given index.
    */
-  public java.lang.String getPlayerIDs(int index) {
+  public String getPlayerIDs(int index) {
     return playerIDs_.get(index);
   }
   /**
@@ -275,13 +275,13 @@ private static final long serialVersionUID = 0L;
    * <code>uint32 playerLimit = 5;</code>
    * @return The playerLimit.
    */
-  @java.lang.Override
+  @Override
   public int getPlayerLimit() {
     return playerLimit_;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getNameBytes().isEmpty()) {
@@ -312,7 +312,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -344,15 +344,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCTeamProto)) {
+    if (!(obj instanceof AMCTeamProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCTeamProto other = (com.nkasenides.amc.proto.AMCTeamProto) obj;
+    AMCTeamProto other = (AMCTeamProto) obj;
 
     if (!getName()
         .equals(other.getName())) return false;
@@ -368,7 +368,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -392,69 +392,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(byte[] data)
+  public static AMCTeamProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(java.io.InputStream input)
+  public static AMCTeamProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCTeamProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseDelimitedFrom(
+  public static AMCTeamProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTeamProto parseFrom(
+  public static AMCTeamProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -462,23 +462,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCTeamProto prototype) {
+  public static Builder newBuilder(AMCTeamProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -488,7 +488,7 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.ITeam, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCTeam>, 
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCTeamProto)
-      com.nkasenides.amc.proto.AMCTeamProtoOrBuilder {    @java.lang.Override    
+      AMCTeamProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.AMCTeam toObject() {    
         com.nkasenides.amc.model.AMCTeam item = new com.nkasenides.amc.model.AMCTeam();        
         item.setName(getName());        
@@ -510,15 +510,15 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCTeamProto.class, com.nkasenides.amc.proto.AMCTeamProto.Builder.class);
+              AMCTeamProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCTeamProto.newBuilder()
@@ -527,7 +527,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       name_ = "";
@@ -552,29 +552,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTeamProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCTeamProto.getDefaultInstance();
+    @Override
+    public AMCTeamProto getDefaultInstanceForType() {
+      return AMCTeamProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTeamProto build() {
-      com.nkasenides.amc.proto.AMCTeamProto result = buildPartial();
+    @Override
+    public AMCTeamProto build() {
+      AMCTeamProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTeamProto buildPartial() {
-      com.nkasenides.amc.proto.AMCTeamProto result = new com.nkasenides.amc.proto.AMCTeamProto(this);
+    @Override
+    public AMCTeamProto buildPartial() {
+      AMCTeamProto result = new AMCTeamProto(this);
       int from_bitField0_ = bitField0_;
       result.name_ = name_;
       result.id_ = id_;
@@ -589,50 +589,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCTeamProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCTeamProto)other);
+      if (other instanceof AMCTeamProto) {
+        return mergeFrom((AMCTeamProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCTeamProto other) {
-      if (other == com.nkasenides.amc.proto.AMCTeamProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCTeamProto other) {
+      if (other == AMCTeamProto.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
@@ -663,21 +663,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCTeamProto parsedMessage = null;
+      AMCTeamProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCTeamProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCTeamProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -688,21 +688,21 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private Object name_ = "";
     /**
      * <code>string name = 1;</code>
      * @return The name.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getName() {
+      Object ref = name_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         name_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -711,11 +711,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
-      java.lang.Object ref = name_;
+      Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         name_ = b;
         return b;
       } else {
@@ -728,7 +728,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setName(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -764,21 +764,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 2;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -787,11 +787,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -804,7 +804,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -840,21 +840,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object ownerID_ = "";
+    private Object ownerID_ = "";
     /**
      * <code>string ownerID = 3;</code>
      * @return The ownerID.
      */
-    public java.lang.String getOwnerID() {
-      java.lang.Object ref = ownerID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getOwnerID() {
+      Object ref = ownerID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         ownerID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -863,11 +863,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getOwnerIDBytes() {
-      java.lang.Object ref = ownerID_;
+      Object ref = ownerID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         ownerID_ = b;
         return b;
       } else {
@@ -880,7 +880,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOwnerID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -943,7 +943,7 @@ private static final long serialVersionUID = 0L;
      * @param index The index of the element to return.
      * @return The playerIDs at the given index.
      */
-    public java.lang.String getPlayerIDs(int index) {
+    public String getPlayerIDs(int index) {
       return playerIDs_.get(index);
     }
     /**
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlayerIDs(
-        int index, java.lang.String value) {
+        int index, String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -977,7 +977,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addPlayerIDs(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -992,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAllPlayerIDs(
-        java.lang.Iterable<java.lang.String> values) {
+        Iterable<String> values) {
       ensurePlayerIDsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, playerIDs_);
@@ -1031,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint32 playerLimit = 5;</code>
      * @return The playerLimit.
      */
-    @java.lang.Override
+    @Override
     public int getPlayerLimit() {
       return playerLimit_;
     }
@@ -1056,13 +1056,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1073,18 +1073,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCTeamProto)
-  private static final com.nkasenides.amc.proto.AMCTeamProto DEFAULT_INSTANCE;
+  private static final AMCTeamProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCTeamProto();
+    DEFAULT_INSTANCE = new AMCTeamProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCTeamProto getDefaultInstance() {
+  public static AMCTeamProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCTeamProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCTeamProto>() {
-    @java.lang.Override
+    @Override
     public AMCTeamProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1097,17 +1097,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCTeamProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCTeamProto getDefaultInstanceForType() {
+  @Override
+  public AMCTeamProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.AMCTeam toObject() {    
         com.nkasenides.amc.model.AMCTeam item = new com.nkasenides.amc.model.AMCTeam();        
         item.setName(getName());        

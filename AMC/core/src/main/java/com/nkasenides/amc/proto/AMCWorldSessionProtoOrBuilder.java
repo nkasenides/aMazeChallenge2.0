@@ -11,7 +11,7 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>string worldID = 1;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 1;</code>
    * @return The bytes for worldID.
@@ -23,7 +23,7 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>string ipAddress = 2;</code>
    * @return The ipAddress.
    */
-  java.lang.String getIpAddress();
+  String getIpAddress();
   /**
    * <code>string ipAddress = 2;</code>
    * @return The bytes for ipAddress.
@@ -40,11 +40,11 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
    * @return The cameraPosition.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getCameraPosition();
+  MatrixPositionProto getCameraPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto cameraPosition = 3;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getCameraPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getCameraPositionOrBuilder();
 
   /**
    * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
@@ -55,11 +55,11 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
    * @return The health.
    */
-  com.nkasenides.amc.proto.HealthProto getHealth();
+  HealthProto getHealth();
   /**
    * <code>.com.nkasenides.amc.proto.HealthProto health = 4;</code>
    */
-  com.nkasenides.amc.proto.HealthProtoOrBuilder getHealthOrBuilder();
+  HealthProtoOrBuilder getHealthOrBuilder();
 
   /**
    * <code>uint64 expiresOn = 5;</code>
@@ -71,7 +71,7 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>string id = 6;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 6;</code>
    * @return The bytes for id.
@@ -89,7 +89,7 @@ public interface AMCWorldSessionProtoOrBuilder extends
    * <code>string playerID = 8;</code>
    * @return The playerID.
    */
-  java.lang.String getPlayerID();
+  String getPlayerID();
   /**
    * <code>string playerID = 8;</code>
    * @return The bytes for playerID.

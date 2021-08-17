@@ -11,7 +11,7 @@ public interface AMCTerrainChunkProtoOrBuilder extends
    * <code>string id = 1;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 1;</code>
    * @return The bytes for id.
@@ -23,7 +23,7 @@ public interface AMCTerrainChunkProtoOrBuilder extends
    * <code>string worldID = 2;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 2;</code>
    * @return The bytes for worldID.
@@ -40,11 +40,11 @@ public interface AMCTerrainChunkProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 3;</code>
    * @return The position.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getPosition();
+  MatrixPositionProto getPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 3;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; cells = 4;</code>
@@ -54,29 +54,29 @@ public interface AMCTerrainChunkProtoOrBuilder extends
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; cells = 4;</code>
    */
   boolean containsCells(
-      java.lang.String key);
+      String key);
   /**
    * Use {@link #getCellsMap()} instead.
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+  @Deprecated
+  java.util.Map<String, AMCTerrainCellProto>
   getCells();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; cells = 4;</code>
    */
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+  java.util.Map<String, AMCTerrainCellProto>
   getCellsMap();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; cells = 4;</code>
    */
 
-  com.nkasenides.amc.proto.AMCTerrainCellProto getCellsOrDefault(
-      java.lang.String key,
-      com.nkasenides.amc.proto.AMCTerrainCellProto defaultValue);
+  AMCTerrainCellProto getCellsOrDefault(
+      String key,
+      AMCTerrainCellProto defaultValue);
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; cells = 4;</code>
    */
 
-  com.nkasenides.amc.proto.AMCTerrainCellProto getCellsOrThrow(
-      java.lang.String key);
+  AMCTerrainCellProto getCellsOrThrow(
+      String key);
 }

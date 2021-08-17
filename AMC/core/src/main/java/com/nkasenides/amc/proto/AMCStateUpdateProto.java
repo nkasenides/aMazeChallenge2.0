@@ -21,14 +21,14 @@ private static final long serialVersionUID = 0L;
     removedTerrain_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCStateUpdateProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -53,11 +53,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.nkasenides.amc.proto.AMCPartialStateProto.Builder subBuilder = null;
+            AMCPartialStateProto.Builder subBuilder = null;
             if (partialState_ != null) {
               subBuilder = partialState_.toBuilder();
             }
-            partialState_ = input.readMessage(com.nkasenides.amc.proto.AMCPartialStateProto.parser(), extensionRegistry);
+            partialState_ = input.readMessage(AMCPartialStateProto.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(partialState_);
               partialState_ = subBuilder.buildPartial();
@@ -66,13 +66,13 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             worldSessionID_ = s;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               removedEntities_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
@@ -81,7 +81,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               removedTerrain_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000002;
@@ -121,24 +121,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCStateUpdateProto.class, com.nkasenides.amc.proto.AMCStateUpdateProto.Builder.class);
+            AMCStateUpdateProto.class, Builder.class);
   }
 
   public static final int PARTIALSTATE_FIELD_NUMBER = 1;
-  private com.nkasenides.amc.proto.AMCPartialStateProto partialState_;
+  private AMCPartialStateProto partialState_;
   /**
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    * @return Whether the partialState field is set.
    */
-  @java.lang.Override
+  @Override
   public boolean hasPartialState() {
     return partialState_ != null;
   }
@@ -146,33 +146,33 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    * @return The partialState.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCPartialStateProto getPartialState() {
-    return partialState_ == null ? com.nkasenides.amc.proto.AMCPartialStateProto.getDefaultInstance() : partialState_;
+  @Override
+  public AMCPartialStateProto getPartialState() {
+    return partialState_ == null ? AMCPartialStateProto.getDefaultInstance() : partialState_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
+  @Override
+  public AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
     return getPartialState();
   }
 
   public static final int WORLDSESSIONID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object worldSessionID_;
+  private volatile Object worldSessionID_;
   /**
    * <code>string worldSessionID = 2;</code>
    * @return The worldSessionID.
    */
-  @java.lang.Override
-  public java.lang.String getWorldSessionID() {
-    java.lang.Object ref = worldSessionID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getWorldSessionID() {
+    Object ref = worldSessionID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       worldSessionID_ = s;
       return s;
     }
@@ -181,14 +181,14 @@ private static final long serialVersionUID = 0L;
    * <code>string worldSessionID = 2;</code>
    * @return The bytes for worldSessionID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getWorldSessionIDBytes() {
-    java.lang.Object ref = worldSessionID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = worldSessionID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       worldSessionID_ = b;
       return b;
     } else {
@@ -218,7 +218,7 @@ private static final long serialVersionUID = 0L;
    * @param index The index of the element to return.
    * @return The removedEntities at the given index.
    */
-  public java.lang.String getRemovedEntities(int index) {
+  public String getRemovedEntities(int index) {
     return removedEntities_.get(index);
   }
   /**
@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
    * @param index The index of the element to return.
    * @return The removedTerrain at the given index.
    */
-  public java.lang.String getRemovedTerrain(int index) {
+  public String getRemovedTerrain(int index) {
     return removedTerrain_.get(index);
   }
   /**
@@ -272,13 +272,13 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 timestamp = 5;</code>
    * @return The timestamp.
    */
-  @java.lang.Override
+  @Override
   public long getTimestamp() {
     return timestamp_;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (partialState_ != null) {
@@ -309,7 +309,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -347,15 +347,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCStateUpdateProto)) {
+    if (!(obj instanceof AMCStateUpdateProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCStateUpdateProto other = (com.nkasenides.amc.proto.AMCStateUpdateProto) obj;
+    AMCStateUpdateProto other = (AMCStateUpdateProto) obj;
 
     if (hasPartialState() != other.hasPartialState()) return false;
     if (hasPartialState()) {
@@ -374,7 +374,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -403,69 +403,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(byte[] data)
+  public static AMCStateUpdateProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(java.io.InputStream input)
+  public static AMCStateUpdateProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCStateUpdateProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseDelimitedFrom(
+  public static AMCStateUpdateProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto parseFrom(
+  public static AMCStateUpdateProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -473,23 +473,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCStateUpdateProto prototype) {
+  public static Builder newBuilder(AMCStateUpdateProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -499,18 +499,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCStateUpdateProto)
-      com.nkasenides.amc.proto.AMCStateUpdateProtoOrBuilder {
+      AMCStateUpdateProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCStateUpdateProto.class, com.nkasenides.amc.proto.AMCStateUpdateProto.Builder.class);
+              AMCStateUpdateProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCStateUpdateProto.newBuilder()
@@ -519,7 +519,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -528,7 +528,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       if (partialStateBuilder_ == null) {
@@ -548,29 +548,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCStateUpdateProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCStateUpdateProto.getDefaultInstance();
+    @Override
+    public AMCStateUpdateProto getDefaultInstanceForType() {
+      return AMCStateUpdateProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCStateUpdateProto build() {
-      com.nkasenides.amc.proto.AMCStateUpdateProto result = buildPartial();
+    @Override
+    public AMCStateUpdateProto build() {
+      AMCStateUpdateProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCStateUpdateProto buildPartial() {
-      com.nkasenides.amc.proto.AMCStateUpdateProto result = new com.nkasenides.amc.proto.AMCStateUpdateProto(this);
+    @Override
+    public AMCStateUpdateProto buildPartial() {
+      AMCStateUpdateProto result = new AMCStateUpdateProto(this);
       int from_bitField0_ = bitField0_;
       if (partialStateBuilder_ == null) {
         result.partialState_ = partialState_;
@@ -593,50 +593,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCStateUpdateProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCStateUpdateProto)other);
+      if (other instanceof AMCStateUpdateProto) {
+        return mergeFrom((AMCStateUpdateProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCStateUpdateProto other) {
-      if (other == com.nkasenides.amc.proto.AMCStateUpdateProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCStateUpdateProto other) {
+      if (other == AMCStateUpdateProto.getDefaultInstance()) return this;
       if (other.hasPartialState()) {
         mergePartialState(other.getPartialState());
       }
@@ -672,21 +672,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCStateUpdateProto parsedMessage = null;
+      AMCStateUpdateProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCStateUpdateProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCStateUpdateProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -697,9 +697,9 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.nkasenides.amc.proto.AMCPartialStateProto partialState_;
+    private AMCPartialStateProto partialState_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.AMCPartialStateProto, com.nkasenides.amc.proto.AMCPartialStateProto.Builder, com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder> partialStateBuilder_;
+        AMCPartialStateProto, AMCPartialStateProto.Builder, AMCPartialStateProtoOrBuilder> partialStateBuilder_;
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      * @return Whether the partialState field is set.
@@ -711,9 +711,9 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      * @return The partialState.
      */
-    public com.nkasenides.amc.proto.AMCPartialStateProto getPartialState() {
+    public AMCPartialStateProto getPartialState() {
       if (partialStateBuilder_ == null) {
-        return partialState_ == null ? com.nkasenides.amc.proto.AMCPartialStateProto.getDefaultInstance() : partialState_;
+        return partialState_ == null ? AMCPartialStateProto.getDefaultInstance() : partialState_;
       } else {
         return partialStateBuilder_.getMessage();
       }
@@ -721,7 +721,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
-    public Builder setPartialState(com.nkasenides.amc.proto.AMCPartialStateProto value) {
+    public Builder setPartialState(AMCPartialStateProto value) {
       if (partialStateBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -738,7 +738,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public Builder setPartialState(
-        com.nkasenides.amc.proto.AMCPartialStateProto.Builder builderForValue) {
+        AMCPartialStateProto.Builder builderForValue) {
       if (partialStateBuilder_ == null) {
         partialState_ = builderForValue.build();
         onChanged();
@@ -751,11 +751,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
-    public Builder mergePartialState(com.nkasenides.amc.proto.AMCPartialStateProto value) {
+    public Builder mergePartialState(AMCPartialStateProto value) {
       if (partialStateBuilder_ == null) {
         if (partialState_ != null) {
           partialState_ =
-            com.nkasenides.amc.proto.AMCPartialStateProto.newBuilder(partialState_).mergeFrom(value).buildPartial();
+            AMCPartialStateProto.newBuilder(partialState_).mergeFrom(value).buildPartial();
         } else {
           partialState_ = value;
         }
@@ -783,7 +783,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
-    public com.nkasenides.amc.proto.AMCPartialStateProto.Builder getPartialStateBuilder() {
+    public AMCPartialStateProto.Builder getPartialStateBuilder() {
       
       onChanged();
       return getPartialStateFieldBuilder().getBuilder();
@@ -791,23 +791,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
-    public com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
+    public AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
       if (partialStateBuilder_ != null) {
         return partialStateBuilder_.getMessageOrBuilder();
       } else {
         return partialState_ == null ?
-            com.nkasenides.amc.proto.AMCPartialStateProto.getDefaultInstance() : partialState_;
+            AMCPartialStateProto.getDefaultInstance() : partialState_;
       }
     }
     /**
      * <code>.com.nkasenides.amc.proto.AMCPartialStateProto partialState = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.AMCPartialStateProto, com.nkasenides.amc.proto.AMCPartialStateProto.Builder, com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder> 
+        AMCPartialStateProto, AMCPartialStateProto.Builder, AMCPartialStateProtoOrBuilder>
         getPartialStateFieldBuilder() {
       if (partialStateBuilder_ == null) {
         partialStateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.AMCPartialStateProto, com.nkasenides.amc.proto.AMCPartialStateProto.Builder, com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder>(
+            AMCPartialStateProto, AMCPartialStateProto.Builder, AMCPartialStateProtoOrBuilder>(
                 getPartialState(),
                 getParentForChildren(),
                 isClean());
@@ -816,21 +816,21 @@ private static final long serialVersionUID = 0L;
       return partialStateBuilder_;
     }
 
-    private java.lang.Object worldSessionID_ = "";
+    private Object worldSessionID_ = "";
     /**
      * <code>string worldSessionID = 2;</code>
      * @return The worldSessionID.
      */
-    public java.lang.String getWorldSessionID() {
-      java.lang.Object ref = worldSessionID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getWorldSessionID() {
+      Object ref = worldSessionID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         worldSessionID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -839,11 +839,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getWorldSessionIDBytes() {
-      java.lang.Object ref = worldSessionID_;
+      Object ref = worldSessionID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         worldSessionID_ = b;
         return b;
       } else {
@@ -856,7 +856,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWorldSessionID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @param index The index of the element to return.
      * @return The removedEntities at the given index.
      */
-    public java.lang.String getRemovedEntities(int index) {
+    public String getRemovedEntities(int index) {
       return removedEntities_.get(index);
     }
     /**
@@ -938,7 +938,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRemovedEntities(
-        int index, java.lang.String value) {
+        int index, String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -953,7 +953,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addRemovedEntities(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -968,7 +968,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAllRemovedEntities(
-        java.lang.Iterable<java.lang.String> values) {
+        Iterable<String> values) {
       ensureRemovedEntitiesIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, removedEntities_);
@@ -1029,7 +1029,7 @@ private static final long serialVersionUID = 0L;
      * @param index The index of the element to return.
      * @return The removedTerrain at the given index.
      */
-    public java.lang.String getRemovedTerrain(int index) {
+    public String getRemovedTerrain(int index) {
       return removedTerrain_.get(index);
     }
     /**
@@ -1048,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRemovedTerrain(
-        int index, java.lang.String value) {
+        int index, String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addRemovedTerrain(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1078,7 +1078,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAllRemovedTerrain(
-        java.lang.Iterable<java.lang.String> values) {
+        Iterable<String> values) {
       ensureRemovedTerrainIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, removedTerrain_);
@@ -1117,7 +1117,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 timestamp = 5;</code>
      * @return The timestamp.
      */
-    @java.lang.Override
+    @Override
     public long getTimestamp() {
       return timestamp_;
     }
@@ -1142,13 +1142,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1159,18 +1159,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCStateUpdateProto)
-  private static final com.nkasenides.amc.proto.AMCStateUpdateProto DEFAULT_INSTANCE;
+  private static final AMCStateUpdateProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCStateUpdateProto();
+    DEFAULT_INSTANCE = new AMCStateUpdateProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCStateUpdateProto getDefaultInstance() {
+  public static AMCStateUpdateProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCStateUpdateProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCStateUpdateProto>() {
-    @java.lang.Override
+    @Override
     public AMCStateUpdateProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1183,13 +1183,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCStateUpdateProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCStateUpdateProto getDefaultInstanceForType() {
+  @Override
+  public AMCStateUpdateProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

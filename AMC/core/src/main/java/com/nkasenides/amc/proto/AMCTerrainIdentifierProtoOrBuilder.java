@@ -11,7 +11,7 @@ public interface AMCTerrainIdentifierProtoOrBuilder extends
    * <code>string id = 1;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 1;</code>
    * @return The bytes for id.
@@ -23,7 +23,7 @@ public interface AMCTerrainIdentifierProtoOrBuilder extends
    * <code>string chunkID = 2;</code>
    * @return The chunkID.
    */
-  java.lang.String getChunkID();
+  String getChunkID();
   /**
    * <code>string chunkID = 2;</code>
    * @return The bytes for chunkID.
@@ -35,7 +35,7 @@ public interface AMCTerrainIdentifierProtoOrBuilder extends
    * <code>string worldID = 3;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 3;</code>
    * @return The bytes for worldID.
@@ -52,9 +52,9 @@ public interface AMCTerrainIdentifierProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto chunkPosition = 4;</code>
    * @return The chunkPosition.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getChunkPosition();
+  MatrixPositionProto getChunkPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto chunkPosition = 4;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getChunkPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getChunkPositionOrBuilder();
 }

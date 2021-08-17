@@ -11,7 +11,7 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>string worldID = 1;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 1;</code>
    * @return The bytes for worldID.
@@ -29,7 +29,7 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>string id = 3;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 3;</code>
    * @return The bytes for id.
@@ -46,17 +46,17 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 4;</code>
    * @return The position.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getPosition();
+  MatrixPositionProto getPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 4;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
    * <code>string playerID = 5;</code>
    * @return The playerID.
    */
-  java.lang.String getPlayerID();
+  String getPlayerID();
   /**
    * <code>string playerID = 5;</code>
    * @return The bytes for playerID.
@@ -73,7 +73,7 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Direction4 direction = 6;</code>
    * @return The direction.
    */
-  com.nkasenides.amc.proto.Direction4 getDirection();
+  Direction4 getDirection();
 
   /**
    * <code>.com.nkasenides.amc.proto.PickableEntityProto pickableEntity = 7;</code>
@@ -84,11 +84,11 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.PickableEntityProto pickableEntity = 7;</code>
    * @return The pickableEntity.
    */
-  com.nkasenides.amc.proto.PickableEntityProto getPickableEntity();
+  PickableEntityProto getPickableEntity();
   /**
    * <code>.com.nkasenides.amc.proto.PickableEntityProto pickableEntity = 7;</code>
    */
-  com.nkasenides.amc.proto.PickableEntityProtoOrBuilder getPickableEntityOrBuilder();
+  PickableEntityProtoOrBuilder getPickableEntityOrBuilder();
 
   /**
    * <code>.com.nkasenides.amc.proto.PlayerEntityProto playerEntity = 8;</code>
@@ -99,11 +99,11 @@ public interface AMCEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.PlayerEntityProto playerEntity = 8;</code>
    * @return The playerEntity.
    */
-  com.nkasenides.amc.proto.PlayerEntityProto getPlayerEntity();
+  PlayerEntityProto getPlayerEntity();
   /**
    * <code>.com.nkasenides.amc.proto.PlayerEntityProto playerEntity = 8;</code>
    */
-  com.nkasenides.amc.proto.PlayerEntityProtoOrBuilder getPlayerEntityOrBuilder();
+  PlayerEntityProtoOrBuilder getPlayerEntityOrBuilder();
 
-  public com.nkasenides.amc.proto.AMCEntityProto.EntityCase getEntityCase();
+  public AMCEntityProto.EntityCase getEntityCase();
 }

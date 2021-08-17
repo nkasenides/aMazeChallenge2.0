@@ -11,7 +11,7 @@ public interface PlayerEntityProtoOrBuilder extends
    * <code>string worldID = 8;</code>
    * @return The worldID.
    */
-  java.lang.String getWorldID();
+  String getWorldID();
   /**
    * <code>string worldID = 8;</code>
    * @return The bytes for worldID.
@@ -29,7 +29,7 @@ public interface PlayerEntityProtoOrBuilder extends
    * <code>string id = 10;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 10;</code>
    * @return The bytes for id.
@@ -46,17 +46,17 @@ public interface PlayerEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 11;</code>
    * @return The position.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getPosition();
+  MatrixPositionProto getPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 11;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
    * <code>string playerID = 12;</code>
    * @return The playerID.
    */
-  java.lang.String getPlayerID();
+  String getPlayerID();
   /**
    * <code>string playerID = 12;</code>
    * @return The bytes for playerID.
@@ -73,5 +73,5 @@ public interface PlayerEntityProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Direction4 direction = 13;</code>
    * @return The direction.
    */
-  com.nkasenides.amc.proto.Direction4 getDirection();
+  Direction4 getDirection();
 }

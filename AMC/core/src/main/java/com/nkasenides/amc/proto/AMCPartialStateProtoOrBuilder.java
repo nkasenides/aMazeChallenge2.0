@@ -15,31 +15,31 @@ public interface AMCPartialStateProtoOrBuilder extends
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
   boolean containsEntities(
-      java.lang.String key);
+      String key);
   /**
    * Use {@link #getEntitiesMap()} instead.
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+  @Deprecated
+  java.util.Map<String, AMCEntityProto>
   getEntities();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+  java.util.Map<String, AMCEntityProto>
   getEntitiesMap();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
 
-  com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrDefault(
-      java.lang.String key,
-      com.nkasenides.amc.proto.AMCEntityProto defaultValue);
+  AMCEntityProto getEntitiesOrDefault(
+      String key,
+      AMCEntityProto defaultValue);
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
 
-  com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrThrow(
-      java.lang.String key);
+  AMCEntityProto getEntitiesOrThrow(
+      String key);
 
   /**
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
@@ -50,11 +50,11 @@ public interface AMCPartialStateProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
    * @return The worldSession.
    */
-  com.nkasenides.amc.proto.AMCWorldSessionProto getWorldSession();
+  AMCWorldSessionProto getWorldSession();
   /**
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
    */
-  com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
+  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
 
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
@@ -64,31 +64,31 @@ public interface AMCPartialStateProtoOrBuilder extends
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
   boolean containsTerrain(
-      java.lang.String key);
+      String key);
   /**
    * Use {@link #getTerrainMap()} instead.
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+  @Deprecated
+  java.util.Map<String, AMCTerrainCellProto>
   getTerrain();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
-  java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+  java.util.Map<String, AMCTerrainCellProto>
   getTerrainMap();
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
 
-  com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrDefault(
-      java.lang.String key,
-      com.nkasenides.amc.proto.AMCTerrainCellProto defaultValue);
+  AMCTerrainCellProto getTerrainOrDefault(
+      String key,
+      AMCTerrainCellProto defaultValue);
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
 
-  com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrThrow(
-      java.lang.String key);
+  AMCTerrainCellProto getTerrainOrThrow(
+      String key);
 
   /**
    * <code>uint64 timestamp = 4;</code>

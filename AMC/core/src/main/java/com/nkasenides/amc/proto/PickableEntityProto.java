@@ -23,14 +23,14 @@ private static final long serialVersionUID = 0L;
     direction_ = 0;
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new PickableEntityProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -41,7 +41,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -54,7 +54,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             worldID_ = s;
             break;
@@ -71,17 +71,17 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
           }
           case 42: {
-            com.nkasenides.amc.proto.MatrixPositionProto.Builder subBuilder = null;
+            MatrixPositionProto.Builder subBuilder = null;
             if (position_ != null) {
               subBuilder = position_.toBuilder();
             }
-            position_ = input.readMessage(com.nkasenides.amc.proto.MatrixPositionProto.parser(), extensionRegistry);
+            position_ = input.readMessage(MatrixPositionProto.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(position_);
               position_ = subBuilder.buildPartial();
@@ -90,7 +90,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             playerID_ = s;
             break;
@@ -122,32 +122,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.PickableEntityProto.class, com.nkasenides.amc.proto.PickableEntityProto.Builder.class);
+            PickableEntityProto.class, Builder.class);
   }
 
   public static final int WORLDID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object worldID_;
+  private volatile Object worldID_;
   /**
    * <code>string worldID = 1;</code>
    * @return The worldID.
    */
-  @java.lang.Override
-  public java.lang.String getWorldID() {
-    java.lang.Object ref = worldID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getWorldID() {
+    Object ref = worldID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       worldID_ = s;
       return s;
     }
@@ -156,14 +156,14 @@ private static final long serialVersionUID = 0L;
    * <code>string worldID = 1;</code>
    * @return The bytes for worldID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getWorldIDBytes() {
-    java.lang.Object ref = worldID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = worldID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       worldID_ = b;
       return b;
     } else {
@@ -177,7 +177,7 @@ private static final long serialVersionUID = 0L;
    * <code>float areaOfInterest = 2;</code>
    * @return The areaOfInterest.
    */
-  @java.lang.Override
+  @Override
   public float getAreaOfInterest() {
     return areaOfInterest_;
   }
@@ -188,34 +188,34 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
    * @return The enum numeric value on the wire for pickableType.
    */
-  @java.lang.Override public int getPickableTypeValue() {
+  @Override public int getPickableTypeValue() {
     return pickableType_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
    * @return The pickableType.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.PickableType getPickableType() {
+  @Override public PickableType getPickableType() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.PickableType result = com.nkasenides.amc.proto.PickableType.valueOf(pickableType_);
-    return result == null ? com.nkasenides.amc.proto.PickableType.UNRECOGNIZED : result;
+    PickableType result = PickableType.valueOf(pickableType_);
+    return result == null ? PickableType.UNRECOGNIZED : result;
   }
 
   public static final int ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 4;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -224,14 +224,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 4;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -240,12 +240,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POSITION_FIELD_NUMBER = 5;
-  private com.nkasenides.amc.proto.MatrixPositionProto position_;
+  private MatrixPositionProto position_;
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
    * @return Whether the position field is set.
    */
-  @java.lang.Override
+  @Override
   public boolean hasPosition() {
     return position_ != null;
   }
@@ -253,33 +253,33 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
    * @return The position.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.MatrixPositionProto getPosition() {
-    return position_ == null ? com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+  @Override
+  public MatrixPositionProto getPosition() {
+    return position_ == null ? MatrixPositionProto.getDefaultInstance() : position_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder() {
+  @Override
+  public MatrixPositionProtoOrBuilder getPositionOrBuilder() {
     return getPosition();
   }
 
   public static final int PLAYERID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object playerID_;
+  private volatile Object playerID_;
   /**
    * <code>string playerID = 6;</code>
    * @return The playerID.
    */
-  @java.lang.Override
-  public java.lang.String getPlayerID() {
-    java.lang.Object ref = playerID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getPlayerID() {
+    Object ref = playerID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       playerID_ = s;
       return s;
     }
@@ -288,14 +288,14 @@ private static final long serialVersionUID = 0L;
    * <code>string playerID = 6;</code>
    * @return The bytes for playerID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getPlayerIDBytes() {
-    java.lang.Object ref = playerID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = playerID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       playerID_ = b;
       return b;
     } else {
@@ -309,21 +309,21 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
    * @return The enum numeric value on the wire for direction.
    */
-  @java.lang.Override public int getDirectionValue() {
+  @Override public int getDirectionValue() {
     return direction_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
    * @return The direction.
    */
-  @java.lang.Override public com.nkasenides.amc.proto.Direction4 getDirection() {
+  @Override public Direction4 getDirection() {
     @SuppressWarnings("deprecation")
-    com.nkasenides.amc.proto.Direction4 result = com.nkasenides.amc.proto.Direction4.valueOf(direction_);
-    return result == null ? com.nkasenides.amc.proto.Direction4.UNRECOGNIZED : result;
+    Direction4 result = Direction4.valueOf(direction_);
+    return result == null ? Direction4.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -333,7 +333,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getWorldIDBytes().isEmpty()) {
@@ -342,7 +342,7 @@ private static final long serialVersionUID = 0L;
     if (areaOfInterest_ != 0F) {
       output.writeFloat(2, areaOfInterest_);
     }
-    if (pickableType_ != com.nkasenides.amc.proto.PickableType.GRAPES_PickableType.getNumber()) {
+    if (pickableType_ != PickableType.GRAPES_PickableType.getNumber()) {
       output.writeEnum(3, pickableType_);
     }
     if (!getIdBytes().isEmpty()) {
@@ -354,13 +354,13 @@ private static final long serialVersionUID = 0L;
     if (!getPlayerIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, playerID_);
     }
-    if (direction_ != com.nkasenides.amc.proto.Direction4.NORTH.getNumber()) {
+    if (direction_ != Direction4.NORTH.getNumber()) {
       output.writeEnum(7, direction_);
     }
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -373,7 +373,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, areaOfInterest_);
     }
-    if (pickableType_ != com.nkasenides.amc.proto.PickableType.GRAPES_PickableType.getNumber()) {
+    if (pickableType_ != PickableType.GRAPES_PickableType.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, pickableType_);
     }
@@ -387,7 +387,7 @@ private static final long serialVersionUID = 0L;
     if (!getPlayerIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, playerID_);
     }
-    if (direction_ != com.nkasenides.amc.proto.Direction4.NORTH.getNumber()) {
+    if (direction_ != Direction4.NORTH.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, direction_);
     }
@@ -396,20 +396,20 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.PickableEntityProto)) {
+    if (!(obj instanceof PickableEntityProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.PickableEntityProto other = (com.nkasenides.amc.proto.PickableEntityProto) obj;
+    PickableEntityProto other = (PickableEntityProto) obj;
 
     if (!getWorldID()
         .equals(other.getWorldID())) return false;
-    if (java.lang.Float.floatToIntBits(getAreaOfInterest())
-        != java.lang.Float.floatToIntBits(
+    if (Float.floatToIntBits(getAreaOfInterest())
+        != Float.floatToIntBits(
             other.getAreaOfInterest())) return false;
     if (pickableType_ != other.pickableType_) return false;
     if (!getId()
@@ -426,7 +426,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -436,7 +436,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WORLDID_FIELD_NUMBER;
     hash = (53 * hash) + getWorldID().hashCode();
     hash = (37 * hash) + AREAOFINTEREST_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+    hash = (53 * hash) + Float.floatToIntBits(
         getAreaOfInterest());
     hash = (37 * hash) + PICKABLETYPE_FIELD_NUMBER;
     hash = (53 * hash) + pickableType_;
@@ -455,69 +455,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(byte[] data)
+  public static PickableEntityProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(java.io.InputStream input)
+  public static PickableEntityProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseDelimitedFrom(java.io.InputStream input)
+  public static PickableEntityProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseDelimitedFrom(
+  public static PickableEntityProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.PickableEntityProto parseFrom(
+  public static PickableEntityProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -525,23 +525,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.PickableEntityProto prototype) {
+  public static Builder newBuilder(PickableEntityProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -551,7 +551,7 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IEntity, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.PickableEntity>, 
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.PickableEntityProto)
-      com.nkasenides.amc.proto.PickableEntityProtoOrBuilder {    @java.lang.Override    
+      PickableEntityProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.PickableEntity toObject() {    
         com.nkasenides.amc.model.PickableEntity item = new com.nkasenides.amc.model.PickableEntity();        
         item.setWorldID(getWorldID());        
@@ -567,15 +567,15 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.PickableEntityProto.class, com.nkasenides.amc.proto.PickableEntityProto.Builder.class);
+              PickableEntityProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.PickableEntityProto.newBuilder()
@@ -584,7 +584,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -593,7 +593,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       worldID_ = "";
@@ -617,29 +617,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableEntityProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.PickableEntityProto.getDefaultInstance();
+    @Override
+    public PickableEntityProto getDefaultInstanceForType() {
+      return PickableEntityProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableEntityProto build() {
-      com.nkasenides.amc.proto.PickableEntityProto result = buildPartial();
+    @Override
+    public PickableEntityProto build() {
+      PickableEntityProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableEntityProto buildPartial() {
-      com.nkasenides.amc.proto.PickableEntityProto result = new com.nkasenides.amc.proto.PickableEntityProto(this);
+    @Override
+    public PickableEntityProto buildPartial() {
+      PickableEntityProto result = new PickableEntityProto(this);
       result.worldID_ = worldID_;
       result.areaOfInterest_ = areaOfInterest_;
       result.pickableType_ = pickableType_;
@@ -655,50 +655,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.PickableEntityProto) {
-        return mergeFrom((com.nkasenides.amc.proto.PickableEntityProto)other);
+      if (other instanceof PickableEntityProto) {
+        return mergeFrom((PickableEntityProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.PickableEntityProto other) {
-      if (other == com.nkasenides.amc.proto.PickableEntityProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(PickableEntityProto other) {
+      if (other == PickableEntityProto.getDefaultInstance()) return this;
       if (!other.getWorldID().isEmpty()) {
         worldID_ = other.worldID_;
         onChanged();
@@ -728,21 +728,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.PickableEntityProto parsedMessage = null;
+      PickableEntityProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.PickableEntityProto) e.getUnfinishedMessage();
+        parsedMessage = (PickableEntityProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -752,21 +752,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object worldID_ = "";
+    private Object worldID_ = "";
     /**
      * <code>string worldID = 1;</code>
      * @return The worldID.
      */
-    public java.lang.String getWorldID() {
-      java.lang.Object ref = worldID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getWorldID() {
+      Object ref = worldID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         worldID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -775,11 +775,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getWorldIDBytes() {
-      java.lang.Object ref = worldID_;
+      Object ref = worldID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         worldID_ = b;
         return b;
       } else {
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWorldID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -833,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * <code>float areaOfInterest = 2;</code>
      * @return The areaOfInterest.
      */
-    @java.lang.Override
+    @Override
     public float getAreaOfInterest() {
       return areaOfInterest_;
     }
@@ -864,7 +864,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
      * @return The enum numeric value on the wire for pickableType.
      */
-    @java.lang.Override public int getPickableTypeValue() {
+    @Override public int getPickableTypeValue() {
       return pickableType_;
     }
     /**
@@ -882,18 +882,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
      * @return The pickableType.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.PickableType getPickableType() {
+    @Override
+    public PickableType getPickableType() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.PickableType result = com.nkasenides.amc.proto.PickableType.valueOf(pickableType_);
-      return result == null ? com.nkasenides.amc.proto.PickableType.UNRECOGNIZED : result;
+      PickableType result = PickableType.valueOf(pickableType_);
+      return result == null ? PickableType.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.PickableType pickableType = 3;</code>
      * @param value The pickableType to set.
      * @return This builder for chaining.
      */
-    public Builder setPickableType(com.nkasenides.amc.proto.PickableType value) {
+    public Builder setPickableType(PickableType value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -913,21 +913,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 4;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -936,11 +936,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -953,7 +953,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -989,9 +989,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.nkasenides.amc.proto.MatrixPositionProto position_;
+    private MatrixPositionProto position_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder> positionBuilder_;
+        MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder> positionBuilder_;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      * @return Whether the position field is set.
@@ -1003,9 +1003,9 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      * @return The position.
      */
-    public com.nkasenides.amc.proto.MatrixPositionProto getPosition() {
+    public MatrixPositionProto getPosition() {
       if (positionBuilder_ == null) {
-        return position_ == null ? com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+        return position_ == null ? MatrixPositionProto.getDefaultInstance() : position_;
       } else {
         return positionBuilder_.getMessage();
       }
@@ -1013,7 +1013,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
-    public Builder setPosition(com.nkasenides.amc.proto.MatrixPositionProto value) {
+    public Builder setPosition(MatrixPositionProto value) {
       if (positionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1030,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
     public Builder setPosition(
-        com.nkasenides.amc.proto.MatrixPositionProto.Builder builderForValue) {
+        MatrixPositionProto.Builder builderForValue) {
       if (positionBuilder_ == null) {
         position_ = builderForValue.build();
         onChanged();
@@ -1043,11 +1043,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
-    public Builder mergePosition(com.nkasenides.amc.proto.MatrixPositionProto value) {
+    public Builder mergePosition(MatrixPositionProto value) {
       if (positionBuilder_ == null) {
         if (position_ != null) {
           position_ =
-            com.nkasenides.amc.proto.MatrixPositionProto.newBuilder(position_).mergeFrom(value).buildPartial();
+            MatrixPositionProto.newBuilder(position_).mergeFrom(value).buildPartial();
         } else {
           position_ = value;
         }
@@ -1075,7 +1075,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
-    public com.nkasenides.amc.proto.MatrixPositionProto.Builder getPositionBuilder() {
+    public MatrixPositionProto.Builder getPositionBuilder() {
       
       onChanged();
       return getPositionFieldBuilder().getBuilder();
@@ -1083,23 +1083,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
-    public com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder() {
+    public MatrixPositionProtoOrBuilder getPositionOrBuilder() {
       if (positionBuilder_ != null) {
         return positionBuilder_.getMessageOrBuilder();
       } else {
         return position_ == null ?
-            com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+            MatrixPositionProto.getDefaultInstance() : position_;
       }
     }
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder> 
+        MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>
         getPositionFieldBuilder() {
       if (positionBuilder_ == null) {
         positionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder>(
+            MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>(
                 getPosition(),
                 getParentForChildren(),
                 isClean());
@@ -1108,21 +1108,21 @@ private static final long serialVersionUID = 0L;
       return positionBuilder_;
     }
 
-    private java.lang.Object playerID_ = "";
+    private Object playerID_ = "";
     /**
      * <code>string playerID = 6;</code>
      * @return The playerID.
      */
-    public java.lang.String getPlayerID() {
-      java.lang.Object ref = playerID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getPlayerID() {
+      Object ref = playerID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         playerID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -1131,11 +1131,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getPlayerIDBytes() {
-      java.lang.Object ref = playerID_;
+      Object ref = playerID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         playerID_ = b;
         return b;
       } else {
@@ -1148,7 +1148,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlayerID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -1189,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
      * @return The enum numeric value on the wire for direction.
      */
-    @java.lang.Override public int getDirectionValue() {
+    @Override public int getDirectionValue() {
       return direction_;
     }
     /**
@@ -1207,18 +1207,18 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
      * @return The direction.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Direction4 getDirection() {
+    @Override
+    public Direction4 getDirection() {
       @SuppressWarnings("deprecation")
-      com.nkasenides.amc.proto.Direction4 result = com.nkasenides.amc.proto.Direction4.valueOf(direction_);
-      return result == null ? com.nkasenides.amc.proto.Direction4.UNRECOGNIZED : result;
+      Direction4 result = Direction4.valueOf(direction_);
+      return result == null ? Direction4.UNRECOGNIZED : result;
     }
     /**
      * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
      * @param value The direction to set.
      * @return This builder for chaining.
      */
-    public Builder setDirection(com.nkasenides.amc.proto.Direction4 value) {
+    public Builder setDirection(Direction4 value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1237,13 +1237,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1254,18 +1254,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.PickableEntityProto)
-  private static final com.nkasenides.amc.proto.PickableEntityProto DEFAULT_INSTANCE;
+  private static final PickableEntityProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.PickableEntityProto();
+    DEFAULT_INSTANCE = new PickableEntityProto();
   }
 
-  public static com.nkasenides.amc.proto.PickableEntityProto getDefaultInstance() {
+  public static PickableEntityProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<PickableEntityProto>
       PARSER = new com.google.protobuf.AbstractParser<PickableEntityProto>() {
-    @java.lang.Override
+    @Override
     public PickableEntityProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1278,17 +1278,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<PickableEntityProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.PickableEntityProto getDefaultInstanceForType() {
+  @Override
+  public PickableEntityProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.PickableEntity toObject() {    
         com.nkasenides.amc.model.PickableEntity item = new com.nkasenides.amc.model.PickableEntity();        
         item.setWorldID(getWorldID());        

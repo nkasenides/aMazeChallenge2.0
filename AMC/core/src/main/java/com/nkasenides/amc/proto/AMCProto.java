@@ -140,30 +140,100 @@ public final class AMCProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_AddChallengeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_GetStateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubscribeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_ListChallengesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_UpdateStateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_Response_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_Response_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_GetStateResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_UpdateStateResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_SubscribeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_ListChallengesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_AddChallengeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -172,7 +242,7 @@ public final class AMCProto {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\024Proto/AMCProto.proto\022\030com.nkasenides.a" +
       "mc.proto\"\035\n\013HealthProto\022\016\n\006health\030\001 \001(\005\"" +
       "\177\n\027QuestionnaireEntryProto\022\023\n\013challengeI" +
@@ -280,135 +350,222 @@ public final class AMCProto {
       "com.nkasenides.amc.proto.AMCEntityProto:" +
       "\0028\001\032]\n\014TerrainEntry\022\013\n\003key\030\001 \001(\t\022<\n\005valu" +
       "e\030\002 \001(\0132-.com.nkasenides.amc.proto.AMCTe" +
-      "rrainCellProto:\0028\001\"\302\001\n\rAMCWorldProto\022\017\n\007" +
+      "rrainCellProto:\0028\001\"\365\001\n\rAMCWorldProto\022\017\n\007" +
       "maxRows\030\001 \001(\022\022\023\n\013heightLimit\030\002 \001(\r\022\014\n\004se" +
-      "ed\030\003 \001(\022\022\014\n\004name\030\004 \001(\t\022\020\n\010chunkIDs\030\005 \003(\t" +
-      "\022\n\n\002id\030\006 \001(\t\022\017\n\007ownerID\030\007 \001(\t\022\021\n\tcreated" +
-      "On\030\010 \001(\004\022\017\n\007maxCols\030\t \001(\022\022\034\n\024subscribedS" +
-      "essionIDs\030\n \003(\t\"\246\001\n\007Request\022D\n\017getStateR" +
-      "equest\030\001 \001(\0132).com.nkasenides.amc.proto." +
-      "GetStateRequestH\000\022J\n\022updateStateRequest\030" +
-      "\002 \001(\0132,.com.nkasenides.amc.proto.UpdateS" +
-      "tateRequestH\000B\t\n\007request\")\n\017GetStateRequ" +
-      "est\022\026\n\016worldSessionID\030\001 \001(\t\",\n\022UpdateSta" +
-      "teRequest\022\026\n\016worldSessionID\030\001 \001(\t\"\254\001\n\010Re" +
-      "sponse\022F\n\020getStateResponse\030\001 \001(\0132*.com.n" +
-      "kasenides.amc.proto.GetStateResponseH\000\022L" +
-      "\n\023updateStateResponse\030\002 \001(\0132-.com.nkasen" +
-      "ides.amc.proto.UpdateStateResponseH\000B\n\n\010" +
-      "response\"\253\002\n\020GetStateResponse\022D\n\014partial" +
-      "State\030\001 \001(\0132..com.nkasenides.amc.proto.A" +
-      "MCPartialStateProto\022\017\n\007message\030\002 \001(\t\022A\n\006" +
-      "status\030\003 \001(\01621.com.nkasenides.amc.proto." +
-      "GetStateResponse.Status\"}\n\006Status\022\020\n\014SER" +
-      "VER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020" +
-      "\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024" +
-      "CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\257\002\n\023Updat" +
-      "eStateResponse\022\017\n\007message\030\001 \001(\t\022B\n\013state" +
-      "Update\030\002 \001(\0132-.com.nkasenides.amc.proto." +
-      "AMCStateUpdateProto\022D\n\006status\030\003 \001(\01624.co" +
-      "m.nkasenides.amc.proto.UpdateStateRespon" +
-      "se.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n" +
-      "\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA" +
-      "\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE" +
-      "_STATE\020\004\022\006\n\002OK\020\005*\252\001\n\016LikertResponse\022\033\n\027P" +
-      "OSITIVE_LikertResponse\020\000\022\033\n\027NEGATIVE_Lik" +
-      "ertResponse\020\001\022\032\n\026NEUTRAL_LikertResponse\020" +
-      "\002\022 \n\034VERY_POSITIVE_LikertResponse\020\003\022 \n\034V" +
-      "ERY_NEGATIVE_LikertResponse\020\004*E\n\005Shape\022\022" +
-      "\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_CIRCLE_Shape" +
-      "\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAmazeIcon\022\024\n\020IC" +
-      "ON_9_AmazeIcon\020\000\022\024\n\020ICON_8_AmazeIcon\020\001\022\024" +
-      "\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON_6_AmazeIcon" +
-      "\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020ICON_4_Amaze" +
-      "Icon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006\022\024\n\020ICON_2_A" +
-      "mazeIcon\020\007\022\024\n\020ICON_1_AmazeIcon\020\010\022\025\n\021ICON" +
-      "_10_AmazeIcon\020\t*\201\001\n\nDifficulty\022\023\n\017EASY_D" +
-      "ifficulty\020\000\022\025\n\021MEDIUM_Difficulty\020\001\022\023\n\017HA" +
-      "RD_Difficulty\020\002\022\030\n\024VERY_EASY_Difficulty\020" +
-      "\003\022\030\n\024VERY_HARD_Difficulty\020\004*m\n\023Dichotomo" +
-      "usResponse\022\032\n\026NO_DichotomousResponse\020\000\022\035" +
-      "\n\031MAYBE_DichotomousResponse\020\001\022\033\n\027YES_Dic" +
-      "hotomousResponse\020\002*s\n\tAlgorithm\022\034\n\030MANY_" +
-      "SOLUTIONS_Algorithm\020\000\022\024\n\020SPARSE_Algorith" +
-      "m\020\001\022\035\n\031SINGLE_SOLUTION_Algorithm\020\002\022\023\n\017EM" +
-      "PTY_Algorithm\020\003*\326\003\n\nAmazeColor\022\023\n\017GOLD_A" +
-      "mazeColor\020\000\022\023\n\017BLUE_AmazeColor\020\001\022\025\n\021PURP" +
-      "LE_AmazeColor\020\002\022\024\n\020GREEN_AmazeColor\020\003\022\030\n" +
-      "\024DARK_BLUE_AmazeColor\020\004\022\025\n\021INDIGO_AmazeC" +
-      "olor\020\005\022\022\n\016RED_AmazeColor\020\006\022\031\n\025LIGHT_GREY" +
-      "_AmazeColor\020\007\022\023\n\017PINK_AmazeColor\020\010\022\023\n\017LI" +
-      "ME_AmazeColor\020\t\022\027\n\023DARK_RED_AmazeColor\020\n" +
-      "\022\030\n\024DARK_GREY_AmazeColor\020\013\022\024\n\020BLACK_Amaz" +
-      "eColor\020\014\022\026\n\022MAGENTA_AmazeColor\020\r\022\025\n\021YELL" +
-      "OW_AmazeColor\020\016\022\031\n\025DARK_GREEN_AmazeColor" +
-      "\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017CYAN_AmazeCol" +
-      "or\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025\n\021ORANGE_Amaz" +
-      "eColor\020\023*\355\002\n\017BackgroundImage\022!\n\035TEXTURE_" +
-      "WATER_BackgroundImage\020\000\022!\n\035TEXTURE_ROCKY" +
-      "_BackgroundImage\020\001\022!\n\035TEXTURE_SPACE_Back" +
-      "groundImage\020\002\022!\n\035TEXTURE_METAL_Backgroun" +
-      "dImage\020\003\022 \n\034TEXTURE_MOON_BackgroundImage" +
-      "\020\004\022 \n\034TEXTURE_LAVA_BackgroundImage\020\005\022\"\n\036" +
-      "TEXTURE_GRAVEL_BackgroundImage\020\006\022 \n\034TEXT" +
-      "URE_WOOD_BackgroundImage\020\007\022!\n\035TEXTURE_GR" +
-      "ASS_BackgroundImage\020\010\022!\n\035TEXTURE_TILES_B" +
-      "ackgroundImage\020\t*4\n\010Language\022\024\n\020ENGLISH_" +
-      "Language\020\000\022\022\n\016GREEK_Language\020\001*K\n\tAudioT" +
-      "ype\022\025\n\021AMBIENT_AudioType\020\000\022\022\n\016NONE_Audio" +
-      "Type\020\001\022\023\n\017EVENT_AudioType\020\002*\203\001\n\013AudioFor" +
-      "mat\022\023\n\017MP4_AudioFormat\020\000\022\023\n\017MP3_AudioFor" +
-      "mat\020\001\022 \n\034UNDEFINED_FORMAT_AudioFormat\020\002\022" +
-      "\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG_AudioFormat\020" +
-      "\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBOX_Audio\020\000\022\026\n\022" +
-      "EVENT_COIN20_Audio\020\001\022\027\n\023AMBIENT_STORM_Au" +
-      "dio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003\022\027\n\023AMBIENT_N" +
-      "IGHT_Audio\020\004\022\026\n\022AMBIENT_SNOW_Audio\020\005\022\037\n\033" +
-      "AMBIENT_ALPINE_FOREST_Audio\020\006\022\024\n\020EVENT_F" +
-      "OOD_Audio\020\007\022\027\n\023AMBIENT_RIVER_Audio\020\010\022\024\n\020" +
-      "EVENT_BOMB_Audio\020\t\022\031\n\025EVENT_SPEEDHACK_Au" +
-      "dio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013\022\025\n\021EVENT_COI" +
-      "N5_Audio\020\014\022\026\n\022EVENT_COIN10_Audio\020\r\022\026\n\022AM" +
-      "BIENT_CAVE_Audio\020\016\022\030\n\024AMBIENT_PRISON_Aud" +
-      "io\020\017\022\033\n\027AMBIENT_SANDSTORM_Audio\020\020\022\024\n\020EVE" +
-      "NT_LOSE_Audio\020\021\022\026\n\022AMBIENT_CITY_Audio\020\022\022" +
-      "\030\n\024AMBIENT_STREET_Audio\020\023\022!\n\035AMBIENT_TRO" +
-      "PICAL_FOREST_Audio\020\024\022\026\n\022AMBIENT_FIRE_Aud" +
-      "io\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032\n\026AMBIENT_HIG" +
-      "HTECH_Audio\020\027\022\034\n\030AMBIENT_UNDERWATER_Audi" +
-      "o\020\030*\364\002\n\014PickableType\022\027\n\023GRAPES_PickableT" +
-      "ype\020\000\022\026\n\022APPLE_PickableType\020\001\022\025\n\021TRAP_Pi" +
-      "ckableType\020\002\022\033\n\027WATERMELON_PickableType\020" +
-      "\003\022\032\n\026SPEEDHACK_PickableType\020\004\022\030\n\024COIN_10" +
-      "_PickableType\020\005\022\030\n\024COIN_20_PickableType\020" +
-      "\006\022\026\n\022PEACH_PickableType\020\007\022\030\n\024GIFTBOX_Pic" +
-      "kableType\020\010\022\027\n\023COIN_5_PickableType\020\t\022\027\n\023" +
-      "BANANA_PickableType\020\n\022\025\n\021BOMB_PickableTy" +
-      "pe\020\013\022\033\n\027STRAWBERRY_PickableType\020\014\022\027\n\023ORA" +
-      "NGE_PickableType\020\r*\254\001\n\026MultipleChoiceRes" +
-      "ponse\022#\n\037CHOICE_1_MultipleChoiceResponse" +
-      "\020\000\022#\n\037CHOICE_4_MultipleChoiceResponse\020\001\022" +
-      "#\n\037CHOICE_2_MultipleChoiceResponse\020\002\022#\n\037" +
-      "CHOICE_3_MultipleChoiceResponse\020\003*l\n\023Bac" +
-      "kgroundImageType\022\033\n\027JPG_BackgroundImageT" +
-      "ype\020\000\022\033\n\027GIF_BackgroundImageType\020\001\022\033\n\027PN" +
-      "G_BackgroundImageType\020\002*\204\001\n\021PickableInte" +
-      "nsity\022\032\n\026HIGH_PickableIntensity\020\000\022\034\n\030MED" +
-      "IUM_PickableIntensity\020\001\022\031\n\025LOW_PickableI" +
-      "ntensity\020\002\022\032\n\026NONE_PickableIntensity\020\003*6" +
-      "\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004EAST\020\001\022\t\n\005SOU" +
-      "TH\020\002\022\010\n\004WEST\020\003*d\n\nDirection6\022\n\n\006NORTH6\020\000" +
-      "\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_EAST\020\002\022\n\n\006SOUT" +
-      "H6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNORTH_WEST\020\005*0\n\010" +
-      "Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021COUNTER_CLOCK" +
-      "WISE\020\001*C\n\tMovement4\022\013\n\007FORWARD\020\000\022\014\n\010BACK" +
-      "WARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIGHTWARD\020\003*t\n\tM" +
-      "ovement6\022\014\n\010FORWARD6\020\000\022\021\n\rFORWARD_RIGHT\020" +
-      "\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBACKWARD6\020\003\022\021\n\r" +
-      "BACKWARD_LEFT\020\004\022\020\n\014FORWARD_LEFT\020\005*7\n\tWor" +
-      "ldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE_SQUARE\020\001\022\014\n\010" +
-      "TILE_HEX\020\002B&\n\030com.nkasenides.amc.protoB\010" +
-      "AMCProtoP\001b\006proto3"
+      "ed\030\003 \001(\022\0221\n\004grid\030\004 \001(\0132#.com.nkasenides." +
+      "amc.proto.GridProto\022\014\n\004name\030\005 \001(\t\022\020\n\010chu" +
+      "nkIDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t" +
+      "\022\021\n\tcreatedOn\030\t \001(\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024" +
+      "subscribedSessionIDs\030\013 \003(\t\"\320\005\n\007Request\022L" +
+      "\n\023addChallengeRequest\030\001 \001(\0132-.com.nkasen" +
+      "ides.amc.proto.AddChallengeRequestH\000\022D\n\017" +
+      "getStateRequest\030\002 \001(\0132).com.nkasenides.a" +
+      "mc.proto.GetStateRequestH\000\022F\n\020subscribeR" +
+      "equest\030\003 \001(\0132*.com.nkasenides.amc.proto." +
+      "SubscribeRequestH\000\022P\n\025listChallengesRequ" +
+      "est\030\004 \001(\0132/.com.nkasenides.amc.proto.Lis" +
+      "tChallengesRequestH\000\022J\n\022unsubscribeReque" +
+      "st\030\005 \001(\0132,.com.nkasenides.amc.proto.Unsu" +
+      "bscribeRequestH\000\022J\n\022updateStateRequest\030\006" +
+      " \001(\0132,.com.nkasenides.amc.proto.UpdateSt" +
+      "ateRequestH\000\022H\n\021submitCodeRequest\030\007 \001(\0132" +
+      "+.com.nkasenides.amc.proto.SubmitCodeReq" +
+      "uestH\000\022N\n\024joinChallengeRequest\030\010 \001(\0132..c" +
+      "om.nkasenides.amc.proto.JoinChallengeReq" +
+      "uestH\000\022Z\n\032submitQuestionnaireRequest\030\t \001" +
+      "(\01324.com.nkasenides.amc.proto.SubmitQues" +
+      "tionnaireRequestH\000B\t\n\007request\"d\n\023AddChal" +
+      "lengeRequest\022;\n\tchallenge\030\001 \001(\0132(.com.nk" +
+      "asenides.amc.proto.ChallengeProto\022\020\n\010adm" +
+      "inKey\030\002 \001(\t\")\n\017GetStateRequest\022\026\n\016worldS" +
+      "essionID\030\001 \001(\t\"*\n\020SubscribeRequest\022\026\n\016wo" +
+      "rldSessionID\030\001 \001(\t\"\027\n\025ListChallengesRequ" +
+      "est\",\n\022UnsubscribeRequest\022\026\n\016worldSessio" +
+      "nID\030\001 \001(\t\",\n\022UpdateStateRequest\022\026\n\016world" +
+      "SessionID\030\001 \001(\t\"g\n\021SubmitCodeRequest\022\014\n\004" +
+      "code\030\001 \001(\t\022D\n\014worldSession\030\002 \001(\0132..com.n" +
+      "kasenides.amc.proto.AMCWorldSessionProto" +
+      "\"e\n\024JoinChallengeRequest\022\023\n\013challengeID\030" +
+      "\001 \001(\t\0228\n\006player\030\002 \001(\0132(.com.nkasenides.a" +
+      "mc.proto.AMCPlayerProto\"\261\001\n\032SubmitQuesti" +
+      "onnaireRequest\022M\n\022questionnaireEntry\030\001 \001" +
+      "(\01321.com.nkasenides.amc.proto.Questionna" +
+      "ireEntryProto\022D\n\014worldSession\030\002 \001(\0132..co" +
+      "m.nkasenides.amc.proto.AMCWorldSessionPr" +
+      "oto\"\344\005\n\010Response\022\\\n\033submitQuestionnaireR" +
+      "esponse\030\001 \001(\01325.com.nkasenides.amc.proto" +
+      ".SubmitQuestionnaireResponseH\000\022F\n\020getSta" +
+      "teResponse\030\002 \001(\0132*.com.nkasenides.amc.pr" +
+      "oto.GetStateResponseH\000\022P\n\025joinChallengeR" +
+      "esponse\030\003 \001(\0132/.com.nkasenides.amc.proto" +
+      ".JoinChallengeResponseH\000\022L\n\023updateStateR" +
+      "esponse\030\004 \001(\0132-.com.nkasenides.amc.proto" +
+      ".UpdateStateResponseH\000\022J\n\022submitCodeResp" +
+      "onse\030\005 \001(\0132,.com.nkasenides.amc.proto.Su" +
+      "bmitCodeResponseH\000\022H\n\021subscribeResponse\030" +
+      "\006 \001(\0132+.com.nkasenides.amc.proto.Subscri" +
+      "beResponseH\000\022L\n\023unsubscribeResponse\030\007 \001(" +
+      "\0132-.com.nkasenides.amc.proto.Unsubscribe" +
+      "ResponseH\000\022R\n\026listChallengesResponse\030\010 \001" +
+      "(\01320.com.nkasenides.amc.proto.ListChalle" +
+      "ngesResponseH\000\022N\n\024addChallengeResponse\030\t" +
+      " \001(\0132..com.nkasenides.amc.proto.AddChall" +
+      "engeResponseH\000B\n\n\010response\"\261\001\n\033SubmitQue" +
+      "stionnaireResponse\022\017\n\007message\030\001 \001(\t\022L\n\006s" +
+      "tatus\030\002 \001(\0162<.com.nkasenides.amc.proto.S" +
+      "ubmitQuestionnaireResponse.Status\"3\n\006Sta" +
+      "tus\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006" +
+      "\n\002OK\020\002\"\253\002\n\020GetStateResponse\022D\n\014partialSt" +
+      "ate\030\001 \001(\0132..com.nkasenides.amc.proto.AMC" +
+      "PartialStateProto\022\017\n\007message\030\002 \001(\t\022A\n\006st" +
+      "atus\030\003 \001(\01621.com.nkasenides.amc.proto.Ge" +
+      "tStateResponse.Status\"}\n\006Status\022\020\n\014SERVE" +
+      "R_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014" +
+      "INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CA" +
+      "NNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025JoinCha" +
+      "llengeResponse\022;\n\tchallenge\030\001 \001(\0132(.com." +
+      "nkasenides.amc.proto.ChallengeProto\022D\n\014w" +
+      "orldSession\030\002 \001(\0132..com.nkasenides.amc.p" +
+      "roto.AMCWorldSessionProto\022\017\n\007message\030\003 \001" +
+      "(\t\022F\n\006status\030\004 \001(\01626.com.nkasenides.amc." +
+      "proto.JoinChallengeResponse.Status\"\226\001\n\006S" +
+      "tatus\022\025\n\021INVALID_CHALLENGE\020\000\022\031\n\025CHALLENG" +
+      "E_NOT_STARTED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022P" +
+      "LAYER_NAME_EXISTS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022" +
+      "\006\n\002OK\020\005\022\022\n\016CHALLENGE_FULL\020\006\"\257\002\n\023UpdateSt" +
+      "ateResponse\022\017\n\007message\030\001 \001(\t\022B\n\013stateUpd" +
+      "ate\030\002 \001(\0132-.com.nkasenides.amc.proto.AMC" +
+      "StateUpdateProto\022D\n\006status\030\003 \001(\01624.com.n" +
+      "kasenides.amc.proto.UpdateStateResponse." +
+      "Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO" +
+      "_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022" +
+      "\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE_ST" +
+      "ATE\020\004\022\006\n\002OK\020\005\"\301\001\n\022SubmitCodeResponse\022\017\n\007" +
+      "message\030\001 \001(\t\022C\n\006status\030\002 \001(\01623.com.nkas" +
+      "enides.amc.proto.SubmitCodeResponse.Stat" +
+      "us\"U\n\006Status\022\031\n\025INVALID_WORLD_SESSION\020\000\022" +
+      "\020\n\014INVALID_CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBM" +
+      "IT_CODE\020\003\"\255\002\n\021SubscribeResponse\022D\n\014parti" +
+      "alState\030\001 \001(\0132..com.nkasenides.amc.proto" +
+      ".AMCPartialStateProto\022\017\n\007message\030\002 \001(\t\022B" +
+      "\n\006status\030\003 \001(\01622.com.nkasenides.amc.prot" +
+      "o.SubscribeResponse.Status\"}\n\006Status\022\020\n\014" +
+      "SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020" +
+      "\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022" +
+      "\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n\023Un" +
+      "subscribeResponse\022\017\n\007message\030\001 \001(\t\022D\n\006st" +
+      "atus\030\002 \001(\01624.com.nkasenides.amc.proto.Un" +
+      "subscribeResponse.Status\"c\n\006Status\022\020\n\014SE" +
+      "RVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022" +
+      "\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n" +
+      "\002OK\020\004\"\347\001\n\026ListChallengesResponse\022<\n\nchal" +
+      "lenges\030\001 \003(\0132(.com.nkasenides.amc.proto." +
+      "ChallengeProto\022\017\n\007message\030\002 \001(\t\022G\n\006statu" +
+      "s\030\003 \001(\01627.com.nkasenides.amc.proto.ListC" +
+      "hallengesResponse.Status\"5\n\006Status\022\020\n\014SE" +
+      "RVER_ERROR\020\000\022\021\n\rNO_CHALLENGES\020\001\022\006\n\002OK\020\002\"" +
+      "\302\001\n\024AddChallengeResponse\022\017\n\007message\030\001 \001(" +
+      "\t\022E\n\006status\030\002 \001(\01625.com.nkasenides.amc.p" +
+      "roto.AddChallengeResponse.Status\"R\n\006Stat" +
+      "us\022\025\n\021INVALID_CHALLENGE\020\000\022\020\n\014SERVER_ERRO" +
+      "R\020\001\022\006\n\002OK\020\002\022\027\n\023INVALID_CREDENTIALS\020\003*\252\001\n" +
+      "\016LikertResponse\022\033\n\027POSITIVE_LikertRespon" +
+      "se\020\000\022\033\n\027NEGATIVE_LikertResponse\020\001\022\032\n\026NEU" +
+      "TRAL_LikertResponse\020\002\022 \n\034VERY_POSITIVE_L" +
+      "ikertResponse\020\003\022 \n\034VERY_NEGATIVE_LikertR" +
+      "esponse\020\004*E\n\005Shape\022\022\n\016TRIANGLE_Shape\020\000\022\026" +
+      "\n\022EMPTY_CIRCLE_Shape\020\001\022\020\n\014CIRCLE_Shape\020\002" +
+      "*\350\001\n\tAmazeIcon\022\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020" +
+      "ICON_8_AmazeIcon\020\001\022\024\n\020ICON_7_AmazeIcon\020\002" +
+      "\022\024\n\020ICON_6_AmazeIcon\020\003\022\024\n\020ICON_5_AmazeIc" +
+      "on\020\004\022\024\n\020ICON_4_AmazeIcon\020\005\022\024\n\020ICON_3_Ama" +
+      "zeIcon\020\006\022\024\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICON_1" +
+      "_AmazeIcon\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201\001\n\n" +
+      "Difficulty\022\023\n\017EASY_Difficulty\020\000\022\025\n\021MEDIU" +
+      "M_Difficulty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030\n\024V" +
+      "ERY_EASY_Difficulty\020\003\022\030\n\024VERY_HARD_Diffi" +
+      "culty\020\004*m\n\023DichotomousResponse\022\032\n\026NO_Dic" +
+      "hotomousResponse\020\000\022\035\n\031MAYBE_DichotomousR" +
+      "esponse\020\001\022\033\n\027YES_DichotomousResponse\020\002*s" +
+      "\n\tAlgorithm\022\034\n\030MANY_SOLUTIONS_Algorithm\020" +
+      "\000\022\024\n\020SPARSE_Algorithm\020\001\022\035\n\031SINGLE_SOLUTI" +
+      "ON_Algorithm\020\002\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\n" +
+      "AmazeColor\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017BLUE_" +
+      "AmazeColor\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022\024\n\020G" +
+      "REEN_AmazeColor\020\003\022\030\n\024DARK_BLUE_AmazeColo" +
+      "r\020\004\022\025\n\021INDIGO_AmazeColor\020\005\022\022\n\016RED_AmazeC" +
+      "olor\020\006\022\031\n\025LIGHT_GREY_AmazeColor\020\007\022\023\n\017PIN" +
+      "K_AmazeColor\020\010\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023D" +
+      "ARK_RED_AmazeColor\020\n\022\030\n\024DARK_GREY_AmazeC" +
+      "olor\020\013\022\024\n\020BLACK_AmazeColor\020\014\022\026\n\022MAGENTA_" +
+      "AmazeColor\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022\031\n\025D" +
+      "ARK_GREEN_AmazeColor\020\017\022\023\n\017TEAL_AmazeColo" +
+      "r\020\020\022\023\n\017CYAN_AmazeColor\020\021\022\023\n\017GREY_AmazeCo" +
+      "lor\020\022\022\025\n\021ORANGE_AmazeColor\020\023*\355\002\n\017Backgro" +
+      "undImage\022!\n\035TEXTURE_WATER_BackgroundImag" +
+      "e\020\000\022!\n\035TEXTURE_ROCKY_BackgroundImage\020\001\022!" +
+      "\n\035TEXTURE_SPACE_BackgroundImage\020\002\022!\n\035TEX" +
+      "TURE_METAL_BackgroundImage\020\003\022 \n\034TEXTURE_" +
+      "MOON_BackgroundImage\020\004\022 \n\034TEXTURE_LAVA_B" +
+      "ackgroundImage\020\005\022\"\n\036TEXTURE_GRAVEL_Backg" +
+      "roundImage\020\006\022 \n\034TEXTURE_WOOD_BackgroundI" +
+      "mage\020\007\022!\n\035TEXTURE_GRASS_BackgroundImage\020" +
+      "\010\022!\n\035TEXTURE_TILES_BackgroundImage\020\t*4\n\010" +
+      "Language\022\024\n\020ENGLISH_Language\020\000\022\022\n\016GREEK_" +
+      "Language\020\001*K\n\tAudioType\022\025\n\021AMBIENT_Audio" +
+      "Type\020\000\022\022\n\016NONE_AudioType\020\001\022\023\n\017EVENT_Audi" +
+      "oType\020\002*\203\001\n\013AudioFormat\022\023\n\017MP4_AudioForm" +
+      "at\020\000\022\023\n\017MP3_AudioFormat\020\001\022 \n\034UNDEFINED_F" +
+      "ORMAT_AudioFormat\020\002\022\023\n\017WAV_AudioFormat\020\003" +
+      "\022\023\n\017OGG_AudioFormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT" +
+      "_GIFTBOX_Audio\020\000\022\026\n\022EVENT_COIN20_Audio\020\001" +
+      "\022\027\n\023AMBIENT_STORM_Audio\020\002\022\024\n\020EVENT_TRAP_" +
+      "Audio\020\003\022\027\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022AMBI" +
+      "ENT_SNOW_Audio\020\005\022\037\n\033AMBIENT_ALPINE_FORES" +
+      "T_Audio\020\006\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023AMBIE" +
+      "NT_RIVER_Audio\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031" +
+      "\n\025EVENT_SPEEDHACK_Audio\020\n\022\024\n\020AUDIO_NONE_" +
+      "Audio\020\013\022\025\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EVENT_" +
+      "COIN10_Audio\020\r\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030" +
+      "\n\024AMBIENT_PRISON_Audio\020\017\022\033\n\027AMBIENT_SAND" +
+      "STORM_Audio\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022A" +
+      "MBIENT_CITY_Audio\020\022\022\030\n\024AMBIENT_STREET_Au" +
+      "dio\020\023\022!\n\035AMBIENT_TROPICAL_FOREST_Audio\020\024" +
+      "\022\026\n\022AMBIENT_FIRE_Audio\020\025\022\023\n\017EVENT_WIN_Au" +
+      "dio\020\026\022\032\n\026AMBIENT_HIGHTECH_Audio\020\027\022\034\n\030AMB" +
+      "IENT_UNDERWATER_Audio\020\030*\364\002\n\014PickableType" +
+      "\022\027\n\023GRAPES_PickableType\020\000\022\026\n\022APPLE_Picka" +
+      "bleType\020\001\022\025\n\021TRAP_PickableType\020\002\022\033\n\027WATE" +
+      "RMELON_PickableType\020\003\022\032\n\026SPEEDHACK_Picka" +
+      "bleType\020\004\022\030\n\024COIN_10_PickableType\020\005\022\030\n\024C" +
+      "OIN_20_PickableType\020\006\022\026\n\022PEACH_PickableT" +
+      "ype\020\007\022\030\n\024GIFTBOX_PickableType\020\010\022\027\n\023COIN_" +
+      "5_PickableType\020\t\022\027\n\023BANANA_PickableType\020" +
+      "\n\022\025\n\021BOMB_PickableType\020\013\022\033\n\027STRAWBERRY_P" +
+      "ickableType\020\014\022\027\n\023ORANGE_PickableType\020\r*\254" +
+      "\001\n\026MultipleChoiceResponse\022#\n\037CHOICE_1_Mu" +
+      "ltipleChoiceResponse\020\000\022#\n\037CHOICE_4_Multi" +
+      "pleChoiceResponse\020\001\022#\n\037CHOICE_2_Multiple" +
+      "ChoiceResponse\020\002\022#\n\037CHOICE_3_MultipleCho" +
+      "iceResponse\020\003*l\n\023BackgroundImageType\022\033\n\027" +
+      "JPG_BackgroundImageType\020\000\022\033\n\027GIF_Backgro" +
+      "undImageType\020\001\022\033\n\027PNG_BackgroundImageTyp" +
+      "e\020\002*\204\001\n\021PickableIntensity\022\032\n\026HIGH_Pickab" +
+      "leIntensity\020\000\022\034\n\030MEDIUM_PickableIntensit" +
+      "y\020\001\022\031\n\025LOW_PickableIntensity\020\002\022\032\n\026NONE_P" +
+      "ickableIntensity\020\003*6\n\nDirection4\022\t\n\005NORT" +
+      "H\020\000\022\010\n\004EAST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDi" +
+      "rection6\022\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\n" +
+      "SOUTH_EAST\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004" +
+      "\022\016\n\nNORTH_WEST\020\005*0\n\010Rotation\022\r\n\tCLOCKWIS" +
+      "E\020\000\022\025\n\021COUNTER_CLOCKWISE\020\001*C\n\tMovement4\022" +
+      "\013\n\007FORWARD\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002" +
+      "\022\r\n\tRIGHTWARD\020\003*t\n\tMovement6\022\014\n\010FORWARD6" +
+      "\020\000\022\021\n\rFORWARD_RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020" +
+      "\002\022\r\n\tBACKWARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014F" +
+      "ORWARD_LEFT\020\005*7\n\tWorldType\022\013\n\007UNIFORM\020\000\022" +
+      "\017\n\013TILE_SQUARE\020\001\022\014\n\010TILE_HEX\020\002B&\n\030com.nk" +
+      "asenides.amc.protoB\010AMCProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -419,181 +576,265 @@ public final class AMCProto {
     internal_static_com_nkasenides_amc_proto_HealthProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_HealthProto_descriptor,
-        new java.lang.String[] { "Health", });
+        new String[] { "Health", });
     internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor,
-        new java.lang.String[] { "ChallengeID", "QuestionEntry", "Id", });
+        new String[] { "ChallengeID", "QuestionEntry", "Id", });
     internal_static_com_nkasenides_amc_proto_GridProto_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_nkasenides_amc_proto_GridProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GridProto_descriptor,
-        new java.lang.String[] { "StartingDirection", "Data", "TargetPosition", "Width", "StartingPosition", "Height", });
+        new String[] { "StartingDirection", "Data", "TargetPosition", "Width", "StartingPosition", "Height", });
     internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor,
-        new java.lang.String[] { "AnswerText", "QuestionText", });
+        new String[] { "AnswerText", "QuestionText", });
     internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor,
-        new java.lang.String[] { "CanJoinAfterStart", "CanStepOnEachOther", "Penalties", "BackgroundImage", "Description", "LineColor", "CanRepeat", "CreatedOn", "HasQuestionnaire", "Difficulty", "ApiVersion", "MaxActivePlayers", "Grid", "BackgroundAudio", "MinActivePlayers", "Name", "StartTime", "EndTime", "Id", "Rewards", "CreatedByID", "Algorithm", });
+        new String[] { "CanJoinAfterStart", "CanStepOnEachOther", "Penalties", "BackgroundImage", "Description", "LineColor", "CanRepeat", "CreatedOn", "HasQuestionnaire", "Difficulty", "ApiVersion", "MaxActivePlayers", "Grid", "BackgroundAudio", "MinActivePlayers", "Name", "StartTime", "EndTime", "Id", "Rewards", "CreatedByID", "Algorithm", });
     internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "PositionHash", });
+        new String[] { "X", "Y", "Z", "PositionHash", });
     internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor,
-        new java.lang.String[] { "Row", "Col", "CellHash", "ChunkHash", });
+        new String[] { "Row", "Col", "CellHash", "ChunkHash", });
     internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor,
-        new java.lang.String[] { "IpAddress", "ExpiresOn", "Id", "CreatedOn", "PlayerID", });
+        new String[] { "IpAddress", "ExpiresOn", "Id", "CreatedOn", "PlayerID", });
     internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor,
-        new java.lang.String[] { "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "CreatedOn", "PlayerID", "Points", });
+        new String[] { "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "CreatedOn", "PlayerID", "Points", });
     internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_com_nkasenides_amc_proto_AMCPlayerProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor,
-        new java.lang.String[] { "Password", "Color", "TeamID", "Name", "Icon", "Id", "CreatedOn", "Email", });
+        new String[] { "Password", "Color", "TeamID", "Name", "Icon", "Id", "CreatedOn", "Email", });
     internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor,
-        new java.lang.String[] { "Name", "Id", "OwnerID", "PlayerIDs", "PlayerLimit", });
+        new String[] { "Name", "Id", "OwnerID", "PlayerIDs", "PlayerLimit", });
     internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_com_nkasenides_amc_proto_AMCEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor,
-        new java.lang.String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", "PickableEntity", "PlayerEntity", "Entity", });
+        new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", "PickableEntity", "PlayerEntity", "Entity", });
     internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor,
-        new java.lang.String[] { "WorldID", "AreaOfInterest", "PickableType", "Id", "Position", "PlayerID", "Direction", });
+        new String[] { "WorldID", "AreaOfInterest", "PickableType", "Id", "Position", "PlayerID", "Direction", });
     internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_com_nkasenides_amc_proto_PlayerEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor,
-        new java.lang.String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", });
+        new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", });
     internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_com_nkasenides_amc_proto_AMCActionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor,
-        new java.lang.String[] { "Position", "RightWall", "DownWall", "UpWall", "LeftWall", });
+        new String[] { "Position", "RightWall", "DownWall", "UpWall", "LeftWall", });
     internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor,
-        new java.lang.String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "Timestamp", });
+        new String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "Timestamp", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor,
-        new java.lang.String[] { "Id", "WorldID", "Position", "Cells", });
+        new String[] { "Id", "WorldID", "Position", "Cells", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor =
       internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor.getNestedTypes().get(0);
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor,
-        new java.lang.String[] { "Id", "ChunkID", "WorldID", "ChunkPosition", });
+        new String[] { "Id", "ChunkID", "WorldID", "ChunkPosition", });
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor,
-        new java.lang.String[] { "Entities", "WorldSession", "Terrain", "Timestamp", });
+        new String[] { "Entities", "WorldSession", "Terrain", "Timestamp", });
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor =
       internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(0);
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor =
       internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(1);
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor,
-        new java.lang.String[] { "MaxRows", "HeightLimit", "Seed", "Name", "ChunkIDs", "Id", "OwnerID", "CreatedOn", "MaxCols", "SubscribedSessionIDs", });
+        new String[] { "MaxRows", "HeightLimit", "Seed", "Grid", "Name", "ChunkIDs", "Id", "OwnerID", "CreatedOn", "MaxCols", "SubscribedSessionIDs", });
     internal_static_com_nkasenides_amc_proto_Request_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_Request_descriptor,
-        new java.lang.String[] { "GetStateRequest", "UpdateStateRequest", "Request", });
-    internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor =
+        new String[] { "AddChallengeRequest", "GetStateRequest", "SubscribeRequest", "ListChallengesRequest", "UnsubscribeRequest", "UpdateStateRequest", "SubmitCodeRequest", "JoinChallengeRequest", "SubmitQuestionnaireRequest", "Request", });
+    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor =
       getDescriptor().getMessageTypes().get(22);
+    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor,
+        new String[] { "Challenge", "AdminKey", });
+    internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_nkasenides_amc_proto_GetStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor,
-        new java.lang.String[] { "WorldSessionID", });
+        new String[] { "WorldSessionID", });
+    internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_com_nkasenides_amc_proto_SubscribeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor,
+        new String[] { "WorldSessionID", });
+    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor,
+        new String[] { });
+    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor,
+        new String[] { "WorldSessionID", });
     internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_com_nkasenides_amc_proto_UpdateStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor,
-        new java.lang.String[] { "WorldSessionID", });
+        new String[] { "WorldSessionID", });
+    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor,
+        new String[] { "Code", "WorldSession", });
+    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor,
+        new String[] { "ChallengeID", "Player", });
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor,
+        new String[] { "QuestionnaireEntry", "WorldSession", });
     internal_static_com_nkasenides_amc_proto_Response_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_com_nkasenides_amc_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_Response_descriptor,
-        new java.lang.String[] { "GetStateResponse", "UpdateStateResponse", "Response", });
+        new String[] { "SubmitQuestionnaireResponse", "GetStateResponse", "JoinChallengeResponse", "UpdateStateResponse", "SubmitCodeResponse", "SubscribeResponse", "UnsubscribeResponse", "ListChallengesResponse", "AddChallengeResponse", "Response", });
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor,
+        new String[] { "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_com_nkasenides_amc_proto_GetStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor,
-        new java.lang.String[] { "PartialState", "Message", "Status", });
+        new String[] { "PartialState", "Message", "Status", });
+    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor,
+        new String[] { "Challenge", "WorldSession", "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_com_nkasenides_amc_proto_UpdateStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor,
-        new java.lang.String[] { "Message", "StateUpdate", "Status", });
+        new String[] { "Message", "StateUpdate", "Status", });
+    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor,
+        new String[] { "Message", "Status", });
+    internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_com_nkasenides_amc_proto_SubscribeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor,
+        new String[] { "PartialState", "Message", "Status", });
+    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor,
+        new String[] { "Message", "Status", });
+    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor,
+        new String[] { "Challenges", "Message", "Status", });
+    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(40);
+    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor,
+        new String[] { "Message", "Status", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

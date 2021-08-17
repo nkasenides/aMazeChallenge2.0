@@ -18,14 +18,14 @@ private static final long serialVersionUID = 0L;
   private AMCTerrainCellProto() {
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCTerrainCellProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -49,11 +49,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.nkasenides.amc.proto.MatrixPositionProto.Builder subBuilder = null;
+            MatrixPositionProto.Builder subBuilder = null;
             if (position_ != null) {
               subBuilder = position_.toBuilder();
             }
-            position_ = input.readMessage(com.nkasenides.amc.proto.MatrixPositionProto.parser(), extensionRegistry);
+            position_ = input.readMessage(MatrixPositionProto.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(position_);
               position_ = subBuilder.buildPartial();
@@ -102,24 +102,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCTerrainCellProto.class, com.nkasenides.amc.proto.AMCTerrainCellProto.Builder.class);
+            AMCTerrainCellProto.class, Builder.class);
   }
 
   public static final int POSITION_FIELD_NUMBER = 1;
-  private com.nkasenides.amc.proto.MatrixPositionProto position_;
+  private MatrixPositionProto position_;
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
    * @return Whether the position field is set.
    */
-  @java.lang.Override
+  @Override
   public boolean hasPosition() {
     return position_ != null;
   }
@@ -127,15 +127,15 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
    * @return The position.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.MatrixPositionProto getPosition() {
-    return position_ == null ? com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+  @Override
+  public MatrixPositionProto getPosition() {
+    return position_ == null ? MatrixPositionProto.getDefaultInstance() : position_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder() {
+  @Override
+  public MatrixPositionProtoOrBuilder getPositionOrBuilder() {
     return getPosition();
   }
 
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool rightWall = 2;</code>
    * @return The rightWall.
    */
-  @java.lang.Override
+  @Override
   public boolean getRightWall() {
     return rightWall_;
   }
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool downWall = 3;</code>
    * @return The downWall.
    */
-  @java.lang.Override
+  @Override
   public boolean getDownWall() {
     return downWall_;
   }
@@ -167,7 +167,7 @@ private static final long serialVersionUID = 0L;
    * <code>bool upWall = 4;</code>
    * @return The upWall.
    */
-  @java.lang.Override
+  @Override
   public boolean getUpWall() {
     return upWall_;
   }
@@ -178,13 +178,13 @@ private static final long serialVersionUID = 0L;
    * <code>bool leftWall = 5;</code>
    * @return The leftWall.
    */
-  @java.lang.Override
+  @Override
   public boolean getLeftWall() {
     return leftWall_;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -194,7 +194,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (position_ != null) {
@@ -215,7 +215,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -246,15 +246,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCTerrainCellProto)) {
+    if (!(obj instanceof AMCTerrainCellProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCTerrainCellProto other = (com.nkasenides.amc.proto.AMCTerrainCellProto) obj;
+    AMCTerrainCellProto other = (AMCTerrainCellProto) obj;
 
     if (hasPosition() != other.hasPosition()) return false;
     if (hasPosition()) {
@@ -273,7 +273,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -301,69 +301,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(byte[] data)
+  public static AMCTerrainCellProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(java.io.InputStream input)
+  public static AMCTerrainCellProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCTerrainCellProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseDelimitedFrom(
+  public static AMCTerrainCellProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto parseFrom(
+  public static AMCTerrainCellProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -371,23 +371,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCTerrainCellProto prototype) {
+  public static Builder newBuilder(AMCTerrainCellProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -397,7 +397,7 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.ITerrainCell, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCTerrainCell>, 
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCTerrainCellProto)
-      com.nkasenides.amc.proto.AMCTerrainCellProtoOrBuilder {    @java.lang.Override    
+      AMCTerrainCellProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.AMCTerrainCell toObject() {    
         com.nkasenides.amc.model.AMCTerrainCell item = new com.nkasenides.amc.model.AMCTerrainCell();        
         item.setPosition(getPosition().toObject());        
@@ -411,15 +411,15 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCTerrainCellProto.class, com.nkasenides.amc.proto.AMCTerrainCellProto.Builder.class);
+              AMCTerrainCellProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCTerrainCellProto.newBuilder()
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       if (positionBuilder_ == null) {
@@ -457,29 +457,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTerrainCellProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCTerrainCellProto.getDefaultInstance();
+    @Override
+    public AMCTerrainCellProto getDefaultInstanceForType() {
+      return AMCTerrainCellProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTerrainCellProto build() {
-      com.nkasenides.amc.proto.AMCTerrainCellProto result = buildPartial();
+    @Override
+    public AMCTerrainCellProto build() {
+      AMCTerrainCellProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCTerrainCellProto buildPartial() {
-      com.nkasenides.amc.proto.AMCTerrainCellProto result = new com.nkasenides.amc.proto.AMCTerrainCellProto(this);
+    @Override
+    public AMCTerrainCellProto buildPartial() {
+      AMCTerrainCellProto result = new AMCTerrainCellProto(this);
       if (positionBuilder_ == null) {
         result.position_ = position_;
       } else {
@@ -493,50 +493,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCTerrainCellProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCTerrainCellProto)other);
+      if (other instanceof AMCTerrainCellProto) {
+        return mergeFrom((AMCTerrainCellProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCTerrainCellProto other) {
-      if (other == com.nkasenides.amc.proto.AMCTerrainCellProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCTerrainCellProto other) {
+      if (other == AMCTerrainCellProto.getDefaultInstance()) return this;
       if (other.hasPosition()) {
         mergePosition(other.getPosition());
       }
@@ -557,21 +557,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCTerrainCellProto parsedMessage = null;
+      AMCTerrainCellProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCTerrainCellProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCTerrainCellProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -581,9 +581,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.nkasenides.amc.proto.MatrixPositionProto position_;
+    private MatrixPositionProto position_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder> positionBuilder_;
+        MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder> positionBuilder_;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      * @return Whether the position field is set.
@@ -595,9 +595,9 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      * @return The position.
      */
-    public com.nkasenides.amc.proto.MatrixPositionProto getPosition() {
+    public MatrixPositionProto getPosition() {
       if (positionBuilder_ == null) {
-        return position_ == null ? com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+        return position_ == null ? MatrixPositionProto.getDefaultInstance() : position_;
       } else {
         return positionBuilder_.getMessage();
       }
@@ -605,7 +605,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
-    public Builder setPosition(com.nkasenides.amc.proto.MatrixPositionProto value) {
+    public Builder setPosition(MatrixPositionProto value) {
       if (positionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -622,7 +622,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
     public Builder setPosition(
-        com.nkasenides.amc.proto.MatrixPositionProto.Builder builderForValue) {
+        MatrixPositionProto.Builder builderForValue) {
       if (positionBuilder_ == null) {
         position_ = builderForValue.build();
         onChanged();
@@ -635,11 +635,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
-    public Builder mergePosition(com.nkasenides.amc.proto.MatrixPositionProto value) {
+    public Builder mergePosition(MatrixPositionProto value) {
       if (positionBuilder_ == null) {
         if (position_ != null) {
           position_ =
-            com.nkasenides.amc.proto.MatrixPositionProto.newBuilder(position_).mergeFrom(value).buildPartial();
+            MatrixPositionProto.newBuilder(position_).mergeFrom(value).buildPartial();
         } else {
           position_ = value;
         }
@@ -667,7 +667,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
-    public com.nkasenides.amc.proto.MatrixPositionProto.Builder getPositionBuilder() {
+    public MatrixPositionProto.Builder getPositionBuilder() {
       
       onChanged();
       return getPositionFieldBuilder().getBuilder();
@@ -675,23 +675,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
-    public com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder() {
+    public MatrixPositionProtoOrBuilder getPositionOrBuilder() {
       if (positionBuilder_ != null) {
         return positionBuilder_.getMessageOrBuilder();
       } else {
         return position_ == null ?
-            com.nkasenides.amc.proto.MatrixPositionProto.getDefaultInstance() : position_;
+            MatrixPositionProto.getDefaultInstance() : position_;
       }
     }
     /**
      * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder> 
+        MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>
         getPositionFieldBuilder() {
       if (positionBuilder_ == null) {
         positionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.MatrixPositionProto, com.nkasenides.amc.proto.MatrixPositionProto.Builder, com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder>(
+            MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>(
                 getPosition(),
                 getParentForChildren(),
                 isClean());
@@ -705,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool rightWall = 2;</code>
      * @return The rightWall.
      */
-    @java.lang.Override
+    @Override
     public boolean getRightWall() {
       return rightWall_;
     }
@@ -736,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool downWall = 3;</code>
      * @return The downWall.
      */
-    @java.lang.Override
+    @Override
     public boolean getDownWall() {
       return downWall_;
     }
@@ -767,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool upWall = 4;</code>
      * @return The upWall.
      */
-    @java.lang.Override
+    @Override
     public boolean getUpWall() {
       return upWall_;
     }
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
      * <code>bool leftWall = 5;</code>
      * @return The leftWall.
      */
-    @java.lang.Override
+    @Override
     public boolean getLeftWall() {
       return leftWall_;
     }
@@ -823,13 +823,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -840,18 +840,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCTerrainCellProto)
-  private static final com.nkasenides.amc.proto.AMCTerrainCellProto DEFAULT_INSTANCE;
+  private static final AMCTerrainCellProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCTerrainCellProto();
+    DEFAULT_INSTANCE = new AMCTerrainCellProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCTerrainCellProto getDefaultInstance() {
+  public static AMCTerrainCellProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCTerrainCellProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCTerrainCellProto>() {
-    @java.lang.Override
+    @Override
     public AMCTerrainCellProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -864,17 +864,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCTerrainCellProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCTerrainCellProto getDefaultInstanceForType() {
+  @Override
+  public AMCTerrainCellProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.AMCTerrainCell toObject() {    
         com.nkasenides.amc.model.AMCTerrainCell item = new com.nkasenides.amc.model.AMCTerrainCell();        
         item.setPosition(getPosition().toObject());        

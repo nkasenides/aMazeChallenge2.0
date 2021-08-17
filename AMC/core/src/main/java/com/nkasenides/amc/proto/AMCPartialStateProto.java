@@ -18,14 +18,14 @@ private static final long serialVersionUID = 0L;
   private AMCPartialStateProto() {
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCPartialStateProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
                   EntitiesDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000001;
             }
-            com.google.protobuf.MapEntry<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+            com.google.protobuf.MapEntry<String, AMCEntityProto>
             entities__ = input.readMessage(
                 EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             entities_.getMutableMap().put(
@@ -63,11 +63,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.nkasenides.amc.proto.AMCWorldSessionProto.Builder subBuilder = null;
+            AMCWorldSessionProto.Builder subBuilder = null;
             if (worldSession_ != null) {
               subBuilder = worldSession_.toBuilder();
             }
-            worldSession_ = input.readMessage(com.nkasenides.amc.proto.AMCWorldSessionProto.parser(), extensionRegistry);
+            worldSession_ = input.readMessage(AMCWorldSessionProto.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(worldSession_);
               worldSession_ = subBuilder.buildPartial();
@@ -81,7 +81,7 @@ private static final long serialVersionUID = 0L;
                   TerrainDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000002;
             }
-            com.google.protobuf.MapEntry<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+            com.google.protobuf.MapEntry<String, AMCTerrainCellProto>
             terrain__ = input.readMessage(
                 TerrainDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             terrain_.getMutableMap().put(
@@ -114,11 +114,11 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
+  @Override
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
@@ -131,29 +131,29 @@ private static final long serialVersionUID = 0L;
             "Invalid map field number: " + number);
     }
   }
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCPartialStateProto.class, com.nkasenides.amc.proto.AMCPartialStateProto.Builder.class);
+            AMCPartialStateProto.class, Builder.class);
   }
 
   public static final int ENTITIES_FIELD_NUMBER = 1;
   private static final class EntitiesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> defaultEntry =
+        String, AMCEntityProto> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>newDefaultInstance(
-                com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor, 
+            .<String, AMCEntityProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                com.nkasenides.amc.proto.AMCEntityProto.getDefaultInstance());
+                AMCEntityProto.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> entities_;
-  private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+      String, AMCEntityProto> entities_;
+  private com.google.protobuf.MapField<String, AMCEntityProto>
   internalGetEntities() {
     if (entities_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -169,64 +169,64 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
 
-  @java.lang.Override
+  @Override
   public boolean containsEntities(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
     return internalGetEntities().getMap().containsKey(key);
   }
   /**
    * Use {@link #getEntitiesMap()} instead.
    */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> getEntities() {
+  @Override
+  @Deprecated
+  public java.util.Map<String, AMCEntityProto> getEntities() {
     return getEntitiesMap();
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> getEntitiesMap() {
+  public java.util.Map<String, AMCEntityProto> getEntitiesMap() {
     return internalGetEntities().getMap();
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrDefault(
-      java.lang.String key,
-      com.nkasenides.amc.proto.AMCEntityProto defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> map =
+  public AMCEntityProto getEntitiesOrDefault(
+      String key,
+      AMCEntityProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCEntityProto> map =
         internalGetEntities().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> map =
+  public AMCEntityProto getEntitiesOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCEntityProto> map =
         internalGetEntities().getMap();
     if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
+      throw new IllegalArgumentException();
     }
     return map.get(key);
   }
 
   public static final int WORLDSESSION_FIELD_NUMBER = 2;
-  private com.nkasenides.amc.proto.AMCWorldSessionProto worldSession_;
+  private AMCWorldSessionProto worldSession_;
   /**
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
    * @return Whether the worldSession field is set.
    */
-  @java.lang.Override
+  @Override
   public boolean hasWorldSession() {
     return worldSession_ != null;
   }
@@ -234,33 +234,33 @@ private static final long serialVersionUID = 0L;
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
    * @return The worldSession.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCWorldSessionProto getWorldSession() {
-    return worldSession_ == null ? com.nkasenides.amc.proto.AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+  @Override
+  public AMCWorldSessionProto getWorldSession() {
+    return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
   }
   /**
    * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
+  @Override
+  public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
     return getWorldSession();
   }
 
   public static final int TERRAIN_FIELD_NUMBER = 3;
   private static final class TerrainDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> defaultEntry =
+        String, AMCTerrainCellProto> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>newDefaultInstance(
-                com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor, 
+            .<String, AMCTerrainCellProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                com.nkasenides.amc.proto.AMCTerrainCellProto.getDefaultInstance());
+                AMCTerrainCellProto.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> terrain_;
-  private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+      String, AMCTerrainCellProto> terrain_;
+  private com.google.protobuf.MapField<String, AMCTerrainCellProto>
   internalGetTerrain() {
     if (terrain_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -276,53 +276,53 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
 
-  @java.lang.Override
+  @Override
   public boolean containsTerrain(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
     return internalGetTerrain().getMap().containsKey(key);
   }
   /**
    * Use {@link #getTerrainMap()} instead.
    */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> getTerrain() {
+  @Override
+  @Deprecated
+  public java.util.Map<String, AMCTerrainCellProto> getTerrain() {
     return getTerrainMap();
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> getTerrainMap() {
+  public java.util.Map<String, AMCTerrainCellProto> getTerrainMap() {
     return internalGetTerrain().getMap();
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrDefault(
-      java.lang.String key,
-      com.nkasenides.amc.proto.AMCTerrainCellProto defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> map =
+  public AMCTerrainCellProto getTerrainOrDefault(
+      String key,
+      AMCTerrainCellProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCTerrainCellProto> map =
         internalGetTerrain().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
    */
-  @java.lang.Override
+  @Override
 
-  public com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> map =
+  public AMCTerrainCellProto getTerrainOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCTerrainCellProto> map =
         internalGetTerrain().getMap();
     if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
+      throw new IllegalArgumentException();
     }
     return map.get(key);
   }
@@ -333,13 +333,13 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 timestamp = 4;</code>
    * @return The timestamp.
    */
-  @java.lang.Override
+  @Override
   public long getTimestamp() {
     return timestamp_;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -349,7 +349,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     com.google.protobuf.GeneratedMessageV3
@@ -373,15 +373,15 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
 
     size = 0;
-    for (java.util.Map.Entry<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> entry
+    for (java.util.Map.Entry<String, AMCEntityProto> entry
          : internalGetEntities().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+      com.google.protobuf.MapEntry<String, AMCEntityProto>
       entities__ = EntitiesDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -393,9 +393,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getWorldSession());
     }
-    for (java.util.Map.Entry<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> entry
+    for (java.util.Map.Entry<String, AMCTerrainCellProto> entry
          : internalGetTerrain().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+      com.google.protobuf.MapEntry<String, AMCTerrainCellProto>
       terrain__ = TerrainDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -412,15 +412,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCPartialStateProto)) {
+    if (!(obj instanceof AMCPartialStateProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCPartialStateProto other = (com.nkasenides.amc.proto.AMCPartialStateProto) obj;
+    AMCPartialStateProto other = (AMCPartialStateProto) obj;
 
     if (!internalGetEntities().equals(
         other.internalGetEntities())) return false;
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -464,69 +464,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(byte[] data)
+  public static AMCPartialStateProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(java.io.InputStream input)
+  public static AMCPartialStateProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCPartialStateProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseDelimitedFrom(
+  public static AMCPartialStateProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCPartialStateProto parseFrom(
+  public static AMCPartialStateProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -534,23 +534,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCPartialStateProto prototype) {
+  public static Builder newBuilder(AMCPartialStateProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -560,10 +560,10 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCPartialStateProto)
-      com.nkasenides.amc.proto.AMCPartialStateProtoOrBuilder {
+      AMCPartialStateProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -592,12 +592,12 @@ private static final long serialVersionUID = 0L;
               "Invalid map field number: " + number);
       }
     }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCPartialStateProto.class, com.nkasenides.amc.proto.AMCPartialStateProto.Builder.class);
+              AMCPartialStateProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCPartialStateProto.newBuilder()
@@ -606,7 +606,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -615,7 +615,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       internalGetMutableEntities().clear();
@@ -631,29 +631,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCPartialStateProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCPartialStateProto.getDefaultInstance();
+    @Override
+    public AMCPartialStateProto getDefaultInstanceForType() {
+      return AMCPartialStateProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCPartialStateProto build() {
-      com.nkasenides.amc.proto.AMCPartialStateProto result = buildPartial();
+    @Override
+    public AMCPartialStateProto build() {
+      AMCPartialStateProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCPartialStateProto buildPartial() {
-      com.nkasenides.amc.proto.AMCPartialStateProto result = new com.nkasenides.amc.proto.AMCPartialStateProto(this);
+    @Override
+    public AMCPartialStateProto buildPartial() {
+      AMCPartialStateProto result = new AMCPartialStateProto(this);
       int from_bitField0_ = bitField0_;
       result.entities_ = internalGetEntities();
       result.entities_.makeImmutable();
@@ -669,50 +669,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCPartialStateProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCPartialStateProto)other);
+      if (other instanceof AMCPartialStateProto) {
+        return mergeFrom((AMCPartialStateProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCPartialStateProto other) {
-      if (other == com.nkasenides.amc.proto.AMCPartialStateProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCPartialStateProto other) {
+      if (other == AMCPartialStateProto.getDefaultInstance()) return this;
       internalGetMutableEntities().mergeFrom(
           other.internalGetEntities());
       if (other.hasWorldSession()) {
@@ -728,21 +728,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCPartialStateProto parsedMessage = null;
+      AMCPartialStateProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCPartialStateProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCPartialStateProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -754,8 +754,8 @@ private static final long serialVersionUID = 0L;
     private int bitField0_;
 
     private com.google.protobuf.MapField<
-        java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> entities_;
-    private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+        String, AMCEntityProto> entities_;
+    private com.google.protobuf.MapField<String, AMCEntityProto>
     internalGetEntities() {
       if (entities_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -763,7 +763,7 @@ private static final long serialVersionUID = 0L;
       }
       return entities_;
     }
-    private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+    private com.google.protobuf.MapField<String, AMCEntityProto>
     internalGetMutableEntities() {
       onChanged();;
       if (entities_ == null) {
@@ -783,53 +783,53 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
      */
 
-    @java.lang.Override
+    @Override
     public boolean containsEntities(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       return internalGetEntities().getMap().containsKey(key);
     }
     /**
      * Use {@link #getEntitiesMap()} instead.
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> getEntities() {
+    @Override
+    @Deprecated
+    public java.util.Map<String, AMCEntityProto> getEntities() {
       return getEntitiesMap();
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> getEntitiesMap() {
+    public java.util.Map<String, AMCEntityProto> getEntitiesMap() {
       return internalGetEntities().getMap();
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrDefault(
-        java.lang.String key,
-        com.nkasenides.amc.proto.AMCEntityProto defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> map =
+    public AMCEntityProto getEntitiesOrDefault(
+        String key,
+        AMCEntityProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCEntityProto> map =
           internalGetEntities().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public com.nkasenides.amc.proto.AMCEntityProto getEntitiesOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> map =
+    public AMCEntityProto getEntitiesOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCEntityProto> map =
           internalGetEntities().getMap();
       if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+        throw new IllegalArgumentException();
       }
       return map.get(key);
     }
@@ -844,8 +844,8 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder removeEntities(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       internalGetMutableEntities().getMutableMap()
           .remove(key);
       return this;
@@ -853,8 +853,8 @@ private static final long serialVersionUID = 0L;
     /**
      * Use alternate mutation accessors instead.
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto>
+    @Deprecated
+    public java.util.Map<String, AMCEntityProto>
     getMutableEntities() {
       return internalGetMutableEntities().getMutableMap();
     }
@@ -862,10 +862,10 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
      */
     public Builder putEntities(
-        java.lang.String key,
-        com.nkasenides.amc.proto.AMCEntityProto value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+        String key,
+        AMCEntityProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
       internalGetMutableEntities().getMutableMap()
           .put(key, value);
       return this;
@@ -875,15 +875,15 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder putAllEntities(
-        java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCEntityProto> values) {
+        java.util.Map<String, AMCEntityProto> values) {
       internalGetMutableEntities().getMutableMap()
           .putAll(values);
       return this;
     }
 
-    private com.nkasenides.amc.proto.AMCWorldSessionProto worldSession_;
+    private AMCWorldSessionProto worldSession_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.AMCWorldSessionProto, com.nkasenides.amc.proto.AMCWorldSessionProto.Builder, com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
+        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      * @return Whether the worldSession field is set.
@@ -895,9 +895,9 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      * @return The worldSession.
      */
-    public com.nkasenides.amc.proto.AMCWorldSessionProto getWorldSession() {
+    public AMCWorldSessionProto getWorldSession() {
       if (worldSessionBuilder_ == null) {
-        return worldSession_ == null ? com.nkasenides.amc.proto.AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+        return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
       } else {
         return worldSessionBuilder_.getMessage();
       }
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
-    public Builder setWorldSession(com.nkasenides.amc.proto.AMCWorldSessionProto value) {
+    public Builder setWorldSession(AMCWorldSessionProto value) {
       if (worldSessionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
     public Builder setWorldSession(
-        com.nkasenides.amc.proto.AMCWorldSessionProto.Builder builderForValue) {
+        AMCWorldSessionProto.Builder builderForValue) {
       if (worldSessionBuilder_ == null) {
         worldSession_ = builderForValue.build();
         onChanged();
@@ -935,11 +935,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
-    public Builder mergeWorldSession(com.nkasenides.amc.proto.AMCWorldSessionProto value) {
+    public Builder mergeWorldSession(AMCWorldSessionProto value) {
       if (worldSessionBuilder_ == null) {
         if (worldSession_ != null) {
           worldSession_ =
-            com.nkasenides.amc.proto.AMCWorldSessionProto.newBuilder(worldSession_).mergeFrom(value).buildPartial();
+            AMCWorldSessionProto.newBuilder(worldSession_).mergeFrom(value).buildPartial();
         } else {
           worldSession_ = value;
         }
@@ -967,7 +967,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
-    public com.nkasenides.amc.proto.AMCWorldSessionProto.Builder getWorldSessionBuilder() {
+    public AMCWorldSessionProto.Builder getWorldSessionBuilder() {
       
       onChanged();
       return getWorldSessionFieldBuilder().getBuilder();
@@ -975,23 +975,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
-    public com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
+    public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
       if (worldSessionBuilder_ != null) {
         return worldSessionBuilder_.getMessageOrBuilder();
       } else {
         return worldSession_ == null ?
-            com.nkasenides.amc.proto.AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+            AMCWorldSessionProto.getDefaultInstance() : worldSession_;
       }
     }
     /**
      * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.AMCWorldSessionProto, com.nkasenides.amc.proto.AMCWorldSessionProto.Builder, com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder> 
+        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>
         getWorldSessionFieldBuilder() {
       if (worldSessionBuilder_ == null) {
         worldSessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.AMCWorldSessionProto, com.nkasenides.amc.proto.AMCWorldSessionProto.Builder, com.nkasenides.amc.proto.AMCWorldSessionProtoOrBuilder>(
+            AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>(
                 getWorldSession(),
                 getParentForChildren(),
                 isClean());
@@ -1001,8 +1001,8 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> terrain_;
-    private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+        String, AMCTerrainCellProto> terrain_;
+    private com.google.protobuf.MapField<String, AMCTerrainCellProto>
     internalGetTerrain() {
       if (terrain_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -1010,7 +1010,7 @@ private static final long serialVersionUID = 0L;
       }
       return terrain_;
     }
-    private com.google.protobuf.MapField<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+    private com.google.protobuf.MapField<String, AMCTerrainCellProto>
     internalGetMutableTerrain() {
       onChanged();;
       if (terrain_ == null) {
@@ -1030,53 +1030,53 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
      */
 
-    @java.lang.Override
+    @Override
     public boolean containsTerrain(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       return internalGetTerrain().getMap().containsKey(key);
     }
     /**
      * Use {@link #getTerrainMap()} instead.
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> getTerrain() {
+    @Override
+    @Deprecated
+    public java.util.Map<String, AMCTerrainCellProto> getTerrain() {
       return getTerrainMap();
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> getTerrainMap() {
+    public java.util.Map<String, AMCTerrainCellProto> getTerrainMap() {
       return internalGetTerrain().getMap();
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrDefault(
-        java.lang.String key,
-        com.nkasenides.amc.proto.AMCTerrainCellProto defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> map =
+    public AMCTerrainCellProto getTerrainOrDefault(
+        String key,
+        AMCTerrainCellProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCTerrainCellProto> map =
           internalGetTerrain().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
      */
-    @java.lang.Override
+    @Override
 
-    public com.nkasenides.amc.proto.AMCTerrainCellProto getTerrainOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> map =
+    public AMCTerrainCellProto getTerrainOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCTerrainCellProto> map =
           internalGetTerrain().getMap();
       if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+        throw new IllegalArgumentException();
       }
       return map.get(key);
     }
@@ -1091,8 +1091,8 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder removeTerrain(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       internalGetMutableTerrain().getMutableMap()
           .remove(key);
       return this;
@@ -1100,8 +1100,8 @@ private static final long serialVersionUID = 0L;
     /**
      * Use alternate mutation accessors instead.
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto>
+    @Deprecated
+    public java.util.Map<String, AMCTerrainCellProto>
     getMutableTerrain() {
       return internalGetMutableTerrain().getMutableMap();
     }
@@ -1109,10 +1109,10 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
      */
     public Builder putTerrain(
-        java.lang.String key,
-        com.nkasenides.amc.proto.AMCTerrainCellProto value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+        String key,
+        AMCTerrainCellProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
       internalGetMutableTerrain().getMutableMap()
           .put(key, value);
       return this;
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
      */
 
     public Builder putAllTerrain(
-        java.util.Map<java.lang.String, com.nkasenides.amc.proto.AMCTerrainCellProto> values) {
+        java.util.Map<String, AMCTerrainCellProto> values) {
       internalGetMutableTerrain().getMutableMap()
           .putAll(values);
       return this;
@@ -1133,7 +1133,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 timestamp = 4;</code>
      * @return The timestamp.
      */
-    @java.lang.Override
+    @Override
     public long getTimestamp() {
       return timestamp_;
     }
@@ -1158,13 +1158,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1175,18 +1175,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCPartialStateProto)
-  private static final com.nkasenides.amc.proto.AMCPartialStateProto DEFAULT_INSTANCE;
+  private static final AMCPartialStateProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCPartialStateProto();
+    DEFAULT_INSTANCE = new AMCPartialStateProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCPartialStateProto getDefaultInstance() {
+  public static AMCPartialStateProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCPartialStateProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCPartialStateProto>() {
-    @java.lang.Override
+    @Override
     public AMCPartialStateProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1199,13 +1199,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCPartialStateProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCPartialStateProto getDefaultInstanceForType() {
+  @Override
+  public AMCPartialStateProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

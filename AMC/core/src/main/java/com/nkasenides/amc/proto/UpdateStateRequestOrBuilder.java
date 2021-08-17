@@ -11,7 +11,7 @@ public interface UpdateStateRequestOrBuilder extends
    * <code>string worldSessionID = 1;</code>
    * @return The worldSessionID.
    */
-  java.lang.String getWorldSessionID();
+  String getWorldSessionID();
   /**
    * <code>string worldSessionID = 1;</code>
    * @return The bytes for worldSessionID.

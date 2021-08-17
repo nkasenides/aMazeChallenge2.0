@@ -23,7 +23,7 @@ public interface MatrixPositionProtoOrBuilder extends
    * <code>string cellHash = 3;</code>
    * @return The cellHash.
    */
-  java.lang.String getCellHash();
+  String getCellHash();
   /**
    * <code>string cellHash = 3;</code>
    * @return The bytes for cellHash.
@@ -35,7 +35,7 @@ public interface MatrixPositionProtoOrBuilder extends
    * <code>string chunkHash = 4;</code>
    * @return The chunkHash.
    */
-  java.lang.String getChunkHash();
+  String getChunkHash();
   /**
    * <code>string chunkHash = 4;</code>
    * @return The bytes for chunkHash.

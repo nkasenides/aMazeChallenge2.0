@@ -16,13 +16,13 @@ public interface GridProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.Direction4 startingDirection = 1;</code>
    * @return The startingDirection.
    */
-  com.nkasenides.amc.proto.Direction4 getStartingDirection();
+  Direction4 getStartingDirection();
 
   /**
    * <code>string data = 2;</code>
    * @return The data.
    */
-  java.lang.String getData();
+  String getData();
   /**
    * <code>string data = 2;</code>
    * @return The bytes for data.
@@ -39,11 +39,11 @@ public interface GridProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto targetPosition = 3;</code>
    * @return The targetPosition.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getTargetPosition();
+  MatrixPositionProto getTargetPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto targetPosition = 3;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getTargetPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getTargetPositionOrBuilder();
 
   /**
    * <code>int32 width = 4;</code>
@@ -60,11 +60,11 @@ public interface GridProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto startingPosition = 5;</code>
    * @return The startingPosition.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getStartingPosition();
+  MatrixPositionProto getStartingPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto startingPosition = 5;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getStartingPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getStartingPositionOrBuilder();
 
   /**
    * <code>int32 height = 6;</code>

@@ -8,34 +8,139 @@ public interface RequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+   * @return Whether the addChallengeRequest field is set.
+   */
+  boolean hasAddChallengeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+   * @return The addChallengeRequest.
+   */
+  AddChallengeRequest getAddChallengeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+   */
+  AddChallengeRequestOrBuilder getAddChallengeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
    * @return Whether the getStateRequest field is set.
    */
   boolean hasGetStateRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
    * @return The getStateRequest.
    */
-  com.nkasenides.amc.proto.GetStateRequest getGetStateRequest();
+  GetStateRequest getGetStateRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
    */
-  com.nkasenides.amc.proto.GetStateRequestOrBuilder getGetStateRequestOrBuilder();
+  GetStateRequestOrBuilder getGetStateRequestOrBuilder();
 
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   * @return Whether the subscribeRequest field is set.
+   */
+  boolean hasSubscribeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   * @return The subscribeRequest.
+   */
+  SubscribeRequest getSubscribeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   */
+  SubscribeRequestOrBuilder getSubscribeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   * @return Whether the listChallengesRequest field is set.
+   */
+  boolean hasListChallengesRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   * @return The listChallengesRequest.
+   */
+  ListChallengesRequest getListChallengesRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   */
+  ListChallengesRequestOrBuilder getListChallengesRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   * @return Whether the unsubscribeRequest field is set.
+   */
+  boolean hasUnsubscribeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   * @return The unsubscribeRequest.
+   */
+  UnsubscribeRequest getUnsubscribeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   */
+  UnsubscribeRequestOrBuilder getUnsubscribeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
    * @return Whether the updateStateRequest field is set.
    */
   boolean hasUpdateStateRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
    * @return The updateStateRequest.
    */
-  com.nkasenides.amc.proto.UpdateStateRequest getUpdateStateRequest();
+  UpdateStateRequest getUpdateStateRequest();
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
    */
-  com.nkasenides.amc.proto.UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder();
+  UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder();
 
-  public com.nkasenides.amc.proto.Request.RequestCase getRequestCase();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * @return Whether the submitCodeRequest field is set.
+   */
+  boolean hasSubmitCodeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * @return The submitCodeRequest.
+   */
+  SubmitCodeRequest getSubmitCodeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   */
+  SubmitCodeRequestOrBuilder getSubmitCodeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   * @return Whether the joinChallengeRequest field is set.
+   */
+  boolean hasJoinChallengeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   * @return The joinChallengeRequest.
+   */
+  JoinChallengeRequest getJoinChallengeRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   */
+  JoinChallengeRequestOrBuilder getJoinChallengeRequestOrBuilder();
+
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   * @return Whether the submitQuestionnaireRequest field is set.
+   */
+  boolean hasSubmitQuestionnaireRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   * @return The submitQuestionnaireRequest.
+   */
+  SubmitQuestionnaireRequest getSubmitQuestionnaireRequest();
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   */
+  SubmitQuestionnaireRequestOrBuilder getSubmitQuestionnaireRequestOrBuilder();
+
+  public Request.RequestCase getRequestCase();
 }

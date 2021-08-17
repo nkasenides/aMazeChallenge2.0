@@ -11,7 +11,7 @@ public interface AMCGameSessionProtoOrBuilder extends
    * <code>string ipAddress = 1;</code>
    * @return The ipAddress.
    */
-  java.lang.String getIpAddress();
+  String getIpAddress();
   /**
    * <code>string ipAddress = 1;</code>
    * @return The bytes for ipAddress.
@@ -29,7 +29,7 @@ public interface AMCGameSessionProtoOrBuilder extends
    * <code>string id = 3;</code>
    * @return The id.
    */
-  java.lang.String getId();
+  String getId();
   /**
    * <code>string id = 3;</code>
    * @return The bytes for id.
@@ -47,7 +47,7 @@ public interface AMCGameSessionProtoOrBuilder extends
    * <code>string playerID = 5;</code>
    * @return The playerID.
    */
-  java.lang.String getPlayerID();
+  String getPlayerID();
   /**
    * <code>string playerID = 5;</code>
    * @return The bytes for playerID.

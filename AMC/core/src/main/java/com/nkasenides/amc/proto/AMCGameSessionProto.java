@@ -21,14 +21,14 @@ private static final long serialVersionUID = 0L;
     playerID_ = "";
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new AMCGameSessionProto();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             ipAddress_ = s;
             break;
@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             id_ = s;
             break;
@@ -74,7 +74,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+            String s = input.readStringRequireUtf8();
 
             playerID_ = s;
             break;
@@ -100,32 +100,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.AMCGameSessionProto.class, com.nkasenides.amc.proto.AMCGameSessionProto.Builder.class);
+            AMCGameSessionProto.class, Builder.class);
   }
 
   public static final int IPADDRESS_FIELD_NUMBER = 1;
-  private volatile java.lang.Object ipAddress_;
+  private volatile Object ipAddress_;
   /**
    * <code>string ipAddress = 1;</code>
    * @return The ipAddress.
    */
-  @java.lang.Override
-  public java.lang.String getIpAddress() {
-    java.lang.Object ref = ipAddress_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getIpAddress() {
+    Object ref = ipAddress_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       ipAddress_ = s;
       return s;
     }
@@ -134,14 +134,14 @@ private static final long serialVersionUID = 0L;
    * <code>string ipAddress = 1;</code>
    * @return The bytes for ipAddress.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIpAddressBytes() {
-    java.lang.Object ref = ipAddress_;
-    if (ref instanceof java.lang.String) {
+    Object ref = ipAddress_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       ipAddress_ = b;
       return b;
     } else {
@@ -155,26 +155,26 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 expiresOn = 2;</code>
    * @return The expiresOn.
    */
-  @java.lang.Override
+  @Override
   public long getExpiresOn() {
     return expiresOn_;
   }
 
   public static final int ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object id_;
+  private volatile Object id_;
   /**
    * <code>string id = 3;</code>
    * @return The id.
    */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       id_ = s;
       return s;
     }
@@ -183,14 +183,14 @@ private static final long serialVersionUID = 0L;
    * <code>string id = 3;</code>
    * @return The bytes for id.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
+    Object ref = id_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       id_ = b;
       return b;
     } else {
@@ -204,26 +204,26 @@ private static final long serialVersionUID = 0L;
    * <code>uint64 createdOn = 4;</code>
    * @return The createdOn.
    */
-  @java.lang.Override
+  @Override
   public long getCreatedOn() {
     return createdOn_;
   }
 
   public static final int PLAYERID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object playerID_;
+  private volatile Object playerID_;
   /**
    * <code>string playerID = 5;</code>
    * @return The playerID.
    */
-  @java.lang.Override
-  public java.lang.String getPlayerID() {
-    java.lang.Object ref = playerID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
+  @Override
+  public String getPlayerID() {
+    Object ref = playerID_;
+    if (ref instanceof String) {
+      return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
+      String s = bs.toStringUtf8();
       playerID_ = s;
       return s;
     }
@@ -232,14 +232,14 @@ private static final long serialVersionUID = 0L;
    * <code>string playerID = 5;</code>
    * @return The bytes for playerID.
    */
-  @java.lang.Override
+  @Override
   public com.google.protobuf.ByteString
       getPlayerIDBytes() {
-    java.lang.Object ref = playerID_;
-    if (ref instanceof java.lang.String) {
+    Object ref = playerID_;
+    if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
+              (String) ref);
       playerID_ = b;
       return b;
     } else {
@@ -248,7 +248,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getIpAddressBytes().isEmpty()) {
@@ -279,7 +279,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -307,15 +307,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.AMCGameSessionProto)) {
+    if (!(obj instanceof AMCGameSessionProto)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.AMCGameSessionProto other = (com.nkasenides.amc.proto.AMCGameSessionProto) obj;
+    AMCGameSessionProto other = (AMCGameSessionProto) obj;
 
     if (!getIpAddress()
         .equals(other.getIpAddress())) return false;
@@ -331,7 +331,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -355,69 +355,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(byte[] data)
+  public static AMCGameSessionProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(java.io.InputStream input)
+  public static AMCGameSessionProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseDelimitedFrom(java.io.InputStream input)
+  public static AMCGameSessionProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseDelimitedFrom(
+  public static AMCGameSessionProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.AMCGameSessionProto parseFrom(
+  public static AMCGameSessionProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -425,23 +425,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.AMCGameSessionProto prototype) {
+  public static Builder newBuilder(AMCGameSessionProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -451,7 +451,7 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IGameSession, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCGameSession>, 
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCGameSessionProto)
-      com.nkasenides.amc.proto.AMCGameSessionProtoOrBuilder {    @java.lang.Override    
+      AMCGameSessionProtoOrBuilder {    @Override
     public com.nkasenides.amc.model.AMCGameSession toObject() {    
         com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();        
         item.setIpAddress(getIpAddress());        
@@ -465,15 +465,15 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.AMCGameSessionProto.class, com.nkasenides.amc.proto.AMCGameSessionProto.Builder.class);
+              AMCGameSessionProto.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.AMCGameSessionProto.newBuilder()
@@ -482,7 +482,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -491,7 +491,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       ipAddress_ = "";
@@ -507,29 +507,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCGameSessionProto getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.AMCGameSessionProto.getDefaultInstance();
+    @Override
+    public AMCGameSessionProto getDefaultInstanceForType() {
+      return AMCGameSessionProto.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCGameSessionProto build() {
-      com.nkasenides.amc.proto.AMCGameSessionProto result = buildPartial();
+    @Override
+    public AMCGameSessionProto build() {
+      AMCGameSessionProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.AMCGameSessionProto buildPartial() {
-      com.nkasenides.amc.proto.AMCGameSessionProto result = new com.nkasenides.amc.proto.AMCGameSessionProto(this);
+    @Override
+    public AMCGameSessionProto buildPartial() {
+      AMCGameSessionProto result = new AMCGameSessionProto(this);
       result.ipAddress_ = ipAddress_;
       result.expiresOn_ = expiresOn_;
       result.id_ = id_;
@@ -539,50 +539,50 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.AMCGameSessionProto) {
-        return mergeFrom((com.nkasenides.amc.proto.AMCGameSessionProto)other);
+      if (other instanceof AMCGameSessionProto) {
+        return mergeFrom((AMCGameSessionProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.AMCGameSessionProto other) {
-      if (other == com.nkasenides.amc.proto.AMCGameSessionProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(AMCGameSessionProto other) {
+      if (other == AMCGameSessionProto.getDefaultInstance()) return this;
       if (!other.getIpAddress().isEmpty()) {
         ipAddress_ = other.ipAddress_;
         onChanged();
@@ -606,21 +606,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.AMCGameSessionProto parsedMessage = null;
+      AMCGameSessionProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.AMCGameSessionProto) e.getUnfinishedMessage();
+        parsedMessage = (AMCGameSessionProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -630,21 +630,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object ipAddress_ = "";
+    private Object ipAddress_ = "";
     /**
      * <code>string ipAddress = 1;</code>
      * @return The ipAddress.
      */
-    public java.lang.String getIpAddress() {
-      java.lang.Object ref = ipAddress_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getIpAddress() {
+      Object ref = ipAddress_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         ipAddress_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -653,11 +653,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIpAddressBytes() {
-      java.lang.Object ref = ipAddress_;
+      Object ref = ipAddress_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         ipAddress_ = b;
         return b;
       } else {
@@ -670,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIpAddress(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 expiresOn = 2;</code>
      * @return The expiresOn.
      */
-    @java.lang.Override
+    @Override
     public long getExpiresOn() {
       return expiresOn_;
     }
@@ -737,21 +737,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private Object id_ = "";
     /**
      * <code>string id = 3;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         id_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -760,11 +760,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
+      Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -777,7 +777,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
      * <code>uint64 createdOn = 4;</code>
      * @return The createdOn.
      */
-    @java.lang.Override
+    @Override
     public long getCreatedOn() {
       return createdOn_;
     }
@@ -844,21 +844,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object playerID_ = "";
+    private Object playerID_ = "";
     /**
      * <code>string playerID = 5;</code>
      * @return The playerID.
      */
-    public java.lang.String getPlayerID() {
-      java.lang.Object ref = playerID_;
-      if (!(ref instanceof java.lang.String)) {
+    public String getPlayerID() {
+      Object ref = playerID_;
+      if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         playerID_ = s;
         return s;
       } else {
-        return (java.lang.String) ref;
+        return (String) ref;
       }
     }
     /**
@@ -867,11 +867,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getPlayerIDBytes() {
-      java.lang.Object ref = playerID_;
+      Object ref = playerID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         playerID_ = b;
         return b;
       } else {
@@ -884,7 +884,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlayerID(
-        java.lang.String value) {
+        String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -919,13 +919,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @java.lang.Override
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -936,18 +936,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.AMCGameSessionProto)
-  private static final com.nkasenides.amc.proto.AMCGameSessionProto DEFAULT_INSTANCE;
+  private static final AMCGameSessionProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.AMCGameSessionProto();
+    DEFAULT_INSTANCE = new AMCGameSessionProto();
   }
 
-  public static com.nkasenides.amc.proto.AMCGameSessionProto getDefaultInstance() {
+  public static AMCGameSessionProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<AMCGameSessionProto>
       PARSER = new com.google.protobuf.AbstractParser<AMCGameSessionProto>() {
-    @java.lang.Override
+    @Override
     public AMCGameSessionProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -960,17 +960,17 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<AMCGameSessionProto> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.AMCGameSessionProto getDefaultInstanceForType() {
+  @Override
+  public AMCGameSessionProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
-    @java.lang.Override    
+    @Override
     public com.nkasenides.amc.model.AMCGameSession toObject() {    
         com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();        
         item.setIpAddress(getIpAddress());        

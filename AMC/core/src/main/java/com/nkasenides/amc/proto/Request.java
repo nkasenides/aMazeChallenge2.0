@@ -18,14 +18,14 @@ private static final long serialVersionUID = 0L;
   private Request() {
   }
 
-  @java.lang.Override
+  @Override
   @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
+  protected Object newInstance(
       UnusedPrivateParameter unused) {
     return new Request();
   }
 
-  @java.lang.Override
+  @Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -36,7 +36,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
+      throw new NullPointerException();
     }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -49,31 +49,129 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.nkasenides.amc.proto.GetStateRequest.Builder subBuilder = null;
+            AddChallengeRequest.Builder subBuilder = null;
             if (requestCase_ == 1) {
-              subBuilder = ((com.nkasenides.amc.proto.GetStateRequest) request_).toBuilder();
+              subBuilder = ((AddChallengeRequest) request_).toBuilder();
             }
             request_ =
-                input.readMessage(com.nkasenides.amc.proto.GetStateRequest.parser(), extensionRegistry);
+                input.readMessage(AddChallengeRequest.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.nkasenides.amc.proto.GetStateRequest) request_);
+              subBuilder.mergeFrom((AddChallengeRequest) request_);
               request_ = subBuilder.buildPartial();
             }
             requestCase_ = 1;
             break;
           }
           case 18: {
-            com.nkasenides.amc.proto.UpdateStateRequest.Builder subBuilder = null;
+            GetStateRequest.Builder subBuilder = null;
             if (requestCase_ == 2) {
-              subBuilder = ((com.nkasenides.amc.proto.UpdateStateRequest) request_).toBuilder();
+              subBuilder = ((GetStateRequest) request_).toBuilder();
             }
             request_ =
-                input.readMessage(com.nkasenides.amc.proto.UpdateStateRequest.parser(), extensionRegistry);
+                input.readMessage(GetStateRequest.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((com.nkasenides.amc.proto.UpdateStateRequest) request_);
+              subBuilder.mergeFrom((GetStateRequest) request_);
               request_ = subBuilder.buildPartial();
             }
             requestCase_ = 2;
+            break;
+          }
+          case 26: {
+            SubscribeRequest.Builder subBuilder = null;
+            if (requestCase_ == 3) {
+              subBuilder = ((SubscribeRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(SubscribeRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((SubscribeRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 3;
+            break;
+          }
+          case 34: {
+            ListChallengesRequest.Builder subBuilder = null;
+            if (requestCase_ == 4) {
+              subBuilder = ((ListChallengesRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(ListChallengesRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((ListChallengesRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 4;
+            break;
+          }
+          case 42: {
+            UnsubscribeRequest.Builder subBuilder = null;
+            if (requestCase_ == 5) {
+              subBuilder = ((UnsubscribeRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(UnsubscribeRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((UnsubscribeRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 5;
+            break;
+          }
+          case 50: {
+            UpdateStateRequest.Builder subBuilder = null;
+            if (requestCase_ == 6) {
+              subBuilder = ((UpdateStateRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(UpdateStateRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((UpdateStateRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 6;
+            break;
+          }
+          case 58: {
+            SubmitCodeRequest.Builder subBuilder = null;
+            if (requestCase_ == 7) {
+              subBuilder = ((SubmitCodeRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(SubmitCodeRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((SubmitCodeRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 7;
+            break;
+          }
+          case 66: {
+            JoinChallengeRequest.Builder subBuilder = null;
+            if (requestCase_ == 8) {
+              subBuilder = ((JoinChallengeRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(JoinChallengeRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((JoinChallengeRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 8;
+            break;
+          }
+          case 74: {
+            SubmitQuestionnaireRequest.Builder subBuilder = null;
+            if (requestCase_ == 9) {
+              subBuilder = ((SubmitQuestionnaireRequest) request_).toBuilder();
+            }
+            request_ =
+                input.readMessage(SubmitQuestionnaireRequest.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((SubmitQuestionnaireRequest) request_);
+              request_ = subBuilder.buildPartial();
+            }
+            requestCase_ = 9;
             break;
           }
           default: {
@@ -97,24 +195,31 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
+    return AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
   }
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  @Override
+  protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable
+    return AMCProto.internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.nkasenides.amc.proto.Request.class, com.nkasenides.amc.proto.Request.Builder.class);
+            Request.class, Builder.class);
   }
 
   private int requestCase_ = 0;
-  private java.lang.Object request_;
+  private Object request_;
   public enum RequestCase
       implements com.google.protobuf.Internal.EnumLite,
-          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    GETSTATEREQUEST(1),
-    UPDATESTATEREQUEST(2),
+          InternalOneOfEnum {
+    ADDCHALLENGEREQUEST(1),
+    GETSTATEREQUEST(2),
+    SUBSCRIBEREQUEST(3),
+    LISTCHALLENGESREQUEST(4),
+    UNSUBSCRIBEREQUEST(5),
+    UPDATESTATEREQUEST(6),
+    SUBMITCODEREQUEST(7),
+    JOINCHALLENGEREQUEST(8),
+    SUBMITQUESTIONNAIREREQUEST(9),
     REQUEST_NOT_SET(0);
     private final int value;
     private RequestCase(int value) {
@@ -125,15 +230,22 @@ private static final long serialVersionUID = 0L;
      * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static RequestCase valueOf(int value) {
       return forNumber(value);
     }
 
     public static RequestCase forNumber(int value) {
       switch (value) {
-        case 1: return GETSTATEREQUEST;
-        case 2: return UPDATESTATEREQUEST;
+        case 1: return ADDCHALLENGEREQUEST;
+        case 2: return GETSTATEREQUEST;
+        case 3: return SUBSCRIBEREQUEST;
+        case 4: return LISTCHALLENGESREQUEST;
+        case 5: return UNSUBSCRIBEREQUEST;
+        case 6: return UPDATESTATEREQUEST;
+        case 7: return SUBMITCODEREQUEST;
+        case 8: return JOINCHALLENGEREQUEST;
+        case 9: return SUBMITQUESTIONNAIREREQUEST;
         case 0: return REQUEST_NOT_SET;
         default: return null;
       }
@@ -149,70 +261,287 @@ private static final long serialVersionUID = 0L;
         requestCase_);
   }
 
-  public static final int GETSTATEREQUEST_FIELD_NUMBER = 1;
+  public static final int ADDCHALLENGEREQUEST_FIELD_NUMBER = 1;
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
-   * @return Whether the getStateRequest field is set.
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+   * @return Whether the addChallengeRequest field is set.
    */
-  @java.lang.Override
-  public boolean hasGetStateRequest() {
+  @Override
+  public boolean hasAddChallengeRequest() {
     return requestCase_ == 1;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
-   * @return The getStateRequest.
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+   * @return The addChallengeRequest.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.GetStateRequest getGetStateRequest() {
+  @Override
+  public AddChallengeRequest getAddChallengeRequest() {
     if (requestCase_ == 1) {
-       return (com.nkasenides.amc.proto.GetStateRequest) request_;
+       return (AddChallengeRequest) request_;
     }
-    return com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+    return AddChallengeRequest.getDefaultInstance();
   }
   /**
-   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+   * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.GetStateRequestOrBuilder getGetStateRequestOrBuilder() {
+  @Override
+  public AddChallengeRequestOrBuilder getAddChallengeRequestOrBuilder() {
     if (requestCase_ == 1) {
-       return (com.nkasenides.amc.proto.GetStateRequest) request_;
+       return (AddChallengeRequest) request_;
     }
-    return com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+    return AddChallengeRequest.getDefaultInstance();
   }
 
-  public static final int UPDATESTATEREQUEST_FIELD_NUMBER = 2;
+  public static final int GETSTATEREQUEST_FIELD_NUMBER = 2;
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
-   * @return Whether the updateStateRequest field is set.
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
+   * @return Whether the getStateRequest field is set.
    */
-  @java.lang.Override
-  public boolean hasUpdateStateRequest() {
+  @Override
+  public boolean hasGetStateRequest() {
     return requestCase_ == 2;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
-   * @return The updateStateRequest.
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
+   * @return The getStateRequest.
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.UpdateStateRequest getUpdateStateRequest() {
+  @Override
+  public GetStateRequest getGetStateRequest() {
     if (requestCase_ == 2) {
-       return (com.nkasenides.amc.proto.UpdateStateRequest) request_;
+       return (GetStateRequest) request_;
     }
-    return com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+    return GetStateRequest.getDefaultInstance();
   }
   /**
-   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+   * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
    */
-  @java.lang.Override
-  public com.nkasenides.amc.proto.UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder() {
+  @Override
+  public GetStateRequestOrBuilder getGetStateRequestOrBuilder() {
     if (requestCase_ == 2) {
-       return (com.nkasenides.amc.proto.UpdateStateRequest) request_;
+       return (GetStateRequest) request_;
     }
-    return com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+    return GetStateRequest.getDefaultInstance();
+  }
+
+  public static final int SUBSCRIBEREQUEST_FIELD_NUMBER = 3;
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   * @return Whether the subscribeRequest field is set.
+   */
+  @Override
+  public boolean hasSubscribeRequest() {
+    return requestCase_ == 3;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   * @return The subscribeRequest.
+   */
+  @Override
+  public SubscribeRequest getSubscribeRequest() {
+    if (requestCase_ == 3) {
+       return (SubscribeRequest) request_;
+    }
+    return SubscribeRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+   */
+  @Override
+  public SubscribeRequestOrBuilder getSubscribeRequestOrBuilder() {
+    if (requestCase_ == 3) {
+       return (SubscribeRequest) request_;
+    }
+    return SubscribeRequest.getDefaultInstance();
+  }
+
+  public static final int LISTCHALLENGESREQUEST_FIELD_NUMBER = 4;
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   * @return Whether the listChallengesRequest field is set.
+   */
+  @Override
+  public boolean hasListChallengesRequest() {
+    return requestCase_ == 4;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   * @return The listChallengesRequest.
+   */
+  @Override
+  public ListChallengesRequest getListChallengesRequest() {
+    if (requestCase_ == 4) {
+       return (ListChallengesRequest) request_;
+    }
+    return ListChallengesRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+   */
+  @Override
+  public ListChallengesRequestOrBuilder getListChallengesRequestOrBuilder() {
+    if (requestCase_ == 4) {
+       return (ListChallengesRequest) request_;
+    }
+    return ListChallengesRequest.getDefaultInstance();
+  }
+
+  public static final int UNSUBSCRIBEREQUEST_FIELD_NUMBER = 5;
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   * @return Whether the unsubscribeRequest field is set.
+   */
+  @Override
+  public boolean hasUnsubscribeRequest() {
+    return requestCase_ == 5;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   * @return The unsubscribeRequest.
+   */
+  @Override
+  public UnsubscribeRequest getUnsubscribeRequest() {
+    if (requestCase_ == 5) {
+       return (UnsubscribeRequest) request_;
+    }
+    return UnsubscribeRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+   */
+  @Override
+  public UnsubscribeRequestOrBuilder getUnsubscribeRequestOrBuilder() {
+    if (requestCase_ == 5) {
+       return (UnsubscribeRequest) request_;
+    }
+    return UnsubscribeRequest.getDefaultInstance();
+  }
+
+  public static final int UPDATESTATEREQUEST_FIELD_NUMBER = 6;
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+   * @return Whether the updateStateRequest field is set.
+   */
+  @Override
+  public boolean hasUpdateStateRequest() {
+    return requestCase_ == 6;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+   * @return The updateStateRequest.
+   */
+  @Override
+  public UpdateStateRequest getUpdateStateRequest() {
+    if (requestCase_ == 6) {
+       return (UpdateStateRequest) request_;
+    }
+    return UpdateStateRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+   */
+  @Override
+  public UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder() {
+    if (requestCase_ == 6) {
+       return (UpdateStateRequest) request_;
+    }
+    return UpdateStateRequest.getDefaultInstance();
+  }
+
+  public static final int SUBMITCODEREQUEST_FIELD_NUMBER = 7;
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * @return Whether the submitCodeRequest field is set.
+   */
+  @Override
+  public boolean hasSubmitCodeRequest() {
+    return requestCase_ == 7;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   * @return The submitCodeRequest.
+   */
+  @Override
+  public SubmitCodeRequest getSubmitCodeRequest() {
+    if (requestCase_ == 7) {
+       return (SubmitCodeRequest) request_;
+    }
+    return SubmitCodeRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+   */
+  @Override
+  public SubmitCodeRequestOrBuilder getSubmitCodeRequestOrBuilder() {
+    if (requestCase_ == 7) {
+       return (SubmitCodeRequest) request_;
+    }
+    return SubmitCodeRequest.getDefaultInstance();
+  }
+
+  public static final int JOINCHALLENGEREQUEST_FIELD_NUMBER = 8;
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   * @return Whether the joinChallengeRequest field is set.
+   */
+  @Override
+  public boolean hasJoinChallengeRequest() {
+    return requestCase_ == 8;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   * @return The joinChallengeRequest.
+   */
+  @Override
+  public JoinChallengeRequest getJoinChallengeRequest() {
+    if (requestCase_ == 8) {
+       return (JoinChallengeRequest) request_;
+    }
+    return JoinChallengeRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+   */
+  @Override
+  public JoinChallengeRequestOrBuilder getJoinChallengeRequestOrBuilder() {
+    if (requestCase_ == 8) {
+       return (JoinChallengeRequest) request_;
+    }
+    return JoinChallengeRequest.getDefaultInstance();
+  }
+
+  public static final int SUBMITQUESTIONNAIREREQUEST_FIELD_NUMBER = 9;
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   * @return Whether the submitQuestionnaireRequest field is set.
+   */
+  @Override
+  public boolean hasSubmitQuestionnaireRequest() {
+    return requestCase_ == 9;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   * @return The submitQuestionnaireRequest.
+   */
+  @Override
+  public SubmitQuestionnaireRequest getSubmitQuestionnaireRequest() {
+    if (requestCase_ == 9) {
+       return (SubmitQuestionnaireRequest) request_;
+    }
+    return SubmitQuestionnaireRequest.getDefaultInstance();
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+   */
+  @Override
+  public SubmitQuestionnaireRequestOrBuilder getSubmitQuestionnaireRequestOrBuilder() {
+    if (requestCase_ == 9) {
+       return (SubmitQuestionnaireRequest) request_;
+    }
+    return SubmitQuestionnaireRequest.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
-  @java.lang.Override
+  @Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -222,19 +551,40 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (requestCase_ == 1) {
-      output.writeMessage(1, (com.nkasenides.amc.proto.GetStateRequest) request_);
+      output.writeMessage(1, (AddChallengeRequest) request_);
     }
     if (requestCase_ == 2) {
-      output.writeMessage(2, (com.nkasenides.amc.proto.UpdateStateRequest) request_);
+      output.writeMessage(2, (GetStateRequest) request_);
+    }
+    if (requestCase_ == 3) {
+      output.writeMessage(3, (SubscribeRequest) request_);
+    }
+    if (requestCase_ == 4) {
+      output.writeMessage(4, (ListChallengesRequest) request_);
+    }
+    if (requestCase_ == 5) {
+      output.writeMessage(5, (UnsubscribeRequest) request_);
+    }
+    if (requestCase_ == 6) {
+      output.writeMessage(6, (UpdateStateRequest) request_);
+    }
+    if (requestCase_ == 7) {
+      output.writeMessage(7, (SubmitCodeRequest) request_);
+    }
+    if (requestCase_ == 8) {
+      output.writeMessage(8, (JoinChallengeRequest) request_);
+    }
+    if (requestCase_ == 9) {
+      output.writeMessage(9, (SubmitQuestionnaireRequest) request_);
     }
     unknownFields.writeTo(output);
   }
 
-  @java.lang.Override
+  @Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -242,36 +592,92 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (requestCase_ == 1) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, (com.nkasenides.amc.proto.GetStateRequest) request_);
+        .computeMessageSize(1, (AddChallengeRequest) request_);
     }
     if (requestCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (com.nkasenides.amc.proto.UpdateStateRequest) request_);
+        .computeMessageSize(2, (GetStateRequest) request_);
+    }
+    if (requestCase_ == 3) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, (SubscribeRequest) request_);
+    }
+    if (requestCase_ == 4) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, (ListChallengesRequest) request_);
+    }
+    if (requestCase_ == 5) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, (UnsubscribeRequest) request_);
+    }
+    if (requestCase_ == 6) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, (UpdateStateRequest) request_);
+    }
+    if (requestCase_ == 7) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, (SubmitCodeRequest) request_);
+    }
+    if (requestCase_ == 8) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, (JoinChallengeRequest) request_);
+    }
+    if (requestCase_ == 9) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, (SubmitQuestionnaireRequest) request_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
 
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
+  @Override
+  public boolean equals(final Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.nkasenides.amc.proto.Request)) {
+    if (!(obj instanceof Request)) {
       return super.equals(obj);
     }
-    com.nkasenides.amc.proto.Request other = (com.nkasenides.amc.proto.Request) obj;
+    Request other = (Request) obj;
 
     if (!getRequestCase().equals(other.getRequestCase())) return false;
     switch (requestCase_) {
       case 1:
+        if (!getAddChallengeRequest()
+            .equals(other.getAddChallengeRequest())) return false;
+        break;
+      case 2:
         if (!getGetStateRequest()
             .equals(other.getGetStateRequest())) return false;
         break;
-      case 2:
+      case 3:
+        if (!getSubscribeRequest()
+            .equals(other.getSubscribeRequest())) return false;
+        break;
+      case 4:
+        if (!getListChallengesRequest()
+            .equals(other.getListChallengesRequest())) return false;
+        break;
+      case 5:
+        if (!getUnsubscribeRequest()
+            .equals(other.getUnsubscribeRequest())) return false;
+        break;
+      case 6:
         if (!getUpdateStateRequest()
             .equals(other.getUpdateStateRequest())) return false;
+        break;
+      case 7:
+        if (!getSubmitCodeRequest()
+            .equals(other.getSubmitCodeRequest())) return false;
+        break;
+      case 8:
+        if (!getJoinChallengeRequest()
+            .equals(other.getJoinChallengeRequest())) return false;
+        break;
+      case 9:
+        if (!getSubmitQuestionnaireRequest()
+            .equals(other.getSubmitQuestionnaireRequest())) return false;
         break;
       case 0:
       default:
@@ -280,7 +686,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @java.lang.Override
+  @Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -289,12 +695,40 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     switch (requestCase_) {
       case 1:
+        hash = (37 * hash) + ADDCHALLENGEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getAddChallengeRequest().hashCode();
+        break;
+      case 2:
         hash = (37 * hash) + GETSTATEREQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getGetStateRequest().hashCode();
         break;
-      case 2:
+      case 3:
+        hash = (37 * hash) + SUBSCRIBEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getSubscribeRequest().hashCode();
+        break;
+      case 4:
+        hash = (37 * hash) + LISTCHALLENGESREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getListChallengesRequest().hashCode();
+        break;
+      case 5:
+        hash = (37 * hash) + UNSUBSCRIBEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getUnsubscribeRequest().hashCode();
+        break;
+      case 6:
         hash = (37 * hash) + UPDATESTATEREQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getUpdateStateRequest().hashCode();
+        break;
+      case 7:
+        hash = (37 * hash) + SUBMITCODEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getSubmitCodeRequest().hashCode();
+        break;
+      case 8:
+        hash = (37 * hash) + JOINCHALLENGEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getJoinChallengeRequest().hashCode();
+        break;
+      case 9:
+        hash = (37 * hash) + SUBMITQUESTIONNAIREREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getSubmitQuestionnaireRequest().hashCode();
         break;
       case 0:
       default:
@@ -304,69 +738,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(byte[] data)
+  public static Request parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(java.io.InputStream input)
+  public static Request parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.Request parseDelimitedFrom(java.io.InputStream input)
+  public static Request parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.Request parseDelimitedFrom(
+  public static Request parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.nkasenides.amc.proto.Request parseFrom(
+  public static Request parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -374,23 +808,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @java.lang.Override
+  @Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.nkasenides.amc.proto.Request prototype) {
+  public static Builder newBuilder(Request prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @java.lang.Override
+  @Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @java.lang.Override
+  @Override
   protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -400,18 +834,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.Request)
-      com.nkasenides.amc.proto.RequestOrBuilder {
+      RequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable
+      return AMCProto.internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.nkasenides.amc.proto.Request.class, com.nkasenides.amc.proto.Request.Builder.class);
+              Request.class, Builder.class);
     }
 
     // Construct using com.nkasenides.amc.proto.Request.newBuilder()
@@ -420,7 +854,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -429,7 +863,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @java.lang.Override
+    @Override
     public Builder clear() {
       super.clear();
       requestCase_ = 0;
@@ -437,41 +871,90 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.nkasenides.amc.proto.AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
+      return AMCProto.internal_static_com_nkasenides_amc_proto_Request_descriptor;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Request getDefaultInstanceForType() {
-      return com.nkasenides.amc.proto.Request.getDefaultInstance();
+    @Override
+    public Request getDefaultInstanceForType() {
+      return Request.getDefaultInstance();
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Request build() {
-      com.nkasenides.amc.proto.Request result = buildPartial();
+    @Override
+    public Request build() {
+      Request result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @java.lang.Override
-    public com.nkasenides.amc.proto.Request buildPartial() {
-      com.nkasenides.amc.proto.Request result = new com.nkasenides.amc.proto.Request(this);
+    @Override
+    public Request buildPartial() {
+      Request result = new Request(this);
       if (requestCase_ == 1) {
+        if (addChallengeRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = addChallengeRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 2) {
         if (getStateRequestBuilder_ == null) {
           result.request_ = request_;
         } else {
           result.request_ = getStateRequestBuilder_.build();
         }
       }
-      if (requestCase_ == 2) {
+      if (requestCase_ == 3) {
+        if (subscribeRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = subscribeRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 4) {
+        if (listChallengesRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = listChallengesRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 5) {
+        if (unsubscribeRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = unsubscribeRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 6) {
         if (updateStateRequestBuilder_ == null) {
           result.request_ = request_;
         } else {
           result.request_ = updateStateRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 7) {
+        if (submitCodeRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = submitCodeRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 8) {
+        if (joinChallengeRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = joinChallengeRequestBuilder_.build();
+        }
+      }
+      if (requestCase_ == 9) {
+        if (submitQuestionnaireRequestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = submitQuestionnaireRequestBuilder_.build();
         }
       }
       result.requestCase_ = requestCase_;
@@ -479,57 +962,85 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public Builder clone() {
       return super.clone();
     }
-    @java.lang.Override
+    @Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.setField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return super.clearField(field);
     }
-    @java.lang.Override
+    @Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return super.clearOneof(oneof);
     }
-    @java.lang.Override
+    @Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
+        int index, Object value) {
       return super.setRepeatedField(field, index, value);
     }
-    @java.lang.Override
+    @Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
+        Object value) {
       return super.addRepeatedField(field, value);
     }
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.nkasenides.amc.proto.Request) {
-        return mergeFrom((com.nkasenides.amc.proto.Request)other);
+      if (other instanceof Request) {
+        return mergeFrom((Request)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.nkasenides.amc.proto.Request other) {
-      if (other == com.nkasenides.amc.proto.Request.getDefaultInstance()) return this;
+    public Builder mergeFrom(Request other) {
+      if (other == Request.getDefaultInstance()) return this;
       switch (other.getRequestCase()) {
+        case ADDCHALLENGEREQUEST: {
+          mergeAddChallengeRequest(other.getAddChallengeRequest());
+          break;
+        }
         case GETSTATEREQUEST: {
           mergeGetStateRequest(other.getGetStateRequest());
           break;
         }
+        case SUBSCRIBEREQUEST: {
+          mergeSubscribeRequest(other.getSubscribeRequest());
+          break;
+        }
+        case LISTCHALLENGESREQUEST: {
+          mergeListChallengesRequest(other.getListChallengesRequest());
+          break;
+        }
+        case UNSUBSCRIBEREQUEST: {
+          mergeUnsubscribeRequest(other.getUnsubscribeRequest());
+          break;
+        }
         case UPDATESTATEREQUEST: {
           mergeUpdateStateRequest(other.getUpdateStateRequest());
+          break;
+        }
+        case SUBMITCODEREQUEST: {
+          mergeSubmitCodeRequest(other.getSubmitCodeRequest());
+          break;
+        }
+        case JOINCHALLENGEREQUEST: {
+          mergeJoinChallengeRequest(other.getJoinChallengeRequest());
+          break;
+        }
+        case SUBMITQUESTIONNAIREREQUEST: {
+          mergeSubmitQuestionnaireRequest(other.getSubmitQuestionnaireRequest());
           break;
         }
         case REQUEST_NOT_SET: {
@@ -541,21 +1052,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nkasenides.amc.proto.Request parsedMessage = null;
+      Request parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nkasenides.amc.proto.Request) e.getUnfinishedMessage();
+        parsedMessage = (Request) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -565,7 +1076,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int requestCase_ = 0;
-    private java.lang.Object request_;
+    private Object request_;
     public RequestCase
         getRequestCase() {
       return RequestCase.forNumber(
@@ -581,37 +1092,178 @@ private static final long serialVersionUID = 0L;
 
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.GetStateRequest, com.nkasenides.amc.proto.GetStateRequest.Builder, com.nkasenides.amc.proto.GetStateRequestOrBuilder> getStateRequestBuilder_;
+        AddChallengeRequest, AddChallengeRequest.Builder, AddChallengeRequestOrBuilder> addChallengeRequestBuilder_;
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
-     * @return Whether the getStateRequest field is set.
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     * @return Whether the addChallengeRequest field is set.
      */
-    @java.lang.Override
-    public boolean hasGetStateRequest() {
+    @Override
+    public boolean hasAddChallengeRequest() {
       return requestCase_ == 1;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
-     * @return The getStateRequest.
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     * @return The addChallengeRequest.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.GetStateRequest getGetStateRequest() {
-      if (getStateRequestBuilder_ == null) {
+    @Override
+    public AddChallengeRequest getAddChallengeRequest() {
+      if (addChallengeRequestBuilder_ == null) {
         if (requestCase_ == 1) {
-          return (com.nkasenides.amc.proto.GetStateRequest) request_;
+          return (AddChallengeRequest) request_;
         }
-        return com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+        return AddChallengeRequest.getDefaultInstance();
       } else {
         if (requestCase_ == 1) {
-          return getStateRequestBuilder_.getMessage();
+          return addChallengeRequestBuilder_.getMessage();
         }
-        return com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+        return AddChallengeRequest.getDefaultInstance();
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
      */
-    public Builder setGetStateRequest(com.nkasenides.amc.proto.GetStateRequest value) {
+    public Builder setAddChallengeRequest(AddChallengeRequest value) {
+      if (addChallengeRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        addChallengeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    public Builder setAddChallengeRequest(
+        AddChallengeRequest.Builder builderForValue) {
+      if (addChallengeRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        addChallengeRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    public Builder mergeAddChallengeRequest(AddChallengeRequest value) {
+      if (addChallengeRequestBuilder_ == null) {
+        if (requestCase_ == 1 &&
+            request_ != AddChallengeRequest.getDefaultInstance()) {
+          request_ = AddChallengeRequest.newBuilder((AddChallengeRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 1) {
+          addChallengeRequestBuilder_.mergeFrom(value);
+        }
+        addChallengeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    public Builder clearAddChallengeRequest() {
+      if (addChallengeRequestBuilder_ == null) {
+        if (requestCase_ == 1) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 1) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        addChallengeRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    public AddChallengeRequest.Builder getAddChallengeRequestBuilder() {
+      return getAddChallengeRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    @Override
+    public AddChallengeRequestOrBuilder getAddChallengeRequestOrBuilder() {
+      if ((requestCase_ == 1) && (addChallengeRequestBuilder_ != null)) {
+        return addChallengeRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 1) {
+          return (AddChallengeRequest) request_;
+        }
+        return AddChallengeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AddChallengeRequest addChallengeRequest = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        AddChallengeRequest, AddChallengeRequest.Builder, AddChallengeRequestOrBuilder>
+        getAddChallengeRequestFieldBuilder() {
+      if (addChallengeRequestBuilder_ == null) {
+        if (!(requestCase_ == 1)) {
+          request_ = AddChallengeRequest.getDefaultInstance();
+        }
+        addChallengeRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            AddChallengeRequest, AddChallengeRequest.Builder, AddChallengeRequestOrBuilder>(
+                (AddChallengeRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 1;
+      onChanged();;
+      return addChallengeRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        GetStateRequest, GetStateRequest.Builder, GetStateRequestOrBuilder> getStateRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
+     * @return Whether the getStateRequest field is set.
+     */
+    @Override
+    public boolean hasGetStateRequest() {
+      return requestCase_ == 2;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
+     * @return The getStateRequest.
+     */
+    @Override
+    public GetStateRequest getGetStateRequest() {
+      if (getStateRequestBuilder_ == null) {
+        if (requestCase_ == 2) {
+          return (GetStateRequest) request_;
+        }
+        return GetStateRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 2) {
+          return getStateRequestBuilder_.getMessage();
+        }
+        return GetStateRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
+     */
+    public Builder setGetStateRequest(GetStateRequest value) {
       if (getStateRequestBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -621,57 +1273,57 @@ private static final long serialVersionUID = 0L;
       } else {
         getStateRequestBuilder_.setMessage(value);
       }
-      requestCase_ = 1;
+      requestCase_ = 2;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
     public Builder setGetStateRequest(
-        com.nkasenides.amc.proto.GetStateRequest.Builder builderForValue) {
+        GetStateRequest.Builder builderForValue) {
       if (getStateRequestBuilder_ == null) {
         request_ = builderForValue.build();
         onChanged();
       } else {
         getStateRequestBuilder_.setMessage(builderForValue.build());
       }
-      requestCase_ = 1;
+      requestCase_ = 2;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
-    public Builder mergeGetStateRequest(com.nkasenides.amc.proto.GetStateRequest value) {
+    public Builder mergeGetStateRequest(GetStateRequest value) {
       if (getStateRequestBuilder_ == null) {
-        if (requestCase_ == 1 &&
-            request_ != com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance()) {
-          request_ = com.nkasenides.amc.proto.GetStateRequest.newBuilder((com.nkasenides.amc.proto.GetStateRequest) request_)
+        if (requestCase_ == 2 &&
+            request_ != GetStateRequest.getDefaultInstance()) {
+          request_ = GetStateRequest.newBuilder((GetStateRequest) request_)
               .mergeFrom(value).buildPartial();
         } else {
           request_ = value;
         }
         onChanged();
       } else {
-        if (requestCase_ == 1) {
+        if (requestCase_ == 2) {
           getStateRequestBuilder_.mergeFrom(value);
         }
         getStateRequestBuilder_.setMessage(value);
       }
-      requestCase_ = 1;
+      requestCase_ = 2;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
     public Builder clearGetStateRequest() {
       if (getStateRequestBuilder_ == null) {
-        if (requestCase_ == 1) {
+        if (requestCase_ == 2) {
           requestCase_ = 0;
           request_ = null;
           onChanged();
         }
       } else {
-        if (requestCase_ == 1) {
+        if (requestCase_ == 2) {
           requestCase_ = 0;
           request_ = null;
         }
@@ -680,79 +1332,502 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
-    public com.nkasenides.amc.proto.GetStateRequest.Builder getGetStateRequestBuilder() {
+    public GetStateRequest.Builder getGetStateRequestBuilder() {
       return getGetStateRequestFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.GetStateRequestOrBuilder getGetStateRequestOrBuilder() {
-      if ((requestCase_ == 1) && (getStateRequestBuilder_ != null)) {
+    @Override
+    public GetStateRequestOrBuilder getGetStateRequestOrBuilder() {
+      if ((requestCase_ == 2) && (getStateRequestBuilder_ != null)) {
         return getStateRequestBuilder_.getMessageOrBuilder();
       } else {
-        if (requestCase_ == 1) {
-          return (com.nkasenides.amc.proto.GetStateRequest) request_;
+        if (requestCase_ == 2) {
+          return (GetStateRequest) request_;
         }
-        return com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+        return GetStateRequest.getDefaultInstance();
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 1;</code>
+     * <code>.com.nkasenides.amc.proto.GetStateRequest getStateRequest = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.GetStateRequest, com.nkasenides.amc.proto.GetStateRequest.Builder, com.nkasenides.amc.proto.GetStateRequestOrBuilder> 
+        GetStateRequest, GetStateRequest.Builder, GetStateRequestOrBuilder>
         getGetStateRequestFieldBuilder() {
       if (getStateRequestBuilder_ == null) {
-        if (!(requestCase_ == 1)) {
-          request_ = com.nkasenides.amc.proto.GetStateRequest.getDefaultInstance();
+        if (!(requestCase_ == 2)) {
+          request_ = GetStateRequest.getDefaultInstance();
         }
         getStateRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.GetStateRequest, com.nkasenides.amc.proto.GetStateRequest.Builder, com.nkasenides.amc.proto.GetStateRequestOrBuilder>(
-                (com.nkasenides.amc.proto.GetStateRequest) request_,
+            GetStateRequest, GetStateRequest.Builder, GetStateRequestOrBuilder>(
+                (GetStateRequest) request_,
                 getParentForChildren(),
                 isClean());
         request_ = null;
       }
-      requestCase_ = 1;
+      requestCase_ = 2;
       onChanged();;
       return getStateRequestBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.UpdateStateRequest, com.nkasenides.amc.proto.UpdateStateRequest.Builder, com.nkasenides.amc.proto.UpdateStateRequestOrBuilder> updateStateRequestBuilder_;
+        SubscribeRequest, SubscribeRequest.Builder, SubscribeRequestOrBuilder> subscribeRequestBuilder_;
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
-     * @return Whether the updateStateRequest field is set.
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     * @return Whether the subscribeRequest field is set.
      */
-    @java.lang.Override
-    public boolean hasUpdateStateRequest() {
-      return requestCase_ == 2;
+    @Override
+    public boolean hasSubscribeRequest() {
+      return requestCase_ == 3;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
-     * @return The updateStateRequest.
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     * @return The subscribeRequest.
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.UpdateStateRequest getUpdateStateRequest() {
-      if (updateStateRequestBuilder_ == null) {
-        if (requestCase_ == 2) {
-          return (com.nkasenides.amc.proto.UpdateStateRequest) request_;
+    @Override
+    public SubscribeRequest getSubscribeRequest() {
+      if (subscribeRequestBuilder_ == null) {
+        if (requestCase_ == 3) {
+          return (SubscribeRequest) request_;
         }
-        return com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+        return SubscribeRequest.getDefaultInstance();
       } else {
-        if (requestCase_ == 2) {
-          return updateStateRequestBuilder_.getMessage();
+        if (requestCase_ == 3) {
+          return subscribeRequestBuilder_.getMessage();
         }
-        return com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+        return SubscribeRequest.getDefaultInstance();
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
      */
-    public Builder setUpdateStateRequest(com.nkasenides.amc.proto.UpdateStateRequest value) {
+    public Builder setSubscribeRequest(SubscribeRequest value) {
+      if (subscribeRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        subscribeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    public Builder setSubscribeRequest(
+        SubscribeRequest.Builder builderForValue) {
+      if (subscribeRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        subscribeRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    public Builder mergeSubscribeRequest(SubscribeRequest value) {
+      if (subscribeRequestBuilder_ == null) {
+        if (requestCase_ == 3 &&
+            request_ != SubscribeRequest.getDefaultInstance()) {
+          request_ = SubscribeRequest.newBuilder((SubscribeRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 3) {
+          subscribeRequestBuilder_.mergeFrom(value);
+        }
+        subscribeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    public Builder clearSubscribeRequest() {
+      if (subscribeRequestBuilder_ == null) {
+        if (requestCase_ == 3) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 3) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        subscribeRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    public SubscribeRequest.Builder getSubscribeRequestBuilder() {
+      return getSubscribeRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    @Override
+    public SubscribeRequestOrBuilder getSubscribeRequestOrBuilder() {
+      if ((requestCase_ == 3) && (subscribeRequestBuilder_ != null)) {
+        return subscribeRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 3) {
+          return (SubscribeRequest) request_;
+        }
+        return SubscribeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubscribeRequest subscribeRequest = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        SubscribeRequest, SubscribeRequest.Builder, SubscribeRequestOrBuilder>
+        getSubscribeRequestFieldBuilder() {
+      if (subscribeRequestBuilder_ == null) {
+        if (!(requestCase_ == 3)) {
+          request_ = SubscribeRequest.getDefaultInstance();
+        }
+        subscribeRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            SubscribeRequest, SubscribeRequest.Builder, SubscribeRequestOrBuilder>(
+                (SubscribeRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 3;
+      onChanged();;
+      return subscribeRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        ListChallengesRequest, ListChallengesRequest.Builder, ListChallengesRequestOrBuilder> listChallengesRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     * @return Whether the listChallengesRequest field is set.
+     */
+    @Override
+    public boolean hasListChallengesRequest() {
+      return requestCase_ == 4;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     * @return The listChallengesRequest.
+     */
+    @Override
+    public ListChallengesRequest getListChallengesRequest() {
+      if (listChallengesRequestBuilder_ == null) {
+        if (requestCase_ == 4) {
+          return (ListChallengesRequest) request_;
+        }
+        return ListChallengesRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 4) {
+          return listChallengesRequestBuilder_.getMessage();
+        }
+        return ListChallengesRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    public Builder setListChallengesRequest(ListChallengesRequest value) {
+      if (listChallengesRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        listChallengesRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 4;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    public Builder setListChallengesRequest(
+        ListChallengesRequest.Builder builderForValue) {
+      if (listChallengesRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        listChallengesRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 4;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    public Builder mergeListChallengesRequest(ListChallengesRequest value) {
+      if (listChallengesRequestBuilder_ == null) {
+        if (requestCase_ == 4 &&
+            request_ != ListChallengesRequest.getDefaultInstance()) {
+          request_ = ListChallengesRequest.newBuilder((ListChallengesRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 4) {
+          listChallengesRequestBuilder_.mergeFrom(value);
+        }
+        listChallengesRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 4;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    public Builder clearListChallengesRequest() {
+      if (listChallengesRequestBuilder_ == null) {
+        if (requestCase_ == 4) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 4) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        listChallengesRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    public ListChallengesRequest.Builder getListChallengesRequestBuilder() {
+      return getListChallengesRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    @Override
+    public ListChallengesRequestOrBuilder getListChallengesRequestOrBuilder() {
+      if ((requestCase_ == 4) && (listChallengesRequestBuilder_ != null)) {
+        return listChallengesRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 4) {
+          return (ListChallengesRequest) request_;
+        }
+        return ListChallengesRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.ListChallengesRequest listChallengesRequest = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        ListChallengesRequest, ListChallengesRequest.Builder, ListChallengesRequestOrBuilder>
+        getListChallengesRequestFieldBuilder() {
+      if (listChallengesRequestBuilder_ == null) {
+        if (!(requestCase_ == 4)) {
+          request_ = ListChallengesRequest.getDefaultInstance();
+        }
+        listChallengesRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            ListChallengesRequest, ListChallengesRequest.Builder, ListChallengesRequestOrBuilder>(
+                (ListChallengesRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 4;
+      onChanged();;
+      return listChallengesRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        UnsubscribeRequest, UnsubscribeRequest.Builder, UnsubscribeRequestOrBuilder> unsubscribeRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     * @return Whether the unsubscribeRequest field is set.
+     */
+    @Override
+    public boolean hasUnsubscribeRequest() {
+      return requestCase_ == 5;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     * @return The unsubscribeRequest.
+     */
+    @Override
+    public UnsubscribeRequest getUnsubscribeRequest() {
+      if (unsubscribeRequestBuilder_ == null) {
+        if (requestCase_ == 5) {
+          return (UnsubscribeRequest) request_;
+        }
+        return UnsubscribeRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 5) {
+          return unsubscribeRequestBuilder_.getMessage();
+        }
+        return UnsubscribeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    public Builder setUnsubscribeRequest(UnsubscribeRequest value) {
+      if (unsubscribeRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        unsubscribeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    public Builder setUnsubscribeRequest(
+        UnsubscribeRequest.Builder builderForValue) {
+      if (unsubscribeRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        unsubscribeRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    public Builder mergeUnsubscribeRequest(UnsubscribeRequest value) {
+      if (unsubscribeRequestBuilder_ == null) {
+        if (requestCase_ == 5 &&
+            request_ != UnsubscribeRequest.getDefaultInstance()) {
+          request_ = UnsubscribeRequest.newBuilder((UnsubscribeRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 5) {
+          unsubscribeRequestBuilder_.mergeFrom(value);
+        }
+        unsubscribeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    public Builder clearUnsubscribeRequest() {
+      if (unsubscribeRequestBuilder_ == null) {
+        if (requestCase_ == 5) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 5) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        unsubscribeRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    public UnsubscribeRequest.Builder getUnsubscribeRequestBuilder() {
+      return getUnsubscribeRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    @Override
+    public UnsubscribeRequestOrBuilder getUnsubscribeRequestOrBuilder() {
+      if ((requestCase_ == 5) && (unsubscribeRequestBuilder_ != null)) {
+        return unsubscribeRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 5) {
+          return (UnsubscribeRequest) request_;
+        }
+        return UnsubscribeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UnsubscribeRequest unsubscribeRequest = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        UnsubscribeRequest, UnsubscribeRequest.Builder, UnsubscribeRequestOrBuilder>
+        getUnsubscribeRequestFieldBuilder() {
+      if (unsubscribeRequestBuilder_ == null) {
+        if (!(requestCase_ == 5)) {
+          request_ = UnsubscribeRequest.getDefaultInstance();
+        }
+        unsubscribeRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            UnsubscribeRequest, UnsubscribeRequest.Builder, UnsubscribeRequestOrBuilder>(
+                (UnsubscribeRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 5;
+      onChanged();;
+      return unsubscribeRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        UpdateStateRequest, UpdateStateRequest.Builder, UpdateStateRequestOrBuilder> updateStateRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+     * @return Whether the updateStateRequest field is set.
+     */
+    @Override
+    public boolean hasUpdateStateRequest() {
+      return requestCase_ == 6;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+     * @return The updateStateRequest.
+     */
+    @Override
+    public UpdateStateRequest getUpdateStateRequest() {
+      if (updateStateRequestBuilder_ == null) {
+        if (requestCase_ == 6) {
+          return (UpdateStateRequest) request_;
+        }
+        return UpdateStateRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 6) {
+          return updateStateRequestBuilder_.getMessage();
+        }
+        return UpdateStateRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
+     */
+    public Builder setUpdateStateRequest(UpdateStateRequest value) {
       if (updateStateRequestBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -762,57 +1837,57 @@ private static final long serialVersionUID = 0L;
       } else {
         updateStateRequestBuilder_.setMessage(value);
       }
-      requestCase_ = 2;
+      requestCase_ = 6;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
     public Builder setUpdateStateRequest(
-        com.nkasenides.amc.proto.UpdateStateRequest.Builder builderForValue) {
+        UpdateStateRequest.Builder builderForValue) {
       if (updateStateRequestBuilder_ == null) {
         request_ = builderForValue.build();
         onChanged();
       } else {
         updateStateRequestBuilder_.setMessage(builderForValue.build());
       }
-      requestCase_ = 2;
+      requestCase_ = 6;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
-    public Builder mergeUpdateStateRequest(com.nkasenides.amc.proto.UpdateStateRequest value) {
+    public Builder mergeUpdateStateRequest(UpdateStateRequest value) {
       if (updateStateRequestBuilder_ == null) {
-        if (requestCase_ == 2 &&
-            request_ != com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance()) {
-          request_ = com.nkasenides.amc.proto.UpdateStateRequest.newBuilder((com.nkasenides.amc.proto.UpdateStateRequest) request_)
+        if (requestCase_ == 6 &&
+            request_ != UpdateStateRequest.getDefaultInstance()) {
+          request_ = UpdateStateRequest.newBuilder((UpdateStateRequest) request_)
               .mergeFrom(value).buildPartial();
         } else {
           request_ = value;
         }
         onChanged();
       } else {
-        if (requestCase_ == 2) {
+        if (requestCase_ == 6) {
           updateStateRequestBuilder_.mergeFrom(value);
         }
         updateStateRequestBuilder_.setMessage(value);
       }
-      requestCase_ = 2;
+      requestCase_ = 6;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
     public Builder clearUpdateStateRequest() {
       if (updateStateRequestBuilder_ == null) {
-        if (requestCase_ == 2) {
+        if (requestCase_ == 6) {
           requestCase_ = 0;
           request_ = null;
           onChanged();
         }
       } else {
-        if (requestCase_ == 2) {
+        if (requestCase_ == 6) {
           requestCase_ = 0;
           request_ = null;
         }
@@ -821,53 +1896,476 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
-    public com.nkasenides.amc.proto.UpdateStateRequest.Builder getUpdateStateRequestBuilder() {
+    public UpdateStateRequest.Builder getUpdateStateRequestBuilder() {
       return getUpdateStateRequestFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
-    @java.lang.Override
-    public com.nkasenides.amc.proto.UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder() {
-      if ((requestCase_ == 2) && (updateStateRequestBuilder_ != null)) {
+    @Override
+    public UpdateStateRequestOrBuilder getUpdateStateRequestOrBuilder() {
+      if ((requestCase_ == 6) && (updateStateRequestBuilder_ != null)) {
         return updateStateRequestBuilder_.getMessageOrBuilder();
       } else {
-        if (requestCase_ == 2) {
-          return (com.nkasenides.amc.proto.UpdateStateRequest) request_;
+        if (requestCase_ == 6) {
+          return (UpdateStateRequest) request_;
         }
-        return com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+        return UpdateStateRequest.getDefaultInstance();
       }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 2;</code>
+     * <code>.com.nkasenides.amc.proto.UpdateStateRequest updateStateRequest = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.nkasenides.amc.proto.UpdateStateRequest, com.nkasenides.amc.proto.UpdateStateRequest.Builder, com.nkasenides.amc.proto.UpdateStateRequestOrBuilder> 
+        UpdateStateRequest, UpdateStateRequest.Builder, UpdateStateRequestOrBuilder>
         getUpdateStateRequestFieldBuilder() {
       if (updateStateRequestBuilder_ == null) {
-        if (!(requestCase_ == 2)) {
-          request_ = com.nkasenides.amc.proto.UpdateStateRequest.getDefaultInstance();
+        if (!(requestCase_ == 6)) {
+          request_ = UpdateStateRequest.getDefaultInstance();
         }
         updateStateRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.nkasenides.amc.proto.UpdateStateRequest, com.nkasenides.amc.proto.UpdateStateRequest.Builder, com.nkasenides.amc.proto.UpdateStateRequestOrBuilder>(
-                (com.nkasenides.amc.proto.UpdateStateRequest) request_,
+            UpdateStateRequest, UpdateStateRequest.Builder, UpdateStateRequestOrBuilder>(
+                (UpdateStateRequest) request_,
                 getParentForChildren(),
                 isClean());
         request_ = null;
       }
-      requestCase_ = 2;
+      requestCase_ = 6;
       onChanged();;
       return updateStateRequestBuilder_;
     }
-    @java.lang.Override
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        SubmitCodeRequest, SubmitCodeRequest.Builder, SubmitCodeRequestOrBuilder> submitCodeRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     * @return Whether the submitCodeRequest field is set.
+     */
+    @Override
+    public boolean hasSubmitCodeRequest() {
+      return requestCase_ == 7;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     * @return The submitCodeRequest.
+     */
+    @Override
+    public SubmitCodeRequest getSubmitCodeRequest() {
+      if (submitCodeRequestBuilder_ == null) {
+        if (requestCase_ == 7) {
+          return (SubmitCodeRequest) request_;
+        }
+        return SubmitCodeRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 7) {
+          return submitCodeRequestBuilder_.getMessage();
+        }
+        return SubmitCodeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    public Builder setSubmitCodeRequest(SubmitCodeRequest value) {
+      if (submitCodeRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        submitCodeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    public Builder setSubmitCodeRequest(
+        SubmitCodeRequest.Builder builderForValue) {
+      if (submitCodeRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        submitCodeRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    public Builder mergeSubmitCodeRequest(SubmitCodeRequest value) {
+      if (submitCodeRequestBuilder_ == null) {
+        if (requestCase_ == 7 &&
+            request_ != SubmitCodeRequest.getDefaultInstance()) {
+          request_ = SubmitCodeRequest.newBuilder((SubmitCodeRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 7) {
+          submitCodeRequestBuilder_.mergeFrom(value);
+        }
+        submitCodeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    public Builder clearSubmitCodeRequest() {
+      if (submitCodeRequestBuilder_ == null) {
+        if (requestCase_ == 7) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 7) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        submitCodeRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    public SubmitCodeRequest.Builder getSubmitCodeRequestBuilder() {
+      return getSubmitCodeRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    @Override
+    public SubmitCodeRequestOrBuilder getSubmitCodeRequestOrBuilder() {
+      if ((requestCase_ == 7) && (submitCodeRequestBuilder_ != null)) {
+        return submitCodeRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 7) {
+          return (SubmitCodeRequest) request_;
+        }
+        return SubmitCodeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitCodeRequest submitCodeRequest = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        SubmitCodeRequest, SubmitCodeRequest.Builder, SubmitCodeRequestOrBuilder>
+        getSubmitCodeRequestFieldBuilder() {
+      if (submitCodeRequestBuilder_ == null) {
+        if (!(requestCase_ == 7)) {
+          request_ = SubmitCodeRequest.getDefaultInstance();
+        }
+        submitCodeRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            SubmitCodeRequest, SubmitCodeRequest.Builder, SubmitCodeRequestOrBuilder>(
+                (SubmitCodeRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 7;
+      onChanged();;
+      return submitCodeRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        JoinChallengeRequest, JoinChallengeRequest.Builder, JoinChallengeRequestOrBuilder> joinChallengeRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     * @return Whether the joinChallengeRequest field is set.
+     */
+    @Override
+    public boolean hasJoinChallengeRequest() {
+      return requestCase_ == 8;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     * @return The joinChallengeRequest.
+     */
+    @Override
+    public JoinChallengeRequest getJoinChallengeRequest() {
+      if (joinChallengeRequestBuilder_ == null) {
+        if (requestCase_ == 8) {
+          return (JoinChallengeRequest) request_;
+        }
+        return JoinChallengeRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 8) {
+          return joinChallengeRequestBuilder_.getMessage();
+        }
+        return JoinChallengeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    public Builder setJoinChallengeRequest(JoinChallengeRequest value) {
+      if (joinChallengeRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        joinChallengeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 8;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    public Builder setJoinChallengeRequest(
+        JoinChallengeRequest.Builder builderForValue) {
+      if (joinChallengeRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        joinChallengeRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 8;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    public Builder mergeJoinChallengeRequest(JoinChallengeRequest value) {
+      if (joinChallengeRequestBuilder_ == null) {
+        if (requestCase_ == 8 &&
+            request_ != JoinChallengeRequest.getDefaultInstance()) {
+          request_ = JoinChallengeRequest.newBuilder((JoinChallengeRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 8) {
+          joinChallengeRequestBuilder_.mergeFrom(value);
+        }
+        joinChallengeRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 8;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    public Builder clearJoinChallengeRequest() {
+      if (joinChallengeRequestBuilder_ == null) {
+        if (requestCase_ == 8) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 8) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        joinChallengeRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    public JoinChallengeRequest.Builder getJoinChallengeRequestBuilder() {
+      return getJoinChallengeRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    @Override
+    public JoinChallengeRequestOrBuilder getJoinChallengeRequestOrBuilder() {
+      if ((requestCase_ == 8) && (joinChallengeRequestBuilder_ != null)) {
+        return joinChallengeRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 8) {
+          return (JoinChallengeRequest) request_;
+        }
+        return JoinChallengeRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.JoinChallengeRequest joinChallengeRequest = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        JoinChallengeRequest, JoinChallengeRequest.Builder, JoinChallengeRequestOrBuilder>
+        getJoinChallengeRequestFieldBuilder() {
+      if (joinChallengeRequestBuilder_ == null) {
+        if (!(requestCase_ == 8)) {
+          request_ = JoinChallengeRequest.getDefaultInstance();
+        }
+        joinChallengeRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            JoinChallengeRequest, JoinChallengeRequest.Builder, JoinChallengeRequestOrBuilder>(
+                (JoinChallengeRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 8;
+      onChanged();;
+      return joinChallengeRequestBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        SubmitQuestionnaireRequest, SubmitQuestionnaireRequest.Builder, SubmitQuestionnaireRequestOrBuilder> submitQuestionnaireRequestBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     * @return Whether the submitQuestionnaireRequest field is set.
+     */
+    @Override
+    public boolean hasSubmitQuestionnaireRequest() {
+      return requestCase_ == 9;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     * @return The submitQuestionnaireRequest.
+     */
+    @Override
+    public SubmitQuestionnaireRequest getSubmitQuestionnaireRequest() {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        if (requestCase_ == 9) {
+          return (SubmitQuestionnaireRequest) request_;
+        }
+        return SubmitQuestionnaireRequest.getDefaultInstance();
+      } else {
+        if (requestCase_ == 9) {
+          return submitQuestionnaireRequestBuilder_.getMessage();
+        }
+        return SubmitQuestionnaireRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    public Builder setSubmitQuestionnaireRequest(SubmitQuestionnaireRequest value) {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        request_ = value;
+        onChanged();
+      } else {
+        submitQuestionnaireRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    public Builder setSubmitQuestionnaireRequest(
+        SubmitQuestionnaireRequest.Builder builderForValue) {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        request_ = builderForValue.build();
+        onChanged();
+      } else {
+        submitQuestionnaireRequestBuilder_.setMessage(builderForValue.build());
+      }
+      requestCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    public Builder mergeSubmitQuestionnaireRequest(SubmitQuestionnaireRequest value) {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        if (requestCase_ == 9 &&
+            request_ != SubmitQuestionnaireRequest.getDefaultInstance()) {
+          request_ = SubmitQuestionnaireRequest.newBuilder((SubmitQuestionnaireRequest) request_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          request_ = value;
+        }
+        onChanged();
+      } else {
+        if (requestCase_ == 9) {
+          submitQuestionnaireRequestBuilder_.mergeFrom(value);
+        }
+        submitQuestionnaireRequestBuilder_.setMessage(value);
+      }
+      requestCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    public Builder clearSubmitQuestionnaireRequest() {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        if (requestCase_ == 9) {
+          requestCase_ = 0;
+          request_ = null;
+          onChanged();
+        }
+      } else {
+        if (requestCase_ == 9) {
+          requestCase_ = 0;
+          request_ = null;
+        }
+        submitQuestionnaireRequestBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    public SubmitQuestionnaireRequest.Builder getSubmitQuestionnaireRequestBuilder() {
+      return getSubmitQuestionnaireRequestFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    @Override
+    public SubmitQuestionnaireRequestOrBuilder getSubmitQuestionnaireRequestOrBuilder() {
+      if ((requestCase_ == 9) && (submitQuestionnaireRequestBuilder_ != null)) {
+        return submitQuestionnaireRequestBuilder_.getMessageOrBuilder();
+      } else {
+        if (requestCase_ == 9) {
+          return (SubmitQuestionnaireRequest) request_;
+        }
+        return SubmitQuestionnaireRequest.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.SubmitQuestionnaireRequest submitQuestionnaireRequest = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        SubmitQuestionnaireRequest, SubmitQuestionnaireRequest.Builder, SubmitQuestionnaireRequestOrBuilder>
+        getSubmitQuestionnaireRequestFieldBuilder() {
+      if (submitQuestionnaireRequestBuilder_ == null) {
+        if (!(requestCase_ == 9)) {
+          request_ = SubmitQuestionnaireRequest.getDefaultInstance();
+        }
+        submitQuestionnaireRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            SubmitQuestionnaireRequest, SubmitQuestionnaireRequest.Builder, SubmitQuestionnaireRequestOrBuilder>(
+                (SubmitQuestionnaireRequest) request_,
+                getParentForChildren(),
+                isClean());
+        request_ = null;
+      }
+      requestCase_ = 9;
+      onChanged();;
+      return submitQuestionnaireRequestBuilder_;
+    }
+    @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFields(unknownFields);
     }
 
-    @java.lang.Override
+    @Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -878,18 +2376,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.nkasenides.amc.proto.Request)
-  private static final com.nkasenides.amc.proto.Request DEFAULT_INSTANCE;
+  private static final Request DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.nkasenides.amc.proto.Request();
+    DEFAULT_INSTANCE = new Request();
   }
 
-  public static com.nkasenides.amc.proto.Request getDefaultInstance() {
+  public static Request getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<Request>
       PARSER = new com.google.protobuf.AbstractParser<Request>() {
-    @java.lang.Override
+    @Override
     public Request parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -902,13 +2400,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @java.lang.Override
+  @Override
   public com.google.protobuf.Parser<Request> getParserForType() {
     return PARSER;
   }
 
-  @java.lang.Override
-  public com.nkasenides.amc.proto.Request getDefaultInstanceForType() {
+  @Override
+  public Request getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -5,8 +5,80 @@
          version="2.5">
 
     <!-- Servlets -->
+    <servlet>
+        <servlet-name>SubmitQuestionnaireServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.SubmitQuestionnaireServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListChallengesServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.ListChallengesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubmitCodeServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.SubmitCodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JoinChallengeServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.JoinChallengeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetStateServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.GetStateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStateServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.UpdateStateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubscribeServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.SubscribeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UnsubscribeServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.UnsubscribeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddChallengeServlet</servlet-name>
+        <servlet-class>com.nkasenides.amc.servlet.AddChallengeServlet</servlet-class>
+    </servlet>
 
 
     <!-- Mappings -->
+    <servlet-mapping>
+        <servlet-name>SubmitQuestionnaireServlet</servlet-name>
+        <url-pattern>/api/submitQuestionnaire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListChallengesServlet</servlet-name>
+        <url-pattern>/api/challenge/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitCodeServlet</servlet-name>
+        <url-pattern>/api/submitCode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JoinChallengeServlet</servlet-name>
+        <url-pattern>/api/challenge/join</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetStateServlet</servlet-name>
+        <url-pattern>/api/state/get</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStateServlet</servlet-name>
+        <url-pattern>/api/state/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubscribeServlet</servlet-name>
+        <url-pattern>/api/state/subscribe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UnsubscribeServlet</servlet-name>
+        <url-pattern>/api/state/unsubscribe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddChallengeServlet</servlet-name>
+        <url-pattern>/api/challenge/add</url-pattern>
+    </servlet-mapping>
 </web-app>
 

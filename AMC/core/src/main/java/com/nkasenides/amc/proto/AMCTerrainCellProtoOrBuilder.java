@@ -16,11 +16,11 @@ public interface AMCTerrainCellProtoOrBuilder extends
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
    * @return The position.
    */
-  com.nkasenides.amc.proto.MatrixPositionProto getPosition();
+  MatrixPositionProto getPosition();
   /**
    * <code>.com.nkasenides.amc.proto.MatrixPositionProto position = 1;</code>
    */
-  com.nkasenides.amc.proto.MatrixPositionProtoOrBuilder getPositionOrBuilder();
+  MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
    * <code>bool rightWall = 2;</code>
