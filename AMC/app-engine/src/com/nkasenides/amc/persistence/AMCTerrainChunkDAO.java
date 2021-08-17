@@ -22,8 +22,7 @@ public class AMCTerrainChunkDAO implements WorldBasedDAO<AMCTerrainChunk> {
 
     @Override
     public boolean create(AMCTerrainChunk object) {
-        Firestorm.create(object);
-        return true;
+        return Firestorm.create(object) != null;
     }
 
     @Override

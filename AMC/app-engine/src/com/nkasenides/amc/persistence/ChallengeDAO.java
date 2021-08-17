@@ -10,6 +10,9 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.FirestormBatch;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,56 +22,103 @@ public class ChallengeDAO implements MultiDAO<Challenge> {
 
     @Override
     public boolean create(Challenge object) {
-        //TODO - Implement
-        return false;
+        return Firestorm.create(object) != null;
     }
 
     @Override
     public boolean update(Challenge object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(Challenge object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
     public Challenge get(String id) {
-        //TODO - Implement
-        return null;
+        return Firestorm.get(Challenge.class, id);
     }
 
     @Override
     public Collection<Challenge> getMany(String... ids) {
-        //TODO - Implement
-        return null;
+        return Firestorm.getMany(Challenge.class, ids);
     }
 
     @Override
     public Collection<Challenge> list() {
-        //TODO - Implement
-        return null;
+        return Firestorm.listAll(Challenge.class);
     }
 
     @Override
     public boolean create(Collection<Challenge> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (Challenge object : objects) {
+                    create(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean update(Collection<Challenge> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (Challenge object : objects) {
+                    update(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean delete(Collection<Challenge> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (Challenge object : objects) {
+                    delete(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
 

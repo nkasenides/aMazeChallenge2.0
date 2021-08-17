@@ -22,8 +22,7 @@ public class AMCTerrainIdentifierDAO implements WorldBasedDAO<AMCTerrainIdentifi
 
     @Override
     public boolean create(AMCTerrainIdentifier object) {
-        Firestorm.create(object);
-        return true;
+        return Firestorm.create(object) != null;
     }
 
     @Override

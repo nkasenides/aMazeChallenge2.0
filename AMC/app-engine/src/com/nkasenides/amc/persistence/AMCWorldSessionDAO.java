@@ -10,6 +10,9 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.QueryResult;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,38 +22,44 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
 
     @Override
     public boolean create(AMCWorldSession object) {
-        //TODO - Implement
-        return false;
+        return Firestorm.create(object) != null;
     }
 
     @Override
     public boolean update(AMCWorldSession object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(AMCWorldSession object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
-    public AMCWorldSession get(String itemID) {
-        //TODO - Implement
-        return null;
+    public AMCWorldSession get(String id) {
+        return Firestorm.get(AMCWorldSession.class, id);
     }
 
     @Override
     public AMCWorldSession getForWorld(String worldID, String itemID) {
-        //TODO - Implement
+        final QueryResult<AMCWorldSession> result = Firestorm.filter(AMCWorldSession.class)
+                .whereEqualTo("worldID", worldID)
+                .whereEqualTo("id", itemID)
+                .limit(1)
+                .fetch();
+        if (result.hasItems()) {
+            return result.getItems().get(0);
+        }
         return null;
     }
 
     @Override
     public Collection<AMCWorldSession> listForWorld(String worldID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(AMCWorldSession.class)
+                .whereEqualTo("worldID", worldID)
+                .fetch().getItems();
     }
 
     /**
@@ -59,8 +68,8 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
      * @return Returns a player object 
      */
     public AMCPlayer getPlayer(final String worldSessionID) {
-        //TODO Implement
-        return null;
+        final AMCWorldSession amcWorldSession = Firestorm.get(AMCWorldSession.class, worldSessionID);
+        return Firestorm.get(AMCPlayer.class, amcWorldSession.getPlayerID());
     }
 
     /**
@@ -69,8 +78,9 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
      * @return Returns a WorldSession, or null.
      */
     public Collection<AMCWorldSession> listForPlayer(final String playerID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(AMCWorldSession.class)
+                .whereEqualTo("playerID", playerID)
+                .fetch().getItems();
     }
 
     /**
@@ -81,7 +91,14 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
      */
 
     public AMCWorldSession getForPlayerAndWorld(final String playerID, final String worldID) {
-        //TODO - Implement
+        final QueryResult<AMCWorldSession> result = Firestorm.filter(AMCWorldSession.class)
+                .whereEqualTo("playerID", playerID)
+                .whereEqualTo("worldID", worldID)
+                .limit(1)
+                .fetch();
+        if (result.hasItems()) {
+            return result.getItems().get(0);
+        }
         return null;
     }
 
@@ -91,8 +108,7 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
      * @return Returns a list of world sessions.
      */
     public List<AMCWorldSession> getMany(List<String> ids) {
-        //TODO - Implement
-        return null;
+        return Firestorm.getMany(AMCWorldSession.class, ids);
     }
 
 

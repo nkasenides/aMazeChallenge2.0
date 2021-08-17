@@ -10,6 +10,9 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.QueryResult;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,49 +22,57 @@ public class PickableEntityDAO implements WorldBasedDAO<PickableEntity> {
 
     @Override
     public boolean create(PickableEntity object) {
-        //TODO - Implement
-        return false;
+        return Firestorm.create(object) != null;
     }
 
     @Override
     public boolean update(PickableEntity object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(PickableEntity object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
-    public PickableEntity get(String itemID) {
-        //TODO - Implement
-        return null;
+    public PickableEntity get(String id) {
+        return Firestorm.get(PickableEntity.class, id);
     }
 
     @Override
     public PickableEntity getForWorld(String worldID, String itemID) {
-        //TODO - Implement
+        final QueryResult<PickableEntity> fetch = Firestorm.filter(PickableEntity.class)
+                .whereEqualTo("worldID", worldID)
+                .whereEqualTo("id", itemID)
+                .limit(1)
+                .fetch();
+        if (fetch.hasItems()) {
+            return fetch.getItems().get(0);
+        }
         return null;
     }
 
     @Override
     public Collection<PickableEntity> listForWorld(String worldID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(PickableEntity.class)
+                .whereEqualTo("worldID", worldID)
+                .fetch().getItems();
     }
 
-/**
+    /**
      * Retrieves a player's entities within a specific world.
      * @param playerID The player's ID.
      * @param worldID The world ID.
      * @return Returns a collection of entities.
      */
     public Collection<PickableEntity> listForPlayerAndWorld(String playerID, String worldID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(PickableEntity.class)
+                .whereEqualTo("worldID", worldID)
+                .whereEqualTo("playerID", playerID)
+                .fetch().getItems();
     }
     /**
      * Retrieves a player's entities.
@@ -69,19 +80,20 @@ public class PickableEntityDAO implements WorldBasedDAO<PickableEntity> {
      * @return Returns a collection of entities.
      */
     public Collection<PickableEntity> listForPlayer(String playerID) {
-        //TODO - Implement
-        return null;
+        return Firestorm.filter(PickableEntity.class)
+                .whereEqualTo("playerID", playerID)
+                .fetch().getItems();
     }
-    /**
-     * Retrieves the entities in a world which are not belonging to a particular player.
-     * @param worldID The world ID
-     * @param excludedPlayerID The excluded player ID.
-     * @return Returns a collection of entities.
-     */
-    public Collection<PickableEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
-        //TODO - Implement
-        return null;
-    }
+//    /**
+//     * Retrieves the entities in a world which are not belonging to a particular player.
+//     * @param worldID The world ID
+//     * @param excludedPlayerID The excluded player ID.
+//     * @return Returns a collection of entities.
+//     */
+//    public Collection<PickableEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
+//        //TODO - Implement
+//        return null;
+//    }
 
 }
 

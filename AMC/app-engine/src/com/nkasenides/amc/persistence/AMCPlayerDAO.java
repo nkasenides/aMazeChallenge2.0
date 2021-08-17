@@ -23,8 +23,7 @@ public class AMCPlayerDAO implements MultiDAO<AMCPlayer> {
 
     @Override
     public boolean create(AMCPlayer object) {
-        Firestorm.create(object);
-        return true;
+        return Firestorm.create(object) != null;
     }
 
     @Override

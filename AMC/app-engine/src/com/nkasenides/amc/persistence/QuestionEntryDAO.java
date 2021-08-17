@@ -10,6 +10,9 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+import com.raylabz.firestorm.Firestorm;
+import com.raylabz.firestorm.FirestormBatch;
+
 import java.util.List;
 import java.util.Collection;
 
@@ -19,56 +22,103 @@ public class QuestionEntryDAO implements MultiDAO<QuestionEntry> {
 
     @Override
     public boolean create(QuestionEntry object) {
-        //TODO - Implement
-        return false;
+        return Firestorm.create(object) != null;
     }
 
     @Override
     public boolean update(QuestionEntry object) {
-        //TODO - Implement
-        return false;
+        Firestorm.update(object);
+        return true;
     }
 
     @Override
     public boolean delete(QuestionEntry object) {
-        //TODO - Implement
-        return false;
+        Firestorm.delete(object);
+        return true;
     }
 
     @Override
     public QuestionEntry get(String id) {
-        //TODO - Implement
-        return null;
+        return Firestorm.get(QuestionEntry.class, id);
     }
 
     @Override
     public Collection<QuestionEntry> getMany(String... ids) {
-        //TODO - Implement
-        return null;
+        return Firestorm.getMany(QuestionEntry.class, ids);
     }
 
     @Override
     public Collection<QuestionEntry> list() {
-        //TODO - Implement
-        return null;
+        return Firestorm.listAll(QuestionEntry.class);
     }
 
     @Override
     public boolean create(Collection<QuestionEntry> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (QuestionEntry object : objects) {
+                    create(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean update(Collection<QuestionEntry> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (QuestionEntry object : objects) {
+                    update(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
     @Override
     public boolean delete(Collection<QuestionEntry> objects) {
-        //TODO - Implement
-        return false;
+        Firestorm.runBatch(new FirestormBatch() {
+            @Override
+            public void execute() {
+                for (QuestionEntry object : objects) {
+                    delete(object);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+        return true;
     }
 
 

@@ -23,8 +23,7 @@ public class AMCWorldDAO implements MultiDAO<AMCWorld> {
 
     @Override
     public boolean create(AMCWorld object) {
-        Firestorm.create(object);
-        return true;
+        return Firestorm.create(object) != null;
     }
 
     @Override

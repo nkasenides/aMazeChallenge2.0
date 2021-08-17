@@ -10,6 +10,8 @@ package com.nkasenides.amc.persistence;
 
 import com.nkasenides.athlos.persistence.*;
 import com.nkasenides.amc.model.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
@@ -19,38 +21,40 @@ public class AMCEntityDAO implements WorldBasedDAO<AMCEntity> {
 
     @Override
     public boolean create(AMCEntity object) {
-        //TODO - Implement
-        return false;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
     public boolean update(AMCEntity object) {
-        //TODO - Implement
-        return false;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
     public boolean delete(AMCEntity object) {
-        //TODO - Implement
-        return false;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
     public AMCEntity get(String itemID) {
-        //TODO - Implement
-        return null;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
     public AMCEntity getForWorld(String worldID, String itemID) {
-        //TODO - Implement
-        return null;
+        final PlayerEntity playerEntity = DBManager.playerEntity.getForWorld(worldID, itemID);
+        if (playerEntity != null) {
+            return playerEntity;
+        }
+        return DBManager.pickableEntity.getForWorld(worldID, itemID);
     }
 
     @Override
     public Collection<AMCEntity> listForWorld(String worldID) {
-        //TODO - Implement
-        return null;
+        final Collection<PlayerEntity> playerEntities = DBManager.playerEntity.listForWorld(worldID);
+        final Collection<PickableEntity> pickableEntities = DBManager.pickableEntity.listForWorld(worldID);
+        final ArrayList<AMCEntity> amcEntities = new ArrayList<>(playerEntities);
+        amcEntities.addAll(pickableEntities);
+        return amcEntities;
     }
 
 /**
@@ -60,8 +64,11 @@ public class AMCEntityDAO implements WorldBasedDAO<AMCEntity> {
      * @return Returns a collection of entities.
      */
     public Collection<AMCEntity> listForPlayerAndWorld(String playerID, String worldID) {
-        //TODO - Implement
-        return null;
+        final Collection<PlayerEntity> playerEntities = DBManager.playerEntity.listForPlayerAndWorld(playerID, worldID);
+        final Collection<PickableEntity> pickableEntities = DBManager.pickableEntity.listForPlayerAndWorld(playerID, worldID);
+        final ArrayList<AMCEntity> amcEntities = new ArrayList<>(playerEntities);
+        amcEntities.addAll(pickableEntities);
+        return amcEntities;
     }
     /**
      * Retrieves a player's entities.
@@ -69,19 +76,22 @@ public class AMCEntityDAO implements WorldBasedDAO<AMCEntity> {
      * @return Returns a collection of entities.
      */
     public Collection<AMCEntity> listForPlayer(String playerID) {
-        //TODO - Implement
-        return null;
+        final Collection<PlayerEntity> playerEntities = DBManager.playerEntity.listForPlayer(playerID);
+        final Collection<PickableEntity> pickableEntities = DBManager.pickableEntity.listForPlayer(playerID);
+        final ArrayList<AMCEntity> amcEntities = new ArrayList<>(playerEntities);
+        amcEntities.addAll(pickableEntities);
+        return amcEntities;
     }
-    /**
-     * Retrieves the entities in a world which are not belonging to a particular player.
-     * @param worldID The world ID
-     * @param excludedPlayerID The excluded player ID.
-     * @return Returns a collection of entities.
-     */
-    public Collection<AMCEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
-        //TODO - Implement
-        return null;
-    }
+//    /**
+//     * Retrieves the entities in a world which are not belonging to a particular player.
+//     * @param worldID The world ID
+//     * @param excludedPlayerID The excluded player ID.
+//     * @return Returns a collection of entities.
+//     */
+//    public Collection<AMCEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
+//        //TODO - Implement
+//        return null;
+//    }
 
 }
 
