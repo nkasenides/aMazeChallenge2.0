@@ -1,5 +1,6 @@
 package com.nkasenides.amc.contextlistener;
 
+import com.google.cloud.firestore.DocumentReference;
 import com.nkasenides.amc.model.*;
 import com.nkasenides.amc.persistence.AMCPlayerDAO;
 import com.nkasenides.amc.persistence.AMCWorldDAO;
@@ -9,6 +10,8 @@ import com.raylabz.firestorm.util.FirebaseUtils;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.io.IOException;
+import java.util.UUID;
+import java.util.function.Consumer;
 
 public class FirestoreContextListener implements ServletContextListener {
     @Override
@@ -35,6 +38,7 @@ public class FirestoreContextListener implements ServletContextListener {
         }
 
         Firestorm.init();
+        Firestorm.register(AdminKey.class);
         Firestorm.register(AMCPlayer.class);
         Firestorm.register(AMCTerrainChunk.class);
         Firestorm.register(AMCTerrainIdentifier.class);
@@ -46,7 +50,17 @@ public class FirestoreContextListener implements ServletContextListener {
         Firestorm.register(PlayerEntity.class);
         Firestorm.register(QuestionEntry.class);
         Firestorm.register(QuestionnaireEntry.class);
+
+        //Clear previous admin keys:
+        Firestorm.getCollectionReference(AdminKey.class).listDocuments().forEach(DocumentReference::delete);
+
+        //Create a new admin key:
+        AdminKey adminKey = new AdminKey();
+        adminKey.setId(UUID.randomUUID().toString());
+        Firestorm.create(adminKey);
+
     }
+
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {

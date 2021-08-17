@@ -20,6 +20,11 @@ public final class AMCProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_HealthProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_AdminKeyProto_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -245,327 +250,328 @@ public final class AMCProto {
     String[] descriptorData = {
       "\n\024Proto/AMCProto.proto\022\030com.nkasenides.a" +
       "mc.proto\"\035\n\013HealthProto\022\016\n\006health\030\001 \001(\005\"" +
-      "\177\n\027QuestionnaireEntryProto\022\023\n\013challengeI" +
-      "D\030\001 \001(\t\022C\n\rquestionEntry\030\002 \003(\0132,.com.nka" +
-      "senides.amc.proto.QuestionEntryProto\022\n\n\002" +
-      "id\030\003 \001(\t\"\211\002\n\tGridProto\022?\n\021startingDirect" +
-      "ion\030\001 \001(\0162$.com.nkasenides.amc.proto.Dir" +
-      "ection4\022\014\n\004data\030\002 \001(\t\022E\n\016targetPosition\030" +
-      "\003 \001(\0132-.com.nkasenides.amc.proto.MatrixP" +
-      "ositionProto\022\r\n\005width\030\004 \001(\005\022G\n\020startingP" +
-      "osition\030\005 \001(\0132-.com.nkasenides.amc.proto" +
-      ".MatrixPositionProto\022\016\n\006height\030\006 \001(\005\">\n\022" +
-      "QuestionEntryProto\022\022\n\nanswerText\030\001 \001(\t\022\024" +
-      "\n\014questionText\030\002 \001(\t\"\221\006\n\016ChallengeProto\022" +
-      "\031\n\021canJoinAfterStart\030\001 \001(\010\022\032\n\022canStepOnE" +
-      "achOther\030\002 \001(\010\022>\n\tpenalties\030\003 \001(\0162+.com." +
-      "nkasenides.amc.proto.PickableIntensity\022B" +
-      "\n\017backgroundImage\030\004 \001(\0162).com.nkasenides" +
-      ".amc.proto.BackgroundImage\022\023\n\013descriptio" +
-      "n\030\005 \001(\t\0227\n\tlineColor\030\006 \001(\0162$.com.nkaseni" +
-      "des.amc.proto.AmazeColor\022\021\n\tcanRepeat\030\007 " +
-      "\001(\010\022\021\n\tcreatedOn\030\010 \001(\004\022\030\n\020hasQuestionnai" +
-      "re\030\t \001(\010\0228\n\ndifficulty\030\n \001(\0162$.com.nkase" +
-      "nides.amc.proto.Difficulty\022\022\n\napiVersion" +
-      "\030\013 \001(\005\022\030\n\020maxActivePlayers\030\014 \001(\005\0221\n\004grid" +
-      "\030\r \001(\0132#.com.nkasenides.amc.proto.GridPr" +
-      "oto\0228\n\017backgroundAudio\030\016 \001(\0162\037.com.nkase" +
-      "nides.amc.proto.Audio\022\030\n\020minActivePlayer" +
-      "s\030\017 \001(\005\022\014\n\004name\030\020 \001(\t\022\021\n\tstartTime\030\021 \001(\004" +
-      "\022\017\n\007endTime\030\022 \001(\004\022\n\n\002id\030\023 \001(\t\022<\n\007rewards" +
-      "\030\024 \001(\0162+.com.nkasenides.amc.proto.Pickab" +
-      "leIntensity\022\023\n\013createdByID\030\025 \001(\t\0226\n\talgo" +
-      "rithm\030\026 \001(\0162#.com.nkasenides.amc.proto.A" +
-      "lgorithm\"I\n\020GeoPositionProto\022\t\n\001x\030\001 \001(\002\022" +
-      "\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\024\n\014positionHash\030\004 " +
-      "\001(\t\"T\n\023MatrixPositionProto\022\013\n\003row\030\001 \001(\021\022" +
-      "\013\n\003col\030\002 \001(\021\022\020\n\010cellHash\030\003 \001(\t\022\021\n\tchunkH" +
-      "ash\030\004 \001(\t\"l\n\023AMCGameSessionProto\022\021\n\tipAd" +
-      "dress\030\001 \001(\t\022\021\n\texpiresOn\030\002 \001(\004\022\n\n\002id\030\003 \001" +
-      "(\t\022\021\n\tcreatedOn\030\004 \001(\004\022\020\n\010playerID\030\005 \001(\t\"" +
-      "\214\002\n\024AMCWorldSessionProto\022\017\n\007worldID\030\001 \001(" +
-      "\t\022\021\n\tipAddress\030\002 \001(\t\022E\n\016cameraPosition\030\003" +
-      " \001(\0132-.com.nkasenides.amc.proto.MatrixPo" +
-      "sitionProto\0225\n\006health\030\004 \001(\0132%.com.nkasen" +
-      "ides.amc.proto.HealthProto\022\021\n\texpiresOn\030" +
-      "\005 \001(\004\022\n\n\002id\030\006 \001(\t\022\021\n\tcreatedOn\030\007 \001(\004\022\020\n\010" +
-      "playerID\030\010 \001(\t\022\016\n\006points\030\t \001(\005\"\326\001\n\016AMCPl" +
-      "ayerProto\022\020\n\010password\030\001 \001(\t\0223\n\005color\030\002 \001" +
-      "(\0162$.com.nkasenides.amc.proto.AmazeColor" +
-      "\022\016\n\006teamID\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\0221\n\004icon\030\005" +
-      " \001(\0162#.com.nkasenides.amc.proto.AmazeIco" +
-      "n\022\n\n\002id\030\006 \001(\t\022\021\n\tcreatedOn\030\007 \001(\004\022\r\n\005emai" +
-      "l\030\010 \001(\t\"a\n\014AMCTeamProto\022\014\n\004name\030\001 \001(\t\022\n\n" +
-      "\002id\030\002 \001(\t\022\017\n\007ownerID\030\003 \001(\t\022\021\n\tplayerIDs\030" +
-      "\004 \003(\t\022\023\n\013playerLimit\030\005 \001(\r\"\351\002\n\016AMCEntity" +
-      "Proto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016areaOfInterest" +
-      "\030\002 \001(\002\022\n\n\002id\030\003 \001(\t\022?\n\010position\030\004 \001(\0132-.c" +
-      "om.nkasenides.amc.proto.MatrixPositionPr" +
-      "oto\022\020\n\010playerID\030\005 \001(\t\0227\n\tdirection\030\006 \001(\016" +
-      "2$.com.nkasenides.amc.proto.Direction4\022G" +
-      "\n\016pickableEntity\030\007 \001(\0132-.com.nkasenides." +
-      "amc.proto.PickableEntityProtoH\000\022C\n\014playe" +
-      "rEntity\030\010 \001(\0132+.com.nkasenides.amc.proto" +
-      ".PlayerEntityProtoH\000B\010\n\006entity\"\224\002\n\023Picka" +
-      "bleEntityProto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016areaO" +
-      "fInterest\030\002 \001(\002\022<\n\014pickableType\030\003 \001(\0162&." +
-      "com.nkasenides.amc.proto.PickableType\022\n\n" +
-      "\002id\030\004 \001(\t\022?\n\010position\030\005 \001(\0132-.com.nkasen" +
-      "ides.amc.proto.MatrixPositionProto\022\020\n\010pl" +
-      "ayerID\030\006 \001(\t\0227\n\tdirection\030\007 \001(\0162$.com.nk" +
-      "asenides.amc.proto.Direction4\"\324\001\n\021Player" +
-      "EntityProto\022\017\n\007worldID\030\010 \001(\t\022\026\n\016areaOfIn" +
-      "terest\030\t \001(\002\022\n\n\002id\030\n \001(\t\022?\n\010position\030\013 \001" +
+      "\033\n\rAdminKeyProto\022\n\n\002id\030\001 \001(\t\"\177\n\027Question" +
+      "naireEntryProto\022\023\n\013challengeID\030\001 \001(\t\022C\n\r" +
+      "questionEntry\030\002 \003(\0132,.com.nkasenides.amc" +
+      ".proto.QuestionEntryProto\022\n\n\002id\030\003 \001(\t\"\211\002" +
+      "\n\tGridProto\022?\n\021startingDirection\030\001 \001(\0162$" +
+      ".com.nkasenides.amc.proto.Direction4\022\014\n\004" +
+      "data\030\002 \001(\t\022E\n\016targetPosition\030\003 \001(\0132-.com" +
+      ".nkasenides.amc.proto.MatrixPositionProt" +
+      "o\022\r\n\005width\030\004 \001(\005\022G\n\020startingPosition\030\005 \001" +
       "(\0132-.com.nkasenides.amc.proto.MatrixPosi" +
-      "tionProto\022\020\n\010playerID\030\014 \001(\t\0227\n\tdirection" +
-      "\030\r \001(\0162$.com.nkasenides.amc.proto.Direct" +
-      "ion4\"\020\n\016AMCActionProto\"\235\001\n\023AMCTerrainCel" +
-      "lProto\022?\n\010position\030\001 \001(\0132-.com.nkasenide" +
-      "s.amc.proto.MatrixPositionProto\022\021\n\tright" +
-      "Wall\030\002 \001(\010\022\020\n\010downWall\030\003 \001(\010\022\016\n\006upWall\030\004" +
-      " \001(\010\022\020\n\010leftWall\030\005 \001(\010\"\267\001\n\023AMCStateUpdat" +
-      "eProto\022D\n\014partialState\030\001 \001(\0132..com.nkase" +
-      "nides.amc.proto.AMCPartialStateProto\022\026\n\016" +
-      "worldSessionID\030\002 \001(\t\022\027\n\017removedEntities\030" +
-      "\003 \003(\t\022\026\n\016removedTerrain\030\004 \003(\t\022\021\n\ttimesta" +
-      "mp\030\005 \001(\004\"\233\002\n\024AMCTerrainChunkProto\022\n\n\002id\030" +
-      "\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022?\n\010position\030\003 \001(\013" +
-      "2-.com.nkasenides.amc.proto.MatrixPositi" +
-      "onProto\022H\n\005cells\030\004 \003(\01329.com.nkasenides." +
-      "amc.proto.AMCTerrainChunkProto.CellsEntr" +
-      "y\032[\n\nCellsEntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 " +
-      "\001(\0132-.com.nkasenides.amc.proto.AMCTerrai" +
-      "nCellProto:\0028\001\"\217\001\n\031AMCTerrainIdentifierP" +
-      "roto\022\n\n\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n\007wor" +
-      "ldID\030\003 \001(\t\022D\n\rchunkPosition\030\004 \001(\0132-.com." +
+      "tionProto\022\016\n\006height\030\006 \001(\005\">\n\022QuestionEnt" +
+      "ryProto\022\022\n\nanswerText\030\001 \001(\t\022\024\n\014questionT" +
+      "ext\030\002 \001(\t\"\221\006\n\016ChallengeProto\022\031\n\021canJoinA" +
+      "fterStart\030\001 \001(\010\022\032\n\022canStepOnEachOther\030\002 " +
+      "\001(\010\022>\n\tpenalties\030\003 \001(\0162+.com.nkasenides." +
+      "amc.proto.PickableIntensity\022B\n\017backgroun" +
+      "dImage\030\004 \001(\0162).com.nkasenides.amc.proto." +
+      "BackgroundImage\022\023\n\013description\030\005 \001(\t\0227\n\t" +
+      "lineColor\030\006 \001(\0162$.com.nkasenides.amc.pro" +
+      "to.AmazeColor\022\021\n\tcanRepeat\030\007 \001(\010\022\021\n\tcrea" +
+      "tedOn\030\010 \001(\004\022\030\n\020hasQuestionnaire\030\t \001(\010\0228\n" +
+      "\ndifficulty\030\n \001(\0162$.com.nkasenides.amc.p" +
+      "roto.Difficulty\022\022\n\napiVersion\030\013 \001(\005\022\030\n\020m" +
+      "axActivePlayers\030\014 \001(\005\0221\n\004grid\030\r \001(\0132#.co" +
+      "m.nkasenides.amc.proto.GridProto\0228\n\017back" +
+      "groundAudio\030\016 \001(\0162\037.com.nkasenides.amc.p" +
+      "roto.Audio\022\030\n\020minActivePlayers\030\017 \001(\005\022\014\n\004" +
+      "name\030\020 \001(\t\022\021\n\tstartTime\030\021 \001(\004\022\017\n\007endTime" +
+      "\030\022 \001(\004\022\n\n\002id\030\023 \001(\t\022<\n\007rewards\030\024 \001(\0162+.co" +
+      "m.nkasenides.amc.proto.PickableIntensity" +
+      "\022\023\n\013createdByID\030\025 \001(\t\0226\n\talgorithm\030\026 \001(\016" +
+      "2#.com.nkasenides.amc.proto.Algorithm\"I\n" +
+      "\020GeoPositionProto\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022" +
+      "\t\n\001z\030\003 \001(\002\022\024\n\014positionHash\030\004 \001(\t\"T\n\023Matr" +
+      "ixPositionProto\022\013\n\003row\030\001 \001(\021\022\013\n\003col\030\002 \001(" +
+      "\021\022\020\n\010cellHash\030\003 \001(\t\022\021\n\tchunkHash\030\004 \001(\t\"l" +
+      "\n\023AMCGameSessionProto\022\021\n\tipAddress\030\001 \001(\t" +
+      "\022\021\n\texpiresOn\030\002 \001(\004\022\n\n\002id\030\003 \001(\t\022\021\n\tcreat" +
+      "edOn\030\004 \001(\004\022\020\n\010playerID\030\005 \001(\t\"\214\002\n\024AMCWorl" +
+      "dSessionProto\022\017\n\007worldID\030\001 \001(\t\022\021\n\tipAddr" +
+      "ess\030\002 \001(\t\022E\n\016cameraPosition\030\003 \001(\0132-.com." +
       "nkasenides.amc.proto.MatrixPositionProto" +
-      "\"\307\003\n\024AMCPartialStateProto\022N\n\010entities\030\001 " +
-      "\003(\0132<.com.nkasenides.amc.proto.AMCPartia" +
-      "lStateProto.EntitiesEntry\022D\n\014worldSessio" +
-      "n\030\002 \001(\0132..com.nkasenides.amc.proto.AMCWo" +
-      "rldSessionProto\022L\n\007terrain\030\003 \003(\0132;.com.n" +
+      "\0225\n\006health\030\004 \001(\0132%.com.nkasenides.amc.pr" +
+      "oto.HealthProto\022\021\n\texpiresOn\030\005 \001(\004\022\n\n\002id" +
+      "\030\006 \001(\t\022\021\n\tcreatedOn\030\007 \001(\004\022\020\n\010playerID\030\010 " +
+      "\001(\t\022\016\n\006points\030\t \001(\005\"\326\001\n\016AMCPlayerProto\022\020" +
+      "\n\010password\030\001 \001(\t\0223\n\005color\030\002 \001(\0162$.com.nk" +
+      "asenides.amc.proto.AmazeColor\022\016\n\006teamID\030" +
+      "\003 \001(\t\022\014\n\004name\030\004 \001(\t\0221\n\004icon\030\005 \001(\0162#.com." +
+      "nkasenides.amc.proto.AmazeIcon\022\n\n\002id\030\006 \001" +
+      "(\t\022\021\n\tcreatedOn\030\007 \001(\004\022\r\n\005email\030\010 \001(\t\"a\n\014" +
+      "AMCTeamProto\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\017" +
+      "\n\007ownerID\030\003 \001(\t\022\021\n\tplayerIDs\030\004 \003(\t\022\023\n\013pl" +
+      "ayerLimit\030\005 \001(\r\"\351\002\n\016AMCEntityProto\022\017\n\007wo" +
+      "rldID\030\001 \001(\t\022\026\n\016areaOfInterest\030\002 \001(\002\022\n\n\002i" +
+      "d\030\003 \001(\t\022?\n\010position\030\004 \001(\0132-.com.nkasenid" +
+      "es.amc.proto.MatrixPositionProto\022\020\n\010play" +
+      "erID\030\005 \001(\t\0227\n\tdirection\030\006 \001(\0162$.com.nkas" +
+      "enides.amc.proto.Direction4\022G\n\016pickableE" +
+      "ntity\030\007 \001(\0132-.com.nkasenides.amc.proto.P" +
+      "ickableEntityProtoH\000\022C\n\014playerEntity\030\010 \001" +
+      "(\0132+.com.nkasenides.amc.proto.PlayerEnti" +
+      "tyProtoH\000B\010\n\006entity\"\224\002\n\023PickableEntityPr" +
+      "oto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016areaOfInterest\030\002" +
+      " \001(\002\022<\n\014pickableType\030\003 \001(\0162&.com.nkaseni" +
+      "des.amc.proto.PickableType\022\n\n\002id\030\004 \001(\t\022?" +
+      "\n\010position\030\005 \001(\0132-.com.nkasenides.amc.pr" +
+      "oto.MatrixPositionProto\022\020\n\010playerID\030\006 \001(" +
+      "\t\0227\n\tdirection\030\007 \001(\0162$.com.nkasenides.am" +
+      "c.proto.Direction4\"\324\001\n\021PlayerEntityProto" +
+      "\022\017\n\007worldID\030\010 \001(\t\022\026\n\016areaOfInterest\030\t \001(" +
+      "\002\022\n\n\002id\030\n \001(\t\022?\n\010position\030\013 \001(\0132-.com.nk" +
+      "asenides.amc.proto.MatrixPositionProto\022\020" +
+      "\n\010playerID\030\014 \001(\t\0227\n\tdirection\030\r \001(\0162$.co" +
+      "m.nkasenides.amc.proto.Direction4\"\020\n\016AMC" +
+      "ActionProto\"\235\001\n\023AMCTerrainCellProto\022?\n\010p" +
+      "osition\030\001 \001(\0132-.com.nkasenides.amc.proto" +
+      ".MatrixPositionProto\022\021\n\trightWall\030\002 \001(\010\022" +
+      "\020\n\010downWall\030\003 \001(\010\022\016\n\006upWall\030\004 \001(\010\022\020\n\010lef" +
+      "tWall\030\005 \001(\010\"\267\001\n\023AMCStateUpdateProto\022D\n\014p" +
+      "artialState\030\001 \001(\0132..com.nkasenides.amc.p" +
+      "roto.AMCPartialStateProto\022\026\n\016worldSessio" +
+      "nID\030\002 \001(\t\022\027\n\017removedEntities\030\003 \003(\t\022\026\n\016re" +
+      "movedTerrain\030\004 \003(\t\022\021\n\ttimestamp\030\005 \001(\004\"\233\002" +
+      "\n\024AMCTerrainChunkProto\022\n\n\002id\030\001 \001(\t\022\017\n\007wo" +
+      "rldID\030\002 \001(\t\022?\n\010position\030\003 \001(\0132-.com.nkas" +
+      "enides.amc.proto.MatrixPositionProto\022H\n\005" +
+      "cells\030\004 \003(\01329.com.nkasenides.amc.proto.A" +
+      "MCTerrainChunkProto.CellsEntry\032[\n\nCellsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.com.n" +
+      "kasenides.amc.proto.AMCTerrainCellProto:" +
+      "\0028\001\"\217\001\n\031AMCTerrainIdentifierProto\022\n\n\002id\030" +
+      "\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n\007worldID\030\003 \001(\t\022" +
+      "D\n\rchunkPosition\030\004 \001(\0132-.com.nkasenides." +
+      "amc.proto.MatrixPositionProto\"\307\003\n\024AMCPar" +
+      "tialStateProto\022N\n\010entities\030\001 \003(\0132<.com.n" +
       "kasenides.amc.proto.AMCPartialStateProto" +
-      ".TerrainEntry\022\021\n\ttimestamp\030\004 \001(\004\032Y\n\rEnti" +
-      "tiesEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001(\0132(." +
-      "com.nkasenides.amc.proto.AMCEntityProto:" +
-      "\0028\001\032]\n\014TerrainEntry\022\013\n\003key\030\001 \001(\t\022<\n\005valu" +
-      "e\030\002 \001(\0132-.com.nkasenides.amc.proto.AMCTe" +
-      "rrainCellProto:\0028\001\"\365\001\n\rAMCWorldProto\022\017\n\007" +
-      "maxRows\030\001 \001(\022\022\023\n\013heightLimit\030\002 \001(\r\022\014\n\004se" +
-      "ed\030\003 \001(\022\0221\n\004grid\030\004 \001(\0132#.com.nkasenides." +
-      "amc.proto.GridProto\022\014\n\004name\030\005 \001(\t\022\020\n\010chu" +
-      "nkIDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t" +
-      "\022\021\n\tcreatedOn\030\t \001(\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024" +
-      "subscribedSessionIDs\030\013 \003(\t\"\320\005\n\007Request\022L" +
-      "\n\023addChallengeRequest\030\001 \001(\0132-.com.nkasen" +
-      "ides.amc.proto.AddChallengeRequestH\000\022D\n\017" +
-      "getStateRequest\030\002 \001(\0132).com.nkasenides.a" +
-      "mc.proto.GetStateRequestH\000\022F\n\020subscribeR" +
-      "equest\030\003 \001(\0132*.com.nkasenides.amc.proto." +
-      "SubscribeRequestH\000\022P\n\025listChallengesRequ" +
-      "est\030\004 \001(\0132/.com.nkasenides.amc.proto.Lis" +
-      "tChallengesRequestH\000\022J\n\022unsubscribeReque" +
-      "st\030\005 \001(\0132,.com.nkasenides.amc.proto.Unsu" +
-      "bscribeRequestH\000\022J\n\022updateStateRequest\030\006" +
-      " \001(\0132,.com.nkasenides.amc.proto.UpdateSt" +
-      "ateRequestH\000\022H\n\021submitCodeRequest\030\007 \001(\0132" +
-      "+.com.nkasenides.amc.proto.SubmitCodeReq" +
-      "uestH\000\022N\n\024joinChallengeRequest\030\010 \001(\0132..c" +
-      "om.nkasenides.amc.proto.JoinChallengeReq" +
-      "uestH\000\022Z\n\032submitQuestionnaireRequest\030\t \001" +
-      "(\01324.com.nkasenides.amc.proto.SubmitQues" +
-      "tionnaireRequestH\000B\t\n\007request\"d\n\023AddChal" +
-      "lengeRequest\022;\n\tchallenge\030\001 \001(\0132(.com.nk" +
-      "asenides.amc.proto.ChallengeProto\022\020\n\010adm" +
-      "inKey\030\002 \001(\t\")\n\017GetStateRequest\022\026\n\016worldS" +
-      "essionID\030\001 \001(\t\"*\n\020SubscribeRequest\022\026\n\016wo" +
-      "rldSessionID\030\001 \001(\t\"\027\n\025ListChallengesRequ" +
-      "est\",\n\022UnsubscribeRequest\022\026\n\016worldSessio" +
-      "nID\030\001 \001(\t\",\n\022UpdateStateRequest\022\026\n\016world" +
-      "SessionID\030\001 \001(\t\"g\n\021SubmitCodeRequest\022\014\n\004" +
-      "code\030\001 \001(\t\022D\n\014worldSession\030\002 \001(\0132..com.n" +
-      "kasenides.amc.proto.AMCWorldSessionProto" +
-      "\"e\n\024JoinChallengeRequest\022\023\n\013challengeID\030" +
-      "\001 \001(\t\0228\n\006player\030\002 \001(\0132(.com.nkasenides.a" +
-      "mc.proto.AMCPlayerProto\"\261\001\n\032SubmitQuesti" +
-      "onnaireRequest\022M\n\022questionnaireEntry\030\001 \001" +
-      "(\01321.com.nkasenides.amc.proto.Questionna" +
-      "ireEntryProto\022D\n\014worldSession\030\002 \001(\0132..co" +
-      "m.nkasenides.amc.proto.AMCWorldSessionPr" +
-      "oto\"\344\005\n\010Response\022\\\n\033submitQuestionnaireR" +
-      "esponse\030\001 \001(\01325.com.nkasenides.amc.proto" +
-      ".SubmitQuestionnaireResponseH\000\022F\n\020getSta" +
-      "teResponse\030\002 \001(\0132*.com.nkasenides.amc.pr" +
-      "oto.GetStateResponseH\000\022P\n\025joinChallengeR" +
-      "esponse\030\003 \001(\0132/.com.nkasenides.amc.proto" +
-      ".JoinChallengeResponseH\000\022L\n\023updateStateR" +
-      "esponse\030\004 \001(\0132-.com.nkasenides.amc.proto" +
-      ".UpdateStateResponseH\000\022J\n\022submitCodeResp" +
-      "onse\030\005 \001(\0132,.com.nkasenides.amc.proto.Su" +
-      "bmitCodeResponseH\000\022H\n\021subscribeResponse\030" +
-      "\006 \001(\0132+.com.nkasenides.amc.proto.Subscri" +
-      "beResponseH\000\022L\n\023unsubscribeResponse\030\007 \001(" +
-      "\0132-.com.nkasenides.amc.proto.Unsubscribe" +
-      "ResponseH\000\022R\n\026listChallengesResponse\030\010 \001" +
-      "(\01320.com.nkasenides.amc.proto.ListChalle" +
-      "ngesResponseH\000\022N\n\024addChallengeResponse\030\t" +
-      " \001(\0132..com.nkasenides.amc.proto.AddChall" +
-      "engeResponseH\000B\n\n\010response\"\261\001\n\033SubmitQue" +
-      "stionnaireResponse\022\017\n\007message\030\001 \001(\t\022L\n\006s" +
-      "tatus\030\002 \001(\0162<.com.nkasenides.amc.proto.S" +
-      "ubmitQuestionnaireResponse.Status\"3\n\006Sta" +
-      "tus\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006" +
-      "\n\002OK\020\002\"\253\002\n\020GetStateResponse\022D\n\014partialSt" +
-      "ate\030\001 \001(\0132..com.nkasenides.amc.proto.AMC" +
-      "PartialStateProto\022\017\n\007message\030\002 \001(\t\022A\n\006st" +
-      "atus\030\003 \001(\01621.com.nkasenides.amc.proto.Ge" +
-      "tStateResponse.Status\"}\n\006Status\022\020\n\014SERVE" +
-      "R_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014" +
-      "INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CA" +
-      "NNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025JoinCha" +
-      "llengeResponse\022;\n\tchallenge\030\001 \001(\0132(.com." +
-      "nkasenides.amc.proto.ChallengeProto\022D\n\014w" +
-      "orldSession\030\002 \001(\0132..com.nkasenides.amc.p" +
-      "roto.AMCWorldSessionProto\022\017\n\007message\030\003 \001" +
-      "(\t\022F\n\006status\030\004 \001(\01626.com.nkasenides.amc." +
-      "proto.JoinChallengeResponse.Status\"\226\001\n\006S" +
-      "tatus\022\025\n\021INVALID_CHALLENGE\020\000\022\031\n\025CHALLENG" +
-      "E_NOT_STARTED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022P" +
-      "LAYER_NAME_EXISTS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022" +
-      "\006\n\002OK\020\005\022\022\n\016CHALLENGE_FULL\020\006\"\257\002\n\023UpdateSt" +
-      "ateResponse\022\017\n\007message\030\001 \001(\t\022B\n\013stateUpd" +
-      "ate\030\002 \001(\0132-.com.nkasenides.amc.proto.AMC" +
-      "StateUpdateProto\022D\n\006status\030\003 \001(\01624.com.n" +
-      "kasenides.amc.proto.UpdateStateResponse." +
-      "Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO" +
-      "_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022" +
-      "\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE_ST" +
-      "ATE\020\004\022\006\n\002OK\020\005\"\301\001\n\022SubmitCodeResponse\022\017\n\007" +
-      "message\030\001 \001(\t\022C\n\006status\030\002 \001(\01623.com.nkas" +
-      "enides.amc.proto.SubmitCodeResponse.Stat" +
-      "us\"U\n\006Status\022\031\n\025INVALID_WORLD_SESSION\020\000\022" +
-      "\020\n\014INVALID_CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBM" +
-      "IT_CODE\020\003\"\255\002\n\021SubscribeResponse\022D\n\014parti" +
-      "alState\030\001 \001(\0132..com.nkasenides.amc.proto" +
-      ".AMCPartialStateProto\022\017\n\007message\030\002 \001(\t\022B" +
-      "\n\006status\030\003 \001(\01622.com.nkasenides.amc.prot" +
-      "o.SubscribeResponse.Status\"}\n\006Status\022\020\n\014" +
-      "SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020" +
-      "\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022" +
-      "\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n\023Un" +
-      "subscribeResponse\022\017\n\007message\030\001 \001(\t\022D\n\006st" +
-      "atus\030\002 \001(\01624.com.nkasenides.amc.proto.Un" +
-      "subscribeResponse.Status\"c\n\006Status\022\020\n\014SE" +
-      "RVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022" +
-      "\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n" +
-      "\002OK\020\004\"\347\001\n\026ListChallengesResponse\022<\n\nchal" +
-      "lenges\030\001 \003(\0132(.com.nkasenides.amc.proto." +
-      "ChallengeProto\022\017\n\007message\030\002 \001(\t\022G\n\006statu" +
-      "s\030\003 \001(\01627.com.nkasenides.amc.proto.ListC" +
-      "hallengesResponse.Status\"5\n\006Status\022\020\n\014SE" +
-      "RVER_ERROR\020\000\022\021\n\rNO_CHALLENGES\020\001\022\006\n\002OK\020\002\"" +
-      "\302\001\n\024AddChallengeResponse\022\017\n\007message\030\001 \001(" +
-      "\t\022E\n\006status\030\002 \001(\01625.com.nkasenides.amc.p" +
-      "roto.AddChallengeResponse.Status\"R\n\006Stat" +
-      "us\022\025\n\021INVALID_CHALLENGE\020\000\022\020\n\014SERVER_ERRO" +
-      "R\020\001\022\006\n\002OK\020\002\022\027\n\023INVALID_CREDENTIALS\020\003*\252\001\n" +
-      "\016LikertResponse\022\033\n\027POSITIVE_LikertRespon" +
-      "se\020\000\022\033\n\027NEGATIVE_LikertResponse\020\001\022\032\n\026NEU" +
-      "TRAL_LikertResponse\020\002\022 \n\034VERY_POSITIVE_L" +
-      "ikertResponse\020\003\022 \n\034VERY_NEGATIVE_LikertR" +
-      "esponse\020\004*E\n\005Shape\022\022\n\016TRIANGLE_Shape\020\000\022\026" +
-      "\n\022EMPTY_CIRCLE_Shape\020\001\022\020\n\014CIRCLE_Shape\020\002" +
-      "*\350\001\n\tAmazeIcon\022\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020" +
-      "ICON_8_AmazeIcon\020\001\022\024\n\020ICON_7_AmazeIcon\020\002" +
-      "\022\024\n\020ICON_6_AmazeIcon\020\003\022\024\n\020ICON_5_AmazeIc" +
-      "on\020\004\022\024\n\020ICON_4_AmazeIcon\020\005\022\024\n\020ICON_3_Ama" +
-      "zeIcon\020\006\022\024\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICON_1" +
-      "_AmazeIcon\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201\001\n\n" +
-      "Difficulty\022\023\n\017EASY_Difficulty\020\000\022\025\n\021MEDIU" +
-      "M_Difficulty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030\n\024V" +
-      "ERY_EASY_Difficulty\020\003\022\030\n\024VERY_HARD_Diffi" +
-      "culty\020\004*m\n\023DichotomousResponse\022\032\n\026NO_Dic" +
-      "hotomousResponse\020\000\022\035\n\031MAYBE_DichotomousR" +
-      "esponse\020\001\022\033\n\027YES_DichotomousResponse\020\002*s" +
-      "\n\tAlgorithm\022\034\n\030MANY_SOLUTIONS_Algorithm\020" +
-      "\000\022\024\n\020SPARSE_Algorithm\020\001\022\035\n\031SINGLE_SOLUTI" +
-      "ON_Algorithm\020\002\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\n" +
-      "AmazeColor\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017BLUE_" +
-      "AmazeColor\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022\024\n\020G" +
-      "REEN_AmazeColor\020\003\022\030\n\024DARK_BLUE_AmazeColo" +
-      "r\020\004\022\025\n\021INDIGO_AmazeColor\020\005\022\022\n\016RED_AmazeC" +
-      "olor\020\006\022\031\n\025LIGHT_GREY_AmazeColor\020\007\022\023\n\017PIN" +
-      "K_AmazeColor\020\010\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023D" +
-      "ARK_RED_AmazeColor\020\n\022\030\n\024DARK_GREY_AmazeC" +
-      "olor\020\013\022\024\n\020BLACK_AmazeColor\020\014\022\026\n\022MAGENTA_" +
-      "AmazeColor\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022\031\n\025D" +
-      "ARK_GREEN_AmazeColor\020\017\022\023\n\017TEAL_AmazeColo" +
-      "r\020\020\022\023\n\017CYAN_AmazeColor\020\021\022\023\n\017GREY_AmazeCo" +
-      "lor\020\022\022\025\n\021ORANGE_AmazeColor\020\023*\355\002\n\017Backgro" +
-      "undImage\022!\n\035TEXTURE_WATER_BackgroundImag" +
-      "e\020\000\022!\n\035TEXTURE_ROCKY_BackgroundImage\020\001\022!" +
-      "\n\035TEXTURE_SPACE_BackgroundImage\020\002\022!\n\035TEX" +
-      "TURE_METAL_BackgroundImage\020\003\022 \n\034TEXTURE_" +
-      "MOON_BackgroundImage\020\004\022 \n\034TEXTURE_LAVA_B" +
-      "ackgroundImage\020\005\022\"\n\036TEXTURE_GRAVEL_Backg" +
-      "roundImage\020\006\022 \n\034TEXTURE_WOOD_BackgroundI" +
-      "mage\020\007\022!\n\035TEXTURE_GRASS_BackgroundImage\020" +
-      "\010\022!\n\035TEXTURE_TILES_BackgroundImage\020\t*4\n\010" +
-      "Language\022\024\n\020ENGLISH_Language\020\000\022\022\n\016GREEK_" +
-      "Language\020\001*K\n\tAudioType\022\025\n\021AMBIENT_Audio" +
-      "Type\020\000\022\022\n\016NONE_AudioType\020\001\022\023\n\017EVENT_Audi" +
-      "oType\020\002*\203\001\n\013AudioFormat\022\023\n\017MP4_AudioForm" +
-      "at\020\000\022\023\n\017MP3_AudioFormat\020\001\022 \n\034UNDEFINED_F" +
-      "ORMAT_AudioFormat\020\002\022\023\n\017WAV_AudioFormat\020\003" +
-      "\022\023\n\017OGG_AudioFormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT" +
-      "_GIFTBOX_Audio\020\000\022\026\n\022EVENT_COIN20_Audio\020\001" +
-      "\022\027\n\023AMBIENT_STORM_Audio\020\002\022\024\n\020EVENT_TRAP_" +
-      "Audio\020\003\022\027\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022AMBI" +
-      "ENT_SNOW_Audio\020\005\022\037\n\033AMBIENT_ALPINE_FORES" +
-      "T_Audio\020\006\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023AMBIE" +
-      "NT_RIVER_Audio\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031" +
-      "\n\025EVENT_SPEEDHACK_Audio\020\n\022\024\n\020AUDIO_NONE_" +
-      "Audio\020\013\022\025\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EVENT_" +
-      "COIN10_Audio\020\r\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030" +
-      "\n\024AMBIENT_PRISON_Audio\020\017\022\033\n\027AMBIENT_SAND" +
-      "STORM_Audio\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022A" +
-      "MBIENT_CITY_Audio\020\022\022\030\n\024AMBIENT_STREET_Au" +
-      "dio\020\023\022!\n\035AMBIENT_TROPICAL_FOREST_Audio\020\024" +
-      "\022\026\n\022AMBIENT_FIRE_Audio\020\025\022\023\n\017EVENT_WIN_Au" +
-      "dio\020\026\022\032\n\026AMBIENT_HIGHTECH_Audio\020\027\022\034\n\030AMB" +
-      "IENT_UNDERWATER_Audio\020\030*\364\002\n\014PickableType" +
-      "\022\027\n\023GRAPES_PickableType\020\000\022\026\n\022APPLE_Picka" +
-      "bleType\020\001\022\025\n\021TRAP_PickableType\020\002\022\033\n\027WATE" +
-      "RMELON_PickableType\020\003\022\032\n\026SPEEDHACK_Picka" +
-      "bleType\020\004\022\030\n\024COIN_10_PickableType\020\005\022\030\n\024C" +
-      "OIN_20_PickableType\020\006\022\026\n\022PEACH_PickableT" +
-      "ype\020\007\022\030\n\024GIFTBOX_PickableType\020\010\022\027\n\023COIN_" +
-      "5_PickableType\020\t\022\027\n\023BANANA_PickableType\020" +
-      "\n\022\025\n\021BOMB_PickableType\020\013\022\033\n\027STRAWBERRY_P" +
-      "ickableType\020\014\022\027\n\023ORANGE_PickableType\020\r*\254" +
-      "\001\n\026MultipleChoiceResponse\022#\n\037CHOICE_1_Mu" +
-      "ltipleChoiceResponse\020\000\022#\n\037CHOICE_4_Multi" +
-      "pleChoiceResponse\020\001\022#\n\037CHOICE_2_Multiple" +
-      "ChoiceResponse\020\002\022#\n\037CHOICE_3_MultipleCho" +
-      "iceResponse\020\003*l\n\023BackgroundImageType\022\033\n\027" +
-      "JPG_BackgroundImageType\020\000\022\033\n\027GIF_Backgro" +
-      "undImageType\020\001\022\033\n\027PNG_BackgroundImageTyp" +
-      "e\020\002*\204\001\n\021PickableIntensity\022\032\n\026HIGH_Pickab" +
-      "leIntensity\020\000\022\034\n\030MEDIUM_PickableIntensit" +
-      "y\020\001\022\031\n\025LOW_PickableIntensity\020\002\022\032\n\026NONE_P" +
-      "ickableIntensity\020\003*6\n\nDirection4\022\t\n\005NORT" +
-      "H\020\000\022\010\n\004EAST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDi" +
-      "rection6\022\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\n" +
-      "SOUTH_EAST\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004" +
-      "\022\016\n\nNORTH_WEST\020\005*0\n\010Rotation\022\r\n\tCLOCKWIS" +
-      "E\020\000\022\025\n\021COUNTER_CLOCKWISE\020\001*C\n\tMovement4\022" +
-      "\013\n\007FORWARD\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002" +
-      "\022\r\n\tRIGHTWARD\020\003*t\n\tMovement6\022\014\n\010FORWARD6" +
-      "\020\000\022\021\n\rFORWARD_RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020" +
-      "\002\022\r\n\tBACKWARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014F" +
-      "ORWARD_LEFT\020\005*7\n\tWorldType\022\013\n\007UNIFORM\020\000\022" +
-      "\017\n\013TILE_SQUARE\020\001\022\014\n\010TILE_HEX\020\002B&\n\030com.nk" +
-      "asenides.amc.protoB\010AMCProtoP\001b\006proto3"
+      ".EntitiesEntry\022D\n\014worldSession\030\002 \001(\0132..c" +
+      "om.nkasenides.amc.proto.AMCWorldSessionP" +
+      "roto\022L\n\007terrain\030\003 \003(\0132;.com.nkasenides.a" +
+      "mc.proto.AMCPartialStateProto.TerrainEnt" +
+      "ry\022\021\n\ttimestamp\030\004 \001(\004\032Y\n\rEntitiesEntry\022\013" +
+      "\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001(\0132(.com.nkaseni" +
+      "des.amc.proto.AMCEntityProto:\0028\001\032]\n\014Terr" +
+      "ainEntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.c" +
+      "om.nkasenides.amc.proto.AMCTerrainCellPr" +
+      "oto:\0028\001\"\365\001\n\rAMCWorldProto\022\017\n\007maxRows\030\001 \001" +
+      "(\022\022\023\n\013heightLimit\030\002 \001(\r\022\014\n\004seed\030\003 \001(\022\0221\n" +
+      "\004grid\030\004 \001(\0132#.com.nkasenides.amc.proto.G" +
+      "ridProto\022\014\n\004name\030\005 \001(\t\022\020\n\010chunkIDs\030\006 \003(\t" +
+      "\022\n\n\002id\030\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t\022\021\n\tcreated" +
+      "On\030\t \001(\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024subscribedS" +
+      "essionIDs\030\013 \003(\t\"\320\005\n\007Request\022L\n\023addChalle" +
+      "ngeRequest\030\001 \001(\0132-.com.nkasenides.amc.pr" +
+      "oto.AddChallengeRequestH\000\022D\n\017getStateReq" +
+      "uest\030\002 \001(\0132).com.nkasenides.amc.proto.Ge" +
+      "tStateRequestH\000\022F\n\020subscribeRequest\030\003 \001(" +
+      "\0132*.com.nkasenides.amc.proto.SubscribeRe" +
+      "questH\000\022P\n\025listChallengesRequest\030\004 \001(\0132/" +
+      ".com.nkasenides.amc.proto.ListChallenges" +
+      "RequestH\000\022J\n\022unsubscribeRequest\030\005 \001(\0132,." +
+      "com.nkasenides.amc.proto.UnsubscribeRequ" +
+      "estH\000\022J\n\022updateStateRequest\030\006 \001(\0132,.com." +
+      "nkasenides.amc.proto.UpdateStateRequestH" +
+      "\000\022H\n\021submitCodeRequest\030\007 \001(\0132+.com.nkase" +
+      "nides.amc.proto.SubmitCodeRequestH\000\022N\n\024j" +
+      "oinChallengeRequest\030\010 \001(\0132..com.nkasenid" +
+      "es.amc.proto.JoinChallengeRequestH\000\022Z\n\032s" +
+      "ubmitQuestionnaireRequest\030\t \001(\01324.com.nk" +
+      "asenides.amc.proto.SubmitQuestionnaireRe" +
+      "questH\000B\t\n\007request\"d\n\023AddChallengeReques" +
+      "t\022;\n\tchallenge\030\001 \001(\0132(.com.nkasenides.am" +
+      "c.proto.ChallengeProto\022\020\n\010adminKey\030\002 \001(\t" +
+      "\")\n\017GetStateRequest\022\026\n\016worldSessionID\030\001 " +
+      "\001(\t\"*\n\020SubscribeRequest\022\026\n\016worldSessionI" +
+      "D\030\001 \001(\t\"\027\n\025ListChallengesRequest\",\n\022Unsu" +
+      "bscribeRequest\022\026\n\016worldSessionID\030\001 \001(\t\"," +
+      "\n\022UpdateStateRequest\022\026\n\016worldSessionID\030\001" +
+      " \001(\t\"g\n\021SubmitCodeRequest\022\014\n\004code\030\001 \001(\t\022" +
+      "D\n\014worldSession\030\002 \001(\0132..com.nkasenides.a" +
+      "mc.proto.AMCWorldSessionProto\"e\n\024JoinCha" +
+      "llengeRequest\022\023\n\013challengeID\030\001 \001(\t\0228\n\006pl" +
+      "ayer\030\002 \001(\0132(.com.nkasenides.amc.proto.AM" +
+      "CPlayerProto\"\261\001\n\032SubmitQuestionnaireRequ" +
+      "est\022M\n\022questionnaireEntry\030\001 \001(\01321.com.nk" +
+      "asenides.amc.proto.QuestionnaireEntryPro" +
+      "to\022D\n\014worldSession\030\002 \001(\0132..com.nkasenide" +
+      "s.amc.proto.AMCWorldSessionProto\"\344\005\n\010Res" +
+      "ponse\022\\\n\033submitQuestionnaireResponse\030\001 \001" +
+      "(\01325.com.nkasenides.amc.proto.SubmitQues" +
+      "tionnaireResponseH\000\022F\n\020getStateResponse\030" +
+      "\002 \001(\0132*.com.nkasenides.amc.proto.GetStat" +
+      "eResponseH\000\022P\n\025joinChallengeResponse\030\003 \001" +
+      "(\0132/.com.nkasenides.amc.proto.JoinChalle" +
+      "ngeResponseH\000\022L\n\023updateStateResponse\030\004 \001" +
+      "(\0132-.com.nkasenides.amc.proto.UpdateStat" +
+      "eResponseH\000\022J\n\022submitCodeResponse\030\005 \001(\0132" +
+      ",.com.nkasenides.amc.proto.SubmitCodeRes" +
+      "ponseH\000\022H\n\021subscribeResponse\030\006 \001(\0132+.com" +
+      ".nkasenides.amc.proto.SubscribeResponseH" +
+      "\000\022L\n\023unsubscribeResponse\030\007 \001(\0132-.com.nka" +
+      "senides.amc.proto.UnsubscribeResponseH\000\022" +
+      "R\n\026listChallengesResponse\030\010 \001(\01320.com.nk" +
+      "asenides.amc.proto.ListChallengesRespons" +
+      "eH\000\022N\n\024addChallengeResponse\030\t \001(\0132..com." +
+      "nkasenides.amc.proto.AddChallengeRespons" +
+      "eH\000B\n\n\010response\"\261\001\n\033SubmitQuestionnaireR" +
+      "esponse\022\017\n\007message\030\001 \001(\t\022L\n\006status\030\002 \001(\016" +
+      "2<.com.nkasenides.amc.proto.SubmitQuesti" +
+      "onnaireResponse.Status\"3\n\006Status\022\021\n\rCANN" +
+      "OT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006\n\002OK\020\002\"\253\002\n\020" +
+      "GetStateResponse\022D\n\014partialState\030\001 \001(\0132." +
+      ".com.nkasenides.amc.proto.AMCPartialStat" +
+      "eProto\022\017\n\007message\030\002 \001(\t\022A\n\006status\030\003 \001(\0162" +
+      "1.com.nkasenides.amc.proto.GetStateRespo" +
+      "nse.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031" +
+      "\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DAT" +
+      "A\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOS" +
+      "E_STATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025JoinChallengeRespo" +
+      "nse\022;\n\tchallenge\030\001 \001(\0132(.com.nkasenides." +
+      "amc.proto.ChallengeProto\022D\n\014worldSession" +
+      "\030\002 \001(\0132..com.nkasenides.amc.proto.AMCWor" +
+      "ldSessionProto\022\017\n\007message\030\003 \001(\t\022F\n\006statu" +
+      "s\030\004 \001(\01626.com.nkasenides.amc.proto.JoinC" +
+      "hallengeResponse.Status\"\226\001\n\006Status\022\025\n\021IN" +
+      "VALID_CHALLENGE\020\000\022\031\n\025CHALLENGE_NOT_START" +
+      "ED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022PLAYER_NAME_" +
+      "EXISTS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022\006\n\002OK\020\005\022\022\n\016" +
+      "CHALLENGE_FULL\020\006\"\257\002\n\023UpdateStateResponse" +
+      "\022\017\n\007message\030\001 \001(\t\022B\n\013stateUpdate\030\002 \001(\0132-" +
+      ".com.nkasenides.amc.proto.AMCStateUpdate" +
+      "Proto\022D\n\006status\030\003 \001(\01624.com.nkasenides.a" +
+      "mc.proto.UpdateStateResponse.Status\"}\n\006S" +
+      "tatus\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD" +
+      "_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTH" +
+      "ORIZED\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK" +
+      "\020\005\"\301\001\n\022SubmitCodeResponse\022\017\n\007message\030\001 \001" +
+      "(\t\022C\n\006status\030\002 \001(\01623.com.nkasenides.amc." +
+      "proto.SubmitCodeResponse.Status\"U\n\006Statu" +
+      "s\022\031\n\025INVALID_WORLD_SESSION\020\000\022\020\n\014INVALID_" +
+      "CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBMIT_CODE\020\003\"\255" +
+      "\002\n\021SubscribeResponse\022D\n\014partialState\030\001 \001" +
+      "(\0132..com.nkasenides.amc.proto.AMCPartial" +
+      "StateProto\022\017\n\007message\030\002 \001(\t\022B\n\006status\030\003 " +
+      "\001(\01622.com.nkasenides.amc.proto.Subscribe" +
+      "Response.Status\"}\n\006Status\022\020\n\014SERVER_ERRO" +
+      "R\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALI" +
+      "D_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_C" +
+      "OMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n\023UnsubscribeRe" +
+      "sponse\022\017\n\007message\030\001 \001(\t\022D\n\006status\030\002 \001(\0162" +
+      "4.com.nkasenides.amc.proto.UnsubscribeRe" +
+      "sponse.Status\"c\n\006Status\022\020\n\014SERVER_ERROR\020" +
+      "\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_" +
+      "DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n\002OK\020\004\"\347\001\n\026L" +
+      "istChallengesResponse\022<\n\nchallenges\030\001 \003(" +
+      "\0132(.com.nkasenides.amc.proto.ChallengePr" +
+      "oto\022\017\n\007message\030\002 \001(\t\022G\n\006status\030\003 \001(\01627.c" +
+      "om.nkasenides.amc.proto.ListChallengesRe" +
+      "sponse.Status\"5\n\006Status\022\020\n\014SERVER_ERROR\020" +
+      "\000\022\021\n\rNO_CHALLENGES\020\001\022\006\n\002OK\020\002\"\302\001\n\024AddChal" +
+      "lengeResponse\022\017\n\007message\030\001 \001(\t\022E\n\006status" +
+      "\030\002 \001(\01625.com.nkasenides.amc.proto.AddCha" +
+      "llengeResponse.Status\"R\n\006Status\022\025\n\021INVAL" +
+      "ID_CHALLENGE\020\000\022\020\n\014SERVER_ERROR\020\001\022\006\n\002OK\020\002" +
+      "\022\027\n\023INVALID_CREDENTIALS\020\003*\252\001\n\016LikertResp" +
+      "onse\022\033\n\027POSITIVE_LikertResponse\020\000\022\033\n\027NEG" +
+      "ATIVE_LikertResponse\020\001\022\032\n\026NEUTRAL_Likert" +
+      "Response\020\002\022 \n\034VERY_POSITIVE_LikertRespon" +
+      "se\020\003\022 \n\034VERY_NEGATIVE_LikertResponse\020\004*E" +
+      "\n\005Shape\022\022\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_CIR" +
+      "CLE_Shape\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAmazeI" +
+      "con\022\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020ICON_8_Amaz" +
+      "eIcon\020\001\022\024\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON_6_" +
+      "AmazeIcon\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020ICO" +
+      "N_4_AmazeIcon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006\022\024\n" +
+      "\020ICON_2_AmazeIcon\020\007\022\024\n\020ICON_1_AmazeIcon\020" +
+      "\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201\001\n\nDifficulty\022" +
+      "\023\n\017EASY_Difficulty\020\000\022\025\n\021MEDIUM_Difficult" +
+      "y\020\001\022\023\n\017HARD_Difficulty\020\002\022\030\n\024VERY_EASY_Di" +
+      "fficulty\020\003\022\030\n\024VERY_HARD_Difficulty\020\004*m\n\023" +
+      "DichotomousResponse\022\032\n\026NO_DichotomousRes" +
+      "ponse\020\000\022\035\n\031MAYBE_DichotomousResponse\020\001\022\033" +
+      "\n\027YES_DichotomousResponse\020\002*s\n\tAlgorithm" +
+      "\022\034\n\030MANY_SOLUTIONS_Algorithm\020\000\022\024\n\020SPARSE" +
+      "_Algorithm\020\001\022\035\n\031SINGLE_SOLUTION_Algorith" +
+      "m\020\002\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\nAmazeColor\022" +
+      "\023\n\017GOLD_AmazeColor\020\000\022\023\n\017BLUE_AmazeColor\020" +
+      "\001\022\025\n\021PURPLE_AmazeColor\020\002\022\024\n\020GREEN_AmazeC" +
+      "olor\020\003\022\030\n\024DARK_BLUE_AmazeColor\020\004\022\025\n\021INDI" +
+      "GO_AmazeColor\020\005\022\022\n\016RED_AmazeColor\020\006\022\031\n\025L" +
+      "IGHT_GREY_AmazeColor\020\007\022\023\n\017PINK_AmazeColo" +
+      "r\020\010\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023DARK_RED_Ama" +
+      "zeColor\020\n\022\030\n\024DARK_GREY_AmazeColor\020\013\022\024\n\020B" +
+      "LACK_AmazeColor\020\014\022\026\n\022MAGENTA_AmazeColor\020" +
+      "\r\022\025\n\021YELLOW_AmazeColor\020\016\022\031\n\025DARK_GREEN_A" +
+      "mazeColor\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017CYAN" +
+      "_AmazeColor\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025\n\021OR" +
+      "ANGE_AmazeColor\020\023*\355\002\n\017BackgroundImage\022!\n" +
+      "\035TEXTURE_WATER_BackgroundImage\020\000\022!\n\035TEXT" +
+      "URE_ROCKY_BackgroundImage\020\001\022!\n\035TEXTURE_S" +
+      "PACE_BackgroundImage\020\002\022!\n\035TEXTURE_METAL_" +
+      "BackgroundImage\020\003\022 \n\034TEXTURE_MOON_Backgr" +
+      "oundImage\020\004\022 \n\034TEXTURE_LAVA_BackgroundIm" +
+      "age\020\005\022\"\n\036TEXTURE_GRAVEL_BackgroundImage\020" +
+      "\006\022 \n\034TEXTURE_WOOD_BackgroundImage\020\007\022!\n\035T" +
+      "EXTURE_GRASS_BackgroundImage\020\010\022!\n\035TEXTUR" +
+      "E_TILES_BackgroundImage\020\t*4\n\010Language\022\024\n" +
+      "\020ENGLISH_Language\020\000\022\022\n\016GREEK_Language\020\001*" +
+      "K\n\tAudioType\022\025\n\021AMBIENT_AudioType\020\000\022\022\n\016N" +
+      "ONE_AudioType\020\001\022\023\n\017EVENT_AudioType\020\002*\203\001\n" +
+      "\013AudioFormat\022\023\n\017MP4_AudioFormat\020\000\022\023\n\017MP3" +
+      "_AudioFormat\020\001\022 \n\034UNDEFINED_FORMAT_Audio" +
+      "Format\020\002\022\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG_Aud" +
+      "ioFormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBOX_Au" +
+      "dio\020\000\022\026\n\022EVENT_COIN20_Audio\020\001\022\027\n\023AMBIENT" +
+      "_STORM_Audio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003\022\027\n\023" +
+      "AMBIENT_NIGHT_Audio\020\004\022\026\n\022AMBIENT_SNOW_Au" +
+      "dio\020\005\022\037\n\033AMBIENT_ALPINE_FOREST_Audio\020\006\022\024" +
+      "\n\020EVENT_FOOD_Audio\020\007\022\027\n\023AMBIENT_RIVER_Au" +
+      "dio\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031\n\025EVENT_SPE" +
+      "EDHACK_Audio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013\022\025\n\021" +
+      "EVENT_COIN5_Audio\020\014\022\026\n\022EVENT_COIN10_Audi" +
+      "o\020\r\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030\n\024AMBIENT_P" +
+      "RISON_Audio\020\017\022\033\n\027AMBIENT_SANDSTORM_Audio" +
+      "\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022AMBIENT_CITY" +
+      "_Audio\020\022\022\030\n\024AMBIENT_STREET_Audio\020\023\022!\n\035AM" +
+      "BIENT_TROPICAL_FOREST_Audio\020\024\022\026\n\022AMBIENT" +
+      "_FIRE_Audio\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032\n\026AM" +
+      "BIENT_HIGHTECH_Audio\020\027\022\034\n\030AMBIENT_UNDERW" +
+      "ATER_Audio\020\030*\364\002\n\014PickableType\022\027\n\023GRAPES_" +
+      "PickableType\020\000\022\026\n\022APPLE_PickableType\020\001\022\025" +
+      "\n\021TRAP_PickableType\020\002\022\033\n\027WATERMELON_Pick" +
+      "ableType\020\003\022\032\n\026SPEEDHACK_PickableType\020\004\022\030" +
+      "\n\024COIN_10_PickableType\020\005\022\030\n\024COIN_20_Pick" +
+      "ableType\020\006\022\026\n\022PEACH_PickableType\020\007\022\030\n\024GI" +
+      "FTBOX_PickableType\020\010\022\027\n\023COIN_5_PickableT" +
+      "ype\020\t\022\027\n\023BANANA_PickableType\020\n\022\025\n\021BOMB_P" +
+      "ickableType\020\013\022\033\n\027STRAWBERRY_PickableType" +
+      "\020\014\022\027\n\023ORANGE_PickableType\020\r*\254\001\n\026Multiple" +
+      "ChoiceResponse\022#\n\037CHOICE_1_MultipleChoic" +
+      "eResponse\020\000\022#\n\037CHOICE_4_MultipleChoiceRe" +
+      "sponse\020\001\022#\n\037CHOICE_2_MultipleChoiceRespo" +
+      "nse\020\002\022#\n\037CHOICE_3_MultipleChoiceResponse" +
+      "\020\003*l\n\023BackgroundImageType\022\033\n\027JPG_Backgro" +
+      "undImageType\020\000\022\033\n\027GIF_BackgroundImageTyp" +
+      "e\020\001\022\033\n\027PNG_BackgroundImageType\020\002*\204\001\n\021Pic" +
+      "kableIntensity\022\032\n\026HIGH_PickableIntensity" +
+      "\020\000\022\034\n\030MEDIUM_PickableIntensity\020\001\022\031\n\025LOW_" +
+      "PickableIntensity\020\002\022\032\n\026NONE_PickableInte" +
+      "nsity\020\003*6\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004EAST" +
+      "\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDirection6\022\n\n" +
+      "\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_EAST\020" +
+      "\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNORTH_W" +
+      "EST\020\005*0\n\010Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021COUN" +
+      "TER_CLOCKWISE\020\001*C\n\tMovement4\022\013\n\007FORWARD\020" +
+      "\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIGHTWA" +
+      "RD\020\003*t\n\tMovement6\022\014\n\010FORWARD6\020\000\022\021\n\rFORWA" +
+      "RD_RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBACKWA" +
+      "RD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014FORWARD_LEFT" +
+      "\020\005*7\n\tWorldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE_SQU" +
+      "ARE\020\001\022\014\n\010TILE_HEX\020\002B&\n\030com.nkasenides.am" +
+      "c.protoB\010AMCProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -577,104 +583,110 @@ public final class AMCProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_HealthProto_descriptor,
         new String[] { "Health", });
-    internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor =
+    internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_nkasenides_amc_proto_AdminKeyProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor,
+        new String[] { "Id", });
+    internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor,
         new String[] { "ChallengeID", "QuestionEntry", "Id", });
     internal_static_com_nkasenides_amc_proto_GridProto_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_nkasenides_amc_proto_GridProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GridProto_descriptor,
         new String[] { "StartingDirection", "Data", "TargetPosition", "Width", "StartingPosition", "Height", });
     internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor,
         new String[] { "AnswerText", "QuestionText", });
     internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor,
         new String[] { "CanJoinAfterStart", "CanStepOnEachOther", "Penalties", "BackgroundImage", "Description", "LineColor", "CanRepeat", "CreatedOn", "HasQuestionnaire", "Difficulty", "ApiVersion", "MaxActivePlayers", "Grid", "BackgroundAudio", "MinActivePlayers", "Name", "StartTime", "EndTime", "Id", "Rewards", "CreatedByID", "Algorithm", });
     internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor,
         new String[] { "X", "Y", "Z", "PositionHash", });
     internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor,
         new String[] { "Row", "Col", "CellHash", "ChunkHash", });
     internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor,
         new String[] { "IpAddress", "ExpiresOn", "Id", "CreatedOn", "PlayerID", });
     internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor,
         new String[] { "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "CreatedOn", "PlayerID", "Points", });
     internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_nkasenides_amc_proto_AMCPlayerProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor,
         new String[] { "Password", "Color", "TeamID", "Name", "Icon", "Id", "CreatedOn", "Email", });
     internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor,
         new String[] { "Name", "Id", "OwnerID", "PlayerIDs", "PlayerLimit", });
     internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_nkasenides_amc_proto_AMCEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", "PickableEntity", "PlayerEntity", "Entity", });
     internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "PickableType", "Id", "Position", "PlayerID", "Direction", });
     internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_nkasenides_amc_proto_PlayerEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", });
     internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_nkasenides_amc_proto_AMCActionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor,
         new String[] { });
     internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor,
         new String[] { "Position", "RightWall", "DownWall", "UpWall", "LeftWall", });
     internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor,
         new String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "Timestamp", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor,
@@ -686,13 +698,13 @@ public final class AMCProto {
         internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
         new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor,
         new String[] { "Id", "ChunkID", "WorldID", "ChunkPosition", });
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor,
@@ -710,127 +722,127 @@ public final class AMCProto {
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor,
         new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor,
         new String[] { "MaxRows", "HeightLimit", "Seed", "Grid", "Name", "ChunkIDs", "Id", "OwnerID", "CreatedOn", "MaxCols", "SubscribedSessionIDs", });
     internal_static_com_nkasenides_amc_proto_Request_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_Request_descriptor,
         new String[] { "AddChallengeRequest", "GetStateRequest", "SubscribeRequest", "ListChallengesRequest", "UnsubscribeRequest", "UpdateStateRequest", "SubmitCodeRequest", "JoinChallengeRequest", "SubmitQuestionnaireRequest", "Request", });
     internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_nkasenides_amc_proto_AddChallengeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor,
         new String[] { "Challenge", "AdminKey", });
     internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_com_nkasenides_amc_proto_GetStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor,
         new String[] { "WorldSessionID", });
     internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_com_nkasenides_amc_proto_SubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor,
         new String[] { "WorldSessionID", });
     internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_com_nkasenides_amc_proto_ListChallengesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor,
         new String[] { });
     internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor,
         new String[] { "WorldSessionID", });
     internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_com_nkasenides_amc_proto_UpdateStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor,
         new String[] { "WorldSessionID", });
     internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor,
         new String[] { "Code", "WorldSession", });
     internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor,
         new String[] { "ChallengeID", "Player", });
     internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor,
         new String[] { "QuestionnaireEntry", "WorldSession", });
     internal_static_com_nkasenides_amc_proto_Response_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_com_nkasenides_amc_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_Response_descriptor,
         new String[] { "SubmitQuestionnaireResponse", "GetStateResponse", "JoinChallengeResponse", "UpdateStateResponse", "SubmitCodeResponse", "SubscribeResponse", "UnsubscribeResponse", "ListChallengesResponse", "AddChallengeResponse", "Response", });
     internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor,
         new String[] { "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_com_nkasenides_amc_proto_GetStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor,
         new String[] { "PartialState", "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor,
         new String[] { "Challenge", "WorldSession", "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_com_nkasenides_amc_proto_UpdateStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor,
         new String[] { "Message", "StateUpdate", "Status", });
     internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor,
         new String[] { "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_com_nkasenides_amc_proto_SubscribeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor,
         new String[] { "PartialState", "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor,
         new String[] { "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_com_nkasenides_amc_proto_ListChallengesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor,
         new String[] { "Challenges", "Message", "Status", });
     internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_com_nkasenides_amc_proto_AddChallengeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor,

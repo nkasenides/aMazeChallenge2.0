@@ -11,9 +11,9 @@ import com.nkasenides.amc.model.AMCPlayer;
 
 public final class Auth {
 
-    public static AMCPlayer verifyGameSessionID(final String gameSessionID) {
-        return DBManager.gameSession.getPlayer(gameSessionID);
-    }
+//    public static AMCPlayer verifyGameSessionID(final String gameSessionID) {
+//        return DBManager.gameSession.getPlayer(gameSessionID);
+//    }
 
     public static AMCPlayer verifyWorldSessionID(final String worldSessionID) {
         return DBManager.worldSession.getPlayer(worldSessionID);
