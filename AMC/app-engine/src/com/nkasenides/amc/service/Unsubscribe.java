@@ -6,6 +6,9 @@
 -------------------------------------------------------------------------------- */
 
 package com.nkasenides.amc.service;
+import com.nkasenides.amc.model.AMCWorldSession;
+import com.nkasenides.amc.proto.SubscribeResponse;
+import com.nkasenides.amc.state.State;
 import com.nkasenides.athlos.backend.AthlosService;
 import com.nkasenides.amc.proto.UnsubscribeRequest;
 import com.nkasenides.amc.auth.*;
@@ -14,10 +17,32 @@ import com.nkasenides.amc.proto.UnsubscribeResponse;
 public class Unsubscribe implements AthlosService<UnsubscribeRequest, UnsubscribeResponse> {
 
     @Override    
-    public UnsubscribeResponse serve(UnsubscribeRequest request, Object... additionalParams) {    
-        //TODO - Implement this service.        
-        return null;        
-    }    
+    public UnsubscribeResponse serve(UnsubscribeRequest request, Object... additionalParams) {
+        //Check world session ID:
+        if (request.getWorldSessionID().isEmpty()) {
+            return UnsubscribeResponse.newBuilder()
+                    .setStatus(UnsubscribeResponse.Status.NO_SUCH_WORLD_SESSION)
+                    .setMessage("NO_SUCH_WORLD_SESSION")
+                    .build();
+        }
+
+        //Verify world session:
+        final AMCWorldSession worldSession = Auth.verifyWorldSessionID(request.getWorldSessionID());
+        if (worldSession == null) {
+            return UnsubscribeResponse.newBuilder()
+                    .setStatus(UnsubscribeResponse.Status.NO_SUCH_WORLD_SESSION)
+                    .setMessage("NO_SUCH_WORLD_SESSION")
+                    .build();
+        }
+
+        //Remove from subscribed:
+        State.forWorld(worldSession.getWorldID()).unsubscribe(worldSession);
+
+        return UnsubscribeResponse.newBuilder()
+                .setStatus(UnsubscribeResponse.Status.OK)
+                .setMessage("OK")
+                .build();
+    }
     
 }
 
