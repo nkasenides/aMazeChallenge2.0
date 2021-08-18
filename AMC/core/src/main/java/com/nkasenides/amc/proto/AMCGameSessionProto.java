@@ -7,7 +7,7 @@ package com.nkasenides.amc.proto;
  * Protobuf type {@code com.nkasenides.amc.proto.AMCGameSessionProto}
  */
 public final class AMCGameSessionProto extends
-    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCGameSession> , com.nkasenides.athlos.model.IGameSession, 
+    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCGameSession> , com.nkasenides.athlos.model.IGameSession,
     // @@protoc_insertion_point(message_implements:com.nkasenides.amc.proto.AMCGameSessionProto)
     AMCGameSessionProtoOrBuilder {
 private static final long serialVersionUID = 0L;
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       ipAddress_ = s;
@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
       getIpAddressBytes() {
     Object ref = ipAddress_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       ipAddress_ = b;
@@ -172,7 +172,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       id_ = s;
@@ -188,7 +188,7 @@ private static final long serialVersionUID = 0L;
       getIdBytes() {
     Object ref = id_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       id_ = b;
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof String) {
       return (String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
       playerID_ = s;
@@ -237,7 +237,7 @@ private static final long serialVersionUID = 0L;
       getPlayerIDBytes() {
     Object ref = playerID_;
     if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
       playerID_ = b;
@@ -449,19 +449,19 @@ private static final long serialVersionUID = 0L;
    * Protobuf type {@code com.nkasenides.amc.proto.AMCGameSessionProto}
    */
   public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IGameSession, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCGameSession>, 
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IGameSession, com.nkasenides.athlos.proto.Modelable<com.nkasenides.amc.model.AMCGameSession>,
       // @@protoc_insertion_point(builder_implements:com.nkasenides.amc.proto.AMCGameSessionProto)
       AMCGameSessionProtoOrBuilder {    @Override
-    public com.nkasenides.amc.model.AMCGameSession toObject() {    
-        com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();        
-        item.setIpAddress(getIpAddress());        
-        item.setExpiresOn(getExpiresOn());        
-        item.setId(getId());        
-        item.setCreatedOn(getCreatedOn());        
-        item.setPlayerID(getPlayerID());        
-        return item;        
-    }    
-    
+    public com.nkasenides.amc.model.AMCGameSession toObject() {
+        com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();
+        item.setIpAddress(getIpAddress());
+        item.setExpiresOn(getExpiresOn());
+        item.setId(getId());
+        item.setCreatedOn(getCreatedOn());
+        item.setPlayerID(getPlayerID());
+        return item;
+    }
+
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -655,7 +655,7 @@ private static final long serialVersionUID = 0L;
         getIpAddressBytes() {
       Object ref = ipAddress_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         ipAddress_ = b;
@@ -674,7 +674,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       ipAddress_ = value;
       onChanged();
       return this;
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpAddress() {
-      
+
       ipAddress_ = getDefaultInstance().getIpAddress();
       onChanged();
       return this;
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       ipAddress_ = value;
       onChanged();
       return this;
@@ -721,7 +721,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExpiresOn(long value) {
-      
+
       expiresOn_ = value;
       onChanged();
       return this;
@@ -731,7 +731,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExpiresOn() {
-      
+
       expiresOn_ = 0L;
       onChanged();
       return this;
@@ -762,7 +762,7 @@ private static final long serialVersionUID = 0L;
         getIdBytes() {
       Object ref = id_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         id_ = b;
@@ -781,7 +781,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       id_ = value;
       onChanged();
       return this;
@@ -791,7 +791,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
+
       id_ = getDefaultInstance().getId();
       onChanged();
       return this;
@@ -807,7 +807,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       id_ = value;
       onChanged();
       return this;
@@ -828,7 +828,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCreatedOn(long value) {
-      
+
       createdOn_ = value;
       onChanged();
       return this;
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreatedOn() {
-      
+
       createdOn_ = 0L;
       onChanged();
       return this;
@@ -869,7 +869,7 @@ private static final long serialVersionUID = 0L;
         getPlayerIDBytes() {
       Object ref = playerID_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         playerID_ = b;
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  
+
       playerID_ = value;
       onChanged();
       return this;
@@ -898,7 +898,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlayerID() {
-      
+
       playerID_ = getDefaultInstance().getPlayerID();
       onChanged();
       return this;
@@ -914,7 +914,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
+
       playerID_ = value;
       onChanged();
       return this;
@@ -971,15 +971,15 @@ private static final long serialVersionUID = 0L;
   }
 
     @Override
-    public com.nkasenides.amc.model.AMCGameSession toObject() {    
-        com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();        
-        item.setIpAddress(getIpAddress());        
-        item.setExpiresOn(getExpiresOn());        
-        item.setId(getId());        
-        item.setCreatedOn(getCreatedOn());        
-        item.setPlayerID(getPlayerID());        
-        return item;        
-    }    
-    
+    public com.nkasenides.amc.model.AMCGameSession toObject() {
+        com.nkasenides.amc.model.AMCGameSession item = new com.nkasenides.amc.model.AMCGameSession();
+        item.setIpAddress(getIpAddress());
+        item.setExpiresOn(getExpiresOn());
+        item.setId(getId());
+        item.setCreatedOn(getCreatedOn());
+        item.setPlayerID(getPlayerID());
+        return item;
+    }
+
 }
 

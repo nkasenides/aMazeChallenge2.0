@@ -81,14 +81,14 @@ public final class Stubs {
     
     
 
-    private static final HashMap<String, UpdateState> updateStateStubMap = new HashMap<>();
-    public static UpdateState updateStateStub(AMCClient client) {
-        if (updateStateStubMap.get(client.getPlayer().getId()) == null) {
-                final UpdateState stub = new UpdateState();
-                updateStateStubMap.put(client.getPlayer().getId(), stub);
-        }
-        return updateStateStubMap.get(client.getPlayer().getId());
-    }
+//    private static final HashMap<String, UpdateState> updateStateStubMap = new HashMap<>();
+//    public static UpdateState updateStateStub(AMCClient client) {
+//        if (updateStateStubMap.get(client.getPlayer().getId()) == null) {
+//                final UpdateState stub = new UpdateState();
+//                updateStateStubMap.put(client.getPlayer().getId(), stub);
+//        }
+//        return updateStateStubMap.get(client.getPlayer().getId());
+//    }
     
     
     

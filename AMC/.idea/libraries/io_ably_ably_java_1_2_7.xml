@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="io.ably:ably-java:1.2.7" type="repository">
+    <properties maven-id="io.ably:ably-java:1.2.7" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/ably/ably-java/1.2.7/ably-java-1.2.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/msgpack/msgpack-core/0.8.11/msgpack-core-0.8.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/java-websocket/Java-WebSocket/1.4.0/Java-WebSocket-1.4.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/davidehrmann/vcdiff/vcdiff-core/0.1.1/vcdiff-core-0.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

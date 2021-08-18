@@ -9,7 +9,9 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-        <sourceRoots />
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src" />
+        </sourceRoots>
       </configuration>
     </facet>
     <facet type="app-engine-standard" name="Google App Engine Standard">
@@ -24,7 +26,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="AppEngine Dev 1.9.66" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="Google App Engine Standard Local Server17" level="application_server_libraries" />
     <orderEntry type="module" module-name="core" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
