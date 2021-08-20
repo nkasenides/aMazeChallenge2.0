@@ -9,9 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src" />
-        </sourceRoots>
       </configuration>
     </facet>
     <facet type="app-engine-standard" name="Google App Engine Standard">
@@ -29,8 +26,8 @@
     <orderEntry type="module" module-name="core" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="com.raylabz:athlos-serverless:0.0.21" level="project" />
     <orderEntry type="library" name="com.raylabz:firestorm:1.2.0" level="project" />
     <orderEntry type="library" name="io.ably:ably-java:1.2.7" level="project" />
+    <orderEntry type="library" name="com.raylabz:athlos-serverless:0.0.23" level="project" />
   </component>
 </module>
