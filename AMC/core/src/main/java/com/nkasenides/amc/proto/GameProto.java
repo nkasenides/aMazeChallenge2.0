@@ -16,12 +16,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GameProto() {
-    challengeID_ = "";
     finishedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     pickables_ = java.util.Collections.emptyList();
-    id_ = "";
     queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    challengeID_ = "";
+    id_ = "";
   }
 
   @Override
@@ -55,18 +56,7 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            lastUpdated_ = input.readUInt64();
-            break;
-          }
-          case 18: {
-            String s = input.readStringRequireUtf8();
-
-            challengeID_ = s;
-            break;
-          }
-          case 26: {
+          case 10: {
             String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               finishedPlayers_ = new com.google.protobuf.LazyStringArrayList();
@@ -75,60 +65,106 @@ private static final long serialVersionUID = 0L;
             finishedPlayers_.add(s);
             break;
           }
-          case 34: {
+          case 18: {
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pickables_ = new java.util.ArrayList<PickableEntityProto>();
+              activePlayers_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000002;
+            }
+            activePlayers_.add(s);
+            break;
+          }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              pickables_ = new java.util.ArrayList<PickableEntityProto>();
+              mutable_bitField0_ |= 0x00000004;
             }
             pickables_.add(
                 input.readMessage(PickableEntityProto.parser(), extensionRegistry));
             break;
           }
-          case 42: {
+          case 34: {
             String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 50: {
-            String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
               queuedPlayers_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             queuedPlayers_.add(s);
             break;
           }
-          case 56: {
+          case 40: {
 
             counter_ = input.readUInt64();
             break;
           }
-          case 66: {
+          case 50: {
             String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               waitingPlayers_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             waitingPlayers_.add(s);
             break;
           }
-          case 72: {
-
-            lastExecutionTime_ = input.readUInt64();
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 58: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               allPlayers_ = com.google.protobuf.MapField.newMapField(
                   AllPlayersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             com.google.protobuf.MapEntry<String, AMCPlayerProto>
             allPlayers__ = input.readMessage(
                 AllPlayersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             allPlayers_.getMutableMap().put(
                 allPlayers__.getKey(), allPlayers__.getValue());
+            break;
+          }
+          case 64: {
+
+            lastUpdated_ = input.readUInt64();
+            break;
+          }
+          case 74: {
+            String s = input.readStringRequireUtf8();
+
+            challengeID_ = s;
+            break;
+          }
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
+              playerEntities_ = com.google.protobuf.MapField.newMapField(
+                  PlayerEntitiesDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000040;
+            }
+            com.google.protobuf.MapEntry<String, PlayerEntityProto>
+            playerEntities__ = input.readMessage(
+                PlayerEntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            playerEntities_.getMutableMap().put(
+                playerEntities__.getKey(), playerEntities__.getValue());
+            break;
+          }
+          case 90: {
+            String s = input.readStringRequireUtf8();
+
+            id_ = s;
+            break;
+          }
+          case 96: {
+
+            lastExecutionTime_ = input.readUInt64();
+            break;
+          }
+          case 106: {
+            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
+              playerWorldSessions_ = com.google.protobuf.MapField.newMapField(
+                  PlayerWorldSessionsDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000080;
+            }
+            com.google.protobuf.MapEntry<String, AMCWorldSessionProto>
+            playerWorldSessions__ = input.readMessage(
+                PlayerWorldSessionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            playerWorldSessions_.getMutableMap().put(
+                playerWorldSessions__.getKey(), playerWorldSessions__.getValue());
             break;
           }
           default: {
@@ -150,12 +186,15 @@ private static final long serialVersionUID = 0L;
         finishedPlayers_ = finishedPlayers_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        pickables_ = java.util.Collections.unmodifiableList(pickables_);
+        activePlayers_ = activePlayers_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        queuedPlayers_ = queuedPlayers_.getUnmodifiableView();
+        pickables_ = java.util.Collections.unmodifiableList(pickables_);
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        queuedPlayers_ = queuedPlayers_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000010) != 0)) {
         waitingPlayers_ = waitingPlayers_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -172,8 +211,12 @@ private static final long serialVersionUID = 0L;
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
-      case 10:
+      case 7:
         return internalGetAllPlayers();
+      case 10:
+        return internalGetPlayerEntities();
+      case 13:
+        return internalGetPlayerWorldSessions();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -187,59 +230,10 @@ private static final long serialVersionUID = 0L;
             GameProto.class, Builder.class);
   }
 
-  public static final int LASTUPDATED_FIELD_NUMBER = 1;
-  private long lastUpdated_;
-  /**
-   * <code>uint64 lastUpdated = 1;</code>
-   * @return The lastUpdated.
-   */
-  @Override
-  public long getLastUpdated() {
-    return lastUpdated_;
-  }
-
-  public static final int CHALLENGEID_FIELD_NUMBER = 2;
-  private volatile Object challengeID_;
-  /**
-   * <code>string challengeID = 2;</code>
-   * @return The challengeID.
-   */
-  @Override
-  public String getChallengeID() {
-    Object ref = challengeID_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      challengeID_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string challengeID = 2;</code>
-   * @return The bytes for challengeID.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getChallengeIDBytes() {
-    Object ref = challengeID_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      challengeID_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int FINISHEDPLAYERS_FIELD_NUMBER = 3;
+  public static final int FINISHEDPLAYERS_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList finishedPlayers_;
   /**
-   * <code>repeated string finishedPlayers = 3;</code>
+   * <code>repeated string finishedPlayers = 1;</code>
    * @return A list containing the finishedPlayers.
    */
   public com.google.protobuf.ProtocolStringList
@@ -247,14 +241,14 @@ private static final long serialVersionUID = 0L;
     return finishedPlayers_;
   }
   /**
-   * <code>repeated string finishedPlayers = 3;</code>
+   * <code>repeated string finishedPlayers = 1;</code>
    * @return The count of finishedPlayers.
    */
   public int getFinishedPlayersCount() {
     return finishedPlayers_.size();
   }
   /**
-   * <code>repeated string finishedPlayers = 3;</code>
+   * <code>repeated string finishedPlayers = 1;</code>
    * @param index The index of the element to return.
    * @return The finishedPlayers at the given index.
    */
@@ -262,7 +256,7 @@ private static final long serialVersionUID = 0L;
     return finishedPlayers_.get(index);
   }
   /**
-   * <code>repeated string finishedPlayers = 3;</code>
+   * <code>repeated string finishedPlayers = 1;</code>
    * @param index The index of the value to return.
    * @return The bytes of the finishedPlayers at the given index.
    */
@@ -271,17 +265,52 @@ private static final long serialVersionUID = 0L;
     return finishedPlayers_.getByteString(index);
   }
 
-  public static final int PICKABLES_FIELD_NUMBER = 4;
+  public static final int ACTIVEPLAYERS_FIELD_NUMBER = 2;
+  private com.google.protobuf.LazyStringList activePlayers_;
+  /**
+   * <code>repeated string activePlayers = 2;</code>
+   * @return A list containing the activePlayers.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getActivePlayersList() {
+    return activePlayers_;
+  }
+  /**
+   * <code>repeated string activePlayers = 2;</code>
+   * @return The count of activePlayers.
+   */
+  public int getActivePlayersCount() {
+    return activePlayers_.size();
+  }
+  /**
+   * <code>repeated string activePlayers = 2;</code>
+   * @param index The index of the element to return.
+   * @return The activePlayers at the given index.
+   */
+  public String getActivePlayers(int index) {
+    return activePlayers_.get(index);
+  }
+  /**
+   * <code>repeated string activePlayers = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the activePlayers at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getActivePlayersBytes(int index) {
+    return activePlayers_.getByteString(index);
+  }
+
+  public static final int PICKABLES_FIELD_NUMBER = 3;
   private java.util.List<PickableEntityProto> pickables_;
   /**
-   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
    */
   @Override
   public java.util.List<PickableEntityProto> getPickablesList() {
     return pickables_;
   }
   /**
-   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
    */
   @Override
   public java.util.List<? extends PickableEntityProtoOrBuilder>
@@ -289,21 +318,21 @@ private static final long serialVersionUID = 0L;
     return pickables_;
   }
   /**
-   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
    */
   @Override
   public int getPickablesCount() {
     return pickables_.size();
   }
   /**
-   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
    */
   @Override
   public PickableEntityProto getPickables(int index) {
     return pickables_.get(index);
   }
   /**
-   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+   * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
    */
   @Override
   public PickableEntityProtoOrBuilder getPickablesOrBuilder(
@@ -311,48 +340,10 @@ private static final long serialVersionUID = 0L;
     return pickables_.get(index);
   }
 
-  public static final int ID_FIELD_NUMBER = 5;
-  private volatile Object id_;
-  /**
-   * <code>string id = 5;</code>
-   * @return The id.
-   */
-  @Override
-  public String getId() {
-    Object ref = id_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string id = 5;</code>
-   * @return The bytes for id.
-   */
-  @Override
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    Object ref = id_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int QUEUEDPLAYERS_FIELD_NUMBER = 6;
+  public static final int QUEUEDPLAYERS_FIELD_NUMBER = 4;
   private com.google.protobuf.LazyStringList queuedPlayers_;
   /**
-   * <code>repeated string queuedPlayers = 6;</code>
+   * <code>repeated string queuedPlayers = 4;</code>
    * @return A list containing the queuedPlayers.
    */
   public com.google.protobuf.ProtocolStringList
@@ -360,14 +351,14 @@ private static final long serialVersionUID = 0L;
     return queuedPlayers_;
   }
   /**
-   * <code>repeated string queuedPlayers = 6;</code>
+   * <code>repeated string queuedPlayers = 4;</code>
    * @return The count of queuedPlayers.
    */
   public int getQueuedPlayersCount() {
     return queuedPlayers_.size();
   }
   /**
-   * <code>repeated string queuedPlayers = 6;</code>
+   * <code>repeated string queuedPlayers = 4;</code>
    * @param index The index of the element to return.
    * @return The queuedPlayers at the given index.
    */
@@ -375,7 +366,7 @@ private static final long serialVersionUID = 0L;
     return queuedPlayers_.get(index);
   }
   /**
-   * <code>repeated string queuedPlayers = 6;</code>
+   * <code>repeated string queuedPlayers = 4;</code>
    * @param index The index of the value to return.
    * @return The bytes of the queuedPlayers at the given index.
    */
@@ -384,10 +375,10 @@ private static final long serialVersionUID = 0L;
     return queuedPlayers_.getByteString(index);
   }
 
-  public static final int COUNTER_FIELD_NUMBER = 7;
+  public static final int COUNTER_FIELD_NUMBER = 5;
   private long counter_;
   /**
-   * <code>uint64 counter = 7;</code>
+   * <code>uint64 counter = 5;</code>
    * @return The counter.
    */
   @Override
@@ -395,10 +386,10 @@ private static final long serialVersionUID = 0L;
     return counter_;
   }
 
-  public static final int WAITINGPLAYERS_FIELD_NUMBER = 8;
+  public static final int WAITINGPLAYERS_FIELD_NUMBER = 6;
   private com.google.protobuf.LazyStringList waitingPlayers_;
   /**
-   * <code>repeated string waitingPlayers = 8;</code>
+   * <code>repeated string waitingPlayers = 6;</code>
    * @return A list containing the waitingPlayers.
    */
   public com.google.protobuf.ProtocolStringList
@@ -406,14 +397,14 @@ private static final long serialVersionUID = 0L;
     return waitingPlayers_;
   }
   /**
-   * <code>repeated string waitingPlayers = 8;</code>
+   * <code>repeated string waitingPlayers = 6;</code>
    * @return The count of waitingPlayers.
    */
   public int getWaitingPlayersCount() {
     return waitingPlayers_.size();
   }
   /**
-   * <code>repeated string waitingPlayers = 8;</code>
+   * <code>repeated string waitingPlayers = 6;</code>
    * @param index The index of the element to return.
    * @return The waitingPlayers at the given index.
    */
@@ -421,7 +412,7 @@ private static final long serialVersionUID = 0L;
     return waitingPlayers_.get(index);
   }
   /**
-   * <code>repeated string waitingPlayers = 8;</code>
+   * <code>repeated string waitingPlayers = 6;</code>
    * @param index The index of the value to return.
    * @return The bytes of the waitingPlayers at the given index.
    */
@@ -430,18 +421,7 @@ private static final long serialVersionUID = 0L;
     return waitingPlayers_.getByteString(index);
   }
 
-  public static final int LASTEXECUTIONTIME_FIELD_NUMBER = 9;
-  private long lastExecutionTime_;
-  /**
-   * <code>uint64 lastExecutionTime = 9;</code>
-   * @return The lastExecutionTime.
-   */
-  @Override
-  public long getLastExecutionTime() {
-    return lastExecutionTime_;
-  }
-
-  public static final int ALLPLAYERS_FIELD_NUMBER = 10;
+  public static final int ALLPLAYERS_FIELD_NUMBER = 7;
   private static final class AllPlayersDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCPlayerProto> defaultEntry =
@@ -468,7 +448,7 @@ private static final long serialVersionUID = 0L;
     return internalGetAllPlayers().getMap().size();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
 
   @Override
@@ -486,7 +466,7 @@ private static final long serialVersionUID = 0L;
     return getAllPlayersMap();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -494,7 +474,7 @@ private static final long serialVersionUID = 0L;
     return internalGetAllPlayers().getMap();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -507,7 +487,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -516,6 +496,266 @@ private static final long serialVersionUID = 0L;
     if (key == null) { throw new NullPointerException(); }
     java.util.Map<String, AMCPlayerProto> map =
         internalGetAllPlayers().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int LASTUPDATED_FIELD_NUMBER = 8;
+  private long lastUpdated_;
+  /**
+   * <code>uint64 lastUpdated = 8;</code>
+   * @return The lastUpdated.
+   */
+  @Override
+  public long getLastUpdated() {
+    return lastUpdated_;
+  }
+
+  public static final int CHALLENGEID_FIELD_NUMBER = 9;
+  private volatile Object challengeID_;
+  /**
+   * <code>string challengeID = 9;</code>
+   * @return The challengeID.
+   */
+  @Override
+  public String getChallengeID() {
+    Object ref = challengeID_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      challengeID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string challengeID = 9;</code>
+   * @return The bytes for challengeID.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getChallengeIDBytes() {
+    Object ref = challengeID_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      challengeID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PLAYERENTITIES_FIELD_NUMBER = 10;
+  private static final class PlayerEntitiesDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, PlayerEntityProto> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, PlayerEntityProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                PlayerEntityProto.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      String, PlayerEntityProto> playerEntities_;
+  private com.google.protobuf.MapField<String, PlayerEntityProto>
+  internalGetPlayerEntities() {
+    if (playerEntities_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          PlayerEntitiesDefaultEntryHolder.defaultEntry);
+    }
+    return playerEntities_;
+  }
+
+  public int getPlayerEntitiesCount() {
+    return internalGetPlayerEntities().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+   */
+
+  @Override
+  public boolean containsPlayerEntities(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    return internalGetPlayerEntities().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getPlayerEntitiesMap()} instead.
+   */
+  @Override
+  @Deprecated
+  public java.util.Map<String, PlayerEntityProto> getPlayerEntities() {
+    return getPlayerEntitiesMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+   */
+  @Override
+
+  public java.util.Map<String, PlayerEntityProto> getPlayerEntitiesMap() {
+    return internalGetPlayerEntities().getMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+   */
+  @Override
+
+  public PlayerEntityProto getPlayerEntitiesOrDefault(
+      String key,
+      PlayerEntityProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, PlayerEntityProto> map =
+        internalGetPlayerEntities().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+   */
+  @Override
+
+  public PlayerEntityProto getPlayerEntitiesOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, PlayerEntityProto> map =
+        internalGetPlayerEntities().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int ID_FIELD_NUMBER = 11;
+  private volatile Object id_;
+  /**
+   * <code>string id = 11;</code>
+   * @return The id.
+   */
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string id = 11;</code>
+   * @return The bytes for id.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LASTEXECUTIONTIME_FIELD_NUMBER = 12;
+  private long lastExecutionTime_;
+  /**
+   * <code>uint64 lastExecutionTime = 12;</code>
+   * @return The lastExecutionTime.
+   */
+  @Override
+  public long getLastExecutionTime() {
+    return lastExecutionTime_;
+  }
+
+  public static final int PLAYERWORLDSESSIONS_FIELD_NUMBER = 13;
+  private static final class PlayerWorldSessionsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, AMCWorldSessionProto> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, AMCWorldSessionProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                AMCWorldSessionProto.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      String, AMCWorldSessionProto> playerWorldSessions_;
+  private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+  internalGetPlayerWorldSessions() {
+    if (playerWorldSessions_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          PlayerWorldSessionsDefaultEntryHolder.defaultEntry);
+    }
+    return playerWorldSessions_;
+  }
+
+  public int getPlayerWorldSessionsCount() {
+    return internalGetPlayerWorldSessions().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+   */
+
+  @Override
+  public boolean containsPlayerWorldSessions(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    return internalGetPlayerWorldSessions().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getPlayerWorldSessionsMap()} instead.
+   */
+  @Override
+  @Deprecated
+  public java.util.Map<String, AMCWorldSessionProto> getPlayerWorldSessions() {
+    return getPlayerWorldSessionsMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+   */
+  @Override
+
+  public java.util.Map<String, AMCWorldSessionProto> getPlayerWorldSessionsMap() {
+    return internalGetPlayerWorldSessions().getMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+   */
+  @Override
+
+  public AMCWorldSessionProto getPlayerWorldSessionsOrDefault(
+      String key,
+      AMCWorldSessionProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCWorldSessionProto> map =
+        internalGetPlayerWorldSessions().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+   */
+  @Override
+
+  public AMCWorldSessionProto getPlayerWorldSessionsOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCWorldSessionProto> map =
+        internalGetPlayerWorldSessions().getMap();
     if (!map.containsKey(key)) {
       throw new IllegalArgumentException();
     }
@@ -536,39 +776,54 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (lastUpdated_ != 0L) {
-      output.writeUInt64(1, lastUpdated_);
-    }
-    if (!getChallengeIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, challengeID_);
-    }
     for (int i = 0; i < finishedPlayers_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, finishedPlayers_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, finishedPlayers_.getRaw(i));
+    }
+    for (int i = 0; i < activePlayers_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, activePlayers_.getRaw(i));
     }
     for (int i = 0; i < pickables_.size(); i++) {
-      output.writeMessage(4, pickables_.get(i));
-    }
-    if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, id_);
+      output.writeMessage(3, pickables_.get(i));
     }
     for (int i = 0; i < queuedPlayers_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, queuedPlayers_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, queuedPlayers_.getRaw(i));
     }
     if (counter_ != 0L) {
-      output.writeUInt64(7, counter_);
+      output.writeUInt64(5, counter_);
     }
     for (int i = 0; i < waitingPlayers_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, waitingPlayers_.getRaw(i));
-    }
-    if (lastExecutionTime_ != 0L) {
-      output.writeUInt64(9, lastExecutionTime_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, waitingPlayers_.getRaw(i));
     }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetAllPlayers(),
         AllPlayersDefaultEntryHolder.defaultEntry,
+        7);
+    if (lastUpdated_ != 0L) {
+      output.writeUInt64(8, lastUpdated_);
+    }
+    if (!getChallengeIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, challengeID_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetPlayerEntities(),
+        PlayerEntitiesDefaultEntryHolder.defaultEntry,
         10);
+    if (!getIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, id_);
+    }
+    if (lastExecutionTime_ != 0L) {
+      output.writeUInt64(12, lastExecutionTime_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetPlayerWorldSessions(),
+        PlayerWorldSessionsDefaultEntryHolder.defaultEntry,
+        13);
     unknownFields.writeTo(output);
   }
 
@@ -578,13 +833,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (lastUpdated_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, lastUpdated_);
-    }
-    if (!getChallengeIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, challengeID_);
-    }
     {
       int dataSize = 0;
       for (int i = 0; i < finishedPlayers_.size(); i++) {
@@ -593,12 +841,17 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getFinishedPlayersList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < activePlayers_.size(); i++) {
+        dataSize += computeStringSizeNoTag(activePlayers_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getActivePlayersList().size();
+    }
     for (int i = 0; i < pickables_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, pickables_.get(i));
-    }
-    if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, id_);
+        .computeMessageSize(3, pickables_.get(i));
     }
     {
       int dataSize = 0;
@@ -610,7 +863,7 @@ private static final long serialVersionUID = 0L;
     }
     if (counter_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(7, counter_);
+        .computeUInt64Size(5, counter_);
     }
     {
       int dataSize = 0;
@@ -620,10 +873,6 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getWaitingPlayersList().size();
     }
-    if (lastExecutionTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(9, lastExecutionTime_);
-    }
     for (java.util.Map.Entry<String, AMCPlayerProto> entry
          : internalGetAllPlayers().getMap().entrySet()) {
       com.google.protobuf.MapEntry<String, AMCPlayerProto>
@@ -632,7 +881,41 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, allPlayers__);
+          .computeMessageSize(7, allPlayers__);
+    }
+    if (lastUpdated_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(8, lastUpdated_);
+    }
+    if (!getChallengeIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, challengeID_);
+    }
+    for (java.util.Map.Entry<String, PlayerEntityProto> entry
+         : internalGetPlayerEntities().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, PlayerEntityProto>
+      playerEntities__ = PlayerEntitiesDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, playerEntities__);
+    }
+    if (!getIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, id_);
+    }
+    if (lastExecutionTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(12, lastExecutionTime_);
+    }
+    for (java.util.Map.Entry<String, AMCWorldSessionProto> entry
+         : internalGetPlayerWorldSessions().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, AMCWorldSessionProto>
+      playerWorldSessions__ = PlayerWorldSessionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, playerWorldSessions__);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -649,26 +932,32 @@ private static final long serialVersionUID = 0L;
     }
     GameProto other = (GameProto) obj;
 
-    if (getLastUpdated()
-        != other.getLastUpdated()) return false;
-    if (!getChallengeID()
-        .equals(other.getChallengeID())) return false;
     if (!getFinishedPlayersList()
         .equals(other.getFinishedPlayersList())) return false;
+    if (!getActivePlayersList()
+        .equals(other.getActivePlayersList())) return false;
     if (!getPickablesList()
         .equals(other.getPickablesList())) return false;
-    if (!getId()
-        .equals(other.getId())) return false;
     if (!getQueuedPlayersList()
         .equals(other.getQueuedPlayersList())) return false;
     if (getCounter()
         != other.getCounter()) return false;
     if (!getWaitingPlayersList()
         .equals(other.getWaitingPlayersList())) return false;
-    if (getLastExecutionTime()
-        != other.getLastExecutionTime()) return false;
     if (!internalGetAllPlayers().equals(
         other.internalGetAllPlayers())) return false;
+    if (getLastUpdated()
+        != other.getLastUpdated()) return false;
+    if (!getChallengeID()
+        .equals(other.getChallengeID())) return false;
+    if (!internalGetPlayerEntities().equals(
+        other.internalGetPlayerEntities())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
+    if (getLastExecutionTime()
+        != other.getLastExecutionTime()) return false;
+    if (!internalGetPlayerWorldSessions().equals(
+        other.internalGetPlayerWorldSessions())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -680,21 +969,18 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LASTUPDATED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLastUpdated());
-    hash = (37 * hash) + CHALLENGEID_FIELD_NUMBER;
-    hash = (53 * hash) + getChallengeID().hashCode();
     if (getFinishedPlayersCount() > 0) {
       hash = (37 * hash) + FINISHEDPLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + getFinishedPlayersList().hashCode();
+    }
+    if (getActivePlayersCount() > 0) {
+      hash = (37 * hash) + ACTIVEPLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getActivePlayersList().hashCode();
     }
     if (getPickablesCount() > 0) {
       hash = (37 * hash) + PICKABLES_FIELD_NUMBER;
       hash = (53 * hash) + getPickablesList().hashCode();
     }
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
     if (getQueuedPlayersCount() > 0) {
       hash = (37 * hash) + QUEUEDPLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + getQueuedPlayersList().hashCode();
@@ -706,12 +992,27 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WAITINGPLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + getWaitingPlayersList().hashCode();
     }
-    hash = (37 * hash) + LASTEXECUTIONTIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLastExecutionTime());
     if (!internalGetAllPlayers().getMap().isEmpty()) {
       hash = (37 * hash) + ALLPLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetAllPlayers().hashCode();
+    }
+    hash = (37 * hash) + LASTUPDATED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getLastUpdated());
+    hash = (37 * hash) + CHALLENGEID_FIELD_NUMBER;
+    hash = (53 * hash) + getChallengeID().hashCode();
+    if (!internalGetPlayerEntities().getMap().isEmpty()) {
+      hash = (37 * hash) + PLAYERENTITIES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetPlayerEntities().hashCode();
+    }
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + LASTEXECUTIONTIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getLastExecutionTime());
+    if (!internalGetPlayerWorldSessions().getMap().isEmpty()) {
+      hash = (37 * hash) + PLAYERWORLDSESSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetPlayerWorldSessions().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -824,8 +1125,12 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 10:
+        case 7:
           return internalGetAllPlayers();
+        case 10:
+          return internalGetPlayerEntities();
+        case 13:
+          return internalGetPlayerWorldSessions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -835,8 +1140,12 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMutableMapField(
         int number) {
       switch (number) {
-        case 10:
+        case 7:
           return internalGetMutableAllPlayers();
+        case 10:
+          return internalGetMutablePlayerEntities();
+        case 13:
+          return internalGetMutablePlayerWorldSessions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -869,29 +1178,33 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
+      finishedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      if (pickablesBuilder_ == null) {
+        pickables_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      } else {
+        pickablesBuilder_.clear();
+      }
+      queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      counter_ = 0L;
+
+      waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      internalGetMutableAllPlayers().clear();
       lastUpdated_ = 0L;
 
       challengeID_ = "";
 
-      finishedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (pickablesBuilder_ == null) {
-        pickables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      } else {
-        pickablesBuilder_.clear();
-      }
+      internalGetMutablePlayerEntities().clear();
       id_ = "";
 
-      queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      counter_ = 0L;
-
-      waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
       lastExecutionTime_ = 0L;
 
-      internalGetMutableAllPlayers().clear();
+      internalGetMutablePlayerWorldSessions().clear();
       return this;
     }
 
@@ -919,37 +1232,46 @@ private static final long serialVersionUID = 0L;
     public GameProto buildPartial() {
       GameProto result = new GameProto(this);
       int from_bitField0_ = bitField0_;
-      result.lastUpdated_ = lastUpdated_;
-      result.challengeID_ = challengeID_;
       if (((bitField0_ & 0x00000001) != 0)) {
         finishedPlayers_ = finishedPlayers_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.finishedPlayers_ = finishedPlayers_;
+      if (((bitField0_ & 0x00000002) != 0)) {
+        activePlayers_ = activePlayers_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.activePlayers_ = activePlayers_;
       if (pickablesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           pickables_ = java.util.Collections.unmodifiableList(pickables_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.pickables_ = pickables_;
       } else {
         result.pickables_ = pickablesBuilder_.build();
       }
-      result.id_ = id_;
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         queuedPlayers_ = queuedPlayers_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.queuedPlayers_ = queuedPlayers_;
       result.counter_ = counter_;
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         waitingPlayers_ = waitingPlayers_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.waitingPlayers_ = waitingPlayers_;
-      result.lastExecutionTime_ = lastExecutionTime_;
       result.allPlayers_ = internalGetAllPlayers();
       result.allPlayers_.makeImmutable();
+      result.lastUpdated_ = lastUpdated_;
+      result.challengeID_ = challengeID_;
+      result.playerEntities_ = internalGetPlayerEntities();
+      result.playerEntities_.makeImmutable();
+      result.id_ = id_;
+      result.lastExecutionTime_ = lastExecutionTime_;
+      result.playerWorldSessions_ = internalGetPlayerWorldSessions();
+      result.playerWorldSessions_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -998,13 +1320,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(GameProto other) {
       if (other == GameProto.getDefaultInstance()) return this;
-      if (other.getLastUpdated() != 0L) {
-        setLastUpdated(other.getLastUpdated());
-      }
-      if (!other.getChallengeID().isEmpty()) {
-        challengeID_ = other.challengeID_;
-        onChanged();
-      }
       if (!other.finishedPlayers_.isEmpty()) {
         if (finishedPlayers_.isEmpty()) {
           finishedPlayers_ = other.finishedPlayers_;
@@ -1015,11 +1330,21 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (!other.activePlayers_.isEmpty()) {
+        if (activePlayers_.isEmpty()) {
+          activePlayers_ = other.activePlayers_;
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ensureActivePlayersIsMutable();
+          activePlayers_.addAll(other.activePlayers_);
+        }
+        onChanged();
+      }
       if (pickablesBuilder_ == null) {
         if (!other.pickables_.isEmpty()) {
           if (pickables_.isEmpty()) {
             pickables_ = other.pickables_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePickablesIsMutable();
             pickables_.addAll(other.pickables_);
@@ -1032,7 +1357,7 @@ private static final long serialVersionUID = 0L;
             pickablesBuilder_.dispose();
             pickablesBuilder_ = null;
             pickables_ = other.pickables_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             pickablesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPickablesFieldBuilder() : null;
@@ -1041,14 +1366,10 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
-      }
       if (!other.queuedPlayers_.isEmpty()) {
         if (queuedPlayers_.isEmpty()) {
           queuedPlayers_ = other.queuedPlayers_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureQueuedPlayersIsMutable();
           queuedPlayers_.addAll(other.queuedPlayers_);
@@ -1061,18 +1382,33 @@ private static final long serialVersionUID = 0L;
       if (!other.waitingPlayers_.isEmpty()) {
         if (waitingPlayers_.isEmpty()) {
           waitingPlayers_ = other.waitingPlayers_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureWaitingPlayersIsMutable();
           waitingPlayers_.addAll(other.waitingPlayers_);
         }
         onChanged();
       }
+      internalGetMutableAllPlayers().mergeFrom(
+          other.internalGetAllPlayers());
+      if (other.getLastUpdated() != 0L) {
+        setLastUpdated(other.getLastUpdated());
+      }
+      if (!other.getChallengeID().isEmpty()) {
+        challengeID_ = other.challengeID_;
+        onChanged();
+      }
+      internalGetMutablePlayerEntities().mergeFrom(
+          other.internalGetPlayerEntities());
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
+        onChanged();
+      }
       if (other.getLastExecutionTime() != 0L) {
         setLastExecutionTime(other.getLastExecutionTime());
       }
-      internalGetMutableAllPlayers().mergeFrom(
-          other.internalGetAllPlayers());
+      internalGetMutablePlayerWorldSessions().mergeFrom(
+          other.internalGetPlayerWorldSessions());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1103,113 +1439,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long lastUpdated_ ;
-    /**
-     * <code>uint64 lastUpdated = 1;</code>
-     * @return The lastUpdated.
-     */
-    @Override
-    public long getLastUpdated() {
-      return lastUpdated_;
-    }
-    /**
-     * <code>uint64 lastUpdated = 1;</code>
-     * @param value The lastUpdated to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLastUpdated(long value) {
-      
-      lastUpdated_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 lastUpdated = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLastUpdated() {
-      
-      lastUpdated_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private Object challengeID_ = "";
-    /**
-     * <code>string challengeID = 2;</code>
-     * @return The challengeID.
-     */
-    public String getChallengeID() {
-      Object ref = challengeID_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        challengeID_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string challengeID = 2;</code>
-     * @return The bytes for challengeID.
-     */
-    public com.google.protobuf.ByteString
-        getChallengeIDBytes() {
-      Object ref = challengeID_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        challengeID_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string challengeID = 2;</code>
-     * @param value The challengeID to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChallengeID(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      challengeID_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string challengeID = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChallengeID() {
-      
-      challengeID_ = getDefaultInstance().getChallengeID();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string challengeID = 2;</code>
-     * @param value The bytes for challengeID to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChallengeIDBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      challengeID_ = value;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.LazyStringList finishedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFinishedPlayersIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
@@ -1218,7 +1447,7 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @return A list containing the finishedPlayers.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1226,14 +1455,14 @@ private static final long serialVersionUID = 0L;
       return finishedPlayers_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @return The count of finishedPlayers.
      */
     public int getFinishedPlayersCount() {
       return finishedPlayers_.size();
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param index The index of the element to return.
      * @return The finishedPlayers at the given index.
      */
@@ -1241,7 +1470,7 @@ private static final long serialVersionUID = 0L;
       return finishedPlayers_.get(index);
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the finishedPlayers at the given index.
      */
@@ -1250,7 +1479,7 @@ private static final long serialVersionUID = 0L;
       return finishedPlayers_.getByteString(index);
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param index The index to set the value at.
      * @param value The finishedPlayers to set.
      * @return This builder for chaining.
@@ -1266,7 +1495,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param value The finishedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1281,7 +1510,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param values The finishedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1294,7 +1523,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearFinishedPlayers() {
@@ -1304,7 +1533,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string finishedPlayers = 3;</code>
+     * <code>repeated string finishedPlayers = 1;</code>
      * @param value The bytes of the finishedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1320,12 +1549,122 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.LazyStringList activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureActivePlayersIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        activePlayers_ = new com.google.protobuf.LazyStringArrayList(activePlayers_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @return A list containing the activePlayers.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getActivePlayersList() {
+      return activePlayers_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @return The count of activePlayers.
+     */
+    public int getActivePlayersCount() {
+      return activePlayers_.size();
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param index The index of the element to return.
+     * @return The activePlayers at the given index.
+     */
+    public String getActivePlayers(int index) {
+      return activePlayers_.get(index);
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the activePlayers at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getActivePlayersBytes(int index) {
+      return activePlayers_.getByteString(index);
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The activePlayers to set.
+     * @return This builder for chaining.
+     */
+    public Builder setActivePlayers(
+        int index, String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivePlayersIsMutable();
+      activePlayers_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param value The activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addActivePlayers(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivePlayersIsMutable();
+      activePlayers_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param values The activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllActivePlayers(
+        Iterable<String> values) {
+      ensureActivePlayersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, activePlayers_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearActivePlayers() {
+      activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 2;</code>
+     * @param value The bytes of the activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addActivePlayersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureActivePlayersIsMutable();
+      activePlayers_.add(value);
+      onChanged();
+      return this;
+    }
+
     private java.util.List<PickableEntityProto> pickables_ =
       java.util.Collections.emptyList();
     private void ensurePickablesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         pickables_ = new java.util.ArrayList<PickableEntityProto>(pickables_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1333,7 +1672,7 @@ private static final long serialVersionUID = 0L;
         PickableEntityProto, PickableEntityProto.Builder, PickableEntityProtoOrBuilder> pickablesBuilder_;
 
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public java.util.List<PickableEntityProto> getPickablesList() {
       if (pickablesBuilder_ == null) {
@@ -1343,7 +1682,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public int getPickablesCount() {
       if (pickablesBuilder_ == null) {
@@ -1353,7 +1692,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public PickableEntityProto getPickables(int index) {
       if (pickablesBuilder_ == null) {
@@ -1363,7 +1702,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder setPickables(
         int index, PickableEntityProto value) {
@@ -1380,7 +1719,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder setPickables(
         int index, PickableEntityProto.Builder builderForValue) {
@@ -1394,7 +1733,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder addPickables(PickableEntityProto value) {
       if (pickablesBuilder_ == null) {
@@ -1410,7 +1749,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder addPickables(
         int index, PickableEntityProto value) {
@@ -1427,7 +1766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder addPickables(
         PickableEntityProto.Builder builderForValue) {
@@ -1441,7 +1780,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder addPickables(
         int index, PickableEntityProto.Builder builderForValue) {
@@ -1455,7 +1794,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder addAllPickables(
         Iterable<? extends PickableEntityProto> values) {
@@ -1470,12 +1809,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder clearPickables() {
       if (pickablesBuilder_ == null) {
         pickables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         pickablesBuilder_.clear();
@@ -1483,7 +1822,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public Builder removePickables(int index) {
       if (pickablesBuilder_ == null) {
@@ -1496,14 +1835,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public PickableEntityProto.Builder getPickablesBuilder(
         int index) {
       return getPickablesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public PickableEntityProtoOrBuilder getPickablesOrBuilder(
         int index) {
@@ -1513,7 +1852,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public java.util.List<? extends PickableEntityProtoOrBuilder>
          getPickablesOrBuilderList() {
@@ -1524,14 +1863,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public PickableEntityProto.Builder addPickablesBuilder() {
       return getPickablesFieldBuilder().addBuilder(
           PickableEntityProto.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public PickableEntityProto.Builder addPickablesBuilder(
         int index) {
@@ -1539,7 +1878,7 @@ private static final long serialVersionUID = 0L;
           index, PickableEntityProto.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 4;</code>
+     * <code>repeated .com.nkasenides.amc.proto.PickableEntityProto pickables = 3;</code>
      */
     public java.util.List<PickableEntityProto.Builder>
          getPickablesBuilderList() {
@@ -1552,7 +1891,7 @@ private static final long serialVersionUID = 0L;
         pickablesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             PickableEntityProto, PickableEntityProto.Builder, PickableEntityProtoOrBuilder>(
                 pickables_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         pickables_ = null;
@@ -1560,91 +1899,15 @@ private static final long serialVersionUID = 0L;
       return pickablesBuilder_;
     }
 
-    private Object id_ = "";
-    /**
-     * <code>string id = 5;</code>
-     * @return The id.
-     */
-    public String getId() {
-      Object ref = id_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string id = 5;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string id = 5;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 5;</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.LazyStringList queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureQueuedPlayersIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         queuedPlayers_ = new com.google.protobuf.LazyStringArrayList(queuedPlayers_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @return A list containing the queuedPlayers.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1652,14 +1915,14 @@ private static final long serialVersionUID = 0L;
       return queuedPlayers_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @return The count of queuedPlayers.
      */
     public int getQueuedPlayersCount() {
       return queuedPlayers_.size();
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param index The index of the element to return.
      * @return The queuedPlayers at the given index.
      */
@@ -1667,7 +1930,7 @@ private static final long serialVersionUID = 0L;
       return queuedPlayers_.get(index);
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param index The index of the value to return.
      * @return The bytes of the queuedPlayers at the given index.
      */
@@ -1676,7 +1939,7 @@ private static final long serialVersionUID = 0L;
       return queuedPlayers_.getByteString(index);
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param index The index to set the value at.
      * @param value The queuedPlayers to set.
      * @return This builder for chaining.
@@ -1692,7 +1955,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param value The queuedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1707,7 +1970,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param values The queuedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1720,17 +1983,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearQueuedPlayers() {
       queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string queuedPlayers = 6;</code>
+     * <code>repeated string queuedPlayers = 4;</code>
      * @param value The bytes of the queuedPlayers to add.
      * @return This builder for chaining.
      */
@@ -1748,7 +2011,7 @@ private static final long serialVersionUID = 0L;
 
     private long counter_ ;
     /**
-     * <code>uint64 counter = 7;</code>
+     * <code>uint64 counter = 5;</code>
      * @return The counter.
      */
     @Override
@@ -1756,7 +2019,7 @@ private static final long serialVersionUID = 0L;
       return counter_;
     }
     /**
-     * <code>uint64 counter = 7;</code>
+     * <code>uint64 counter = 5;</code>
      * @param value The counter to set.
      * @return This builder for chaining.
      */
@@ -1767,7 +2030,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 counter = 7;</code>
+     * <code>uint64 counter = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearCounter() {
@@ -1779,13 +2042,13 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureWaitingPlayersIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         waitingPlayers_ = new com.google.protobuf.LazyStringArrayList(waitingPlayers_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @return A list containing the waitingPlayers.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1793,14 +2056,14 @@ private static final long serialVersionUID = 0L;
       return waitingPlayers_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @return The count of waitingPlayers.
      */
     public int getWaitingPlayersCount() {
       return waitingPlayers_.size();
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param index The index of the element to return.
      * @return The waitingPlayers at the given index.
      */
@@ -1808,7 +2071,7 @@ private static final long serialVersionUID = 0L;
       return waitingPlayers_.get(index);
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param index The index of the value to return.
      * @return The bytes of the waitingPlayers at the given index.
      */
@@ -1817,7 +2080,7 @@ private static final long serialVersionUID = 0L;
       return waitingPlayers_.getByteString(index);
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param index The index to set the value at.
      * @param value The waitingPlayers to set.
      * @return This builder for chaining.
@@ -1833,7 +2096,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param value The waitingPlayers to add.
      * @return This builder for chaining.
      */
@@ -1848,7 +2111,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param values The waitingPlayers to add.
      * @return This builder for chaining.
      */
@@ -1861,17 +2124,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearWaitingPlayers() {
       waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string waitingPlayers = 8;</code>
+     * <code>repeated string waitingPlayers = 6;</code>
      * @param value The bytes of the waitingPlayers to add.
      * @return This builder for chaining.
      */
@@ -1883,37 +2146,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureWaitingPlayersIsMutable();
       waitingPlayers_.add(value);
-      onChanged();
-      return this;
-    }
-
-    private long lastExecutionTime_ ;
-    /**
-     * <code>uint64 lastExecutionTime = 9;</code>
-     * @return The lastExecutionTime.
-     */
-    @Override
-    public long getLastExecutionTime() {
-      return lastExecutionTime_;
-    }
-    /**
-     * <code>uint64 lastExecutionTime = 9;</code>
-     * @param value The lastExecutionTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLastExecutionTime(long value) {
-      
-      lastExecutionTime_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 lastExecutionTime = 9;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLastExecutionTime() {
-      
-      lastExecutionTime_ = 0L;
       onChanged();
       return this;
     }
@@ -1945,7 +2177,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAllPlayers().getMap().size();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     @Override
@@ -1963,7 +2195,7 @@ private static final long serialVersionUID = 0L;
       return getAllPlayersMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -1971,7 +2203,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAllPlayers().getMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -1984,7 +2216,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -2005,7 +2237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     public Builder removeAllPlayers(
@@ -2024,7 +2256,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableAllPlayers().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     public Builder putAllPlayers(
         String key,
@@ -2036,12 +2268,482 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 10;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     public Builder putAllAllPlayers(
         java.util.Map<String, AMCPlayerProto> values) {
       internalGetMutableAllPlayers().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
+    private long lastUpdated_ ;
+    /**
+     * <code>uint64 lastUpdated = 8;</code>
+     * @return The lastUpdated.
+     */
+    @Override
+    public long getLastUpdated() {
+      return lastUpdated_;
+    }
+    /**
+     * <code>uint64 lastUpdated = 8;</code>
+     * @param value The lastUpdated to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLastUpdated(long value) {
+      
+      lastUpdated_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 lastUpdated = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLastUpdated() {
+      
+      lastUpdated_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private Object challengeID_ = "";
+    /**
+     * <code>string challengeID = 9;</code>
+     * @return The challengeID.
+     */
+    public String getChallengeID() {
+      Object ref = challengeID_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        challengeID_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string challengeID = 9;</code>
+     * @return The bytes for challengeID.
+     */
+    public com.google.protobuf.ByteString
+        getChallengeIDBytes() {
+      Object ref = challengeID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        challengeID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string challengeID = 9;</code>
+     * @param value The challengeID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChallengeID(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      challengeID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string challengeID = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChallengeID() {
+      
+      challengeID_ = getDefaultInstance().getChallengeID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string challengeID = 9;</code>
+     * @param value The bytes for challengeID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChallengeIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      challengeID_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        String, PlayerEntityProto> playerEntities_;
+    private com.google.protobuf.MapField<String, PlayerEntityProto>
+    internalGetPlayerEntities() {
+      if (playerEntities_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            PlayerEntitiesDefaultEntryHolder.defaultEntry);
+      }
+      return playerEntities_;
+    }
+    private com.google.protobuf.MapField<String, PlayerEntityProto>
+    internalGetMutablePlayerEntities() {
+      onChanged();;
+      if (playerEntities_ == null) {
+        playerEntities_ = com.google.protobuf.MapField.newMapField(
+            PlayerEntitiesDefaultEntryHolder.defaultEntry);
+      }
+      if (!playerEntities_.isMutable()) {
+        playerEntities_ = playerEntities_.copy();
+      }
+      return playerEntities_;
+    }
+
+    public int getPlayerEntitiesCount() {
+      return internalGetPlayerEntities().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+
+    @Override
+    public boolean containsPlayerEntities(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetPlayerEntities().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getPlayerEntitiesMap()} instead.
+     */
+    @Override
+    @Deprecated
+    public java.util.Map<String, PlayerEntityProto> getPlayerEntities() {
+      return getPlayerEntitiesMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+    @Override
+
+    public java.util.Map<String, PlayerEntityProto> getPlayerEntitiesMap() {
+      return internalGetPlayerEntities().getMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+    @Override
+
+    public PlayerEntityProto getPlayerEntitiesOrDefault(
+        String key,
+        PlayerEntityProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, PlayerEntityProto> map =
+          internalGetPlayerEntities().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+    @Override
+
+    public PlayerEntityProto getPlayerEntitiesOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, PlayerEntityProto> map =
+          internalGetPlayerEntities().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearPlayerEntities() {
+      internalGetMutablePlayerEntities().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+
+    public Builder removePlayerEntities(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      internalGetMutablePlayerEntities().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @Deprecated
+    public java.util.Map<String, PlayerEntityProto>
+    getMutablePlayerEntities() {
+      return internalGetMutablePlayerEntities().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+    public Builder putPlayerEntities(
+        String key,
+        PlayerEntityProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
+      internalGetMutablePlayerEntities().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.PlayerEntityProto&gt; playerEntities = 10;</code>
+     */
+
+    public Builder putAllPlayerEntities(
+        java.util.Map<String, PlayerEntityProto> values) {
+      internalGetMutablePlayerEntities().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
+    private Object id_ = "";
+    /**
+     * <code>string id = 11;</code>
+     * @return The id.
+     */
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string id = 11;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string id = 11;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 11;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long lastExecutionTime_ ;
+    /**
+     * <code>uint64 lastExecutionTime = 12;</code>
+     * @return The lastExecutionTime.
+     */
+    @Override
+    public long getLastExecutionTime() {
+      return lastExecutionTime_;
+    }
+    /**
+     * <code>uint64 lastExecutionTime = 12;</code>
+     * @param value The lastExecutionTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLastExecutionTime(long value) {
+      
+      lastExecutionTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint64 lastExecutionTime = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLastExecutionTime() {
+      
+      lastExecutionTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        String, AMCWorldSessionProto> playerWorldSessions_;
+    private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+    internalGetPlayerWorldSessions() {
+      if (playerWorldSessions_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            PlayerWorldSessionsDefaultEntryHolder.defaultEntry);
+      }
+      return playerWorldSessions_;
+    }
+    private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+    internalGetMutablePlayerWorldSessions() {
+      onChanged();;
+      if (playerWorldSessions_ == null) {
+        playerWorldSessions_ = com.google.protobuf.MapField.newMapField(
+            PlayerWorldSessionsDefaultEntryHolder.defaultEntry);
+      }
+      if (!playerWorldSessions_.isMutable()) {
+        playerWorldSessions_ = playerWorldSessions_.copy();
+      }
+      return playerWorldSessions_;
+    }
+
+    public int getPlayerWorldSessionsCount() {
+      return internalGetPlayerWorldSessions().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+
+    @Override
+    public boolean containsPlayerWorldSessions(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetPlayerWorldSessions().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getPlayerWorldSessionsMap()} instead.
+     */
+    @Override
+    @Deprecated
+    public java.util.Map<String, AMCWorldSessionProto> getPlayerWorldSessions() {
+      return getPlayerWorldSessionsMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+    @Override
+
+    public java.util.Map<String, AMCWorldSessionProto> getPlayerWorldSessionsMap() {
+      return internalGetPlayerWorldSessions().getMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+    @Override
+
+    public AMCWorldSessionProto getPlayerWorldSessionsOrDefault(
+        String key,
+        AMCWorldSessionProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCWorldSessionProto> map =
+          internalGetPlayerWorldSessions().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+    @Override
+
+    public AMCWorldSessionProto getPlayerWorldSessionsOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCWorldSessionProto> map =
+          internalGetPlayerWorldSessions().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearPlayerWorldSessions() {
+      internalGetMutablePlayerWorldSessions().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+
+    public Builder removePlayerWorldSessions(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      internalGetMutablePlayerWorldSessions().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @Deprecated
+    public java.util.Map<String, AMCWorldSessionProto>
+    getMutablePlayerWorldSessions() {
+      return internalGetMutablePlayerWorldSessions().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+    public Builder putPlayerWorldSessions(
+        String key,
+        AMCWorldSessionProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
+      internalGetMutablePlayerWorldSessions().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; playerWorldSessions = 13;</code>
+     */
+
+    public Builder putAllPlayerWorldSessions(
+        java.util.Map<String, AMCWorldSessionProto> values) {
+      internalGetMutablePlayerWorldSessions().getMutableMap()
           .putAll(values);
       return this;
     }
@@ -2099,19 +2801,21 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.nkasenides.amc.model.Game toObject() {    
         com.nkasenides.amc.model.Game item = new com.nkasenides.amc.model.Game();        
-        item.setLastUpdated(getLastUpdated());        
-        item.setChallengeID(getChallengeID());        
         java.util.ArrayList<String> finishedPlayersList = new java.util.ArrayList<>();        
         for (int i = 0; i < getFinishedPlayersCount(); i++) {        
             finishedPlayersList.add(getFinishedPlayers(i));            
         }        
         item.setFinishedPlayers(finishedPlayersList);        
+        java.util.ArrayList<String> activePlayersList = new java.util.ArrayList<>();        
+        for (int i = 0; i < getActivePlayersCount(); i++) {        
+            activePlayersList.add(getActivePlayers(i));            
+        }        
+        item.setActivePlayers(activePlayersList);        
         java.util.ArrayList<com.nkasenides.amc.model.PickableEntity> pickablesList = new java.util.ArrayList<>();        
         for (int i = 0; i < getPickablesCount(); i++) {        
             pickablesList.add(getPickables(i).toObject());            
         }        
         item.setPickables(pickablesList);        
-        item.setId(getId());        
         java.util.ArrayList<String> queuedPlayersList = new java.util.ArrayList<>();        
         for (int i = 0; i < getQueuedPlayersCount(); i++) {        
             queuedPlayersList.add(getQueuedPlayers(i));            
@@ -2123,17 +2827,34 @@ private static final long serialVersionUID = 0L;
             waitingPlayersList.add(getWaitingPlayers(i));            
         }        
         item.setWaitingPlayers(waitingPlayersList);        
-        item.setLastExecutionTime(getLastExecutionTime());        
         java.util.HashMap<String,com.nkasenides.amc.model.AMCPlayer> allPlayersMap = new java.util.HashMap<>();        
         for (java.util.Map.Entry<String, AMCPlayerProto> entry : getAllPlayersMap().entrySet()) {
-            allPlayersMap.put(entry.getKey(), entry.getValue().toObject());
-        }
-        item.setAllPlayers(allPlayersMap);
+            allPlayersMap.put(entry.getKey(), entry.getValue().toObject());            
+        }        
+        item.setAllPlayers(allPlayersMap);        
+        item.setLastUpdated(getLastUpdated());        
+        item.setChallengeID(getChallengeID());        
+        java.util.HashMap<String,com.nkasenides.amc.model.PlayerEntity> playerEntitiesMap = new java.util.HashMap<>();        
+        for (java.util.Map.Entry<String, PlayerEntityProto> entry : getPlayerEntitiesMap().entrySet()) {
+            playerEntitiesMap.put(entry.getKey(), entry.getValue().toObject());            
+        }        
+        item.setPlayerEntities(playerEntitiesMap);        
+        item.setId(getId());        
+        item.setLastExecutionTime(getLastExecutionTime());        
+        java.util.HashMap<String,com.nkasenides.amc.model.AMCWorldSession> playerWorldSessionsMap = new java.util.HashMap<>();        
+        for (java.util.Map.Entry<String, AMCWorldSessionProto> entry : getPlayerWorldSessionsMap().entrySet()) {
+            playerWorldSessionsMap.put(entry.getKey(), entry.getValue().toObject());            
+        }        
+        item.setPlayerWorldSessions(playerWorldSessionsMap);        
         return item;        
     }    
     
         public java.util.List<String> getFinishedPlayers() {
         return finishedPlayers_;
+    }
+    
+        public java.util.List<String> getActivePlayers() {
+        return activePlayers_;
     }
     
         public java.util.List<PickableEntityProto> getPickables() {
@@ -2147,10 +2868,6 @@ private static final long serialVersionUID = 0L;
         public java.util.List<String> getWaitingPlayers() {
         return waitingPlayers_;
     }
-    
-//        public java.util.Map<String, AMCPlayerProto> getAllPlayers() {
-//        return allPlayers_;
-//    }
     
 }
 
