@@ -1,0 +1,36 @@
+{
+    "id": 8,
+    "apiVersion": 1,
+    "name": "9 - Moon Landing",
+    "description": "The eagle has landed!",
+    "difficulty": "MEDIUM",
+    "createdOn": 0,
+    "createdBy": "admin",
+    "canRepeat": true,
+    "canJoinAfterStart": true,
+    "canStepOnEachOther": true,
+    "minActivePlayers": 1,
+    "maxActivePlayers": 10,
+    "startTimestamp": 0,
+    "endTimestamp": 0,
+    "hasQuestionnaire": false,
+    "rewards": "MEDIUM",
+    "penalties": "MEDIUM",
+    "algorithm": "SINGLE_SOLUTION",
+    "grid": {
+        "width": 20,
+        "height": 20,
+        "data": "5bdd53b79ddd7339dd5bc528413308c49dd40acdce5ae6bdeccce40a6968c7233338d486184b785a495b53186869cce59629e4adc5a63a5acc58ed58729cce5b71a5a4acdcecd78685ad703a5a5a609cc523ac72303b6bcd786a6231323b7a71330a7879531a59d5bd5ad5a5b69c69e7860ad629c638532a5a71ad4303bccd58c53969785029cd5a48eece5a5a5aee7ac42be43b6bcdc78713312011bcdd538c6969639edee4b622296a52bc71a5039c59dd5a5bc532b63ac5a6a602218de633b733ae7333a73a6a",
+        "startingPosition": {
+            "row": 19,
+            "col": 0
+        },
+        "targetPosition": {
+            "row": 0,
+            "col": 19
+        }
+    },
+    "lineColor": "#00FFFF",
+    "backgroundImage": "TEXTURE_MOON",
+    "backgroundAudio": "AMBIENT_HIGHTECH"
+}

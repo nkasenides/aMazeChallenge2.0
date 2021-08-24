@@ -11,84 +11,84 @@ public enum AmazeColor
   /**
    * <code>GOLD_AmazeColor = 0;</code>
    */
-  GOLD_AmazeColor(0),
+  GOLD_AmazeColor(0, "#996600", "color_gold"),
   /**
    * <code>BLUE_AmazeColor = 1;</code>
    */
-  BLUE_AmazeColor(1),
+  BLUE_AmazeColor(1, "#0000ff", "color_blue"),
   /**
    * <code>PURPLE_AmazeColor = 2;</code>
    */
-  PURPLE_AmazeColor(2),
+  PURPLE_AmazeColor(2, "#990099", "color_purple"),
   /**
    * <code>GREEN_AmazeColor = 3;</code>
    */
-  GREEN_AmazeColor(3),
+  GREEN_AmazeColor(3, "#00cc00", "color_green"),
   /**
    * <code>DARK_BLUE_AmazeColor = 4;</code>
    */
-  DARK_BLUE_AmazeColor(4),
+  DARK_BLUE_AmazeColor(4, "#000066", "color_darkblue"),
   /**
    * <code>INDIGO_AmazeColor = 5;</code>
    */
-  INDIGO_AmazeColor(5),
+  INDIGO_AmazeColor(5, "#6600cc", "color_indigo"),
   /**
    * <code>RED_AmazeColor = 6;</code>
    */
-  RED_AmazeColor(6),
+  RED_AmazeColor(6, "#ff0000", "color_red"),
   /**
    * <code>LIGHT_GREY_AmazeColor = 7;</code>
    */
-  LIGHT_GREY_AmazeColor(7),
+  LIGHT_GREY_AmazeColor(7, "#cccccc", "color_lightgray"),
   /**
    * <code>PINK_AmazeColor = 8;</code>
    */
-  PINK_AmazeColor(8),
+  PINK_AmazeColor(8, "#ffb6c1", "color_pink"),
   /**
    * <code>LIME_AmazeColor = 9;</code>
    */
-  LIME_AmazeColor(9),
+  LIME_AmazeColor(9, "#00ff00", "color_lime"),
   /**
    * <code>DARK_RED_AmazeColor = 10;</code>
    */
-  DARK_RED_AmazeColor(10),
+  DARK_RED_AmazeColor(10, "#CC0000", "color_darkred"),
   /**
    * <code>DARK_GREY_AmazeColor = 11;</code>
    */
-  DARK_GREY_AmazeColor(11),
+  DARK_GREY_AmazeColor(11, "#333333", "color_darkgray"),
   /**
    * <code>BLACK_AmazeColor = 12;</code>
    */
-  BLACK_AmazeColor(12),
+  BLACK_AmazeColor(12, "#000000", "color_black"),
   /**
    * <code>MAGENTA_AmazeColor = 13;</code>
    */
-  MAGENTA_AmazeColor(13),
+  MAGENTA_AmazeColor(13, "#ff00ff", "color_magenta"),
   /**
    * <code>YELLOW_AmazeColor = 14;</code>
    */
-  YELLOW_AmazeColor(14),
+  YELLOW_AmazeColor(14, "#dddd00", "color_yellow"),
   /**
    * <code>DARK_GREEN_AmazeColor = 15;</code>
    */
-  DARK_GREEN_AmazeColor(15),
+  DARK_GREEN_AmazeColor(15, "#006600", "color_darkgreen"),
   /**
    * <code>TEAL_AmazeColor = 16;</code>
    */
-  TEAL_AmazeColor(16),
+  TEAL_AmazeColor(16, "#00cc99", "color_teal"),
   /**
    * <code>CYAN_AmazeColor = 17;</code>
    */
-  CYAN_AmazeColor(17),
+  CYAN_AmazeColor(17, "#00ffff", "color_cyan"),
   /**
    * <code>GREY_AmazeColor = 18;</code>
    */
-  GREY_AmazeColor(18),
+  GREY_AmazeColor(18, "#666666", "color_darkgray"),
   /**
    * <code>ORANGE_AmazeColor = 19;</code>
    */
-  ORANGE_AmazeColor(19),
-  UNRECOGNIZED(-1),
+  ORANGE_AmazeColor(19, "#ff6600", "color_orange"),
+  UNRECOGNIZED(-1, "#000000", "color_black"),
   ;
 
   /**
@@ -265,9 +265,31 @@ public enum AmazeColor
   }
 
   private final int value;
+  private final String hexCode;
+  private final String resourceIdAsString;
 
-  private AmazeColor(int value) {
+  private AmazeColor(int value, String hexCode, String resourceIdAsString) {
     this.value = value;
+    this.hexCode = hexCode;
+    this.resourceIdAsString = resourceIdAsString;
+  }
+
+  public String getHexCode() {
+    return hexCode;
+  }
+
+  public String getResourceIdAsString() {
+    return resourceIdAsString;
+  }
+
+  public static int getIndex(final AmazeColor amazeColor) {
+    final AmazeColor [] amazeColors = values();
+    for(int i = 0; i < amazeColors.length; i++) {
+      if(amazeColors[i] == amazeColor) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.AmazeColor)

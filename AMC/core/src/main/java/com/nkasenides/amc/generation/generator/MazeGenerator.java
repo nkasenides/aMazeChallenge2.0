@@ -1,5 +1,6 @@
 package com.nkasenides.amc.generation.generator;
 
+import com.nkasenides.amc.model.MatrixPosition;
 import com.nkasenides.amc.proto.Algorithm;
 
 import java.util.Collections;
@@ -12,7 +13,7 @@ public class MazeGenerator {
     private static final int MIN_MAZE_SIZE = 5;
     private static final int MAX_MAZE_SIZE = 30;
 
-    public static String generate(Algorithm algorithm, int gridSize, final Position startingPosition, final Position targetPosition) {
+    public static String generate(Algorithm algorithm, int gridSize, final MatrixPosition startingPosition, final MatrixPosition targetPosition) {
 
         if(gridSize < MIN_MAZE_SIZE) gridSize = MIN_MAZE_SIZE;
         if(gridSize > MAX_MAZE_SIZE) gridSize = MAX_MAZE_SIZE;
@@ -31,7 +32,7 @@ public class MazeGenerator {
         }
     }
 
-    private static String generateSingleSolution(int gridSize, final Position startingPosition, final Position targetPosition) {
+    private static String generateSingleSolution(int gridSize, final MatrixPosition startingPosition, final MatrixPosition targetPosition) {
 
         // generate
         Vector<Path> mazePaths = generateRandomMaze(1, startingPosition, targetPosition, gridSize);
@@ -39,7 +40,7 @@ public class MazeGenerator {
         return getGrid(mazePaths, gridSize);
     }
 
-    private static String generateManySolutions(int gridSize, final Position startingPosition, final Position targetPosition) {
+    private static String generateManySolutions(int gridSize, final MatrixPosition startingPosition, final MatrixPosition targetPosition) {
 
         // generate
         final int numOfSolutions = gridSize / 2;
@@ -48,7 +49,7 @@ public class MazeGenerator {
         return getGrid(mazePaths, gridSize);
     }
 
-    private static String generateSparse(int gridSize, final Position startingPosition, final Position targetPosition) {
+    private static String generateSparse(int gridSize, final MatrixPosition startingPosition, final MatrixPosition targetPosition) {
         // generate
         Vector<Path> mazePaths = generateRandomMazeWithLoops(startingPosition, targetPosition, gridSize);
 
@@ -60,7 +61,7 @@ public class MazeGenerator {
         final StringBuilder data = new StringBuilder();
         for(int row = 0; row < gridSize; row++) {
             for(int col = 0; col < gridSize; col++) {
-                final Position position = new Position(row, col);
+                final MatrixPosition position = new MatrixPosition(row, col);
 
                 final boolean hasWallToLeft = col == 0;
                 final boolean hasWallToRight = col == gridSize - 1;
@@ -85,7 +86,7 @@ public class MazeGenerator {
         final StringBuilder data = new StringBuilder();
         for(int row = 0; row < gridSize; row++) {
             for(int col = 0; col < gridSize; col++) {
-                final Position position = new Position(row, col);
+                final MatrixPosition position = new MatrixPosition(row, col);
 
                 final boolean existsPathToLeft = Path.checkPathLeft(position, paths);
                 final boolean existsPathToRight = Path.checkPathRight(position, paths, gridSize);
@@ -105,7 +106,7 @@ public class MazeGenerator {
         return data.toString();
     }
 
-    private static Vector<Path> generateRandomMazeWithLoops(final Position sourcePosition, final Position targetPosition, final int gridSize) {
+    private static Vector<Path> generateRandomMazeWithLoops(final MatrixPosition sourcePosition, final MatrixPosition targetPosition, final int gridSize) {
 
         final Vector<Path> allPaths = new Vector<>();
 
@@ -120,7 +121,7 @@ public class MazeGenerator {
 
         // then add more paths--possibly with loops--until all cells are 'busy'
         while(!grid.isFull()) {
-            final Position position = grid.randomSetPosition();
+            final MatrixPosition position = grid.randomSetPosition();
             final Path path = generateRandomPathWithLoops(position, allPaths, gridSize);
             allPaths.add(path);
             grid.setGrid(path);
@@ -129,7 +130,7 @@ public class MazeGenerator {
         return allPaths;
     }
 
-    private static Vector<Path> generateRandomMaze(final int numOfSolutions, final Position sourcePosition, final Position targetPosition, final int gridSize) {
+    private static Vector<Path> generateRandomMaze(final int numOfSolutions, final MatrixPosition sourcePosition, final MatrixPosition targetPosition, final int gridSize) {
 
         final Vector<Path> allPaths = new Vector<>();
 
@@ -144,7 +145,7 @@ public class MazeGenerator {
 
         // then add more paths until all cells are 'busy'
         while(!grid.isFull()) {
-            final Position position = grid.randomUnsetPosition();
+            final MatrixPosition position = grid.randomUnsetPosition();
             final Path path = generateRandomPath(position, allPaths, gridSize);
             allPaths.add(path);
             grid.setGrid(path);
@@ -153,15 +154,15 @@ public class MazeGenerator {
         return allPaths;
     }
 
-    private static Path generateRandomPath(final Position startingPosition, final Vector<Path> allPaths, final int gridSize) {
+    private static Path generateRandomPath(final MatrixPosition startingPosition, final Vector<Path> allPaths, final int gridSize) {
         final Path path = new Path();
         while (path.isEmpty()) {
             path.addNextPoint(startingPosition);
             while(true) {
-                final Position currentPosition = path.getTargetPosition();
-                final Vector<Position> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
+                final MatrixPosition currentPosition = path.getTargetPosition();
+                final Vector<MatrixPosition> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
                 boolean added = false;
-                for(final Position position : shuffledAdjacentPositions) {
+                for(final MatrixPosition position : shuffledAdjacentPositions) {
                     if(!Path.positionCrossesPath(position, path)) {
                         path.addNextPoint(position);
                         added = true;
@@ -182,15 +183,15 @@ public class MazeGenerator {
         return path;
     }
 
-    private static Path generateRandomPathWithLoops(final Position startingPosition, final Vector<Path> allPaths, final int gridSize) {
+    private static Path generateRandomPathWithLoops(final MatrixPosition startingPosition, final Vector<Path> allPaths, final int gridSize) {
         final Path path = new Path();
         while (path.isEmpty()) {
             path.addNextPoint(startingPosition);
             while(true) {
-                final Position currentPosition = path.getTargetPosition();
-                final Vector<Position> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
+                final MatrixPosition currentPosition = path.getTargetPosition();
+                final Vector<MatrixPosition> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
                 boolean added = false;
-                for(final Position position : shuffledAdjacentPositions) {
+                for(final MatrixPosition position : shuffledAdjacentPositions) {
                     if(Path.positionCrossesPath(position, path)) {
 
                     } else {
@@ -213,15 +214,15 @@ public class MazeGenerator {
         return path;
     }
 
-    private static Path generateRandomPath(final Position fromPosition, final Position toPosition, final int gridSize) {
+    private static Path generateRandomPath(final MatrixPosition fromPosition, final MatrixPosition toPosition, final int gridSize) {
         final Path path = new Path();
         while (path.isEmpty()) {
             path.addNextPoint(fromPosition);
             while(!Path.areIdentical(path.getTargetPosition(), toPosition)) { // repeat until the last added position matches the toPosition
-                final Position currentPosition = path.getTargetPosition();
-                final Vector<Position> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
+                final MatrixPosition currentPosition = path.getTargetPosition();
+                final Vector<MatrixPosition> shuffledAdjacentPositions = getShuffledAdjacentPositions(currentPosition, gridSize);
                 boolean added = false;
-                for(final Position position : shuffledAdjacentPositions) {
+                for(final MatrixPosition position : shuffledAdjacentPositions) {
                     if(!Path.positionCrossesPath(position, path)) {
                         path.addNextPoint(position);
                         added = true;
@@ -238,14 +239,14 @@ public class MazeGenerator {
         return path;
     }
 
-    private static Vector<Position> getShuffledAdjacentPositions(final Position fromPosition, final int gridSize) {
-        final Vector<Position> randomAdjacentPositions = new Vector<>();
+    private static Vector<MatrixPosition> getShuffledAdjacentPositions(final MatrixPosition fromPosition, final int gridSize) {
+        final Vector<MatrixPosition> randomAdjacentPositions = new Vector<>();
         final int col = fromPosition.getCol();
         final int row = fromPosition.getRow();
-        if(col > 0) randomAdjacentPositions.add(new Position(row, col - 1));
-        if(row > 0) randomAdjacentPositions.add(new Position(row  - 1, col));
-        if(col < gridSize-1) randomAdjacentPositions.add(new Position(row, col + 1));
-        if(row < gridSize-1) randomAdjacentPositions.add(new Position(row + 1, col));
+        if(col > 0) randomAdjacentPositions.add(new MatrixPosition(row, col - 1));
+        if(row > 0) randomAdjacentPositions.add(new MatrixPosition(row  - 1, col));
+        if(col < gridSize-1) randomAdjacentPositions.add(new MatrixPosition(row, col + 1));
+        if(row < gridSize-1) randomAdjacentPositions.add(new MatrixPosition(row + 1, col));
         Collections.shuffle(randomAdjacentPositions); // shuffle
 
         return randomAdjacentPositions;

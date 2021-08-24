@@ -11,104 +11,104 @@ public enum Audio
   /**
    * <code>EVENT_GIFTBOX_Audio = 0;</code>
    */
-  EVENT_GIFTBOX_Audio(0),
+  EVENT_GIFTBOX_Audio(0, "Giftbox", "giftbox", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>EVENT_COIN20_Audio = 1;</code>
    */
-  EVENT_COIN20_Audio(1),
+  EVENT_COIN20_Audio(1, "Coin20", "coin20", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_STORM_Audio = 2;</code>
    */
-  AMBIENT_STORM_Audio(2),
+  AMBIENT_STORM_Audio(2, "Storm", "storm", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>EVENT_TRAP_Audio = 3;</code>
    */
-  EVENT_TRAP_Audio(3),
+  EVENT_TRAP_Audio(3, "Trap", "trap", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_NIGHT_Audio = 4;</code>
    */
-  AMBIENT_NIGHT_Audio(4),
+  AMBIENT_NIGHT_Audio(4, "Night", "night", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_SNOW_Audio = 5;</code>
    */
-  AMBIENT_SNOW_Audio(5),
+  AMBIENT_SNOW_Audio(5, "Snow", "snow", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_ALPINE_FOREST_Audio = 6;</code>
    */
-  AMBIENT_ALPINE_FOREST_Audio(6),
+  AMBIENT_ALPINE_FOREST_Audio(6, "Alpine-Forest", "alpine_forest", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>EVENT_FOOD_Audio = 7;</code>
    */
-  EVENT_FOOD_Audio(7),
+  EVENT_FOOD_Audio(7, "Food", "food", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_RIVER_Audio = 8;</code>
    */
-  AMBIENT_RIVER_Audio(8),
+  AMBIENT_RIVER_Audio(8, "River", "river", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>EVENT_BOMB_Audio = 9;</code>
    */
-  EVENT_BOMB_Audio(9),
+  EVENT_BOMB_Audio(9, "Bomb", "bomb", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>EVENT_SPEEDHACK_Audio = 10;</code>
    */
-  EVENT_SPEEDHACK_Audio(10),
+  EVENT_SPEEDHACK_Audio(10, "Speedhack", "speedhack", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AUDIO_NONE_Audio = 11;</code>
    */
-  AUDIO_NONE_Audio(11),
+  AUDIO_NONE_Audio(11, "None","",AudioFormat.UNDEFINED_FORMAT_AudioFormat, AudioType.NONE_AudioType),
   /**
    * <code>EVENT_COIN5_Audio = 12;</code>
    */
-  EVENT_COIN5_Audio(12),
+  EVENT_COIN5_Audio(12, "Coin5", "coin5", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>EVENT_COIN10_Audio = 13;</code>
    */
-  EVENT_COIN10_Audio(13),
+  EVENT_COIN10_Audio(13, "Coin10", "coin10", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_CAVE_Audio = 14;</code>
    */
-  AMBIENT_CAVE_Audio(14),
+  AMBIENT_CAVE_Audio(14, "Cave", "cave", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_PRISON_Audio = 15;</code>
    */
-  AMBIENT_PRISON_Audio(15),
+  AMBIENT_PRISON_Audio(15, "Prison", "prison", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_SANDSTORM_Audio = 16;</code>
    */
-  AMBIENT_SANDSTORM_Audio(16),
+  AMBIENT_SANDSTORM_Audio(16, "Sandstorm", "sandstorm", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>EVENT_LOSE_Audio = 17;</code>
    */
-  EVENT_LOSE_Audio(17),
+  EVENT_LOSE_Audio(17, "Lose", "lose", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_CITY_Audio = 18;</code>
    */
-  AMBIENT_CITY_Audio(18),
+  AMBIENT_CITY_Audio(18, "City", "city", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_STREET_Audio = 19;</code>
    */
-  AMBIENT_STREET_Audio(19),
+  AMBIENT_STREET_Audio(19, "Street", "street", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_TROPICAL_FOREST_Audio = 20;</code>
    */
-  AMBIENT_TROPICAL_FOREST_Audio(20),
+  AMBIENT_TROPICAL_FOREST_Audio(20, "Tropical-Forest", "tropical_forest", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_FIRE_Audio = 21;</code>
    */
-  AMBIENT_FIRE_Audio(21),
+  AMBIENT_FIRE_Audio(21, "Fire", "fire", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>EVENT_WIN_Audio = 22;</code>
    */
-  EVENT_WIN_Audio(22),
+  EVENT_WIN_Audio(22, "Win", "win", AudioFormat.WAV_AudioFormat, AudioType.EVENT_AudioType),
   /**
    * <code>AMBIENT_HIGHTECH_Audio = 23;</code>
    */
-  AMBIENT_HIGHTECH_Audio(23),
+  AMBIENT_HIGHTECH_Audio(23, "High-Tech", "high_tech", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
   /**
    * <code>AMBIENT_UNDERWATER_Audio = 24;</code>
    */
-  AMBIENT_UNDERWATER_Audio(24),
-  UNRECOGNIZED(-1),
+  AMBIENT_UNDERWATER_Audio(24, "Underwater", "underwater", AudioFormat.MP3_AudioFormat, AudioType.AMBIENT_AudioType),
+  UNRECOGNIZED(-1, "", "", AudioFormat.WAV_AudioFormat, AudioType.NONE_AudioType),
   ;
 
   /**
@@ -310,9 +310,40 @@ public enum Audio
   }
 
   private final int value;
+  private final AudioFormat audioFormat;
+  private final AudioType audioType;
+  private final String name;
+  private final String soundResourceName;
 
-  private Audio(int value) {
+  private Audio(int value, String name, String soundResourceName, AudioFormat audioFormat, AudioType audioType) {
     this.value = value;
+    this.name =  name;
+    this.soundResourceName = soundResourceName;
+    this.audioFormat = audioFormat;
+    this.audioType = audioType;
+  }
+
+  public AudioFormat getAudioFormat() {
+    return audioFormat;
+  }
+
+  public AudioType getAudioType() {
+    return audioType;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getSoundResourceName() {
+    return soundResourceName;
+  }
+
+  public static int getIdFromString(String resourceName) {
+    for (int i = 0; i < Audio.values().length; i++) {
+      if (Audio.values()[i].getSoundResourceName().equals(resourceName)) return i;
+    }
+    throw new RuntimeException("Invalid audio resource name provided.");
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.Audio)

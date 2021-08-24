@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.inspirecenter.amazechallenge.ui.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/activity_main_sound"
+        android:onClick="sound"
+        android:src="@drawable/ic_volume_up_black_24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/activity_main_language"
+        android:onClick="language"
+        android:src="@drawable/ic_language_black_24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/materialYellow"
+        android:scaleType="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/app_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/colorPrimaryDark"
+            android:src="@drawable/maze_banner"
+            android:contentDescription="@string/application_motto" />
+
+        <Button
+            android:id="@+id/button_learn"
+            android:text="@string/Learn"
+            android:onClick="learn"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_help_black_24dp"
+            android:drawableTint="@android:color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialRed"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <View
+            android:background="@color/lightGray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/button_personalize"
+            android:text="@string/Personalize"
+            android:onClick="personalize"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_person_pin_black_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialOrange"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <View
+            android:background="@color/lightGray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/edit_your_code"
+            android:text="@string/Edit_your_code"
+            android:onClick="codeEditor"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_code_black_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialYellow"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <View
+            android:background="@color/lightGray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/training"
+            android:text="@string/Training"
+            android:onClick="training"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_play_circle_filled_black_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialGreen"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <View
+            android:background="@color/lightGray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/play_online"
+            android:text="@string/Play_online"
+            android:onClick="onlineChallenge"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_cloud_upload_black_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialBlue"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <Button
+            android:id="@+id/generator"
+            android:text="@string/maze_designer"
+            android:onClick="mazeDesigner"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_create_white_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialPurple"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+        <Button
+            android:id="@+id/about"
+            android:text="@string/about"
+            android:onClick="about"
+            android:textSize="18sp"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:drawableStart="@drawable/ic_info_black_24dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:background="@color/materialViolet"
+            android:drawableEnd="@drawable/ic_check_box_outline_blank_black_24dp"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

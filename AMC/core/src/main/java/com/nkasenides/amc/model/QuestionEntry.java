@@ -12,7 +12,18 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 
 public class QuestionEntry implements Transmittable<QuestionEntryProto.Builder> {
-    private String answerText;    
+
+    public QuestionEntry() {
+        this.answerText = "answerText";
+        this.questionText = "questionText";
+    }
+
+    public QuestionEntry(String answerText, String questionText) {
+        this.answerText = answerText;
+        this.questionText = questionText;
+    }
+
+    private String answerText;
     private String questionText;    
 
     public String getAnswerText() {    

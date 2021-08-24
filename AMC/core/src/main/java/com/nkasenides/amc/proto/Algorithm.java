@@ -11,20 +11,20 @@ public enum Algorithm
   /**
    * <code>MANY_SOLUTIONS_Algorithm = 0;</code>
    */
-  MANY_SOLUTIONS_Algorithm(0),
+  MANY_SOLUTIONS_Algorithm(0, "Many solutions"),
   /**
    * <code>SPARSE_Algorithm = 1;</code>
    */
-  SPARSE_Algorithm(1),
+  SPARSE_Algorithm(1, "Sparse"),
   /**
    * <code>SINGLE_SOLUTION_Algorithm = 2;</code>
    */
-  SINGLE_SOLUTION_Algorithm(2),
+  SINGLE_SOLUTION_Algorithm(2, "Single solution"),
   /**
    * <code>EMPTY_Algorithm = 3;</code>
    */
-  EMPTY_Algorithm(3),
-  UNRECOGNIZED(-1),
+  EMPTY_Algorithm(3, "Empty"),
+  UNRECOGNIZED(-1, "None"),
   ;
 
   /**
@@ -121,9 +121,23 @@ public enum Algorithm
   }
 
   private final int value;
+  private final String friendlyName;
 
-  private Algorithm(int value) {
+  private Algorithm(int value, String friendlyName) {
     this.value = value;
+    this.friendlyName = friendlyName;
+  }
+
+  public String getFriendlyName() {
+    return friendlyName;
+  }
+
+  public static int getPosition(Algorithm algorithm) {
+    final Algorithm [] algorithms = values();
+    for (int i = 0; i < algorithms.length; i++) {
+      if (algorithm == algorithms[i]) return i;
+    }
+    throw new RuntimeException("The algorithm '" + algorithm + "' is not a valid algorithm.");
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.Algorithm)

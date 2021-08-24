@@ -11,44 +11,44 @@ public enum BackgroundImage
   /**
    * <code>TEXTURE_WATER_BackgroundImage = 0;</code>
    */
-  TEXTURE_WATER_BackgroundImage(0),
+  TEXTURE_WATER_BackgroundImage(0, "Water", "texture_water", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_ROCKY_BackgroundImage = 1;</code>
    */
-  TEXTURE_ROCKY_BackgroundImage(1),
+  TEXTURE_ROCKY_BackgroundImage(1, "Rocky", "texture_rocky", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_SPACE_BackgroundImage = 2;</code>
    */
-  TEXTURE_SPACE_BackgroundImage(2),
+  TEXTURE_SPACE_BackgroundImage(2, "Space", "texture_space", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_METAL_BackgroundImage = 3;</code>
    */
-  TEXTURE_METAL_BackgroundImage(3),
+  TEXTURE_METAL_BackgroundImage(3, "Metal", "texture_metal", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_MOON_BackgroundImage = 4;</code>
    */
-  TEXTURE_MOON_BackgroundImage(4),
+  TEXTURE_MOON_BackgroundImage(4, "Moon", "texture_moon", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_LAVA_BackgroundImage = 5;</code>
    */
-  TEXTURE_LAVA_BackgroundImage(5),
+  TEXTURE_LAVA_BackgroundImage(5, "Lava", "texture_lava", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_GRAVEL_BackgroundImage = 6;</code>
    */
-  TEXTURE_GRAVEL_BackgroundImage(6),
+  TEXTURE_GRAVEL_BackgroundImage(6, "Gravel", "texture_gravel", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_WOOD_BackgroundImage = 7;</code>
    */
-  TEXTURE_WOOD_BackgroundImage(7),
+  TEXTURE_WOOD_BackgroundImage(7, "Wood", "texture_wood", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_GRASS_BackgroundImage = 8;</code>
    */
-  TEXTURE_GRASS_BackgroundImage(8),
+  TEXTURE_GRASS_BackgroundImage(8, "Grass", "texture_grass", BackgroundImageType.JPG_BackgroundImageType),
   /**
    * <code>TEXTURE_TILES_BackgroundImage = 9;</code>
    */
-  TEXTURE_TILES_BackgroundImage(9),
-  UNRECOGNIZED(-1),
+  TEXTURE_TILES_BackgroundImage(9, "Tiles", "texture_tiles", BackgroundImageType.JPG_BackgroundImageType),
+  UNRECOGNIZED(-1, "", "", BackgroundImageType.JPG_BackgroundImageType),
   ;
 
   /**
@@ -175,9 +175,27 @@ public enum BackgroundImage
   }
 
   private final int value;
+  private final String name;
+  private final String resourceName;
+  private final BackgroundImageType type;
 
-  private BackgroundImage(int value) {
+  private BackgroundImage(int value, String name, String resourceName, BackgroundImageType type) {
     this.value = value;
+    this.name = name;
+    this.resourceName = resourceName;
+    this.type = type;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getResourceName() {
+    return resourceName;
+  }
+
+  public BackgroundImageType getType() {
+    return type;
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.BackgroundImage)

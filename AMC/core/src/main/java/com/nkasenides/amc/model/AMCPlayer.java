@@ -12,8 +12,10 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
 
+import java.io.Serializable;
+
 @FirestormObject
-public class AMCPlayer implements Transmittable<AMCPlayerProto.Builder>, IPlayer {
+public class AMCPlayer implements Transmittable<AMCPlayerProto.Builder>, IPlayer, Serializable {
     private String password;    
     private AmazeColor color;    
     private String teamID;    

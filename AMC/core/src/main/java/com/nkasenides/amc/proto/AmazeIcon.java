@@ -11,44 +11,44 @@ public enum AmazeIcon
   /**
    * <code>ICON_9_AmazeIcon = 0;</code>
    */
-  ICON_9_AmazeIcon(0),
+  ICON_9_AmazeIcon(0, "icon_9"),
   /**
    * <code>ICON_8_AmazeIcon = 1;</code>
    */
-  ICON_8_AmazeIcon(1),
+  ICON_8_AmazeIcon(1, "icon_8"),
   /**
    * <code>ICON_7_AmazeIcon = 2;</code>
    */
-  ICON_7_AmazeIcon(2),
+  ICON_7_AmazeIcon(2, "icon_7"),
   /**
    * <code>ICON_6_AmazeIcon = 3;</code>
    */
-  ICON_6_AmazeIcon(3),
+  ICON_6_AmazeIcon(3, "icon_3"),
   /**
    * <code>ICON_5_AmazeIcon = 4;</code>
    */
-  ICON_5_AmazeIcon(4),
+  ICON_5_AmazeIcon(4, "icon_4"),
   /**
    * <code>ICON_4_AmazeIcon = 5;</code>
    */
-  ICON_4_AmazeIcon(5),
+  ICON_4_AmazeIcon(5, "icon_5"),
   /**
    * <code>ICON_3_AmazeIcon = 6;</code>
    */
-  ICON_3_AmazeIcon(6),
+  ICON_3_AmazeIcon(6, "icon_6"),
   /**
    * <code>ICON_2_AmazeIcon = 7;</code>
    */
-  ICON_2_AmazeIcon(7),
+  ICON_2_AmazeIcon(7, "icon_7"),
   /**
    * <code>ICON_1_AmazeIcon = 8;</code>
    */
-  ICON_1_AmazeIcon(8),
+  ICON_1_AmazeIcon(8, "icon_8"),
   /**
    * <code>ICON_10_AmazeIcon = 9;</code>
    */
-  ICON_10_AmazeIcon(9),
-  UNRECOGNIZED(-1),
+  ICON_10_AmazeIcon(9, "icon_9"),
+  UNRECOGNIZED(-1, "icon_1"),
   ;
 
   /**
@@ -175,11 +175,34 @@ public enum AmazeIcon
   }
 
   private final int value;
+  private final String resourceName;
 
-  private AmazeIcon(int value) {
+  private AmazeIcon(int value, String resourceName) {
     this.value = value;
+    this.resourceName = resourceName;
+  }
+
+  public String getResourceName() {
+    return resourceName;
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.AmazeIcon)
+
+  public static AmazeIcon getByName(final String name) {
+    for(final AmazeIcon amazeIcon : values()) {
+      if(amazeIcon.name().equalsIgnoreCase(name)) return amazeIcon;
+    }
+    return ICON_1_AmazeIcon;
+  }
+
+  public static int getIndex(final AmazeIcon amazeIcon) {
+    final AmazeIcon [] amazeIcons = values();
+    for(int i = 0; i < amazeIcons.length; i++) {
+      if(amazeIcons[i] == amazeIcon) {
+        return i;
+      }
+    }
+    return -1;
+  }
 }
 

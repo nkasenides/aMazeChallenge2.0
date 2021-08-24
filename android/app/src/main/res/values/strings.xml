@@ -1,0 +1,313 @@
+<resources>
+
+    <string name="app_name" translatable="false">aMazeChallenge</string>
+    <string name="application_motto">There is always a way when you can code!</string>
+
+    <string name="Game">Game</string>
+    <string name="Maze_challenge">Maze challenge!</string>
+    <string name="Select_challenge">Select challenge</string>
+    <string name="Select_Personalization_Options">Select color and icon</string>
+    <string name="Home">Home</string>
+    <string name="Learn">Learn</string>
+    <string name="Personalize">Personalize</string>
+    <string name="Add_player">Add player</string>
+    <string name="Start_game">Start game</string>
+    <string name="Selected_algorithm">Selected algorithm</string>
+    <string name="Algorithm">Algorithm</string>
+    <string name="Color">Color</string>
+    <string name="Selected_color">Selected colorName</string>
+    <string name="Auto_play">Auto play</string>
+    <string name="Play">Play</string>
+    <string name="Pause">Pause</string>
+    <string name="Reset">Reset</string>
+    <string name="Previous">Previous</string>
+    <string name="Next">Next</string>
+    <string name="Interval">Interval</string>
+    <string name="Name">Name</string>
+    <string name="Email">Email</string>
+    <string name="Maze_name">Maze name</string>
+    <string name="Maze_description">Maze description</string>
+    <string name="Add">Add</string>
+    <string name="Save">Save</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Cancelled">Cancelled</string>
+    <string name="About">About</string>
+    <string name="Love_the_app">Love the app?</string>
+    <string name="Rate_us">Rate us</string>
+    <string name="Share">Share</string>
+    <string name="Tell_the_world">Tell the world</string>
+    <string name="Share_with_your_friends">Share with your friends</string>
+    <string name="Version">Version</string>
+    <string name="Application_API">Application API</string>
+    <string name="Developed_by">Developed by</string>
+    <string name="SharingInstructions">Get the aMazeChallenge app and learn to code by playing! Get it free from Google Play now: https://play.google.com/store/apps/details?id=org.inspirecenter.amazechallenge</string>
+    <string name="NoAppsAvailable">No apps available for sharing</string>
+    <string name="inspire_url" translatable="false">http://inspirecenter.org</string>
+    <string name="Guest" translatable="false">Guest</string>
+    <string name="Guest_email" translatable="false">guest@example.com</string>
+    <string name="Done">Done</string>
+    <string name="Clear">Clear</string>
+    <string name="Clear_code">Clear code</string>
+    <string name="Are_you_sure_you_want_to_erase_the_code">Are you sure you want to erase the code? This action cannot be undone!</string>
+    <string name="Are_you_sure_you_want_to_reset">Are you sure you would like to reset this game?</string>
+    <string name="Save_code">Save code</string>
+    <string name="Save_code_name">Enter a name for your saved code:</string>
+    <string name="save_code_error_empty">The code name cannot be empty.</string>
+    <string name="save_code_error_invalid">The code name must contain letters and numbers only.</string>
+    <string name="try_again">Try again</string>
+    <string name="load_code">Load code</string>
+    <string name="load_code_message">Please choose a code to load:</string>
+    <string name="delete_code">Delete code?</string>
+    <string name="delete">Delete</string>
+    <string name="delete_code_message">Are you sure you would like to delete this code?</string>
+    <string name="code_deleted">Code deleted.</string>
+    <string name="code_overwrite">Overwrite code?</string>
+    <string name="code_overwrite_yes">Overwrite</string>
+    <string name="code_overwrite_message">You have already stored code using this name. Would you like to overwrite it?</string>
+    <string name="color_select_title">Select colorName</string>>
+    <string name="back_to_menu">Back to menu</string>
+    <string name="about">About</string>
+    <string name="Generate">Generate</string>
+    <string name="add_to_training">Add to training</string>
+    <string name="edit_your_code">Edit your code</string>
+    <string name="Upload_code">Upload code</string>
+    <string name="maze_designer">Maze Designer</string>
+    <string name="generator_numof_rewards">Number of rewards:</string>
+    <string name="generator_numof_penalties">Number of penalties:</string>
+    <string name="generator_pickables">Rewards &amp; Penalties</string>
+    <string name="generator_maze_name">Name:</string>
+    <string name="generator_maze_description">Description:</string>
+    <string name="generator_maze_size">Maze Size</string>
+    <string name="generator_maze_startpos">Starting Position</string>
+    <string name="generator_maze_targetpos">Target Position</string>
+    <string name="generator_maze_rows">Rows:</string>
+    <string name="generator_maze_cols">Columns:</string>
+    <string name="generator_maze_row">Row:</string>
+    <string name="generator_maze_col">Column:</string>
+    <string name="generator_wall_color">Wall color:</string>
+    <string name="generator_background_image">Background image:</string>
+    <string name="generator_options">Maze options:</string>
+    <string name="generator_maze_colors">Maze Colors</string>
+    <string name="select_color">Select color</string>
+    <string name="select_image">Select image</string>
+    <string name="invalid_positions_title">Invalid start/target positions</string>
+    <string name="invalid_positions_message">The starting and target positions must be on a different cell.</string>
+    <string name="invalid_maze_name_title">Invalid maze name</string>
+    <string name="invalid_maze_name_message">The maze name cannot be empty.</string>
+    <string name="challenge_exists_title">Maze exists</string>
+    <string name="challenge_exists_message">The maze you tried to add already exists. Please use another name.</string>
+    <string name="challenge_name_title">Invalid name</string>
+    <string name="challenge_name_message">The maze name you entered is invalid. Please make sure you use only letters and numbers.</string>
+    <string name="challenge_added_training">Αdded to training!</string>
+    <string name="challenge_delete_title">Delete challenge</string>
+    <string name="challenge_delete_message">Are you sure you would like to delete this challenge? This action cannot be undone.</string>
+    <string name="challenge_deleted">challenge was deleted.</string>
+    <string name="challenge_choose_option">Choose an option</string>
+    <string name="maze_saved">Maze saved.</string>
+    <string name="Edit">Edit</string>
+    <string name="generator_background_audio">Background audio</string>
+    <string name="select">Select</string>
+    <string name="Discard">Discard</string>
+    <string name="no_code_title">No code</string>
+    <string name="no_code_message">Your code is empty. Please make sure you write code before you attempt to play a maze.</string>
+    <string name="no_code_action">Write code</string>
+
+
+    <string name="instructions">Write your code below to get out of the grid:</string>
+    <string name="demoCode_loop1">while (!solved) {</string>
+    <string name="demoCode_writeCode">Write your code here&#8230;</string>
+    <string name="demoCode_loop2">}</string>
+    <string name="Help">Help</string>
+    <string name="Check_code">Check code</string>
+    <string name="Apply">Apply</string>
+    <string name="Edit_your_code">Edit your code</string>
+    <string name="Submit_code">Submit code</string>
+    <string name="Edit_code">Edit code</string>
+    <string name="Training">Training</string>
+    <string name="Test_locally">Test locally</string>
+    <string name="Play_online">Play online</string>
+    <string name="Code_is_auto_saved">Your code is automatically saved!</string>
+    <string name="Your_code_has_been_saved">Your code has been saved!</string>
+    <string name="Moves">Moves</string>
+    <string name="Details">View Details</string>
+    <string name="User_image">User image</string>
+    <string name="Compiling">Compiling the code…</string>
+    <string name="workspace_empty_message">Workspace is empty. Are you sure you would like to go back?</string>
+    <string name="yes_go_back">Yes, go back</string>
+    <string name="compile_anyway">Compile anyway</string>
+    <string name="changes_not_saved">Changes have not been saved. Save changes?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="very_easy">Very Easy</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="very_hard">Very Hard</string>
+
+    <string name="maze_completed">Congratulations! You have completed the maze</string>
+    <string name="maze_lost">You have lost.</string>
+    <string name="maze_play_again">Play again?</string>
+
+    <!-- ERROR/WARNING DIALOGS -->
+
+    <string name="warning">Warning</string>
+    <string name="error">Error</string>
+    <string name="warnings">Warnings</string>
+    <string name="errors">Errors</string>
+    <string name="found">Found</string>
+    <string name="multiple_errors_found">Errors found</string>
+    <string name="multiple_warnings_found">Warnings found</string>
+    <string name="errors_list_message">The following errors and warnings were found:</string>
+    <string name="warnings_list_message">The following warnings were found:</string>
+    <string name="view">View</string>
+    <string name="ignore">Ignore</string>
+    <string name="ignore_all">Ignore All</string>
+    <string name="ok">OK</string>
+
+    <!-- PERSONALIZATION STRINGS -->
+    <string name="personalizationslider_instructions_icon">Select your avatar:</string>
+    <string name="personalizationslider_instructions_color">Select your color:</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="pick_language">Pick a language</string>
+
+    <!-- CODE ERROR MESSAGES -->
+
+    <string name="error_missing_run">Missing run function.</string>
+    <string name="error_missing_init">Missing initialization function.</string>
+    <string name="error_empty_run">Empty run function</string>
+    <string name="error_function_in_function">Function in function statement detected.</string>
+    <string name="error_infinite_loop">Infinite loop detected.</string>
+    <string name="error_noerror">No error.</string>
+    <string name="questionnaire">Questionnaire</string>
+    <string name="questionnaire_instructions_body">Please answer questions honestly. Do not provide any more information than what is required. If you are not sure what a question is asking, please speak to someone who can help. You may choose to skip this questionnaire but your feedback would be highly appreciated.</string>
+    <string name="questionnaire_instructions_title"><u>Questionnaire Instructions:</u></string>
+    <string name="question_1">How was your experience playing aMaze Challenge?</string>
+    <string name="answer_1_no">Not at all</string>
+    <string name="answer_1_yes">Absolutely!</string>
+    <string name="Skip">Skip</string>
+    <string name="question_2">Would you share this experience with your friends?</string>
+    <string name="question_3">How much do you believe this experience helped you learn more about programming?</string>
+    <string name="answer_3_no">Not at all</string>
+    <string name="answer_3_yes">A lot</string>
+    <string name="submit">Submit</string>
+    <string name="maybe">Maybe</string>
+    <string name="question_5">How helpful do you believe educational games can be for teaching programming?</string>
+    <string name="question_6">Do you believe competition is good or bad in such games?</string>
+    <string name="Not_sure">Not sure</string>
+    <string name="invalid_questionnaire_response">Please make sure you provide an answer to all questions.</string>
+    <string name="invalid_question1">Please provide a rating for question 1.</string>
+    <string name="no_response">Please provide a response</string>
+    <string name="You">You</string>
+    <string name="Games">Games</string>
+    <string name="Classes">Classes</string>
+
+    <string name="Error_while_uploading_answers">Error while uploading answers</string>
+    <string name="Thank_you_for_your_feedback">Thank you for your feedback</string>
+
+    <string-array name="rows_and_cols_selection">
+        <item>5 (Tiny)</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10 (Small)</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15 (Medium)</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20 (Large)</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25 (Very large)</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30 (Huge)</item>
+    </string-array>
+
+    <string-array name="rewardsAndPenalties">
+        <item>None</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="question2_entries">
+        <item>Yes</item>
+        <item>No</item>
+        <item>I would rather not say</item>
+    </string-array>
+
+    <string name="question_4">What is your opinion about programming?</string>
+    <string name="Awesome">Awesome</string>
+    <string name="Terrible">Terrible</string>
+    <string name="Very_Helpful">Very helpful</string>
+    <string name="Somewhat_Helpful">Somewhat helpful</string>
+    <string name="Not_Helpful">Not helpful</string>
+    <string name="Very_Interesting">Very Interesting</string>
+    <string name="Interesting">Interesting</string>
+    <string name="Not_So_Interesting">Not so interesting</string>
+    <string name="Not_Interesting_At_All">Not interesting at all</string>
+    <string name="question_7">How do you rate your programming skills compared to before playing this game?</string>
+    <string name="significantly_improved">Significantly improved</string>
+    <string name="slightly_improved">Slightly improved</string>
+    <string name="the_same">The same</string>
+    <string name="Reduced">Reduced</string>
+    <string name="severely_reduced">Severely reduced</string>
+    <string name="question_8">How likely are you to play this game again in the future?</string>
+    <string name="i_would_like_to_play_again">I would like to play again</string>
+    <string name="i_do_not_want_to_play_again">I do not want to play again</string>
+    <string name="write_your_response">Write your response&#8230;</string>
+    <string name="question_9">What did you enjoy most in this game?</string>
+    <string name="question_10">Is there anything else you would like to add? (Use this answer to provide any negative feedback, issues you faced or any additional comments)</string>
+
+    <string name="color_black">Black</string>
+    <string name="color_darkred">Dark Red</string>
+    <string name="color_red">Red</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_gold">Gold</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_lime">Lime</string>
+    <string name="color_green">Green</string>
+    <string name="color_darkgreen">Dark Green</string>
+    <string name="color_darkblue">Dark Blue</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_teal">Teal</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_magenta">Magenta</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_lightgray">Light Gray</string>
+    <string name="color_darkgray">Dark Gray</string>
+    <string name="health">Health</string>
+    <string name="points">Points</string>
+    <string name="join_success">Joined successfully</string>
+    <string name="join_failure">Error while joining challenge</string>
+    <string name="reply_failure">Error while parsing reply</string>
+    <string name="code_uploaded">Code uploaded successfully</string>
+    <string name="code_upload_failed">Code upload failed</string>
+    <string name="gamestate_getting_error">Error while getting game state</string>
+    <string name="gamestate_error">Error in game state</string>
+
+    <string name="Missing_email">Missing email</string>
+    <string name="Missing_or_invalid_email">Missing or invalid email. Choose a valid email first, using the Personalize view.</string>
+    <string name="OK">OK</string>
+
+    <string name="sound_AllOff">All Off</string>
+    <string name="sound_SoundsOnly">Sounds Only</string>
+    <string name="sound_VibrationOnly">Sound &amp; Vibration</string>
+
+</resources>

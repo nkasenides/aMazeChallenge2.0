@@ -181,21 +181,6 @@ public class Game implements Transmittable<GameProto.Builder> {
         return allPlayers.get(playerID);
     }
 
-    public boolean resetPlayerById(final String playerId) {
-        boolean existed = false;
-        if (finishedPlayers.remove(playerId)) existed = true;
-        if (activePlayers.remove(playerId)) existed = true;
-        if (queuedPlayers.remove(playerId)) existed = true;
-        if (!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
-
-        final AMCWorldSession worldSession = getPlayerWorldSessions().get(playerId);
-
-        //Reset:
-        worldSession.setHealth(new Health());
-        worldSession.setPoints(0);
-        return existed;
-    }
-
     private AudioEventListener audioEventListener = null;
     private GameEndListener gameEndListener = null;
 
@@ -227,6 +212,55 @@ public class Game implements Transmittable<GameProto.Builder> {
 
     public void addPickableItem(final PickableEntity pickable) {
         this.pickables.add(pickable);
+    }
+
+    public void addPlayer(final AMCPlayer player, AMCWorldSession worldSession) {
+        final String playerId = player.getId();
+        allPlayers.put(playerId, player);
+        playerWorldSessions.put(playerId, worldSession);
+        finishedPlayers.remove(playerId);
+        queuedPlayers.remove(playerId);
+        if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
+    }
+
+    public boolean resetPlayerById(final String playerId) {
+        boolean existed = false;
+        if(finishedPlayers.remove(playerId)) existed = true;
+        if(playerWorldSessions.remove(playerId) != null) existed = true;
+        if(queuedPlayers.remove(playerId)) existed = true;
+        if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
+
+        //Reset:
+        playerWorldSessions.get(playerId).setHealth(new Health());
+        playerWorldSessions.get(playerId).setPoints(0);
+        return existed;
+    }
+
+    public boolean queuePlayerById(final String playerId) {
+        if(waitingPlayers.contains(playerId)) {
+            waitingPlayers.remove(playerId);
+            queuedPlayers.add(playerId); // adds to the end of the 'queue'
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean activateNextPlayer(final Grid grid) {
+        if(!queuedPlayers.isEmpty()) {
+            final String nextPlayerId = queuedPlayers.remove(0); // get first in line from 'queued'
+//            activePlayerIDsToPositionAndDirections.put(nextPlayerId, new PlayerPositionAndDirection(grid.getStartingPosition(), grid.getStartingDirection()));
+            final AMCPlayer player = getPlayerByID(nextPlayerId);
+            final AMCWorldSession worldSession = getPlayerWorldSessions().get(nextPlayerId);
+            worldSession.setHealth(new Health());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void resetPickables() {
+        pickables.clear();
     }
     
 

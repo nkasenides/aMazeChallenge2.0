@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_main">
+
+        <item
+            android:id="@+id/nav_personalize"
+            android:icon="@drawable/ic_person_pin_black_24dp"
+            android:title="@string/Personalize" />
+
+        <item
+            android:id="@+id/nav_code_editor"
+            android:icon="@drawable/ic_code_black_24dp"
+            android:title="@string/Edit_your_code" />
+
+        <item
+            android:id="@+id/nav_testing"
+            android:icon="@drawable/ic_play_circle_filled_black_24dp"
+            android:title="@string/Test_locally" />
+
+        <item
+            android:id="@+id/nav_online_challenge"
+            android:icon="@drawable/ic_cloud_upload_black_24dp"
+            android:title="@string/Play_online" />
+
+    </group>
+
+    <group android:id="@+id/group_info">
+
+        <item
+            android:id="@+id/nav_learn"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="@string/Learn" />
+
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/About" />
+
+    </group>
+
+</menu>

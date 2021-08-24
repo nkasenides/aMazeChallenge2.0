@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_challenge_name"
+        android:text="@string/Maze_name"
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:padding="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_challenge_description"
+        android:text="@string/Maze_description"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:padding="4dp"
+        android:layout_below="@id/item_challenge_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_challenge_dimensions"
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:padding="4dp"
+        android:text="1x1"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_challenge_difficulty"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:padding="4dp"
+        android:text="Difficulty"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

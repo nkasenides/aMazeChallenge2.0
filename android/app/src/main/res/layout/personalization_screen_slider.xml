@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/personalizationslider_instructions_icon"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#333"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:id="@+id/layout_avatar"
+        >
+
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/iconPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/avatar_previous"
+            android:background="@color/ditheredGray"
+            android:src="@drawable/ic_navigate_before_black_24dp"
+            android:contentDescription="@string/Previous"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/avatar_next"
+            android:background="@color/ditheredGray"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:contentDescription="@string/Next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <!--COLOR-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/personalizationslider_instructions_color"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#333"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:id="@+id/color_layout"
+        >
+
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/colorPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageButton
+            android:id="@+id/color_previous"
+            android:background="@color/ditheredGray"
+            android:src="@drawable/ic_navigate_before_black_24dp"
+            android:contentDescription="@string/Previous"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/color_next"
+            android:background="@color/ditheredGray"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:contentDescription="@string/Next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/personalization_save"
+            android:text="@string/Save"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/personalization_save"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/personalization_cancel"
+            android:text="@string/Cancel"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

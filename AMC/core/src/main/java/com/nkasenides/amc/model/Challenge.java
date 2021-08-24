@@ -12,8 +12,10 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
 
+import java.io.Serializable;
+
 @FirestormObject
-public class Challenge implements Transmittable<ChallengeProto.Builder> {
+public class Challenge implements Transmittable<ChallengeProto.Builder>, Serializable {
     private boolean canJoinAfterStart;    
     private boolean canStepOnEachOther;    
     private PickableIntensity penalties;    

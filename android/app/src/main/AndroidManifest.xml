@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.inspirecenter.amazechallenge">
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/amaze_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/amaze_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden|adjustPan">
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.HelpActivity"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.PersonalizeActivity"
+            android:label="@string/Personalize"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.PersonalizationSliderActivity"
+            android:label="@string/Personalize"
+            android:parentActivityName=".ui.PersonalizeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.PersonalizeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.BlocklyActivity"
+            android:label="@string/Edit_your_code"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/BlocklyAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.TrainingActivity"
+            android:label="@string/Training"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.GameActivity"
+            android:label="@string/Game"
+            android:noHistory="true"
+            android:parentActivityName=".ui.TrainingActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.TrainingActivity" />
+        </activity>
+        <activity
+            android:name=".ui.OnlineChallengeActivity"
+            android:label="@string/Play_online"
+            android:noHistory="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.OnlineGameActivity"
+            android:label="@string/Play_online"
+            android:noHistory="true"
+            android:parentActivityName=".ui.OnlineChallengeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.OnlineChallengeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.AboutActivity"
+            android:label="@string/About"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.MazeDesignerActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+        <activity android:name=".ui.QuestionnaireActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.inspirecenter.amazechallenge.ui.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
