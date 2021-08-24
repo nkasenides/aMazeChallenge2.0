@@ -40,8 +40,9 @@ public class StateUpdateBuilder {
      * Adds an updated entity to the builder.
      * @param entity The entity to add.
      * @return Returns a StateUpdateBuilder
-     */        public StateUpdateBuilder addUpdatedEntity(AMCEntity entity) {
-        stateUpdateProtoBuilder.getPartialStateBuilder().putEntities(entity.getId(), entity.toProto().build());
+     */
+    public StateUpdateBuilder addUpdatedEntity(AMCEntity entity) {
+        stateUpdateProtoBuilder.getPartialStateBuilder().putEntities(entity.getId(), entity.toGenericProto().build());
         return this;
     }
 

@@ -3,10 +3,14 @@ package com.nkasenides.amc.controller;
 import com.nkasenides.amc.algorithms.MazeSolver;
 import com.nkasenides.amc.algorithms.PlayerMove;
 import com.nkasenides.amc.model.*;
+import com.nkasenides.amc.proto.Bias;
 import com.nkasenides.amc.proto.Direction4;
 import com.nkasenides.amc.proto.PickableType;
+import com.nkasenides.amc.proto.Rotation;
 
 import java.util.*;
+
+import static com.nkasenides.amc.generation.AMCTerrainGenerator.*;
 
 /**
  * @author Nearchos
@@ -51,7 +55,7 @@ public class RuntimeController {
             // the player might have been deactivated (for instance if he had 2 moves and this one is the second)
             if(game.getActivePlayers().contains(playerToMoveId)) {
                 final PlayerMove nextPlayerMove = mazeSolver == null ? PlayerMove.NO_MOVE : mazeSolver.getNextMove(game);
-                applyPlayerMove(grid, game, playerToMoveId, worldSession, nextPlayerMove);
+                applyPlayerMove(grid, game, playerToMoveId, worldSession, playerEntity, nextPlayerMove);
 
                 // check the player's health and finalize if needed
                 if (worldSession.getHealth().getHealth() <= 0) {
@@ -71,47 +75,48 @@ public class RuntimeController {
         }
     }
 
-    private static void applyPlayerMove(final Grid grid, final Game game, final String playerId, final AMCWorldSession worldSession, final PlayerMove playerMove) {
-        Direction direction = playerPositionAndDirection.getDirection();
-        Position position = playerPositionAndDirection.getPosition();
+    private static void applyPlayerMove(final Grid grid, final Game game, final String playerId, final AMCWorldSession worldSession, final PlayerEntity playerEntity, final PlayerMove playerMove) {
+        Direction4 direction = playerEntity.getDirection();
+        MatrixPosition position = playerEntity.getPosition();
         AudioEventListener audioEventListener = game.getAudioEventListener();
 
         switch (playerMove) {
             case TURN_CLOCKWISE:
-                direction = playerPositionAndDirection.getDirection().turnClockwise();
+                direction = playerEntity.getDirection().shift(Rotation.CLOCKWISE);
                 break;
             case TURN_COUNTERCLOCKWISE:
-                direction = direction.turnCounterClockwise();
+                direction = direction.shift(Rotation.COUNTER_CLOCKWISE);
                 break;
             case MOVE_FORWARD:
-                if (canMoveForward(grid, playerPositionAndDirection.getPosition(), playerPositionAndDirection.getDirection())) {
-                    position = movePlayerForward(playerPositionAndDirection);
+                if (canMoveForward(grid, playerEntity.getPosition(), playerEntity.getDirection())) {
+                    position = movePlayerForward(playerEntity);
                     // handle pickables and rewards (i.e. add/substract health etc.)
                     for(int i = 0; i < game.getPickables().size(); i++) {
-                        Pickable pickable = game.getPickables().get(i);
+                        PickableEntity pickable = game.getPickables().get(i);
 
                         if(pickable.getPosition().equals(position)) {
 
                             //Health-related pickables:
-                            if (pickable.getPickableType() == PickableType.BOMB) {
-                                if (pickable.getState() == 1 || pickable.getState() == 2)
-                                    game.getPlayerById(playerId).getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                            if (pickable.getPickableType() == PickableType.BOMB_PickableType) {
+                                if (pickable.getState() == 1 || pickable.getState() == 2) {
+                                    worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                                }
                             }
-                            else game.getPlayerById(playerId).getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                            else worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());
 
                             //Apply effects of point-related pickables:
-                            game.getPlayerById(playerId).changePointsBy(pickable.getPickableType().getPointsChange());
+                            worldSession.changePointsBy(pickable.getPickableType().getPointsChange());
 
                             //Apply effects of speed-related pickables:
-                            if (pickable.getPickableType() == PickableType.SPEEDHACK) {
+                            if (pickable.getPickableType() == PickableType.SPEEDHACK_PickableType) {
                                 addPlayerDoubleTurnsById(playerId, PickableType.SPEEDHACK_TURNS_AMOUNT);
-                            } else if (pickable.getPickableType() == PickableType.TRAP) {
+                            } else if (pickable.getPickableType() == PickableType.TRAP_PickableType) {
                                 addPlayerLostTurnsById(playerId, PickableType.TRAP_TURNS_AMOUNT);
                             }
 
                             // if audio event listener set, notify with event
-                            if(audioEventListener != null && pickable.getPickableType() != PickableType.BOMB) audioEventListener.onAudioEvent(pickable);
-                            if (pickable.getPickableType() != PickableType.BOMB) game.removePickupItem(i);
+                            if(audioEventListener != null && pickable.getPickableType() != PickableType.BOMB_PickableType) audioEventListener.onAudioEvent(pickable);
+                            if (pickable.getPickableType() != PickableType.BOMB_PickableType) game.removePickupItem(i);
                         }
 
                     }
@@ -123,17 +128,18 @@ public class RuntimeController {
             default:
                 throw new RuntimeException("Invalid PlayerMove: " + playerMove);
         }
-        final PlayerPositionAndDirection updatedPlayerPositionAndDirection = new PlayerPositionAndDirection(position, direction);
-        game.setPlayerPositionAndDirectionById(playerId, updatedPlayerPositionAndDirection);
+        playerEntity.setDirection(direction);
+        playerEntity.setPosition(position);
+        game.getPlayerEntities().put(playerId, playerEntity); //TODO - Perhaps not necessary to update this as it is a reference.
     }
 
     public static boolean hasSomeoneReachedTheTargetPosition(final Game game, final Grid grid) {
-        final Position targetPosition = grid.getTargetPosition();
+        final MatrixPosition targetPosition = grid.getTargetPosition();
         boolean someoneHasReachedTheTargetPosition = false;
-        for (final String playerId : game.getActivePlayerIDs()) {
-            final PlayerPositionAndDirection playerPositionAndDirection = game.getPlayerPositionAndDirectionById(playerId);
-            if (targetPosition.equals(playerPositionAndDirection.getPosition())) {
-                if (grid.getTargetPosition().equals(playerPositionAndDirection.getPosition())) {
+        for (final String playerId : game.getActivePlayers()) {
+            final PlayerEntity playerEntity = game.getPlayerEntities().get(playerId);
+            if (targetPosition.equals(playerEntity.getPosition())) {
+                if (grid.getTargetPosition().equals(playerEntity.getPosition())) {
 //                    game.getAudioEventListener().onGameEndAudioEvent(true); //TODO Remove, make for each player individually.
                     game.getGameEndListener().onPlayerHasWon(playerId);
                 }
@@ -144,67 +150,34 @@ public class RuntimeController {
         return someoneHasReachedTheTargetPosition;
     }
 
-    /**
-     * Checks if the given player (specified by its {@link Position} and {@link Direction} can move forward in the
-     * given {@link Grid}.
-     *
-     * @param grid the grid in which the {@link Player} operates
-     * @param position the {@link Position} of the {@link Player}
-     * @param direction the {@link Direction} of the {@link Player}
-     * @return true iff the player at the given {@link Position} and {@link Direction} can move forward
-     */
-    public static boolean canMoveForward(final Grid grid, final Position position, final Direction direction) {
+    public static boolean canMoveForward(final Grid grid, final MatrixPosition position, final Direction4 direction) {
         return !RuntimeController.hasWall(grid, position, direction);
     }
 
-    /**
-     * Checks if the given player (specified by its {@link Position} and {@link Direction} can move forward in the
-     * given {@link Grid}.
-     *
-     * @param grid the grid in which the {@link Player} operates
-     * @param position the {@link Position} of the {@link Player}
-     * @param direction the {@link Direction} of the {@link Player}
-     * @return true iff the player at the given {@link Position} and {@link Direction} can move forward
-     */
-    public static boolean canMoveBackward(final Grid grid, final Position position, final Direction direction) {
-        final Direction oppositeDirection = direction.opposite();
+    public static boolean canMoveBackward(final Grid grid, final MatrixPosition position, final Direction4 direction) {
+        final Direction4 oppositeDirection = direction.opposite();
+        if (oppositeDirection == null) return false;
         return !hasWall(grid, position, oppositeDirection);
     }
 
-    /**
-     * Checks if the {@link Player} can move 'left' in the given {@link Grid}, relative to its {@link Position} and
-     * {@link Direction}.
-     *
-     * @param grid the grid in which the {@link Player} operates
-     * @param position the {@link Position} of the {@link Player}
-     * @param direction the {@link Direction} of the {@link Player}
-     * @return true iff the {@link Player} can move 'left', relative to {@link Position} and {@link Direction}
-     */
-    public static boolean canMoveLeft(final Grid grid, final Position position, final Direction direction) {
-        final Direction leftDirection = direction.turnCounterClockwise();
+    public static boolean canMoveLeft(final Grid grid, final MatrixPosition position, final Direction4 direction) {
+        final Direction4 leftDirection = direction.shift(Rotation.COUNTER_CLOCKWISE);
+        if (leftDirection == null) return false;
         return !hasWall(grid, position, leftDirection);
     }
 
-    /**
-     * Checks if the {@link Player} can move 'right' in the given {@link Grid}, relative to its {@link Position} and
-     * {@link Direction}.
-     *
-     * @param grid the grid in which the {@link Player} operates
-     * @param position the {@link Position} of the {@link Player}
-     * @param direction the {@link Direction} of the {@link Player}
-     * @return true iff the {@link Player} can move 'right', relative to {@link Position} and {@link Direction}
-     */
-    public static boolean canMoveRight(final Grid grid, final Position position, final Direction direction) {
-        final Direction rightDirection = direction.turnClockwise();
+    public static boolean canMoveRight(final Grid grid, final MatrixPosition position, final Direction4 direction) {
+        final Direction4 rightDirection = direction.shift(Rotation.CLOCKWISE);
+        if (rightDirection == null) return false;
         return !hasWall(grid, position, rightDirection);
     }
 
-    public static PickableType.Bias look(final Game game, final Grid grid, final Position position, final Direction direction) {
+    public static Bias look(final Game game, final Grid grid, final MatrixPosition position, final Direction4 direction) {
 
         switch (direction) {
             case NORTH:
                 if (position.getRow() - 1 > 0) {
-                    for (Pickable i : game.getPickables()) {
+                    for (PickableEntity i : game.getPickables()) {
                         if (i.getPosition().getRow() == position.getRow()-1 && i.getPosition().getCol() == position.getCol())
                             return i.getPickableType().getBias();
                     }
@@ -212,7 +185,7 @@ public class RuntimeController {
                 break;
             case SOUTH:
                 if (position.getRow() + 1 < grid.getHeight()) {
-                    for (Pickable i : game.getPickables()) {
+                    for (PickableEntity i : game.getPickables()) {
                         if (i.getPosition().getRow() == position.getRow()+1 && i.getPosition().getCol() == position.getCol())
                             return i.getPickableType().getBias();
                     }
@@ -220,7 +193,7 @@ public class RuntimeController {
                 break;
             case EAST:
                 if (position.getCol() + 1 < grid.getWidth()) {
-                    for (Pickable i : game.getPickables()) {
+                    for (PickableEntity i : game.getPickables()) {
                         if (i.getPosition().getCol() == position.getCol()+1 && i.getPosition().getRow() == position.getRow())
                             return i.getPickableType().getBias();
                     }
@@ -228,17 +201,17 @@ public class RuntimeController {
                 break;
             case WEST:
                 if (position.getCol() - 1 > 0) {
-                    for (Pickable i : game.getPickables()) {
+                    for (PickableEntity i : game.getPickables()) {
                         if (i.getPosition().getCol() == position.getCol()-1 && i.getPosition().getRow() == position.getRow())
                             return i.getPickableType().getBias();
                     }
                 }
                 break;
         }
-        return PickableType.Bias.NONE;
+        return Bias.NONE_Bias;
     }
 
-    public static Direction compass(final Position targetPosition, final Position playerPosition) {
+    public static Direction4 compass(final MatrixPosition targetPosition, final MatrixPosition playerPosition) {
         int rowDifference = playerPosition.getRow() - targetPosition.getRow();
         int colDifference = playerPosition.getCol() - targetPosition.getCol();
 
@@ -252,14 +225,14 @@ public class RuntimeController {
                 Negative rowDifference => Exit is toward EAST.
          */
 
-        Direction predominantEastWestDirection;
-        Direction predominantNorthSouthDirection;
+        Direction4 predominantEastWestDirection;
+        Direction4 predominantNorthSouthDirection;
 
-        if (rowDifference >= 0) predominantNorthSouthDirection = Direction.NORTH;
-        else predominantNorthSouthDirection = Direction.SOUTH;
+        if (rowDifference >= 0) predominantNorthSouthDirection = Direction4.NORTH;
+        else predominantNorthSouthDirection = Direction4.SOUTH;
 
-        if (colDifference >= 0) predominantEastWestDirection = Direction.WEST;
-        else predominantEastWestDirection = Direction.EAST;
+        if (colDifference >= 0) predominantEastWestDirection = Direction4.WEST;
+        else predominantEastWestDirection = Direction4.EAST;
 
         if (Math.max(Math.abs(rowDifference), Math.abs(colDifference)) == Math.abs(rowDifference)) {
             return predominantNorthSouthDirection;
@@ -275,7 +248,7 @@ public class RuntimeController {
         return Integer.parseInt(Character.toString(c), 16);
     }
 
-    private static boolean hasWall(final Grid grid, final Position position, final Direction direction) {
+    private static boolean hasWall(final Grid grid, final MatrixPosition position, final Direction4 direction) {
         final int shape = getGridCell(grid, position.getRow(), position.getCol());
         switch (direction) {
             case NORTH:
@@ -291,22 +264,22 @@ public class RuntimeController {
         }
     }
 
-    private static Position movePlayerForward(final PlayerPositionAndDirection playerPositionAndDirection) {
-        switch (playerPositionAndDirection.getDirection()) {
+    private static MatrixPosition movePlayerForward(final PlayerEntity playerEntity) {
+        switch (playerEntity.getDirection()) {
             case NORTH:
-                return playerPositionAndDirection.getPosition().moveNorth();
+                return playerEntity.getPosition().moveNorth();
             case SOUTH:
-                return playerPositionAndDirection.getPosition().moveSouth();
+                return playerEntity.getPosition().moveSouth();
             case WEST:
-                return playerPositionAndDirection.getPosition().moveWest();
+                return playerEntity.getPosition().moveWest();
             case EAST:
-                return playerPositionAndDirection.getPosition().moveEast();
-            default: throw new RuntimeException("Invalid direction: " + playerPositionAndDirection.getDirection());
+                return playerEntity.getPosition().moveEast();
+            default: throw new RuntimeException("Invalid direction: " + playerEntity.getDirection());
         }
     }
 
     public static boolean allPlayersHaveLost(final Game game) {
-        return game.getActivePlayerIDs().isEmpty();
+        return game.getActivePlayers().isEmpty();
     }
 
     private static void generateItems(Game game, Challenge challenge, Grid grid) {
@@ -314,15 +287,15 @@ public class RuntimeController {
         final Random random = new Random();
 
         //Generate rewards:
-        if (game.getNumOfBiasType(PickableType.Bias.REWARD) < challenge.getMaxRewards()) {
+        if (game.getNumOfBiasType(Bias.REWARD_Bias) < challenge.getRewards().getNumber()) {
             int row = random.nextInt(grid.getHeight());
             int col = random.nextInt(grid.getWidth());
-            final Position position = new Position(row, col);
+            final MatrixPosition position = new MatrixPosition(row, col);
 
             final PickableType type = PickableType.getRandomReward();
 
             boolean exists = false;
-            for (Pickable pickable : game.getPickables()) {
+            for (PickableEntity pickable : game.getPickables()) {
                 if (pickable.getPosition().equals(position)) {
                     exists = true;
                     break;
@@ -330,20 +303,23 @@ public class RuntimeController {
             }
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
-                game.addPickableItem(new Pickable(position, type));
+                PickableEntity pickableEntity = new PickableEntity();
+                pickableEntity.setPickableType(type);
+                pickableEntity.setPosition(position);
+                game.addPickableItem(pickableEntity);
             }
         }
 
         //Generate penalties:
-        if (game.getNumOfBiasType(PickableType.Bias.PENALTY) < challenge.getMaxPenalties()) {
+        if (game.getNumOfBiasType(Bias.PENALTY_Bias) < challenge.getPenalties().getNumber()) {
             int row = random.nextInt(grid.getHeight());
             int col = random.nextInt(grid.getWidth());
-            final Position position = new Position(row, col);
+            final MatrixPosition position = new MatrixPosition(row, col);
 
             final PickableType type = PickableType.getRandomPenalty();
 
             boolean exists = false;
-            for (Pickable pickable : game.getPickables()) {
+            for (PickableEntity pickable : game.getPickables()) {
                 if (pickable.getPosition().equals(position)) {
                     exists = true;
                     break;
@@ -351,7 +327,10 @@ public class RuntimeController {
             }
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
-                game.addPickableItem(new Pickable(position, type));
+                PickableEntity pickableEntity = new PickableEntity();
+                pickableEntity.setPickableType(type);
+                pickableEntity.setPosition(position);
+                game.addPickableItem(pickableEntity);
             }
         }
     }
@@ -411,4 +390,5 @@ public class RuntimeController {
         lostTurnsMap = new HashMap<>();
         doubleTurnsMap = new HashMap<>();
     }
+
 }

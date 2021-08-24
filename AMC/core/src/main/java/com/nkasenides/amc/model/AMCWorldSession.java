@@ -104,8 +104,26 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
     
     public void setPoints(int points) {    
         this.points = points;        
-    }    
-    
+    }
+
+    public void changePointsBy(int amount) {
+        if (points + amount < 0) points = 0;
+        else points += amount;
+    }
+
+    public void subtractPoints(int points) {
+        if (points < 0) throw new RuntimeException("Cannot substract negative points.");
+        else this.points -= points;
+    }
+
+    public void addPoints(int points) {
+        if (points < 0) throw new RuntimeException("Cannot add negative points.");
+        else this.points += points;
+    }
+
+    private void resetPoints() {
+        points = 0;
+    }
 
     @Override    
     public AMCWorldSessionProto.Builder toProto() {

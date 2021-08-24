@@ -71,4 +71,21 @@ public final class MatrixPosition implements Transmittable<MatrixPositionProto.B
         return Hashing.hash(row + "," + col);
     }
 
+
+    public MatrixPosition moveNorth() {
+        return new MatrixPosition(row - 1, col);
+    }
+
+    public MatrixPosition moveSouth() {
+        return new MatrixPosition(row + 1, col);
+    }
+
+    public MatrixPosition moveWest() {
+        return new MatrixPosition(row, col - 1);
+    }
+
+    public MatrixPosition moveEast() {
+        return new MatrixPosition(row, col + 1);
+    }
+
 }

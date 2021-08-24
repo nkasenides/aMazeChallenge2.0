@@ -89,13 +89,18 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 50: {
+          case 48: {
+
+            state_ = input.readInt32();
+            break;
+          }
+          case 58: {
             String s = input.readStringRequireUtf8();
 
             playerID_ = s;
             break;
           }
-          case 56: {
+          case 64: {
             int rawValue = input.readEnum();
 
             direction_ = rawValue;
@@ -265,10 +270,21 @@ private static final long serialVersionUID = 0L;
     return getPosition();
   }
 
-  public static final int PLAYERID_FIELD_NUMBER = 6;
+  public static final int STATE_FIELD_NUMBER = 6;
+  private int state_;
+  /**
+   * <code>int32 state = 6;</code>
+   * @return The state.
+   */
+  @Override
+  public int getState() {
+    return state_;
+  }
+
+  public static final int PLAYERID_FIELD_NUMBER = 7;
   private volatile Object playerID_;
   /**
-   * <code>string playerID = 6;</code>
+   * <code>string playerID = 7;</code>
    * @return The playerID.
    */
   @Override
@@ -285,7 +301,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string playerID = 6;</code>
+   * <code>string playerID = 7;</code>
    * @return The bytes for playerID.
    */
   @Override
@@ -303,17 +319,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DIRECTION_FIELD_NUMBER = 7;
+  public static final int DIRECTION_FIELD_NUMBER = 8;
   private int direction_;
   /**
-   * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+   * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
    * @return The enum numeric value on the wire for direction.
    */
   @Override public int getDirectionValue() {
     return direction_;
   }
   /**
-   * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+   * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
    * @return The direction.
    */
   @Override public Direction4 getDirection() {
@@ -351,11 +367,14 @@ private static final long serialVersionUID = 0L;
     if (position_ != null) {
       output.writeMessage(5, getPosition());
     }
+    if (state_ != 0) {
+      output.writeInt32(6, state_);
+    }
     if (!getPlayerIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, playerID_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, playerID_);
     }
     if (direction_ != Direction4.NORTH.getNumber()) {
-      output.writeEnum(7, direction_);
+      output.writeEnum(8, direction_);
     }
     unknownFields.writeTo(output);
   }
@@ -384,12 +403,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getPosition());
     }
+    if (state_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, state_);
+    }
     if (!getPlayerIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, playerID_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, playerID_);
     }
     if (direction_ != Direction4.NORTH.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(7, direction_);
+        .computeEnumSize(8, direction_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -419,6 +442,8 @@ private static final long serialVersionUID = 0L;
       if (!getPosition()
           .equals(other.getPosition())) return false;
     }
+    if (getState()
+        != other.getState()) return false;
     if (!getPlayerID()
         .equals(other.getPlayerID())) return false;
     if (direction_ != other.direction_) return false;
@@ -446,6 +471,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getPosition().hashCode();
     }
+    hash = (37 * hash) + STATE_FIELD_NUMBER;
+    hash = (53 * hash) + getState();
     hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
     hash = (53 * hash) + getPlayerID().hashCode();
     hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
@@ -559,6 +586,7 @@ private static final long serialVersionUID = 0L;
         item.setPickableType(getPickableType());        
         item.setId(getId());        
         item.setPosition(getPosition().toObject());        
+        item.setState(getState());        
         item.setPlayerID(getPlayerID());        
         item.setDirection(getDirection());        
         return item;        
@@ -610,6 +638,8 @@ private static final long serialVersionUID = 0L;
         position_ = null;
         positionBuilder_ = null;
       }
+      state_ = 0;
+
       playerID_ = "";
 
       direction_ = 0;
@@ -649,6 +679,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.position_ = positionBuilder_.build();
       }
+      result.state_ = state_;
       result.playerID_ = playerID_;
       result.direction_ = direction_;
       onBuilt();
@@ -715,6 +746,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasPosition()) {
         mergePosition(other.getPosition());
+      }
+      if (other.getState() != 0) {
+        setState(other.getState());
       }
       if (!other.getPlayerID().isEmpty()) {
         playerID_ = other.playerID_;
@@ -1108,9 +1142,40 @@ private static final long serialVersionUID = 0L;
       return positionBuilder_;
     }
 
+    private int state_ ;
+    /**
+     * <code>int32 state = 6;</code>
+     * @return The state.
+     */
+    @Override
+    public int getState() {
+      return state_;
+    }
+    /**
+     * <code>int32 state = 6;</code>
+     * @param value The state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setState(int value) {
+      
+      state_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 state = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearState() {
+      
+      state_ = 0;
+      onChanged();
+      return this;
+    }
+
     private Object playerID_ = "";
     /**
-     * <code>string playerID = 6;</code>
+     * <code>string playerID = 7;</code>
      * @return The playerID.
      */
     public String getPlayerID() {
@@ -1126,7 +1191,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 6;</code>
+     * <code>string playerID = 7;</code>
      * @return The bytes for playerID.
      */
     public com.google.protobuf.ByteString
@@ -1143,7 +1208,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 6;</code>
+     * <code>string playerID = 7;</code>
      * @param value The playerID to set.
      * @return This builder for chaining.
      */
@@ -1158,7 +1223,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 6;</code>
+     * <code>string playerID = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayerID() {
@@ -1168,7 +1233,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 6;</code>
+     * <code>string playerID = 7;</code>
      * @param value The bytes for playerID to set.
      * @return This builder for chaining.
      */
@@ -1186,14 +1251,14 @@ private static final long serialVersionUID = 0L;
 
     private int direction_ = 0;
     /**
-     * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+     * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
      * @return The enum numeric value on the wire for direction.
      */
     @Override public int getDirectionValue() {
       return direction_;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+     * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
      * @param value The enum numeric value on the wire for direction to set.
      * @return This builder for chaining.
      */
@@ -1204,7 +1269,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+     * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
      * @return The direction.
      */
     @Override
@@ -1214,7 +1279,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? Direction4.UNRECOGNIZED : result;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+     * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
      * @param value The direction to set.
      * @return This builder for chaining.
      */
@@ -1228,7 +1293,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+     * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearDirection() {
@@ -1296,6 +1361,7 @@ private static final long serialVersionUID = 0L;
         item.setPickableType(getPickableType());        
         item.setId(getId());        
         item.setPosition(getPosition().toObject());        
+        item.setState(getState());        
         item.setPlayerID(getPlayerID());        
         item.setDirection(getDirection());        
         return item;        

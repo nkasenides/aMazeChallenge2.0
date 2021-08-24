@@ -64,24 +64,30 @@ public interface PickableEntityProtoOrBuilder extends
   MatrixPositionProtoOrBuilder getPositionOrBuilder();
 
   /**
-   * <code>string playerID = 6;</code>
+   * <code>int32 state = 6;</code>
+   * @return The state.
+   */
+  int getState();
+
+  /**
+   * <code>string playerID = 7;</code>
    * @return The playerID.
    */
   String getPlayerID();
   /**
-   * <code>string playerID = 6;</code>
+   * <code>string playerID = 7;</code>
    * @return The bytes for playerID.
    */
   com.google.protobuf.ByteString
       getPlayerIDBytes();
 
   /**
-   * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+   * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
    * @return The enum numeric value on the wire for direction.
    */
   int getDirectionValue();
   /**
-   * <code>.com.nkasenides.amc.proto.Direction4 direction = 7;</code>
+   * <code>.com.nkasenides.amc.proto.Direction4 direction = 8;</code>
    * @return The direction.
    */
   Direction4 getDirection();

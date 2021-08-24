@@ -183,10 +183,10 @@ public class Game implements Transmittable<GameProto.Builder> {
 
     public boolean resetPlayerById(final String playerId) {
         boolean existed = false;
-        if(finishedPlayers.remove(playerId)) existed = true;
-        if(activePlayers.remove(playerId)) existed = true;
-        if(queuedPlayers.remove(playerId)) existed = true;
-        if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
+        if (finishedPlayers.remove(playerId)) existed = true;
+        if (activePlayers.remove(playerId)) existed = true;
+        if (queuedPlayers.remove(playerId)) existed = true;
+        if (!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
 
         final AMCWorldSession worldSession = getPlayerWorldSessions().get(playerId);
 
@@ -212,6 +212,22 @@ public class Game implements Transmittable<GameProto.Builder> {
     }
 
     public GameEndListener getGameEndListener() { return gameEndListener; }
+
+    public void removePickupItem(int i) {
+        pickables.remove(i);
+    }
+
+    public int getNumOfBiasType(final Bias biasType) {
+        int count = 0;
+        for(final PickableEntity pickable : pickables) {
+            if(pickable.getPickableType().getBias() == biasType) count++;
+        }
+        return count;
+    }
+
+    public void addPickableItem(final PickableEntity pickable) {
+        this.pickables.add(pickable);
+    }
     
 
 }

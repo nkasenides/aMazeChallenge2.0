@@ -3,6 +3,9 @@
 
 package com.nkasenides.amc.proto;
 
+import java.util.Collections;
+import java.util.Vector;
+
 /**
  * Protobuf enum {@code com.nkasenides.amc.proto.PickableType}
  */
@@ -11,60 +14,60 @@ public enum PickableType
   /**
    * <code>GRAPES_PickableType = 0;</code>
    */
-  GRAPES_PickableType(0),
+  GRAPES_PickableType(0, "grapes", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Grapes reward +25 health", 25, 0, 7),
   /**
    * <code>APPLE_PickableType = 1;</code>
    */
-  APPLE_PickableType(1),
+  APPLE_PickableType(1, "apple", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Apple reward +30 health", 30, 0, 7),
   /**
    * <code>TRAP_PickableType = 2;</code>
    */
-  TRAP_PickableType(2),
+  TRAP_PickableType(2, "trap", Bias.PENALTY_Bias, PickableCategory.NONE_PickableCategory, "Player loses 1 move", 0, 0, 15),
   /**
    * <code>WATERMELON_PickableType = 3;</code>
    */
-  WATERMELON_PickableType(3),
+  WATERMELON_PickableType(3, "watermelon", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Watermelon reward +20 health", 20, 0, 10),
   /**
    * <code>SPEEDHACK_PickableType = 4;</code>
    */
-  SPEEDHACK_PickableType(4),
+  SPEEDHACK_PickableType(4, "doublemoves", Bias.REWARD_Bias, PickableCategory.NONE_PickableCategory, "Player gets to do 2 moves", 0, 0, 15),
   /**
    * <code>COIN_10_PickableType = 5;</code>
    */
-  COIN_10_PickableType(5),
+  COIN_10_PickableType(5, "coin10", Bias.REWARD_Bias, PickableCategory.NONE_PickableCategory, "Coin reward +10 points", 0, 10, 8),
   /**
    * <code>COIN_20_PickableType = 6;</code>
    */
-  COIN_20_PickableType(6),
+  COIN_20_PickableType(6, "coin20", Bias.REWARD_Bias, PickableCategory.NONE_PickableCategory, "Coin reward +20 points", 0, 20, 6),
   /**
    * <code>PEACH_PickableType = 7;</code>
    */
-  PEACH_PickableType(7),
+  PEACH_PickableType(7, "peach", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Peach reward +5 health", 5, 0, 10),
   /**
    * <code>GIFTBOX_PickableType = 8;</code>
    */
-  GIFTBOX_PickableType(8),
+  GIFTBOX_PickableType(8, "giftbox", Bias.REWARD_Bias, PickableCategory.NONE_PickableCategory, "Gift reward +50 points", 0, 50, 5),
   /**
    * <code>COIN_5_PickableType = 9;</code>
    */
-  COIN_5_PickableType(9),
+  COIN_5_PickableType(9, "coin5", Bias.REWARD_Bias, PickableCategory.NONE_PickableCategory, "Coin reward +5 points", 0, 5, 10),
   /**
    * <code>BANANA_PickableType = 10;</code>
    */
-  BANANA_PickableType(10),
+  BANANA_PickableType(10, "banana", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Banana reward +15 health", 15, 0, 10),
   /**
    * <code>BOMB_PickableType = 11;</code>
    */
-  BOMB_PickableType(11),
+  BOMB_PickableType(11, "bomb", Bias.PENALTY_Bias, PickableCategory.NONE_PickableCategory, "Bomb penalty -50 health", 100, 0, 10),
   /**
    * <code>STRAWBERRY_PickableType = 12;</code>
    */
-  STRAWBERRY_PickableType(12),
+  STRAWBERRY_PickableType(12, "strawberry", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Strawberry reward +10 health", 10, 0, 10),
   /**
    * <code>ORANGE_PickableType = 13;</code>
    */
-  ORANGE_PickableType(13),
-  UNRECOGNIZED(-1),
+  ORANGE_PickableType(13, "orange", Bias.REWARD_Bias, PickableCategory.FRUIT_PickableCategory, "Orange reward +50 health", 50, 0, 7),
+  UNRECOGNIZED(-1, "", Bias.NONE_Bias, PickableCategory.NONE_PickableCategory, "", 0, 0, 0),
   ;
 
   /**
@@ -212,8 +215,92 @@ public enum PickableType
 
   private final int value;
 
-  private PickableType(int value) {
+  //Added for aMazeChallenge:
+  private final String imageResourceName;
+  private final Bias bias;
+  private final PickableCategory category;
+  private final String description;
+  private final int absoluteHealth;
+  private final int absolutePoints;
+  private final int defaultState;
+
+  public static int SPEEDHACK_TURNS_AMOUNT = 5;
+  public static int TRAP_TURNS_AMOUNT = 5;
+
+
+  private PickableType(int value, String imageResourceName, Bias bias, PickableCategory category, String description, int absoluteHealth, int absolutePoints, int defaultState) {
     this.value = value;
+    this.imageResourceName = imageResourceName;
+    this.bias = bias;
+    this.category = category;
+    this.description = description;
+    this.absoluteHealth = absoluteHealth;
+    this.absolutePoints = absolutePoints;
+    this.defaultState = defaultState;
+  }
+
+  public static PickableType getRandomReward() {
+    final Vector<PickableType> selected = new Vector<>();
+    for (PickableType pickableType : values()) {
+      if(pickableType.bias == Bias.REWARD_Bias) {
+        selected.add(pickableType);
+      }
+    }
+    if(selected.isEmpty()) throw new RuntimeException("Invalid selection criteria: " + Bias.REWARD_Bias.name());
+    Collections.shuffle(selected);
+    return selected.firstElement();
+  }
+
+  public static PickableType getRandomPenalty() {
+    return random(Bias.PENALTY_Bias, PickableCategory.NONE_PickableCategory);
+  }
+
+  public static PickableType random(Bias bias, PickableCategory category) {
+    final Vector<PickableType> selected = new Vector<>();
+    for (PickableType pickableType : values()) {
+      if(pickableType.bias == bias && pickableType.category == category) {
+        selected.add(pickableType);
+      }
+    }
+    if(selected.isEmpty()) throw new RuntimeException("Invalid selection criteria: " + bias + ", " + category);
+    Collections.shuffle(selected);
+    return selected.firstElement();
+  }
+
+  public String getImageResourceName() {
+    return imageResourceName;
+  }
+
+  public Bias getBias() {
+    return bias;
+  }
+
+  public PickableCategory getCategory() {
+    return category;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public int getAbsoluteHealth() {
+    return absoluteHealth;
+  }
+
+  public int getAbsolutePoints() {
+    return absolutePoints;
+  }
+
+  public int getDefaultState() {
+    return defaultState;
+  }
+
+  public int getPointsChange() {
+    return bias == Bias.REWARD_Bias ? absolutePoints : -absolutePoints;
+  }
+
+  public int getHealthChange() {
+    return bias == Bias.REWARD_Bias ? absoluteHealth: -absoluteHealth;
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.PickableType)

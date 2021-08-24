@@ -227,14 +227,14 @@ public class WorldContext {
     public Map<String, AMCEntityProto> getEntities(Collection<AMCEntity> playerEntities) {
         HashMap<String, AMCEntityProto> entitiesInAOI = new HashMap<>();
         for (AMCEntity e : playerEntities) {
-            entitiesInAOI.put(e.getId(), e.toProto().build());
+            entitiesInAOI.put(e.getId(), e.toGenericProto().build());
         }
         final Collection<AMCEntity> allEntities = DBManager.entity.listForWorld(worldID);
         for (AMCEntity providedEntity : playerEntities) {
             for (AMCEntity entity : allEntities) {
                 if (!providedEntity.getId().equals(entity.getId()) && !entitiesInAOI.containsKey(entity.getId())) {
                     if (providedEntity.getPosition().distanceTo(entity.getPosition()) <= providedEntity.getAreaOfInterest()) {
-                        entitiesInAOI.put(entity.getId(), entity.toProto().build());
+                        entitiesInAOI.put(entity.getId(), entity.toGenericProto().build());
                     }
                 }
             }
@@ -254,7 +254,7 @@ public class WorldContext {
         for (AMCEntity entity : allEntities) {
             if (!entitiesInAOI.containsKey(entity.getId())) {
                 if (position.distanceTo(entity.getPosition()) <= radius) {
-                    entitiesInAOI.put(entity.getId(), entity.toProto().build());
+                    entitiesInAOI.put(entity.getId(), entity.toGenericProto().build());
                 }
             }
         }
@@ -491,7 +491,7 @@ public class WorldContext {
             for (AMCEntityProto updatedEntity : individualStateUpdateBuilder.getUpdatedEntities().values()) {
                 if (updatedEntity.getPlayerID().equals(entry.getKey().getPlayerID())) {
                     for (AMCEntity playerEntity : currentPlayerEntities) {
-                        if (State.Entities.isOutOfAOI(updatedEntity, playerEntity.toProto().build())) {
+                        if (State.Entities.isOutOfAOI(updatedEntity, playerEntity.toGenericProto().build())) {
                             final Map<String, AMCTerrainCellProto> newTerrain = getTerrain(updatedEntity.getPosition().toObject(), updatedEntity.getAreaOfInterest());
                             for (Map.Entry<String, AMCTerrainCellProto> tEntry : newTerrain.entrySet()) {
                                 individualStateUpdateBuilder.addUpdatedTerrain(tEntry.getValue());

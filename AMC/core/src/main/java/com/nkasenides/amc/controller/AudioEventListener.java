@@ -1,10 +1,10 @@
 package com.nkasenides.amc.controller;
 
-import org.inspirecenter.amazechallenge.model.Pickable;
+import com.nkasenides.amc.model.PickableEntity;
 
 public interface AudioEventListener {
 
-    public void onAudioEvent(final Pickable pickable);
+    public void onAudioEvent(final PickableEntity pickable);
 
     public void onGameEndAudioEvent(boolean win);
 

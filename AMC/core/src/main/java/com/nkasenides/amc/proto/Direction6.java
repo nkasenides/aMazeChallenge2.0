@@ -3,6 +3,8 @@
 
 package com.nkasenides.amc.proto;
 
+import java.security.InvalidParameterException;
+
 /**
  * Protobuf enum {@code com.nkasenides.amc.proto.Direction6}
  */
@@ -145,5 +147,79 @@ public enum Direction6
   }
 
   // @@protoc_insertion_point(enum_scope:com.nkasenides.amc.proto.Direction6)
+
+  /**
+   * Shifts the direction based on a given cell-based rotation.
+   * @param rotation The rotation.
+   * @return Returns a Direction6.
+   */
+  public Direction6 shift(Rotation rotation) {
+    switch (rotation) {
+      case CLOCKWISE:
+        switch (this) {
+          case NORTH6:
+            return NORTH_EAST;
+          case NORTH_EAST:
+            return SOUTH_EAST;
+          case SOUTH_EAST:
+            return SOUTH6;
+          case SOUTH6:
+            return SOUTH_WEST;
+          case SOUTH_WEST:
+            return NORTH_WEST;
+          case NORTH_WEST:
+            return NORTH6;
+          case UNRECOGNIZED:
+            throw new InvalidParameterException("Invalid direction '" + this + "'.");
+        }
+        break;
+      case COUNTER_CLOCKWISE:
+        switch (this) {
+          case NORTH6:
+            return NORTH_WEST;
+          case NORTH_EAST:
+            return NORTH6;
+          case SOUTH_EAST:
+            return NORTH_EAST;
+          case SOUTH6:
+            return SOUTH_EAST;
+          case SOUTH_WEST:
+            return SOUTH6;
+          case NORTH_WEST:
+            return SOUTH_WEST;
+          case UNRECOGNIZED:
+            throw new InvalidParameterException("Invalid direction '" + this + "'.");
+        }
+        break;
+      case UNRECOGNIZED:
+        throw new InvalidParameterException("Invalid rotation '" + rotation + "'.");
+    }
+    return null;
+  }
+
+  /**
+   * Returns the opposite direction to the current one.
+   * @return Returns a Direction6.
+   */
+  public Direction6 opposite() {
+    switch (this) {
+      case NORTH6:
+        return SOUTH6;
+      case NORTH_EAST:
+        return SOUTH_WEST;
+      case SOUTH_EAST:
+        return NORTH_WEST;
+      case SOUTH6:
+        return NORTH6;
+      case SOUTH_WEST:
+        return NORTH_EAST;
+      case NORTH_WEST:
+        return SOUTH_EAST;
+      case UNRECOGNIZED:
+        throw new InvalidParameterException("Invalid direction '" + this + "'.");
+    }
+    return null;
+  }
+
 }
 
