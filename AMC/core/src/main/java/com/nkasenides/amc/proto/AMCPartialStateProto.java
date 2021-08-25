@@ -50,19 +50,6 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              entities_ = com.google.protobuf.MapField.newMapField(
-                  EntitiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<String, AMCEntityProto>
-            entities__ = input.readMessage(
-                EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            entities_.getMutableMap().put(
-                entities__.getKey(), entities__.getValue());
-            break;
-          }
-          case 18: {
             AMCWorldSessionProto.Builder subBuilder = null;
             if (worldSession_ != null) {
               subBuilder = worldSession_.toBuilder();
@@ -73,6 +60,19 @@ private static final long serialVersionUID = 0L;
               worldSession_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 18: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              entities_ = com.google.protobuf.MapField.newMapField(
+                  EntitiesDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000001;
+            }
+            com.google.protobuf.MapEntry<String, AMCEntityProto>
+            entities__ = input.readMessage(
+                EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            entities_.getMutableMap().put(
+                entities__.getKey(), entities__.getValue());
             break;
           }
           case 26: {
@@ -88,7 +88,20 @@ private static final long serialVersionUID = 0L;
                 terrain__.getKey(), terrain__.getValue());
             break;
           }
-          case 32: {
+          case 34: {
+            GridProto.Builder subBuilder = null;
+            if (grid_ != null) {
+              subBuilder = grid_.toBuilder();
+            }
+            grid_ = input.readMessage(GridProto.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(grid_);
+              grid_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 40: {
 
             timestamp_ = input.readUInt64();
             break;
@@ -122,7 +135,7 @@ private static final long serialVersionUID = 0L;
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
-      case 1:
+      case 2:
         return internalGetEntities();
       case 3:
         return internalGetTerrain();
@@ -139,7 +152,33 @@ private static final long serialVersionUID = 0L;
             AMCPartialStateProto.class, Builder.class);
   }
 
-  public static final int ENTITIES_FIELD_NUMBER = 1;
+  public static final int WORLDSESSION_FIELD_NUMBER = 1;
+  private AMCWorldSessionProto worldSession_;
+  /**
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   * @return Whether the worldSession field is set.
+   */
+  @Override
+  public boolean hasWorldSession() {
+    return worldSession_ != null;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   * @return The worldSession.
+   */
+  @Override
+  public AMCWorldSessionProto getWorldSession() {
+    return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   */
+  @Override
+  public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
+    return getWorldSession();
+  }
+
+  public static final int ENTITIES_FIELD_NUMBER = 2;
   private static final class EntitiesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCEntityProto> defaultEntry =
@@ -166,7 +205,7 @@ private static final long serialVersionUID = 0L;
     return internalGetEntities().getMap().size();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
 
   @Override
@@ -184,7 +223,7 @@ private static final long serialVersionUID = 0L;
     return getEntitiesMap();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -192,7 +231,7 @@ private static final long serialVersionUID = 0L;
     return internalGetEntities().getMap();
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -205,7 +244,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -218,32 +257,6 @@ private static final long serialVersionUID = 0L;
       throw new IllegalArgumentException();
     }
     return map.get(key);
-  }
-
-  public static final int WORLDSESSION_FIELD_NUMBER = 2;
-  private AMCWorldSessionProto worldSession_;
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return Whether the worldSession field is set.
-   */
-  @Override
-  public boolean hasWorldSession() {
-    return worldSession_ != null;
-  }
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return The worldSession.
-   */
-  @Override
-  public AMCWorldSessionProto getWorldSession() {
-    return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
-  }
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   */
-  @Override
-  public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
-    return getWorldSession();
   }
 
   public static final int TERRAIN_FIELD_NUMBER = 3;
@@ -327,10 +340,36 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int TIMESTAMP_FIELD_NUMBER = 4;
+  public static final int GRID_FIELD_NUMBER = 4;
+  private GridProto grid_;
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return Whether the grid field is set.
+   */
+  @Override
+  public boolean hasGrid() {
+    return grid_ != null;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return The grid.
+   */
+  @Override
+  public GridProto getGrid() {
+    return grid_ == null ? GridProto.getDefaultInstance() : grid_;
+  }
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   */
+  @Override
+  public GridProtoOrBuilder getGridOrBuilder() {
+    return getGrid();
+  }
+
+  public static final int TIMESTAMP_FIELD_NUMBER = 5;
   private long timestamp_;
   /**
-   * <code>uint64 timestamp = 4;</code>
+   * <code>uint64 timestamp = 5;</code>
    * @return The timestamp.
    */
   @Override
@@ -352,23 +391,26 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (worldSession_ != null) {
+      output.writeMessage(1, getWorldSession());
+    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetEntities(),
         EntitiesDefaultEntryHolder.defaultEntry,
-        1);
-    if (worldSession_ != null) {
-      output.writeMessage(2, getWorldSession());
-    }
+        2);
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetTerrain(),
         TerrainDefaultEntryHolder.defaultEntry,
         3);
+    if (grid_ != null) {
+      output.writeMessage(4, getGrid());
+    }
     if (timestamp_ != 0L) {
-      output.writeUInt64(4, timestamp_);
+      output.writeUInt64(5, timestamp_);
     }
     unknownFields.writeTo(output);
   }
@@ -379,6 +421,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (worldSession_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getWorldSession());
+    }
     for (java.util.Map.Entry<String, AMCEntityProto> entry
          : internalGetEntities().getMap().entrySet()) {
       com.google.protobuf.MapEntry<String, AMCEntityProto>
@@ -387,11 +433,7 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, entities__);
-    }
-    if (worldSession_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getWorldSession());
+          .computeMessageSize(2, entities__);
     }
     for (java.util.Map.Entry<String, AMCTerrainCellProto> entry
          : internalGetTerrain().getMap().entrySet()) {
@@ -403,9 +445,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, terrain__);
     }
+    if (grid_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getGrid());
+    }
     if (timestamp_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(4, timestamp_);
+        .computeUInt64Size(5, timestamp_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -422,15 +468,20 @@ private static final long serialVersionUID = 0L;
     }
     AMCPartialStateProto other = (AMCPartialStateProto) obj;
 
-    if (!internalGetEntities().equals(
-        other.internalGetEntities())) return false;
     if (hasWorldSession() != other.hasWorldSession()) return false;
     if (hasWorldSession()) {
       if (!getWorldSession()
           .equals(other.getWorldSession())) return false;
     }
+    if (!internalGetEntities().equals(
+        other.internalGetEntities())) return false;
     if (!internalGetTerrain().equals(
         other.internalGetTerrain())) return false;
+    if (hasGrid() != other.hasGrid()) return false;
+    if (hasGrid()) {
+      if (!getGrid()
+          .equals(other.getGrid())) return false;
+    }
     if (getTimestamp()
         != other.getTimestamp()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -444,17 +495,21 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (!internalGetEntities().getMap().isEmpty()) {
-      hash = (37 * hash) + ENTITIES_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetEntities().hashCode();
-    }
     if (hasWorldSession()) {
       hash = (37 * hash) + WORLDSESSION_FIELD_NUMBER;
       hash = (53 * hash) + getWorldSession().hashCode();
     }
+    if (!internalGetEntities().getMap().isEmpty()) {
+      hash = (37 * hash) + ENTITIES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetEntities().hashCode();
+    }
     if (!internalGetTerrain().getMap().isEmpty()) {
       hash = (37 * hash) + TERRAIN_FIELD_NUMBER;
       hash = (53 * hash) + internalGetTerrain().hashCode();
+    }
+    if (hasGrid()) {
+      hash = (37 * hash) + GRID_FIELD_NUMBER;
+      hash = (53 * hash) + getGrid().hashCode();
     }
     hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -570,7 +625,7 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 1:
+        case 2:
           return internalGetEntities();
         case 3:
           return internalGetTerrain();
@@ -583,7 +638,7 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMutableMapField(
         int number) {
       switch (number) {
-        case 1:
+        case 2:
           return internalGetMutableEntities();
         case 3:
           return internalGetMutableTerrain();
@@ -618,14 +673,20 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
-      internalGetMutableEntities().clear();
       if (worldSessionBuilder_ == null) {
         worldSession_ = null;
       } else {
         worldSession_ = null;
         worldSessionBuilder_ = null;
       }
+      internalGetMutableEntities().clear();
       internalGetMutableTerrain().clear();
+      if (gridBuilder_ == null) {
+        grid_ = null;
+      } else {
+        grid_ = null;
+        gridBuilder_ = null;
+      }
       timestamp_ = 0L;
 
       return this;
@@ -655,15 +716,20 @@ private static final long serialVersionUID = 0L;
     public AMCPartialStateProto buildPartial() {
       AMCPartialStateProto result = new AMCPartialStateProto(this);
       int from_bitField0_ = bitField0_;
-      result.entities_ = internalGetEntities();
-      result.entities_.makeImmutable();
       if (worldSessionBuilder_ == null) {
         result.worldSession_ = worldSession_;
       } else {
         result.worldSession_ = worldSessionBuilder_.build();
       }
+      result.entities_ = internalGetEntities();
+      result.entities_.makeImmutable();
       result.terrain_ = internalGetTerrain();
       result.terrain_.makeImmutable();
+      if (gridBuilder_ == null) {
+        result.grid_ = grid_;
+      } else {
+        result.grid_ = gridBuilder_.build();
+      }
       result.timestamp_ = timestamp_;
       onBuilt();
       return result;
@@ -713,13 +779,16 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(AMCPartialStateProto other) {
       if (other == AMCPartialStateProto.getDefaultInstance()) return this;
-      internalGetMutableEntities().mergeFrom(
-          other.internalGetEntities());
       if (other.hasWorldSession()) {
         mergeWorldSession(other.getWorldSession());
       }
+      internalGetMutableEntities().mergeFrom(
+          other.internalGetEntities());
       internalGetMutableTerrain().mergeFrom(
           other.internalGetTerrain());
+      if (other.hasGrid()) {
+        mergeGrid(other.getGrid());
+      }
       if (other.getTimestamp() != 0L) {
         setTimestamp(other.getTimestamp());
       }
@@ -753,6 +822,125 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private AMCWorldSessionProto worldSession_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     * @return Whether the worldSession field is set.
+     */
+    public boolean hasWorldSession() {
+      return worldSessionBuilder_ != null || worldSession_ != null;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     * @return The worldSession.
+     */
+    public AMCWorldSessionProto getWorldSession() {
+      if (worldSessionBuilder_ == null) {
+        return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+      } else {
+        return worldSessionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public Builder setWorldSession(AMCWorldSessionProto value) {
+      if (worldSessionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        worldSession_ = value;
+        onChanged();
+      } else {
+        worldSessionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public Builder setWorldSession(
+        AMCWorldSessionProto.Builder builderForValue) {
+      if (worldSessionBuilder_ == null) {
+        worldSession_ = builderForValue.build();
+        onChanged();
+      } else {
+        worldSessionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public Builder mergeWorldSession(AMCWorldSessionProto value) {
+      if (worldSessionBuilder_ == null) {
+        if (worldSession_ != null) {
+          worldSession_ =
+            AMCWorldSessionProto.newBuilder(worldSession_).mergeFrom(value).buildPartial();
+        } else {
+          worldSession_ = value;
+        }
+        onChanged();
+      } else {
+        worldSessionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public Builder clearWorldSession() {
+      if (worldSessionBuilder_ == null) {
+        worldSession_ = null;
+        onChanged();
+      } else {
+        worldSession_ = null;
+        worldSessionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public AMCWorldSessionProto.Builder getWorldSessionBuilder() {
+      
+      onChanged();
+      return getWorldSessionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
+      if (worldSessionBuilder_ != null) {
+        return worldSessionBuilder_.getMessageOrBuilder();
+      } else {
+        return worldSession_ == null ?
+            AMCWorldSessionProto.getDefaultInstance() : worldSession_;
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>
+        getWorldSessionFieldBuilder() {
+      if (worldSessionBuilder_ == null) {
+        worldSessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>(
+                getWorldSession(),
+                getParentForChildren(),
+                isClean());
+        worldSession_ = null;
+      }
+      return worldSessionBuilder_;
+    }
+
     private com.google.protobuf.MapField<
         String, AMCEntityProto> entities_;
     private com.google.protobuf.MapField<String, AMCEntityProto>
@@ -780,7 +968,7 @@ private static final long serialVersionUID = 0L;
       return internalGetEntities().getMap().size();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     @Override
@@ -798,7 +986,7 @@ private static final long serialVersionUID = 0L;
       return getEntitiesMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -806,7 +994,7 @@ private static final long serialVersionUID = 0L;
       return internalGetEntities().getMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -819,7 +1007,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -840,7 +1028,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     public Builder removeEntities(
@@ -859,7 +1047,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableEntities().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     public Builder putEntities(
         String key,
@@ -871,7 +1059,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     public Builder putAllEntities(
@@ -879,125 +1067,6 @@ private static final long serialVersionUID = 0L;
       internalGetMutableEntities().getMutableMap()
           .putAll(values);
       return this;
-    }
-
-    private AMCWorldSessionProto worldSession_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     * @return Whether the worldSession field is set.
-     */
-    public boolean hasWorldSession() {
-      return worldSessionBuilder_ != null || worldSession_ != null;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     * @return The worldSession.
-     */
-    public AMCWorldSessionProto getWorldSession() {
-      if (worldSessionBuilder_ == null) {
-        return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
-      } else {
-        return worldSessionBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder setWorldSession(AMCWorldSessionProto value) {
-      if (worldSessionBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        worldSession_ = value;
-        onChanged();
-      } else {
-        worldSessionBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder setWorldSession(
-        AMCWorldSessionProto.Builder builderForValue) {
-      if (worldSessionBuilder_ == null) {
-        worldSession_ = builderForValue.build();
-        onChanged();
-      } else {
-        worldSessionBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder mergeWorldSession(AMCWorldSessionProto value) {
-      if (worldSessionBuilder_ == null) {
-        if (worldSession_ != null) {
-          worldSession_ =
-            AMCWorldSessionProto.newBuilder(worldSession_).mergeFrom(value).buildPartial();
-        } else {
-          worldSession_ = value;
-        }
-        onChanged();
-      } else {
-        worldSessionBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public Builder clearWorldSession() {
-      if (worldSessionBuilder_ == null) {
-        worldSession_ = null;
-        onChanged();
-      } else {
-        worldSession_ = null;
-        worldSessionBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public AMCWorldSessionProto.Builder getWorldSessionBuilder() {
-      
-      onChanged();
-      return getWorldSessionFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
-      if (worldSessionBuilder_ != null) {
-        return worldSessionBuilder_.getMessageOrBuilder();
-      } else {
-        return worldSession_ == null ?
-            AMCWorldSessionProto.getDefaultInstance() : worldSession_;
-      }
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>
-        getWorldSessionFieldBuilder() {
-      if (worldSessionBuilder_ == null) {
-        worldSessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>(
-                getWorldSession(),
-                getParentForChildren(),
-                isClean());
-        worldSession_ = null;
-      }
-      return worldSessionBuilder_;
     }
 
     private com.google.protobuf.MapField<
@@ -1128,9 +1197,128 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private GridProto grid_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        GridProto, GridProto.Builder, GridProtoOrBuilder> gridBuilder_;
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     * @return Whether the grid field is set.
+     */
+    public boolean hasGrid() {
+      return gridBuilder_ != null || grid_ != null;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     * @return The grid.
+     */
+    public GridProto getGrid() {
+      if (gridBuilder_ == null) {
+        return grid_ == null ? GridProto.getDefaultInstance() : grid_;
+      } else {
+        return gridBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder setGrid(GridProto value) {
+      if (gridBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        grid_ = value;
+        onChanged();
+      } else {
+        gridBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder setGrid(
+        GridProto.Builder builderForValue) {
+      if (gridBuilder_ == null) {
+        grid_ = builderForValue.build();
+        onChanged();
+      } else {
+        gridBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder mergeGrid(GridProto value) {
+      if (gridBuilder_ == null) {
+        if (grid_ != null) {
+          grid_ =
+            GridProto.newBuilder(grid_).mergeFrom(value).buildPartial();
+        } else {
+          grid_ = value;
+        }
+        onChanged();
+      } else {
+        gridBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public Builder clearGrid() {
+      if (gridBuilder_ == null) {
+        grid_ = null;
+        onChanged();
+      } else {
+        grid_ = null;
+        gridBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public GridProto.Builder getGridBuilder() {
+      
+      onChanged();
+      return getGridFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    public GridProtoOrBuilder getGridOrBuilder() {
+      if (gridBuilder_ != null) {
+        return gridBuilder_.getMessageOrBuilder();
+      } else {
+        return grid_ == null ?
+            GridProto.getDefaultInstance() : grid_;
+      }
+    }
+    /**
+     * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        GridProto, GridProto.Builder, GridProtoOrBuilder>
+        getGridFieldBuilder() {
+      if (gridBuilder_ == null) {
+        gridBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            GridProto, GridProto.Builder, GridProtoOrBuilder>(
+                getGrid(),
+                getParentForChildren(),
+                isClean());
+        grid_ = null;
+      }
+      return gridBuilder_;
+    }
+
     private long timestamp_ ;
     /**
-     * <code>uint64 timestamp = 4;</code>
+     * <code>uint64 timestamp = 5;</code>
      * @return The timestamp.
      */
     @Override
@@ -1138,7 +1326,7 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
-     * <code>uint64 timestamp = 4;</code>
+     * <code>uint64 timestamp = 5;</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
      */
@@ -1149,7 +1337,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 timestamp = 4;</code>
+     * <code>uint64 timestamp = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {

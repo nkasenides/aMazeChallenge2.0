@@ -89,9 +89,35 @@ private static final long serialVersionUID = 0L;
             removedTerrain_.add(s);
             break;
           }
-          case 40: {
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              worldSessions_ = com.google.protobuf.MapField.newMapField(
+                  WorldSessionsDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000004;
+            }
+            com.google.protobuf.MapEntry<String, AMCWorldSessionProto>
+            worldSessions__ = input.readMessage(
+                WorldSessionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            worldSessions_.getMutableMap().put(
+                worldSessions__.getKey(), worldSessions__.getValue());
+            break;
+          }
+          case 48: {
 
             timestamp_ = input.readUInt64();
+            break;
+          }
+          case 58: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              allPlayers_ = com.google.protobuf.MapField.newMapField(
+                  AllPlayersDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000008;
+            }
+            com.google.protobuf.MapEntry<String, AMCPlayerProto>
+            allPlayers__ = input.readMessage(
+                AllPlayersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            allPlayers_.getMutableMap().put(
+                allPlayers__.getKey(), allPlayers__.getValue());
             break;
           }
           default: {
@@ -124,6 +150,20 @@ private static final long serialVersionUID = 0L;
     return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 5:
+        return internalGetWorldSessions();
+      case 7:
+        return internalGetAllPlayers();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -266,15 +306,177 @@ private static final long serialVersionUID = 0L;
     return removedTerrain_.getByteString(index);
   }
 
-  public static final int TIMESTAMP_FIELD_NUMBER = 5;
+  public static final int WORLDSESSIONS_FIELD_NUMBER = 5;
+  private static final class WorldSessionsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, AMCWorldSessionProto> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, AMCWorldSessionProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                AMCWorldSessionProto.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      String, AMCWorldSessionProto> worldSessions_;
+  private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+  internalGetWorldSessions() {
+    if (worldSessions_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          WorldSessionsDefaultEntryHolder.defaultEntry);
+    }
+    return worldSessions_;
+  }
+
+  public int getWorldSessionsCount() {
+    return internalGetWorldSessions().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+
+  @Override
+  public boolean containsWorldSessions(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    return internalGetWorldSessions().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getWorldSessionsMap()} instead.
+   */
+  @Override
+  @Deprecated
+  public java.util.Map<String, AMCWorldSessionProto> getWorldSessions() {
+    return getWorldSessionsMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  @Override
+
+  public java.util.Map<String, AMCWorldSessionProto> getWorldSessionsMap() {
+    return internalGetWorldSessions().getMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  @Override
+
+  public AMCWorldSessionProto getWorldSessionsOrDefault(
+      String key,
+      AMCWorldSessionProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCWorldSessionProto> map =
+        internalGetWorldSessions().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  @Override
+
+  public AMCWorldSessionProto getWorldSessionsOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCWorldSessionProto> map =
+        internalGetWorldSessions().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int TIMESTAMP_FIELD_NUMBER = 6;
   private long timestamp_;
   /**
-   * <code>uint64 timestamp = 5;</code>
+   * <code>uint64 timestamp = 6;</code>
    * @return The timestamp.
    */
   @Override
   public long getTimestamp() {
     return timestamp_;
+  }
+
+  public static final int ALLPLAYERS_FIELD_NUMBER = 7;
+  private static final class AllPlayersDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, AMCPlayerProto> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, AMCPlayerProto>newDefaultInstance(
+                AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                AMCPlayerProto.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      String, AMCPlayerProto> allPlayers_;
+  private com.google.protobuf.MapField<String, AMCPlayerProto>
+  internalGetAllPlayers() {
+    if (allPlayers_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          AllPlayersDefaultEntryHolder.defaultEntry);
+    }
+    return allPlayers_;
+  }
+
+  public int getAllPlayersCount() {
+    return internalGetAllPlayers().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+
+  @Override
+  public boolean containsAllPlayers(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    return internalGetAllPlayers().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAllPlayersMap()} instead.
+   */
+  @Override
+  @Deprecated
+  public java.util.Map<String, AMCPlayerProto> getAllPlayers() {
+    return getAllPlayersMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  @Override
+
+  public java.util.Map<String, AMCPlayerProto> getAllPlayersMap() {
+    return internalGetAllPlayers().getMap();
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  @Override
+
+  public AMCPlayerProto getAllPlayersOrDefault(
+      String key,
+      AMCPlayerProto defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCPlayerProto> map =
+        internalGetAllPlayers().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  @Override
+
+  public AMCPlayerProto getAllPlayersOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, AMCPlayerProto> map =
+        internalGetAllPlayers().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -303,9 +505,21 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < removedTerrain_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, removedTerrain_.getRaw(i));
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetWorldSessions(),
+        WorldSessionsDefaultEntryHolder.defaultEntry,
+        5);
     if (timestamp_ != 0L) {
-      output.writeUInt64(5, timestamp_);
+      output.writeUInt64(6, timestamp_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAllPlayers(),
+        AllPlayersDefaultEntryHolder.defaultEntry,
+        7);
     unknownFields.writeTo(output);
   }
 
@@ -338,9 +552,29 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getRemovedTerrainList().size();
     }
+    for (java.util.Map.Entry<String, AMCWorldSessionProto> entry
+         : internalGetWorldSessions().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, AMCWorldSessionProto>
+      worldSessions__ = WorldSessionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, worldSessions__);
+    }
     if (timestamp_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(5, timestamp_);
+        .computeUInt64Size(6, timestamp_);
+    }
+    for (java.util.Map.Entry<String, AMCPlayerProto> entry
+         : internalGetAllPlayers().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, AMCPlayerProto>
+      allPlayers__ = AllPlayersDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, allPlayers__);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -368,8 +602,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRemovedEntitiesList())) return false;
     if (!getRemovedTerrainList()
         .equals(other.getRemovedTerrainList())) return false;
+    if (!internalGetWorldSessions().equals(
+        other.internalGetWorldSessions())) return false;
     if (getTimestamp()
         != other.getTimestamp()) return false;
+    if (!internalGetAllPlayers().equals(
+        other.internalGetAllPlayers())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -395,9 +633,17 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMOVEDTERRAIN_FIELD_NUMBER;
       hash = (53 * hash) + getRemovedTerrainList().hashCode();
     }
+    if (!internalGetWorldSessions().getMap().isEmpty()) {
+      hash = (37 * hash) + WORLDSESSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetWorldSessions().hashCode();
+    }
     hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTimestamp());
+    if (!internalGetAllPlayers().getMap().isEmpty()) {
+      hash = (37 * hash) + ALLPLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAllPlayers().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -505,6 +751,32 @@ private static final long serialVersionUID = 0L;
       return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetWorldSessions();
+        case 7:
+          return internalGetAllPlayers();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetMutableWorldSessions();
+        case 7:
+          return internalGetMutableAllPlayers();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -543,8 +815,10 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       removedTerrain_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      internalGetMutableWorldSessions().clear();
       timestamp_ = 0L;
 
+      internalGetMutableAllPlayers().clear();
       return this;
     }
 
@@ -588,7 +862,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.removedTerrain_ = removedTerrain_;
+      result.worldSessions_ = internalGetWorldSessions();
+      result.worldSessions_.makeImmutable();
       result.timestamp_ = timestamp_;
+      result.allPlayers_ = internalGetAllPlayers();
+      result.allPlayers_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -664,9 +942,13 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      internalGetMutableWorldSessions().mergeFrom(
+          other.internalGetWorldSessions());
       if (other.getTimestamp() != 0L) {
         setTimestamp(other.getTimestamp());
       }
+      internalGetMutableAllPlayers().mergeFrom(
+          other.internalGetAllPlayers());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -1112,9 +1394,137 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.MapField<
+        String, AMCWorldSessionProto> worldSessions_;
+    private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+    internalGetWorldSessions() {
+      if (worldSessions_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            WorldSessionsDefaultEntryHolder.defaultEntry);
+      }
+      return worldSessions_;
+    }
+    private com.google.protobuf.MapField<String, AMCWorldSessionProto>
+    internalGetMutableWorldSessions() {
+      onChanged();;
+      if (worldSessions_ == null) {
+        worldSessions_ = com.google.protobuf.MapField.newMapField(
+            WorldSessionsDefaultEntryHolder.defaultEntry);
+      }
+      if (!worldSessions_.isMutable()) {
+        worldSessions_ = worldSessions_.copy();
+      }
+      return worldSessions_;
+    }
+
+    public int getWorldSessionsCount() {
+      return internalGetWorldSessions().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+
+    @Override
+    public boolean containsWorldSessions(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetWorldSessions().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getWorldSessionsMap()} instead.
+     */
+    @Override
+    @Deprecated
+    public java.util.Map<String, AMCWorldSessionProto> getWorldSessions() {
+      return getWorldSessionsMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+    @Override
+
+    public java.util.Map<String, AMCWorldSessionProto> getWorldSessionsMap() {
+      return internalGetWorldSessions().getMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+    @Override
+
+    public AMCWorldSessionProto getWorldSessionsOrDefault(
+        String key,
+        AMCWorldSessionProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCWorldSessionProto> map =
+          internalGetWorldSessions().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+    @Override
+
+    public AMCWorldSessionProto getWorldSessionsOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCWorldSessionProto> map =
+          internalGetWorldSessions().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearWorldSessions() {
+      internalGetMutableWorldSessions().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+
+    public Builder removeWorldSessions(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      internalGetMutableWorldSessions().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @Deprecated
+    public java.util.Map<String, AMCWorldSessionProto>
+    getMutableWorldSessions() {
+      return internalGetMutableWorldSessions().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+    public Builder putWorldSessions(
+        String key,
+        AMCWorldSessionProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
+      internalGetMutableWorldSessions().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     */
+
+    public Builder putAllWorldSessions(
+        java.util.Map<String, AMCWorldSessionProto> values) {
+      internalGetMutableWorldSessions().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
     private long timestamp_ ;
     /**
-     * <code>uint64 timestamp = 5;</code>
+     * <code>uint64 timestamp = 6;</code>
      * @return The timestamp.
      */
     @Override
@@ -1122,7 +1532,7 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
-     * <code>uint64 timestamp = 5;</code>
+     * <code>uint64 timestamp = 6;</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
      */
@@ -1133,13 +1543,141 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 timestamp = 5;</code>
+     * <code>uint64 timestamp = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {
       
       timestamp_ = 0L;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        String, AMCPlayerProto> allPlayers_;
+    private com.google.protobuf.MapField<String, AMCPlayerProto>
+    internalGetAllPlayers() {
+      if (allPlayers_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AllPlayersDefaultEntryHolder.defaultEntry);
+      }
+      return allPlayers_;
+    }
+    private com.google.protobuf.MapField<String, AMCPlayerProto>
+    internalGetMutableAllPlayers() {
+      onChanged();;
+      if (allPlayers_ == null) {
+        allPlayers_ = com.google.protobuf.MapField.newMapField(
+            AllPlayersDefaultEntryHolder.defaultEntry);
+      }
+      if (!allPlayers_.isMutable()) {
+        allPlayers_ = allPlayers_.copy();
+      }
+      return allPlayers_;
+    }
+
+    public int getAllPlayersCount() {
+      return internalGetAllPlayers().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+
+    @Override
+    public boolean containsAllPlayers(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetAllPlayers().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAllPlayersMap()} instead.
+     */
+    @Override
+    @Deprecated
+    public java.util.Map<String, AMCPlayerProto> getAllPlayers() {
+      return getAllPlayersMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+    @Override
+
+    public java.util.Map<String, AMCPlayerProto> getAllPlayersMap() {
+      return internalGetAllPlayers().getMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+    @Override
+
+    public AMCPlayerProto getAllPlayersOrDefault(
+        String key,
+        AMCPlayerProto defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCPlayerProto> map =
+          internalGetAllPlayers().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+    @Override
+
+    public AMCPlayerProto getAllPlayersOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, AMCPlayerProto> map =
+          internalGetAllPlayers().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearAllPlayers() {
+      internalGetMutableAllPlayers().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+
+    public Builder removeAllPlayers(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      internalGetMutableAllPlayers().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @Deprecated
+    public java.util.Map<String, AMCPlayerProto>
+    getMutableAllPlayers() {
+      return internalGetMutableAllPlayers().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+    public Builder putAllPlayers(
+        String key,
+        AMCPlayerProto value) {
+      if (key == null) { throw new NullPointerException(); }
+      if (value == null) { throw new NullPointerException(); }
+      internalGetMutableAllPlayers().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+     */
+
+    public Builder putAllAllPlayers(
+        java.util.Map<String, AMCPlayerProto> values) {
+      internalGetMutableAllPlayers().getMutableMap()
+          .putAll(values);
       return this;
     }
     @Override

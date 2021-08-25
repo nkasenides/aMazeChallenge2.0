@@ -85,8 +85,76 @@ public interface AMCStateUpdateProtoOrBuilder extends
       getRemovedTerrainBytes(int index);
 
   /**
-   * <code>uint64 timestamp = 5;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  int getWorldSessionsCount();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  boolean containsWorldSessions(
+      String key);
+  /**
+   * Use {@link #getWorldSessionsMap()} instead.
+   */
+  @Deprecated
+  java.util.Map<String, AMCWorldSessionProto>
+  getWorldSessions();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+  java.util.Map<String, AMCWorldSessionProto>
+  getWorldSessionsMap();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+
+  AMCWorldSessionProto getWorldSessionsOrDefault(
+      String key,
+      AMCWorldSessionProto defaultValue);
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   */
+
+  AMCWorldSessionProto getWorldSessionsOrThrow(
+      String key);
+
+  /**
+   * <code>uint64 timestamp = 6;</code>
    * @return The timestamp.
    */
   long getTimestamp();
+
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  int getAllPlayersCount();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  boolean containsAllPlayers(
+      String key);
+  /**
+   * Use {@link #getAllPlayersMap()} instead.
+   */
+  @Deprecated
+  java.util.Map<String, AMCPlayerProto>
+  getAllPlayers();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+  java.util.Map<String, AMCPlayerProto>
+  getAllPlayersMap();
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+
+  AMCPlayerProto getAllPlayersOrDefault(
+      String key,
+      AMCPlayerProto defaultValue);
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   */
+
+  AMCPlayerProto getAllPlayersOrThrow(
+      String key);
 }

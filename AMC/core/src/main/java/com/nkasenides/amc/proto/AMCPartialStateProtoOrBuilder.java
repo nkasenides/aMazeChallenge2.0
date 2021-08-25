@@ -8,11 +8,26 @@ public interface AMCPartialStateProtoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   * @return Whether the worldSession field is set.
+   */
+  boolean hasWorldSession();
+  /**
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   * @return The worldSession.
+   */
+  AMCWorldSessionProto getWorldSession();
+  /**
+   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 1;</code>
+   */
+  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
+
+  /**
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   int getEntitiesCount();
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   boolean containsEntities(
       String key);
@@ -23,38 +38,23 @@ public interface AMCPartialStateProtoOrBuilder extends
   java.util.Map<String, AMCEntityProto>
   getEntities();
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   java.util.Map<String, AMCEntityProto>
   getEntitiesMap();
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
 
   AMCEntityProto getEntitiesOrDefault(
       String key,
       AMCEntityProto defaultValue);
   /**
-   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .com.nkasenides.amc.proto.AMCEntityProto&gt; entities = 2;</code>
    */
 
   AMCEntityProto getEntitiesOrThrow(
       String key);
-
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return Whether the worldSession field is set.
-   */
-  boolean hasWorldSession();
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   * @return The worldSession.
-   */
-  AMCWorldSessionProto getWorldSession();
-  /**
-   * <code>.com.nkasenides.amc.proto.AMCWorldSessionProto worldSession = 2;</code>
-   */
-  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
 
   /**
    * <code>map&lt;string, .com.nkasenides.amc.proto.AMCTerrainCellProto&gt; terrain = 3;</code>
@@ -91,7 +91,22 @@ public interface AMCPartialStateProtoOrBuilder extends
       String key);
 
   /**
-   * <code>uint64 timestamp = 4;</code>
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return Whether the grid field is set.
+   */
+  boolean hasGrid();
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   * @return The grid.
+   */
+  GridProto getGrid();
+  /**
+   * <code>.com.nkasenides.amc.proto.GridProto grid = 4;</code>
+   */
+  GridProtoOrBuilder getGridOrBuilder();
+
+  /**
+   * <code>uint64 timestamp = 5;</code>
    * @return The timestamp.
    */
   long getTimestamp();
