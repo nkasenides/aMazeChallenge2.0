@@ -24,6 +24,9 @@ import com.nkasenides.amc.model.Grid;
 import com.nkasenides.amc.model.MatrixPosition;
 import com.nkasenides.amc.model.PickableEntity;
 import com.nkasenides.amc.model.PlayerEntity;
+import com.nkasenides.amc.proto.AMCEntityProto;
+import com.nkasenides.amc.proto.AMCPartialStateProto;
+import com.nkasenides.amc.proto.AMCStateUpdateProto;
 import com.nkasenides.amc.proto.BackgroundImage;
 import com.nkasenides.amc.proto.Direction4;
 import com.nkasenides.amc.proto.PickableType;
@@ -114,12 +117,47 @@ public class GameView extends View {
         backgroundDrawable = new BitmapDrawable(getResources(), bm);
     }
 
-    //TODO - Visualize the state without GameFullState class.
-    void update(final GameFullState gameFullState) {
-        this.grid = gameFullState.getGrid();
-        allIDsToPlayers = gameFullState.getAllIDsToPlayers();
-        activePlayerIdToPositionAndDirectionMap = gameFullState.getActiveIDsToPlayerPositionsAndDirections();
-        pickables = gameFullState.getPickables();
+    /**
+     * Initializes the local state after requesting the initial state (/GetState) from the server.
+     * @param state The received state.
+     */
+    void initialize(final AMCPartialStateProto state) {
+        //Grid/Terrain:
+        this.grid = state.getGrid().toObject();
+
+        //Entities:
+        for (Map.Entry<String, AMCEntityProto> entry : state.getEntitiesMap().entrySet()) {
+            //Pickables:
+            if (entry.getValue().hasPickableEntity()) {
+                pickables.add(entry.getValue().getPickableEntity().toObject());
+            }
+            //Player entities:
+            else if (entry.getValue().hasPlayerEntity()) {
+                playerEntities.put(entry.getKey(), entry.getValue().getPlayerEntity().toObject());
+            }
+        }
+
+        invalidate();
+    }
+
+    /**
+     * Updates the local state after receiving an update from the server.
+     * Note: The terrain/Grid is omitted from state updates as its state does not change.
+     * @param stateUpdate
+     */
+    void update(final AMCStateUpdateProto stateUpdate) {
+        //Entities:
+        for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
+            //Pickables:
+            if (entry.getValue().hasPickableEntity()) {
+                pickables.add(entry.getValue().getPickableEntity().toObject());
+            }
+            //Player entities:
+            else if (entry.getValue().hasPlayerEntity()) {
+                playerEntities.put(entry.getKey(), entry.getValue().getPlayerEntity().toObject());
+            }
+        }
+
         invalidate();
     }
 
