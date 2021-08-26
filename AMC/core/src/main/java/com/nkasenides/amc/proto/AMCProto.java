@@ -125,6 +125,16 @@ public final class AMCProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -370,251 +380,262 @@ public final class AMCProto {
       "oto\022?\n\010position\030\001 \001(\0132-.com.nkasenides.a" +
       "mc.proto.MatrixPositionProto\022\021\n\trightWal" +
       "l\030\002 \001(\010\022\020\n\010downWall\030\003 \001(\010\022\016\n\006upWall\030\004 \001(" +
-      "\010\022\020\n\010leftWall\030\005 \001(\010\"\267\001\n\023AMCStateUpdatePr" +
+      "\010\022\020\n\010leftWall\030\005 \001(\010\"\246\004\n\023AMCStateUpdatePr" +
       "oto\022D\n\014partialState\030\001 \001(\0132..com.nkasenid" +
       "es.amc.proto.AMCPartialStateProto\022\026\n\016wor" +
       "ldSessionID\030\002 \001(\t\022\027\n\017removedEntities\030\003 \003" +
-      "(\t\022\026\n\016removedTerrain\030\004 \003(\t\022\021\n\ttimestamp\030" +
-      "\005 \001(\004\"\233\002\n\024AMCTerrainChunkProto\022\n\n\002id\030\001 \001" +
-      "(\t\022\017\n\007worldID\030\002 \001(\t\022?\n\010position\030\003 \001(\0132-." +
-      "com.nkasenides.amc.proto.MatrixPositionP" +
-      "roto\022H\n\005cells\030\004 \003(\01329.com.nkasenides.amc" +
-      ".proto.AMCTerrainChunkProto.CellsEntry\032[" +
-      "\n\nCellsEntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 \001(\013" +
-      "2-.com.nkasenides.amc.proto.AMCTerrainCe" +
-      "llProto:\0028\001\"\217\001\n\031AMCTerrainIdentifierProt" +
-      "o\022\n\n\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n\007worldI" +
-      "D\030\003 \001(\t\022D\n\rchunkPosition\030\004 \001(\0132-.com.nka" +
-      "senides.amc.proto.MatrixPositionProto\"\307\003" +
-      "\n\024AMCPartialStateProto\022N\n\010entities\030\001 \003(\013" +
-      "2<.com.nkasenides.amc.proto.AMCPartialSt" +
-      "ateProto.EntitiesEntry\022D\n\014worldSession\030\002" +
-      " \001(\0132..com.nkasenides.amc.proto.AMCWorld" +
-      "SessionProto\022L\n\007terrain\030\003 \003(\0132;.com.nkas" +
-      "enides.amc.proto.AMCPartialStateProto.Te" +
-      "rrainEntry\022\021\n\ttimestamp\030\004 \001(\004\032Y\n\rEntitie" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001(\0132(.com" +
-      ".nkasenides.amc.proto.AMCEntityProto:\0028\001" +
-      "\032]\n\014TerrainEntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002" +
-      " \001(\0132-.com.nkasenides.amc.proto.AMCTerra" +
-      "inCellProto:\0028\001\"\365\001\n\rAMCWorldProto\022\017\n\007max" +
-      "Rows\030\001 \001(\022\022\023\n\013heightLimit\030\002 \001(\r\022\014\n\004seed\030" +
-      "\003 \001(\022\0221\n\004grid\030\004 \001(\0132#.com.nkasenides.amc" +
-      ".proto.GridProto\022\014\n\004name\030\005 \001(\t\022\020\n\010chunkI" +
-      "Ds\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t\022\021\n" +
-      "\tcreatedOn\030\t \001(\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024sub" +
-      "scribedSessionIDs\030\013 \003(\t\"\320\005\n\007Request\022L\n\023a" +
-      "ddChallengeRequest\030\001 \001(\0132-.com.nkasenide" +
-      "s.amc.proto.AddChallengeRequestH\000\022D\n\017get" +
-      "StateRequest\030\002 \001(\0132).com.nkasenides.amc." +
-      "proto.GetStateRequestH\000\022F\n\020subscribeRequ" +
-      "est\030\003 \001(\0132*.com.nkasenides.amc.proto.Sub" +
-      "scribeRequestH\000\022P\n\025listChallengesRequest" +
-      "\030\004 \001(\0132/.com.nkasenides.amc.proto.ListCh" +
-      "allengesRequestH\000\022J\n\022unsubscribeRequest\030" +
-      "\005 \001(\0132,.com.nkasenides.amc.proto.Unsubsc" +
-      "ribeRequestH\000\022H\n\021submitCodeRequest\030\006 \001(\013" +
-      "2+.com.nkasenides.amc.proto.SubmitCodeRe" +
-      "questH\000\022J\n\022updateStateRequest\030\007 \001(\0132,.co" +
-      "m.nkasenides.amc.proto.UpdateStateReques" +
-      "tH\000\022N\n\024joinChallengeRequest\030\010 \001(\0132..com." +
-      "nkasenides.amc.proto.JoinChallengeReques" +
-      "tH\000\022Z\n\032submitQuestionnaireRequest\030\t \001(\0132" +
-      "4.com.nkasenides.amc.proto.SubmitQuestio" +
-      "nnaireRequestH\000B\t\n\007request\"d\n\023AddChallen" +
-      "geRequest\022;\n\tchallenge\030\001 \001(\0132(.com.nkase" +
-      "nides.amc.proto.ChallengeProto\022\020\n\010adminK" +
-      "ey\030\002 \001(\t\")\n\017GetStateRequest\022\026\n\016worldSess" +
-      "ionID\030\001 \001(\t\"*\n\020SubscribeRequest\022\026\n\016world" +
-      "SessionID\030\001 \001(\t\"\027\n\025ListChallengesRequest" +
-      "\",\n\022UnsubscribeRequest\022\026\n\016worldSessionID" +
-      "\030\001 \001(\t\"9\n\021SubmitCodeRequest\022\014\n\004code\030\001 \001(" +
-      "\t\022\026\n\016worldSessionID\030\002 \001(\t\",\n\022UpdateState" +
-      "Request\022\026\n\016worldSessionID\030\001 \001(\t\"e\n\024JoinC" +
-      "hallengeRequest\022\023\n\013challengeID\030\001 \001(\t\0228\n\006" +
-      "player\030\002 \001(\0132(.com.nkasenides.amc.proto." +
-      "AMCPlayerProto\"\203\001\n\032SubmitQuestionnaireRe" +
-      "quest\022\026\n\016worldSessionID\030\001 \001(\t\022M\n\022questio" +
-      "nnaireEntry\030\002 \001(\01321.com.nkasenides.amc.p" +
-      "roto.QuestionnaireEntryProto\"\344\005\n\010Respons" +
-      "e\022\\\n\033submitQuestionnaireResponse\030\001 \001(\01325" +
-      ".com.nkasenides.amc.proto.SubmitQuestion" +
-      "naireResponseH\000\022F\n\020getStateResponse\030\002 \001(" +
-      "\0132*.com.nkasenides.amc.proto.GetStateRes" +
-      "ponseH\000\022P\n\025joinChallengeResponse\030\003 \001(\0132/" +
-      ".com.nkasenides.amc.proto.JoinChallengeR" +
-      "esponseH\000\022L\n\023updateStateResponse\030\004 \001(\0132-" +
-      ".com.nkasenides.amc.proto.UpdateStateRes" +
-      "ponseH\000\022J\n\022submitCodeResponse\030\005 \001(\0132,.co" +
-      "m.nkasenides.amc.proto.SubmitCodeRespons" +
-      "eH\000\022H\n\021subscribeResponse\030\006 \001(\0132+.com.nka" +
-      "senides.amc.proto.SubscribeResponseH\000\022L\n" +
-      "\023unsubscribeResponse\030\007 \001(\0132-.com.nkaseni" +
-      "des.amc.proto.UnsubscribeResponseH\000\022R\n\026l" +
-      "istChallengesResponse\030\010 \001(\01320.com.nkasen" +
-      "ides.amc.proto.ListChallengesResponseH\000\022" +
-      "N\n\024addChallengeResponse\030\t \001(\0132..com.nkas" +
-      "enides.amc.proto.AddChallengeResponseH\000B" +
-      "\n\n\010response\"\261\001\n\033SubmitQuestionnaireRespo" +
-      "nse\022\017\n\007message\030\001 \001(\t\022L\n\006status\030\002 \001(\0162<.c" +
-      "om.nkasenides.amc.proto.SubmitQuestionna" +
-      "ireResponse.Status\"3\n\006Status\022\021\n\rCANNOT_S" +
-      "UBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006\n\002OK\020\002\"\253\002\n\020GetS" +
-      "tateResponse\022D\n\014partialState\030\001 \001(\0132..com" +
-      ".nkasenides.amc.proto.AMCPartialStatePro" +
-      "to\022\017\n\007message\030\002 \001(\t\022A\n\006status\030\003 \001(\01621.co" +
-      "m.nkasenides.amc.proto.GetStateResponse." +
-      "Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO" +
-      "_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022" +
-      "\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE_ST" +
-      "ATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025JoinChallengeResponse\022" +
-      ";\n\tchallenge\030\001 \001(\0132(.com.nkasenides.amc." +
-      "proto.ChallengeProto\022D\n\014worldSession\030\002 \001" +
-      "(\0132..com.nkasenides.amc.proto.AMCWorldSe" +
-      "ssionProto\022\017\n\007message\030\003 \001(\t\022F\n\006status\030\004 " +
-      "\001(\01626.com.nkasenides.amc.proto.JoinChall" +
-      "engeResponse.Status\"\226\001\n\006Status\022\025\n\021INVALI" +
-      "D_CHALLENGE\020\000\022\031\n\025CHALLENGE_NOT_STARTED\020\001" +
-      "\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022PLAYER_NAME_EXIS" +
-      "TS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022\006\n\002OK\020\005\022\022\n\016CHAL" +
-      "LENGE_FULL\020\006\"\257\002\n\023UpdateStateResponse\022\017\n\007" +
-      "message\030\001 \001(\t\022B\n\013stateUpdate\030\002 \001(\0132-.com" +
+      "(\t\022\026\n\016removedTerrain\030\004 \003(\t\022W\n\rworldSessi" +
+      "ons\030\005 \003(\0132@.com.nkasenides.amc.proto.AMC" +
+      "StateUpdateProto.WorldSessionsEntry\022\021\n\tt" +
+      "imestamp\030\006 \001(\004\022Q\n\nallPlayers\030\007 \003(\0132=.com" +
       ".nkasenides.amc.proto.AMCStateUpdateProt" +
-      "o\022D\n\006status\030\003 \001(\01624.com.nkasenides.amc.p" +
-      "roto.UpdateStateResponse.Status\"}\n\006Statu" +
-      "s\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SES" +
-      "SION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZ" +
-      "ED\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\301" +
-      "\001\n\022SubmitCodeResponse\022\017\n\007message\030\001 \001(\t\022C" +
-      "\n\006status\030\002 \001(\01623.com.nkasenides.amc.prot" +
-      "o.SubmitCodeResponse.Status\"U\n\006Status\022\031\n" +
-      "\025INVALID_WORLD_SESSION\020\000\022\020\n\014INVALID_CODE" +
-      "\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBMIT_CODE\020\003\"\255\002\n\021S" +
-      "ubscribeResponse\022D\n\014partialState\030\001 \001(\0132." +
-      ".com.nkasenides.amc.proto.AMCPartialStat" +
-      "eProto\022\017\n\007message\030\002 \001(\t\022B\n\006status\030\003 \001(\0162" +
-      "2.com.nkasenides.amc.proto.SubscribeResp" +
-      "onse.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022" +
-      "\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DA" +
-      "TA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPO" +
-      "SE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n\023UnsubscribeRespon" +
-      "se\022\017\n\007message\030\001 \001(\t\022D\n\006status\030\002 \001(\01624.co" +
-      "m.nkasenides.amc.proto.UnsubscribeRespon" +
-      "se.Status\"c\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n" +
+      "o.AllPlayersEntry\032d\n\022WorldSessionsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022=\n\005value\030\002 \001(\0132..com.nkasen" +
+      "ides.amc.proto.AMCWorldSessionProto:\0028\001\032" +
+      "[\n\017AllPlayersEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value" +
+      "\030\002 \001(\0132(.com.nkasenides.amc.proto.AMCPla" +
+      "yerProto:\0028\001\"\233\002\n\024AMCTerrainChunkProto\022\n\n" +
+      "\002id\030\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022?\n\010position\030\003" +
+      " \001(\0132-.com.nkasenides.amc.proto.MatrixPo" +
+      "sitionProto\022H\n\005cells\030\004 \003(\01329.com.nkaseni" +
+      "des.amc.proto.AMCTerrainChunkProto.Cells" +
+      "Entry\032[\n\nCellsEntry\022\013\n\003key\030\001 \001(\t\022<\n\005valu" +
+      "e\030\002 \001(\0132-.com.nkasenides.amc.proto.AMCTe" +
+      "rrainCellProto:\0028\001\"\217\001\n\031AMCTerrainIdentif" +
+      "ierProto\022\n\n\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n" +
+      "\007worldID\030\003 \001(\t\022D\n\rchunkPosition\030\004 \001(\0132-." +
+      "com.nkasenides.amc.proto.MatrixPositionP" +
+      "roto\"\372\003\n\024AMCPartialStateProto\022D\n\014worldSe" +
+      "ssion\030\001 \001(\0132..com.nkasenides.amc.proto.A" +
+      "MCWorldSessionProto\022N\n\010entities\030\002 \003(\0132<." +
+      "com.nkasenides.amc.proto.AMCPartialState" +
+      "Proto.EntitiesEntry\022L\n\007terrain\030\003 \003(\0132;.c" +
+      "om.nkasenides.amc.proto.AMCPartialStateP" +
+      "roto.TerrainEntry\0221\n\004grid\030\004 \001(\0132#.com.nk" +
+      "asenides.amc.proto.GridProto\022\021\n\ttimestam" +
+      "p\030\005 \001(\004\032Y\n\rEntitiesEntry\022\013\n\003key\030\001 \001(\t\0227\n" +
+      "\005value\030\002 \001(\0132(.com.nkasenides.amc.proto." +
+      "AMCEntityProto:\0028\001\032]\n\014TerrainEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.com.nkasenides." +
+      "amc.proto.AMCTerrainCellProto:\0028\001\"\365\001\n\rAM" +
+      "CWorldProto\022\017\n\007maxRows\030\001 \001(\022\022\023\n\013heightLi" +
+      "mit\030\002 \001(\r\022\014\n\004seed\030\003 \001(\022\0221\n\004grid\030\004 \001(\0132#." +
+      "com.nkasenides.amc.proto.GridProto\022\014\n\004na" +
+      "me\030\005 \001(\t\022\020\n\010chunkIDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017" +
+      "\n\007ownerID\030\010 \001(\t\022\021\n\tcreatedOn\030\t \001(\004\022\017\n\007ma" +
+      "xCols\030\n \001(\022\022\034\n\024subscribedSessionIDs\030\013 \003(" +
+      "\t\"\320\005\n\007Request\022L\n\023addChallengeRequest\030\001 \001" +
+      "(\0132-.com.nkasenides.amc.proto.AddChallen" +
+      "geRequestH\000\022D\n\017getStateRequest\030\002 \001(\0132).c" +
+      "om.nkasenides.amc.proto.GetStateRequestH" +
+      "\000\022F\n\020subscribeRequest\030\003 \001(\0132*.com.nkasen" +
+      "ides.amc.proto.SubscribeRequestH\000\022P\n\025lis" +
+      "tChallengesRequest\030\004 \001(\0132/.com.nkasenide" +
+      "s.amc.proto.ListChallengesRequestH\000\022J\n\022u" +
+      "nsubscribeRequest\030\005 \001(\0132,.com.nkasenides" +
+      ".amc.proto.UnsubscribeRequestH\000\022H\n\021submi" +
+      "tCodeRequest\030\006 \001(\0132+.com.nkasenides.amc." +
+      "proto.SubmitCodeRequestH\000\022J\n\022updateState" +
+      "Request\030\007 \001(\0132,.com.nkasenides.amc.proto" +
+      ".UpdateStateRequestH\000\022N\n\024joinChallengeRe" +
+      "quest\030\010 \001(\0132..com.nkasenides.amc.proto.J" +
+      "oinChallengeRequestH\000\022Z\n\032submitQuestionn" +
+      "aireRequest\030\t \001(\01324.com.nkasenides.amc.p" +
+      "roto.SubmitQuestionnaireRequestH\000B\t\n\007req" +
+      "uest\"d\n\023AddChallengeRequest\022;\n\tchallenge" +
+      "\030\001 \001(\0132(.com.nkasenides.amc.proto.Challe" +
+      "ngeProto\022\020\n\010adminKey\030\002 \001(\t\")\n\017GetStateRe" +
+      "quest\022\026\n\016worldSessionID\030\001 \001(\t\"*\n\020Subscri" +
+      "beRequest\022\026\n\016worldSessionID\030\001 \001(\t\"\027\n\025Lis" +
+      "tChallengesRequest\",\n\022UnsubscribeRequest" +
+      "\022\026\n\016worldSessionID\030\001 \001(\t\"9\n\021SubmitCodeRe" +
+      "quest\022\014\n\004code\030\001 \001(\t\022\026\n\016worldSessionID\030\002 " +
+      "\001(\t\",\n\022UpdateStateRequest\022\026\n\016worldSessio" +
+      "nID\030\001 \001(\t\"e\n\024JoinChallengeRequest\022\023\n\013cha" +
+      "llengeID\030\001 \001(\t\0228\n\006player\030\002 \001(\0132(.com.nka" +
+      "senides.amc.proto.AMCPlayerProto\"\203\001\n\032Sub" +
+      "mitQuestionnaireRequest\022\026\n\016worldSessionI" +
+      "D\030\001 \001(\t\022M\n\022questionnaireEntry\030\002 \001(\01321.co" +
+      "m.nkasenides.amc.proto.QuestionnaireEntr" +
+      "yProto\"\344\005\n\010Response\022\\\n\033submitQuestionnai" +
+      "reResponse\030\001 \001(\01325.com.nkasenides.amc.pr" +
+      "oto.SubmitQuestionnaireResponseH\000\022F\n\020get" +
+      "StateResponse\030\002 \001(\0132*.com.nkasenides.amc" +
+      ".proto.GetStateResponseH\000\022P\n\025joinChallen" +
+      "geResponse\030\003 \001(\0132/.com.nkasenides.amc.pr" +
+      "oto.JoinChallengeResponseH\000\022L\n\023updateSta" +
+      "teResponse\030\004 \001(\0132-.com.nkasenides.amc.pr" +
+      "oto.UpdateStateResponseH\000\022J\n\022submitCodeR" +
+      "esponse\030\005 \001(\0132,.com.nkasenides.amc.proto" +
+      ".SubmitCodeResponseH\000\022H\n\021subscribeRespon" +
+      "se\030\006 \001(\0132+.com.nkasenides.amc.proto.Subs" +
+      "cribeResponseH\000\022L\n\023unsubscribeResponse\030\007" +
+      " \001(\0132-.com.nkasenides.amc.proto.Unsubscr" +
+      "ibeResponseH\000\022R\n\026listChallengesResponse\030" +
+      "\010 \001(\01320.com.nkasenides.amc.proto.ListCha" +
+      "llengesResponseH\000\022N\n\024addChallengeRespons" +
+      "e\030\t \001(\0132..com.nkasenides.amc.proto.AddCh" +
+      "allengeResponseH\000B\n\n\010response\"\261\001\n\033Submit" +
+      "QuestionnaireResponse\022\017\n\007message\030\001 \001(\t\022L" +
+      "\n\006status\030\002 \001(\0162<.com.nkasenides.amc.prot" +
+      "o.SubmitQuestionnaireResponse.Status\"3\n\006" +
+      "Status\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020" +
+      "\001\022\006\n\002OK\020\002\"\253\002\n\020GetStateResponse\022D\n\014partia" +
+      "lState\030\001 \001(\0132..com.nkasenides.amc.proto." +
+      "AMCPartialStateProto\022\017\n\007message\030\002 \001(\t\022A\n" +
+      "\006status\030\003 \001(\01621.com.nkasenides.amc.proto" +
+      ".GetStateResponse.Status\"}\n\006Status\022\020\n\014SE" +
+      "RVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022" +
+      "\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n" +
+      "\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025Join" +
+      "ChallengeResponse\022;\n\tchallenge\030\001 \001(\0132(.c" +
+      "om.nkasenides.amc.proto.ChallengeProto\022D" +
+      "\n\014worldSession\030\002 \001(\0132..com.nkasenides.am" +
+      "c.proto.AMCWorldSessionProto\022\017\n\007message\030" +
+      "\003 \001(\t\022F\n\006status\030\004 \001(\01626.com.nkasenides.a" +
+      "mc.proto.JoinChallengeResponse.Status\"\226\001" +
+      "\n\006Status\022\025\n\021INVALID_CHALLENGE\020\000\022\031\n\025CHALL" +
+      "ENGE_NOT_STARTED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026" +
+      "\n\022PLAYER_NAME_EXISTS\020\003\022\022\n\016CHALLENGE_OVER" +
+      "\020\004\022\006\n\002OK\020\005\022\022\n\016CHALLENGE_FULL\020\006\"\257\002\n\023Updat" +
+      "eStateResponse\022\017\n\007message\030\001 \001(\t\022B\n\013state" +
+      "Update\030\002 \001(\0132-.com.nkasenides.amc.proto." +
+      "AMCStateUpdateProto\022D\n\006status\030\003 \001(\01624.co" +
+      "m.nkasenides.amc.proto.UpdateStateRespon" +
+      "se.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n" +
       "\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA" +
-      "\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n\002OK\020\004\"\347\001\n\026ListC" +
-      "hallengesResponse\022<\n\nchallenges\030\001 \003(\0132(." +
-      "com.nkasenides.amc.proto.ChallengeProto\022" +
-      "\017\n\007message\030\002 \001(\t\022G\n\006status\030\003 \001(\01627.com.n" +
-      "kasenides.amc.proto.ListChallengesRespon" +
-      "se.Status\"5\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\021\n" +
-      "\rNO_CHALLENGES\020\001\022\006\n\002OK\020\002\"\302\001\n\024AddChalleng" +
-      "eResponse\022\017\n\007message\030\001 \001(\t\022E\n\006status\030\002 \001" +
-      "(\01625.com.nkasenides.amc.proto.AddChallen" +
-      "geResponse.Status\"R\n\006Status\022\025\n\021INVALID_C" +
-      "HALLENGE\020\000\022\020\n\014SERVER_ERROR\020\001\022\006\n\002OK\020\002\022\027\n\023" +
-      "INVALID_CREDENTIALS\020\003*\252\001\n\016LikertResponse" +
-      "\022\033\n\027POSITIVE_LikertResponse\020\000\022\033\n\027NEGATIV" +
-      "E_LikertResponse\020\001\022\032\n\026NEUTRAL_LikertResp" +
-      "onse\020\002\022 \n\034VERY_POSITIVE_LikertResponse\020\003" +
-      "\022 \n\034VERY_NEGATIVE_LikertResponse\020\004*E\n\005Sh" +
-      "ape\022\022\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_CIRCLE_" +
-      "Shape\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAmazeIcon\022" +
-      "\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020ICON_8_AmazeIco" +
-      "n\020\001\022\024\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON_6_Amaz" +
-      "eIcon\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020ICON_4_" +
-      "AmazeIcon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006\022\024\n\020ICO" +
-      "N_2_AmazeIcon\020\007\022\024\n\020ICON_1_AmazeIcon\020\010\022\025\n" +
-      "\021ICON_10_AmazeIcon\020\t*\201\001\n\nDifficulty\022\023\n\017E" +
-      "ASY_Difficulty\020\000\022\025\n\021MEDIUM_Difficulty\020\001\022" +
-      "\023\n\017HARD_Difficulty\020\002\022\030\n\024VERY_EASY_Diffic" +
-      "ulty\020\003\022\030\n\024VERY_HARD_Difficulty\020\004*8\n\004Bias" +
-      "\022\020\n\014PENALTY_Bias\020\000\022\r\n\tNONE_Bias\020\001\022\017\n\013REW" +
-      "ARD_Bias\020\002*m\n\023DichotomousResponse\022\032\n\026NO_" +
-      "DichotomousResponse\020\000\022\035\n\031MAYBE_Dichotomo" +
-      "usResponse\020\001\022\033\n\027YES_DichotomousResponse\020" +
-      "\002*e\n\020PickableCategory\022\032\n\026FRUIT_PickableC" +
-      "ategory\020\000\022\032\n\026SNACK_PickableCategory\020\001\022\031\n" +
-      "\025NONE_PickableCategory\020\002*s\n\tAlgorithm\022\034\n" +
-      "\030MANY_SOLUTIONS_Algorithm\020\000\022\024\n\020SPARSE_Al" +
-      "gorithm\020\001\022\035\n\031SINGLE_SOLUTION_Algorithm\020\002" +
-      "\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\nAmazeColor\022\023\n\017" +
-      "GOLD_AmazeColor\020\000\022\023\n\017BLUE_AmazeColor\020\001\022\025" +
-      "\n\021PURPLE_AmazeColor\020\002\022\024\n\020GREEN_AmazeColo" +
-      "r\020\003\022\030\n\024DARK_BLUE_AmazeColor\020\004\022\025\n\021INDIGO_" +
-      "AmazeColor\020\005\022\022\n\016RED_AmazeColor\020\006\022\031\n\025LIGH" +
-      "T_GREY_AmazeColor\020\007\022\023\n\017PINK_AmazeColor\020\010" +
-      "\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023DARK_RED_AmazeC" +
-      "olor\020\n\022\030\n\024DARK_GREY_AmazeColor\020\013\022\024\n\020BLAC" +
-      "K_AmazeColor\020\014\022\026\n\022MAGENTA_AmazeColor\020\r\022\025" +
-      "\n\021YELLOW_AmazeColor\020\016\022\031\n\025DARK_GREEN_Amaz" +
-      "eColor\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017CYAN_Am" +
-      "azeColor\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025\n\021ORANG" +
-      "E_AmazeColor\020\023*\355\002\n\017BackgroundImage\022!\n\035TE" +
-      "XTURE_WATER_BackgroundImage\020\000\022!\n\035TEXTURE" +
-      "_ROCKY_BackgroundImage\020\001\022!\n\035TEXTURE_SPAC" +
-      "E_BackgroundImage\020\002\022!\n\035TEXTURE_METAL_Bac" +
-      "kgroundImage\020\003\022 \n\034TEXTURE_MOON_Backgroun" +
-      "dImage\020\004\022 \n\034TEXTURE_LAVA_BackgroundImage" +
-      "\020\005\022\"\n\036TEXTURE_GRAVEL_BackgroundImage\020\006\022 " +
-      "\n\034TEXTURE_WOOD_BackgroundImage\020\007\022!\n\035TEXT" +
-      "URE_GRASS_BackgroundImage\020\010\022!\n\035TEXTURE_T" +
-      "ILES_BackgroundImage\020\t*4\n\010Language\022\024\n\020EN" +
-      "GLISH_Language\020\000\022\022\n\016GREEK_Language\020\001*K\n\t" +
-      "AudioType\022\025\n\021AMBIENT_AudioType\020\000\022\022\n\016NONE" +
-      "_AudioType\020\001\022\023\n\017EVENT_AudioType\020\002*\203\001\n\013Au" +
-      "dioFormat\022\023\n\017MP4_AudioFormat\020\000\022\023\n\017MP3_Au" +
-      "dioFormat\020\001\022 \n\034UNDEFINED_FORMAT_AudioFor" +
-      "mat\020\002\022\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG_AudioF" +
-      "ormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBOX_Audio" +
-      "\020\000\022\026\n\022EVENT_COIN20_Audio\020\001\022\027\n\023AMBIENT_ST" +
-      "ORM_Audio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003\022\027\n\023AMB" +
-      "IENT_NIGHT_Audio\020\004\022\026\n\022AMBIENT_SNOW_Audio" +
-      "\020\005\022\037\n\033AMBIENT_ALPINE_FOREST_Audio\020\006\022\024\n\020E" +
-      "VENT_FOOD_Audio\020\007\022\027\n\023AMBIENT_RIVER_Audio" +
-      "\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031\n\025EVENT_SPEEDH" +
-      "ACK_Audio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013\022\025\n\021EVE" +
-      "NT_COIN5_Audio\020\014\022\026\n\022EVENT_COIN10_Audio\020\r" +
-      "\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030\n\024AMBIENT_PRIS" +
-      "ON_Audio\020\017\022\033\n\027AMBIENT_SANDSTORM_Audio\020\020\022" +
-      "\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022AMBIENT_CITY_Au" +
-      "dio\020\022\022\030\n\024AMBIENT_STREET_Audio\020\023\022!\n\035AMBIE" +
-      "NT_TROPICAL_FOREST_Audio\020\024\022\026\n\022AMBIENT_FI" +
-      "RE_Audio\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032\n\026AMBIE" +
-      "NT_HIGHTECH_Audio\020\027\022\034\n\030AMBIENT_UNDERWATE" +
-      "R_Audio\020\030*\364\002\n\014PickableType\022\027\n\023GRAPES_Pic" +
-      "kableType\020\000\022\026\n\022APPLE_PickableType\020\001\022\025\n\021T" +
-      "RAP_PickableType\020\002\022\033\n\027WATERMELON_Pickabl" +
-      "eType\020\003\022\032\n\026SPEEDHACK_PickableType\020\004\022\030\n\024C" +
-      "OIN_10_PickableType\020\005\022\030\n\024COIN_20_Pickabl" +
-      "eType\020\006\022\026\n\022PEACH_PickableType\020\007\022\030\n\024GIFTB" +
-      "OX_PickableType\020\010\022\027\n\023COIN_5_PickableType" +
-      "\020\t\022\027\n\023BANANA_PickableType\020\n\022\025\n\021BOMB_Pick" +
-      "ableType\020\013\022\033\n\027STRAWBERRY_PickableType\020\014\022" +
-      "\027\n\023ORANGE_PickableType\020\r*\254\001\n\026MultipleCho" +
-      "iceResponse\022#\n\037CHOICE_1_MultipleChoiceRe" +
-      "sponse\020\000\022#\n\037CHOICE_4_MultipleChoiceRespo" +
-      "nse\020\001\022#\n\037CHOICE_2_MultipleChoiceResponse" +
-      "\020\002\022#\n\037CHOICE_3_MultipleChoiceResponse\020\003*" +
-      "l\n\023BackgroundImageType\022\033\n\027JPG_Background" +
-      "ImageType\020\000\022\033\n\027GIF_BackgroundImageType\020\001" +
-      "\022\033\n\027PNG_BackgroundImageType\020\002*\204\001\n\021Pickab" +
-      "leIntensity\022\032\n\026HIGH_PickableIntensity\020\000\022" +
-      "\034\n\030MEDIUM_PickableIntensity\020\001\022\031\n\025LOW_Pic" +
-      "kableIntensity\020\002\022\032\n\026NONE_PickableIntensi" +
-      "ty\020\003*6\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004EAST\020\001\022" +
-      "\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDirection6\022\n\n\006NO" +
-      "RTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_EAST\020\002\022\n" +
-      "\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNORTH_WEST" +
-      "\020\005*0\n\010Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021COUNTER" +
-      "_CLOCKWISE\020\001*C\n\tMovement4\022\013\n\007FORWARD\020\000\022\014" +
-      "\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIGHTWARD\020" +
-      "\003*t\n\tMovement6\022\014\n\010FORWARD6\020\000\022\021\n\rFORWARD_" +
-      "RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBACKWARD6" +
-      "\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014FORWARD_LEFT\020\005*" +
-      "7\n\tWorldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE_SQUARE" +
-      "\020\001\022\014\n\010TILE_HEX\020\002B&\n\030com.nkasenides.amc.p" +
-      "rotoB\010AMCProtoP\001b\006proto3"
+      "\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE" +
+      "_STATE\020\004\022\006\n\002OK\020\005\"\301\001\n\022SubmitCodeResponse\022" +
+      "\017\n\007message\030\001 \001(\t\022C\n\006status\030\002 \001(\01623.com.n" +
+      "kasenides.amc.proto.SubmitCodeResponse.S" +
+      "tatus\"U\n\006Status\022\031\n\025INVALID_WORLD_SESSION" +
+      "\020\000\022\020\n\014INVALID_CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_S" +
+      "UBMIT_CODE\020\003\"\255\002\n\021SubscribeResponse\022D\n\014pa" +
+      "rtialState\030\001 \001(\0132..com.nkasenides.amc.pr" +
+      "oto.AMCPartialStateProto\022\017\n\007message\030\002 \001(" +
+      "\t\022B\n\006status\030\003 \001(\01622.com.nkasenides.amc.p" +
+      "roto.SubscribeResponse.Status\"}\n\006Status\022" +
+      "\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSI" +
+      "ON\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED" +
+      "\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n" +
+      "\023UnsubscribeResponse\022\017\n\007message\030\001 \001(\t\022D\n" +
+      "\006status\030\002 \001(\01624.com.nkasenides.amc.proto" +
+      ".UnsubscribeResponse.Status\"c\n\006Status\022\020\n" +
+      "\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION" +
+      "\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003" +
+      "\022\006\n\002OK\020\004\"\347\001\n\026ListChallengesResponse\022<\n\nc" +
+      "hallenges\030\001 \003(\0132(.com.nkasenides.amc.pro" +
+      "to.ChallengeProto\022\017\n\007message\030\002 \001(\t\022G\n\006st" +
+      "atus\030\003 \001(\01627.com.nkasenides.amc.proto.Li" +
+      "stChallengesResponse.Status\"5\n\006Status\022\020\n" +
+      "\014SERVER_ERROR\020\000\022\021\n\rNO_CHALLENGES\020\001\022\006\n\002OK" +
+      "\020\002\"\302\001\n\024AddChallengeResponse\022\017\n\007message\030\001" +
+      " \001(\t\022E\n\006status\030\002 \001(\01625.com.nkasenides.am" +
+      "c.proto.AddChallengeResponse.Status\"R\n\006S" +
+      "tatus\022\025\n\021INVALID_CHALLENGE\020\000\022\020\n\014SERVER_E" +
+      "RROR\020\001\022\006\n\002OK\020\002\022\027\n\023INVALID_CREDENTIALS\020\003*" +
+      "\252\001\n\016LikertResponse\022\033\n\027POSITIVE_LikertRes" +
+      "ponse\020\000\022\033\n\027NEGATIVE_LikertResponse\020\001\022\032\n\026" +
+      "NEUTRAL_LikertResponse\020\002\022 \n\034VERY_POSITIV" +
+      "E_LikertResponse\020\003\022 \n\034VERY_NEGATIVE_Like" +
+      "rtResponse\020\004*E\n\005Shape\022\022\n\016TRIANGLE_Shape\020" +
+      "\000\022\026\n\022EMPTY_CIRCLE_Shape\020\001\022\020\n\014CIRCLE_Shap" +
+      "e\020\002*\350\001\n\tAmazeIcon\022\024\n\020ICON_9_AmazeIcon\020\000\022" +
+      "\024\n\020ICON_8_AmazeIcon\020\001\022\024\n\020ICON_7_AmazeIco" +
+      "n\020\002\022\024\n\020ICON_6_AmazeIcon\020\003\022\024\n\020ICON_5_Amaz" +
+      "eIcon\020\004\022\024\n\020ICON_4_AmazeIcon\020\005\022\024\n\020ICON_3_" +
+      "AmazeIcon\020\006\022\024\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICO" +
+      "N_1_AmazeIcon\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201" +
+      "\001\n\nDifficulty\022\023\n\017EASY_Difficulty\020\000\022\025\n\021ME" +
+      "DIUM_Difficulty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030" +
+      "\n\024VERY_EASY_Difficulty\020\003\022\030\n\024VERY_HARD_Di" +
+      "fficulty\020\004*8\n\004Bias\022\020\n\014PENALTY_Bias\020\000\022\r\n\t" +
+      "NONE_Bias\020\001\022\017\n\013REWARD_Bias\020\002*m\n\023Dichotom" +
+      "ousResponse\022\032\n\026NO_DichotomousResponse\020\000\022" +
+      "\035\n\031MAYBE_DichotomousResponse\020\001\022\033\n\027YES_Di" +
+      "chotomousResponse\020\002*e\n\020PickableCategory\022" +
+      "\032\n\026FRUIT_PickableCategory\020\000\022\032\n\026SNACK_Pic" +
+      "kableCategory\020\001\022\031\n\025NONE_PickableCategory" +
+      "\020\002*s\n\tAlgorithm\022\034\n\030MANY_SOLUTIONS_Algori" +
+      "thm\020\000\022\024\n\020SPARSE_Algorithm\020\001\022\035\n\031SINGLE_SO" +
+      "LUTION_Algorithm\020\002\022\023\n\017EMPTY_Algorithm\020\003*" +
+      "\326\003\n\nAmazeColor\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017B" +
+      "LUE_AmazeColor\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022" +
+      "\024\n\020GREEN_AmazeColor\020\003\022\030\n\024DARK_BLUE_Amaze" +
+      "Color\020\004\022\025\n\021INDIGO_AmazeColor\020\005\022\022\n\016RED_Am" +
+      "azeColor\020\006\022\031\n\025LIGHT_GREY_AmazeColor\020\007\022\023\n" +
+      "\017PINK_AmazeColor\020\010\022\023\n\017LIME_AmazeColor\020\t\022" +
+      "\027\n\023DARK_RED_AmazeColor\020\n\022\030\n\024DARK_GREY_Am" +
+      "azeColor\020\013\022\024\n\020BLACK_AmazeColor\020\014\022\026\n\022MAGE" +
+      "NTA_AmazeColor\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022" +
+      "\031\n\025DARK_GREEN_AmazeColor\020\017\022\023\n\017TEAL_Amaze" +
+      "Color\020\020\022\023\n\017CYAN_AmazeColor\020\021\022\023\n\017GREY_Ama" +
+      "zeColor\020\022\022\025\n\021ORANGE_AmazeColor\020\023*\355\002\n\017Bac" +
+      "kgroundImage\022!\n\035TEXTURE_WATER_Background" +
+      "Image\020\000\022!\n\035TEXTURE_ROCKY_BackgroundImage" +
+      "\020\001\022!\n\035TEXTURE_SPACE_BackgroundImage\020\002\022!\n" +
+      "\035TEXTURE_METAL_BackgroundImage\020\003\022 \n\034TEXT" +
+      "URE_MOON_BackgroundImage\020\004\022 \n\034TEXTURE_LA" +
+      "VA_BackgroundImage\020\005\022\"\n\036TEXTURE_GRAVEL_B" +
+      "ackgroundImage\020\006\022 \n\034TEXTURE_WOOD_Backgro" +
+      "undImage\020\007\022!\n\035TEXTURE_GRASS_BackgroundIm" +
+      "age\020\010\022!\n\035TEXTURE_TILES_BackgroundImage\020\t" +
+      "*4\n\010Language\022\024\n\020ENGLISH_Language\020\000\022\022\n\016GR" +
+      "EEK_Language\020\001*K\n\tAudioType\022\025\n\021AMBIENT_A" +
+      "udioType\020\000\022\022\n\016NONE_AudioType\020\001\022\023\n\017EVENT_" +
+      "AudioType\020\002*\203\001\n\013AudioFormat\022\023\n\017MP4_Audio" +
+      "Format\020\000\022\023\n\017MP3_AudioFormat\020\001\022 \n\034UNDEFIN" +
+      "ED_FORMAT_AudioFormat\020\002\022\023\n\017WAV_AudioForm" +
+      "at\020\003\022\023\n\017OGG_AudioFormat\020\004*\377\004\n\005Audio\022\027\n\023E" +
+      "VENT_GIFTBOX_Audio\020\000\022\026\n\022EVENT_COIN20_Aud" +
+      "io\020\001\022\027\n\023AMBIENT_STORM_Audio\020\002\022\024\n\020EVENT_T" +
+      "RAP_Audio\020\003\022\027\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022" +
+      "AMBIENT_SNOW_Audio\020\005\022\037\n\033AMBIENT_ALPINE_F" +
+      "OREST_Audio\020\006\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023A" +
+      "MBIENT_RIVER_Audio\020\010\022\024\n\020EVENT_BOMB_Audio" +
+      "\020\t\022\031\n\025EVENT_SPEEDHACK_Audio\020\n\022\024\n\020AUDIO_N" +
+      "ONE_Audio\020\013\022\025\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EV" +
+      "ENT_COIN10_Audio\020\r\022\026\n\022AMBIENT_CAVE_Audio" +
+      "\020\016\022\030\n\024AMBIENT_PRISON_Audio\020\017\022\033\n\027AMBIENT_" +
+      "SANDSTORM_Audio\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022" +
+      "\026\n\022AMBIENT_CITY_Audio\020\022\022\030\n\024AMBIENT_STREE" +
+      "T_Audio\020\023\022!\n\035AMBIENT_TROPICAL_FOREST_Aud" +
+      "io\020\024\022\026\n\022AMBIENT_FIRE_Audio\020\025\022\023\n\017EVENT_WI" +
+      "N_Audio\020\026\022\032\n\026AMBIENT_HIGHTECH_Audio\020\027\022\034\n" +
+      "\030AMBIENT_UNDERWATER_Audio\020\030*\364\002\n\014Pickable" +
+      "Type\022\027\n\023GRAPES_PickableType\020\000\022\026\n\022APPLE_P" +
+      "ickableType\020\001\022\025\n\021TRAP_PickableType\020\002\022\033\n\027" +
+      "WATERMELON_PickableType\020\003\022\032\n\026SPEEDHACK_P" +
+      "ickableType\020\004\022\030\n\024COIN_10_PickableType\020\005\022" +
+      "\030\n\024COIN_20_PickableType\020\006\022\026\n\022PEACH_Picka" +
+      "bleType\020\007\022\030\n\024GIFTBOX_PickableType\020\010\022\027\n\023C" +
+      "OIN_5_PickableType\020\t\022\027\n\023BANANA_PickableT" +
+      "ype\020\n\022\025\n\021BOMB_PickableType\020\013\022\033\n\027STRAWBER" +
+      "RY_PickableType\020\014\022\027\n\023ORANGE_PickableType" +
+      "\020\r*\254\001\n\026MultipleChoiceResponse\022#\n\037CHOICE_" +
+      "1_MultipleChoiceResponse\020\000\022#\n\037CHOICE_4_M" +
+      "ultipleChoiceResponse\020\001\022#\n\037CHOICE_2_Mult" +
+      "ipleChoiceResponse\020\002\022#\n\037CHOICE_3_Multipl" +
+      "eChoiceResponse\020\003*l\n\023BackgroundImageType" +
+      "\022\033\n\027JPG_BackgroundImageType\020\000\022\033\n\027GIF_Bac" +
+      "kgroundImageType\020\001\022\033\n\027PNG_BackgroundImag" +
+      "eType\020\002*\204\001\n\021PickableIntensity\022\032\n\026HIGH_Pi" +
+      "ckableIntensity\020\000\022\034\n\030MEDIUM_PickableInte" +
+      "nsity\020\001\022\031\n\025LOW_PickableIntensity\020\002\022\032\n\026NO" +
+      "NE_PickableIntensity\020\003*6\n\nDirection4\022\t\n\005" +
+      "NORTH\020\000\022\010\n\004EAST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d" +
+      "\n\nDirection6\022\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001" +
+      "\022\016\n\nSOUTH_EAST\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WE" +
+      "ST\020\004\022\016\n\nNORTH_WEST\020\005*0\n\010Rotation\022\r\n\tCLOC" +
+      "KWISE\020\000\022\025\n\021COUNTER_CLOCKWISE\020\001*C\n\tMoveme" +
+      "nt4\022\013\n\007FORWARD\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWA" +
+      "RD\020\002\022\r\n\tRIGHTWARD\020\003*t\n\tMovement6\022\014\n\010FORW" +
+      "ARD6\020\000\022\021\n\rFORWARD_RIGHT\020\001\022\022\n\016BACKWARD_RI" +
+      "GHT\020\002\022\r\n\tBACKWARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022" +
+      "\020\n\014FORWARD_LEFT\020\005*7\n\tWorldType\022\013\n\007UNIFOR" +
+      "M\020\000\022\017\n\013TILE_SQUARE\020\001\022\014\n\010TILE_HEX\020\002B&\n\030co" +
+      "m.nkasenides.amc.protoB\010AMCProtoP\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -751,7 +772,19 @@ public final class AMCProto {
     internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor,
-        new String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "Timestamp", });
+        new String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "WorldSessions", "Timestamp", "AllPlayers", });
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor =
+      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(0);
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
+        new String[] { "Key", "Value", });
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor =
+      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(1);
+    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
+        new String[] { "Key", "Value", });
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable = new
@@ -775,7 +808,7 @@ public final class AMCProto {
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor,
-        new String[] { "Entities", "WorldSession", "Terrain", "Timestamp", });
+        new String[] { "WorldSession", "Entities", "Terrain", "Grid", "Timestamp", });
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor =
       internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(0);
     internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable = new

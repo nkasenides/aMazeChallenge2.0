@@ -371,7 +371,7 @@ public class BlocklyActivity extends AbstractBlocklyActivity {
                 return true;
 
 
-            case com.google.blockly.android.R.id.action_clear:
+            case R.id.action_clear:
                 // show confirm dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(R.string.Clear_code)
