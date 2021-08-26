@@ -249,10 +249,24 @@ public class Game implements Transmittable<GameProto.Builder> {
     public boolean activateNextPlayer(final Grid grid) {
         if(!queuedPlayers.isEmpty()) {
             final String nextPlayerId = queuedPlayers.remove(0); // get first in line from 'queued'
-//            activePlayerIDsToPositionAndDirections.put(nextPlayerId, new PlayerPositionAndDirection(grid.getStartingPosition(), grid.getStartingDirection()));
-            final AMCPlayer player = getPlayerByID(nextPlayerId);
+            activePlayers.add(nextPlayerId);
             final AMCWorldSession worldSession = getPlayerWorldSessions().get(nextPlayerId);
             worldSession.setHealth(new Health());
+
+            AMCPlayer player = allPlayers.get(nextPlayerId);
+
+            //Upon activation, also create the player's entity, and place it in playerEntities:
+            if (player != null) {
+                PlayerEntity playerEntity = new PlayerEntity();
+                playerEntity.setAreaOfInterest(0);
+                playerEntity.setDirection(grid.getStartingDirection());
+                playerEntity.setId("");
+                playerEntity.setPlayerID(player.getId());
+                playerEntity.setPosition(grid.getStartingPosition());
+                playerEntity.setWorldID(worldSession.getWorldID());
+                playerEntities.put(player.getId(), playerEntity);
+            }
+
             return true;
         } else {
             return false;

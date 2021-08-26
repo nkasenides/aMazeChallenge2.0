@@ -91,8 +91,10 @@ public class GameView extends View {
     }
 
     void update(final Game game) {
+        System.out.println("Players: " + game.getAllPlayers().size());
         this.allIDsToPlayers = game.getAllPlayers();
         for(final String activePlayerId : game.getActivePlayers()) {
+            System.out.println("Player: " + activePlayerId);
             playerEntities.put(activePlayerId, game.getPlayerEntities().get(activePlayerId));
 //            activePlayerIdToPositionAndDirectionMap.put(activePlayerId, game.getPlayerPositionAndDirectionById(activePlayerId));
         }

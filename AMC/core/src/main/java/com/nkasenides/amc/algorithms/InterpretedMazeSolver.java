@@ -52,15 +52,13 @@ public class InterpretedMazeSolver extends AbstractMazeSolver {
         //Wrap the code
         code = processCode(unprocessedCode);
 
+        //Call the Initialization function, if it was declared:
         if (code.contains("function init(instance)")) {
-            System.out.println("Has INIT function");
-            //Call the Initialization function
             try {
                 final org.mozilla.javascript.Context rhinoContext = org.mozilla.javascript.Context.enter();
                 rhinoContext.setOptimizationLevel(-1);
                 final org.mozilla.javascript.ScriptableObject scope = rhinoContext.initStandardObjects();
                 rhinoContext.evaluateString(scope, code, INIT_FUNCTION, 1, null);
-                // todo the line below sometimes generates a class cast exception: java.lang.ClassCastException: org.mozilla.javascript.UniqueTag cannot be cast to org.mozilla.javascript.Function
                 final org.mozilla.javascript.Function function = (org.mozilla.javascript.Function) scope.get(INIT_FUNCTION, scope);
                 function.call(rhinoContext, scope, scope, new Object[]{this});
             } catch (Exception e) {
@@ -70,7 +68,6 @@ public class InterpretedMazeSolver extends AbstractMazeSolver {
             }
         }
         else {
-            System.out.println("Does not have INIT function");
             System.out.println("Initialization function not present, ignoring.");
         }
 
