@@ -214,7 +214,7 @@ public class GameActivity extends AppCompatActivity implements AudioEventListene
         final Intent intent = getIntent();
         this.challenge = (Challenge) intent.getSerializableExtra(SELECTED_CHALLENGE_KEY);
         this.gameView.setGrid(challenge.getGrid());
-        this.gameView.setLineColor(challenge.getLineColor().getHexCode());
+        this.gameView.setLineColor(challenge.getLineColor());
         BackgroundImage backgroundImage = challenge.getBackgroundImage();
         this.gameView.setBackgroundDrawable(backgroundImage);
         this.game = new Game();

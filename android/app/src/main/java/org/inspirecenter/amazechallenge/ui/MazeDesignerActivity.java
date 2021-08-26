@@ -288,7 +288,7 @@ public class MazeDesignerActivity extends AppCompatActivity {
         mode = (DesignerMode) getIntent().getSerializableExtra(DESIGNER_MODE_KEY);
         if (mode == DesignerMode.EDIT) {
             Challenge challenge = (Challenge) getIntent().getSerializableExtra(DESIGNER_DATA_KEY);
-            selectedWallColor = Color.parseColor(challenge.getLineColor().getHexCode());
+            selectedWallColor = Color.parseColor(challenge.getLineColor());
             backgroundImage = challenge.getBackgroundImage();
             backgroundAudio = challenge.getBackgroundAudio();
             size = challenge.getGrid().getHeight();

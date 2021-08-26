@@ -19,7 +19,7 @@ private static final long serialVersionUID = 0L;
     penalties_ = 0;
     backgroundImage_ = 0;
     description_ = "";
-    lineColor_ = 0;
+    lineColor_ = "";
     difficulty_ = 0;
     backgroundAudio_ = 0;
     name_ = "";
@@ -87,10 +87,10 @@ private static final long serialVersionUID = 0L;
             description_ = s;
             break;
           }
-          case 48: {
-            int rawValue = input.readEnum();
+          case 50: {
+            String s = input.readStringRequireUtf8();
 
-            lineColor_ = rawValue;
+            lineColor_ = s;
             break;
           }
           case 56: {
@@ -319,22 +319,41 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINECOLOR_FIELD_NUMBER = 6;
-  private int lineColor_;
+  private volatile Object lineColor_;
   /**
-   * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-   * @return The enum numeric value on the wire for lineColor.
-   */
-  @Override public int getLineColorValue() {
-    return lineColor_;
-  }
-  /**
-   * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
+   * <code>string lineColor = 6;</code>
    * @return The lineColor.
    */
-  @Override public AmazeColor getLineColor() {
-    @SuppressWarnings("deprecation")
-    AmazeColor result = AmazeColor.valueOf(lineColor_);
-    return result == null ? AmazeColor.UNRECOGNIZED : result;
+  @Override
+  public String getLineColor() {
+    Object ref = lineColor_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      lineColor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string lineColor = 6;</code>
+   * @return The bytes for lineColor.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getLineColorBytes() {
+    Object ref = lineColor_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      lineColor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int CANREPEAT_FIELD_NUMBER = 7;
@@ -670,8 +689,8 @@ private static final long serialVersionUID = 0L;
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
     }
-    if (lineColor_ != AmazeColor.GOLD_AmazeColor.getNumber()) {
-      output.writeEnum(6, lineColor_);
+    if (!getLineColorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lineColor_);
     }
     if (canRepeat_ != false) {
       output.writeBool(7, canRepeat_);
@@ -749,9 +768,8 @@ private static final long serialVersionUID = 0L;
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
     }
-    if (lineColor_ != AmazeColor.GOLD_AmazeColor.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(6, lineColor_);
+    if (!getLineColorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lineColor_);
     }
     if (canRepeat_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -837,7 +855,8 @@ private static final long serialVersionUID = 0L;
     if (backgroundImage_ != other.backgroundImage_) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
-    if (lineColor_ != other.lineColor_) return false;
+    if (!getLineColor()
+        .equals(other.getLineColor())) return false;
     if (getCanRepeat()
         != other.getCanRepeat()) return false;
     if (getCreatedOn()
@@ -893,7 +912,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + LINECOLOR_FIELD_NUMBER;
-    hash = (53 * hash) + lineColor_;
+    hash = (53 * hash) + getLineColor().hashCode();
     hash = (37 * hash) + CANREPEAT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getCanRepeat());
@@ -1076,7 +1095,7 @@ private static final long serialVersionUID = 0L;
 
       description_ = "";
 
-      lineColor_ = 0;
+      lineColor_ = "";
 
       canRepeat_ = false;
 
@@ -1230,8 +1249,9 @@ private static final long serialVersionUID = 0L;
         description_ = other.description_;
         onChanged();
       }
-      if (other.lineColor_ != 0) {
-        setLineColorValue(other.getLineColorValue());
+      if (!other.getLineColor().isEmpty()) {
+        lineColor_ = other.lineColor_;
+        onChanged();
       }
       if (other.getCanRepeat() != false) {
         setCanRepeat(other.getCanRepeat());
@@ -1559,56 +1579,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int lineColor_ = 0;
+    private Object lineColor_ = "";
     /**
-     * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-     * @return The enum numeric value on the wire for lineColor.
+     * <code>string lineColor = 6;</code>
+     * @return The lineColor.
      */
-    @Override public int getLineColorValue() {
-      return lineColor_;
+    public String getLineColor() {
+      Object ref = lineColor_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        lineColor_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-     * @param value The enum numeric value on the wire for lineColor to set.
+     * <code>string lineColor = 6;</code>
+     * @return The bytes for lineColor.
+     */
+    public com.google.protobuf.ByteString
+        getLineColorBytes() {
+      Object ref = lineColor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        lineColor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string lineColor = 6;</code>
+     * @param value The lineColor to set.
      * @return This builder for chaining.
      */
-    public Builder setLineColorValue(int value) {
-      
+    public Builder setLineColor(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       lineColor_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-     * @return The lineColor.
-     */
-    @Override
-    public AmazeColor getLineColor() {
-      @SuppressWarnings("deprecation")
-      AmazeColor result = AmazeColor.valueOf(lineColor_);
-      return result == null ? AmazeColor.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-     * @param value The lineColor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLineColor(AmazeColor value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      lineColor_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
+     * <code>string lineColor = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearLineColor() {
       
-      lineColor_ = 0;
+      lineColor_ = getDefaultInstance().getLineColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string lineColor = 6;</code>
+     * @param value The bytes for lineColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLineColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      lineColor_ = value;
       onChanged();
       return this;
     }

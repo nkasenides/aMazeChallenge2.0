@@ -3,9 +3,9 @@
     "apiVersion": 1,
     "name": "8 - Park Adventure",
     "description": "A walk in the park!",
-    "difficulty": "EASY",
+    "difficulty": "EASY_Difficulty",
     "createdOn": 0,
-    "createdBy": "admin",
+    "createdByID": "admin",
     "canRepeat": true,
     "canJoinAfterStart": true,
     "canStepOnEachOther": true,
@@ -14,10 +14,11 @@
     "startTimestamp": 0,
     "endTimestamp": 0,
     "hasQuestionnaire": false,
-    "rewards": "LOW",
-    "penalties": "LOW",
-    "algorithm": "SINGLE_SOLUTION",
+    "rewards": "LOW_PickableIntensity",
+    "penalties": "LOW_PickableIntensity",
+    "algorithm": "SINGLE_SOLUTION_Algorithm",
     "grid": {
+        "startingDirection": "NORTH",
         "width": 10,
         "height": 10,
         "data": "533333395b6953395acd78695a69cc523a69d6acedd5b6295a522853128dc596a587ac684b5a4bdc7a69e509687332bee63a",
@@ -31,6 +32,6 @@
         }
     },
     "lineColor": "#FFFF00",
-    "backgroundImage": "TEXTURE_GRASS",
-    "backgroundAudio": "AMBIENT_TROPICAL_FOREST"
+    "backgroundImage": "TEXTURE_GRASS_BackgroundImage",
+    "backgroundAudio": "AMBIENT_TROPICAL_FOREST_Audio"
 }

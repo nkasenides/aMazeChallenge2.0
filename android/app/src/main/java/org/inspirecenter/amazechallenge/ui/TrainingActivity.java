@@ -211,7 +211,10 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
 
             Collections.sort(challenges, (challenge, t1) -> Long.compare(t1.getCreatedOn(), challenge.getCreatedOn()));
 
-            for (Challenge c : challenges) challengeAdapter.add(c.toProto().build());
+            for (Challenge c : challenges) {
+                System.out.println("Challenge detected -> " + c.getName() + "[" + c.getId() + "]");
+                challengeAdapter.add(c.toProto().build());
+            }
 
         } catch (IOException e) {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();

@@ -3,9 +3,9 @@
   "apiVersion": 1,
   "name": "6 - Watch Your Step",
   "description": "Watch out for harmful objects.",
-  "difficulty": "MEDIUM",
+  "difficulty": "MEDIUM_Difficulty",
   "createdOn":0,
-  "createdBy": "admin",
+  "createdByID": "admin",
   "canRepeat": true,
   "canJoinAfterStart": true,
   "canStepOnEachOther": true,
@@ -14,10 +14,11 @@
   "startTimestamp": 0,
   "endTimestamp": 0,
   "hasQuestionnaire": false,
-  "rewards": "MEDIUM",
-  "penalties": "MEDIUM",
-  "algorithm": "SPARSE",
+  "rewards": "MEDIUM_PickableIntensity",
+  "penalties": "MEDIUM_PickableIntensity",
+  "algorithm": "SPARSE_Algorithm",
   "grid": {
+    "startingDirection": "NORTH",
     "width": 10,
     "height": 10,
     "data": "5111111119420000200841000010084208400208418c40010862000002085100022108cc402950084000120008622223222a",
@@ -31,6 +32,6 @@
     }
   },
   "lineColor": "#ffffff00",
-  "backgroundImage": "TEXTURE_METAL",
-  "backgroundAudio": "AMBIENT_CITY"
+  "backgroundImage": "TEXTURE_METAL_BackgroundImage",
+  "backgroundAudio": "AMBIENT_CITY_Audio"
 }

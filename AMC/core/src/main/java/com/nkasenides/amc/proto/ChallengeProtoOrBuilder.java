@@ -54,15 +54,16 @@ public interface ChallengeProtoOrBuilder extends
       getDescriptionBytes();
 
   /**
-   * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
-   * @return The enum numeric value on the wire for lineColor.
-   */
-  int getLineColorValue();
-  /**
-   * <code>.com.nkasenides.amc.proto.AmazeColor lineColor = 6;</code>
+   * <code>string lineColor = 6;</code>
    * @return The lineColor.
    */
-  AmazeColor getLineColor();
+  String getLineColor();
+  /**
+   * <code>string lineColor = 6;</code>
+   * @return The bytes for lineColor.
+   */
+  com.google.protobuf.ByteString
+      getLineColorBytes();
 
   /**
    * <code>bool canRepeat = 7;</code>
