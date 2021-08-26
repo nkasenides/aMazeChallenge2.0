@@ -3,6 +3,7 @@ package org.inspirecenter.amazechallenge.ui;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.google.gson.Gson;
+
+import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.generation.generator.MazeGenerator;
 import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.Grid;
@@ -29,12 +33,14 @@ import org.inspirecenter.amazechallenge.proto.Audio;
 import org.inspirecenter.amazechallenge.proto.AudioType;
 import org.inspirecenter.amazechallenge.proto.BackgroundImage;
 import org.inspirecenter.amazechallenge.proto.Difficulty;
+import org.inspirecenter.amazechallenge.proto.Direction4;
 import org.inspirecenter.amazechallenge.proto.PickableIntensity;
 
 import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.utils.FileManager;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 
@@ -376,6 +382,7 @@ public class MazeDesignerActivity extends AppCompatActivity {
             grid.setWidth(size);
             grid.setHeight(size);
             grid.setData(mazeGridData);
+            grid.setStartingDirection(Direction4.NORTH);
             grid.setStartingPosition(startingPosition);
             grid.setTargetPosition(targetPosition);
             gameView.setBackgroundDrawable(backgroundImage);
@@ -550,42 +557,41 @@ public class MazeDesignerActivity extends AppCompatActivity {
         final MatrixPosition targetPosition = new MatrixPosition(targetPos_row, targetPos_column);
         if (mazeGridData == null) mazeGridData = MazeGenerator.generate(selectedAlgorithm, size, startingPosition, targetPosition);
 
-        return  "{\n" +
-                "    \"id\": 0,\n" +
-                "    \"apiVersion\": 1,\n" +
-                "    \"name\": \"" + mazeNameEditText.getText().toString() + "\",\n" +
-                "    \"description\": \"" + mazeDescriptionEditText.getText().toString() + "\",\n" +
-                "    \"difficulty\": \"" + calculateDifficulty(rewardsIntensity, penaltiesIntensity).toString() + "\",\n" +
-                "    \"createdOn\":" + System.currentTimeMillis() + ",\n" +
-                "    \"createdBy\": \"player\"," +
-                "    \"canRepeat\": true,\n" +
-                "    \"canJoinAfterStart\": true,\n" +      //Default for training
-                "    \"canStepOnEachOther\": true,\n" +     //Default for training
-                "    \"minActivePlayers\": 1,\n" +          //Default for training
-                "    \"maxActivePlayers\": 10,\n" +         //Default for training
-                "    \"startTimestamp\": 0,\n" +            //Default for training
-                "    \"endTimestamp\": 0,\n" +              //Default for training
-                "    \"hasQuestionnaire\": false,\n" +       //Default for training
-                "    \"rewards\": \"" + rewardsIntensity + "\",\n" +
-                "    \"penalties\": \"" + penaltiesIntensity + "\",\n" +
-                "    \"algorithm\": \"" + selectedAlgorithm + "\",\n" +
-                "    \"grid\": {\n" +
-                "        \"width\": " + size + ",\n" +
-                "        \"height\": " + size + ",\n" +
-                "        \"data\": \"" + mazeGridData + "\",\n" +
-                "        \"startingPosition\": {\n" +
-                "            \"row\": " + startPos_row + ",\n" +
-                "            \"col\": " + startPos_column + "\n" +
-                "        },\n" +
-                "        \"targetPosition\": {\n" +
-                "            \"row\": " + targetPos_row + ",\n" +
-                "            \"col\": " + targetPos_column + "\n" +
-                "        }\n" +
-                "    },\n" +
-                "    \"lineColor\": \"#" + Integer.toHexString(selectedWallColor) + "\",\n" +
-                "    \"backgroundImage\": \"" + backgroundImage + "\",\n" +
-                "    \"backgroundAudio\": \"" + backgroundAudio + "\"\n" +
-                "}";
+        Challenge challenge = new Challenge();
+        challenge.setId(UUID.randomUUID().toString());
+        challenge.setCreatedByID("");
+        challenge.setApiVersion(1);
+        challenge.setName(mazeNameEditText.getText().toString());
+        challenge.setDescription(mazeDescriptionEditText.getText().toString());
+        challenge.setDifficulty(calculateDifficulty(rewardsIntensity, penaltiesIntensity));
+        challenge.setCreatedOn(System.currentTimeMillis());
+        challenge.setCreatedByID(Installation.id(MazeDesignerActivity.this));
+        challenge.setCanRepeat(true);
+        challenge.setCanJoinAfterStart(true);
+        challenge.setCanStepOnEachOther(true);
+        challenge.setMinActivePlayers(1);
+        challenge.setMaxActivePlayers(10);
+        challenge.setStartTime(0);
+        challenge.setEndTime(0);
+        challenge.setHasQuestionnaire(false);
+        challenge.setRewards(rewardsIntensity);
+        challenge.setPenalties(penaltiesIntensity);
+        challenge.setAlgorithm(selectedAlgorithm);
+        challenge.setLineColor("#" + Integer.toHexString(selectedWallColor));
+        challenge.setBackgroundImage(backgroundImage);
+        challenge.setBackgroundAudio(backgroundAudio);
+
+        Grid grid = new Grid();
+        grid.setWidth(size);
+        grid.setHeight(size);
+        grid.setData(mazeGridData);
+        grid.setStartingDirection(Direction4.NORTH);
+        grid.setStartingPosition(new MatrixPosition(startPos_row, startPos_column));
+        grid.setTargetPosition(new MatrixPosition(targetPos_row, targetPos_column));
+
+        challenge.setGrid(grid);
+
+        return new Gson().toJson(challenge);
     }
 
     private AlertDialog buildImageSelectionDialog(Activity activity) {
