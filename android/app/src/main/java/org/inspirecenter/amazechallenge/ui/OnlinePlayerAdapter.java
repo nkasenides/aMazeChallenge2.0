@@ -12,6 +12,11 @@ import android.widget.TextView;
 import com.nkasenides.amc.model.AMCPlayer;
 import com.nkasenides.amc.model.AMCWorldSession;
 import com.nkasenides.amc.model.PlayerEntity;
+import com.nkasenides.amc.proto.AMCEntityProto;
+import com.nkasenides.amc.proto.AMCPlayerProto;
+import com.nkasenides.amc.proto.AMCStateUpdateProto;
+import com.nkasenides.amc.proto.AMCWorldSessionProto;
+import com.nkasenides.amc.proto.PlayerEntityProto;
 
 import org.inspirecenter.amazechallenge.R;
 
@@ -29,29 +34,41 @@ import java.util.Vector;
 public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapter.ViewHolder>  {
 
     private final String installationId;
-    private final Vector<AMCPlayer> players;
-    private final Vector<AMCWorldSession> worldSessions;
-    private final Vector<PlayerEntity> playerEntities;
+    private final Vector<AMCPlayerProto> players;
+    private final Map<String, AMCWorldSessionProto> worldSessions;
+    private final Map<String, PlayerEntityProto> playerEntities;
     private final Map<String,String> playerIDsToStatus = new HashMap<>();
 
     OnlinePlayerAdapter(final String installationId) {
         this.installationId = installationId;
         this.players = new Vector<>();
-        this.worldSessions = new Vector<>();
-        this.playerEntities = new Vector<>();
+        this.worldSessions = new HashMap<>();
+        this.playerEntities = new HashMap<>();
     }
 
-    //TODO - Update the state without using GameFullState class.
+    void update(final AMCStateUpdateProto stateUpdate) {
+        final Collection<AMCPlayerProto> allPlayers = stateUpdate.getAllPlayersMap().values();
+        final Map<String, AMCWorldSessionProto> worldSessions = stateUpdate.getWorldSessionsMap();
 
-    void update(final GameFullState gameFullState) {
-        final Collection<Player> allPlayers = gameFullState.getAllIDsToPlayers().values();
         this.players.clear();
         this.players.addAll(allPlayers);
+        this.worldSessions.putAll(worldSessions);
+
+        for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
+            if (entry.getValue().hasPlayerEntity()) {
+                this.playerEntities.put(entry.getKey(), entry.getValue().getPlayerEntity());
+            }
+        }
+
         Collections.sort(players, (playerLeft, playerRight) -> {
-            final int playerLeftPoints = playerLeft.getPoints();
-            final int playerRightPoints = playerRight.getPoints();
-            final int playerLeftHealth= playerLeft.getHealth().asInt();
-            final int playerRightHealth = playerRight.getHealth().asInt();
+            AMCWorldSessionProto leftWorldSession = stateUpdate.getWorldSessionsMap().get(playerLeft.getId());
+            AMCWorldSessionProto rightWorldSession = stateUpdate.getWorldSessionsMap().get(playerRight.getId());
+
+            final int playerLeftPoints = leftWorldSession != null ? leftWorldSession.getPoints() : 0;
+            final int playerRightPoints = rightWorldSession != null ? rightWorldSession.getPoints() : 0;
+            final int playerLeftHealth = leftWorldSession != null ? leftWorldSession.getHealth().getHealth() : 0;
+            final int playerRightHealth = rightWorldSession != null ? rightWorldSession.getHealth().getHealth() : 0;
+
             return playerLeftPoints > playerRightPoints ? -1 :
                    playerLeftPoints < playerRightPoints ? +1 :
                    playerLeftHealth > playerRightHealth ? -1 :
@@ -59,18 +76,18 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
                            0;
         });
 
-        final Collection<String> allPlayerIds = gameFullState.getAllPlayerIDs();
-        for(final String activeID : gameFullState.getActivePlayerIDs()) {
-            playerIDsToStatus.put(activeID, "active");
-            allPlayerIds.remove(activeID);
-        }
-        for(final String queuedID : gameFullState.getQueuedPlayerIDs()) {
-            playerIDsToStatus.put(queuedID, "queued");
-            allPlayerIds.remove(queuedID);
-        }
-        for(final String waitingID : allPlayerIds) {
-            playerIDsToStatus.put(waitingID, "waiting");
-        }
+//        final Collection<String> allPlayerIds = stateUpdate.getAllPlayersMap().keySet();
+//        for(final String activeID : stateUpdate.getActivePlayerIDs()) {
+//            playerIDsToStatus.put(activeID, "active");
+//            allPlayerIds.remove(activeID);
+//        }
+//        for(final String queuedID : stateUpdate.getQueuedPlayerIDs()) {
+//            playerIDsToStatus.put(queuedID, "queued");
+//            allPlayerIds.remove(queuedID);
+//        }
+//        for(final String waitingID : allPlayerIds) {
+//            playerIDsToStatus.put(waitingID, "waiting");
+//        }
     }
 
     void clear() {
@@ -89,9 +106,9 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
         final TextView playerStatusTextView;
         final ProgressBar playerHealthProgressBar;
 
-        AMCPlayer player;
-        AMCWorldSession worldSession;
-        PlayerEntity playerEntity;
+        AMCPlayerProto player;
+        Map<String, AMCWorldSessionProto> worldSessions;
+        PlayerEntityProto playerEntity;
 
         ViewHolder(final View view) {
             super(view);
@@ -119,7 +136,7 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final AMCPlayer player = players.elementAt(position);
+        final AMCPlayerProto player = players.elementAt(position);
         if(installationId.equals(player.getId())) {
             holder.playerCardView.setBackgroundColor(Color.YELLOW);
             holder.playerNameTextView.setText(player.getName() + " (You)");
@@ -138,8 +155,21 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
             holder.playerStatusTextView.setTextColor(Color.GRAY);
         }
         holder.player = player;
-        holder.playerPointsTextView.setText(Integer.toString(player.getPoints()));
-        holder.playerHealthProgressBar.setProgress(player.getHealth().asInt());
+
+
+        final int points;
+        final int health;
+        if (worldSessions.get(player.getId()) != null) {
+            points = worldSessions.get(player.getId()).getPoints();
+            health = worldSessions.get(player.getId()).getHealth().getHealth();
+        }
+        else {
+            points = -1;
+            health = -1;
+        }
+
+        holder.playerPointsTextView.setText(Integer.toString(points));
+        holder.playerHealthProgressBar.setProgress(health);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nkasenides.amc.model.Challenge;
+import com.nkasenides.amc.proto.ChallengeProto;
 
 import org.inspirecenter.amazechallenge.R;
 
@@ -23,14 +24,14 @@ import java.util.Vector;
 class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder> {
 
     interface OnChallengeSelectedListener {
-        void onChallengeSelected(final Challenge challenge);
+        void onChallengeSelected(final ChallengeProto challenge);
     }
 
     interface OnChallengeLongSelectionListener {
-        void onChallengeLongSelect(final Challenge challenge);
+        void onChallengeLongSelect(final ChallengeProto challenge);
     }
 
-    private final Vector<Challenge> challenges;
+    private final Vector<ChallengeProto> challenges;
 
     /**
      * Provide a reference to the views for each data item. Complex data items may need more than
@@ -42,7 +43,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         final TextView challengeDescriptionTextView;
         final TextView challengeDimensionsTextView;
         final TextView challengeDifficultyTextView;
-        Challenge challenge;
+        ChallengeProto challenge;
 
         ViewHolder(final View view, final OnChallengeSelectedListener onChallengeSelectedListener, final OnChallengeLongSelectionListener onChallengeLongSelectionListener) {
             super(view);
@@ -74,11 +75,11 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         this.onChallengeLongSelectionListener = onChallengeLongSelectionListener;
     }
 
-    void add(final Challenge challenge) {
+    void add(final ChallengeProto challenge) {
         challenges.add(challenge);
     }
 
-    void addAll(final Collection<Challenge> challenges) {
+    void addAll(final Collection<ChallengeProto> challenges) {
         this.challenges.addAll(challenges);
     }
 
@@ -86,7 +87,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         this.challenges.clear();
     }
 
-    Vector<Challenge> getChallenges() {
+    Vector<ChallengeProto> getChallenges() {
         return new Vector<>(challenges);
     }
 
@@ -115,7 +116,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final Challenge challenge = challenges.elementAt(position);
+        final ChallengeProto challenge = challenges.elementAt(position);
         holder.challenge = challenge;
         holder.challengeNameTextView.setText(challenge.getName());
         holder.challengeDescriptionTextView.setText(challenge.getDescription());

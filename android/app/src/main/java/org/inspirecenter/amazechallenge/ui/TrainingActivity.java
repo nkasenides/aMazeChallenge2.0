@@ -26,6 +26,7 @@ import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.utils.FileManager;
 import com.nkasenides.amc.proto.AmazeColor;
 import com.nkasenides.amc.proto.AmazeIcon;
+import com.nkasenides.amc.proto.ChallengeProto;
 import com.nkasenides.amc.proto.Shape;
 import com.nkasenides.amc.model.Challenge;
 import com.nkasenides.amc.model.AMCPlayer;
@@ -103,7 +104,7 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
     }
 
     @Override
-    public void onChallengeSelected(final Challenge challenge) {
+    public void onChallengeSelected(final ChallengeProto challenge) {
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         final String email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, "guest@example.com");
@@ -132,7 +133,7 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
     }
 
     @Override
-    public void onChallengeLongSelect(final Challenge challenge) {
+    public void onChallengeLongSelect(final ChallengeProto challenge) {
         if (!challenge.getCreatedByID().equals("admin")) {
 
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -210,7 +211,7 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
 
             Collections.sort(challenges, (challenge, t1) -> Long.compare(t1.getCreatedOn(), challenge.getCreatedOn()));
 
-            for (Challenge c : challenges) challengeAdapter.add(c);
+            for (Challenge c : challenges) challengeAdapter.add(c.toProto().build());
 
         } catch (IOException e) {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();

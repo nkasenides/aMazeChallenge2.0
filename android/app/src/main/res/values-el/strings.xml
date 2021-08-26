@@ -286,5 +286,6 @@
     <string name="Missing_email">Λανθασμένο email</string>
     <string name="Missing_or_invalid_email">Λανθασμένο email. Επιλέξτε ένα έγκυρο email πρώτα, χρησιμοποιώντας την οθόνη για Προσαρμογή.</string>
     <string name="OK">ΟΚ</string>
+    <string name="state_update_failed">Πρόβλημα λήψης κατάστασης παιχνιδιού.</string>
 
 </resources>

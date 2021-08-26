@@ -309,5 +309,6 @@
     <string name="sound_AllOff">All Off</string>
     <string name="sound_SoundsOnly">Sounds Only</string>
     <string name="sound_VibrationOnly">Sound &amp; Vibration</string>
+    <string name="state_update_failed">State update failed.</string>
 
 </resources>

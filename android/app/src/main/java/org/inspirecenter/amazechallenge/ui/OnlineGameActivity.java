@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.nkasenides.amc.controller.AudioEventListener;
@@ -29,9 +30,17 @@ import com.nkasenides.amc.model.PickableEntity;
 import com.nkasenides.amc.proto.Audio;
 import com.nkasenides.amc.proto.AudioFormat;
 import com.nkasenides.amc.proto.AudioType;
+import com.nkasenides.amc.proto.GetStateRequest;
+import com.nkasenides.amc.proto.GetStateResponse;
+import com.nkasenides.amc.proto.SubmitCodeRequest;
+import com.nkasenides.amc.proto.SubmitCodeResponse;
+import com.nkasenides.amc.proto.UpdateStateRequest;
+import com.nkasenides.amc.proto.UpdateStateResponse;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
+import org.inspirecenter.amazechallenge.stubs.AMCClient;
+import org.inspirecenter.amazechallenge.stubs.Stubs;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -207,7 +216,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         final String email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, getString(R.string.Guest_email));
         final String code = sharedPreferences.getString(BlocklyActivity.KEY_ALGORITHM_ACTIVITY_CODE, "");
 
-        new SubmitCodeAsyncTask(email, code, challenge, getString(R.string.api_url), getString(R.string.magic)).execute();
+//        new SubmitCodeAsyncTask(email, code, challenge, getString(R.string.api_url), getString(R.string.magic)).execute();
+        submitCodeHTTP(code);
     }
 
     @Override
@@ -291,140 +301,201 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         }
     }
 
-    private class SubmitCodeAsyncTask extends AsyncTask<Void, Void, String> {
+//    private class SubmitCodeAsyncTask extends AsyncTask<Void, Void, String> {
+//
+//        private final String email;
+//        private final String code;
+//        private final Challenge challenge;
+//        private final String apiUrlBase;
+//        private final String magic;
+//
+//        SubmitCodeAsyncTask(final String email, final String code, final Challenge challenge, final String apiUrlBase, final String magic) {
+//            this.email = email;
+//            this.code = code;
+//            this.challenge = challenge;
+//            this.apiUrlBase = apiUrlBase;
+//            this.magic = magic;
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected String doInBackground(final Void... ignore) {
+//            try {
+//                final URL apiURL = new URL(apiUrlBase + "/submit-code?magic=" + magic
+//                        + "&challenge=" + challenge.getId()
+//                        + "&id=" + Installation.id(OnlineGameActivity.this));
+//                Log.d(TAG, "apiURL: " + apiURL.toString());
+//                final HttpURLConnection httpURLConnection = (HttpURLConnection) apiURL.openConnection();
+//                httpURLConnection.setDoInput(true); // Allow Inputs
+//                httpURLConnection.setDoOutput(true); // Allow Outputs
+//                httpURLConnection.setUseCaches(false); // Don't use a Cached Copy
+//                httpURLConnection.setRequestMethod("POST");
+//                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
+//                httpURLConnection.setRequestProperty("Content-Type", "application/json");
+//
+//                final DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+//                dataOutputStream.write(code.getBytes());
+//                dataOutputStream.close();
+//
+//                final InputStream inputStream = httpURLConnection.getInputStream();
+//                return convertStreamToString(inputStream);
+//            } catch (IOException e) {
+//                // show message in snackbar
+//                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_upload_failed), Snackbar.LENGTH_SHORT).show();
+//                // log error
+//                Log.e(TAG, "Error: " + Arrays.toString(e.getStackTrace()));
+//                return "Error: " + Arrays.toString(e.getStackTrace());
+//            }
+//        }
+//
+//        @Override
+//        protected void onPostExecute(final String reply) {
+//            super.onPostExecute(reply);
+//            Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_uploaded), Snackbar.LENGTH_SHORT).show();
+//            Log.d(TAG, "reply: " + reply);
+//        }
+//    }
 
-        private final String email;
-        private final String code;
-        private final Challenge challenge;
-        private final String apiUrlBase;
-        private final String magic;
-
-        SubmitCodeAsyncTask(final String email, final String code, final Challenge challenge, final String apiUrlBase, final String magic) {
-            this.email = email;
-            this.code = code;
-            this.challenge = challenge;
-            this.apiUrlBase = apiUrlBase;
-            this.magic = magic;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(final Void... ignore) {
-            try {
-                final URL apiURL = new URL(apiUrlBase + "/submit-code?magic=" + magic
-                        + "&challenge=" + challenge.getId()
-                        + "&id=" + Installation.id(OnlineGameActivity.this));
-                Log.d(TAG, "apiURL: " + apiURL.toString());
-                final HttpURLConnection httpURLConnection = (HttpURLConnection) apiURL.openConnection();
-                httpURLConnection.setDoInput(true); // Allow Inputs
-                httpURLConnection.setDoOutput(true); // Allow Outputs
-                httpURLConnection.setUseCaches(false); // Don't use a Cached Copy
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
-                httpURLConnection.setRequestProperty("Content-Type", "application/json");
-
-                final DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                dataOutputStream.write(code.getBytes());
-                dataOutputStream.close();
-
-                final InputStream inputStream = httpURLConnection.getInputStream();
-                return convertStreamToString(inputStream);
-            } catch (IOException e) {
-                // show message in snackbar
-                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_upload_failed), Snackbar.LENGTH_SHORT).show();
-                // log error
-                Log.e(TAG, "Error: " + Arrays.toString(e.getStackTrace()));
-                return "Error: " + Arrays.toString(e.getStackTrace());
-            }
-        }
-
-        @Override
-        protected void onPostExecute(final String reply) {
-            super.onPostExecute(reply);
-            Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_uploaded), Snackbar.LENGTH_SHORT).show();
-            Log.d(TAG, "reply: " + reply);
-        }
+    private void submitCodeHTTP(String code) {
+        Stubs.submitCodeStub(AMCClient.getInstance()).sendAndWait(
+                SubmitCodeRequest.newBuilder()
+                        .setCode(code)
+                        .setWorldSessionID(AMCClient.getInstance().getWorldSession().getId())
+                        .build(),
+                submitCodeResponse -> {
+                    if (submitCodeResponse.getStatus() == SubmitCodeResponse.Status.OK) {
+                        Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_uploaded), Snackbar.LENGTH_SHORT).show();
+                        System.out.println("Code upload OK");
+                        getStateHTTP();
+                    }
+                    else {
+                        Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.code_upload_failed), Snackbar.LENGTH_SHORT).show();
+                        System.err.println(submitCodeResponse.getMessage());
+                    }
+                }
+        );
     }
 
-
-    //TODO - Utilize stubs
-
-    private class GetGameStateAsyncTask extends AsyncTask<Void, Void, String> {
-
-        private final long challengeId;
-        private final String installationId;
-
-        GetGameStateAsyncTask(final long challengeId) {
-            this.challengeId = challengeId;
-            this.installationId = Installation.id(OnlineGameActivity.this);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(final Void... ignore) {
-            InputStream inputStream = null;
-            try {
-                final String apiUrlBase = getString(R.string.api_url);
-                final String magic = getString(R.string.magic);
-                final URL apiURL = new URL(apiUrlBase + "/game-state?magic=" + magic + "&installation=" + installationId + "&challenge=" + challengeId);
-                Log.d(TAG, "apiURL: " + apiURL.toString());
-                final HttpURLConnection httpURLConnection = (HttpURLConnection) apiURL.openConnection();
-                httpURLConnection.setDoInput(true); // Allow Inputs
-                httpURLConnection.setUseCaches(false); // Don't use a Cached Copy
-                httpURLConnection.setRequestMethod("GET");
-                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
-                httpURLConnection.setRequestProperty("Content-Type", "application/json");
-
-                inputStream = httpURLConnection.getInputStream();
-                return convertStreamToString(inputStream);
-            } catch (IOException e) {
-                // show message in snackbar
-                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_getting_error) + e.getMessage(), Snackbar.LENGTH_SHORT).show();
-                // log error
-                Log.e(TAG, "Error: " + e.getMessage());
-                e.printStackTrace();
-                return "Error: " + Arrays.toString(e.getStackTrace());
-            } finally {
-                try {
-                    if (inputStream != null) inputStream.close();
-                } catch (IOException ioe) {
-                    Log.e(TAG, "Error: " + ioe.getMessage());
-                }
-            }
-        }
-
-        @Override
-        protected void onPostExecute(final String reply) {
-            super.onPostExecute(reply);
-            final ReplyWithGameFullState replyWithFullGameState = new Gson().fromJson(reply, ReplyWithGameFullState.class);
-            final GameFullState gameFullState = replyWithFullGameState.getGameFullState();
-            switch (replyWithFullGameState.getStatus()) {
-                case OK:
-                    if(gameFullState != null) {
-
-                        gameView.update(gameFullState);
-                        onlinePlayerAdapter.update(gameFullState);
-                        onlinePlayerAdapter.notifyDataSetChanged();
-                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
-                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+    private void getStateHTTP() {
+        Stubs.getStateStub(AMCClient.getInstance()).sendAndWait(
+                GetStateRequest.newBuilder()
+                        .setWorldSessionID(AMCClient.getInstance().getWorldSession().getId())
+                        .build(),
+                getStateResponse -> {
+                    if (getStateResponse.getStatus() == GetStateResponse.Status.OK) {
+                        gameView.initialize(getStateResponse.getPartialState());
+                        //TODO - Do later.
+//                        onlinePlayerAdapter.update(gameFullState);
+//                        onlinePlayerAdapter.notifyDataSetChanged();
+//                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+//                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
                         // todo save to preferences and check if sounds needs to be played
                     }
-                    break;
-                case ERROR:
-                default:
-                    final ReplyWithErrors replyWithErrors = new Gson().fromJson(reply, ReplyWithErrors.class);
-                    Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_error) + replyWithErrors.getErrors(), Snackbar.LENGTH_SHORT).show();
-            }
-        }
+                    else {
+                        Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_getting_error) + getStateResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+                        System.err.println(getStateResponse.getMessage());
+                    }
+                }
+        );
     }
+
+    private long lastUpdateTimestamp = 0;
+
+    private void updateStateHTTP() {
+        Stubs.updateStateStub(AMCClient.getInstance()).sendAndWait(
+                 UpdateStateRequest.newBuilder()
+                         .setWorldSessionID(AMCClient.getInstance().getWorldSession().getId())
+                         .build(),
+                updateStateResponse -> {
+                     if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+                         if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) { //only update the state if the update was sent after the last update
+                             gameView.update(updateStateResponse.getStateUpdate());
+                         }
+                     }
+                     else {
+                         Toast.makeText(OnlineGameActivity.this, R.string.state_update_failed, Toast.LENGTH_SHORT).show();
+                         System.err.println(updateStateResponse.getMessage());
+                     }
+                }
+        );
+    }
+
+//    private class GetGameStateAsyncTask extends AsyncTask<Void, Void, String> {
+//
+//        private final long challengeId;
+//        private final String installationId;
+//
+//        GetGameStateAsyncTask(final long challengeId) {
+//            this.challengeId = challengeId;
+//            this.installationId = Installation.id(OnlineGameActivity.this);
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected String doInBackground(final Void... ignore) {
+//            InputStream inputStream = null;
+//            try {
+//                final String apiUrlBase = getString(R.string.api_url);
+//                final String magic = getString(R.string.magic);
+//                final URL apiURL = new URL(apiUrlBase + "/game-state?magic=" + magic + "&installation=" + installationId + "&challenge=" + challengeId);
+//                Log.d(TAG, "apiURL: " + apiURL.toString());
+//                final HttpURLConnection httpURLConnection = (HttpURLConnection) apiURL.openConnection();
+//                httpURLConnection.setDoInput(true); // Allow Inputs
+//                httpURLConnection.setUseCaches(false); // Don't use a Cached Copy
+//                httpURLConnection.setRequestMethod("GET");
+//                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
+//                httpURLConnection.setRequestProperty("Content-Type", "application/json");
+//
+//                inputStream = httpURLConnection.getInputStream();
+//                return convertStreamToString(inputStream);
+//            } catch (IOException e) {
+//                // show message in snackbar
+//                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_getting_error) + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+//                // log error
+//                Log.e(TAG, "Error: " + e.getMessage());
+//                e.printStackTrace();
+//                return "Error: " + Arrays.toString(e.getStackTrace());
+//            } finally {
+//                try {
+//                    if (inputStream != null) inputStream.close();
+//                } catch (IOException ioe) {
+//                    Log.e(TAG, "Error: " + ioe.getMessage());
+//                }
+//            }
+//        }
+//
+//        @Override
+//        protected void onPostExecute(final String reply) {
+//            super.onPostExecute(reply);
+//            final ReplyWithGameFullState replyWithFullGameState = new Gson().fromJson(reply, ReplyWithGameFullState.class);
+//            final GameFullState gameFullState = replyWithFullGameState.getGameFullState();
+//            switch (replyWithFullGameState.getStatus()) {
+//                case OK:
+//                    if(gameFullState != null) {
+//
+//                        gameView.update(gameFullState);
+//                        onlinePlayerAdapter.update(gameFullState);
+//                        onlinePlayerAdapter.notifyDataSetChanged();
+//                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+//                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+//                        // todo save to preferences and check if sounds needs to be played
+//                    }
+//                    break;
+//                case ERROR:
+//                default:
+//                    final ReplyWithErrors replyWithErrors = new Gson().fromJson(reply, ReplyWithErrors.class);
+//                    Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_error) + replyWithErrors.getErrors(), Snackbar.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 
     public static String convertStreamToString(final InputStream inputStream) {
         final Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
@@ -439,7 +510,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     if(challenge == null) {
                         finish();
                     } else {
-                        new GetGameStateAsyncTask(challenge.getId()).execute();
+                        updateStateHTTP();
                     }
                 });
             }
