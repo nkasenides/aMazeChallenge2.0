@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.inspirecenter.amazechallenge.R;
-import com.nkasenides.amc.algorithms.InterpreterError;
+import org.inspirecenter.amazechallenge.algorithms.InterpreterError;
 
 import java.util.ArrayList;
 

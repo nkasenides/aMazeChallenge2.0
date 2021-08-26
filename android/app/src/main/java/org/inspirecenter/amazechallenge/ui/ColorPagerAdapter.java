@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.nkasenides.amc.proto.AmazeColor;
+import org.inspirecenter.amazechallenge.proto.AmazeColor;
 
 /**
  * @author Nearchos

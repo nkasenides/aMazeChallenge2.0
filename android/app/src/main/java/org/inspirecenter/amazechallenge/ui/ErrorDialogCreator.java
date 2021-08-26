@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.inspirecenter.amazechallenge.R;
-import com.nkasenides.amc.algorithms.InterpreterError;
+import org.inspirecenter.amazechallenge.algorithms.InterpreterError;
 
 import java.util.ArrayList;
 

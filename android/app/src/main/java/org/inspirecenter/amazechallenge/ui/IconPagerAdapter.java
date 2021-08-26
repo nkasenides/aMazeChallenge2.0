@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import com.nkasenides.amc.proto.AmazeIcon;
+import org.inspirecenter.amazechallenge.proto.AmazeIcon;
 
 /**
  * @author Nearchos

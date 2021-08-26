@@ -8,7 +8,7 @@
 package org.inspirecenter.amazechallenge.stubs;
 
 
-import com.nkasenides.amc.proto.*;
+import org.inspirecenter.amazechallenge.proto.*;
 import com.nkasenides.athlos.client.stubs.OnRequestSuccessListener;
 import com.raylabz.javahttp.BinaryHTTPRequest;
 import com.raylabz.javahttp.OnFailureListener;

@@ -16,21 +16,21 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.nkasenides.amc.controller.RuntimeController;
-import com.nkasenides.amc.model.AMCPlayer;
-import com.nkasenides.amc.model.AMCWorldSession;
-import com.nkasenides.amc.model.Game;
-import com.nkasenides.amc.model.Grid;
-import com.nkasenides.amc.model.MatrixPosition;
-import com.nkasenides.amc.model.PickableEntity;
-import com.nkasenides.amc.model.PlayerEntity;
-import com.nkasenides.amc.proto.AMCEntityProto;
-import com.nkasenides.amc.proto.AMCPartialStateProto;
-import com.nkasenides.amc.proto.AMCStateUpdateProto;
-import com.nkasenides.amc.proto.BackgroundImage;
-import com.nkasenides.amc.proto.Direction4;
-import com.nkasenides.amc.proto.PickableType;
-import com.nkasenides.amc.proto.Shape;
+import org.inspirecenter.amazechallenge.controller.RuntimeController;
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
+import org.inspirecenter.amazechallenge.model.AMCWorldSession;
+import org.inspirecenter.amazechallenge.model.Game;
+import org.inspirecenter.amazechallenge.model.Grid;
+import org.inspirecenter.amazechallenge.model.MatrixPosition;
+import org.inspirecenter.amazechallenge.model.PickableEntity;
+import org.inspirecenter.amazechallenge.model.PlayerEntity;
+import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
+import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
+import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
+import org.inspirecenter.amazechallenge.proto.BackgroundImage;
+import org.inspirecenter.amazechallenge.proto.Direction4;
+import org.inspirecenter.amazechallenge.proto.PickableType;
+import org.inspirecenter.amazechallenge.proto.Shape;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
@@ -40,10 +40,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import static com.nkasenides.amc.generation.AMCTerrainGenerator.SHAPE_ONLY_LEFT_SIDE;
-import static com.nkasenides.amc.generation.AMCTerrainGenerator.SHAPE_ONLY_LOWER_SIDE;
-import static com.nkasenides.amc.generation.AMCTerrainGenerator.SHAPE_ONLY_RIGHT_SIDE;
-import static com.nkasenides.amc.generation.AMCTerrainGenerator.SHAPE_ONLY_UPPER_SIDE;
+import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_LEFT_SIDE;
+import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_LOWER_SIDE;
+import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_RIGHT_SIDE;
+import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_UPPER_SIDE;
 
 /**
  * @author Nearchos

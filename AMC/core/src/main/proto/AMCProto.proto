@@ -6,8 +6,8 @@
 -------------------------------------------------------------------------------- */
 
 syntax = "proto3";
-package com.nkasenides.amc.proto;
-option java_package = "com.nkasenides.amc.proto";
+package org.inspirecenter.amazechallenge.proto;
+option java_package = "org.inspirecenter.amazechallenge.proto";
 option java_outer_classname = "AMCProto";
 option java_multiple_files = true;
 //--------------------------------------------------------------------------------

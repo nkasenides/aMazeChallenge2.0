@@ -29,20 +29,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.nkasenides.amc.algorithms.InterpretedMazeSolver;
-import com.nkasenides.amc.algorithms.MazeSolver;
-import com.nkasenides.amc.controller.AudioEventListener;
-import com.nkasenides.amc.controller.GameEndListener;
-import com.nkasenides.amc.controller.RuntimeController;
-import com.nkasenides.amc.model.AMCPlayer;
-import com.nkasenides.amc.model.AMCWorldSession;
-import com.nkasenides.amc.model.Challenge;
-import com.nkasenides.amc.model.Game;
-import com.nkasenides.amc.model.PickableEntity;
-import com.nkasenides.amc.proto.Audio;
-import com.nkasenides.amc.proto.AudioFormat;
-import com.nkasenides.amc.proto.AudioType;
-import com.nkasenides.amc.proto.BackgroundImage;
+import org.inspirecenter.amazechallenge.algorithms.InterpretedMazeSolver;
+import org.inspirecenter.amazechallenge.algorithms.MazeSolver;
+import org.inspirecenter.amazechallenge.controller.AudioEventListener;
+import org.inspirecenter.amazechallenge.controller.GameEndListener;
+import org.inspirecenter.amazechallenge.controller.RuntimeController;
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
+import org.inspirecenter.amazechallenge.model.AMCWorldSession;
+import org.inspirecenter.amazechallenge.model.Challenge;
+import org.inspirecenter.amazechallenge.model.Game;
+import org.inspirecenter.amazechallenge.model.PickableEntity;
+import org.inspirecenter.amazechallenge.proto.Audio;
+import org.inspirecenter.amazechallenge.proto.AudioFormat;
+import org.inspirecenter.amazechallenge.proto.AudioType;
+import org.inspirecenter.amazechallenge.proto.BackgroundImage;
 
 import org.inspirecenter.amazechallenge.R;
 

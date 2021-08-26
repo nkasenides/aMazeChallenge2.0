@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nkasenides.amc.proto.AmazeIcon;
+import org.inspirecenter.amazechallenge.proto.AmazeIcon;
 
 import org.inspirecenter.amazechallenge.R;
 

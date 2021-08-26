@@ -17,10 +17,10 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.nkasenides.amc.model.QuestionEntry;
-import com.nkasenides.amc.model.QuestionnaireEntry;
-import com.nkasenides.amc.proto.DichotomousResponse;
-import com.nkasenides.amc.proto.LikertResponse;
+import org.inspirecenter.amazechallenge.model.QuestionEntry;
+import org.inspirecenter.amazechallenge.model.QuestionnaireEntry;
+import org.inspirecenter.amazechallenge.proto.DichotomousResponse;
+import org.inspirecenter.amazechallenge.proto.LikertResponse;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;

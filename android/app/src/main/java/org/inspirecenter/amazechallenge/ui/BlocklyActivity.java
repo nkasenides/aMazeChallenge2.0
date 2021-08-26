@@ -28,7 +28,7 @@ import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.utils.ErrorFinderManager;
 import org.inspirecenter.amazechallenge.utils.FileManager;
 
-import com.nkasenides.amc.algorithms.InterpreterError;
+import org.inspirecenter.amazechallenge.algorithms.InterpreterError;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -36,8 +36,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.nkasenides.amc.algorithms.InterpreterError.InterpreterErrorType.ERROR;
-import static com.nkasenides.amc.algorithms.InterpreterError.InterpreterErrorType.WARNING;
+import static org.inspirecenter.amazechallenge.algorithms.InterpreterError.InterpreterErrorType.ERROR;
+import static org.inspirecenter.amazechallenge.algorithms.InterpreterError.InterpreterErrorType.WARNING;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 
 public class BlocklyActivity extends AbstractBlocklyActivity {

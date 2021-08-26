@@ -1,11 +1,11 @@
 package org.inspirecenter.amazechallenge.utils;
 import org.inspirecenter.amazechallenge.ui.BlocklyActivity;
 
-import com.nkasenides.amc.algorithms.InterpreterError;
+import org.inspirecenter.amazechallenge.algorithms.InterpreterError;
 import java.util.ArrayList;
 
-import static com.nkasenides.amc.algorithms.InterpreterError.InterpreterErrorType.ERROR;
-import static com.nkasenides.amc.algorithms.InterpreterError.InterpreterErrorType.WARNING;
+import static org.inspirecenter.amazechallenge.algorithms.InterpreterError.InterpreterErrorType.ERROR;
+import static org.inspirecenter.amazechallenge.algorithms.InterpreterError.InterpreterErrorType.WARNING;
 
 public class ErrorFinderManager {
 

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.nkasenides.amc.proto.AmazeColor;
+import org.inspirecenter.amazechallenge.proto.AmazeColor;
 
 import org.inspirecenter.amazechallenge.R;
 

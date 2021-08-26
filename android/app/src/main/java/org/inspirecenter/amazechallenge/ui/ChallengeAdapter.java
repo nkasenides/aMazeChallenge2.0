@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.nkasenides.amc.model.Challenge;
-import com.nkasenides.amc.proto.ChallengeProto;
+import org.inspirecenter.amazechallenge.model.Challenge;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 
 import org.inspirecenter.amazechallenge.R;
 

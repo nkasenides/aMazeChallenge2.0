@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.nkasenides.amc.model.AMCPlayer;
-import com.nkasenides.amc.model.AMCWorldSession;
-import com.nkasenides.amc.model.PlayerEntity;
-import com.nkasenides.amc.proto.AMCEntityProto;
-import com.nkasenides.amc.proto.AMCPlayerProto;
-import com.nkasenides.amc.proto.AMCStateUpdateProto;
-import com.nkasenides.amc.proto.AMCWorldSessionProto;
-import com.nkasenides.amc.proto.PlayerEntityProto;
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
+import org.inspirecenter.amazechallenge.model.AMCWorldSession;
+import org.inspirecenter.amazechallenge.model.PlayerEntity;
+import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
+import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
+import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
+import org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto;
+import org.inspirecenter.amazechallenge.proto.PlayerEntityProto;
 
 import org.inspirecenter.amazechallenge.R;
 

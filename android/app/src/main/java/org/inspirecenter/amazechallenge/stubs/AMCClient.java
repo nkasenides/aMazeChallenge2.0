@@ -6,8 +6,8 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.stubs;
-import com.nkasenides.amc.model.*;
-import com.nkasenides.amc.proto.*;
+import org.inspirecenter.amazechallenge.model.*;
+import org.inspirecenter.amazechallenge.proto.*;
 import com.nkasenides.athlos.client.ServerlessGameClient;
 
 

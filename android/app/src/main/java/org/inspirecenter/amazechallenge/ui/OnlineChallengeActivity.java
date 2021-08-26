@@ -22,15 +22,15 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.nkasenides.amc.model.Challenge;
-import com.nkasenides.amc.proto.AMCPlayerProto;
-import com.nkasenides.amc.proto.AmazeColor;
-import com.nkasenides.amc.proto.AmazeIcon;
-import com.nkasenides.amc.proto.ChallengeProto;
-import com.nkasenides.amc.proto.JoinChallengeRequest;
-import com.nkasenides.amc.proto.JoinChallengeResponse;
-import com.nkasenides.amc.proto.ListChallengesRequest;
-import com.nkasenides.amc.proto.ListChallengesResponse;
+import org.inspirecenter.amazechallenge.model.Challenge;
+import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
+import org.inspirecenter.amazechallenge.proto.AmazeColor;
+import org.inspirecenter.amazechallenge.proto.AmazeIcon;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
+import org.inspirecenter.amazechallenge.proto.JoinChallengeRequest;
+import org.inspirecenter.amazechallenge.proto.JoinChallengeResponse;
+import org.inspirecenter.amazechallenge.proto.ListChallengesRequest;
+import org.inspirecenter.amazechallenge.proto.ListChallengesResponse;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;

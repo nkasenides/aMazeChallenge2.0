@@ -20,8 +20,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.nkasenides.amc.proto.AmazeColor;
-import com.nkasenides.amc.proto.AmazeIcon;
+import org.inspirecenter.amazechallenge.proto.AmazeColor;
+import org.inspirecenter.amazechallenge.proto.AmazeIcon;
 
 import org.inspirecenter.amazechallenge.R;
 

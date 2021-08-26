@@ -25,14 +25,14 @@ import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.utils.FileManager;
 
-import com.nkasenides.amc.model.AMCWorldSession;
-import com.nkasenides.amc.proto.AMCWorldSessionProto;
-import com.nkasenides.amc.proto.AmazeColor;
-import com.nkasenides.amc.proto.AmazeIcon;
-import com.nkasenides.amc.proto.ChallengeProto;
-import com.nkasenides.amc.proto.Shape;
-import com.nkasenides.amc.model.Challenge;
-import com.nkasenides.amc.model.AMCPlayer;
+import org.inspirecenter.amazechallenge.model.AMCWorldSession;
+import org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto;
+import org.inspirecenter.amazechallenge.proto.AmazeColor;
+import org.inspirecenter.amazechallenge.proto.AmazeIcon;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
+import org.inspirecenter.amazechallenge.proto.Shape;
+import org.inspirecenter.amazechallenge.model.Challenge;
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
 
 import java.io.IOException;
 import java.io.InputStream;
