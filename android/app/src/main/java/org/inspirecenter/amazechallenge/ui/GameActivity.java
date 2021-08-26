@@ -383,7 +383,7 @@ public class GameActivity extends AppCompatActivity implements AudioEventListene
 
     private void updatePointsTextView() {
         final Intent intent = getIntent();
-        final AMCWorldSession worldSession = (AMCWorldSession) intent.getSerializableExtra(SELECTED_PLAYER_KEY);
+        final AMCWorldSession worldSession = (AMCWorldSession) intent.getSerializableExtra(SELECTED_PLAYER_WORLD_SESSION_KEY);
         pointsTextView.setText(Integer.toString(worldSession.getPoints()));
     }
 

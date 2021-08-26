@@ -24,6 +24,9 @@ import com.google.gson.Gson;
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.utils.FileManager;
+
+import com.nkasenides.amc.model.AMCWorldSession;
+import com.nkasenides.amc.proto.AMCWorldSessionProto;
 import com.nkasenides.amc.proto.AmazeColor;
 import com.nkasenides.amc.proto.AmazeIcon;
 import com.nkasenides.amc.proto.ChallengeProto;
@@ -121,9 +124,14 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
         player.setColor(userAmazeColor);
         player.setIcon(userAmazeIcon);
 
+        AMCWorldSession worldSession = new AMCWorldSession();
+        worldSession.setPlayerID(player.getId());
+        worldSession.setCreatedOn(System.currentTimeMillis());
+
         final Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra(GameActivity.SELECTED_CHALLENGE_KEY, challenge);
+        intent.putExtra(GameActivity.SELECTED_CHALLENGE_KEY, challenge.toObject());
         intent.putExtra(GameActivity.SELECTED_PLAYER_KEY, player);
+        intent.putExtra(GameActivity.SELECTED_PLAYER_WORLD_SESSION_KEY, worldSession);
         startActivity(intent);
     }
 
@@ -212,7 +220,6 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
             Collections.sort(challenges, (challenge, t1) -> Long.compare(t1.getCreatedOn(), challenge.getCreatedOn()));
 
             for (Challenge c : challenges) {
-                System.out.println("Challenge detected -> " + c.getName() + "[" + c.getId() + "]");
                 challengeAdapter.add(c.toProto().build());
             }
 

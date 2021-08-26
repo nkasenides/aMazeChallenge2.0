@@ -12,8 +12,10 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
 
+import java.io.Serializable;
+
 @FirestormObject
-public class Grid implements Transmittable<GridProto.Builder> {
+public class Grid implements Transmittable<GridProto.Builder>, Serializable {
     private Direction4 startingDirection;    
     private String data;    
     private MatrixPosition targetPosition;    

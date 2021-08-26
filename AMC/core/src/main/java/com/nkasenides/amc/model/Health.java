@@ -11,7 +11,9 @@ import com.nkasenides.athlos.proto.Transmittable;
 import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 
-public class Health implements Transmittable<HealthProto.Builder> {
+import java.io.Serializable;
+
+public class Health implements Transmittable<HealthProto.Builder>, Serializable {
 
     public static int DEFAULT_HEALTH = 100;
     public static int MIN_HEALTH = 0;

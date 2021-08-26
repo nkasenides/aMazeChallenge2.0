@@ -12,8 +12,10 @@ import com.nkasenides.amc.proto.*;
 import com.nkasenides.athlos.model.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
 
+import java.io.Serializable;
+
 @FirestormObject
-public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Builder>, IWorldSession {
+public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Builder>, IWorldSession, Serializable {
     private String code;    
     private String worldID;    
     private String ipAddress;    
@@ -23,9 +25,15 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
     private String id;    
     private long createdOn;    
     private String playerID;    
-    private int points;    
+    private int points;
 
-    public String getCode() {    
+    public AMCWorldSession() {
+        this.code = "";
+        this.health = new Health();
+        this.points = 0;
+    }
+
+    public String getCode() {
         return code;        
     }    
     
