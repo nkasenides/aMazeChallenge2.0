@@ -80,5 +80,11 @@
         <servlet-name>AddChallengeServlet</servlet-name>
         <url-pattern>/api/challenge/add</url-pattern>
     </servlet-mapping>
+
+
+    <listener>
+        <listener-class>org.inspirecenter.amazechallenge.contextlistener.FirestoreContextListener</listener-class>
+    </listener>
+
 </web-app>
 

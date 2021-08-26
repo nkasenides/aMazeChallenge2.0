@@ -4,7 +4,7 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface QuestionEntryProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:QuestionEntryProto)
+    // @@protoc_insertion_point(interface_extends:com.nkasenides.amc.proto.QuestionEntryProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -20,12 +20,24 @@ public interface QuestionEntryProtoOrBuilder extends
       getAnswerTextBytes();
 
   /**
-   * <code>string questionText = 2;</code>
+   * <code>string id = 2;</code>
+   * @return The id.
+   */
+  String getId();
+  /**
+   * <code>string id = 2;</code>
+   * @return The bytes for id.
+   */
+  com.google.protobuf.ByteString
+      getIdBytes();
+
+  /**
+   * <code>string questionText = 3;</code>
    * @return The questionText.
    */
   String getQuestionText();
   /**
-   * <code>string questionText = 2;</code>
+   * <code>string questionText = 3;</code>
    * @return The bytes for questionText.
    */
   com.google.protobuf.ByteString

@@ -8,13 +8,17 @@
 package org.inspirecenter.amazechallenge.model;
 
 import com.nkasenides.athlos.proto.Transmittable;
+import com.raylabz.firestorm.annotation.FirestormObject;
 import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
 import org.inspirecenter.amazechallenge.proto.Direction4;
 import org.inspirecenter.amazechallenge.proto.PickableEntityProto;
 import org.inspirecenter.amazechallenge.proto.PickableType;
 
-public class PickableEntity implements AMCEntity, Transmittable<PickableEntityProto.Builder> {
+import java.io.Serializable;
+
+@FirestormObject
+public class PickableEntity implements AMCEntity, Transmittable<PickableEntityProto.Builder>, Serializable {
     private String worldID;    
     private float areaOfInterest;    
     private PickableType pickableType;

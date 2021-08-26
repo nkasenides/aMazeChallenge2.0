@@ -3,14 +3,12 @@
 
 package org.inspirecenter.amazechallenge.proto;
 
-import org.inspirecenter.amazechallenge.model.QuestionEntry;
-
 /**
- * Protobuf type {@code QuestionEntryProto}
+ * Protobuf type {@code org.inspirecenter.amazechallenge.proto.QuestionEntryProto}
  */
 public final class QuestionEntryProto extends
-    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<QuestionEntry> ,
-    // @@protoc_insertion_point(message_implements:QuestionEntryProto)
+    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<org.inspirecenter.amazechallenge.model.QuestionEntry> , 
+    // @@protoc_insertion_point(message_implements:org.inspirecenter.amazechallenge.proto.QuestionEntryProto)
     QuestionEntryProtoOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use QuestionEntryProto.newBuilder() to construct.
@@ -19,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private QuestionEntryProto() {
     answerText_ = "";
+    id_ = "";
     questionText_ = "";
   }
 
@@ -61,6 +60,12 @@ private static final long serialVersionUID = 0L;
           case 18: {
             String s = input.readStringRequireUtf8();
 
+            id_ = s;
+            break;
+          }
+          case 26: {
+            String s = input.readStringRequireUtf8();
+
             questionText_ = s;
             break;
           }
@@ -85,15 +90,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
+    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            QuestionEntryProto.class, Builder.class);
+            org.inspirecenter.amazechallenge.proto.QuestionEntryProto.class, org.inspirecenter.amazechallenge.proto.QuestionEntryProto.Builder.class);
   }
 
   public static final int ANSWERTEXT_FIELD_NUMBER = 1;
@@ -134,10 +139,48 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QUESTIONTEXT_FIELD_NUMBER = 2;
+  public static final int ID_FIELD_NUMBER = 2;
+  private volatile Object id_;
+  /**
+   * <code>string id = 2;</code>
+   * @return The id.
+   */
+  @Override
+  public String getId() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string id = 2;</code>
+   * @return The bytes for id.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    Object ref = id_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int QUESTIONTEXT_FIELD_NUMBER = 3;
   private volatile Object questionText_;
   /**
-   * <code>string questionText = 2;</code>
+   * <code>string questionText = 3;</code>
    * @return The questionText.
    */
   @Override
@@ -154,7 +197,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string questionText = 2;</code>
+   * <code>string questionText = 3;</code>
    * @return The bytes for questionText.
    */
   @Override
@@ -189,8 +232,11 @@ private static final long serialVersionUID = 0L;
     if (!getAnswerTextBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, answerText_);
     }
+    if (!getIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
+    }
     if (!getQuestionTextBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, questionText_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, questionText_);
     }
     unknownFields.writeTo(output);
   }
@@ -204,8 +250,11 @@ private static final long serialVersionUID = 0L;
     if (!getAnswerTextBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, answerText_);
     }
+    if (!getIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
+    }
     if (!getQuestionTextBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, questionText_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, questionText_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,13 +266,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof QuestionEntryProto)) {
+    if (!(obj instanceof org.inspirecenter.amazechallenge.proto.QuestionEntryProto)) {
       return super.equals(obj);
     }
-    QuestionEntryProto other = (QuestionEntryProto) obj;
+    org.inspirecenter.amazechallenge.proto.QuestionEntryProto other = (org.inspirecenter.amazechallenge.proto.QuestionEntryProto) obj;
 
     if (!getAnswerText()
         .equals(other.getAnswerText())) return false;
+    if (!getId()
+        .equals(other.getId())) return false;
     if (!getQuestionText()
         .equals(other.getQuestionText())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -239,6 +290,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ANSWERTEXT_FIELD_NUMBER;
     hash = (53 * hash) + getAnswerText().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + QUESTIONTEXT_FIELD_NUMBER;
     hash = (53 * hash) + getQuestionText().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -246,69 +299,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static QuestionEntryProto parseFrom(byte[] data)
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static QuestionEntryProto parseFrom(java.io.InputStream input)
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static QuestionEntryProto parseDelimitedFrom(java.io.InputStream input)
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static QuestionEntryProto parseDelimitedFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static QuestionEntryProto parseFrom(
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -321,7 +374,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(QuestionEntryProto prototype) {
+  public static Builder newBuilder(org.inspirecenter.amazechallenge.proto.QuestionEntryProto prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @Override
@@ -337,26 +390,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code QuestionEntryProto}
+   * Protobuf type {@code org.inspirecenter.amazechallenge.proto.QuestionEntryProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:QuestionEntryProto)
-      QuestionEntryProtoOrBuilder {
+      // @@protoc_insertion_point(builder_implements:org.inspirecenter.amazechallenge.proto.QuestionEntryProto)
+      org.inspirecenter.amazechallenge.proto.QuestionEntryProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              QuestionEntryProto.class, Builder.class);
+              org.inspirecenter.amazechallenge.proto.QuestionEntryProto.class, org.inspirecenter.amazechallenge.proto.QuestionEntryProto.Builder.class);
     }
 
-    // Construct using QuestionEntryProto.newBuilder()
+    // Construct using org.inspirecenter.amazechallenge.proto.QuestionEntryProto.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -376,6 +429,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       answerText_ = "";
 
+      id_ = "";
+
       questionText_ = "";
 
       return this;
@@ -384,17 +439,17 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
     }
 
     @Override
-    public QuestionEntryProto getDefaultInstanceForType() {
-      return QuestionEntryProto.getDefaultInstance();
+    public org.inspirecenter.amazechallenge.proto.QuestionEntryProto getDefaultInstanceForType() {
+      return org.inspirecenter.amazechallenge.proto.QuestionEntryProto.getDefaultInstance();
     }
 
     @Override
-    public QuestionEntryProto build() {
-      QuestionEntryProto result = buildPartial();
+    public org.inspirecenter.amazechallenge.proto.QuestionEntryProto build() {
+      org.inspirecenter.amazechallenge.proto.QuestionEntryProto result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -402,9 +457,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @Override
-    public QuestionEntryProto buildPartial() {
-      QuestionEntryProto result = new QuestionEntryProto(this);
+    public org.inspirecenter.amazechallenge.proto.QuestionEntryProto buildPartial() {
+      org.inspirecenter.amazechallenge.proto.QuestionEntryProto result = new org.inspirecenter.amazechallenge.proto.QuestionEntryProto(this);
       result.answerText_ = answerText_;
+      result.id_ = id_;
       result.questionText_ = questionText_;
       onBuilt();
       return result;
@@ -444,18 +500,22 @@ private static final long serialVersionUID = 0L;
     }
     @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof QuestionEntryProto) {
-        return mergeFrom((QuestionEntryProto)other);
+      if (other instanceof org.inspirecenter.amazechallenge.proto.QuestionEntryProto) {
+        return mergeFrom((org.inspirecenter.amazechallenge.proto.QuestionEntryProto)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(QuestionEntryProto other) {
-      if (other == QuestionEntryProto.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.inspirecenter.amazechallenge.proto.QuestionEntryProto other) {
+      if (other == org.inspirecenter.amazechallenge.proto.QuestionEntryProto.getDefaultInstance()) return this;
       if (!other.getAnswerText().isEmpty()) {
         answerText_ = other.answerText_;
+        onChanged();
+      }
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
         onChanged();
       }
       if (!other.getQuestionText().isEmpty()) {
@@ -477,11 +537,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      QuestionEntryProto parsedMessage = null;
+      org.inspirecenter.amazechallenge.proto.QuestionEntryProto parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (QuestionEntryProto) e.getUnfinishedMessage();
+        parsedMessage = (org.inspirecenter.amazechallenge.proto.QuestionEntryProto) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -567,9 +627,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private Object id_ = "";
+    /**
+     * <code>string id = 2;</code>
+     * @return The id.
+     */
+    public String getId() {
+      Object ref = id_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string id = 2;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string id = 2;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setId(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 2;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+
     private Object questionText_ = "";
     /**
-     * <code>string questionText = 2;</code>
+     * <code>string questionText = 3;</code>
      * @return The questionText.
      */
     public String getQuestionText() {
@@ -585,7 +721,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string questionText = 2;</code>
+     * <code>string questionText = 3;</code>
      * @return The bytes for questionText.
      */
     public com.google.protobuf.ByteString
@@ -602,7 +738,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string questionText = 2;</code>
+     * <code>string questionText = 3;</code>
      * @param value The questionText to set.
      * @return This builder for chaining.
      */
@@ -617,7 +753,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string questionText = 2;</code>
+     * <code>string questionText = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearQuestionText() {
@@ -627,7 +763,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string questionText = 2;</code>
+     * <code>string questionText = 3;</code>
      * @param value The bytes for questionText to set.
      * @return This builder for chaining.
      */
@@ -655,16 +791,16 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:QuestionEntryProto)
+    // @@protoc_insertion_point(builder_scope:org.inspirecenter.amazechallenge.proto.QuestionEntryProto)
   }
 
-  // @@protoc_insertion_point(class_scope:QuestionEntryProto)
-  private static final QuestionEntryProto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:org.inspirecenter.amazechallenge.proto.QuestionEntryProto)
+  private static final org.inspirecenter.amazechallenge.proto.QuestionEntryProto DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new QuestionEntryProto();
+    DEFAULT_INSTANCE = new org.inspirecenter.amazechallenge.proto.QuestionEntryProto();
   }
 
-  public static QuestionEntryProto getDefaultInstance() {
+  public static org.inspirecenter.amazechallenge.proto.QuestionEntryProto getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -689,14 +825,15 @@ private static final long serialVersionUID = 0L;
   }
 
   @Override
-  public QuestionEntryProto getDefaultInstanceForType() {
+  public org.inspirecenter.amazechallenge.proto.QuestionEntryProto getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
     @Override
-    public QuestionEntry toObject() {
-        QuestionEntry item = new QuestionEntry();
+    public org.inspirecenter.amazechallenge.model.QuestionEntry toObject() {    
+        org.inspirecenter.amazechallenge.model.QuestionEntry item = new org.inspirecenter.amazechallenge.model.QuestionEntry();        
         item.setAnswerText(getAnswerText());        
+        item.setId(getId());        
         item.setQuestionText(getQuestionText());        
         return item;        
     }    

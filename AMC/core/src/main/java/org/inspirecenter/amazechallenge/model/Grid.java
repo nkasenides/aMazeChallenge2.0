@@ -15,7 +15,6 @@ import org.inspirecenter.amazechallenge.proto.GridProto;
 
 import java.io.Serializable;
 
-@FirestormObject
 public class Grid implements Transmittable<GridProto.Builder>, Serializable {
     private Direction4 startingDirection;
     private String data;    

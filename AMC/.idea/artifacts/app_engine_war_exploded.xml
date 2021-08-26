@@ -15,8 +15,8 @@
           <element id="library" level="project" name="Maven: com.raylabz:jsec:1.0.0" />
           <element id="library" level="project" name="com.raylabz:firestorm:1.2.0" />
           <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" />
-          <element id="library" level="project" name="com.raylabz:athlos-serverless:0.0.21" />
           <element id="library" level="project" name="io.ably:ably-java:1.2.7" />
+          <element id="library" level="project" name="com.raylabz:athlos-serverless:0.0.23" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="app-engine/web/Web" />

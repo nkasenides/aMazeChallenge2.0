@@ -7,15 +7,18 @@
 
 package org.inspirecenter.amazechallenge.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.nkasenides.athlos.proto.Transmittable;
+import com.raylabz.firestorm.annotation.FirestormObject;
 import org.inspirecenter.amazechallenge.proto.*;
 import com.nkasenides.athlos.model.*;
 import org.inspirecenter.amazechallenge.proto.AMCWorldProto;
 import org.inspirecenter.amazechallenge.proto.WorldType;
 
-public class AMCWorld implements Transmittable<AMCWorldProto.Builder>, IGrid4World {
+@FirestormObject
+public class AMCWorld implements Transmittable<AMCWorldProto.Builder>, IGrid4World, Serializable {
 
     public static final WorldType type = WorldType.TILE_HEX;
 

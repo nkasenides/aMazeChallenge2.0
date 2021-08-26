@@ -43,9 +43,9 @@ public class FirestoreContextListener implements ServletContextListener {
         Firestorm.register(AMCWorld.class);
         Firestorm.register(AMCWorldSession.class);
         Firestorm.register(Challenge.class);
-        Firestorm.register(Grid.class);
-        Firestorm.register(PickableEntity.class);
-        Firestorm.register(PlayerEntity.class);
+//        Firestorm.register(Grid.class);
+//        Firestorm.register(PickableEntity.class);
+//        Firestorm.register(PlayerEntity.class);
         Firestorm.register(QuestionEntry.class);
         Firestorm.register(QuestionnaireEntry.class);
 
@@ -54,8 +54,8 @@ public class FirestoreContextListener implements ServletContextListener {
 
         //Create a new admin key:
         AdminKey adminKey = new AdminKey();
-        adminKey.setId(UUID.randomUUID().toString());
-        Firestorm.create(adminKey);
+        adminKey.setId("pCuPeQ09Qoi7fwo4W8PB");
+        Firestorm.create(adminKey, "pCuPeQ09Qoi7fwo4W8PB");
 
     }
 

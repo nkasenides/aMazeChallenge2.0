@@ -21,7 +21,7 @@ public final class DBManager {
     public static final ChallengeDAO challenge  = new ChallengeDAO();
     public static final AMCEntityDAO entity  = new AMCEntityDAO();
     public static final PickableEntityDAO pickableEntity  = new PickableEntityDAO();
-    public static final GridDAO grid  = new GridDAO();
+//    public static final GridDAO grid  = new GridDAO();
     public static final PlayerEntityDAO playerEntity  = new PlayerEntityDAO();
 //    public static final AMCGameSessionDAO gameSession  = new AMCGameSessionDAO();
     public static final AMCWorldSessionDAO worldSession  = new AMCWorldSessionDAO();

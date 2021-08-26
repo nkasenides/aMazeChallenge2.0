@@ -10,10 +10,12 @@ package org.inspirecenter.amazechallenge.model;
 import java.util.ArrayList;
 import java.util.List;
 import com.nkasenides.athlos.proto.Transmittable;
+import com.raylabz.firestorm.annotation.FirestormObject;
 import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.proto.QuestionEntryProto;
 import org.inspirecenter.amazechallenge.proto.QuestionnaireEntryProto;
 
+@FirestormObject
 public class QuestionnaireEntry implements Transmittable<QuestionnaireEntryProto.Builder> {
     private String challengeID;    
     private ArrayList<QuestionEntry> questionEntry = new ArrayList<>();    

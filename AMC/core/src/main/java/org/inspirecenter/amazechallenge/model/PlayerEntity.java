@@ -7,12 +7,16 @@
 
 package org.inspirecenter.amazechallenge.model;
 
+import com.raylabz.firestorm.annotation.FirestormObject;
 import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
 import org.inspirecenter.amazechallenge.proto.Direction4;
 import org.inspirecenter.amazechallenge.proto.PlayerEntityProto;
 import com.nkasenides.athlos.proto.Transmittable;
 
-public class PlayerEntity implements AMCEntity, Transmittable<PlayerEntityProto.Builder> {
+import java.io.Serializable;
+
+@FirestormObject
+public class PlayerEntity implements AMCEntity, Transmittable<PlayerEntityProto.Builder>, Serializable {
     private String worldID;    
     private float areaOfInterest;    
     private String id;    
