@@ -19,9 +19,17 @@ import java.io.Serializable;
 public class QuestionEntry implements Transmittable<QuestionEntryProto.Builder>, Serializable {
     private String answerText;    
     private String id;    
-    private String questionText;    
+    private String questionText;
 
-    public String getAnswerText() {    
+    public QuestionEntry() {
+    }
+
+    public QuestionEntry(String questionText, String answerText) {
+        this.questionText = questionText;
+        this.answerText = answerText;
+    }
+
+    public String getAnswerText() {
         return answerText;        
     }    
     

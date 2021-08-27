@@ -25,6 +25,8 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
         final AMCPlayerProto player = request.getPlayer();
 
+        System.out.println(player.getEmail());
+
         //Player name must not be empty:
         if (player.getName().isEmpty()) {
             return JoinChallengeResponse.newBuilder()
@@ -42,7 +44,7 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         }
 
         //Player email must not be empty:
-        if (player.getName().isEmpty()) {
+        if (player.getEmail().isEmpty()) {
             return JoinChallengeResponse.newBuilder()
                     .setStatus(JoinChallengeResponse.Status.INVALID_PLAYER)
                     .setMessage("INVALID_PLAYER_EMAIL")
@@ -50,7 +52,8 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         }
 
         //Player email must be valid:
-        if (!player.getEmail().matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$")) {
+        String emailRegex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        if (!player.getEmail().matches(emailRegex)) {
             return JoinChallengeResponse.newBuilder()
                     .setStatus(JoinChallengeResponse.Status.INVALID_PLAYER)
                     .setMessage("INVALID_PLAYER_EMAIL")
@@ -132,7 +135,7 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
                 .build();
 
 
-    }    
+    }
     
 }
 

@@ -287,5 +287,14 @@
     <string name="Missing_or_invalid_email">Λανθασμένο email. Επιλέξτε ένα έγκυρο email πρώτα, χρησιμοποιώντας την οθόνη για Προσαρμογή.</string>
     <string name="OK">ΟΚ</string>
     <string name="state_update_failed">Πρόβλημα λήψης κατάστασης παιχνιδιού.</string>
+    <string name="load_challenges_fail">Αποτυχία λήψης παιχνιδιών</string>
+    <string name="invalid_name">Το όνομα που έχετε δώσει δεν είναι σωστό.</string>
+    <string name="invalid_email">Το email που έχετε δώσει δεν είναι σωστό.</string>
+    <string name="invalid_challenge">Το παιχνίδι που έχετε επιλέξει δεν υπάρχει.</string>
+    <string name="challenge_not_started">Το παιχνίδι που έχετε επιλέξει δεν έχει ξεκινήσει ακόμη.</string>
+    <string name="challenge_finished">Το παιχνίδι που έχετε επιλέξει έχει τελειώσει.</string>
+    <string name="name_exists">Το όνομα που δώσατε χρησιμοποιείται ήδη σε αυτήν την πρόκληση. Καταχωρίστε ένα διαφορετικό όνομα.</string>
+    <string name="change_name">Αλλαγή ονόματος</string>
+    <string name="cancel">Ακύρωση</string>
 
 </resources>
