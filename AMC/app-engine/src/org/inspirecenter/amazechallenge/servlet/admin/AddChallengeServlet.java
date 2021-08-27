@@ -5,7 +5,7 @@
   Athlos Project Editor, v0.1.0 BETA
 -------------------------------------------------------------------------------- */
 
-package org.inspirecenter.amazechallenge.servlet;
+package org.inspirecenter.amazechallenge.servlet.admin;
 
 import org.apache.commons.lang3.builder.Diff;
 import org.inspirecenter.amazechallenge.model.AdminKey;
@@ -117,6 +117,15 @@ public class AddChallengeServlet extends HttpServlet {
         challenge.setRewards(rewards);
         challenge.setStartTime(startTime);
 
+        //Check if another challenge has the same name:
+        for (Challenge c : DBManager.challenge.list()) {
+            if (c.getName().equals(name)) {
+                resp.getWriter().write("Error: A challenge with the name '" + name + "' already exists.");
+                return;
+            }
+        }
+
+
         final boolean result = DBManager.challenge.create(challenge);
         if (result) {
             resp.getWriter().write("OK");
@@ -128,21 +137,3 @@ public class AddChallengeServlet extends HttpServlet {
 
     }
 }
-
-//public class AddChallengeServlet extends AthlosServlet {
-//
-//    @Override
-//    protected byte[] callProcessMethod(HttpServletRequest servletRequest, HttpServletResponse servletResponse, DataInputStream inputStream) throws ServiceNotFoundException, IOException {
-//        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-//        int nRead;
-//        byte[] data = new byte[16384];
-//        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-//            buffer.write(data, 0, nRead);
-//        }
-//        final Object[] additionalParameters = {
-//              servletRequest.getRemoteAddr(),
-//        };
-//        return Services.addChallenge(buffer.toByteArray(), additionalParameters).toByteArray();
-//    }
-//
-//}

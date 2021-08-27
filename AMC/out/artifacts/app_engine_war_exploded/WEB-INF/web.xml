@@ -37,11 +37,21 @@
         <servlet-name>UnsubscribeServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.UnsubscribeServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>AddChallengeServlet</servlet-name>
-        <servlet-class>org.inspirecenter.amazechallenge.servlet.AddChallengeServlet</servlet-class>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.AddChallengeServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>DeleteChallengeServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.DeleteChallengeServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>GenerateGridServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.GenerateGridServlet</servlet-class>
+    </servlet>
 
     <!-- Mappings -->
     <servlet-mapping>
@@ -76,9 +86,21 @@
         <servlet-name>UnsubscribeServlet</servlet-name>
         <url-pattern>/api/state/unsubscribe</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>AddChallengeServlet</servlet-name>
         <url-pattern>/api/challenge/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteChallengeServlet</servlet-name>
+        <url-pattern>/api/challenge/delete</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>GenerateGridServlet</servlet-name>
+        <url-pattern>/api/challenge/generateGrid</url-pattern>
     </servlet-mapping>
 
 
