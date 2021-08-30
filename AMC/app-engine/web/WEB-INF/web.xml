@@ -25,10 +25,10 @@
         <servlet-name>GetStateServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.GetStateServlet</servlet-class>
     </servlet>
-<!--    <servlet>-->
-<!--        <servlet-name>UpdateStateServlet</servlet-name>-->
-<!--        <servlet-class>org.inspirecenter.amazechallenge.servlet.UpdateStateServlet</servlet-class>-->
-<!--    </servlet>-->
+    <servlet>
+        <servlet-name>UpdateStateServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.UpdateStateServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>SubscribeServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.SubscribeServlet</servlet-class>
@@ -74,10 +74,10 @@
         <servlet-name>GetStateServlet</servlet-name>
         <url-pattern>/api/state/get</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>UpdateStateServlet</servlet-name>-->
-<!--        <url-pattern>/api/state/update</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>UpdateStateServlet</servlet-name>
+        <url-pattern>/api/state/update</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SubscribeServlet</servlet-name>
         <url-pattern>/api/state/subscribe</url-pattern>

@@ -296,5 +296,7 @@
     <string name="name_exists">Το όνομα που δώσατε χρησιμοποιείται ήδη σε αυτήν την πρόκληση. Καταχωρίστε ένα διαφορετικό όνομα.</string>
     <string name="change_name">Αλλαγή ονόματος</string>
     <string name="cancel">Ακύρωση</string>
+    <string name="invalid_session">Η περίοδος παιχνιδιού δεν είναι έγκυρη, δοκιμάστε να συνδεθείτε ξανά στο παιχνίδι.</string>
+    <string name="code_empty">Πρέπει να ανεβάσετε έναν μη κενό κωδικό για να παίξετε.</string>
 
 </resources>

@@ -111,21 +111,20 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
         super.onResume();
 
         //TODO - Move this piece of code above the line that will execute the join challenge operation.
-//        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        final String code = sharedPreferences.getString(BlocklyActivity.KEY_ALGORITHM_ACTIVITY_CODE, "");
-//        if (code.isEmpty()) {
-//            AlertDialog.Builder noCodeDialog = new AlertDialog.Builder(this, R.style.ErrorDialogStyle);
-//            noCodeDialog.setTitle(R.string.no_code_title);
-//            noCodeDialog.setMessage(R.string.no_code_message);
-//            noCodeDialog.setPositiveButton(R.string.no_code_action, (dialogInterface, i) -> {
-//                startActivity(new Intent(OnlineChallengeActivity.this, BlocklyActivity.class));
-//                finish();
-//            });
-//            noCodeDialog.setCancelable(true);
-//            noCodeDialog.create().show();
-//        }
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final String code = sharedPreferences.getString(BlocklyActivity.KEY_ALGORITHM_ACTIVITY_CODE, "");
+        if (code.isEmpty()) {
+            AlertDialog.Builder noCodeDialog = new AlertDialog.Builder(this, R.style.ErrorDialogStyle);
+            noCodeDialog.setTitle(R.string.no_code_title);
+            noCodeDialog.setMessage(R.string.no_code_message);
+            noCodeDialog.setPositiveButton(R.string.no_code_action, (dialogInterface, i) -> {
+                startActivity(new Intent(OnlineChallengeActivity.this, BlocklyActivity.class));
+                finish();
+            });
+            noCodeDialog.setCancelable(true);
+            noCodeDialog.create().show();
+        }
 
-        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(OnlineChallengeActivity.this);
         final String email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, getString(R.string.Guest_email));
         final String name = sharedPreferences.getString(PREFERENCE_KEY_NAME, getString(R.string.Guest));
         final String colorName = sharedPreferences.getString(PREFERENCE_KEY_COLOR, AmazeColor.BLACK_AmazeColor.name());
@@ -254,7 +253,7 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                         case "PLAYER_NAME_EXISTS":
                             Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.name_exists, Snackbar.LENGTH_SHORT).show();
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DefaultDialogStyle);
                             builder.setTitle(R.string.change_name);
                             final EditText input = new EditText(this);
                             input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -266,7 +265,8 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                                     String newName = input.getText().toString();
                                     if (!newName.isEmpty() && newName.length() > 2 && newName.matches("^[a-zA-Z0-9_]*$")) {
                                         final SharedPreferences.Editor sharedPreferences = PreferenceManager.getDefaultSharedPreferences(OnlineChallengeActivity.this).edit();
-                                        sharedPreferences.putString(PREFERENCE_KEY_NAME, newName);
+                                        sharedPreferences.putString(PREFERENCE_KEY_NAME, newName).apply();
+                                        AMCClient.getInstance().getPlayer().setName(newName);
                                         dialog.dismiss();
                                         joinChallengeHTTP(challenge);
                                     }

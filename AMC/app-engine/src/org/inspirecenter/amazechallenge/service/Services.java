@@ -59,14 +59,14 @@ public class Services {
         }        
     }    
     
-//    public static UpdateStateResponse updateState(byte[] data, Object[] optionalParams) throws ServiceNotFoundException {
-//        try {
-//            UpdateStateRequest request = UpdateStateRequest.parseFrom(data);
-//            return new UpdateState().serve(request, optionalParams);
-//        } catch (InvalidProtocolBufferException e) {
-//            throw new ServiceNotFoundException("Your request data did not match the expected service request type (UpdateStateRequest).", e);
-//        }
-//    }
+    public static UpdateStateResponse updateState(byte[] data, Object[] optionalParams) throws ServiceNotFoundException {
+        try {
+            UpdateStateRequest request = UpdateStateRequest.parseFrom(data);
+            return new UpdateState().serve(request, optionalParams);
+        } catch (InvalidProtocolBufferException e) {
+            throw new ServiceNotFoundException("Your request data did not match the expected service request type (UpdateStateRequest).", e);
+        }
+    }
     
     public static SubscribeResponse subscribe(byte[] data, Object[] optionalParams) throws ServiceNotFoundException {    
         try {        

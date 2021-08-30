@@ -271,12 +271,13 @@ public class WorldContext {
      */
     public AMCPartialStateProto getPartialStateSnapshot(AMCWorldSession worldSession) {
         final Collection<AMCEntity> playerEntities = DBManager.entity.listForPlayerAndWorld(worldSession.getPlayerID(), worldSession.getWorldID());
+        final AMCWorld world = DBManager.world.get(worldSession.getWorldID());
         return AMCPartialStateProto.newBuilder()
                 .putAllEntities(getEntities(playerEntities))
                 .putAllTerrain(getTerrain(playerEntities))
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
-                //TODO - Set custom partial state attributes here.
+                .setGrid(world.getGrid().toProto())
                 .build();
     }
 

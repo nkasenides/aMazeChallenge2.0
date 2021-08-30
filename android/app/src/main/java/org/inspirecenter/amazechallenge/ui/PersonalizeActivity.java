@@ -20,10 +20,12 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
 import org.inspirecenter.amazechallenge.proto.AmazeColor;
 import org.inspirecenter.amazechallenge.proto.AmazeIcon;
 
 import org.inspirecenter.amazechallenge.R;
+import org.inspirecenter.amazechallenge.stubs.AMCClient;
 
 import java.util.regex.Pattern;
 

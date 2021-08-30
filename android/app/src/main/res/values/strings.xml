@@ -319,5 +319,7 @@
     <string name="name_exists">The name you provided is already being used in this challenge. Please provide a different name.</string>
     <string name="change_name">Change name</string>
     <string name="cancel">Cancel</string>
+    <string name="invalid_session">Your game session is invalid, please try joining the challenge again.</string>
+    <string name="code_empty">You must upload a non-empty code to play online.</string>
 
 </resources>
