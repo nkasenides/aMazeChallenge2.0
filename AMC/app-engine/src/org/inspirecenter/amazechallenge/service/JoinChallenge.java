@@ -6,17 +6,21 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
-import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-import org.inspirecenter.amazechallenge.model.Challenge;
-import org.inspirecenter.amazechallenge.model.Health;
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
+import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
 import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
 import com.nkasenides.athlos.backend.AthlosService;
 import org.inspirecenter.amazechallenge.proto.JoinChallengeRequest;
 import org.inspirecenter.amazechallenge.auth.*;
 import org.inspirecenter.amazechallenge.proto.JoinChallengeResponse;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinChallengeResponse> {
 
@@ -124,7 +128,34 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         worldSession.setPlayerID(player.getName());
         worldSession.setPoints(0);
 
+        //Create the player entity:
+        PlayerEntity playerEntity = new PlayerEntity();
+        playerEntity.setPlayerID(player.getName());
+        playerEntity.setWorldID(worldSession.getWorldID());
+        playerEntity.setDirection(challenge.getGrid().getStartingDirection());
+        playerEntity.setId(getPlayerEntityID(player.getName(), worldSession.getWorldID()));
+        playerEntity.setPosition(challenge.getGrid().getStartingPosition());
+        playerEntity.setAreaOfInterest(30);
+
+        final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
+
+        //If this is the first player joining this challenge, initialize the game state:
+        final Collection<AMCWorldSession> worldSessionsForWorld = DBManager.worldSession.listForWorld(worldSession.getWorldID());
+        if (worldSessionsForWorld.isEmpty()) {
+            Game game = new Game();
+            game.setId("game_" + worldSession.getWorldID());
+            game.setChallengeID(challengeID);
+            game.addPlayer(player.toObject(), worldSession);
+            memcache.put(game.getId(), game);
+        }
+        else {
+            Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
+            game.addPlayer(player.toObject(), worldSession);
+            memcache.put(game.getId(), game);
+        }
+
         DBManager.worldSession.create(worldSession);
+
         return JoinChallengeResponse.newBuilder()
                 .setStatus(JoinChallengeResponse.Status.OK)
                 .setMessage("OK")
@@ -134,6 +165,11 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
 
     }
+
+    public static String getPlayerEntityID(String playerID, String worldID) {
+        return playerID + "_" + worldID;
+    }
+
     
 }
 

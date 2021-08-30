@@ -6,14 +6,20 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import org.inspirecenter.amazechallenge.auth.Auth;
-import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
+import org.inspirecenter.amazechallenge.model.*;
+import org.inspirecenter.amazechallenge.persistence.DBManager;
+import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.state.State;
 import com.nkasenides.athlos.backend.AthlosService;
-import org.inspirecenter.amazechallenge.proto.GetStateRequest;
 import org.inspirecenter.amazechallenge.auth.*;
-import org.inspirecenter.amazechallenge.proto.GetStateResponse;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GetState implements AthlosService<GetStateRequest, GetStateResponse> {
 
@@ -37,13 +43,38 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
                     .build();
         }
 
+        final Challenge challenge = DBManager.challenge.get(worldSession.getWorldID());
+        final Grid grid = challenge.getGrid();
+
+        final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
+
+        Game game = (Game) memcache.get("game_" + challenge.getId());
+        final List<PickableEntity> pickables = game.getPickables();
+        final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+
+        HashMap<String, AMCEntityProto> entities = new HashMap<>();
+
+        for (PickableEntity pickable : pickables) {
+            entities.put(pickable.getId(), pickable.toGenericProto().build());
+        }
+
+        for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+            entities.put(entry.getKey(), entry.getValue().toGenericProto().build());
+        }
+
+
         //Retrieve the partial state:
-        final AMCPartialStateProto partialStateSnapshot = State.forWorld(worldSession.getWorldID()).getPartialStateSnapshot(worldSession);
+        AMCPartialStateProto partialStateProto = AMCPartialStateProto.newBuilder()
+                .setTimestamp(System.currentTimeMillis())
+                .setWorldSession(worldSession.toProto())
+                .setGrid(grid.toProto())
+                .putAllEntities(entities)
+                .build();
 
         return GetStateResponse.newBuilder()
                 .setStatus(GetStateResponse.Status.OK)
                 .setMessage("OK")
-                .setPartialState(partialStateSnapshot)
+                .setPartialState(partialStateProto)
                 .build();
 
     }    

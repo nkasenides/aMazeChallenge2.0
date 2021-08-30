@@ -7,6 +7,7 @@
 
 package org.inspirecenter.amazechallenge.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import com.nkasenides.athlos.proto.Transmittable;
 import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.proto.*;
 
-public class Game implements Transmittable<GameProto.Builder> {
+public class Game implements Transmittable<GameProto.Builder>, Serializable {
     private ArrayList<String> finishedPlayers = new ArrayList<>();    
     private ArrayList<String> activePlayers = new ArrayList<>();    
     private ArrayList<PickableEntity> pickables = new ArrayList<>();    

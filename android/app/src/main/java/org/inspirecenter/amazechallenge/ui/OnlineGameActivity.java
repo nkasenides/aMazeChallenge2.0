@@ -169,27 +169,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
             finish();
         }
 
-        onlinePlayerAdapter.clear();
-        onlinePlayerAdapter.notifyDataSetChanged();
-
-        handler = new Handler();
-
-        if (timer == null) {
-            timer = new Timer();
-        }
-        timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND); // todo
-
-        //Play background audio:
-        final Audio audioResource = challenge.getBackgroundAudio();
-        System.out.println("Sound is: " + sound);
-        if (audioResource.getAudioFormat() != AudioFormat.UNDEFINED_FORMAT_AudioFormat && !audioResource.getName().equals(Audio.AUDIO_NONE_Audio.getSoundResourceName())) {
-            backgroundAudio = MediaPlayer.create(this, getResources().getIdentifier(audioResource.getSoundResourceName(), "raw", getPackageName()));
-            if (backgroundAudio != null && sound) {
-                backgroundAudio.setLooping(true);
-                backgroundAudio.setVolume(DEFAULT_AMBIENT_VOLUME, DEFAULT_AMBIENT_VOLUME);
-                backgroundAudio.start();
-            }
-        }
+        getStateHTTP();
 
     }
 
@@ -197,8 +177,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     protected void onPause() {
         super.onPause();
         if (backgroundAudio != null) backgroundAudio.stop();
-        timer.cancel();
-
+        if (timer != null) timer.cancel();
         // todo ask user to confirm and withdraw
     }
 
@@ -327,7 +306,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 SubmitCodeResponse submitCodeResponse = SubmitCodeResponse.parseFrom(response);
                 if (submitCodeResponse.getStatus() == SubmitCodeResponse.Status.OK) {
                     Snackbar.make(findViewById(R.id.activity_online_game), R.string.code_uploaded, Snackbar.LENGTH_SHORT).show();
-                    getStateHTTP();
                 } else {
                     switch (submitCodeResponse.getMessage()) {
                         case "INVALID_WORLD_SESSION":
@@ -369,6 +347,27 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     onlinePlayerAdapter.notifyDataSetChanged();
 //                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
 //                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+                    onlinePlayerAdapter.clear();
+                    onlinePlayerAdapter.notifyDataSetChanged();
+
+                    handler = new Handler();
+
+                    if (timer == null) {
+                        timer = new Timer();
+                    }
+                    timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND); // todo
+
+                    //Play background audio:
+                    final Audio audioResource = challenge.getBackgroundAudio();
+                    System.out.println("Sound is: " + sound);
+                    if (audioResource.getAudioFormat() != AudioFormat.UNDEFINED_FORMAT_AudioFormat && !audioResource.getName().equals(Audio.AUDIO_NONE_Audio.getSoundResourceName())) {
+                        backgroundAudio = MediaPlayer.create(this, getResources().getIdentifier(audioResource.getSoundResourceName(), "raw", getPackageName()));
+                        if (backgroundAudio != null && sound) {
+                            backgroundAudio.setLooping(true);
+                            backgroundAudio.setVolume(DEFAULT_AMBIENT_VOLUME, DEFAULT_AMBIENT_VOLUME);
+                            backgroundAudio.start();
+                        }
+                    }
                 }
                 else {
                     Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_getting_error), Snackbar.LENGTH_SHORT).show();

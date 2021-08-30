@@ -222,6 +222,7 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                 .build();
 
         progressBar.setVisibility(View.VISIBLE);
+        challengesRecyclerView.setVisibility(View.GONE);
 
         BinaryRequest listChallengesRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
             try {
@@ -284,6 +285,8 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                             Snackbar.make(findViewById(R.id.activity_online_challenge), getString(R.string.join_failure) + " '" + challenge.getName() + "'.", Snackbar.LENGTH_SHORT).show();
                             break;
                     }
+                    progressBar.setVisibility(View.GONE);
+                    challengesRecyclerView.setVisibility(View.VISIBLE);
                     System.err.println(joinChallengeResponse.getMessage());
                 }
             } catch (InvalidProtocolBufferException e) {
