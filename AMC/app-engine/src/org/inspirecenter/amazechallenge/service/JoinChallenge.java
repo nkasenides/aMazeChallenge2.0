@@ -6,6 +6,7 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
+import org.inspirecenter.amazechallenge.model.AMCPlayer;
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
 import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.Health;
@@ -24,8 +25,6 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
     public JoinChallengeResponse serve(JoinChallengeRequest request, Object... additionalParams) {
 
         final AMCPlayerProto player = request.getPlayer();
-
-        System.out.println(player.getEmail());
 
         //Player name must not be empty:
         if (player.getName().isEmpty()) {
@@ -106,7 +105,8 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
         //Challenge must not have a player with the same name:
         for (AMCWorldSession challengeSession : challengeSessions) {
-            if (challengeSession.getPlayerID().equalsIgnoreCase(player.getName())) {
+            final AMCPlayer challengePlayer = DBManager.player.get(challengeSession.getPlayerID());
+            if (challengePlayer.getName().equalsIgnoreCase(player.getName())) {
                 return JoinChallengeResponse.newBuilder()
                         .setStatus(JoinChallengeResponse.Status.INVALID_PLAYER)
                         .setMessage("PLAYER_NAME_EXISTS")

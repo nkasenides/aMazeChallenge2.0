@@ -30,6 +30,7 @@ import org.inspirecenter.amazechallenge.model.PickableEntity;
 import org.inspirecenter.amazechallenge.proto.Audio;
 import org.inspirecenter.amazechallenge.proto.AudioFormat;
 import org.inspirecenter.amazechallenge.proto.AudioType;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.proto.GetStateRequest;
 import org.inspirecenter.amazechallenge.proto.GetStateResponse;
 import org.inspirecenter.amazechallenge.proto.SubmitCodeRequest;
@@ -138,7 +139,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     }
 
-    private Challenge challenge;
+    private ChallengeProto challenge;
     private String email = null;
 
     private Handler handler;
@@ -152,7 +153,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, getString(R.string.Guest_email));
 
         // get challenge from intent
-        challenge = (Challenge) getIntent().getSerializableExtra(OnlineChallengeActivity.PREFERENCE_KEY_CHALLENGE);
+        challenge = (ChallengeProto) getIntent().getSerializableExtra(OnlineChallengeActivity.PREFERENCE_KEY_CHALLENGE);
         if(challenge == null) {
             Log.e(TAG, "Invalid null argument 'challenge'in Intent");
             finish();
