@@ -304,7 +304,7 @@ public class RuntimeController {
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
                 PickableEntity pickableEntity = new PickableEntity();
-                pickableEntity.setId("");
+                pickableEntity.setId(UUID.randomUUID().toString());
                 pickableEntity.setPickableType(type);
                 pickableEntity.setPosition(position);
                 pickableEntity.setWorldID(challenge.getId());
@@ -339,7 +339,7 @@ public class RuntimeController {
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
                 PickableEntity pickableEntity = new PickableEntity();
-                pickableEntity.setId("");
+                pickableEntity.setId(UUID.randomUUID().toString());
                 pickableEntity.setPickableType(type);
                 pickableEntity.setPosition(position);
                 pickableEntity.setWorldID(challenge.getId());

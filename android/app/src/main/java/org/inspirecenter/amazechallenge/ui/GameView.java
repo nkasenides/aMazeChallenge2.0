@@ -101,6 +101,7 @@ public class GameView extends View {
             playerEntities.put(activePlayerId, game.getPlayerEntities().get(activePlayerId));
 //            activePlayerIdToPositionAndDirectionMap.put(activePlayerId, game.getPlayerPositionAndDirectionById(activePlayerId));
         }
+        pickables.clear();
         this.pickables = game.getPickables();
     }
 
@@ -180,6 +181,7 @@ public class GameView extends View {
 //        this.grid = stateUpdate.getPartialState().getGrid().toObject();
 
         //Entities:
+        pickables.clear();
         for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
             //Pickables:
             if (entry.getValue().hasPickableEntity()) {
