@@ -6,16 +6,88 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import com.nkasenides.athlos.backend.AthlosService;
-import org.inspirecenter.amazechallenge.proto.UpdateStateRequest;
-import org.inspirecenter.amazechallenge.proto.UpdateStateResponse;
+import org.inspirecenter.amazechallenge.auth.Auth;
+import org.inspirecenter.amazechallenge.model.*;
+import org.inspirecenter.amazechallenge.persistence.DBManager;
+import org.inspirecenter.amazechallenge.proto.*;
+
+import java.util.List;
+import java.util.Map;
 
 public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStateResponse> {
 
     @Override
     public UpdateStateResponse serve(UpdateStateRequest request, Object... additionalParams) {
-        //TODO - Implement this service.
-        return null;
+
+        //Check world session ID:
+        if (request.getWorldSessionID().isEmpty()) {
+            return UpdateStateResponse.newBuilder()
+                    .setStatus(UpdateStateResponse.Status.INVALID_DATA)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        //Verify world session:
+        final AMCWorldSession worldSession = Auth.verifyWorldSessionID(request.getWorldSessionID());
+        if (worldSession == null) {
+            return UpdateStateResponse.newBuilder()
+                    .setStatus(UpdateStateResponse.Status.INVALID_DATA)
+                    .setMessage("INVALID_WORLD_SESSION")
+                    .build();
+        }
+
+        final Challenge challenge = DBManager.challenge.get(worldSession.getWorldID());
+        final Grid grid = challenge.getGrid();
+
+        final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
+
+        Game game = (Game) memcache.get("game_" + challenge.getId());
+        final List<PickableEntity> pickables = game.getPickables();
+        final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+
+        final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+
+        //Pickable entities:
+        for (PickableEntity pickable : pickables) {
+            builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+        }
+
+        //Player entities:
+        for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+            builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+        }
+
+        //Players:
+        for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+            builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+        }
+
+        //World sessions:
+        for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+            builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+        }
+
+
+        //Retrieve the partial state:
+        builder
+                .setTimestamp(System.currentTimeMillis())
+                .setWorldSession(worldSession.toProto())
+                .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change.
+                .build();
+
+        return UpdateStateResponse.newBuilder()
+                .setStatus(UpdateStateResponse.Status.OK)
+                .setMessage("OK")
+                .setStateUpdate(AMCStateUpdateProto.newBuilder()
+                        .setPartialState(builder.build())
+                        .setTimestamp(System.currentTimeMillis())
+                        .setWorldSessionID(worldSession.getId())
+                        .build())
+                .build();
+
     }
 
 }

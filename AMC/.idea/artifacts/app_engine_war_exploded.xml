@@ -17,6 +17,9 @@
           <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" />
           <element id="library" level="project" name="io.ably:ably-java:1.2.7" />
           <element id="library" level="project" name="com.raylabz:athlos-serverless:0.0.23" />
+          <element id="file-copy" path="$PROJECT_DIR$/core/lib/rhino-1.7.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/core/lib/rhino-1.7.7-javadoc.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/core/lib/rhino-1.7.7-sources.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="app-engine/web/Web" />

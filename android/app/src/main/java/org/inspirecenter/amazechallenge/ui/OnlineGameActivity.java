@@ -391,39 +391,39 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
         System.out.println("updateStateHTTP()");
 
-//        RequestQueue queue = Volley.newRequestQueue(this);
-//        final String url = Stubs.BASE_URL + "/api/state/update";
-//
-//        UpdateStateRequest requestMessage = UpdateStateRequest.newBuilder()
-//                .setWorldSessionID(AMCClient.getInstance().getWorldSession().getId())
-//                .build();
-//
-//        BinaryRequest updateStateRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
-//            try {
-//                UpdateStateResponse updateStateResponse = UpdateStateResponse.parseFrom(response);
-//                if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
-//                    if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) {
-//                        gameView.update(updateStateResponse.getStateUpdate());
-//                        onlinePlayerAdapter.update(updateStateResponse.getStateUpdate());
-//                        onlinePlayerAdapter.notifyDataSetChanged();
-////                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
-////                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
-//                    }
-//                }
-//                else {
-//                    Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
-//                    System.err.println(updateStateResponse.getMessage());
-//                }
-//            } catch (InvalidProtocolBufferException e) {
-//                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
-//                e.printStackTrace();
-//            }
-//        }, error -> {
-//            Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
-//            error.printStackTrace();
-//        });
-//
-//        queue.add(updateStateRequest);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        final String url = Stubs.BASE_URL + "/api/state/update";
+
+        UpdateStateRequest requestMessage = UpdateStateRequest.newBuilder()
+                .setWorldSessionID(AMCClient.getInstance().getWorldSession().getId())
+                .build();
+
+        BinaryRequest updateStateRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
+            try {
+                UpdateStateResponse updateStateResponse = UpdateStateResponse.parseFrom(response);
+                if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+                    if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) {
+                        gameView.update(updateStateResponse.getStateUpdate());
+                        onlinePlayerAdapter.update(updateStateResponse.getStateUpdate());
+                        onlinePlayerAdapter.notifyDataSetChanged();
+//                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+//                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
+                    }
+                }
+                else {
+                    Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
+                    System.err.println(updateStateResponse.getMessage());
+                }
+            } catch (InvalidProtocolBufferException e) {
+                Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        }, error -> {
+            Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
+            error.printStackTrace();
+        });
+
+        queue.add(updateStateRequest);
     }
 
     public static String convertStreamToString(final InputStream inputStream) {

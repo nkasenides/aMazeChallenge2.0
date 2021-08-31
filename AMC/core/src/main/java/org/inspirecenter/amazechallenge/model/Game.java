@@ -224,9 +224,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     }
 
     public boolean resetPlayerById(final String playerId) {
-        boolean existed = false;
-        if(finishedPlayers.remove(playerId)) existed = true;
-        if(playerWorldSessions.remove(playerId) != null) existed = true;
+        boolean existed = finishedPlayers.remove(playerId);
         if(queuedPlayers.remove(playerId)) existed = true;
         if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
 

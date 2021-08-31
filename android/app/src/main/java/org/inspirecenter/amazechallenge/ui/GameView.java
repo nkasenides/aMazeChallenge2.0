@@ -164,7 +164,20 @@ public class GameView extends View {
      */
     void update(final AMCStateUpdateProto stateUpdate) {
 
-        //TODO - Players and world sessions update, entities correct updating etc.
+        //Players:
+        allIDsToPlayers = new HashMap<>();
+        for (Map.Entry<String, AMCPlayerProto> entry : stateUpdate.getPartialState().getPlayersMap().entrySet()) {
+            allIDsToPlayers.put(entry.getKey(), entry.getValue().toObject());
+        }
+
+        //World sessions:
+        worldSessions = new HashMap<>();
+        for (Map.Entry<String, AMCWorldSessionProto> entry : stateUpdate.getPartialState().getWorldSessionsMap().entrySet()) {
+            worldSessions.put(entry.getKey(), entry.getValue().toObject());
+        }
+
+        //Grid/Terrain:
+//        this.grid = stateUpdate.getPartialState().getGrid().toObject();
 
         //Entities:
         for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
