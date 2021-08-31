@@ -26,7 +26,9 @@ import org.inspirecenter.amazechallenge.model.PickableEntity;
 import org.inspirecenter.amazechallenge.model.PlayerEntity;
 import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
 import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
+import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
 import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
+import org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto;
 import org.inspirecenter.amazechallenge.proto.BackgroundImage;
 import org.inspirecenter.amazechallenge.proto.Direction4;
 import org.inspirecenter.amazechallenge.proto.PickableType;
@@ -39,6 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import java.util.function.BiConsumer;
 
 import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_LEFT_SIDE;
 import static org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator.SHAPE_ONLY_LOWER_SIDE;
@@ -124,6 +127,18 @@ public class GameView extends View {
      * @param state The received state.
      */
     void initialize(final AMCPartialStateProto state) {
+        //Players:
+        allIDsToPlayers = new HashMap<>();
+        for (Map.Entry<String, AMCPlayerProto> entry : state.getPlayersMap().entrySet()) {
+            allIDsToPlayers.put(entry.getKey(), entry.getValue().toObject());
+        }
+
+        //World sessions:
+        worldSessions = new HashMap<>();
+        for (Map.Entry<String, AMCWorldSessionProto> entry : state.getWorldSessionsMap().entrySet()) {
+            worldSessions.put(entry.getKey(), entry.getValue().toObject());
+        }
+
         //Grid/Terrain:
         this.grid = state.getGrid().toObject();
 
@@ -148,6 +163,9 @@ public class GameView extends View {
      * @param stateUpdate
      */
     void update(final AMCStateUpdateProto stateUpdate) {
+
+        //TODO - Players and world sessions update, entities correct updating etc.
+
         //Entities:
         for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
             //Pickables:
@@ -216,11 +234,25 @@ public class GameView extends View {
             drawPickableItem(pickable.getPosition(), getDrawableResourceId(pickable), tile_size, padding, canvas);
         }
 
+        System.out.println("players:");
+        allIDsToPlayers.forEach(new BiConsumer<String, AMCPlayer>() {
+            @Override
+            public void accept(String s, AMCPlayer amcPlayer) {
+                System.out.println(s);
+            }
+        });
+
         // draw active players
         for(final Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
-            final String activePlayerId = entry.getKey();
+            final String activePlayerId = entry.getValue().getPlayerID();
+            System.out.println("activePlayerId = " + activePlayerId);
+            final AMCPlayer player = allIDsToPlayers.get(activePlayerId);
             final PlayerEntity playerEntity = entry.getValue();
-            drawPlayer(allIDsToPlayers.get(activePlayerId), playerEntity.getPosition(), playerEntity.getDirection(), tile_size, padding, canvas);
+            if (player == null) {
+                System.err.println("player == null");
+                return;
+            }
+            drawPlayer(player, playerEntity, playerEntity.getPosition(), playerEntity.getDirection(), tile_size, padding, canvas);
         }
     }
 
@@ -264,10 +296,10 @@ public class GameView extends View {
         if((shape & SHAPE_ONLY_LOWER_SIDE) != 0) { canvas.drawLine(topLeftX, topLeftY + tile_size, topLeftX + tile_size, topLeftY + tile_size, paint); }
     }
 
-    private void drawPlayer(final AMCPlayer player, final MatrixPosition position, final Direction4 direction, final int tile_size, final int padding, final Canvas canvas) {
+    private void drawPlayer(final AMCPlayer player, final PlayerEntity playerEntity, final MatrixPosition position, final Direction4 direction, final int tile_size, final int padding, final Canvas canvas) {
 
         // draw actual player shape
-        if (playerEntities.containsKey(player.getId())) {
+        if (playerEntities.containsKey(playerEntity.getId())) {
             drawShape(position, Shape.TRIANGLE_Shape, direction, Color.parseColor(player.getColor().getHexCode()), tile_size, padding, canvas);
         }
 

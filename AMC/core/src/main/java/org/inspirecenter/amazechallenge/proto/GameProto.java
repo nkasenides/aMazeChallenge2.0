@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_descriptor;
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -227,7 +227,7 @@ private static final long serialVersionUID = 0L;
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_fieldAccessorTable
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             GameProto.class, Builder.class);
   }
@@ -429,7 +429,7 @@ private static final long serialVersionUID = 0L;
         String, AMCPlayerProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, AMCPlayerProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -559,7 +559,7 @@ private static final long serialVersionUID = 0L;
         String, PlayerEntityProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, PlayerEntityProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -689,7 +689,7 @@ private static final long serialVersionUID = 0L;
         String, AMCWorldSessionProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, AMCWorldSessionProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -1120,7 +1120,7 @@ private static final long serialVersionUID = 0L;
       GameProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -1156,7 +1156,7 @@ private static final long serialVersionUID = 0L;
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_fieldAccessorTable
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               GameProto.class, Builder.class);
     }
@@ -1213,7 +1213,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_GameProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor;
     }
 
     @Override

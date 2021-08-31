@@ -127,6 +127,7 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         worldSession.setIpAddress((String) additionalParams[0]);
         worldSession.setPlayerID(player.getName());
         worldSession.setPoints(0);
+        worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
 
         //Create the player entity:
         PlayerEntity playerEntity = new PlayerEntity();
@@ -146,11 +147,15 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
             game.setId("game_" + worldSession.getWorldID());
             game.setChallengeID(challengeID);
             game.addPlayer(player.toObject(), worldSession);
+            game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+            game.getPlayerEntities().put(playerEntity.getId(), playerEntity);
             memcache.put(game.getId(), game);
         }
         else {
             Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
             game.addPlayer(player.toObject(), worldSession);
+            game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+            game.getPlayerEntities().put(playerEntity.getId(), playerEntity);
             memcache.put(game.getId(), game);
         }
 

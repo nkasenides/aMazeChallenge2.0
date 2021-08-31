@@ -109,13 +109,13 @@
 //  }
 //  public static final com.google.protobuf.Descriptors.Descriptor
 //      getDescriptor() {
-//    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+//    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor;
 //  }
 //
 //  @Override
 //  protected FieldAccessorTable
 //      internalGetFieldAccessorTable() {
-//    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
+//    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_fieldAccessorTable
 //        .ensureFieldAccessorsInitialized(
 //            AMCTeamProto.class, Builder.class);
 //  }
@@ -510,13 +510,13 @@
 //
 //    public static final com.google.protobuf.Descriptors.Descriptor
 //        getDescriptor() {
-//      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+//      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor;
 //    }
 //
 //    @Override
 //    protected FieldAccessorTable
 //        internalGetFieldAccessorTable() {
-//      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable
+//      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_fieldAccessorTable
 //          .ensureFieldAccessorsInitialized(
 //              AMCTeamProto.class, Builder.class);
 //    }
@@ -555,7 +555,7 @@
 //    @Override
 //    public com.google.protobuf.Descriptors.Descriptor
 //        getDescriptorForType() {
-//      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+//      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor;
 //    }
 //
 //    @Override

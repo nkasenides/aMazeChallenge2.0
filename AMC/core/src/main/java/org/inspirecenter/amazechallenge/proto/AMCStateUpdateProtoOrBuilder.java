@@ -4,21 +4,21 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface AMCStateUpdateProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:AMCStateUpdateProto)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    * @return Whether the partialState field is set.
    */
   boolean hasPartialState();
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    * @return The partialState.
    */
   AMCPartialStateProto getPartialState();
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    */
   AMCPartialStateProtoOrBuilder getPartialStateOrBuilder();
 
@@ -85,11 +85,11 @@ public interface AMCStateUpdateProtoOrBuilder extends
       getRemovedTerrainBytes(int index);
 
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   int getWorldSessionsCount();
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   boolean containsWorldSessions(
       String key);
@@ -100,19 +100,19 @@ public interface AMCStateUpdateProtoOrBuilder extends
   java.util.Map<String, AMCWorldSessionProto>
   getWorldSessions();
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   java.util.Map<String, AMCWorldSessionProto>
   getWorldSessionsMap();
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
 
   AMCWorldSessionProto getWorldSessionsOrDefault(
       String key,
       AMCWorldSessionProto defaultValue);
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
 
   AMCWorldSessionProto getWorldSessionsOrThrow(
@@ -125,11 +125,11 @@ public interface AMCStateUpdateProtoOrBuilder extends
   long getTimestamp();
 
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   int getAllPlayersCount();
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   boolean containsAllPlayers(
       String key);
@@ -140,19 +140,19 @@ public interface AMCStateUpdateProtoOrBuilder extends
   java.util.Map<String, AMCPlayerProto>
   getAllPlayers();
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   java.util.Map<String, AMCPlayerProto>
   getAllPlayersMap();
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
 
   AMCPlayerProto getAllPlayersOrDefault(
       String key,
       AMCPlayerProto defaultValue);
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
 
   AMCPlayerProto getAllPlayersOrThrow(

@@ -100,13 +100,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             QuestionnaireEntryProto.class, Builder.class);
   }
@@ -413,13 +413,13 @@ private static final long serialVersionUID = 0L;
       QuestionnaireEntryProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               QuestionnaireEntryProto.class, Builder.class);
     }
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor;
     }
 
     @Override

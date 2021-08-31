@@ -52,29 +52,40 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
         final List<PickableEntity> pickables = game.getPickables();
         final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
 
-        HashMap<String, AMCEntityProto> entities = new HashMap<>();
+        final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
 
+        //Pickable entities:
         for (PickableEntity pickable : pickables) {
-            entities.put(pickable.getId(), pickable.toGenericProto().build());
+            builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
         }
 
+        //Player entities:
         for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
-            entities.put(entry.getKey(), entry.getValue().toGenericProto().build());
+            builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+        }
+
+        //Players:
+        for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+            builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+        }
+
+        //World sessions:
+        for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+            builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
         }
 
 
         //Retrieve the partial state:
-        AMCPartialStateProto partialStateProto = AMCPartialStateProto.newBuilder()
+        builder
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
                 .setGrid(grid.toProto())
-                .putAllEntities(entities)
                 .build();
 
         return GetStateResponse.newBuilder()
                 .setStatus(GetStateResponse.Status.OK)
                 .setMessage("OK")
-                .setPartialState(partialStateProto)
+                .setPartialState(builder.build())
                 .build();
 
     }    

@@ -90,13 +90,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
+    return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             org.inspirecenter.amazechallenge.proto.QuestionEntryProto.class, org.inspirecenter.amazechallenge.proto.QuestionEntryProto.Builder.class);
   }
@@ -398,13 +398,13 @@ private static final long serialVersionUID = 0L;
       org.inspirecenter.amazechallenge.proto.QuestionEntryProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.inspirecenter.amazechallenge.proto.QuestionEntryProto.class, org.inspirecenter.amazechallenge.proto.QuestionEntryProto.Builder.class);
     }
@@ -439,7 +439,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+      return org.inspirecenter.amazechallenge.proto.AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor;
     }
 
     @Override

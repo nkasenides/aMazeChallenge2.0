@@ -15,260 +15,270 @@ public final class AMCProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GameProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GameProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_HealthProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_HealthProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_HealthProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_HealthProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AdminKeyProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AdminKeyProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AdminKeyProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GridProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GridProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GridProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GridProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GeoPositionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GeoPositionProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_MatrixPositionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_MatrixPositionProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCGameSessionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCGameSessionProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCPlayerProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCEntityProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCEntityProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCEntityProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_PickableEntityProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_PickableEntityProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_PlayerEntityProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_PlayerEntityProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_PlayerEntityProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCActionProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCActionProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCActionProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainCellProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainCellProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainIdentifierProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainIdentifierProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_EntitiesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_PlayersEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_PlayersEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_WorldSessionsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_WorldSessionsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_Request_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_TerrainEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_TerrainEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldProto_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AddChallengeRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldProto_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_Request_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GetStateRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_Request_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubscribeRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_ListChallengesRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GetStateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubscribeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_UpdateStateRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_Response_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_Response_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_Response_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_GetStateResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_Response_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_UpdateStateResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_GetStateResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_SubscribeResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_ListChallengesResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_SubscribeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor;
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_nkasenides_amc_proto_AddChallengeResponse_fieldAccessorTable;
+      internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -278,674 +288,725 @@ public final class AMCProto {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\024Proto/AMCProto.proto\022\030com.nkasenides.a" +
-      "mc.proto\"\260\006\n\tGameProto\022\027\n\017finishedPlayer" +
-      "s\030\001 \003(\t\022\025\n\ractivePlayers\030\002 \003(\t\022@\n\tpickab" +
-      "les\030\003 \003(\0132-.org.inspirecenter.amazechallenge.proto.Pic" +
-      "kableEntityProto\022\025\n\rqueuedPlayers\030\004 \003(\t\022" +
-      "\017\n\007counter\030\005 \001(\004\022\026\n\016waitingPlayers\030\006 \003(\t" +
-      "\022G\n\nallPlayers\030\007 \003(\01323.com.nkasenides.am" +
-      "c.proto.GameProto.AllPlayersEntry\022\023\n\013las" +
-      "tUpdated\030\010 \001(\004\022\023\n\013challengeID\030\t \001(\t\022O\n\016p" +
-      "layerEntities\030\n \003(\01327.org.inspirecenter.amazechallenge" +
-      ".proto.GameProto.PlayerEntitiesEntry\022\n\n\002" +
-      "id\030\013 \001(\t\022\031\n\021lastExecutionTime\030\014 \001(\004\022Y\n\023p" +
-      "layerWorldSessions\030\r \003(\0132<.com.nkasenide" +
-      "s.amc.proto.GameProto.PlayerWorldSession" +
-      "sEntry\032[\n\017AllPlayersEntry\022\013\n\003key\030\001 \001(\t\0227" +
-      "\n\005value\030\002 \001(\0132(.org.inspirecenter.amazechallenge.proto" +
-      ".AMCPlayerProto:\0028\001\032b\n\023PlayerEntitiesEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+.com.nka" +
-      "senides.amc.proto.PlayerEntityProto:\0028\001\032" +
-      "j\n\030PlayerWorldSessionsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022=\n\005value\030\002 \001(\0132..org.inspirecenter.amazechallenge.pro" +
-      "to.AMCWorldSessionProto:\0028\001\"\035\n\013HealthPro" +
-      "to\022\016\n\006health\030\001 \001(\005\"\033\n\rAdminKeyProto\022\n\n\002i" +
-      "d\030\001 \001(\t\"\177\n\027QuestionnaireEntryProto\022\023\n\013ch" +
-      "allengeID\030\001 \001(\t\022C\n\rquestionEntry\030\002 \003(\0132," +
-      ".org.inspirecenter.amazechallenge.proto.QuestionEntryP" +
-      "roto\022\n\n\002id\030\003 \001(\t\"\211\002\n\tGridProto\022?\n\021starti" +
-      "ngDirection\030\001 \001(\0162$.org.inspirecenter.amazechallenge.p" +
-      "roto.Direction4\022\014\n\004data\030\002 \001(\t\022E\n\016targetP" +
-      "osition\030\003 \001(\0132-.org.inspirecenter.amazechallenge.proto" +
-      ".MatrixPositionProto\022\r\n\005width\030\004 \001(\005\022G\n\020s" +
-      "tartingPosition\030\005 \001(\0132-.com.nkasenides.a" +
-      "mc.proto.MatrixPositionProto\022\016\n\006height\030\006" +
-      " \001(\005\">\n\022QuestionEntryProto\022\022\n\nanswerText" +
-      "\030\001 \001(\t\022\024\n\014questionText\030\002 \001(\t\"\221\006\n\016Challen" +
-      "geProto\022\031\n\021canJoinAfterStart\030\001 \001(\010\022\032\n\022ca" +
-      "nStepOnEachOther\030\002 \001(\010\022>\n\tpenalties\030\003 \001(" +
-      "\0162+.org.inspirecenter.amazechallenge.proto.PickableInt" +
-      "ensity\022B\n\017backgroundImage\030\004 \001(\0162).com.nk" +
-      "asenides.amc.proto.BackgroundImage\022\023\n\013de" +
-      "scription\030\005 \001(\t\0227\n\tlineColor\030\006 \001(\0162$.com" +
-      ".nkasenides.amc.proto.AmazeColor\022\021\n\tcanR" +
-      "epeat\030\007 \001(\010\022\021\n\tcreatedOn\030\010 \001(\004\022\030\n\020hasQue" +
-      "stionnaire\030\t \001(\010\0228\n\ndifficulty\030\n \001(\0162$.c" +
-      "om.nkasenides.amc.proto.Difficulty\022\022\n\nap" +
-      "iVersion\030\013 \001(\005\022\030\n\020maxActivePlayers\030\014 \001(\005" +
-      "\0221\n\004grid\030\r \001(\0132#.org.inspirecenter.amazechallenge.prot" +
-      "o.GridProto\0228\n\017backgroundAudio\030\016 \001(\0162\037.c" +
-      "om.nkasenides.amc.proto.Audio\022\030\n\020minActi" +
-      "vePlayers\030\017 \001(\005\022\014\n\004name\030\020 \001(\t\022\021\n\tstartTi" +
-      "me\030\021 \001(\004\022\017\n\007endTime\030\022 \001(\004\022\n\n\002id\030\023 \001(\t\022<\n" +
-      "\007rewards\030\024 \001(\0162+.org.inspirecenter.amazechallenge.prot" +
-      "o.PickableIntensity\022\023\n\013createdByID\030\025 \001(\t" +
-      "\0226\n\talgorithm\030\026 \001(\0162#.org.inspirecenter.amazechallenge" +
-      ".proto.Algorithm\"I\n\020GeoPositionProto\022\t\n\001" +
-      "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\024\n\014positio" +
-      "nHash\030\004 \001(\t\"T\n\023MatrixPositionProto\022\013\n\003ro" +
-      "w\030\001 \001(\021\022\013\n\003col\030\002 \001(\021\022\020\n\010cellHash\030\003 \001(\t\022\021" +
-      "\n\tchunkHash\030\004 \001(\t\"l\n\023AMCGameSessionProto" +
-      "\022\021\n\tipAddress\030\001 \001(\t\022\021\n\texpiresOn\030\002 \001(\004\022\n" +
-      "\n\002id\030\003 \001(\t\022\021\n\tcreatedOn\030\004 \001(\004\022\020\n\010playerI" +
-      "D\030\005 \001(\t\"\232\002\n\024AMCWorldSessionProto\022\014\n\004code" +
-      "\030\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022\021\n\tipAddress\030\003 \001" +
-      "(\t\022E\n\016cameraPosition\030\004 \001(\0132-.com.nkaseni" +
-      "des.amc.proto.MatrixPositionProto\0225\n\006hea" +
-      "lth\030\005 \001(\0132%.org.inspirecenter.amazechallenge.proto.Hea" +
-      "lthProto\022\021\n\texpiresOn\030\006 \001(\004\022\n\n\002id\030\007 \001(\t\022" +
-      "\021\n\tcreatedOn\030\010 \001(\004\022\020\n\010playerID\030\t \001(\t\022\016\n\006" +
-      "points\030\n \001(\005\"\326\001\n\016AMCPlayerProto\022\020\n\010passw" +
-      "ord\030\001 \001(\t\0223\n\005color\030\002 \001(\0162$.com.nkasenide" +
-      "s.amc.proto.AmazeColor\022\016\n\006teamID\030\003 \001(\t\022\014" +
-      "\n\004name\030\004 \001(\t\0221\n\004icon\030\005 \001(\0162#.com.nkaseni" +
-      "des.amc.proto.AmazeIcon\022\n\n\002id\030\006 \001(\t\022\021\n\tc" +
-      "reatedOn\030\007 \001(\004\022\r\n\005email\030\010 \001(\t\"a\n\014AMCTeam" +
-      "Proto\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\017\n\007owner" +
-      "ID\030\003 \001(\t\022\021\n\tplayerIDs\030\004 \003(\t\022\023\n\013playerLim" +
-      "it\030\005 \001(\r\"\351\002\n\016AMCEntityProto\022\017\n\007worldID\030\001" +
-      " \001(\t\022\026\n\016areaOfInterest\030\002 \001(\002\022\n\n\002id\030\003 \001(\t" +
-      "\022?\n\010position\030\004 \001(\0132-.org.inspirecenter.amazechallenge." +
-      "proto.MatrixPositionProto\022\020\n\010playerID\030\005 " +
-      "\001(\t\0227\n\tdirection\030\006 \001(\0162$.com.nkasenides." +
-      "amc.proto.Direction4\022G\n\016pickableEntity\030\007" +
-      " \001(\0132-.org.inspirecenter.amazechallenge.proto.Pickable" +
-      "EntityProtoH\000\022C\n\014playerEntity\030\010 \001(\0132+.co" +
-      "m.nkasenides.amc.proto.PlayerEntityProto" +
-      "H\000B\010\n\006entity\"\243\002\n\023PickableEntityProto\022\017\n\007" +
-      "worldID\030\001 \001(\t\022\026\n\016areaOfInterest\030\002 \001(\002\022<\n" +
-      "\014pickableType\030\003 \001(\0162&.org.inspirecenter.amazechallenge" +
-      ".proto.PickableType\022\n\n\002id\030\004 \001(\t\022?\n\010posit" +
-      "ion\030\005 \001(\0132-.org.inspirecenter.amazechallenge.proto.Mat" +
-      "rixPositionProto\022\r\n\005state\030\006 \001(\005\022\020\n\010playe" +
-      "rID\030\007 \001(\t\0227\n\tdirection\030\010 \001(\0162$.com.nkase" +
-      "nides.amc.proto.Direction4\"\324\001\n\021PlayerEnt" +
-      "ityProto\022\017\n\007worldID\030\t \001(\t\022\026\n\016areaOfInter" +
-      "est\030\n \001(\002\022\n\n\002id\030\013 \001(\t\022?\n\010position\030\014 \001(\0132" +
-      "-.org.inspirecenter.amazechallenge.proto.MatrixPositio" +
-      "nProto\022\020\n\010playerID\030\r \001(\t\0227\n\tdirection\030\016 " +
-      "\001(\0162$.org.inspirecenter.amazechallenge.proto.Direction" +
-      "4\"\020\n\016AMCActionProto\"\235\001\n\023AMCTerrainCellPr" +
-      "oto\022?\n\010position\030\001 \001(\0132-.com.nkasenides.a" +
-      "mc.proto.MatrixPositionProto\022\021\n\trightWal" +
-      "l\030\002 \001(\010\022\020\n\010downWall\030\003 \001(\010\022\016\n\006upWall\030\004 \001(" +
-      "\010\022\020\n\010leftWall\030\005 \001(\010\"\246\004\n\023AMCStateUpdatePr" +
-      "oto\022D\n\014partialState\030\001 \001(\0132..com.nkasenid" +
-      "es.amc.proto.AMCPartialStateProto\022\026\n\016wor" +
-      "ldSessionID\030\002 \001(\t\022\027\n\017removedEntities\030\003 \003" +
-      "(\t\022\026\n\016removedTerrain\030\004 \003(\t\022W\n\rworldSessi" +
-      "ons\030\005 \003(\0132@.org.inspirecenter.amazechallenge.proto.AMC" +
-      "StateUpdateProto.WorldSessionsEntry\022\021\n\tt" +
-      "imestamp\030\006 \001(\004\022Q\n\nallPlayers\030\007 \003(\0132=.com" +
-      ".nkasenides.amc.proto.AMCStateUpdateProt" +
-      "o.AllPlayersEntry\032d\n\022WorldSessionsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022=\n\005value\030\002 \001(\0132..com.nkasen" +
-      "ides.amc.proto.AMCWorldSessionProto:\0028\001\032" +
-      "[\n\017AllPlayersEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value" +
-      "\030\002 \001(\0132(.org.inspirecenter.amazechallenge.proto.AMCPla" +
-      "yerProto:\0028\001\"\233\002\n\024AMCTerrainChunkProto\022\n\n" +
-      "\002id\030\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022?\n\010position\030\003" +
-      " \001(\0132-.org.inspirecenter.amazechallenge.proto.MatrixPo" +
-      "sitionProto\022H\n\005cells\030\004 \003(\01329.com.nkaseni" +
-      "des.amc.proto.AMCTerrainChunkProto.Cells" +
-      "Entry\032[\n\nCellsEntry\022\013\n\003key\030\001 \001(\t\022<\n\005valu" +
-      "e\030\002 \001(\0132-.org.inspirecenter.amazechallenge.proto.AMCTe" +
-      "rrainCellProto:\0028\001\"\217\001\n\031AMCTerrainIdentif" +
-      "ierProto\022\n\n\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n" +
-      "\007worldID\030\003 \001(\t\022D\n\rchunkPosition\030\004 \001(\0132-." +
-      "org.inspirecenter.amazechallenge.proto.MatrixPositionP" +
-      "roto\"\372\003\n\024AMCPartialStateProto\022D\n\014worldSe" +
-      "ssion\030\001 \001(\0132..org.inspirecenter.amazechallenge.proto.A" +
-      "MCWorldSessionProto\022N\n\010entities\030\002 \003(\0132<." +
-      "org.inspirecenter.amazechallenge.proto.AMCPartialState" +
-      "Proto.EntitiesEntry\022L\n\007terrain\030\003 \003(\0132;.c" +
-      "om.nkasenides.amc.proto.AMCPartialStateP" +
-      "roto.TerrainEntry\0221\n\004grid\030\004 \001(\0132#.com.nk" +
-      "asenides.amc.proto.GridProto\022\021\n\ttimestam" +
-      "p\030\005 \001(\004\032Y\n\rEntitiesEntry\022\013\n\003key\030\001 \001(\t\0227\n" +
-      "\005value\030\002 \001(\0132(.org.inspirecenter.amazechallenge.proto." +
-      "AMCEntityProto:\0028\001\032]\n\014TerrainEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.com.nkasenides." +
-      "amc.proto.AMCTerrainCellProto:\0028\001\"\365\001\n\rAM" +
-      "CWorldProto\022\017\n\007maxRows\030\001 \001(\022\022\023\n\013heightLi" +
-      "mit\030\002 \001(\r\022\014\n\004seed\030\003 \001(\022\0221\n\004grid\030\004 \001(\0132#." +
-      "GridProto\022\014\n\004na" +
-      "me\030\005 \001(\t\022\020\n\010chunkIDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017" +
-      "\n\007ownerID\030\010 \001(\t\022\021\n\tcreatedOn\030\t \001(\004\022\017\n\007ma" +
-      "xCols\030\n \001(\022\022\034\n\024subscribedSessionIDs\030\013 \003(" +
-      "\t\"\320\005\n\007Request\022L\n\023addChallengeRequest\030\001 \001" +
-      "(\0132-.org.inspirecenter.amazechallenge.proto.AddChallen" +
-      "geRequestH\000\022D\n\017getStateRequest\030\002 \001(\0132).c" +
-      "om.nkasenides.amc.proto.GetStateRequestH" +
-      "\000\022F\n\020subscribeRequest\030\003 \001(\0132*.com.nkasen" +
-      "ides.amc.proto.SubscribeRequestH\000\022P\n\025lis" +
-      "tChallengesRequest\030\004 \001(\0132/.com.nkasenide" +
-      "s.amc.proto.ListChallengesRequestH\000\022J\n\022u" +
-      "nsubscribeRequest\030\005 \001(\0132,.com.nkasenides" +
-      ".amc.proto.UnsubscribeRequestH\000\022H\n\021submi" +
-      "tCodeRequest\030\006 \001(\0132+.org.inspirecenter.amazechallenge." +
-      "proto.SubmitCodeRequestH\000\022J\n\022updateState" +
-      "Request\030\007 \001(\0132,.org.inspirecenter.amazechallenge.proto" +
-      ".UpdateStateRequestH\000\022N\n\024joinChallengeRe" +
-      "quest\030\010 \001(\0132..org.inspirecenter.amazechallenge.proto.J" +
-      "oinChallengeRequestH\000\022Z\n\032submitQuestionn" +
-      "aireRequest\030\t \001(\01324.org.inspirecenter.amazechallenge.p" +
-      "roto.SubmitQuestionnaireRequestH\000B\t\n\007req" +
-      "uest\"d\n\023AddChallengeRequest\022;\n\tchallenge" +
-      "\030\001 \001(\0132(.org.inspirecenter.amazechallenge.proto.Challe" +
-      "ngeProto\022\020\n\010adminKey\030\002 \001(\t\")\n\017GetStateRe" +
-      "quest\022\026\n\016worldSessionID\030\001 \001(\t\"*\n\020Subscri" +
-      "beRequest\022\026\n\016worldSessionID\030\001 \001(\t\"\027\n\025Lis" +
-      "tChallengesRequest\",\n\022UnsubscribeRequest" +
-      "\022\026\n\016worldSessionID\030\001 \001(\t\"9\n\021SubmitCodeRe" +
-      "quest\022\014\n\004code\030\001 \001(\t\022\026\n\016worldSessionID\030\002 " +
-      "\001(\t\",\n\022UpdateStateRequest\022\026\n\016worldSessio" +
-      "nID\030\001 \001(\t\"e\n\024JoinChallengeRequest\022\023\n\013cha" +
-      "llengeID\030\001 \001(\t\0228\n\006player\030\002 \001(\0132(.com.nka" +
-      "senides.amc.proto.AMCPlayerProto\"\203\001\n\032Sub" +
-      "mitQuestionnaireRequest\022\026\n\016worldSessionI" +
-      "D\030\001 \001(\t\022M\n\022questionnaireEntry\030\002 \001(\01321.co" +
-      "m.nkasenides.amc.proto.QuestionnaireEntr" +
-      "yProto\"\344\005\n\010Response\022\\\n\033submitQuestionnai" +
-      "reResponse\030\001 \001(\01325.org.inspirecenter.amazechallenge.pr" +
-      "oto.SubmitQuestionnaireResponseH\000\022F\n\020get" +
-      "StateResponse\030\002 \001(\0132*.org.inspirecenter.amazechallenge" +
-      ".proto.GetStateResponseH\000\022P\n\025joinChallen" +
-      "geResponse\030\003 \001(\0132/.org.inspirecenter.amazechallenge.pr" +
-      "oto.JoinChallengeResponseH\000\022L\n\023updateSta" +
-      "teResponse\030\004 \001(\0132-.org.inspirecenter.amazechallenge.pr" +
-      "oto.UpdateStateResponseH\000\022J\n\022submitCodeR" +
-      "esponse\030\005 \001(\0132,.org.inspirecenter.amazechallenge.proto" +
-      ".SubmitCodeResponseH\000\022H\n\021subscribeRespon" +
-      "se\030\006 \001(\0132+.org.inspirecenter.amazechallenge.proto.Subs" +
-      "cribeResponseH\000\022L\n\023unsubscribeResponse\030\007" +
-      " \001(\0132-.org.inspirecenter.amazechallenge.proto.Unsubscr" +
-      "ibeResponseH\000\022R\n\026listChallengesResponse\030" +
-      "\010 \001(\01320.org.inspirecenter.amazechallenge.proto.ListCha" +
-      "llengesResponseH\000\022N\n\024addChallengeRespons" +
-      "e\030\t \001(\0132..org.inspirecenter.amazechallenge.proto.AddCh" +
-      "allengeResponseH\000B\n\n\010response\"\261\001\n\033Submit" +
-      "QuestionnaireResponse\022\017\n\007message\030\001 \001(\t\022L" +
-      "\n\006status\030\002 \001(\0162<.org.inspirecenter.amazechallenge.prot" +
-      "o.SubmitQuestionnaireResponse.Status\"3\n\006" +
-      "Status\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020" +
-      "\001\022\006\n\002OK\020\002\"\253\002\n\020GetStateResponse\022D\n\014partia" +
-      "lState\030\001 \001(\0132..org.inspirecenter.amazechallenge.proto." +
-      "AMCPartialStateProto\022\017\n\007message\030\002 \001(\t\022A\n" +
-      "\006status\030\003 \001(\01621.org.inspirecenter.amazechallenge.proto" +
-      ".GetStateResponse.Status\"}\n\006Status\022\020\n\014SE" +
-      "RVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022" +
-      "\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n" +
-      "\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\214\003\n\025Join" +
-      "ChallengeResponse\022;\n\tchallenge\030\001 \001(\0132(.c" +
-      "om.nkasenides.amc.proto.ChallengeProto\022D" +
-      "\n\014worldSession\030\002 \001(\0132..com.nkasenides.am" +
-      "c.proto.AMCWorldSessionProto\022\017\n\007message\030" +
-      "\003 \001(\t\022F\n\006status\030\004 \001(\01626.com.nkasenides.a" +
-      "mc.proto.JoinChallengeResponse.Status\"\226\001" +
-      "\n\006Status\022\025\n\021INVALID_CHALLENGE\020\000\022\031\n\025CHALL" +
-      "ENGE_NOT_STARTED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026" +
-      "\n\022PLAYER_NAME_EXISTS\020\003\022\022\n\016CHALLENGE_OVER" +
-      "\020\004\022\006\n\002OK\020\005\022\022\n\016CHALLENGE_FULL\020\006\"\257\002\n\023Updat" +
-      "eStateResponse\022\017\n\007message\030\001 \001(\t\022B\n\013state" +
-      "Update\030\002 \001(\0132-.org.inspirecenter.amazechallenge.proto." +
-      "AMCStateUpdateProto\022D\n\006status\030\003 \001(\01624.co" +
-      "m.nkasenides.amc.proto.UpdateStateRespon" +
-      "se.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n" +
-      "\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA" +
-      "\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE" +
-      "_STATE\020\004\022\006\n\002OK\020\005\"\301\001\n\022SubmitCodeResponse\022" +
-      "\017\n\007message\030\001 \001(\t\022C\n\006status\030\002 \001(\01623.com.n" +
-      "kasenides.amc.proto.SubmitCodeResponse.S" +
-      "tatus\"U\n\006Status\022\031\n\025INVALID_WORLD_SESSION" +
-      "\020\000\022\020\n\014INVALID_CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_S" +
-      "UBMIT_CODE\020\003\"\255\002\n\021SubscribeResponse\022D\n\014pa" +
-      "rtialState\030\001 \001(\0132..org.inspirecenter.amazechallenge.pr" +
-      "oto.AMCPartialStateProto\022\017\n\007message\030\002 \001(" +
-      "\t\022B\n\006status\030\003 \001(\01622.org.inspirecenter.amazechallenge.p" +
-      "roto.SubscribeResponse.Status\"}\n\006Status\022" +
-      "\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSI" +
-      "ON\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED" +
-      "\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\321\001\n" +
-      "\023UnsubscribeResponse\022\017\n\007message\030\001 \001(\t\022D\n" +
-      "\006status\030\002 \001(\01624.org.inspirecenter.amazechallenge.proto" +
-      ".UnsubscribeResponse.Status\"c\n\006Status\022\020\n" +
-      "\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION" +
-      "\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003" +
-      "\022\006\n\002OK\020\004\"\347\001\n\026ListChallengesResponse\022<\n\nc" +
-      "hallenges\030\001 \003(\0132(.org.inspirecenter.amazechallenge.pro" +
-      "to.ChallengeProto\022\017\n\007message\030\002 \001(\t\022G\n\006st" +
-      "atus\030\003 \001(\01627.org.inspirecenter.amazechallenge.proto.Li" +
-      "stChallengesResponse.Status\"5\n\006Status\022\020\n" +
-      "\014SERVER_ERROR\020\000\022\021\n\rNO_CHALLENGES\020\001\022\006\n\002OK" +
-      "\020\002\"\302\001\n\024AddChallengeResponse\022\017\n\007message\030\001" +
-      " \001(\t\022E\n\006status\030\002 \001(\01625.com.nkasenides.am" +
-      "c.proto.AddChallengeResponse.Status\"R\n\006S" +
-      "tatus\022\025\n\021INVALID_CHALLENGE\020\000\022\020\n\014SERVER_E" +
-      "RROR\020\001\022\006\n\002OK\020\002\022\027\n\023INVALID_CREDENTIALS\020\003*" +
-      "\252\001\n\016LikertResponse\022\033\n\027POSITIVE_LikertRes" +
-      "ponse\020\000\022\033\n\027NEGATIVE_LikertResponse\020\001\022\032\n\026" +
-      "NEUTRAL_LikertResponse\020\002\022 \n\034VERY_POSITIV" +
-      "E_LikertResponse\020\003\022 \n\034VERY_NEGATIVE_Like" +
-      "rtResponse\020\004*E\n\005Shape\022\022\n\016TRIANGLE_Shape\020" +
-      "\000\022\026\n\022EMPTY_CIRCLE_Shape\020\001\022\020\n\014CIRCLE_Shap" +
-      "e\020\002*\350\001\n\tAmazeIcon\022\024\n\020ICON_9_AmazeIcon\020\000\022" +
-      "\024\n\020ICON_8_AmazeIcon\020\001\022\024\n\020ICON_7_AmazeIco" +
-      "n\020\002\022\024\n\020ICON_6_AmazeIcon\020\003\022\024\n\020ICON_5_Amaz" +
-      "eIcon\020\004\022\024\n\020ICON_4_AmazeIcon\020\005\022\024\n\020ICON_3_" +
-      "AmazeIcon\020\006\022\024\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICO" +
-      "N_1_AmazeIcon\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201" +
-      "\001\n\nDifficulty\022\023\n\017EASY_Difficulty\020\000\022\025\n\021ME" +
-      "DIUM_Difficulty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030" +
-      "\n\024VERY_EASY_Difficulty\020\003\022\030\n\024VERY_HARD_Di" +
-      "fficulty\020\004*8\n\004Bias\022\020\n\014PENALTY_Bias\020\000\022\r\n\t" +
-      "NONE_Bias\020\001\022\017\n\013REWARD_Bias\020\002*m\n\023Dichotom" +
-      "ousResponse\022\032\n\026NO_DichotomousResponse\020\000\022" +
-      "\035\n\031MAYBE_DichotomousResponse\020\001\022\033\n\027YES_Di" +
-      "chotomousResponse\020\002*e\n\020PickableCategory\022" +
-      "\032\n\026FRUIT_PickableCategory\020\000\022\032\n\026SNACK_Pic" +
-      "kableCategory\020\001\022\031\n\025NONE_PickableCategory" +
-      "\020\002*s\n\tAlgorithm\022\034\n\030MANY_SOLUTIONS_Algori" +
-      "thm\020\000\022\024\n\020SPARSE_Algorithm\020\001\022\035\n\031SINGLE_SO" +
-      "LUTION_Algorithm\020\002\022\023\n\017EMPTY_Algorithm\020\003*" +
-      "\326\003\n\nAmazeColor\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017B" +
-      "LUE_AmazeColor\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022" +
-      "\024\n\020GREEN_AmazeColor\020\003\022\030\n\024DARK_BLUE_Amaze" +
-      "Color\020\004\022\025\n\021INDIGO_AmazeColor\020\005\022\022\n\016RED_Am" +
-      "azeColor\020\006\022\031\n\025LIGHT_GREY_AmazeColor\020\007\022\023\n" +
-      "\017PINK_AmazeColor\020\010\022\023\n\017LIME_AmazeColor\020\t\022" +
-      "\027\n\023DARK_RED_AmazeColor\020\n\022\030\n\024DARK_GREY_Am" +
-      "azeColor\020\013\022\024\n\020BLACK_AmazeColor\020\014\022\026\n\022MAGE" +
-      "NTA_AmazeColor\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022" +
-      "\031\n\025DARK_GREEN_AmazeColor\020\017\022\023\n\017TEAL_Amaze" +
-      "Color\020\020\022\023\n\017CYAN_AmazeColor\020\021\022\023\n\017GREY_Ama" +
-      "zeColor\020\022\022\025\n\021ORANGE_AmazeColor\020\023*\355\002\n\017Bac" +
-      "kgroundImage\022!\n\035TEXTURE_WATER_Background" +
-      "Image\020\000\022!\n\035TEXTURE_ROCKY_BackgroundImage" +
-      "\020\001\022!\n\035TEXTURE_SPACE_BackgroundImage\020\002\022!\n" +
-      "\035TEXTURE_METAL_BackgroundImage\020\003\022 \n\034TEXT" +
-      "URE_MOON_BackgroundImage\020\004\022 \n\034TEXTURE_LA" +
-      "VA_BackgroundImage\020\005\022\"\n\036TEXTURE_GRAVEL_B" +
-      "ackgroundImage\020\006\022 \n\034TEXTURE_WOOD_Backgro" +
-      "undImage\020\007\022!\n\035TEXTURE_GRASS_BackgroundIm" +
-      "age\020\010\022!\n\035TEXTURE_TILES_BackgroundImage\020\t" +
-      "*4\n\010Language\022\024\n\020ENGLISH_Language\020\000\022\022\n\016GR" +
-      "EEK_Language\020\001*K\n\tAudioType\022\025\n\021AMBIENT_A" +
-      "udioType\020\000\022\022\n\016NONE_AudioType\020\001\022\023\n\017EVENT_" +
-      "AudioType\020\002*\203\001\n\013AudioFormat\022\023\n\017MP4_Audio" +
-      "Format\020\000\022\023\n\017MP3_AudioFormat\020\001\022 \n\034UNDEFIN" +
-      "ED_FORMAT_AudioFormat\020\002\022\023\n\017WAV_AudioForm" +
-      "at\020\003\022\023\n\017OGG_AudioFormat\020\004*\377\004\n\005Audio\022\027\n\023E" +
-      "VENT_GIFTBOX_Audio\020\000\022\026\n\022EVENT_COIN20_Aud" +
-      "io\020\001\022\027\n\023AMBIENT_STORM_Audio\020\002\022\024\n\020EVENT_T" +
-      "RAP_Audio\020\003\022\027\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022" +
-      "AMBIENT_SNOW_Audio\020\005\022\037\n\033AMBIENT_ALPINE_F" +
-      "OREST_Audio\020\006\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023A" +
-      "MBIENT_RIVER_Audio\020\010\022\024\n\020EVENT_BOMB_Audio" +
-      "\020\t\022\031\n\025EVENT_SPEEDHACK_Audio\020\n\022\024\n\020AUDIO_N" +
-      "ONE_Audio\020\013\022\025\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EV" +
-      "ENT_COIN10_Audio\020\r\022\026\n\022AMBIENT_CAVE_Audio" +
-      "\020\016\022\030\n\024AMBIENT_PRISON_Audio\020\017\022\033\n\027AMBIENT_" +
-      "SANDSTORM_Audio\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022" +
-      "\026\n\022AMBIENT_CITY_Audio\020\022\022\030\n\024AMBIENT_STREE" +
-      "T_Audio\020\023\022!\n\035AMBIENT_TROPICAL_FOREST_Aud" +
-      "io\020\024\022\026\n\022AMBIENT_FIRE_Audio\020\025\022\023\n\017EVENT_WI" +
-      "N_Audio\020\026\022\032\n\026AMBIENT_HIGHTECH_Audio\020\027\022\034\n" +
-      "\030AMBIENT_UNDERWATER_Audio\020\030*\364\002\n\014Pickable" +
-      "Type\022\027\n\023GRAPES_PickableType\020\000\022\026\n\022APPLE_P" +
-      "ickableType\020\001\022\025\n\021TRAP_PickableType\020\002\022\033\n\027" +
-      "WATERMELON_PickableType\020\003\022\032\n\026SPEEDHACK_P" +
-      "ickableType\020\004\022\030\n\024COIN_10_PickableType\020\005\022" +
-      "\030\n\024COIN_20_PickableType\020\006\022\026\n\022PEACH_Picka" +
-      "bleType\020\007\022\030\n\024GIFTBOX_PickableType\020\010\022\027\n\023C" +
-      "OIN_5_PickableType\020\t\022\027\n\023BANANA_PickableT" +
-      "ype\020\n\022\025\n\021BOMB_PickableType\020\013\022\033\n\027STRAWBER" +
-      "RY_PickableType\020\014\022\027\n\023ORANGE_PickableType" +
-      "\020\r*\254\001\n\026MultipleChoiceResponse\022#\n\037CHOICE_" +
-      "1_MultipleChoiceResponse\020\000\022#\n\037CHOICE_4_M" +
-      "ultipleChoiceResponse\020\001\022#\n\037CHOICE_2_Mult" +
-      "ipleChoiceResponse\020\002\022#\n\037CHOICE_3_Multipl" +
-      "eChoiceResponse\020\003*l\n\023BackgroundImageType" +
-      "\022\033\n\027JPG_BackgroundImageType\020\000\022\033\n\027GIF_Bac" +
-      "kgroundImageType\020\001\022\033\n\027PNG_BackgroundImag" +
-      "eType\020\002*\204\001\n\021PickableIntensity\022\032\n\026HIGH_Pi" +
-      "ckableIntensity\020\000\022\034\n\030MEDIUM_PickableInte" +
-      "nsity\020\001\022\031\n\025LOW_PickableIntensity\020\002\022\032\n\026NO" +
-      "NE_PickableIntensity\020\003*6\n\nDirection4\022\t\n\005" +
-      "NORTH\020\000\022\010\n\004EAST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d" +
-      "\n\nDirection6\022\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001" +
-      "\022\016\n\nSOUTH_EAST\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WE" +
-      "ST\020\004\022\016\n\nNORTH_WEST\020\005*0\n\010Rotation\022\r\n\tCLOC" +
-      "KWISE\020\000\022\025\n\021COUNTER_CLOCKWISE\020\001*C\n\tMoveme" +
-      "nt4\022\013\n\007FORWARD\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWA" +
-      "RD\020\002\022\r\n\tRIGHTWARD\020\003*t\n\tMovement6\022\014\n\010FORW" +
-      "ARD6\020\000\022\021\n\rFORWARD_RIGHT\020\001\022\022\n\016BACKWARD_RI" +
-      "GHT\020\002\022\r\n\tBACKWARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022" +
-      "\020\n\014FORWARD_LEFT\020\005*7\n\tWorldType\022\013\n\007UNIFOR" +
-      "M\020\000\022\017\n\013TILE_SQUARE\020\001\022\014\n\010TILE_HEX\020\002B&\n\030co" +
-      "m.nkasenides.amc.protoB\010AMCProtoP\001b\006prot" +
-      "o3"
+      "\n\024Proto/AMCProto.proto\022&org.inspirecente" +
+      "r.amazechallenge.proto\"\222\007\n\tGameProto\022\027\n\017" +
+      "finishedPlayers\030\001 \003(\t\022\025\n\ractivePlayers\030\002" +
+      " \003(\t\022N\n\tpickables\030\003 \003(\0132;.org.inspirecen" +
+      "ter.amazechallenge.proto.PickableEntityP" +
+      "roto\022\025\n\rqueuedPlayers\030\004 \003(\t\022\017\n\007counter\030\005" +
+      " \001(\004\022\026\n\016waitingPlayers\030\006 \003(\t\022U\n\nallPlaye" +
+      "rs\030\007 \003(\0132A.org.inspirecenter.amazechalle" +
+      "nge.proto.GameProto.AllPlayersEntry\022\023\n\013l" +
+      "astUpdated\030\010 \001(\004\022\023\n\013challengeID\030\t \001(\t\022]\n" +
+      "\016playerEntities\030\n \003(\0132E.org.inspirecente" +
+      "r.amazechallenge.proto.GameProto.PlayerE" +
+      "ntitiesEntry\022\n\n\002id\030\013 \001(\t\022\031\n\021lastExecutio" +
+      "nTime\030\014 \001(\004\022g\n\023playerWorldSessions\030\r \003(\013" +
+      "2J.org.inspirecenter.amazechallenge.prot" +
+      "o.GameProto.PlayerWorldSessionsEntry\032i\n\017" +
+      "AllPlayersEntry\022\013\n\003key\030\001 \001(\t\022E\n\005value\030\002 " +
+      "\001(\01326.org.inspirecenter.amazechallenge.p" +
+      "roto.AMCPlayerProto:\0028\001\032p\n\023PlayerEntitie" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022H\n\005value\030\002 \001(\01329.org" +
+      ".inspirecenter.amazechallenge.proto.Play" +
+      "erEntityProto:\0028\001\032x\n\030PlayerWorldSessions" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022K\n\005value\030\002 \001(\0132<.org." +
+      "inspirecenter.amazechallenge.proto.AMCWo" +
+      "rldSessionProto:\0028\001\"\035\n\013HealthProto\022\016\n\006he" +
+      "alth\030\001 \001(\005\"\033\n\rAdminKeyProto\022\n\n\002id\030\001 \001(\t\"" +
+      "\215\001\n\027QuestionnaireEntryProto\022\023\n\013challenge" +
+      "ID\030\001 \001(\t\022Q\n\rquestionEntry\030\002 \003(\0132:.org.in" +
+      "spirecenter.amazechallenge.proto.Questio" +
+      "nEntryProto\022\n\n\002id\030\003 \001(\t\"\263\002\n\tGridProto\022M\n" +
+      "\021startingDirection\030\001 \001(\01622.org.inspirece" +
+      "nter.amazechallenge.proto.Direction4\022\014\n\004" +
+      "data\030\002 \001(\t\022S\n\016targetPosition\030\003 \001(\0132;.org" +
+      ".inspirecenter.amazechallenge.proto.Matr" +
+      "ixPositionProto\022\r\n\005width\030\004 \001(\005\022U\n\020starti" +
+      "ngPosition\030\005 \001(\0132;.org.inspirecenter.ama" +
+      "zechallenge.proto.MatrixPositionProto\022\016\n" +
+      "\006height\030\006 \001(\005\"J\n\022QuestionEntryProto\022\022\n\na" +
+      "nswerText\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\024\n\014questionT" +
+      "ext\030\003 \001(\t\"\315\006\n\016ChallengeProto\022\031\n\021canJoinA" +
+      "fterStart\030\001 \001(\010\022\032\n\022canStepOnEachOther\030\002 " +
+      "\001(\010\022L\n\tpenalties\030\003 \001(\01629.org.inspirecent" +
+      "er.amazechallenge.proto.PickableIntensit" +
+      "y\022P\n\017backgroundImage\030\004 \001(\01627.org.inspire" +
+      "center.amazechallenge.proto.BackgroundIm" +
+      "age\022\023\n\013description\030\005 \001(\t\022\021\n\tlineColor\030\006 " +
+      "\001(\t\022\021\n\tcanRepeat\030\007 \001(\010\022\021\n\tcreatedOn\030\010 \001(" +
+      "\004\022\030\n\020hasQuestionnaire\030\t \001(\010\022F\n\ndifficult" +
+      "y\030\n \001(\01622.org.inspirecenter.amazechallen" +
+      "ge.proto.Difficulty\022\022\n\napiVersion\030\013 \001(\005\022" +
+      "\030\n\020maxActivePlayers\030\014 \001(\005\022?\n\004grid\030\r \001(\0132" +
+      "1.org.inspirecenter.amazechallenge.proto" +
+      ".GridProto\022F\n\017backgroundAudio\030\016 \001(\0162-.or" +
+      "g.inspirecenter.amazechallenge.proto.Aud" +
+      "io\022\030\n\020minActivePlayers\030\017 \001(\005\022\014\n\004name\030\020 \001" +
+      "(\t\022\021\n\tstartTime\030\021 \001(\004\022\017\n\007endTime\030\022 \001(\004\022\n" +
+      "\n\002id\030\023 \001(\t\022J\n\007rewards\030\024 \001(\01629.org.inspir" +
+      "ecenter.amazechallenge.proto.PickableInt" +
+      "ensity\022\023\n\013createdByID\030\025 \001(\t\022D\n\talgorithm" +
+      "\030\026 \001(\01621.org.inspirecenter.amazechalleng" +
+      "e.proto.Algorithm\"I\n\020GeoPositionProto\022\t\n" +
+      "\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\024\n\014positi" +
+      "onHash\030\004 \001(\t\"T\n\023MatrixPositionProto\022\013\n\003r" +
+      "ow\030\001 \001(\021\022\013\n\003col\030\002 \001(\021\022\020\n\010cellHash\030\003 \001(\t\022" +
+      "\021\n\tchunkHash\030\004 \001(\t\"l\n\023AMCGameSessionProt" +
+      "o\022\021\n\tipAddress\030\001 \001(\t\022\021\n\texpiresOn\030\002 \001(\004\022" +
+      "\n\n\002id\030\003 \001(\t\022\021\n\tcreatedOn\030\004 \001(\004\022\020\n\010player" +
+      "ID\030\005 \001(\t\"\266\002\n\024AMCWorldSessionProto\022\014\n\004cod" +
+      "e\030\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022\021\n\tipAddress\030\003 " +
+      "\001(\t\022S\n\016cameraPosition\030\004 \001(\0132;.org.inspir" +
+      "ecenter.amazechallenge.proto.MatrixPosit" +
+      "ionProto\022C\n\006health\030\005 \001(\01323.org.inspirece" +
+      "nter.amazechallenge.proto.HealthProto\022\021\n" +
+      "\texpiresOn\030\006 \001(\004\022\n\n\002id\030\007 \001(\t\022\021\n\tcreatedO" +
+      "n\030\010 \001(\004\022\020\n\010playerID\030\t \001(\t\022\016\n\006points\030\n \001(" +
+      "\005\"\362\001\n\016AMCPlayerProto\022\020\n\010password\030\001 \001(\t\022A" +
+      "\n\005color\030\002 \001(\01622.org.inspirecenter.amazec" +
+      "hallenge.proto.AmazeColor\022\016\n\006teamID\030\003 \001(" +
+      "\t\022\014\n\004name\030\004 \001(\t\022?\n\004icon\030\005 \001(\01621.org.insp" +
+      "irecenter.amazechallenge.proto.AmazeIcon" +
+      "\022\n\n\002id\030\006 \001(\t\022\021\n\tcreatedOn\030\007 \001(\004\022\r\n\005email" +
+      "\030\010 \001(\t\"a\n\014AMCTeamProto\022\014\n\004name\030\001 \001(\t\022\n\n\002" +
+      "id\030\002 \001(\t\022\017\n\007ownerID\030\003 \001(\t\022\021\n\tplayerIDs\030\004" +
+      " \003(\t\022\023\n\013playerLimit\030\005 \001(\r\"\241\003\n\016AMCEntityP" +
+      "roto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016areaOfInterest\030" +
+      "\002 \001(\002\022\n\n\002id\030\003 \001(\t\022M\n\010position\030\004 \001(\0132;.or" +
+      "g.inspirecenter.amazechallenge.proto.Mat" +
+      "rixPositionProto\022\020\n\010playerID\030\005 \001(\t\022E\n\tdi" +
+      "rection\030\006 \001(\01622.org.inspirecenter.amazec" +
+      "hallenge.proto.Direction4\022U\n\016pickableEnt" +
+      "ity\030\007 \001(\0132;.org.inspirecenter.amazechall" +
+      "enge.proto.PickableEntityProtoH\000\022Q\n\014play" +
+      "erEntity\030\010 \001(\01329.org.inspirecenter.amaze" +
+      "challenge.proto.PlayerEntityProtoH\000B\010\n\006e" +
+      "ntity\"\315\002\n\023PickableEntityProto\022\017\n\007worldID" +
+      "\030\001 \001(\t\022\026\n\016areaOfInterest\030\002 \001(\002\022J\n\014pickab" +
+      "leType\030\003 \001(\01624.org.inspirecenter.amazech" +
+      "allenge.proto.PickableType\022\n\n\002id\030\004 \001(\t\022M" +
+      "\n\010position\030\005 \001(\0132;.org.inspirecenter.ama" +
+      "zechallenge.proto.MatrixPositionProto\022\r\n" +
+      "\005state\030\006 \001(\005\022\020\n\010playerID\030\007 \001(\t\022E\n\tdirect" +
+      "ion\030\010 \001(\01622.org.inspirecenter.amazechall" +
+      "enge.proto.Direction4\"\360\001\n\021PlayerEntityPr" +
+      "oto\022\017\n\007worldID\030\t \001(\t\022\026\n\016areaOfInterest\030\n" +
+      " \001(\002\022\n\n\002id\030\013 \001(\t\022M\n\010position\030\014 \001(\0132;.org" +
+      ".inspirecenter.amazechallenge.proto.Matr" +
+      "ixPositionProto\022\020\n\010playerID\030\r \001(\t\022E\n\tdir" +
+      "ection\030\016 \001(\01622.org.inspirecenter.amazech" +
+      "allenge.proto.Direction4\"\020\n\016AMCActionPro" +
+      "to\"\253\001\n\023AMCTerrainCellProto\022M\n\010position\030\001" +
+      " \001(\0132;.org.inspirecenter.amazechallenge." +
+      "proto.MatrixPositionProto\022\021\n\trightWall\030\002" +
+      " \001(\010\022\020\n\010downWall\030\003 \001(\010\022\016\n\006upWall\030\004 \001(\010\022\020" +
+      "\n\010leftWall\030\005 \001(\010\"\354\004\n\023AMCStateUpdateProto" +
+      "\022R\n\014partialState\030\001 \001(\0132<.org.inspirecent" +
+      "er.amazechallenge.proto.AMCPartialStateP" +
+      "roto\022\026\n\016worldSessionID\030\002 \001(\t\022\027\n\017removedE" +
+      "ntities\030\003 \003(\t\022\026\n\016removedTerrain\030\004 \003(\t\022e\n" +
+      "\rworldSessions\030\005 \003(\0132N.org.inspirecenter" +
+      ".amazechallenge.proto.AMCStateUpdateProt" +
+      "o.WorldSessionsEntry\022\021\n\ttimestamp\030\006 \001(\004\022" +
+      "_\n\nallPlayers\030\007 \003(\0132K.org.inspirecenter." +
+      "amazechallenge.proto.AMCStateUpdateProto" +
+      ".AllPlayersEntry\032r\n\022WorldSessionsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022K\n\005value\030\002 \001(\0132<.org.inspire" +
+      "center.amazechallenge.proto.AMCWorldSess" +
+      "ionProto:\0028\001\032i\n\017AllPlayersEntry\022\013\n\003key\030\001" +
+      " \001(\t\022E\n\005value\030\002 \001(\01326.org.inspirecenter." +
+      "amazechallenge.proto.AMCPlayerProto:\0028\001\"" +
+      "\305\002\n\024AMCTerrainChunkProto\022\n\n\002id\030\001 \001(\t\022\017\n\007" +
+      "worldID\030\002 \001(\t\022M\n\010position\030\003 \001(\0132;.org.in" +
+      "spirecenter.amazechallenge.proto.MatrixP" +
+      "ositionProto\022V\n\005cells\030\004 \003(\0132G.org.inspir" +
+      "ecenter.amazechallenge.proto.AMCTerrainC" +
+      "hunkProto.CellsEntry\032i\n\nCellsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022J\n\005value\030\002 \001(\0132;.org.inspirecent" +
+      "er.amazechallenge.proto.AMCTerrainCellPr" +
+      "oto:\0028\001\"\235\001\n\031AMCTerrainIdentifierProto\022\n\n" +
+      "\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n\007worldID\030\003 " +
+      "\001(\t\022R\n\rchunkPosition\030\004 \001(\0132;.org.inspire" +
+      "center.amazechallenge.proto.MatrixPositi" +
+      "onProto\"\356\007\n\024AMCPartialStateProto\022\\\n\010enti" +
+      "ties\030\001 \003(\0132J.org.inspirecenter.amazechal" +
+      "lenge.proto.AMCPartialStateProto.Entitie" +
+      "sEntry\022?\n\004grid\030\002 \001(\01321.org.inspirecenter" +
+      ".amazechallenge.proto.GridProto\022Z\n\007playe" +
+      "rs\030\003 \003(\0132I.org.inspirecenter.amazechalle" +
+      "nge.proto.AMCPartialStateProto.PlayersEn" +
+      "try\022f\n\rworldSessions\030\004 \003(\0132O.org.inspire" +
+      "center.amazechallenge.proto.AMCPartialSt" +
+      "ateProto.WorldSessionsEntry\022R\n\014worldSess" +
+      "ion\030\005 \001(\0132<.org.inspirecenter.amazechall" +
+      "enge.proto.AMCWorldSessionProto\022Z\n\007terra" +
+      "in\030\006 \003(\0132I.org.inspirecenter.amazechalle" +
+      "nge.proto.AMCPartialStateProto.TerrainEn" +
+      "try\022\021\n\ttimestamp\030\007 \001(\004\032g\n\rEntitiesEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022E\n\005value\030\002 \001(\01326.org.inspir" +
+      "ecenter.amazechallenge.proto.AMCEntityPr" +
+      "oto:\0028\001\032f\n\014PlayersEntry\022\013\n\003key\030\001 \001(\t\022E\n\005" +
+      "value\030\002 \001(\01326.org.inspirecenter.amazecha" +
+      "llenge.proto.AMCPlayerProto:\0028\001\032r\n\022World" +
+      "SessionsEntry\022\013\n\003key\030\001 \001(\t\022K\n\005value\030\002 \001(" +
+      "\0132<.org.inspirecenter.amazechallenge.pro" +
+      "to.AMCWorldSessionProto:\0028\001\032k\n\014TerrainEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022J\n\005value\030\002 \001(\0132;.org.in" +
+      "spirecenter.amazechallenge.proto.AMCTerr" +
+      "ainCellProto:\0028\001\"\203\002\n\rAMCWorldProto\022\017\n\007ma" +
+      "xRows\030\001 \001(\022\022\023\n\013heightLimit\030\002 \001(\r\022\014\n\004seed" +
+      "\030\003 \001(\022\022?\n\004grid\030\004 \001(\01321.org.inspirecenter" +
+      ".amazechallenge.proto.GridProto\022\014\n\004name\030" +
+      "\005 \001(\t\022\020\n\010chunkIDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017\n\007o" +
+      "wnerID\030\010 \001(\t\022\021\n\tcreatedOn\030\t \001(\004\022\017\n\007maxCo" +
+      "ls\030\n \001(\022\022\034\n\024subscribedSessionIDs\030\013 \003(\t\"\316" +
+      "\006\n\007Request\022Z\n\023addChallengeRequest\030\001 \001(\0132" +
+      ";.org.inspirecenter.amazechallenge.proto" +
+      ".AddChallengeRequestH\000\022R\n\017getStateReques" +
+      "t\030\002 \001(\01327.org.inspirecenter.amazechallen" +
+      "ge.proto.GetStateRequestH\000\022T\n\020subscribeR" +
+      "equest\030\003 \001(\01328.org.inspirecenter.amazech" +
+      "allenge.proto.SubscribeRequestH\000\022^\n\025list" +
+      "ChallengesRequest\030\004 \001(\0132=.org.inspirecen" +
+      "ter.amazechallenge.proto.ListChallengesR" +
+      "equestH\000\022X\n\022unsubscribeRequest\030\005 \001(\0132:.o" +
+      "rg.inspirecenter.amazechallenge.proto.Un" +
+      "subscribeRequestH\000\022V\n\021submitCodeRequest\030" +
+      "\006 \001(\01329.org.inspirecenter.amazechallenge" +
+      ".proto.SubmitCodeRequestH\000\022X\n\022updateStat" +
+      "eRequest\030\007 \001(\0132:.org.inspirecenter.amaze" +
+      "challenge.proto.UpdateStateRequestH\000\022\\\n\024" +
+      "joinChallengeRequest\030\010 \001(\0132<.org.inspire" +
+      "center.amazechallenge.proto.JoinChalleng" +
+      "eRequestH\000\022h\n\032submitQuestionnaireRequest" +
+      "\030\t \001(\0132B.org.inspirecenter.amazechalleng" +
+      "e.proto.SubmitQuestionnaireRequestH\000B\t\n\007" +
+      "request\"r\n\023AddChallengeRequest\022I\n\tchalle" +
+      "nge\030\001 \001(\01326.org.inspirecenter.amazechall" +
+      "enge.proto.ChallengeProto\022\020\n\010adminKey\030\002 " +
+      "\001(\t\")\n\017GetStateRequest\022\026\n\016worldSessionID" +
+      "\030\001 \001(\t\"*\n\020SubscribeRequest\022\026\n\016worldSessi" +
+      "onID\030\001 \001(\t\"\027\n\025ListChallengesRequest\",\n\022U" +
+      "nsubscribeRequest\022\026\n\016worldSessionID\030\001 \001(" +
+      "\t\"9\n\021SubmitCodeRequest\022\014\n\004code\030\001 \001(\t\022\026\n\016" +
+      "worldSessionID\030\002 \001(\t\",\n\022UpdateStateReque" +
+      "st\022\026\n\016worldSessionID\030\001 \001(\t\"s\n\024JoinChalle" +
+      "ngeRequest\022\023\n\013challengeID\030\001 \001(\t\022F\n\006playe" +
+      "r\030\002 \001(\01326.org.inspirecenter.amazechallen" +
+      "ge.proto.AMCPlayerProto\"\221\001\n\032SubmitQuesti" +
+      "onnaireRequest\022\026\n\016worldSessionID\030\001 \001(\t\022[" +
+      "\n\022questionnaireEntry\030\002 \001(\0132?.org.inspire" +
+      "center.amazechallenge.proto.Questionnair" +
+      "eEntryProto\"\342\006\n\010Response\022j\n\033submitQuesti" +
+      "onnaireResponse\030\001 \001(\0132C.org.inspirecente" +
+      "r.amazechallenge.proto.SubmitQuestionnai" +
+      "reResponseH\000\022T\n\020getStateResponse\030\002 \001(\01328" +
+      ".org.inspirecenter.amazechallenge.proto." +
+      "GetStateResponseH\000\022^\n\025joinChallengeRespo" +
+      "nse\030\003 \001(\0132=.org.inspirecenter.amazechall" +
+      "enge.proto.JoinChallengeResponseH\000\022Z\n\023up" +
+      "dateStateResponse\030\004 \001(\0132;.org.inspirecen" +
+      "ter.amazechallenge.proto.UpdateStateResp" +
+      "onseH\000\022X\n\022submitCodeResponse\030\005 \001(\0132:.org" +
+      ".inspirecenter.amazechallenge.proto.Subm" +
+      "itCodeResponseH\000\022V\n\021subscribeResponse\030\006 " +
+      "\001(\01329.org.inspirecenter.amazechallenge.p" +
+      "roto.SubscribeResponseH\000\022Z\n\023unsubscribeR" +
+      "esponse\030\007 \001(\0132;.org.inspirecenter.amazec" +
+      "hallenge.proto.UnsubscribeResponseH\000\022`\n\026" +
+      "listChallengesResponse\030\010 \001(\0132>.org.inspi" +
+      "recenter.amazechallenge.proto.ListChalle" +
+      "ngesResponseH\000\022\\\n\024addChallengeResponse\030\t" +
+      " \001(\0132<.org.inspirecenter.amazechallenge." +
+      "proto.AddChallengeResponseH\000B\n\n\010response" +
+      "\"\277\001\n\033SubmitQuestionnaireResponse\022\017\n\007mess" +
+      "age\030\001 \001(\t\022Z\n\006status\030\002 \001(\0162J.org.inspirec" +
+      "enter.amazechallenge.proto.SubmitQuestio" +
+      "nnaireResponse.Status\"3\n\006Status\022\021\n\rCANNO" +
+      "T_SUBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006\n\002OK\020\002\"\307\002\n\020G" +
+      "etStateResponse\022R\n\014partialState\030\001 \001(\0132<." +
+      "org.inspirecenter.amazechallenge.proto.A" +
+      "MCPartialStateProto\022\017\n\007message\030\002 \001(\t\022O\n\006" +
+      "status\030\003 \001(\0162?.org.inspirecenter.amazech" +
+      "allenge.proto.GetStateResponse.Status\"}\n" +
+      "\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WOR" +
+      "LD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AU" +
+      "THORIZED\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002" +
+      "OK\020\005\"\266\003\n\025JoinChallengeResponse\022I\n\tchalle" +
+      "nge\030\001 \001(\01326.org.inspirecenter.amazechall" +
+      "enge.proto.ChallengeProto\022R\n\014worldSessio" +
+      "n\030\002 \001(\0132<.org.inspirecenter.amazechallen" +
+      "ge.proto.AMCWorldSessionProto\022\017\n\007message" +
+      "\030\003 \001(\t\022T\n\006status\030\004 \001(\0162D.org.inspirecent" +
+      "er.amazechallenge.proto.JoinChallengeRes" +
+      "ponse.Status\"\226\001\n\006Status\022\025\n\021INVALID_CHALL" +
+      "ENGE\020\000\022\031\n\025CHALLENGE_NOT_STARTED\020\001\022\022\n\016INV" +
+      "ALID_PLAYER\020\002\022\026\n\022PLAYER_NAME_EXISTS\020\003\022\022\n" +
+      "\016CHALLENGE_OVER\020\004\022\006\n\002OK\020\005\022\022\n\016CHALLENGE_F" +
+      "ULL\020\006\"\313\002\n\023UpdateStateResponse\022\017\n\007message" +
+      "\030\001 \001(\t\022P\n\013stateUpdate\030\002 \001(\0132;.org.inspir" +
+      "ecenter.amazechallenge.proto.AMCStateUpd" +
+      "ateProto\022R\n\006status\030\003 \001(\0162B.org.inspirece" +
+      "nter.amazechallenge.proto.UpdateStateRes" +
+      "ponse.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000" +
+      "\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_D" +
+      "ATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMP" +
+      "OSE_STATE\020\004\022\006\n\002OK\020\005\"\317\001\n\022SubmitCodeRespon" +
+      "se\022\017\n\007message\030\001 \001(\t\022Q\n\006status\030\002 \001(\0162A.or" +
+      "g.inspirecenter.amazechallenge.proto.Sub" +
+      "mitCodeResponse.Status\"U\n\006Status\022\031\n\025INVA" +
+      "LID_WORLD_SESSION\020\000\022\020\n\014INVALID_CODE\020\001\022\006\n" +
+      "\002OK\020\002\022\026\n\022CANNOT_SUBMIT_CODE\020\003\"\311\002\n\021Subscr" +
+      "ibeResponse\022R\n\014partialState\030\001 \001(\0132<.org." +
+      "inspirecenter.amazechallenge.proto.AMCPa" +
+      "rtialStateProto\022\017\n\007message\030\002 \001(\t\022P\n\006stat" +
+      "us\030\003 \001(\0162@.org.inspirecenter.amazechalle" +
+      "nge.proto.SubscribeResponse.Status\"}\n\006St" +
+      "atus\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_" +
+      "SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHO" +
+      "RIZED\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020" +
+      "\005\"\337\001\n\023UnsubscribeResponse\022\017\n\007message\030\001 \001" +
+      "(\t\022R\n\006status\030\002 \001(\0162B.org.inspirecenter.a" +
+      "mazechallenge.proto.UnsubscribeResponse." +
+      "Status\"c\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO" +
+      "_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022" +
+      "\022\n\016NOT_AUTHORIZED\020\003\022\006\n\002OK\020\004\"\203\002\n\026ListChal" +
+      "lengesResponse\022J\n\nchallenges\030\001 \003(\01326.org" +
+      ".inspirecenter.amazechallenge.proto.Chal" +
+      "lengeProto\022\017\n\007message\030\002 \001(\t\022U\n\006status\030\003 " +
+      "\001(\0162E.org.inspirecenter.amazechallenge.p" +
+      "roto.ListChallengesResponse.Status\"5\n\006St" +
+      "atus\022\020\n\014SERVER_ERROR\020\000\022\021\n\rNO_CHALLENGES\020" +
+      "\001\022\006\n\002OK\020\002\"\320\001\n\024AddChallengeResponse\022\017\n\007me" +
+      "ssage\030\001 \001(\t\022S\n\006status\030\002 \001(\0162C.org.inspir" +
+      "ecenter.amazechallenge.proto.AddChalleng" +
+      "eResponse.Status\"R\n\006Status\022\025\n\021INVALID_CH" +
+      "ALLENGE\020\000\022\020\n\014SERVER_ERROR\020\001\022\006\n\002OK\020\002\022\027\n\023I" +
+      "NVALID_CREDENTIALS\020\003*\252\001\n\016LikertResponse\022" +
+      "\033\n\027POSITIVE_LikertResponse\020\000\022\033\n\027NEGATIVE" +
+      "_LikertResponse\020\001\022\032\n\026NEUTRAL_LikertRespo" +
+      "nse\020\002\022 \n\034VERY_POSITIVE_LikertResponse\020\003\022" +
+      " \n\034VERY_NEGATIVE_LikertResponse\020\004*E\n\005Sha" +
+      "pe\022\022\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_CIRCLE_S" +
+      "hape\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAmazeIcon\022\024" +
+      "\n\020ICON_9_AmazeIcon\020\000\022\024\n\020ICON_8_AmazeIcon" +
+      "\020\001\022\024\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON_6_Amaze" +
+      "Icon\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020ICON_4_A" +
+      "mazeIcon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006\022\024\n\020ICON" +
+      "_2_AmazeIcon\020\007\022\024\n\020ICON_1_AmazeIcon\020\010\022\025\n\021" +
+      "ICON_10_AmazeIcon\020\t*\201\001\n\nDifficulty\022\023\n\017EA" +
+      "SY_Difficulty\020\000\022\025\n\021MEDIUM_Difficulty\020\001\022\023" +
+      "\n\017HARD_Difficulty\020\002\022\030\n\024VERY_EASY_Difficu" +
+      "lty\020\003\022\030\n\024VERY_HARD_Difficulty\020\004*8\n\004Bias\022" +
+      "\020\n\014PENALTY_Bias\020\000\022\r\n\tNONE_Bias\020\001\022\017\n\013REWA" +
+      "RD_Bias\020\002*m\n\023DichotomousResponse\022\032\n\026NO_D" +
+      "ichotomousResponse\020\000\022\035\n\031MAYBE_Dichotomou" +
+      "sResponse\020\001\022\033\n\027YES_DichotomousResponse\020\002" +
+      "*e\n\020PickableCategory\022\032\n\026FRUIT_PickableCa" +
+      "tegory\020\000\022\032\n\026SNACK_PickableCategory\020\001\022\031\n\025" +
+      "NONE_PickableCategory\020\002*s\n\tAlgorithm\022\034\n\030" +
+      "MANY_SOLUTIONS_Algorithm\020\000\022\024\n\020SPARSE_Alg" +
+      "orithm\020\001\022\035\n\031SINGLE_SOLUTION_Algorithm\020\002\022" +
+      "\023\n\017EMPTY_Algorithm\020\003*\326\003\n\nAmazeColor\022\023\n\017G" +
+      "OLD_AmazeColor\020\000\022\023\n\017BLUE_AmazeColor\020\001\022\025\n" +
+      "\021PURPLE_AmazeColor\020\002\022\024\n\020GREEN_AmazeColor" +
+      "\020\003\022\030\n\024DARK_BLUE_AmazeColor\020\004\022\025\n\021INDIGO_A" +
+      "mazeColor\020\005\022\022\n\016RED_AmazeColor\020\006\022\031\n\025LIGHT" +
+      "_GREY_AmazeColor\020\007\022\023\n\017PINK_AmazeColor\020\010\022" +
+      "\023\n\017LIME_AmazeColor\020\t\022\027\n\023DARK_RED_AmazeCo" +
+      "lor\020\n\022\030\n\024DARK_GREY_AmazeColor\020\013\022\024\n\020BLACK" +
+      "_AmazeColor\020\014\022\026\n\022MAGENTA_AmazeColor\020\r\022\025\n" +
+      "\021YELLOW_AmazeColor\020\016\022\031\n\025DARK_GREEN_Amaze" +
+      "Color\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017CYAN_Ama" +
+      "zeColor\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025\n\021ORANGE" +
+      "_AmazeColor\020\023*\355\002\n\017BackgroundImage\022!\n\035TEX" +
+      "TURE_WATER_BackgroundImage\020\000\022!\n\035TEXTURE_" +
+      "ROCKY_BackgroundImage\020\001\022!\n\035TEXTURE_SPACE" +
+      "_BackgroundImage\020\002\022!\n\035TEXTURE_METAL_Back" +
+      "groundImage\020\003\022 \n\034TEXTURE_MOON_Background" +
+      "Image\020\004\022 \n\034TEXTURE_LAVA_BackgroundImage\020" +
+      "\005\022\"\n\036TEXTURE_GRAVEL_BackgroundImage\020\006\022 \n" +
+      "\034TEXTURE_WOOD_BackgroundImage\020\007\022!\n\035TEXTU" +
+      "RE_GRASS_BackgroundImage\020\010\022!\n\035TEXTURE_TI" +
+      "LES_BackgroundImage\020\t*4\n\010Language\022\024\n\020ENG" +
+      "LISH_Language\020\000\022\022\n\016GREEK_Language\020\001*K\n\tA" +
+      "udioType\022\025\n\021AMBIENT_AudioType\020\000\022\022\n\016NONE_" +
+      "AudioType\020\001\022\023\n\017EVENT_AudioType\020\002*\203\001\n\013Aud" +
+      "ioFormat\022\023\n\017MP4_AudioFormat\020\000\022\023\n\017MP3_Aud" +
+      "ioFormat\020\001\022 \n\034UNDEFINED_FORMAT_AudioForm" +
+      "at\020\002\022\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG_AudioFo" +
+      "rmat\020\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBOX_Audio\020" +
+      "\000\022\026\n\022EVENT_COIN20_Audio\020\001\022\027\n\023AMBIENT_STO" +
+      "RM_Audio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003\022\027\n\023AMBI" +
+      "ENT_NIGHT_Audio\020\004\022\026\n\022AMBIENT_SNOW_Audio\020" +
+      "\005\022\037\n\033AMBIENT_ALPINE_FOREST_Audio\020\006\022\024\n\020EV" +
+      "ENT_FOOD_Audio\020\007\022\027\n\023AMBIENT_RIVER_Audio\020" +
+      "\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031\n\025EVENT_SPEEDHA" +
+      "CK_Audio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013\022\025\n\021EVEN" +
+      "T_COIN5_Audio\020\014\022\026\n\022EVENT_COIN10_Audio\020\r\022" +
+      "\026\n\022AMBIENT_CAVE_Audio\020\016\022\030\n\024AMBIENT_PRISO" +
+      "N_Audio\020\017\022\033\n\027AMBIENT_SANDSTORM_Audio\020\020\022\024" +
+      "\n\020EVENT_LOSE_Audio\020\021\022\026\n\022AMBIENT_CITY_Aud" +
+      "io\020\022\022\030\n\024AMBIENT_STREET_Audio\020\023\022!\n\035AMBIEN" +
+      "T_TROPICAL_FOREST_Audio\020\024\022\026\n\022AMBIENT_FIR" +
+      "E_Audio\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032\n\026AMBIEN" +
+      "T_HIGHTECH_Audio\020\027\022\034\n\030AMBIENT_UNDERWATER" +
+      "_Audio\020\030*\364\002\n\014PickableType\022\027\n\023GRAPES_Pick" +
+      "ableType\020\000\022\026\n\022APPLE_PickableType\020\001\022\025\n\021TR" +
+      "AP_PickableType\020\002\022\033\n\027WATERMELON_Pickable" +
+      "Type\020\003\022\032\n\026SPEEDHACK_PickableType\020\004\022\030\n\024CO" +
+      "IN_10_PickableType\020\005\022\030\n\024COIN_20_Pickable" +
+      "Type\020\006\022\026\n\022PEACH_PickableType\020\007\022\030\n\024GIFTBO" +
+      "X_PickableType\020\010\022\027\n\023COIN_5_PickableType\020" +
+      "\t\022\027\n\023BANANA_PickableType\020\n\022\025\n\021BOMB_Picka" +
+      "bleType\020\013\022\033\n\027STRAWBERRY_PickableType\020\014\022\027" +
+      "\n\023ORANGE_PickableType\020\r*\254\001\n\026MultipleChoi" +
+      "ceResponse\022#\n\037CHOICE_1_MultipleChoiceRes" +
+      "ponse\020\000\022#\n\037CHOICE_4_MultipleChoiceRespon" +
+      "se\020\001\022#\n\037CHOICE_2_MultipleChoiceResponse\020" +
+      "\002\022#\n\037CHOICE_3_MultipleChoiceResponse\020\003*l" +
+      "\n\023BackgroundImageType\022\033\n\027JPG_BackgroundI" +
+      "mageType\020\000\022\033\n\027GIF_BackgroundImageType\020\001\022" +
+      "\033\n\027PNG_BackgroundImageType\020\002*\204\001\n\021Pickabl" +
+      "eIntensity\022\032\n\026HIGH_PickableIntensity\020\000\022\034" +
+      "\n\030MEDIUM_PickableIntensity\020\001\022\031\n\025LOW_Pick" +
+      "ableIntensity\020\002\022\032\n\026NONE_PickableIntensit" +
+      "y\020\003*6\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004EAST\020\001\022\t" +
+      "\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDirection6\022\n\n\006NOR" +
+      "TH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_EAST\020\002\022\n\n" +
+      "\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNORTH_WEST\020" +
+      "\005*0\n\010Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021COUNTER_" +
+      "CLOCKWISE\020\001*C\n\tMovement4\022\013\n\007FORWARD\020\000\022\014\n" +
+      "\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIGHTWARD\020\003" +
+      "*t\n\tMovement6\022\014\n\010FORWARD6\020\000\022\021\n\rFORWARD_R" +
+      "IGHT\020\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBACKWARD6\020" +
+      "\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014FORWARD_LEFT\020\005*7" +
+      "\n\tWorldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE_SQUARE\020" +
+      "\001\022\014\n\010TILE_HEX\020\002B4\n&org.inspirecenter.ama" +
+      "zechallenge.protoB\010AMCProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_nkasenides_amc_proto_GameProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_nkasenides_amc_proto_GameProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GameProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor,
         new String[] { "FinishedPlayers", "ActivePlayers", "Pickables", "QueuedPlayers", "Counter", "WaitingPlayers", "AllPlayers", "LastUpdated", "ChallengeID", "PlayerEntities", "Id", "LastExecutionTime", "PlayerWorldSessions", });
-    internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_GameProto_descriptor.getNestedTypes().get(0);
-    internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor.getNestedTypes().get(0);
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GameProto_AllPlayersEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GameProto_AllPlayersEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_GameProto_descriptor.getNestedTypes().get(1);
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor.getNestedTypes().get(1);
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GameProto_PlayerEntitiesEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerEntitiesEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_GameProto_descriptor.getNestedTypes().get(2);
-    internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_GameProto_descriptor.getNestedTypes().get(2);
+    internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GameProto_PlayerWorldSessionsEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GameProto_PlayerWorldSessionsEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_HealthProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_HealthProto_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_com_nkasenides_amc_proto_HealthProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_HealthProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_HealthProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_HealthProto_descriptor,
         new String[] { "Health", });
-    internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AdminKeyProto_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_com_nkasenides_amc_proto_AdminKeyProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AdminKeyProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AdminKeyProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AdminKeyProto_descriptor,
         new String[] { "Id", });
-    internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_QuestionnaireEntryProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_QuestionnaireEntryProto_descriptor,
         new String[] { "ChallengeID", "QuestionEntry", "Id", });
-    internal_static_com_nkasenides_amc_proto_GridProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_GridProto_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_com_nkasenides_amc_proto_GridProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GridProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GridProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GridProto_descriptor,
         new String[] { "StartingDirection", "Data", "TargetPosition", "Width", "StartingPosition", "Height", });
-    internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_com_nkasenides_amc_proto_QuestionEntryProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_QuestionEntryProto_descriptor,
-        new String[] { "AnswerText", "QuestionText", });
-    internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor =
+        internal_static_org_inspirecenter_amazechallenge_proto_QuestionEntryProto_descriptor,
+        new String[] { "AnswerText", "Id", "QuestionText", });
+    internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor,
         new String[] { "CanJoinAfterStart", "CanStepOnEachOther", "Penalties", "BackgroundImage", "Description", "LineColor", "CanRepeat", "CreatedOn", "HasQuestionnaire", "Difficulty", "ApiVersion", "MaxActivePlayers", "Grid", "BackgroundAudio", "MinActivePlayers", "Name", "StartTime", "EndTime", "Id", "Rewards", "CreatedByID", "Algorithm", });
-    internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_GeoPositionProto_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_com_nkasenides_amc_proto_GeoPositionProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GeoPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GeoPositionProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GeoPositionProto_descriptor,
         new String[] { "X", "Y", "Z", "PositionHash", });
-    internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_MatrixPositionProto_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_com_nkasenides_amc_proto_MatrixPositionProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_MatrixPositionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_MatrixPositionProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_MatrixPositionProto_descriptor,
         new String[] { "Row", "Col", "CellHash", "ChunkHash", });
-    internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCGameSessionProto_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCGameSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCGameSessionProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCGameSessionProto_descriptor,
         new String[] { "IpAddress", "ExpiresOn", "Id", "CreatedOn", "PlayerID", });
-    internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCWorldSessionProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_descriptor,
         new String[] { "Code", "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "CreatedOn", "PlayerID", "Points", });
-    internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_com_nkasenides_amc_proto_AMCPlayerProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCPlayerProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_descriptor,
         new String[] { "Password", "Color", "TeamID", "Name", "Icon", "Id", "CreatedOn", "Email", });
-    internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_com_nkasenides_amc_proto_AMCTeamProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCTeamProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCTeamProto_descriptor,
         new String[] { "Name", "Id", "OwnerID", "PlayerIDs", "PlayerLimit", });
-    internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_com_nkasenides_amc_proto_AMCEntityProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCEntityProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", "PickableEntity", "PlayerEntity", "Entity", });
-    internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_PickableEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_com_nkasenides_amc_proto_PickableEntityProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_PickableEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_PickableEntityProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_PickableEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "PickableType", "Id", "Position", "State", "PlayerID", "Direction", });
-    internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_PlayerEntityProto_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_com_nkasenides_amc_proto_PlayerEntityProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_PlayerEntityProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_PlayerEntityProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_PlayerEntityProto_descriptor,
         new String[] { "WorldID", "AreaOfInterest", "Id", "Position", "PlayerID", "Direction", });
-    internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCActionProto_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_com_nkasenides_amc_proto_AMCActionProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCActionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCActionProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCActionProto_descriptor,
         new String[] { });
-    internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainCellProto_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainCellProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCTerrainCellProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainCellProto_descriptor,
         new String[] { "Position", "RightWall", "DownWall", "UpWall", "LeftWall", });
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor,
         new String[] { "PartialState", "WorldSessionID", "RemovedEntities", "RemovedTerrain", "WorldSessions", "Timestamp", "AllPlayers", });
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(0);
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(0);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(1);
-    internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor.getNestedTypes().get(1);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor =
       getDescriptor().getMessageTypes().get(19);
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor,
         new String[] { "Id", "WorldID", "Position", "Cells", });
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor.getNestedTypes().get(0);
-    internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor.getNestedTypes().get(0);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainIdentifierProto_descriptor =
       getDescriptor().getMessageTypes().get(20);
-    internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainIdentifierProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCTerrainIdentifierProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainIdentifierProto_descriptor,
         new String[] { "Id", "ChunkID", "WorldID", "ChunkPosition", });
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor =
       getDescriptor().getMessageTypes().get(21);
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor,
-        new String[] { "WorldSession", "Entities", "Terrain", "Grid", "Timestamp", });
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(0);
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable = new
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor,
+        new String[] { "Entities", "Grid", "Players", "WorldSessions", "WorldSession", "Terrain", "Timestamp", });
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_EntitiesEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(0);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_EntitiesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_EntitiesEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_EntitiesEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor =
-      internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(1);
-    internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_PlayersEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(1);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_PlayersEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCPartialStateProto_TerrainEntry_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_PlayersEntry_descriptor,
         new String[] { "Key", "Value", });
-    internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_WorldSessionsEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(2);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_WorldSessionsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_WorldSessionsEntry_descriptor,
+        new String[] { "Key", "Value", });
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_TerrainEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_descriptor.getNestedTypes().get(3);
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_TerrainEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCPartialStateProto_TerrainEntry_descriptor,
+        new String[] { "Key", "Value", });
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldProto_descriptor =
       getDescriptor().getMessageTypes().get(22);
-    internal_static_com_nkasenides_amc_proto_AMCWorldProto_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AMCWorldProto_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldProto_descriptor,
         new String[] { "MaxRows", "HeightLimit", "Seed", "Grid", "Name", "ChunkIDs", "Id", "OwnerID", "CreatedOn", "MaxCols", "SubscribedSessionIDs", });
-    internal_static_com_nkasenides_amc_proto_Request_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_Request_descriptor =
       getDescriptor().getMessageTypes().get(23);
-    internal_static_com_nkasenides_amc_proto_Request_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_Request_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_Request_descriptor,
         new String[] { "AddChallengeRequest", "GetStateRequest", "SubscribeRequest", "ListChallengesRequest", "UnsubscribeRequest", "SubmitCodeRequest", "UpdateStateRequest", "JoinChallengeRequest", "SubmitQuestionnaireRequest", "Request", });
-    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);
-    internal_static_com_nkasenides_amc_proto_AddChallengeRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AddChallengeRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeRequest_descriptor,
         new String[] { "Challenge", "AdminKey", });
-    internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateRequest_descriptor =
       getDescriptor().getMessageTypes().get(25);
-    internal_static_com_nkasenides_amc_proto_GetStateRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GetStateRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GetStateRequest_descriptor,
         new String[] { "WorldSessionID", });
-    internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeRequest_descriptor =
       getDescriptor().getMessageTypes().get(26);
-    internal_static_com_nkasenides_amc_proto_SubscribeRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubscribeRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubscribeRequest_descriptor,
         new String[] { "WorldSessionID", });
-    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesRequest_descriptor =
       getDescriptor().getMessageTypes().get(27);
-    internal_static_com_nkasenides_amc_proto_ListChallengesRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_ListChallengesRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesRequest_descriptor,
         new String[] { });
-    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeRequest_descriptor =
       getDescriptor().getMessageTypes().get(28);
-    internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_UnsubscribeRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeRequest_descriptor,
         new String[] { "WorldSessionID", });
-    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeRequest_descriptor =
       getDescriptor().getMessageTypes().get(29);
-    internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubmitCodeRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeRequest_descriptor,
         new String[] { "Code", "WorldSessionID", });
-    internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateRequest_descriptor =
       getDescriptor().getMessageTypes().get(30);
-    internal_static_com_nkasenides_amc_proto_UpdateStateRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_UpdateStateRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateRequest_descriptor,
         new String[] { "WorldSessionID", });
-    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_descriptor =
       getDescriptor().getMessageTypes().get(31);
-    internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_JoinChallengeRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_descriptor,
         new String[] { "ChallengeID", "Player", });
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_descriptor =
       getDescriptor().getMessageTypes().get(32);
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireRequest_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_descriptor,
         new String[] { "WorldSessionID", "QuestionnaireEntry", });
-    internal_static_com_nkasenides_amc_proto_Response_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_Response_descriptor =
       getDescriptor().getMessageTypes().get(33);
-    internal_static_com_nkasenides_amc_proto_Response_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_Response_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_Response_descriptor,
         new String[] { "SubmitQuestionnaireResponse", "GetStateResponse", "JoinChallengeResponse", "UpdateStateResponse", "SubmitCodeResponse", "SubscribeResponse", "UnsubscribeResponse", "ListChallengesResponse", "AddChallengeResponse", "Response", });
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_descriptor =
       getDescriptor().getMessageTypes().get(34);
-    internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubmitQuestionnaireResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_descriptor,
         new String[] { "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateResponse_descriptor =
       getDescriptor().getMessageTypes().get(35);
-    internal_static_com_nkasenides_amc_proto_GetStateResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_GetStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_GetStateResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_GetStateResponse_descriptor,
         new String[] { "PartialState", "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeResponse_descriptor =
       getDescriptor().getMessageTypes().get(36);
-    internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_JoinChallengeResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeResponse_descriptor,
         new String[] { "Challenge", "WorldSession", "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateResponse_descriptor =
       getDescriptor().getMessageTypes().get(37);
-    internal_static_com_nkasenides_amc_proto_UpdateStateResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_UpdateStateResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_UpdateStateResponse_descriptor,
         new String[] { "Message", "StateUpdate", "Status", });
-    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeResponse_descriptor =
       getDescriptor().getMessageTypes().get(38);
-    internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubmitCodeResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubmitCodeResponse_descriptor,
         new String[] { "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeResponse_descriptor =
       getDescriptor().getMessageTypes().get(39);
-    internal_static_com_nkasenides_amc_proto_SubscribeResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_SubscribeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_SubscribeResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_SubscribeResponse_descriptor,
         new String[] { "PartialState", "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_descriptor =
       getDescriptor().getMessageTypes().get(40);
-    internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_UnsubscribeResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_descriptor,
         new String[] { "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor =
       getDescriptor().getMessageTypes().get(41);
-    internal_static_com_nkasenides_amc_proto_ListChallengesResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_ListChallengesResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor,
         new String[] { "Challenges", "Message", "Status", });
-    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor =
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_descriptor =
       getDescriptor().getMessageTypes().get(42);
-    internal_static_com_nkasenides_amc_proto_AddChallengeResponse_fieldAccessorTable = new
+    internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_nkasenides_amc_proto_AddChallengeResponse_descriptor,
+        internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_descriptor,
         new String[] { "Message", "Status", });
   }
 

@@ -148,7 +148,11 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
         protoBuilder.setPlayerID(playerID);        
         protoBuilder.setPoints(points);        
         return protoBuilder;        
-    }    
+    }
+
+    public static String getWorldSessionID(String playerID, String challengeID) {
+        return playerID + "_" + challengeID;
+    }
     
 
 }

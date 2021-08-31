@@ -112,7 +112,7 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor;
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             AMCTerrainChunkProto.class, Builder.class);
   }
@@ -243,7 +243,7 @@ private static final long serialVersionUID = 0L;
         String, AMCTerrainCellProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, AMCTerrainCellProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_CellsEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -564,7 +564,7 @@ private static final long serialVersionUID = 0L;
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_fieldAccessorTable
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               AMCTerrainChunkProto.class, Builder.class);
     }
@@ -604,7 +604,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCTerrainChunkProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCTerrainChunkProto_descriptor;
     }
 
     @Override

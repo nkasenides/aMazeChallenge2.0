@@ -4,30 +4,15 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface AMCPartialStateProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:AMCPartialStateProto)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.AMCPartialStateProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.AMCWorldSessionProto worldSession = 1;</code>
-   * @return Whether the worldSession field is set.
-   */
-  boolean hasWorldSession();
-  /**
-   * <code>.AMCWorldSessionProto worldSession = 1;</code>
-   * @return The worldSession.
-   */
-  AMCWorldSessionProto getWorldSession();
-  /**
-   * <code>.AMCWorldSessionProto worldSession = 1;</code>
-   */
-  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
-
-  /**
-   * <code>map&lt;string, .AMCEntityProto&gt; entities = 2;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
    */
   int getEntitiesCount();
   /**
-   * <code>map&lt;string, .AMCEntityProto&gt; entities = 2;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
    */
   boolean containsEntities(
       String key);
@@ -38,30 +23,128 @@ public interface AMCPartialStateProtoOrBuilder extends
   java.util.Map<String, AMCEntityProto>
   getEntities();
   /**
-   * <code>map&lt;string, .AMCEntityProto&gt; entities = 2;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
    */
   java.util.Map<String, AMCEntityProto>
   getEntitiesMap();
   /**
-   * <code>map&lt;string, .AMCEntityProto&gt; entities = 2;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
    */
 
   AMCEntityProto getEntitiesOrDefault(
       String key,
       AMCEntityProto defaultValue);
   /**
-   * <code>map&lt;string, .AMCEntityProto&gt; entities = 2;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
    */
 
   AMCEntityProto getEntitiesOrThrow(
       String key);
 
   /**
-   * <code>map&lt;string, .AMCTerrainCellProto&gt; terrain = 3;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   * @return Whether the grid field is set.
+   */
+  boolean hasGrid();
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   * @return The grid.
+   */
+  GridProto getGrid();
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   */
+  GridProtoOrBuilder getGridOrBuilder();
+
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   */
+  int getPlayersCount();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   */
+  boolean containsPlayers(
+      String key);
+  /**
+   * Use {@link #getPlayersMap()} instead.
+   */
+  @Deprecated
+  java.util.Map<String, AMCPlayerProto>
+  getPlayers();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   */
+  java.util.Map<String, AMCPlayerProto>
+  getPlayersMap();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   */
+
+  AMCPlayerProto getPlayersOrDefault(
+      String key,
+      AMCPlayerProto defaultValue);
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   */
+
+  AMCPlayerProto getPlayersOrThrow(
+      String key);
+
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   */
+  int getWorldSessionsCount();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   */
+  boolean containsWorldSessions(
+      String key);
+  /**
+   * Use {@link #getWorldSessionsMap()} instead.
+   */
+  @Deprecated
+  java.util.Map<String, AMCWorldSessionProto>
+  getWorldSessions();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   */
+  java.util.Map<String, AMCWorldSessionProto>
+  getWorldSessionsMap();
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   */
+
+  AMCWorldSessionProto getWorldSessionsOrDefault(
+      String key,
+      AMCWorldSessionProto defaultValue);
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   */
+
+  AMCWorldSessionProto getWorldSessionsOrThrow(
+      String key);
+
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   * @return Whether the worldSession field is set.
+   */
+  boolean hasWorldSession();
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   * @return The worldSession.
+   */
+  AMCWorldSessionProto getWorldSession();
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   */
+  AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder();
+
+  /**
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
    */
   int getTerrainCount();
   /**
-   * <code>map&lt;string, .AMCTerrainCellProto&gt; terrain = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
    */
   boolean containsTerrain(
       String key);
@@ -72,41 +155,26 @@ public interface AMCPartialStateProtoOrBuilder extends
   java.util.Map<String, AMCTerrainCellProto>
   getTerrain();
   /**
-   * <code>map&lt;string, .AMCTerrainCellProto&gt; terrain = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
    */
   java.util.Map<String, AMCTerrainCellProto>
   getTerrainMap();
   /**
-   * <code>map&lt;string, .AMCTerrainCellProto&gt; terrain = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
    */
 
   AMCTerrainCellProto getTerrainOrDefault(
       String key,
       AMCTerrainCellProto defaultValue);
   /**
-   * <code>map&lt;string, .AMCTerrainCellProto&gt; terrain = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
    */
 
   AMCTerrainCellProto getTerrainOrThrow(
       String key);
 
   /**
-   * <code>.GridProto grid = 4;</code>
-   * @return Whether the grid field is set.
-   */
-  boolean hasGrid();
-  /**
-   * <code>.GridProto grid = 4;</code>
-   * @return The grid.
-   */
-  GridProto getGrid();
-  /**
-   * <code>.GridProto grid = 4;</code>
-   */
-  GridProtoOrBuilder getGridOrBuilder();
-
-  /**
-   * <code>uint64 timestamp = 5;</code>
+   * <code>uint64 timestamp = 7;</code>
    * @return The timestamp.
    */
   long getTimestamp();

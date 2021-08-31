@@ -4,11 +4,11 @@
 package org.inspirecenter.amazechallenge.proto;
 
 /**
- * Protobuf type {@code AMCStateUpdateProto}
+ * Protobuf type {@code org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto}
  */
 public final class AMCStateUpdateProto extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:AMCStateUpdateProto)
+    // @@protoc_insertion_point(message_implements:org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto)
     AMCStateUpdateProtoOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use AMCStateUpdateProto.newBuilder() to construct.
@@ -147,7 +147,7 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -167,7 +167,7 @@ private static final long serialVersionUID = 0L;
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             AMCStateUpdateProto.class, Builder.class);
   }
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
   public static final int PARTIALSTATE_FIELD_NUMBER = 1;
   private AMCPartialStateProto partialState_;
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    * @return Whether the partialState field is set.
    */
   @Override
@@ -183,7 +183,7 @@ private static final long serialVersionUID = 0L;
     return partialState_ != null;
   }
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    * @return The partialState.
    */
   @Override
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
     return partialState_ == null ? AMCPartialStateProto.getDefaultInstance() : partialState_;
   }
   /**
-   * <code>.AMCPartialStateProto partialState = 1;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
    */
   @Override
   public AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
@@ -312,7 +312,7 @@ private static final long serialVersionUID = 0L;
         String, AMCWorldSessionProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, AMCWorldSessionProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_WorldSessionsEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -333,7 +333,7 @@ private static final long serialVersionUID = 0L;
     return internalGetWorldSessions().getMap().size();
   }
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
 
   @Override
@@ -351,7 +351,7 @@ private static final long serialVersionUID = 0L;
     return getWorldSessionsMap();
   }
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
     return internalGetWorldSessions().getMap();
   }
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -372,7 +372,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -404,7 +404,7 @@ private static final long serialVersionUID = 0L;
         String, AMCPlayerProto> defaultEntry =
             com.google.protobuf.MapEntry
             .<String, AMCPlayerProto>newDefaultInstance(
-                AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_AllPlayersEntry_descriptor,
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -425,7 +425,7 @@ private static final long serialVersionUID = 0L;
     return internalGetAllPlayers().getMap().size();
   }
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
 
   @Override
@@ -443,7 +443,7 @@ private static final long serialVersionUID = 0L;
     return getAllPlayersMap();
   }
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -451,7 +451,7 @@ private static final long serialVersionUID = 0L;
     return internalGetAllPlayers().getMap();
   }
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -464,7 +464,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
    */
   @Override
 
@@ -740,15 +740,15 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code AMCStateUpdateProto}
+   * Protobuf type {@code org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:AMCStateUpdateProto)
+      // @@protoc_insertion_point(builder_implements:org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto)
       AMCStateUpdateProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -780,12 +780,12 @@ private static final long serialVersionUID = 0L;
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_fieldAccessorTable
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               AMCStateUpdateProto.class, Builder.class);
     }
 
-    // Construct using AMCStateUpdateProto.newBuilder()
+    // Construct using org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -825,7 +825,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_AMCStateUpdateProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_AMCStateUpdateProto_descriptor;
     }
 
     @Override
@@ -983,14 +983,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCPartialStateProto, AMCPartialStateProto.Builder, AMCPartialStateProtoOrBuilder> partialStateBuilder_;
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      * @return Whether the partialState field is set.
      */
     public boolean hasPartialState() {
       return partialStateBuilder_ != null || partialState_ != null;
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      * @return The partialState.
      */
     public AMCPartialStateProto getPartialState() {
@@ -1001,7 +1001,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public Builder setPartialState(AMCPartialStateProto value) {
       if (partialStateBuilder_ == null) {
@@ -1017,7 +1017,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public Builder setPartialState(
         AMCPartialStateProto.Builder builderForValue) {
@@ -1031,7 +1031,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public Builder mergePartialState(AMCPartialStateProto value) {
       if (partialStateBuilder_ == null) {
@@ -1049,7 +1049,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public Builder clearPartialState() {
       if (partialStateBuilder_ == null) {
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public AMCPartialStateProto.Builder getPartialStateBuilder() {
       
@@ -1071,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       return getPartialStateFieldBuilder().getBuilder();
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     public AMCPartialStateProtoOrBuilder getPartialStateOrBuilder() {
       if (partialStateBuilder_ != null) {
@@ -1082,7 +1082,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.AMCPartialStateProto partialState = 1;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPartialStateProto partialState = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCPartialStateProto, AMCPartialStateProto.Builder, AMCPartialStateProtoOrBuilder>
@@ -1421,7 +1421,7 @@ private static final long serialVersionUID = 0L;
       return internalGetWorldSessions().getMap().size();
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     @Override
@@ -1439,7 +1439,7 @@ private static final long serialVersionUID = 0L;
       return getWorldSessionsMap();
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1447,7 +1447,7 @@ private static final long serialVersionUID = 0L;
       return internalGetWorldSessions().getMap();
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1460,7 +1460,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1481,7 +1481,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     public Builder removeWorldSessions(
@@ -1500,7 +1500,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableWorldSessions().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     public Builder putWorldSessions(
         String key,
@@ -1512,7 +1512,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .AMCWorldSessionProto&gt; worldSessions = 5;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     public Builder putAllWorldSessions(
@@ -1580,7 +1580,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAllPlayers().getMap().size();
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     @Override
@@ -1598,7 +1598,7 @@ private static final long serialVersionUID = 0L;
       return getAllPlayersMap();
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -1606,7 +1606,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAllPlayers().getMap();
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -1619,7 +1619,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     @Override
 
@@ -1640,7 +1640,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     public Builder removeAllPlayers(
@@ -1659,7 +1659,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableAllPlayers().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
     public Builder putAllPlayers(
         String key,
@@ -1671,7 +1671,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .AMCPlayerProto&gt; allPlayers = 7;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
      */
 
     public Builder putAllAllPlayers(
@@ -1693,10 +1693,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:AMCStateUpdateProto)
+    // @@protoc_insertion_point(builder_scope:org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto)
   }
 
-  // @@protoc_insertion_point(class_scope:AMCStateUpdateProto)
+  // @@protoc_insertion_point(class_scope:org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto)
   private static final AMCStateUpdateProto DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new AMCStateUpdateProto();

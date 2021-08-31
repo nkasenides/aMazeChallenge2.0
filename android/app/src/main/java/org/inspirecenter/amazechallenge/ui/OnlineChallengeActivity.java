@@ -167,9 +167,8 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
     }
 
     private void createOnlinePlayerProfile(String name, String email, String colorName, String iconName) {
-        final String playerID = UUID.randomUUID().toString();
         AMCPlayer player = new AMCPlayer();
-        player.setId(playerID);
+        player.setId(name);
         player.setEmail(email);
         player.setName(name);
         player.setColor(AmazeColor.valueOf(colorName));

@@ -211,13 +211,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
+    return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             ChallengeProto.class, Builder.class);
   }
@@ -1058,13 +1058,13 @@ private static final long serialVersionUID = 0L;
       ChallengeProtoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_fieldAccessorTable
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ChallengeProto.class, Builder.class);
     }
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return AMCProto.internal_static_com_nkasenides_amc_proto_ChallengeProto_descriptor;
+      return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ChallengeProto_descriptor;
     }
 
     @Override
