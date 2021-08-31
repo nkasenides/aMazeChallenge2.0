@@ -8,14 +8,14 @@
 package org.inspirecenter.amazechallenge.service;
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
 import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
-import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
-import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
+import org.inspirecenter.amazechallenge.proto.*;
 import com.nkasenides.athlos.backend.AthlosService;
-import org.inspirecenter.amazechallenge.proto.JoinChallengeRequest;
 import org.inspirecenter.amazechallenge.auth.*;
-import org.inspirecenter.amazechallenge.proto.JoinChallengeResponse;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -107,6 +107,7 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         }
 
         //Challenge must not have a player with the same name:
+        //TODO - Consider using device installation ID as a way of identifying an existing player without forcing them to change their name.
         for (AMCWorldSession challengeSession : challengeSessions) {
             if (challengeSession.getPlayerID().equalsIgnoreCase(player.getName())) {
                 return JoinChallengeResponse.newBuilder()
@@ -140,7 +141,7 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
         final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
-        //If this is the first player joining this challenge, initialize the game state:
+        //If this is the first player joining this challenge, initialize the game state and start the runtime task:
         final Collection<AMCWorldSession> worldSessionsForWorld = DBManager.worldSession.listForWorld(worldSession.getWorldID());
         if (worldSessionsForWorld.isEmpty()) {
             Game game = new Game();
@@ -150,6 +151,22 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
             game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
             game.getPlayerEntities().put(playerEntity.getId(), playerEntity);
             memcache.put(game.getId(), game);
+
+            //Start the runtime task:
+            final Queue queue = QueueFactory.getDefaultQueue();
+            RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
+                    .setChallengeID(challengeID)
+                    .setGameID(game.getId())
+                    .setAdminKey(DBManager.adminKey.get().getId())
+                    .build();
+
+            TaskOptions taskOptions = TaskOptions.Builder
+                    .withUrl("/admin/runtime")
+                    .payload(runtimeRequest.toByteArray())
+                    .method(TaskOptions.Method.POST);
+
+            queue.add(taskOptions);
+
         }
         else {
             Game game = (Game) memcache.get("game_" + worldSession.getWorldID());

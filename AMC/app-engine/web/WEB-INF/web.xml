@@ -53,6 +53,11 @@
         <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.GenerateGridServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>RuntimeServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.RuntimeServlet</servlet-class>
+    </servlet>
+
     <!-- Mappings -->
     <servlet-mapping>
         <servlet-name>SubmitQuestionnaireServlet</servlet-name>
@@ -61,6 +66,10 @@
     <servlet-mapping>
         <servlet-name>ListChallengesServlet</servlet-name>
         <url-pattern>/api/challenge/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RuntimeServlet</servlet-name>
+        <url-pattern>/admin/runtime</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SubmitCodeServlet</servlet-name>

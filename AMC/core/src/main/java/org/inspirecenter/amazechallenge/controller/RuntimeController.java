@@ -304,8 +304,19 @@ public class RuntimeController {
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
                 PickableEntity pickableEntity = new PickableEntity();
+                pickableEntity.setId("");
                 pickableEntity.setPickableType(type);
                 pickableEntity.setPosition(position);
+                pickableEntity.setWorldID(challenge.getId());
+                pickableEntity.setAreaOfInterest(30);
+                pickableEntity.setPlayerID("");
+                pickableEntity.setDirection(Direction4.NORTH);
+                if (type == PickableType.BOMB_PickableType) {
+                    pickableEntity.setState(3);
+                }
+                else {
+                    pickableEntity.setState(0);
+                }
                 game.addPickableItem(pickableEntity);
             }
         }
@@ -328,8 +339,19 @@ public class RuntimeController {
 
             if (!exists && !grid.getTargetPosition().equals(position) && !grid.getStartingPosition().equals(position)) {
                 PickableEntity pickableEntity = new PickableEntity();
+                pickableEntity.setId("");
                 pickableEntity.setPickableType(type);
                 pickableEntity.setPosition(position);
+                pickableEntity.setWorldID(challenge.getId());
+                pickableEntity.setAreaOfInterest(30);
+                pickableEntity.setPlayerID("");
+                pickableEntity.setDirection(Direction4.NORTH);
+                if (type == PickableType.BOMB_PickableType) {
+                    pickableEntity.setState(3);
+                }
+                else {
+                    pickableEntity.setState(0);
+                }
                 game.addPickableItem(pickableEntity);
             }
         }

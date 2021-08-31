@@ -276,6 +276,12 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     public void resetPickables() {
         pickables.clear();
     }
+
+    public void touch(final long lastExecutionTime) {
+        this.lastExecutionTime = lastExecutionTime;
+        lastUpdated = System.currentTimeMillis();
+        counter++;
+    }
     
 
 }

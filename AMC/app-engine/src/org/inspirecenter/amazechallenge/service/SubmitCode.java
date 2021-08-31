@@ -7,6 +7,7 @@
 
 package org.inspirecenter.amazechallenge.service;
 import com.google.appengine.api.memcache.AsyncMemcacheService;
+import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import org.inspirecenter.amazechallenge.auth.Auth;
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
@@ -54,7 +55,7 @@ public class SubmitCode implements AthlosService<SubmitCodeRequest, SubmitCodeRe
         DBManager.worldSession.update(worldSession);
 
         //Save code in MemCache:
-        final AsyncMemcacheService memcache = MemcacheServiceFactory.getAsyncMemcacheService();
+        final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
         memcache.put(KeyUtils.getCodeKey(worldSession.getWorldID(), worldSession.getPlayerID()), code);
 
         return SubmitCodeResponse.newBuilder()
