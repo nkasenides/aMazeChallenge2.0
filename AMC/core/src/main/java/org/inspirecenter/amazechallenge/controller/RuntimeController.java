@@ -311,12 +311,7 @@ public class RuntimeController {
                 pickableEntity.setAreaOfInterest(30);
                 pickableEntity.setPlayerID("");
                 pickableEntity.setDirection(Direction4.NORTH);
-                if (type == PickableType.BOMB_PickableType) {
-                    pickableEntity.setState(3);
-                }
-                else {
-                    pickableEntity.setState(0);
-                }
+                pickableEntity.setState(PickableType.BOMB_PickableType.getDefaultState());
                 game.addPickableItem(pickableEntity);
             }
         }
@@ -346,12 +341,7 @@ public class RuntimeController {
                 pickableEntity.setAreaOfInterest(30);
                 pickableEntity.setPlayerID("");
                 pickableEntity.setDirection(Direction4.NORTH);
-                if (type == PickableType.BOMB_PickableType) {
-                    pickableEntity.setState(3);
-                }
-                else {
-                    pickableEntity.setState(0);
-                }
+                pickableEntity.setState(PickableType.BOMB_PickableType.getDefaultState());
                 game.addPickableItem(pickableEntity);
             }
         }
