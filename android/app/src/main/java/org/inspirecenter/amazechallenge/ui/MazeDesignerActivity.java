@@ -222,7 +222,20 @@ public class MazeDesignerActivity extends AppCompatActivity {
         rewardsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                setRewards(PickableIntensity.forNumber(i));
+                switch (i) {
+                    case 0:
+                        setRewards(PickableIntensity.NONE_PickableIntensity);
+                        break;
+                    case 1:
+                        setRewards(PickableIntensity.LOW_PickableIntensity);
+                        break;
+                    case 2:
+                        setRewards(PickableIntensity.MEDIUM_PickableIntensity);
+                        break;
+                    case 3:
+                        setRewards(PickableIntensity.HIGH_PickableIntensity);
+                        break;
+                }
             }
 
             @Override
@@ -234,7 +247,20 @@ public class MazeDesignerActivity extends AppCompatActivity {
         penaltiesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                setPenalties(PickableIntensity.forNumber(i));
+                switch (i) {
+                    case 0:
+                        setPenalties(PickableIntensity.NONE_PickableIntensity);
+                        break;
+                    case 1:
+                        setPenalties(PickableIntensity.LOW_PickableIntensity);
+                        break;
+                    case 2:
+                        setPenalties(PickableIntensity.MEDIUM_PickableIntensity);
+                        break;
+                    case 3:
+                        setPenalties(PickableIntensity.HIGH_PickableIntensity);
+                        break;
+                }
             }
 
             @Override
@@ -301,9 +327,9 @@ public class MazeDesignerActivity extends AppCompatActivity {
             size = challenge.getGrid().getHeight();
             MatrixPosition startingPosition = challenge.getGrid().getStartingPosition().toObject();
             MatrixPosition targetPosition = challenge.getGrid().getTargetPosition().toObject();
-            rewards = challenge.getRewards().getNumber();
+            rewards = challenge.toObject().getMaxRewards();
             rewardsIntensity = challenge.getRewards();
-            penalties = challenge.getPenalties().getNumber();
+            penalties = challenge.toObject().getMaxPenalties();
             penaltiesIntensity = challenge.getPenalties();
             selectedAlgorithm = challenge.getAlgorithm();
             oldMazeName = challenge.getName();
@@ -324,8 +350,40 @@ public class MazeDesignerActivity extends AppCompatActivity {
             //Disabled fields (non-changeable):
             algorithmSpinner.setEnabled(false);
             algorithmSpinner.setSelection(Algorithm.getPosition(selectedAlgorithm));
-            penaltiesSpinner.setSelection(penaltiesIntensity.getNumber());
-            rewardsSpinner.setSelection(rewardsIntensity.getNumber());
+
+            switch (rewardsIntensity) {
+                case HIGH_PickableIntensity:
+                    rewardsSpinner.setSelection(3);
+                    break;
+                case MEDIUM_PickableIntensity:
+                    rewardsSpinner.setSelection(2);
+                    break;
+                case LOW_PickableIntensity:
+                    rewardsSpinner.setSelection(1);
+                    break;
+                case NONE_PickableIntensity:
+                    rewardsSpinner.setSelection(0);
+                    break;
+                case UNRECOGNIZED:
+                    break;
+            }
+
+            switch (penaltiesIntensity) {
+                case HIGH_PickableIntensity:
+                    penaltiesSpinner.setSelection(3);
+                    break;
+                case MEDIUM_PickableIntensity:
+                    penaltiesSpinner.setSelection(2);
+                    break;
+                case LOW_PickableIntensity:
+                    penaltiesSpinner.setSelection(1);
+                    break;
+                case NONE_PickableIntensity:
+                    penaltiesSpinner.setSelection(0);
+                    break;
+                case UNRECOGNIZED:
+                    break;
+            }
 
             //Changed fields:
             Button addToTrainingButton = findViewById(R.id.addToTrainingButton);

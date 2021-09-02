@@ -296,7 +296,7 @@ public class RuntimeController {
         final Random random = new Random();
 
         //Generate rewards:
-        if (game.getNumOfBiasType(Bias.REWARD_Bias) < challenge.getRewards().getNumber()) {
+        if (game.getNumOfBiasType(Bias.REWARD_Bias) < challenge.getMaxRewards()) {
             int row = random.nextInt(grid.getHeight());
             int col = random.nextInt(grid.getWidth());
             final MatrixPosition position = new MatrixPosition(row, col);
@@ -320,13 +320,13 @@ public class RuntimeController {
                 pickableEntity.setAreaOfInterest(30);
                 pickableEntity.setPlayerID("");
                 pickableEntity.setDirection(Direction4.NORTH);
-                pickableEntity.setState(PickableType.BOMB_PickableType.getDefaultState());
+                pickableEntity.setState(type.getDefaultState());
                 game.addPickableItem(pickableEntity);
             }
         }
 
         //Generate penalties:
-        if (game.getNumOfBiasType(Bias.PENALTY_Bias) < challenge.getPenalties().getNumber()) {
+        if (game.getNumOfBiasType(Bias.PENALTY_Bias) < challenge.getMaxPenalties()) {
             int row = random.nextInt(grid.getHeight());
             int col = random.nextInt(grid.getWidth());
             final MatrixPosition position = new MatrixPosition(row, col);
@@ -350,16 +350,22 @@ public class RuntimeController {
                 pickableEntity.setAreaOfInterest(30);
                 pickableEntity.setPlayerID("");
                 pickableEntity.setDirection(Direction4.NORTH);
-                pickableEntity.setState(PickableType.BOMB_PickableType.getDefaultState());
+                pickableEntity.setState(type.getDefaultState());
                 game.addPickableItem(pickableEntity);
             }
         }
+
+        System.out.println("Pickables: " + game.getPickables().size());
+
     }
 
     public static void handlePickableState(Game game) {
         for (int i = 0; i < game.getPickables().size(); i++) {
             game.getPickables().get(i).reduceState();
-            if (game.getPickables().get(i).getState() <= 0) game.removePickupItem(i);
+            if (game.getPickables().get(i).getState() <= 0) {
+                game.removePickupItem(i);
+                System.out.println("Removing pickable");
+            }
         }
     }
 

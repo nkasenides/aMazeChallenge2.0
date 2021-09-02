@@ -243,7 +243,37 @@ public class Challenge implements Transmittable<ChallengeProto.Builder>, Seriali
         protoBuilder.setCreatedByID(createdByID);        
         protoBuilder.setAlgorithm(algorithm);        
         return protoBuilder;        
-    }    
+    }
+
+    public int getMaxRewards() {
+        switch (rewards) {
+            case NONE_PickableIntensity:
+                return 0;
+            case LOW_PickableIntensity:
+                return (getGrid().getHeight()) / 5;
+            case MEDIUM_PickableIntensity:
+                return (getGrid().getHeight()) / 3;
+            case HIGH_PickableIntensity:
+                return (getGrid().getHeight() * 2) / 2;
+            default:
+                return 0;
+        }
+    }
+
+    public int getMaxPenalties() {
+        switch (penalties) {
+            case NONE_PickableIntensity:
+                return 0;
+            case LOW_PickableIntensity:
+                return (getGrid().getHeight()) / 5;
+            case MEDIUM_PickableIntensity:
+                return (getGrid().getHeight()) / 3;
+            case HIGH_PickableIntensity:
+                return (getGrid().getHeight());
+            default:
+                return 0;
+        }
+    }
     
 
 }
