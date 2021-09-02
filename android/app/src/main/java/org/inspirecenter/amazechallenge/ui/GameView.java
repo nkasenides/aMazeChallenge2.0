@@ -94,13 +94,16 @@ public class GameView extends View {
     }
 
     void update(final Game game) {
-        System.out.println("Players: " + game.getAllPlayers().size());
         this.allIDsToPlayers = game.getAllPlayers();
-        for(final String activePlayerId : game.getActivePlayers()) {
-            System.out.println("Player: " + activePlayerId);
-            playerEntities.put(activePlayerId, game.getPlayerEntities().get(activePlayerId));
-//            activePlayerIdToPositionAndDirectionMap.put(activePlayerId, game.getPlayerPositionAndDirectionById(activePlayerId));
-        }
+
+        playerEntities = game.getPlayerEntities();
+
+//        for(final String activePlayerId : game.getActivePlayers()) {
+//            System.out.println("Player: " + activePlayerId);
+//            playerEntities.put(activePlayerId, game.getPlayerEntities().get(activePlayerId));
+////            activePlayerIdToPositionAndDirectionMap.put(activePlayerId, game.getPlayerPositionAndDirectionById(activePlayerId));
+//        }
+
         pickables.clear();
         this.pickables = game.getPickables();
     }
@@ -161,7 +164,7 @@ public class GameView extends View {
     /**
      * Updates the local state after receiving an update from the server.
      * Note: The terrain/Grid is omitted from state updates as its state does not change.
-     * @param stateUpdate
+     * @param stateUpdate The state update received.
      */
     void update(final AMCStateUpdateProto stateUpdate) {
 
@@ -249,18 +252,9 @@ public class GameView extends View {
             drawPickableItem(pickable.getPosition(), getDrawableResourceId(pickable), tile_size, padding, canvas);
         }
 
-        System.out.println("players:");
-        allIDsToPlayers.forEach(new BiConsumer<String, AMCPlayer>() {
-            @Override
-            public void accept(String s, AMCPlayer amcPlayer) {
-                System.out.println(s);
-            }
-        });
-
         // draw active players
         for(final Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
             final String activePlayerId = entry.getValue().getPlayerID();
-            System.out.println("activePlayerId = " + activePlayerId);
             final AMCPlayer player = allIDsToPlayers.get(activePlayerId);
             final PlayerEntity playerEntity = entry.getValue();
             if (player == null) {

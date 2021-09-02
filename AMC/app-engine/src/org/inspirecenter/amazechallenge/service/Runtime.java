@@ -117,6 +117,10 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
     private void implementGameLogic(final Challenge challenge, final Game game) {
         final long startTime = System.currentTimeMillis();
 
+//        System.out.println("game.getQueuedPlayers() = " + game.getQueuedPlayers());
+//        System.out.println("game.getActivePlayers() = " + game.getActivePlayers());
+//        System.out.println("game.getWaitingPlayers() = " + game.getWaitingPlayers());
+
         final Grid grid = challenge.getGrid();
 
         // check if we can upgrade any players from 'waiting' to 'queued'
@@ -139,6 +143,9 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         final List<String> activePlayerIDs = game.getActivePlayers();
         for(final String activePlayerId : activePlayerIDs) {
             final String code = (String) memcache.get(KeyUtils.getCodeKey(challenge.getId(), activePlayerId));
+
+            System.out.println("code = " + code);
+
             final MazeSolver mazeSolver = new InterpretedMazeSolver(challenge, game, activePlayerId, code);
             mazeSolver.init(challenge, game);
             final byte [] state = (byte[]) memcache.get(getMazeSolverStateKey(game.getId(), activePlayerId));
@@ -158,7 +165,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         // remove completed players (move from 'active' to 'finished')
         final MatrixPosition targetPosition = challenge.getGrid().getTargetPosition();
         for(final String activePlayerId : activePlayerIDs) {
-            final MatrixPosition playerPosition = game.getPlayerEntities().get(activePlayerId).getPosition();
+            final MatrixPosition playerPosition = game.getPlayerEntities().get(activePlayerId + "_" + game.getPlayerWorldSessions().get(activePlayerId).getWorldID()).getPosition();
             // for any players that were moved in 'inactive' status, reset their state and code so they are not restarted automatically
             if(playerPosition != null && playerPosition.equals(targetPosition)) {
                 memcache.delete(getMazeSolverStateKey(game.getId(), activePlayerId)); // reset algorithm's state

@@ -47,22 +47,22 @@ Blockly.JavaScript['maze_canmove_backward'] = function(block) {
 };
 
 Blockly.JavaScript['maze_direction_north'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.Direction.NORTH';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Direction4.NORTH';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['maze_direction_south'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.Direction.SOUTH';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Direction4.SOUTH';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['maze_direction_east'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.Direction.EAST';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Direction4.EAST';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['maze_direction_west'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.Direction.WEST';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Direction4.WEST';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
@@ -95,10 +95,10 @@ Blockly.JavaScript['maze_run_function'] = function(block) {
   //Check if this is a number literal
   "      else if (!isNaN(mapValue)) this[item] = Number(mapValue); \n" +
   //Check if this is a direction literal
-  "      else if (mapValue == 'north') this[item] = Packages.org.inspirecenter.amazechallenge.model.Direction.NORTH;\n" +
-  "      else if (mapValue == 'south') this[item] = Packages.org.inspirecenter.amazechallenge.model.Direction.SOUTH;\n" +
-  "      else if (mapValue == 'west') this[item] = Packages.org.inspirecenter.amazechallenge.model.Direction.WEST;\n" +
-  "      else if (mapValue == 'east') this[item] = Packages.org.inspirecenter.amazechallenge.model.Direction.EAST;\n" +
+  "      else if (mapValue == 'north') this[item] = Packages.org.inspirecenter.amazechallenge.proto.Direction4.NORTH;\n" +
+  "      else if (mapValue == 'south') this[item] = Packages.org.inspirecenter.amazechallenge.proto.Direction4.SOUTH;\n" +
+  "      else if (mapValue == 'west') this[item] = Packages.org.inspirecenter.amazechallenge.proto.Direction4.WEST;\n" +
+  "      else if (mapValue == 'east') this[item] = Packages.org.inspirecenter.amazechallenge.proto.Direction4.EAST;\n" +
   //Otherwise it's a string/character literal
   "  });\n" +
   //Include the player's code:
@@ -120,17 +120,17 @@ Blockly.JavaScript['maze_randomint'] = function(block) {
 };
 
 Blockly.JavaScript['maze_pickabletype_reward'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.PickableType.Bias.REWARD';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Bias.REWARD_Bias';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['maze_pickabletype_penalty'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.PickableType.Bias.PENALTY';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Bias.PENALTY_Bias';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['maze_pickabletype_none'] = function(block) {
-  var code = 'Packages.org.inspirecenter.amazechallenge.model.PickableType.Bias.NONE';
+  var code = 'Packages.org.inspirecenter.amazechallenge.proto.Bias.NONE_Bias';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

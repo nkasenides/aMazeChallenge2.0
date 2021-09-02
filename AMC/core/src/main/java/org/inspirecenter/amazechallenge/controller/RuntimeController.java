@@ -26,7 +26,7 @@ public class RuntimeController {
         final Grid grid = challenge.getGrid();
 
         // apply next move to active players
-        final List<String> playerToMoveIDs = new ArrayList<>(game.getAllPlayers().keySet());
+        final List<String> playerToMoveIDs = new ArrayList<>(game.getActivePlayers());
 
         // the adjusted list will contain the player IDs, possibly two or zero times according to the num of turns they get/lose from pickables
         final List<String> adjustedPlayerToMoveIDs = new Vector<>(playerToMoveIDs);
@@ -46,11 +46,13 @@ public class RuntimeController {
             }
         }
 
+//        System.out.println("adjustedPlayerToMoveIDs = " + adjustedPlayerToMoveIDs); //TODO - Remove
+
         for (final String playerToMoveId : adjustedPlayerToMoveIDs) {
             final AMCPlayer player = game.getPlayerByID(playerToMoveId);
             final MazeSolver mazeSolver = playerIdsToMazeSolvers.get(playerToMoveId);
             final AMCWorldSession worldSession = game.getPlayerWorldSessions().get(playerToMoveId);
-            final PlayerEntity playerEntity = game.getPlayerEntities().get(playerToMoveId);
+            final PlayerEntity playerEntity = game.getPlayerEntities().get(playerToMoveId + "_" + worldSession.getWorldID());
 
             // the player might have been deactivated (for instance if he had 2 moves and this one is the second)
             if(game.getActivePlayers().contains(playerToMoveId)) {
@@ -76,6 +78,13 @@ public class RuntimeController {
     }
 
     private static void applyPlayerMove(final Grid grid, final Game game, final String playerId, final AMCWorldSession worldSession, final PlayerEntity playerEntity, final PlayerMove playerMove) {
+
+//        System.out.println("applyPlayerMove()");
+//        System.out.println("playerId = " + playerId);
+//        System.out.println("playerMove = " + playerMove);
+//        System.out.println("row = " + playerEntity.getPosition().getRow());
+//        System.out.println("col = " + playerEntity.getPosition().getCol());
+
         Direction4 direction = playerEntity.getDirection();
         MatrixPosition position = playerEntity.getPosition();
         AudioEventListener audioEventListener = game.getAudioEventListener();
@@ -130,14 +139,14 @@ public class RuntimeController {
         }
         playerEntity.setDirection(direction);
         playerEntity.setPosition(position);
-        game.getPlayerEntities().put(playerId, playerEntity); //TODO - Perhaps not necessary to update this as it is a reference.
+//        game.getPlayerEntities().put(playerId, playerEntity); //TODO - Perhaps not necessary to update this as it is a reference.
     }
 
     public static boolean hasSomeoneReachedTheTargetPosition(final Game game, final Grid grid) {
         final MatrixPosition targetPosition = grid.getTargetPosition();
         boolean someoneHasReachedTheTargetPosition = false;
         for (final String playerId : game.getActivePlayers()) {
-            final PlayerEntity playerEntity = game.getPlayerEntities().get(playerId);
+            final PlayerEntity playerEntity = game.getPlayerEntities().get(playerId + "_" + game.getPlayerWorldSessions().get(playerId).getWorldID());
             if (targetPosition.equals(playerEntity.getPosition())) {
                 if (grid.getTargetPosition().equals(playerEntity.getPosition())) {
 //                    game.getAudioEventListener().onGameEndAudioEvent(true); //TODO Remove, make for each player individually.

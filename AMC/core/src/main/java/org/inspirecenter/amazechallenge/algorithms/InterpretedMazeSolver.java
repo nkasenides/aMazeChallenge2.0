@@ -5,6 +5,7 @@ import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.Game;
 import org.inspirecenter.amazechallenge.model.Grid;
 import org.inspirecenter.amazechallenge.model.MatrixPosition;
+import org.inspirecenter.amazechallenge.model.PlayerEntity;
 import org.inspirecenter.amazechallenge.proto.Bias;
 import org.inspirecenter.amazechallenge.proto.Direction4;
 
@@ -39,12 +40,12 @@ public class InterpretedMazeSolver extends AbstractMazeSolver {
 
     @Override
     Direction4 getDirection() {
-        return game.getPlayerEntities().get(playerID).getDirection();
+        return game.getPlayerEntities().get(playerID + "_" + challenge.getId()).getDirection();
     }
 
     @Override
     MatrixPosition getPosition() {
-        return game.getPlayerEntities().get(playerID).getPosition();
+        return game.getPlayerEntities().get(playerID + "_" + challenge.getId()).getPosition();
     }
 
     private void init(final String unprocessedCode) {
@@ -219,9 +220,9 @@ public class InterpretedMazeSolver extends AbstractMazeSolver {
         return builder.toString();
     }
 
-    @Override
-    public Bias look(Direction4 direction) {
-        return RuntimeController.look(game, getGrid(), getPosition(), direction);
-    }
+//    @Override
+//    public Bias look(Direction4 direction) {
+//        return RuntimeController.look(game, getGrid(), getPosition(), direction);
+//    }
 
 }

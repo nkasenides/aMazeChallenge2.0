@@ -58,6 +58,7 @@ public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStat
         //Player entities:
         for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
             builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+            System.out.println(entry.getKey() + ": " + entry.getValue().getPosition().getRow() + ", " + entry.getValue().getPosition().getCol());
         }
 
         //Players:

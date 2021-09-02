@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
+import org.inspirecenter.amazechallenge.model.Health;
 import org.inspirecenter.amazechallenge.utils.FileManager;
 
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
@@ -118,13 +119,17 @@ public class TrainingActivity extends AppCompatActivity implements ChallengeAdap
         final AmazeIcon userAmazeIcon = AmazeIcon.getByName(userIconName);
         final Shape shape = Shape.TRIANGLE_Shape; // todo enable user selection
         final AMCPlayer player = new AMCPlayer();
-        player.setId(Installation.id(this));
+        player.setId(name);
         player.setEmail(email);
         player.setName(name);
         player.setColor(userAmazeColor);
         player.setIcon(userAmazeIcon);
 
         AMCWorldSession worldSession = new AMCWorldSession();
+        worldSession.setId("ws_" + player.getId() + "_" + challenge.getId());
+        worldSession.setHealth(new Health());
+        worldSession.setPoints(0);
+        worldSession.setWorldID(challenge.getId());
         worldSession.setPlayerID(player.getId());
         worldSession.setCreatedOn(System.currentTimeMillis());
 

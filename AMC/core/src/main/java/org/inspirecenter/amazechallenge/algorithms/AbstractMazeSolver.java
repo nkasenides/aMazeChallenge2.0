@@ -34,31 +34,31 @@ public abstract class AbstractMazeSolver implements MazeSolver {
     abstract Direction4 getDirection();
     abstract MatrixPosition getPosition();
 
-    public boolean canMoveForward() {
+    public final boolean canMoveForward() {
         return RuntimeController.canMoveForward(getGrid(), getPosition(), getDirection());
     }
 
-    public boolean canMoveBackward() {
+    public final boolean canMoveBackward() {
         return RuntimeController.canMoveBackward(getGrid(), getPosition(), getDirection());
     }
 
-    public boolean canMoveLeft() {
+    public final boolean canMoveLeft() {
         return RuntimeController.canMoveLeft(getGrid(), getPosition(), getDirection());
     }
 
-    public boolean canMoveRight() {
+    public final boolean canMoveRight() {
         return RuntimeController.canMoveRight(getGrid(), getPosition(), getDirection());
     }
 
-    public Bias look(Direction4 direction) {
+    public final Bias look(Direction4 direction) {
         return RuntimeController.look(game, getGrid(), getPosition(), direction);
     }
 
-    public Direction4 compass() {
+    public final Direction4 compass() {
         return RuntimeController.compass(getGrid().getTargetPosition(), getPosition());
     }
 
-    public Direction4 onMove(PlayerMove playerMove) {
+    public final Direction4 onMove(PlayerMove playerMove) {
         switch (getDirection()) {
             case NORTH:
                 switch (playerMove) {

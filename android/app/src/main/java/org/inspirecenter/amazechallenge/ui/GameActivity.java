@@ -148,7 +148,6 @@ public class GameActivity extends AppCompatActivity implements AudioEventListene
         healthProgress.setScaleY(3f);
 
         healthTextView = findViewById(R.id.activity_game_health);
-        System.out.println("AA" + healthTextView.getText());
         updateHealthTextView();
 
         pointsTextView = findViewById(R.id.activity_game_points);
@@ -217,9 +216,12 @@ public class GameActivity extends AppCompatActivity implements AudioEventListene
         this.gameView.setLineColor(challenge.getLineColor());
         BackgroundImage backgroundImage = challenge.getBackgroundImage();
         this.gameView.setBackgroundDrawable(backgroundImage);
-        this.game = new Game();
+
+        game = new Game();
+        game.setChallengeID(challenge.getId());
         game.setOnAudioEventListener(this);
         game.setGameEndListener(this);
+
         final AMCPlayer player = (AMCPlayer) intent.getSerializableExtra(SELECTED_PLAYER_KEY);
         final AMCWorldSession worldSession = (AMCWorldSession) intent.getSerializableExtra(SELECTED_PLAYER_WORLD_SESSION_KEY);
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
