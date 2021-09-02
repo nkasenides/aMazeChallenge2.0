@@ -77,6 +77,9 @@ public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStat
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
                 .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change.
+                .addAllActivePlayers(game.getActivePlayers())
+                .addAllQueuedPlayers(game.getQueuedPlayers())
+                .addAllWaitingPlayers(game.getWaitingPlayers())
                 .build();
 
         return UpdateStateResponse.newBuilder()

@@ -321,5 +321,8 @@
     <string name="cancel">Cancel</string>
     <string name="invalid_session">Your game session is invalid, please try joining the challenge again.</string>
     <string name="code_empty">You must upload a non-empty code to play online.</string>
+    <string name="active">Active</string>
+    <string name="queued">Queued</string>
+    <string name="waiting">Waiting</string>
 
 </resources>

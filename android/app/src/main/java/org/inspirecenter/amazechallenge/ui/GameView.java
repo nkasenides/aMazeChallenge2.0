@@ -1,6 +1,7 @@
 package org.inspirecenter.amazechallenge.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,6 +13,7 @@ import android.graphics.Point;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -63,11 +65,13 @@ public class GameView extends View {
 
     private final Context context;
     private final String you;
+    private final String currentPlayerName;
 
     public static final BackgroundImage DEFAULT_MAZE_BACKGROUND = BackgroundImage.TEXTURE_GRASS_BackgroundImage;
 
     public GameView(final Context context) {
         super(context);
+        this.currentPlayerName = PreferenceManager.getDefaultSharedPreferences(context).getString(PersonalizeActivity.PREFERENCE_KEY_NAME, "Guest");
         this.context = context;
         backgroundDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(BackgroundImage.TEXTURE_GRASS_BackgroundImage.getResourceName(), "drawable", context.getPackageName())));
         you = context.getString(R.string.You);
@@ -75,6 +79,7 @@ public class GameView extends View {
 
     public GameView(final Context context, @Nullable final AttributeSet attrs) {
         super(context, attrs);
+        this.currentPlayerName = PreferenceManager.getDefaultSharedPreferences(context).getString(PersonalizeActivity.PREFERENCE_KEY_NAME, "Guest");
         this.context = context;
         backgroundDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(BackgroundImage.TEXTURE_GRASS_BackgroundImage.getResourceName(), "drawable", context.getPackageName())));
         you = context.getString(R.string.You);
@@ -314,7 +319,7 @@ public class GameView extends View {
         }
 
         // if this is 'this' player then indicate accordingly
-        final boolean isSelf = player.getId().equals(Installation.id(context));
+        final boolean isSelf = player.getId().equals(currentPlayerName);
         if(isSelf) {
             final int topLeftX = position.getCol() * tile_size + 2 * padding;
             final int topLeftY = position.getRow() * tile_size + 2 * padding;

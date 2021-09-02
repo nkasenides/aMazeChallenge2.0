@@ -73,6 +73,7 @@ import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_VIBRATIO
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PERMISSIONS_REQUEST_GET_ACCOUNT;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_EMAIL;
+import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_NAME;
 
 public class OnlineGameActivity extends AppCompatActivity implements GameEndListener, AudioEventListener {
 
@@ -115,8 +116,11 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         layoutManager = new LinearLayoutManager(this);
         scoreboardRecyclerView.setLayoutManager(layoutManager);
 
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final String name = sharedPreferences.getString(PREFERENCE_KEY_NAME, getString(R.string.Guest));
+
         // specify and set an adapter
-        onlinePlayerAdapter = new OnlinePlayerAdapter(Installation.id(this));
+        onlinePlayerAdapter = new OnlinePlayerAdapter(name);
         scoreboardRecyclerView.setAdapter(onlinePlayerAdapter);
 
         mainFAB = findViewById(R.id.activity_online_game_button_main_fab);

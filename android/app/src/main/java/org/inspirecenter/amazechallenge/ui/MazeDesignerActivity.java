@@ -32,6 +32,7 @@ import org.inspirecenter.amazechallenge.proto.Algorithm;
 import org.inspirecenter.amazechallenge.proto.Audio;
 import org.inspirecenter.amazechallenge.proto.AudioType;
 import org.inspirecenter.amazechallenge.proto.BackgroundImage;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.proto.Difficulty;
 import org.inspirecenter.amazechallenge.proto.Direction4;
 import org.inspirecenter.amazechallenge.proto.PickableIntensity;
@@ -293,13 +294,13 @@ public class MazeDesignerActivity extends AppCompatActivity {
 
         mode = (DesignerMode) getIntent().getSerializableExtra(DESIGNER_MODE_KEY);
         if (mode == DesignerMode.EDIT) {
-            Challenge challenge = (Challenge) getIntent().getSerializableExtra(DESIGNER_DATA_KEY);
+            ChallengeProto challenge = (ChallengeProto) getIntent().getSerializableExtra(DESIGNER_DATA_KEY);
             selectedWallColor = Color.parseColor(challenge.getLineColor());
             backgroundImage = challenge.getBackgroundImage();
             backgroundAudio = challenge.getBackgroundAudio();
             size = challenge.getGrid().getHeight();
-            MatrixPosition startingPosition = challenge.getGrid().getStartingPosition();
-            MatrixPosition targetPosition = challenge.getGrid().getTargetPosition();
+            MatrixPosition startingPosition = challenge.getGrid().getStartingPosition().toObject();
+            MatrixPosition targetPosition = challenge.getGrid().getTargetPosition().toObject();
             rewards = challenge.getRewards().getNumber();
             rewardsIntensity = challenge.getRewards();
             penalties = challenge.getPenalties().getNumber();
@@ -317,7 +318,7 @@ public class MazeDesignerActivity extends AppCompatActivity {
             else selectColorButton.setTextColor(Color.WHITE);
             gameView.setBackgroundDrawable(backgroundImage);
             gameView.setLineColor(String.format("#%06X", (0xFFFFFF & selectedWallColor)));
-            gameView.setGrid(challenge.getGrid());
+            gameView.setGrid(challenge.getGrid().toObject());
             gameView.invalidate();
 
             //Disabled fields (non-changeable):

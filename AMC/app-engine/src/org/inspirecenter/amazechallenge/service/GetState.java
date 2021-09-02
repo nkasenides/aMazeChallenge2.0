@@ -80,6 +80,9 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
                 .setGrid(grid.toProto())
+                .addAllActivePlayers(game.getActivePlayers())
+                .addAllQueuedPlayers(game.getQueuedPlayers())
+                .addAllWaitingPlayers(game.getWaitingPlayers())
                 .build();
 
         return GetStateResponse.newBuilder()

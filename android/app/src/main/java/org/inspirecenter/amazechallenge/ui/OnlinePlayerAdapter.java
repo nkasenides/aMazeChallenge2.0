@@ -9,13 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.inspirecenter.amazechallenge.model.AMCPlayer;
-import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-import org.inspirecenter.amazechallenge.model.PlayerEntity;
 import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
 import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
 import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
-import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
 import org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto;
 import org.inspirecenter.amazechallenge.proto.PlayerEntityProto;
 
@@ -34,14 +30,14 @@ import java.util.Vector;
 
 public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapter.ViewHolder>  {
 
-    private final String installationId;
+    private final String currentPlayerName;
     private final Vector<AMCPlayerProto> players;
     private final Map<String, AMCWorldSessionProto> worldSessions;
     private final Map<String, PlayerEntityProto> playerEntities;
     private final Map<String,String> playerIDsToStatus = new HashMap<>();
 
-    OnlinePlayerAdapter(final String installationId) {
-        this.installationId = installationId;
+    OnlinePlayerAdapter(final String currentPlayerName) {
+        this.currentPlayerName = currentPlayerName;
         this.players = new Vector<>();
         this.worldSessions = new HashMap<>();
         this.playerEntities = new HashMap<>();
@@ -77,18 +73,15 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
                            0;
         });
 
-//        final Collection<String> allPlayerIds = stateUpdate.getAllPlayersMap().keySet();
-//        for(final String activeID : stateUpdate.getActivePlayerIDs()) {
-//            playerIDsToStatus.put(activeID, "active");
-//            allPlayerIds.remove(activeID);
-//        }
-//        for(final String queuedID : stateUpdate.getQueuedPlayerIDs()) {
-//            playerIDsToStatus.put(queuedID, "queued");
-//            allPlayerIds.remove(queuedID);
-//        }
-//        for(final String waitingID : allPlayerIds) {
-//            playerIDsToStatus.put(waitingID, "waiting");
-//        }
+        for(final String activeID : partialState.getActivePlayersList()) {
+            playerIDsToStatus.put(activeID, "Playing");
+        }
+        for(final String queuedID : partialState.getQueuedPlayersList()) {
+            playerIDsToStatus.put(queuedID, "Queued");
+        }
+        for(final String waitingID : partialState.getWaitingPlayersList()) {
+            playerIDsToStatus.put(waitingID, "Waiting");
+        }
     }
 
     void clear() {
@@ -138,21 +131,21 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final AMCPlayerProto player = players.elementAt(position);
-        if(installationId.equals(player.getId())) {
-            holder.playerCardView.setBackgroundColor(Color.YELLOW);
+        if(currentPlayerName.equals(player.getId())) {
+            holder.playerCardView.setBackgroundColor(Color.argb(0.3f, 1f, 1f, 0f));
             holder.playerNameTextView.setText(player.getName() + " (You)");
         } else {
             holder.playerCardView.setBackgroundColor(Color.WHITE);
             holder.playerNameTextView.setText(player.getName());
         }
-        if("active".equals(playerIDsToStatus.get(player.getId()))) {
-            holder.playerStatusTextView.setText("active");
+        if ("Active".equals(playerIDsToStatus.get(player.getId()))) {
+            holder.playerStatusTextView.setText(R.string.active);
             holder.playerStatusTextView.setTextColor(Color.GREEN);
-        } else if("queued".equals(playerIDsToStatus.get(player.getId()))) {
-            holder.playerStatusTextView.setText("queued");
+        } else if("Queued".equals(playerIDsToStatus.get(player.getId()))) {
+            holder.playerStatusTextView.setText(R.string.queued);
             holder.playerStatusTextView.setTextColor(Color.CYAN);
-        }else {
-            holder.playerStatusTextView.setText("waiting");
+        } else {
+            holder.playerStatusTextView.setText(R.string.waiting);
             holder.playerStatusTextView.setTextColor(Color.GRAY);
         }
         holder.player = player;

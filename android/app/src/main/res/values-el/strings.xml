@@ -298,5 +298,8 @@
     <string name="cancel">Ακύρωση</string>
     <string name="invalid_session">Η περίοδος παιχνιδιού δεν είναι έγκυρη, δοκιμάστε να συνδεθείτε ξανά στο παιχνίδι.</string>
     <string name="code_empty">Πρέπει να ανεβάσετε έναν μη κενό κωδικό για να παίξετε.</string>
+    <string name="active">Ενεργός</string>
+    <string name="queued">Σε σειρά</string>
+    <string name="waiting">Σε αναμονή</string>
 
 </resources>

@@ -16,6 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private AMCPartialStateProto() {
+    activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @Override
@@ -50,10 +53,19 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              activePlayers_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            activePlayers_.add(s);
+            break;
+          }
+          case 18: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               entities_ = com.google.protobuf.MapField.newMapField(
                   EntitiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
+              mutable_bitField0_ |= 0x00000002;
             }
             com.google.protobuf.MapEntry<String, AMCEntityProto>
             entities__ = input.readMessage(
@@ -62,7 +74,7 @@ private static final long serialVersionUID = 0L;
                 entities__.getKey(), entities__.getValue());
             break;
           }
-          case 18: {
+          case 26: {
             GridProto.Builder subBuilder = null;
             if (grid_ != null) {
               subBuilder = grid_.toBuilder();
@@ -75,11 +87,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
               players_ = com.google.protobuf.MapField.newMapField(
                   PlayersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000004;
             }
             com.google.protobuf.MapEntry<String, AMCPlayerProto>
             players__ = input.readMessage(
@@ -88,11 +100,11 @@ private static final long serialVersionUID = 0L;
                 players__.getKey(), players__.getValue());
             break;
           }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
               worldSessions_ = com.google.protobuf.MapField.newMapField(
                   WorldSessionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             com.google.protobuf.MapEntry<String, AMCWorldSessionProto>
             worldSessions__ = input.readMessage(
@@ -101,7 +113,7 @@ private static final long serialVersionUID = 0L;
                 worldSessions__.getKey(), worldSessions__.getValue());
             break;
           }
-          case 42: {
+          case 50: {
             AMCWorldSessionProto.Builder subBuilder = null;
             if (worldSession_ != null) {
               subBuilder = worldSession_.toBuilder();
@@ -114,11 +126,29 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+          case 58: {
+            String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              queuedPlayers_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000010;
+            }
+            queuedPlayers_.add(s);
+            break;
+          }
+          case 66: {
+            String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+              waitingPlayers_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000020;
+            }
+            waitingPlayers_.add(s);
+            break;
+          }
+          case 74: {
+            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
               terrain_ = com.google.protobuf.MapField.newMapField(
                   TerrainDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000040;
             }
             com.google.protobuf.MapEntry<String, AMCTerrainCellProto>
             terrain__ = input.readMessage(
@@ -127,7 +157,7 @@ private static final long serialVersionUID = 0L;
                 terrain__.getKey(), terrain__.getValue());
             break;
           }
-          case 56: {
+          case 80: {
 
             timestamp_ = input.readUInt64();
             break;
@@ -147,6 +177,15 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        activePlayers_ = activePlayers_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        queuedPlayers_ = queuedPlayers_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000020) != 0)) {
+        waitingPlayers_ = waitingPlayers_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -161,13 +200,13 @@ private static final long serialVersionUID = 0L;
   protected com.google.protobuf.MapField internalGetMapField(
       int number) {
     switch (number) {
-      case 1:
+      case 2:
         return internalGetEntities();
-      case 3:
-        return internalGetPlayers();
       case 4:
+        return internalGetPlayers();
+      case 5:
         return internalGetWorldSessions();
-      case 6:
+      case 9:
         return internalGetTerrain();
       default:
         throw new RuntimeException(
@@ -182,7 +221,42 @@ private static final long serialVersionUID = 0L;
             AMCPartialStateProto.class, Builder.class);
   }
 
-  public static final int ENTITIES_FIELD_NUMBER = 1;
+  public static final int ACTIVEPLAYERS_FIELD_NUMBER = 1;
+  private com.google.protobuf.LazyStringList activePlayers_;
+  /**
+   * <code>repeated string activePlayers = 1;</code>
+   * @return A list containing the activePlayers.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getActivePlayersList() {
+    return activePlayers_;
+  }
+  /**
+   * <code>repeated string activePlayers = 1;</code>
+   * @return The count of activePlayers.
+   */
+  public int getActivePlayersCount() {
+    return activePlayers_.size();
+  }
+  /**
+   * <code>repeated string activePlayers = 1;</code>
+   * @param index The index of the element to return.
+   * @return The activePlayers at the given index.
+   */
+  public String getActivePlayers(int index) {
+    return activePlayers_.get(index);
+  }
+  /**
+   * <code>repeated string activePlayers = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the activePlayers at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getActivePlayersBytes(int index) {
+    return activePlayers_.getByteString(index);
+  }
+
+  public static final int ENTITIES_FIELD_NUMBER = 2;
   private static final class EntitiesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCEntityProto> defaultEntry =
@@ -209,7 +283,7 @@ private static final long serialVersionUID = 0L;
     return internalGetEntities().getMap().size();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
    */
 
   @Override
@@ -227,7 +301,7 @@ private static final long serialVersionUID = 0L;
     return getEntitiesMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -235,7 +309,7 @@ private static final long serialVersionUID = 0L;
     return internalGetEntities().getMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -248,7 +322,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
    */
   @Override
 
@@ -263,10 +337,10 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int GRID_FIELD_NUMBER = 2;
+  public static final int GRID_FIELD_NUMBER = 3;
   private GridProto grid_;
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
    * @return Whether the grid field is set.
    */
   @Override
@@ -274,7 +348,7 @@ private static final long serialVersionUID = 0L;
     return grid_ != null;
   }
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
    * @return The grid.
    */
   @Override
@@ -282,14 +356,14 @@ private static final long serialVersionUID = 0L;
     return grid_ == null ? GridProto.getDefaultInstance() : grid_;
   }
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
    */
   @Override
   public GridProtoOrBuilder getGridOrBuilder() {
     return getGrid();
   }
 
-  public static final int PLAYERS_FIELD_NUMBER = 3;
+  public static final int PLAYERS_FIELD_NUMBER = 4;
   private static final class PlayersDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCPlayerProto> defaultEntry =
@@ -316,7 +390,7 @@ private static final long serialVersionUID = 0L;
     return internalGetPlayers().getMap().size();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
    */
 
   @Override
@@ -334,7 +408,7 @@ private static final long serialVersionUID = 0L;
     return getPlayersMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
    */
   @Override
 
@@ -342,7 +416,7 @@ private static final long serialVersionUID = 0L;
     return internalGetPlayers().getMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
    */
   @Override
 
@@ -355,7 +429,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
    */
   @Override
 
@@ -370,7 +444,7 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int WORLDSESSIONS_FIELD_NUMBER = 4;
+  public static final int WORLDSESSIONS_FIELD_NUMBER = 5;
   private static final class WorldSessionsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCWorldSessionProto> defaultEntry =
@@ -397,7 +471,7 @@ private static final long serialVersionUID = 0L;
     return internalGetWorldSessions().getMap().size();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
 
   @Override
@@ -415,7 +489,7 @@ private static final long serialVersionUID = 0L;
     return getWorldSessionsMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -423,7 +497,7 @@ private static final long serialVersionUID = 0L;
     return internalGetWorldSessions().getMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -436,7 +510,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
    */
   @Override
 
@@ -451,10 +525,10 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int WORLDSESSION_FIELD_NUMBER = 5;
+  public static final int WORLDSESSION_FIELD_NUMBER = 6;
   private AMCWorldSessionProto worldSession_;
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
    * @return Whether the worldSession field is set.
    */
   @Override
@@ -462,7 +536,7 @@ private static final long serialVersionUID = 0L;
     return worldSession_ != null;
   }
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
    * @return The worldSession.
    */
   @Override
@@ -470,14 +544,84 @@ private static final long serialVersionUID = 0L;
     return worldSession_ == null ? AMCWorldSessionProto.getDefaultInstance() : worldSession_;
   }
   /**
-   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
    */
   @Override
   public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
     return getWorldSession();
   }
 
-  public static final int TERRAIN_FIELD_NUMBER = 6;
+  public static final int QUEUEDPLAYERS_FIELD_NUMBER = 7;
+  private com.google.protobuf.LazyStringList queuedPlayers_;
+  /**
+   * <code>repeated string queuedPlayers = 7;</code>
+   * @return A list containing the queuedPlayers.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getQueuedPlayersList() {
+    return queuedPlayers_;
+  }
+  /**
+   * <code>repeated string queuedPlayers = 7;</code>
+   * @return The count of queuedPlayers.
+   */
+  public int getQueuedPlayersCount() {
+    return queuedPlayers_.size();
+  }
+  /**
+   * <code>repeated string queuedPlayers = 7;</code>
+   * @param index The index of the element to return.
+   * @return The queuedPlayers at the given index.
+   */
+  public String getQueuedPlayers(int index) {
+    return queuedPlayers_.get(index);
+  }
+  /**
+   * <code>repeated string queuedPlayers = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the queuedPlayers at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getQueuedPlayersBytes(int index) {
+    return queuedPlayers_.getByteString(index);
+  }
+
+  public static final int WAITINGPLAYERS_FIELD_NUMBER = 8;
+  private com.google.protobuf.LazyStringList waitingPlayers_;
+  /**
+   * <code>repeated string waitingPlayers = 8;</code>
+   * @return A list containing the waitingPlayers.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getWaitingPlayersList() {
+    return waitingPlayers_;
+  }
+  /**
+   * <code>repeated string waitingPlayers = 8;</code>
+   * @return The count of waitingPlayers.
+   */
+  public int getWaitingPlayersCount() {
+    return waitingPlayers_.size();
+  }
+  /**
+   * <code>repeated string waitingPlayers = 8;</code>
+   * @param index The index of the element to return.
+   * @return The waitingPlayers at the given index.
+   */
+  public String getWaitingPlayers(int index) {
+    return waitingPlayers_.get(index);
+  }
+  /**
+   * <code>repeated string waitingPlayers = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the waitingPlayers at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getWaitingPlayersBytes(int index) {
+    return waitingPlayers_.getByteString(index);
+  }
+
+  public static final int TERRAIN_FIELD_NUMBER = 9;
   private static final class TerrainDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         String, AMCTerrainCellProto> defaultEntry =
@@ -504,7 +648,7 @@ private static final long serialVersionUID = 0L;
     return internalGetTerrain().getMap().size();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
    */
 
   @Override
@@ -522,7 +666,7 @@ private static final long serialVersionUID = 0L;
     return getTerrainMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
    */
   @Override
 
@@ -530,7 +674,7 @@ private static final long serialVersionUID = 0L;
     return internalGetTerrain().getMap();
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
    */
   @Override
 
@@ -543,7 +687,7 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
    */
   @Override
 
@@ -558,10 +702,10 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int TIMESTAMP_FIELD_NUMBER = 7;
+  public static final int TIMESTAMP_FIELD_NUMBER = 10;
   private long timestamp_;
   /**
-   * <code>uint64 timestamp = 7;</code>
+   * <code>uint64 timestamp = 10;</code>
    * @return The timestamp.
    */
   @Override
@@ -583,38 +727,47 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    for (int i = 0; i < activePlayers_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, activePlayers_.getRaw(i));
+    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetEntities(),
         EntitiesDefaultEntryHolder.defaultEntry,
-        1);
+        2);
     if (grid_ != null) {
-      output.writeMessage(2, getGrid());
+      output.writeMessage(3, getGrid());
     }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetPlayers(),
         PlayersDefaultEntryHolder.defaultEntry,
-        3);
+        4);
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetWorldSessions(),
         WorldSessionsDefaultEntryHolder.defaultEntry,
-        4);
+        5);
     if (worldSession_ != null) {
-      output.writeMessage(5, getWorldSession());
+      output.writeMessage(6, getWorldSession());
+    }
+    for (int i = 0; i < queuedPlayers_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, queuedPlayers_.getRaw(i));
+    }
+    for (int i = 0; i < waitingPlayers_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, waitingPlayers_.getRaw(i));
     }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetTerrain(),
         TerrainDefaultEntryHolder.defaultEntry,
-        6);
+        9);
     if (timestamp_ != 0L) {
-      output.writeUInt64(7, timestamp_);
+      output.writeUInt64(10, timestamp_);
     }
     unknownFields.writeTo(output);
   }
@@ -625,6 +778,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    {
+      int dataSize = 0;
+      for (int i = 0; i < activePlayers_.size(); i++) {
+        dataSize += computeStringSizeNoTag(activePlayers_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getActivePlayersList().size();
+    }
     for (java.util.Map.Entry<String, AMCEntityProto> entry
          : internalGetEntities().getMap().entrySet()) {
       com.google.protobuf.MapEntry<String, AMCEntityProto>
@@ -633,11 +794,11 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, entities__);
+          .computeMessageSize(2, entities__);
     }
     if (grid_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getGrid());
+        .computeMessageSize(3, getGrid());
     }
     for (java.util.Map.Entry<String, AMCPlayerProto> entry
          : internalGetPlayers().getMap().entrySet()) {
@@ -647,7 +808,7 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, players__);
+          .computeMessageSize(4, players__);
     }
     for (java.util.Map.Entry<String, AMCWorldSessionProto> entry
          : internalGetWorldSessions().getMap().entrySet()) {
@@ -657,11 +818,27 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, worldSessions__);
+          .computeMessageSize(5, worldSessions__);
     }
     if (worldSession_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getWorldSession());
+        .computeMessageSize(6, getWorldSession());
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < queuedPlayers_.size(); i++) {
+        dataSize += computeStringSizeNoTag(queuedPlayers_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getQueuedPlayersList().size();
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < waitingPlayers_.size(); i++) {
+        dataSize += computeStringSizeNoTag(waitingPlayers_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getWaitingPlayersList().size();
     }
     for (java.util.Map.Entry<String, AMCTerrainCellProto> entry
          : internalGetTerrain().getMap().entrySet()) {
@@ -671,11 +848,11 @@ private static final long serialVersionUID = 0L;
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, terrain__);
+          .computeMessageSize(9, terrain__);
     }
     if (timestamp_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(7, timestamp_);
+        .computeUInt64Size(10, timestamp_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -692,6 +869,8 @@ private static final long serialVersionUID = 0L;
     }
     AMCPartialStateProto other = (AMCPartialStateProto) obj;
 
+    if (!getActivePlayersList()
+        .equals(other.getActivePlayersList())) return false;
     if (!internalGetEntities().equals(
         other.internalGetEntities())) return false;
     if (hasGrid() != other.hasGrid()) return false;
@@ -708,6 +887,10 @@ private static final long serialVersionUID = 0L;
       if (!getWorldSession()
           .equals(other.getWorldSession())) return false;
     }
+    if (!getQueuedPlayersList()
+        .equals(other.getQueuedPlayersList())) return false;
+    if (!getWaitingPlayersList()
+        .equals(other.getWaitingPlayersList())) return false;
     if (!internalGetTerrain().equals(
         other.internalGetTerrain())) return false;
     if (getTimestamp()
@@ -723,6 +906,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (getActivePlayersCount() > 0) {
+      hash = (37 * hash) + ACTIVEPLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getActivePlayersList().hashCode();
+    }
     if (!internalGetEntities().getMap().isEmpty()) {
       hash = (37 * hash) + ENTITIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetEntities().hashCode();
@@ -742,6 +929,14 @@ private static final long serialVersionUID = 0L;
     if (hasWorldSession()) {
       hash = (37 * hash) + WORLDSESSION_FIELD_NUMBER;
       hash = (53 * hash) + getWorldSession().hashCode();
+    }
+    if (getQueuedPlayersCount() > 0) {
+      hash = (37 * hash) + QUEUEDPLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getQueuedPlayersList().hashCode();
+    }
+    if (getWaitingPlayersCount() > 0) {
+      hash = (37 * hash) + WAITINGPLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getWaitingPlayersList().hashCode();
     }
     if (!internalGetTerrain().getMap().isEmpty()) {
       hash = (37 * hash) + TERRAIN_FIELD_NUMBER;
@@ -861,13 +1056,13 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 1:
+        case 2:
           return internalGetEntities();
-        case 3:
-          return internalGetPlayers();
         case 4:
+          return internalGetPlayers();
+        case 5:
           return internalGetWorldSessions();
-        case 6:
+        case 9:
           return internalGetTerrain();
         default:
           throw new RuntimeException(
@@ -878,13 +1073,13 @@ private static final long serialVersionUID = 0L;
     protected com.google.protobuf.MapField internalGetMutableMapField(
         int number) {
       switch (number) {
-        case 1:
+        case 2:
           return internalGetMutableEntities();
-        case 3:
-          return internalGetMutablePlayers();
         case 4:
+          return internalGetMutablePlayers();
+        case 5:
           return internalGetMutableWorldSessions();
-        case 6:
+        case 9:
           return internalGetMutableTerrain();
         default:
           throw new RuntimeException(
@@ -917,6 +1112,8 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
+      activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableEntities().clear();
       if (gridBuilder_ == null) {
         grid_ = null;
@@ -932,6 +1129,10 @@ private static final long serialVersionUID = 0L;
         worldSession_ = null;
         worldSessionBuilder_ = null;
       }
+      queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableTerrain().clear();
       timestamp_ = 0L;
 
@@ -962,6 +1163,11 @@ private static final long serialVersionUID = 0L;
     public AMCPartialStateProto buildPartial() {
       AMCPartialStateProto result = new AMCPartialStateProto(this);
       int from_bitField0_ = bitField0_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        activePlayers_ = activePlayers_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.activePlayers_ = activePlayers_;
       result.entities_ = internalGetEntities();
       result.entities_.makeImmutable();
       if (gridBuilder_ == null) {
@@ -978,6 +1184,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.worldSession_ = worldSessionBuilder_.build();
       }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        queuedPlayers_ = queuedPlayers_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.queuedPlayers_ = queuedPlayers_;
+      if (((bitField0_ & 0x00000020) != 0)) {
+        waitingPlayers_ = waitingPlayers_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.waitingPlayers_ = waitingPlayers_;
       result.terrain_ = internalGetTerrain();
       result.terrain_.makeImmutable();
       result.timestamp_ = timestamp_;
@@ -1029,6 +1245,16 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(AMCPartialStateProto other) {
       if (other == AMCPartialStateProto.getDefaultInstance()) return this;
+      if (!other.activePlayers_.isEmpty()) {
+        if (activePlayers_.isEmpty()) {
+          activePlayers_ = other.activePlayers_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureActivePlayersIsMutable();
+          activePlayers_.addAll(other.activePlayers_);
+        }
+        onChanged();
+      }
       internalGetMutableEntities().mergeFrom(
           other.internalGetEntities());
       if (other.hasGrid()) {
@@ -1040,6 +1266,26 @@ private static final long serialVersionUID = 0L;
           other.internalGetWorldSessions());
       if (other.hasWorldSession()) {
         mergeWorldSession(other.getWorldSession());
+      }
+      if (!other.queuedPlayers_.isEmpty()) {
+        if (queuedPlayers_.isEmpty()) {
+          queuedPlayers_ = other.queuedPlayers_;
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          ensureQueuedPlayersIsMutable();
+          queuedPlayers_.addAll(other.queuedPlayers_);
+        }
+        onChanged();
+      }
+      if (!other.waitingPlayers_.isEmpty()) {
+        if (waitingPlayers_.isEmpty()) {
+          waitingPlayers_ = other.waitingPlayers_;
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          ensureWaitingPlayersIsMutable();
+          waitingPlayers_.addAll(other.waitingPlayers_);
+        }
+        onChanged();
       }
       internalGetMutableTerrain().mergeFrom(
           other.internalGetTerrain());
@@ -1076,6 +1322,116 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private com.google.protobuf.LazyStringList activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureActivePlayersIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        activePlayers_ = new com.google.protobuf.LazyStringArrayList(activePlayers_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @return A list containing the activePlayers.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getActivePlayersList() {
+      return activePlayers_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @return The count of activePlayers.
+     */
+    public int getActivePlayersCount() {
+      return activePlayers_.size();
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param index The index of the element to return.
+     * @return The activePlayers at the given index.
+     */
+    public String getActivePlayers(int index) {
+      return activePlayers_.get(index);
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the activePlayers at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getActivePlayersBytes(int index) {
+      return activePlayers_.getByteString(index);
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The activePlayers to set.
+     * @return This builder for chaining.
+     */
+    public Builder setActivePlayers(
+        int index, String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivePlayersIsMutable();
+      activePlayers_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param value The activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addActivePlayers(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivePlayersIsMutable();
+      activePlayers_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param values The activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllActivePlayers(
+        Iterable<String> values) {
+      ensureActivePlayersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, activePlayers_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearActivePlayers() {
+      activePlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string activePlayers = 1;</code>
+     * @param value The bytes of the activePlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addActivePlayersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureActivePlayersIsMutable();
+      activePlayers_.add(value);
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.MapField<
         String, AMCEntityProto> entities_;
     private com.google.protobuf.MapField<String, AMCEntityProto>
@@ -1103,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       return internalGetEntities().getMap().size();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     @Override
@@ -1121,7 +1477,7 @@ private static final long serialVersionUID = 0L;
       return getEntitiesMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -1129,7 +1485,7 @@ private static final long serialVersionUID = 0L;
       return internalGetEntities().getMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -1142,7 +1498,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     @Override
 
@@ -1163,7 +1519,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     public Builder removeEntities(
@@ -1182,7 +1538,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableEntities().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
     public Builder putEntities(
         String key,
@@ -1194,7 +1550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 1;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCEntityProto&gt; entities = 2;</code>
      */
 
     public Builder putAllEntities(
@@ -1208,14 +1564,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         GridProto, GridProto.Builder, GridProtoOrBuilder> gridBuilder_;
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      * @return Whether the grid field is set.
      */
     public boolean hasGrid() {
       return gridBuilder_ != null || grid_ != null;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      * @return The grid.
      */
     public GridProto getGrid() {
@@ -1226,7 +1582,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public Builder setGrid(GridProto value) {
       if (gridBuilder_ == null) {
@@ -1242,7 +1598,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public Builder setGrid(
         GridProto.Builder builderForValue) {
@@ -1256,7 +1612,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public Builder mergeGrid(GridProto value) {
       if (gridBuilder_ == null) {
@@ -1274,7 +1630,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public Builder clearGrid() {
       if (gridBuilder_ == null) {
@@ -1288,7 +1644,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public GridProto.Builder getGridBuilder() {
       
@@ -1296,7 +1652,7 @@ private static final long serialVersionUID = 0L;
       return getGridFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     public GridProtoOrBuilder getGridOrBuilder() {
       if (gridBuilder_ != null) {
@@ -1307,7 +1663,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.GridProto grid = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         GridProto, GridProto.Builder, GridProtoOrBuilder>
@@ -1350,7 +1706,7 @@ private static final long serialVersionUID = 0L;
       return internalGetPlayers().getMap().size();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
 
     @Override
@@ -1368,7 +1724,7 @@ private static final long serialVersionUID = 0L;
       return getPlayersMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
     @Override
 
@@ -1376,7 +1732,7 @@ private static final long serialVersionUID = 0L;
       return internalGetPlayers().getMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
     @Override
 
@@ -1389,7 +1745,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
     @Override
 
@@ -1410,7 +1766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
 
     public Builder removePlayers(
@@ -1429,7 +1785,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutablePlayers().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
     public Builder putPlayers(
         String key,
@@ -1441,7 +1797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 3;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; players = 4;</code>
      */
 
     public Builder putAllPlayers(
@@ -1478,7 +1834,7 @@ private static final long serialVersionUID = 0L;
       return internalGetWorldSessions().getMap().size();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     @Override
@@ -1496,7 +1852,7 @@ private static final long serialVersionUID = 0L;
       return getWorldSessionsMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1504,7 +1860,7 @@ private static final long serialVersionUID = 0L;
       return internalGetWorldSessions().getMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1517,7 +1873,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     @Override
 
@@ -1538,7 +1894,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     public Builder removeWorldSessions(
@@ -1557,7 +1913,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableWorldSessions().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
     public Builder putWorldSessions(
         String key,
@@ -1569,7 +1925,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 4;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto&gt; worldSessions = 5;</code>
      */
 
     public Builder putAllWorldSessions(
@@ -1583,14 +1939,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder> worldSessionBuilder_;
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      * @return Whether the worldSession field is set.
      */
     public boolean hasWorldSession() {
       return worldSessionBuilder_ != null || worldSession_ != null;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      * @return The worldSession.
      */
     public AMCWorldSessionProto getWorldSession() {
@@ -1601,7 +1957,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public Builder setWorldSession(AMCWorldSessionProto value) {
       if (worldSessionBuilder_ == null) {
@@ -1617,7 +1973,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public Builder setWorldSession(
         AMCWorldSessionProto.Builder builderForValue) {
@@ -1631,7 +1987,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public Builder mergeWorldSession(AMCWorldSessionProto value) {
       if (worldSessionBuilder_ == null) {
@@ -1649,7 +2005,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public Builder clearWorldSession() {
       if (worldSessionBuilder_ == null) {
@@ -1663,7 +2019,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public AMCWorldSessionProto.Builder getWorldSessionBuilder() {
       
@@ -1671,7 +2027,7 @@ private static final long serialVersionUID = 0L;
       return getWorldSessionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     public AMCWorldSessionProtoOrBuilder getWorldSessionOrBuilder() {
       if (worldSessionBuilder_ != null) {
@@ -1682,7 +2038,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto worldSession = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCWorldSessionProto, AMCWorldSessionProto.Builder, AMCWorldSessionProtoOrBuilder>
@@ -1696,6 +2052,226 @@ private static final long serialVersionUID = 0L;
         worldSession_ = null;
       }
       return worldSessionBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringList queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureQueuedPlayersIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        queuedPlayers_ = new com.google.protobuf.LazyStringArrayList(queuedPlayers_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @return A list containing the queuedPlayers.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getQueuedPlayersList() {
+      return queuedPlayers_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @return The count of queuedPlayers.
+     */
+    public int getQueuedPlayersCount() {
+      return queuedPlayers_.size();
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param index The index of the element to return.
+     * @return The queuedPlayers at the given index.
+     */
+    public String getQueuedPlayers(int index) {
+      return queuedPlayers_.get(index);
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the queuedPlayers at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getQueuedPlayersBytes(int index) {
+      return queuedPlayers_.getByteString(index);
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The queuedPlayers to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueuedPlayers(
+        int index, String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureQueuedPlayersIsMutable();
+      queuedPlayers_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param value The queuedPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addQueuedPlayers(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureQueuedPlayersIsMutable();
+      queuedPlayers_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param values The queuedPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllQueuedPlayers(
+        Iterable<String> values) {
+      ensureQueuedPlayersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, queuedPlayers_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQueuedPlayers() {
+      queuedPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string queuedPlayers = 7;</code>
+     * @param value The bytes of the queuedPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addQueuedPlayersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureQueuedPlayersIsMutable();
+      queuedPlayers_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureWaitingPlayersIsMutable() {
+      if (!((bitField0_ & 0x00000020) != 0)) {
+        waitingPlayers_ = new com.google.protobuf.LazyStringArrayList(waitingPlayers_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @return A list containing the waitingPlayers.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getWaitingPlayersList() {
+      return waitingPlayers_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @return The count of waitingPlayers.
+     */
+    public int getWaitingPlayersCount() {
+      return waitingPlayers_.size();
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param index The index of the element to return.
+     * @return The waitingPlayers at the given index.
+     */
+    public String getWaitingPlayers(int index) {
+      return waitingPlayers_.get(index);
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the waitingPlayers at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getWaitingPlayersBytes(int index) {
+      return waitingPlayers_.getByteString(index);
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The waitingPlayers to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWaitingPlayers(
+        int index, String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureWaitingPlayersIsMutable();
+      waitingPlayers_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param value The waitingPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addWaitingPlayers(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureWaitingPlayersIsMutable();
+      waitingPlayers_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param values The waitingPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllWaitingPlayers(
+        Iterable<String> values) {
+      ensureWaitingPlayersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, waitingPlayers_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWaitingPlayers() {
+      waitingPlayers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string waitingPlayers = 8;</code>
+     * @param value The bytes of the waitingPlayers to add.
+     * @return This builder for chaining.
+     */
+    public Builder addWaitingPlayersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureWaitingPlayersIsMutable();
+      waitingPlayers_.add(value);
+      onChanged();
+      return this;
     }
 
     private com.google.protobuf.MapField<
@@ -1725,7 +2301,7 @@ private static final long serialVersionUID = 0L;
       return internalGetTerrain().getMap().size();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
 
     @Override
@@ -1743,7 +2319,7 @@ private static final long serialVersionUID = 0L;
       return getTerrainMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
     @Override
 
@@ -1751,7 +2327,7 @@ private static final long serialVersionUID = 0L;
       return internalGetTerrain().getMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
     @Override
 
@@ -1764,7 +2340,7 @@ private static final long serialVersionUID = 0L;
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
     @Override
 
@@ -1785,7 +2361,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
 
     public Builder removeTerrain(
@@ -1804,7 +2380,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMutableTerrain().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
     public Builder putTerrain(
         String key,
@@ -1816,7 +2392,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 6;</code>
+     * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCTerrainCellProto&gt; terrain = 9;</code>
      */
 
     public Builder putAllTerrain(
@@ -1828,7 +2404,7 @@ private static final long serialVersionUID = 0L;
 
     private long timestamp_ ;
     /**
-     * <code>uint64 timestamp = 7;</code>
+     * <code>uint64 timestamp = 10;</code>
      * @return The timestamp.
      */
     @Override
@@ -1836,7 +2412,7 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
-     * <code>uint64 timestamp = 7;</code>
+     * <code>uint64 timestamp = 10;</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
      */
@@ -1847,7 +2423,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 timestamp = 7;</code>
+     * <code>uint64 timestamp = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {
