@@ -344,11 +344,12 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 GetStateResponse getStateResponse = GetStateResponse.parseFrom(response);
                 if (getStateResponse.getStatus() == GetStateResponse.Status.OK) {
                     gameView.initialize(getStateResponse.getPartialState());
+
+                    onlinePlayerAdapter.clear();
+                    onlinePlayerAdapter.update(getStateResponse.getPartialState());
                     onlinePlayerAdapter.notifyDataSetChanged();
 //                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
 //                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
-                    onlinePlayerAdapter.clear();
-                    onlinePlayerAdapter.notifyDataSetChanged();
 
                     handler = new Handler();
 
@@ -404,8 +405,11 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
                     if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) {
                         gameView.update(updateStateResponse.getStateUpdate());
-                        onlinePlayerAdapter.update(updateStateResponse.getStateUpdate());
+
+                        onlinePlayerAdapter.clear();
+                        onlinePlayerAdapter.update(updateStateResponse.getStateUpdate().getPartialState());
                         onlinePlayerAdapter.notifyDataSetChanged();
+
 //                        final boolean active = gameFullState.getActivePlayerIDs().contains(Installation.id(OnlineGameActivity.this));
 //                        final boolean queued = gameFullState.getQueuedPlayerIDs().contains(Installation.id(OnlineGameActivity.this));
                     }

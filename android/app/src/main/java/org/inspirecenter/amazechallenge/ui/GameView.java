@@ -185,6 +185,7 @@ public class GameView extends View {
 
         //Entities:
         pickables.clear();
+        playerEntities.clear();
         for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
             //Pickables:
             if (entry.getValue().hasPickableEntity()) {

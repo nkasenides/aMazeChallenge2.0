@@ -13,6 +13,7 @@ import org.inspirecenter.amazechallenge.model.AMCPlayer;
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
 import org.inspirecenter.amazechallenge.model.PlayerEntity;
 import org.inspirecenter.amazechallenge.proto.AMCEntityProto;
+import org.inspirecenter.amazechallenge.proto.AMCPartialStateProto;
 import org.inspirecenter.amazechallenge.proto.AMCPlayerProto;
 import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
 import org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto;
@@ -46,23 +47,23 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
         this.playerEntities = new HashMap<>();
     }
 
-    void update(final AMCStateUpdateProto stateUpdate) {
-        final Collection<AMCPlayerProto> allPlayers = stateUpdate.getAllPlayersMap().values();
-        final Map<String, AMCWorldSessionProto> worldSessions = stateUpdate.getWorldSessionsMap();
+    void update(final AMCPartialStateProto partialState) {
+        final Collection<AMCPlayerProto> allPlayers = partialState.getPlayersMap().values();
+        final Map<String, AMCWorldSessionProto> worldSessions = partialState.getWorldSessionsMap();
 
         this.players.clear();
         this.players.addAll(allPlayers);
         this.worldSessions.putAll(worldSessions);
 
-        for (Map.Entry<String, AMCEntityProto> entry : stateUpdate.getPartialState().getEntitiesMap().entrySet()) {
+        for (Map.Entry<String, AMCEntityProto> entry : partialState.getEntitiesMap().entrySet()) {
             if (entry.getValue().hasPlayerEntity()) {
                 this.playerEntities.put(entry.getKey(), entry.getValue().getPlayerEntity());
             }
         }
 
         Collections.sort(players, (playerLeft, playerRight) -> {
-            AMCWorldSessionProto leftWorldSession = stateUpdate.getWorldSessionsMap().get(playerLeft.getId());
-            AMCWorldSessionProto rightWorldSession = stateUpdate.getWorldSessionsMap().get(playerRight.getId());
+            AMCWorldSessionProto leftWorldSession = partialState.getWorldSessionsMap().get(playerLeft.getId());
+            AMCWorldSessionProto rightWorldSession = partialState.getWorldSessionsMap().get(playerRight.getId());
 
             final int playerLeftPoints = leftWorldSession != null ? leftWorldSession.getPoints() : 0;
             final int playerRightPoints = rightWorldSession != null ? rightWorldSession.getPoints() : 0;

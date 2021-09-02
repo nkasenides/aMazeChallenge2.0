@@ -141,6 +141,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         // prepare active players
         final Map<String, MazeSolver> playerIDsToMazeSolvers = new HashMap<>();
         final List<String> activePlayerIDs = game.getActivePlayers();
+
         for(final String activePlayerId : activePlayerIDs) {
             final String code = (String) memcache.get(KeyUtils.getCodeKey(challenge.getId(), activePlayerId));
 
@@ -164,15 +165,23 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
         // remove completed players (move from 'active' to 'finished')
         final MatrixPosition targetPosition = challenge.getGrid().getTargetPosition();
+        Vector<String> playersToDeactivate = new Vector<>();
+
         for(final String activePlayerId : activePlayerIDs) {
             final MatrixPosition playerPosition = game.getPlayerEntities().get(activePlayerId + "_" + game.getPlayerWorldSessions().get(activePlayerId).getWorldID()).getPosition();
             // for any players that were moved in 'inactive' status, reset their state and code so they are not restarted automatically
             if(playerPosition != null && playerPosition.equals(targetPosition)) {
-                memcache.delete(getMazeSolverStateKey(game.getId(), activePlayerId)); // reset algorithm's state
-                memcache.delete(KeyUtils.getCodeKey(challenge.getId(), activePlayerId)); // reset submitted code
-                game.resetPlayerById(activePlayerId);
+                playersToDeactivate.add(activePlayerId);
             }
         }
+
+        for (String playerID : playersToDeactivate) {
+            memcache.delete(getMazeSolverStateKey(game.getId(), playerID)); // reset algorithm's state
+            memcache.delete(KeyUtils.getCodeKey(challenge.getId(), playerID)); // reset submitted code
+            game.resetPlayerById(playerID);
+            System.out.println("Player reset: " + playerID);
+        }
+
 
         // update game with number of rounds executed
         game.touch(System.currentTimeMillis() - startTime);

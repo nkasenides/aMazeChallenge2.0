@@ -130,15 +130,6 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
         worldSession.setPoints(0);
         worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
 
-//        //Create the player entity:
-//        PlayerEntity playerEntity = new PlayerEntity();
-//        playerEntity.setPlayerID(player.getName());
-//        playerEntity.setWorldID(worldSession.getWorldID());
-//        playerEntity.setDirection(challenge.getGrid().getStartingDirection());
-//        playerEntity.setId(getPlayerEntityID(player.getName(), worldSession.getWorldID()));
-//        playerEntity.setPosition(challenge.getGrid().getStartingPosition());
-//        playerEntity.setAreaOfInterest(30);
-
         final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
         //If this is the first player joining this challenge, initialize the game state and start the runtime task:
@@ -172,7 +163,6 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
             Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
             game.addPlayer(player.toObject(), worldSession);
             game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
-//            game.getPlayerEntities().put(playerEntity.getId(), playerEntity);
             memcache.put(game.getId(), game);
         }
 

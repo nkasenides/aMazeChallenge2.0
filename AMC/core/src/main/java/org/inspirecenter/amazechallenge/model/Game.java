@@ -223,15 +223,19 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
     }
 
-    public boolean resetPlayerById(final String playerId) {
-        boolean existed = finishedPlayers.remove(playerId);
-        if(queuedPlayers.remove(playerId)) existed = true;
-        if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
+    public void resetPlayerById(final String playerId) {
+
+        //Remove the player from all queues:
+        activePlayers.remove(playerId);
+        queuedPlayers.remove(playerId);
+        waitingPlayers.remove(playerId);
+
+        //Add the player to the finished players list:
+        finishedPlayers.add(playerId);
 
         //Reset:
-        playerWorldSessions.get(playerId).setHealth(new Health());
-        playerWorldSessions.get(playerId).setPoints(0);
-        return existed;
+//        playerWorldSessions.get(playerId).setHealth(new Health());
+//        playerWorldSessions.get(playerId).setPoints(0);
     }
 
     public boolean queuePlayerById(final String playerId) {
