@@ -109,7 +109,6 @@ public class GameView extends View {
 ////            activePlayerIdToPositionAndDirectionMap.put(activePlayerId, game.getPlayerPositionAndDirectionById(activePlayerId));
 //        }
 
-        pickables.clear();
         this.pickables = game.getPickables();
     }
 

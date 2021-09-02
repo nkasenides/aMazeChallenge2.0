@@ -355,7 +355,6 @@ public class RuntimeController {
             }
         }
 
-        System.out.println("Pickables: " + game.getPickables().size());
 
     }
 
