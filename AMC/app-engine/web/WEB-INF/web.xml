@@ -58,6 +58,16 @@
         <servlet-class>org.inspirecenter.amazechallenge.servlet.RuntimeServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>AuthenticateAdminServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.AuthenticateAdminServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ChangeAdminKeyServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.ChangeAdminKeyServlet</servlet-class>
+    </servlet>
+
     <!-- Mappings -->
     <servlet-mapping>
         <servlet-name>SubmitQuestionnaireServlet</servlet-name>
@@ -104,6 +114,16 @@
     <servlet-mapping>
         <servlet-name>DeleteChallengeServlet</servlet-name>
         <url-pattern>/api/challenge/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AuthenticateAdminServlet</servlet-name>
+        <url-pattern>/admin/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ChangeAdminKeyServlet</servlet-name>
+        <url-pattern>/admin/changeAdminKey</url-pattern>
     </servlet-mapping>
 
 

@@ -18,9 +18,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <%--    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>--%>
-
     <title>aMazeChallenge - Challenges</title>
     <script src="js/Cookies.js"></script>
+    <script>
+        if (!Cookies.cookieExists(Cookies.ADMIN_KEY_COOKIE)) {
+            document.location.href = "index.jsp";
+        }
+    </script>
 </head>
 <body style="background-image: url('img/maze_background_pattern.png'); background-repeat: repeat">
 <div class="container">
@@ -29,128 +33,143 @@
         <div class="col s12">
 
             <div class="center-align">
-                <img class="responsive-img" src="img/amaze_logo.png" />
+                <img class="responsive-img" src="img/maze_banner_transparent.png" style="max-height: 200px" />
             </div>
 
-            <h4>Manage challenges</h4>
+            <div class="white card row">
 
-            <table border="1" class="responsive-table">
-                <tr>
-<%--                    <td>ID</td>--%>
-                    <td>Name</td>
-                    <td>Description</td>
-                    <td>Grid size</td>
-                    <td>Difficulty</td>
-                    <td>Start on</td>
-                    <td>Ends on</td>
-                    <td></td>
-                </tr>
-                <%
-                    final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy, HH:mm");
-                    final String message = request.getParameter("message");
+                <div class="col s12">
 
-                    final Collection<Challenge> allChallenges = DBManager.challenge.list();
+                    <div style="height: 20px"></div>
+                    <a href="index.jsp"><i class="material-icons indigo-text">arrow_back</i></a>
 
-                    if (allChallenges.size() > 0) {
-                        for (final Challenge challenge : allChallenges) {
-                %>
-                <tr>
-<%--                    <td><%=challenge.getId()%>--%>
-<%--                    </td>--%>
-                    <td><%=challenge.getName()%>
-                    </td>
-                    <td><%=challenge.getDescription()%>
-                    </td>
-                    <td><%=challenge.getGrid().getWidth()%>x<%=challenge.getGrid().getWidth()%>
-                    </td>
-                    <td><%=challenge.getDifficulty().toString().split("_")[0]%>
-                    </td>
-                    <td><%=dateFormat.format(new Date(challenge.getStartTime()))%>
-                    </td>
-                    <td><%=dateFormat.format(new Date(challenge.getEndTime()))%>
-                    </td>
-                    <td><input type="button" onclick="deleteChallenge('<%=challenge.getId()%>')" value="Delete" class="btn"/></td>
-                </tr>
-                <%
-                        }
-                    }
-                %>
+                    <h4>Manage challenges</h4>
 
-                <% if (allChallenges.isEmpty()) { %>
-                <tr>
-                    <td>No challenges</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <%}%>
-            </table>
+                    <table border="1" class="responsive-table">
+                        <tr>
+        <%--                    <td>ID</td>--%>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Grid size</td>
+                            <td>Difficulty</td>
+                            <td>Start on</td>
+                            <td>Ends on</td>
+                            <td></td>
+                        </tr>
+                        <%
+                            final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy, HH:mm");
+                            final String message = request.getParameter("message");
 
-            <hr/>
+                            final Collection<Challenge> allChallenges = DBManager.challenge.list();
 
-            <p style="color: red; font-weight: bolder; font-size: large"><%=(message != null && !message.isEmpty()) ? message : ""%></p>
+                            if (allChallenges.size() > 0) {
+                                for (final Challenge challenge : allChallenges) {
+                        %>
+                        <tr>
+        <%--                    <td><%=challenge.getId()%>--%>
+        <%--                    </td>--%>
+                            <td><%=challenge.getName()%>
+                            </td>
+                            <td><%=challenge.getDescription()%>
+                            </td>
+                            <td><%=challenge.getGrid().getWidth()%>x<%=challenge.getGrid().getWidth()%>
+                            </td>
+                            <td><%=challenge.getDifficulty().toString().split("_")[0]%>
+                            </td>
+                            <td><%=dateFormat.format(new Date(challenge.getStartTime()))%>
+                            </td>
+                            <td><%=dateFormat.format(new Date(challenge.getEndTime()))%>
+                            </td>
+                            <td><input type="button" onclick="deleteChallenge('<%=challenge.getId()%>')" value="Delete" class="btn red darken-3 white-text"/></td>
+                        </tr>
+                        <%
+                                }
+                            }
+                        %>
 
-            <form method="post" id="add-challenge-form" class="col s12" onsubmit="event.preventDefault()">
+                        <% if (allChallenges.isEmpty()) { %>
+                        <tr>
+                            <td>No challenges</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <%}%>
+                    </table>
 
-                <h4>Add challenge</h4>
+                    <hr/>
 
-                <p><label>Name: <input type="text" name="name" id="name" required/></label></p>
+                    <div style="height: 50px;"></div>
 
-                <p>Description: </p>
-                <p>
-                    <textarea maxlength="255" name="description" id="description" form="add-challenge-form"
-                              required></textarea>
-                </p>
-
-                <p>Algorithm: </p>
-                <p>
-                    <select name="algorithm" id="algorithm" class="browser-default">
-                        <option value="EMPTY_Algorithm">Empty</option>
-                        <option value="SPARSE_Algorithm">Sparse</option>
-                        <option value="SINGLE_SOLUTION_Algorithm">Single solution</option>
-                        <option value="MANY_SOLUTIONS_Algorithm">Many solutions</option>
-                    </select>
-                </p>
-
-                <p><label>Grid size: <input type="number" id="gridSize" name="gridSize" min="5" max="30"
-                                            onchange="startingPositionRowField.max = gridSizeField.max - 1; startingPositionColField.max = gridSizeField - 1;
-                                                targetPositionRowField.max = gridSizeField.max - 1; targetPositionColField.max = gridSizeField - 1"
-                                            required/></label></p>
-
-                <p><label>Starting position | Row:
-                    <input type="number" id="startingPositionRow" name="startingPositionRow" min="0" required/></label>
-                    <label>Starting position | Col: <input type="number" id="startingPositionCol" min="0"
-                                                           name="startingPositionCol"
-                                                           required/></label>
-                </p>
-
-                <p><label>Target position | Row:
-                    <input type="number" id="targetPositionRow" name="targetPositionRow" min="0" required/></label>
-                    <label>Target position | Col: <input type="number" id="targetPositionCol" name="targetPositionCol"
-                                                         min="0" required/></label>
-                </p>
-
-                <p>Grid hex data:</p>
-                <p>
-                    <textarea rows="4" cols="80" name="gridData" id="gridData" form="add-challenge-form" required></textarea>
-                </p>
-
-                <div class="right">
-                    <input onclick="generateGrid()" type="button" class="btn-small black white-text" value="Generate grid" id="generateGridButton" />
                 </div>
-
-                <div class="clearfix"></div>
-
-                <p><label>Admin key: <input type="text" id="adminKey" required/></label></p>
 
                 <div class="center-align">
-                    <input class="btn btn-large" type="submit" id="createChallengeButton" value="Add Challenge" onclick="createChallenge()"/>
+                    <p style="color: red; font-weight: bolder; font-size: large"><%=(message != null && !message.isEmpty()) ? message : ""%></p>
                 </div>
-            </form>
+
+                <form method="post" id="add-challenge-form" class="col s12" onsubmit="event.preventDefault()">
+
+                    <h4>Add challenge</h4>
+
+                    <p><label>Name: <input type="text" name="name" id="name" required/></label></p>
+
+                    <p>Description: </p>
+                    <p>
+                        <textarea maxlength="255" name="description" id="description" form="add-challenge-form"
+                                  required></textarea>
+                    </p>
+
+                    <p>Algorithm: </p>
+                    <p>
+                        <select name="algorithm" id="algorithm" class="browser-default">
+                            <option value="EMPTY_Algorithm">Empty</option>
+                            <option value="SPARSE_Algorithm">Sparse</option>
+                            <option value="SINGLE_SOLUTION_Algorithm">Single solution</option>
+                            <option value="MANY_SOLUTIONS_Algorithm">Many solutions</option>
+                        </select>
+                    </p>
+
+                    <p><label>Grid size: <input type="number" id="gridSize" name="gridSize" min="5" max="30"
+                                                onchange="startingPositionRowField.max = gridSizeField.max - 1; startingPositionColField.max = gridSizeField - 1;
+                                                    targetPositionRowField.max = gridSizeField.max - 1; targetPositionColField.max = gridSizeField - 1"
+                                                required/></label></p>
+
+                    <p><label>Starting position | Row:
+                        <input type="number" id="startingPositionRow" name="startingPositionRow" min="0" required/></label>
+                        <label>Starting position | Col: <input type="number" id="startingPositionCol" min="0"
+                                                               name="startingPositionCol"
+                                                               required/></label>
+                    </p>
+
+                    <p><label>Target position | Row:
+                        <input type="number" id="targetPositionRow" name="targetPositionRow" min="0" required/></label>
+                        <label>Target position | Col: <input type="number" id="targetPositionCol" name="targetPositionCol"
+                                                             min="0" required/></label>
+                    </p>
+
+                    <p>Grid hex data:</p>
+                    <p>
+                        <textarea rows="4" cols="80" name="gridData" id="gridData" form="add-challenge-form" required></textarea>
+                    </p>
+
+                    <div class="right">
+                        <input onclick="generateGrid()" type="button" class="btn-small black white-text" value="Generate grid" id="generateGridButton" />
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div style="height: 20px"></div>
+
+                    <div class="center-align">
+                        <input class="btn btn-large indigo darken-3 white-text" type="submit" id="createChallengeButton" value="Add Challenge" onclick="createChallenge()"/>
+                    </div>
+                </form>
+
+            </div>
 
         </div>
     </div>
@@ -172,11 +191,7 @@
     const algorithmSelect = document.getElementById("algorithm");
 
     function deleteChallenge(challengeID) {
-        let adminKey = prompt("Admin key:");
-        if (adminKey.length === 0) {
-            alert("Please provide an admin key");
-            return;
-        }
+        let adminKey = Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
         document.location.href = "../api/challenge/delete?challengeID=" + challengeID + "&adminKey=" + adminKey;
     }
 
@@ -195,11 +210,6 @@
 
         if (gridDataField.value.length < 1) {
             alert("Please provide grid data");
-            return false;
-        }
-
-        if (adminKeyField.value.length < 1) {
-            alert("Please provide an admin key.");
             return false;
         }
 
@@ -236,7 +246,7 @@
             "&gridTargetPositionRow=" + targetPositionRowField.value +
             "&gridTargetPositionCol=" + targetPositionColField.value +
 
-            "&adminKey=" + adminKeyField.value
+            "&adminKey=" + Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE)
 
         ;
 
@@ -288,8 +298,14 @@
         fetch(url)
         .then(result => result.text())
         .then(response => {
-            gridDataField.value = response;
-            generateGridButton.style.visibility = "visible";
+            if (response.includes("Error")) {
+                alert(response);
+                generateGridButton.style.visibility = "visible";
+            }
+            else {
+                gridDataField.value = response;
+                generateGridButton.style.visibility = "visible";
+            }
         })
         .catch(error => {
             alert(error);

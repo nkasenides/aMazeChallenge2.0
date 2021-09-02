@@ -9,13 +9,18 @@ import org.inspirecenter.amazechallenge.model.*;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 public class FirestoreContextListener implements ServletContextListener {
+
+    private static final Logger log = Logger.getLogger(FirestoreContextListener.class.getName());
+
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-        //Init Firestore:
+        //Initialize Firestore:
         final String SERVICE_ACCOUNT = "{\n" +
                 "  \"type\": \"service_account\",\n" +
                 "  \"project_id\": \"amazechallenge2\",\n" +
@@ -35,6 +40,7 @@ public class FirestoreContextListener implements ServletContextListener {
             e.printStackTrace();
         }
 
+        //Initialize Firestorm and register classes:
         Firestorm.init();
         Firestorm.register(AdminKey.class);
         Firestorm.register(AMCPlayer.class);
@@ -43,19 +49,21 @@ public class FirestoreContextListener implements ServletContextListener {
         Firestorm.register(AMCWorld.class);
         Firestorm.register(AMCWorldSession.class);
         Firestorm.register(Challenge.class);
-//        Firestorm.register(Grid.class);
-//        Firestorm.register(PickableEntity.class);
-//        Firestorm.register(PlayerEntity.class);
         Firestorm.register(QuestionEntry.class);
         Firestorm.register(QuestionnaireEntry.class);
 
-        //Clear previous admin keys:
-        Firestorm.getCollectionReference(AdminKey.class).listDocuments().forEach(DocumentReference::delete);
-
-        //Create a new admin key:
-        AdminKey adminKey = new AdminKey();
-        adminKey.setId("pCuPeQ09Qoi7fwo4W8PB");
-        Firestorm.create(adminKey, "pCuPeQ09Qoi7fwo4W8PB");
+        //Attempt to get admin key, if no admin key exists, create it:
+        final ArrayList<AdminKey> adminKeys = Firestorm.listAll(AdminKey.class);
+        if (adminKeys.isEmpty()) {
+            AdminKey adminKey = new AdminKey();
+            final String adminKeyID = UUID.randomUUID().toString().replace("-", "").substring(0, 5);
+            adminKey.setId(adminKeyID);
+            Firestorm.create(adminKey, adminKeyID);
+            System.out.println("~~ Admin key created: " + adminKeyID + " ~~~");
+            System.out.println("Use this key for authentication in the app's admin console.");
+            log.info("~~ Admin key created: " + adminKeyID + " ~~~");
+            log.info("Use this key for authentication in the app's admin console.");
+        }
 
     }
 
