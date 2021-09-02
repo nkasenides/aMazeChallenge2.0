@@ -49,7 +49,7 @@ public class AddChallengeServlet extends HttpServlet {
 
         }
 
-        System.out.println(parametersMap);
+//        System.out.println(parametersMap);
 
         final String adminKey = parametersMap.get("adminKey");
 

@@ -144,7 +144,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         for(final String activePlayerId : activePlayerIDs) {
             final String code = (String) memcache.get(KeyUtils.getCodeKey(challenge.getId(), activePlayerId));
 
-            System.out.println("code = " + code);
+//            System.out.println("code = " + code);
 
             final MazeSolver mazeSolver = new InterpretedMazeSolver(challenge, game, activePlayerId, code);
             mazeSolver.init(challenge, game);
@@ -176,7 +176,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
         // update game with number of rounds executed
         game.touch(System.currentTimeMillis() - startTime);
-        System.out.println("counter: " + game.getCounter());
+        System.out.println("Game: " + game.getId() + "\nRound: " + game.getCounter());
     }
 
     private static String getMazeSolverStateKey(final String gameId, final String playerId) {

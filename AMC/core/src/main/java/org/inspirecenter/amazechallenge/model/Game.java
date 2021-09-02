@@ -248,7 +248,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         if(!queuedPlayers.isEmpty()) {
             final String nextPlayerId = queuedPlayers.remove(0); // get first in line from 'queued'
             activePlayers.add(nextPlayerId);
-            System.out.println("Activated: " + nextPlayerId); //TODO - Remove
+            System.out.println("Activated: " + nextPlayerId);
             final AMCWorldSession worldSession = getPlayerWorldSessions().get(nextPlayerId);
             worldSession.setHealth(new Health());
 
