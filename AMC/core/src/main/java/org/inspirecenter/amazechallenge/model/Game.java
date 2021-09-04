@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.cloud.firestore.annotation.Exclude;
 import org.inspirecenter.amazechallenge.controller.AudioEventListener;
 import org.inspirecenter.amazechallenge.controller.GameEndListener;
 import com.nkasenides.athlos.proto.Transmittable;
@@ -33,6 +34,10 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     private String id;    
     private long lastExecutionTime;    
     private HashMap<String, AMCWorldSession> playerWorldSessions = new HashMap<>();
+
+    //NEW in 2.0
+    //Note: The map below is not converted into protobuf objects or persisted in the DB. Only for caching during gameplay.
+    private final HashMap<String, HashMap<Long, Audio>> playerEvents = new HashMap<>();
 
     public List<String> getFinishedPlayers() {
         return finishedPlayers;        
@@ -284,6 +289,31 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         this.lastExecutionTime = lastExecutionTime;
         lastUpdated = System.currentTimeMillis();
         counter++;
+    }
+
+    @Exclude
+    public void addPlayerEvent(String playerID, long eventTime, Audio eventType) {
+        HashMap<Long, Audio> eventsMap = playerEvents.get(playerID);
+        if (eventsMap == null) {
+            eventsMap = new HashMap<>();
+        }
+        eventsMap.put(eventTime, eventType);
+        playerEvents.put(playerID, eventsMap);
+    }
+
+    @Exclude
+    public HashMap<Long, Audio> getPlayerEvents(String playerID) {
+        if (playerEvents.containsKey(playerID)) {
+            return playerEvents.get(playerID);
+        }
+        else {
+            return new HashMap<>();
+        }
+    }
+
+    @Exclude
+    public void clearPlayerEvents(String playerID) {
+        playerEvents.remove(playerID);
     }
     
 
