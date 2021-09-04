@@ -109,6 +109,7 @@ public class RuntimeController {
                             if (pickable.getPickableType() == PickableType.BOMB_PickableType) {
                                 if (pickable.getState() == 1 || pickable.getState() == 2) {
                                     worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                                    if (audioEventListener != null) audioEventListener.onAudioEvent(pickable);
                                 }
                             }
                             else worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());

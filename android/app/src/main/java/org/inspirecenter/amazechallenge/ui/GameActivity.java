@@ -288,7 +288,11 @@ public class GameActivity extends AppCompatActivity implements AudioEventListene
                     intent.putExtra(QuestionnaireActivity.CHALLENGE_KEY, challenge.getId());
                     hasCreatedQuestionnaire = true;
                     startActivity(intent);
-                } else finish();
+                } else {
+                    Intent intent = new Intent(this, TrainingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             if (RuntimeController.allPlayersHaveLost(game)) {
