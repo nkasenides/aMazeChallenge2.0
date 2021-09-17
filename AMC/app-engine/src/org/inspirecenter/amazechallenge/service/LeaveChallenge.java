@@ -85,8 +85,6 @@ public class LeaveChallenge implements AthlosService<LeaveChallengeRequest, Leav
         game.resetPlayerById(playerID);
         memcache.put(game.getId(), game);
 
-        DBManager.worldSession.delete(worldSession);
-
         System.out.println("Player reset: " + playerID);
 
         return LeaveChallengeResponse.newBuilder()

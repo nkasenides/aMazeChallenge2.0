@@ -7,6 +7,7 @@
 
 package org.inspirecenter.amazechallenge.model;
 
+import com.google.cloud.firestore.annotation.Exclude;
 import com.nkasenides.athlos.proto.Transmittable;
 import org.inspirecenter.amazechallenge.proto.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
@@ -245,6 +246,7 @@ public class Challenge implements Transmittable<ChallengeProto.Builder>, Seriali
         return protoBuilder;        
     }
 
+    @Exclude
     public int getMaxRewards() {
         switch (rewards) {
             case NONE_PickableIntensity:
@@ -260,6 +262,7 @@ public class Challenge implements Transmittable<ChallengeProto.Builder>, Seriali
         }
     }
 
+    @Exclude
     public int getMaxPenalties() {
         switch (penalties) {
             case NONE_PickableIntensity:
