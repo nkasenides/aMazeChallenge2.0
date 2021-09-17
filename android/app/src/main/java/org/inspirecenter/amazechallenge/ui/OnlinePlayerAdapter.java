@@ -73,15 +73,22 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
                            0;
         });
 
+        System.out.println("Playing -> " + partialState.getActivePlayersList().size()); //TODO Remove
+        System.out.println("Queued -> " + partialState.getQueuedPlayersList().size()); //TODO Remove
+        System.out.println("Waiting -> "  + partialState.getWaitingPlayersList().size()); //TODO Remove
+
         for(final String activeID : partialState.getActivePlayersList()) {
-            playerIDsToStatus.put(activeID, "Playing");
+            playerIDsToStatus.put(activeID, "Active");
         }
+
         for(final String queuedID : partialState.getQueuedPlayersList()) {
             playerIDsToStatus.put(queuedID, "Queued");
         }
+
         for(final String waitingID : partialState.getWaitingPlayersList()) {
             playerIDsToStatus.put(waitingID, "Waiting");
         }
+
     }
 
     void clear() {
@@ -138,13 +145,18 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
             holder.playerCardView.setBackgroundColor(Color.WHITE);
             holder.playerNameTextView.setText(player.getName());
         }
-        if ("Active".equals(playerIDsToStatus.get(player.getId()))) {
+
+        final String playerStatus = playerIDsToStatus.get(player.getId());
+
+        if ("Active".equals(playerStatus)) {
             holder.playerStatusTextView.setText(R.string.active);
-            holder.playerStatusTextView.setTextColor(Color.GREEN);
-        } else if("Queued".equals(playerIDsToStatus.get(player.getId()))) {
+            holder.playerStatusTextView.setTextColor(Color.parseColor("#006400")); //Dark green
+        }
+        else if ("Queued".equals(playerStatus)) {
             holder.playerStatusTextView.setText(R.string.queued);
-            holder.playerStatusTextView.setTextColor(Color.CYAN);
-        } else {
+            holder.playerStatusTextView.setTextColor(Color.parseColor("#008b8b")); //Dark cyan
+        }
+        else {
             holder.playerStatusTextView.setText(R.string.waiting);
             holder.playerStatusTextView.setTextColor(Color.GRAY);
         }

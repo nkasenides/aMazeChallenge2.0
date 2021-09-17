@@ -228,6 +228,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
     }
 
+    @Exclude
     public void resetPlayerById(final String playerId) {
 
         //Remove the player from all queues:
@@ -243,6 +244,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
 //        playerWorldSessions.get(playerId).setPoints(0);
     }
 
+    @Exclude
     public boolean queuePlayerById(final String playerId) {
         if(waitingPlayers.contains(playerId)) {
             waitingPlayers.remove(playerId);
@@ -253,6 +255,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         }
     }
 
+    @Exclude
     public boolean activateNextPlayer(final Grid grid) {
         if(!queuedPlayers.isEmpty()) {
             final String nextPlayerId = queuedPlayers.remove(0); // get first in line from 'queued'
@@ -281,10 +284,12 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         }
     }
 
+    @Exclude
     public void resetPickables() {
         pickables.clear();
     }
 
+    @Exclude
     public void touch(final long lastExecutionTime) {
         this.lastExecutionTime = lastExecutionTime;
         lastUpdated = System.currentTimeMillis();
