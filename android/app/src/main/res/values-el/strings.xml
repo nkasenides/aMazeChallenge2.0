@@ -301,5 +301,9 @@
     <string name="active">Ενεργός</string>
     <string name="queued">Σε σειρά</string>
     <string name="waiting">Σε αναμονή</string>
+    <string name="leave_challenge">Έξοδος</string>
+    <string name="confirm_leave_challenge_msg">Είστε βέβαιοι ότι θέλετε να βγείτε απο αυτό το παιχνίδι; Η πρόοδός σας θα χαθεί.</string>
+    <string name="exit">Έξοδος</string>
+    <string name="could_not_leave_challenge">Δεν ήταν δυνατή η αποχώρηση από το παιχνίδι.</string>
 
 </resources>

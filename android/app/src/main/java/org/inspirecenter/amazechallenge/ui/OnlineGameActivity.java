@@ -1,6 +1,7 @@
 package org.inspirecenter.amazechallenge.ui;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -10,6 +11,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +34,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import org.inspirecenter.amazechallenge.controller.AudioEventListener;
 import org.inspirecenter.amazechallenge.controller.GameEndListener;
 import org.inspirecenter.amazechallenge.model.AMCPlayer;
+import org.inspirecenter.amazechallenge.model.AMCWorldSession;
 import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.PickableEntity;
 import org.inspirecenter.amazechallenge.proto.Audio;
@@ -42,6 +45,8 @@ import org.inspirecenter.amazechallenge.proto.GetStateRequest;
 import org.inspirecenter.amazechallenge.proto.GetStateResponse;
 import org.inspirecenter.amazechallenge.proto.JoinChallengeRequest;
 import org.inspirecenter.amazechallenge.proto.JoinChallengeResponse;
+import org.inspirecenter.amazechallenge.proto.LeaveChallengeRequest;
+import org.inspirecenter.amazechallenge.proto.LeaveChallengeResponse;
 import org.inspirecenter.amazechallenge.proto.SubmitCodeRequest;
 import org.inspirecenter.amazechallenge.proto.SubmitCodeResponse;
 import org.inspirecenter.amazechallenge.proto.UpdateStateRequest;
@@ -68,6 +73,7 @@ import static org.inspirecenter.amazechallenge.ui.BlocklyActivity.INTENT_KEY_NEX
 import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_AMBIENT_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_EVENTS_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_KEY;
+import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_WORLD_SESSION_KEY;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_SOUND;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_VIBRATION;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
@@ -98,6 +104,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     private boolean vibration = true;
     private HashMap<String, MediaPlayer> audioEventsMap = new HashMap<>();
 
+    private AMCWorldSession currentPlayerWorldSession;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,8 +124,11 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         layoutManager = new LinearLayoutManager(this);
         scoreboardRecyclerView.setLayoutManager(layoutManager);
 
+        //Preferences and passed data:
+        //Preferences and passed data:
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         final String name = sharedPreferences.getString(PREFERENCE_KEY_NAME, getString(R.string.Guest));
+        currentPlayerWorldSession = (AMCWorldSession) getIntent().getSerializableExtra(SELECTED_PLAYER_WORLD_SESSION_KEY);
 
         // specify and set an adapter
         onlinePlayerAdapter = new OnlinePlayerAdapter(name);
@@ -188,7 +199,51 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     @Override
     public void onBackPressed() {
         if (!isFABOpen) {
-            super.onBackPressed();
+
+            //Confirm leaving the game:
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                    .setTitle(R.string.leave_challenge)
+                    .setMessage(R.string.confirm_leave_challenge_msg)
+                    .setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss())
+                    .setPositiveButton(R.string.exit, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            //Do request:
+                            RequestQueue queue = Volley.newRequestQueue(OnlineGameActivity.this);
+                            final String url = Stubs.BASE_URL + "/api/challenge/leave";
+
+                            LeaveChallengeRequest requestMessage = LeaveChallengeRequest.newBuilder()
+                                    .setChallengeID(challenge.getId())
+                                    .setWorldSessionID(currentPlayerWorldSession.getId())
+                                    .build();
+
+                            BinaryRequest leaveChallengeRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
+                                try {
+                                    LeaveChallengeResponse leaveChallengeResponse = LeaveChallengeResponse.parseFrom(response);
+                                    if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
+                                        finish();
+                                    }
+                                    else {
+                                        Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+                                        System.err.println(leaveChallengeResponse.getMessage());
+                                    }
+                                } catch (InvalidProtocolBufferException e) {
+                                    Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+                                    e.printStackTrace();
+                                }
+                            }, error -> {
+                                Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+                                error.printStackTrace();
+                            });
+
+                            queue.add(leaveChallengeRequest);
+
+                        }
+                    });
+
+            dialogBuilder.create().show();
+
         } else {
             closeFABMenu();
         }
@@ -334,7 +389,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private void getStateHTTP() {
 
-        System.out.println("getStateHTTP()");
+        System.out.println("getStateHTTP()"); //TODO - Remove
 
         RequestQueue queue = Volley.newRequestQueue(this);
         final String url = Stubs.BASE_URL + "/api/state/get";
@@ -394,7 +449,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private void updateStateHTTP() {
 
-        System.out.println("updateStateHTTP()");
+        System.out.println("updateStateHTTP()"); //TODO - Remove
 
         RequestQueue queue = Volley.newRequestQueue(this);
         final String url = Stubs.BASE_URL + "/api/state/update";

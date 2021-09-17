@@ -67,6 +67,7 @@ import java.util.UUID;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
+import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_WORLD_SESSION_KEY;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_COLOR;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_EMAIL;
@@ -230,9 +231,12 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                 if (joinChallengeResponse.getStatus() == JoinChallengeResponse.Status.OK) {
                     Toast.makeText(OnlineChallengeActivity.this, R.string.join_success, Toast.LENGTH_SHORT).show();
                     AMCClient.getInstance().setWorldSession(joinChallengeResponse.getWorldSession().toObject());
+
                     final Intent intent = new Intent(OnlineChallengeActivity.this, OnlineGameActivity.class);
                     intent.putExtra(PREFERENCE_KEY_CHALLENGE, challenge);
+                    intent.putExtra(SELECTED_PLAYER_WORLD_SESSION_KEY, joinChallengeResponse.getWorldSession().toObject());
                     startActivity(intent);
+
                 } else {
                     switch (joinChallengeResponse.getMessage()) {
                         case "INVALID_PLAYER_NAME":

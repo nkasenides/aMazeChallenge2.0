@@ -22,6 +22,10 @@
         <servlet-class>org.inspirecenter.amazechallenge.servlet.JoinChallengeServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LeaveChallengeServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.LeaveChallengeServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GetStateServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.GetStateServlet</servlet-class>
     </servlet>
@@ -88,6 +92,10 @@
     <servlet-mapping>
         <servlet-name>JoinChallengeServlet</servlet-name>
         <url-pattern>/api/challenge/join</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LeaveChallengeServlet</servlet-name>
+        <url-pattern>/api/challenge/leave</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetStateServlet</servlet-name>

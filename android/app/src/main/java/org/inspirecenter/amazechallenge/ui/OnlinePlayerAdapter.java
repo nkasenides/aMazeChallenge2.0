@@ -73,10 +73,6 @@ public class OnlinePlayerAdapter extends RecyclerView.Adapter<OnlinePlayerAdapte
                            0;
         });
 
-        System.out.println("Playing -> " + partialState.getActivePlayersList().size()); //TODO Remove
-        System.out.println("Queued -> " + partialState.getQueuedPlayersList().size()); //TODO Remove
-        System.out.println("Waiting -> "  + partialState.getWaitingPlayersList().size()); //TODO Remove
-
         for(final String activeID : partialState.getActivePlayersList()) {
             playerIDsToStatus.put(activeID, "Active");
         }

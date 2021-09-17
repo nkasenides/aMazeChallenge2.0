@@ -201,6 +201,10 @@ public class GameView extends View {
             }
         }
 
+        //TODO REMOVE
+        System.out.println("Pickables: " + pickables.size());
+        System.out.println("Player entities: " + playerEntities.size());
+
         invalidate();
     }
 

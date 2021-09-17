@@ -324,5 +324,9 @@
     <string name="active">Active</string>
     <string name="queued">Queued</string>
     <string name="waiting">Waiting</string>
+    <string name="leave_challenge">Leave challenge</string>
+    <string name="confirm_leave_challenge_msg">Are you sure you would like to leave this challenge? Your progress will be lost.</string>
+    <string name="exit">Exit</string>
+    <string name="could_not_leave_challenge">Could not leave challenge.</string>
 
 </resources>

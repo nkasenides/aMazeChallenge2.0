@@ -80,8 +80,8 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
         Game game = (Game) o;
 
-        //TODO - Ensure consistency with other servlets and across instances by locking on a memcache object.
-        //Lock start
+        //TODO - Ensure consistency with other servlets and across instances by locking on a memcache object?
+        //Lock start?
 
         //Implement game logic:
         implementGameLogic(challenge, game);
@@ -89,7 +89,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         //Update the game state:
         memcache.put(gameID, game);
 
-        //Lock end
+        //Lock end?
 
         //Schedule the next task for running, only if there are active players:
         final Queue queue = QueueFactory.getDefaultQueue();
@@ -182,13 +182,17 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             System.out.println("Player reset: " + playerID);
         }
 
+        //For players who have finished, remove their entity from the player entities:
+        for (String finishedPlayerID : game.getFinishedPlayers()) {
+            game.getPlayerEntities().remove(finishedPlayerID + "_" + challenge.getId());
+        }
 
         // update game with number of rounds executed
         game.touch(System.currentTimeMillis() - startTime);
         System.out.println("Game: " + game.getId() + "\nRound: " + game.getCounter());
     }
 
-    private static String getMazeSolverStateKey(final String gameId, final String playerId) {
+    public static String getMazeSolverStateKey(final String gameId, final String playerId) {
         return "cached-maze-solver-state-" + gameId + "-" + playerId;
     }
     
