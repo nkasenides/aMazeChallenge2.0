@@ -92,19 +92,21 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         //Lock end?
 
         //Schedule the next task for running, only if there are active players:
-        final Queue queue = QueueFactory.getDefaultQueue();
-        RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
-                .setChallengeID(challengeID)
-                .setGameID(game.getId())
-                .setAdminKey(DBManager.adminKey.get().getId())
-                .build();
+        if (game.getQueuedPlayers().size() != 0 || game.getWaitingPlayers().size() != 0 || game.getActivePlayers().size() != 0) {
+            final Queue queue = QueueFactory.getDefaultQueue();
+            RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
+                    .setChallengeID(challengeID)
+                    .setGameID(game.getId())
+                    .setAdminKey(DBManager.adminKey.get().getId())
+                    .build();
 
-        TaskOptions taskOptions = TaskOptions.Builder
-                .withUrl("/admin/runtime")
-                .payload(runtimeRequest.toByteArray())
-                .countdownMillis(ONE_SECOND)
-                .method(TaskOptions.Method.POST);
-        queue.add(taskOptions);
+            TaskOptions taskOptions = TaskOptions.Builder
+                    .withUrl("/admin/runtime")
+                    .payload(runtimeRequest.toByteArray())
+                    .countdownMillis(ONE_SECOND)
+                    .method(TaskOptions.Method.POST);
+            queue.add(taskOptions);
+        }
 
 
         System.out.println("OK");

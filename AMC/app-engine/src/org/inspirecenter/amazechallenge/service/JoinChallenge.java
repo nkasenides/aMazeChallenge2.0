@@ -28,6 +28,15 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
     public JoinChallengeResponse serve(JoinChallengeRequest request, Object... additionalParams) {
 
         final AMCPlayerProto player = request.getPlayer();
+        final String installationID = request.getInstallationID();
+
+        //Installation ID must not be empty:
+        if (installationID.isEmpty()) {
+            return JoinChallengeResponse.newBuilder()
+                    .setStatus(JoinChallengeResponse.Status.INVALID_PLAYER)
+                    .setMessage("INVALID_PLAYER")
+                    .build();
+        }
 
         //Player name must not be empty:
         if (player.getName().isEmpty()) {
@@ -106,10 +115,20 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
                     .build();
         }
 
-        //Challenge must not have a player with the same name:
-        //TODO - Consider using device installation ID as a way of identifying an existing player without forcing them to change their name.
+        AMCWorldSession worldSession = null;
+        boolean newSession = false;
+
+        //If the player has already joined and has provided a correct installation ID, return the existing world session:
         for (AMCWorldSession challengeSession : challengeSessions) {
-            if (challengeSession.getPlayerID().equalsIgnoreCase(player.getName())) {
+            if (installationID.equals(challengeSession.getInstallationID()) && player.getId().equalsIgnoreCase(challengeSession.getPlayerID())) {
+                worldSession = challengeSession;
+                break;
+            }
+        }
+
+        //Challenge must not have a player with the same name, but different installation ID:
+        for (AMCWorldSession challengeSession : challengeSessions) {
+            if (challengeSession.getPlayerID().equalsIgnoreCase(player.getName()) && !installationID.equals(challengeSession.getInstallationID())) {
                 return JoinChallengeResponse.newBuilder()
                         .setStatus(JoinChallengeResponse.Status.INVALID_PLAYER)
                         .setMessage("PLAYER_NAME_EXISTS")
@@ -117,56 +136,64 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
             }
         }
 
-        //Create world session:
-        AMCWorldSession worldSession = new AMCWorldSession();
-        worldSession.setCameraPosition(challenge.getGrid().getStartingPosition());
-        worldSession.setWorldID(challengeID);
-        worldSession.setCode("");
-        worldSession.setHealth(new Health());
-        worldSession.setCreatedOn(System.currentTimeMillis());
-        worldSession.setExpiresOn(System.currentTimeMillis() + 3600*24); //24h
-        worldSession.setIpAddress((String) additionalParams[0]);
-        worldSession.setPlayerID(player.getName());
-        worldSession.setPoints(0);
-        worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
+        //If the player did not exist, create a new world session:
+        if (worldSession == null) {
+            newSession = true;
+            worldSession = new AMCWorldSession();
+            worldSession.setCameraPosition(challenge.getGrid().getStartingPosition());
+            worldSession.setWorldID(challengeID);
+            worldSession.setCode("");
+            worldSession.setHealth(new Health());
+            worldSession.setCreatedOn(System.currentTimeMillis());
+            worldSession.setExpiresOn(System.currentTimeMillis() + 3600 * 24); //24h
+            worldSession.setIpAddress((String) additionalParams[0]);
+            worldSession.setPlayerID(player.getName());
+            worldSession.setPoints(0);
+            worldSession.setInstallationID(installationID);
+            worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
+        }
 
         final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
         //If this is the first player joining this challenge, initialize the game state and start the runtime task:
         final Collection<AMCWorldSession> worldSessionsForWorld = DBManager.worldSession.listForWorld(worldSession.getWorldID());
-        if (worldSessionsForWorld.isEmpty()) {
-            Game game = new Game();
+        Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
+
+        if (game == null) {
+            game = new Game();
             game.setId("game_" + worldSession.getWorldID());
             game.setChallengeID(challengeID);
             game.addPlayer(player.toObject(), worldSession);
             game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
-//            game.getPlayerEntities().put(playerEntity.getId(), playerEntity);
             memcache.put(game.getId(), game);
-
-            //Start the runtime task:
-            final Queue queue = QueueFactory.getDefaultQueue();
-            RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
-                    .setChallengeID(challengeID)
-                    .setGameID(game.getId())
-                    .setAdminKey(DBManager.adminKey.get().getId())
-                    .build();
-
-            TaskOptions taskOptions = TaskOptions.Builder
-                    .withUrl("/admin/runtime")
-                    .payload(runtimeRequest.toByteArray())
-                    .method(TaskOptions.Method.POST);
-
-            queue.add(taskOptions);
-
         }
+
+        //If this player joins as second, third, etc., retrieve the game and add them to the game without launching a new task:
         else {
-            Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
             game.addPlayer(player.toObject(), worldSession);
             game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
             memcache.put(game.getId(), game);
         }
 
-        DBManager.worldSession.create(worldSession);
+        //Start the runtime task:
+        final Queue queue = QueueFactory.getDefaultQueue();
+        RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
+                .setChallengeID(challengeID)
+                .setGameID(game.getId())
+                .setAdminKey(DBManager.adminKey.get().getId())
+                .build();
+
+        TaskOptions taskOptions = TaskOptions.Builder
+                .withUrl("/admin/runtime")
+                .payload(runtimeRequest.toByteArray())
+                .method(TaskOptions.Method.POST);
+
+        queue.add(taskOptions);
+
+        //If this is a new session, create it in the DB:
+        if (newSession) {
+            DBManager.worldSession.create(worldSession);
+        }
 
         return JoinChallengeResponse.newBuilder()
                 .setStatus(JoinChallengeResponse.Status.OK)

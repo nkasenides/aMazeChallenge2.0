@@ -4,7 +4,7 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface JoinChallengeRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:JoinChallengeRequest)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.JoinChallengeRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -20,17 +20,29 @@ public interface JoinChallengeRequestOrBuilder extends
       getChallengeIDBytes();
 
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    * @return Whether the player field is set.
    */
   boolean hasPlayer();
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    * @return The player.
    */
   AMCPlayerProto getPlayer();
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    */
   AMCPlayerProtoOrBuilder getPlayerOrBuilder();
+
+  /**
+   * <code>string installationID = 3;</code>
+   * @return The installationID.
+   */
+  String getInstallationID();
+  /**
+   * <code>string installationID = 3;</code>
+   * @return The bytes for installationID.
+   */
+  com.google.protobuf.ByteString
+      getInstallationIDBytes();
 }

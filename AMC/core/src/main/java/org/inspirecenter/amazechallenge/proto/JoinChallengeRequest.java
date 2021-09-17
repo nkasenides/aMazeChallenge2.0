@@ -4,11 +4,11 @@
 package org.inspirecenter.amazechallenge.proto;
 
 /**
- * Protobuf type {@code JoinChallengeRequest}
+ * Protobuf type {@code org.inspirecenter.amazechallenge.proto.JoinChallengeRequest}
  */
 public final class JoinChallengeRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:JoinChallengeRequest)
+    // @@protoc_insertion_point(message_implements:org.inspirecenter.amazechallenge.proto.JoinChallengeRequest)
     JoinChallengeRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use JoinChallengeRequest.newBuilder() to construct.
@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private JoinChallengeRequest() {
     challengeID_ = "";
+    installationID_ = "";
   }
 
   @Override
@@ -66,6 +67,12 @@ private static final long serialVersionUID = 0L;
               player_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 26: {
+            String s = input.readStringRequireUtf8();
+
+            installationID_ = s;
             break;
           }
           default: {
@@ -141,7 +148,7 @@ private static final long serialVersionUID = 0L;
   public static final int PLAYER_FIELD_NUMBER = 2;
   private AMCPlayerProto player_;
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    * @return Whether the player field is set.
    */
   @Override
@@ -149,7 +156,7 @@ private static final long serialVersionUID = 0L;
     return player_ != null;
   }
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    * @return The player.
    */
   @Override
@@ -157,11 +164,49 @@ private static final long serialVersionUID = 0L;
     return player_ == null ? AMCPlayerProto.getDefaultInstance() : player_;
   }
   /**
-   * <code>.AMCPlayerProto player = 2;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
    */
   @Override
   public AMCPlayerProtoOrBuilder getPlayerOrBuilder() {
     return getPlayer();
+  }
+
+  public static final int INSTALLATIONID_FIELD_NUMBER = 3;
+  private volatile Object installationID_;
+  /**
+   * <code>string installationID = 3;</code>
+   * @return The installationID.
+   */
+  @Override
+  public String getInstallationID() {
+    Object ref = installationID_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      installationID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string installationID = 3;</code>
+   * @return The bytes for installationID.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getInstallationIDBytes() {
+    Object ref = installationID_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      installationID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -184,6 +229,9 @@ private static final long serialVersionUID = 0L;
     if (player_ != null) {
       output.writeMessage(2, getPlayer());
     }
+    if (!getInstallationIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, installationID_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -199,6 +247,9 @@ private static final long serialVersionUID = 0L;
     if (player_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPlayer());
+    }
+    if (!getInstallationIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, installationID_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -222,6 +273,8 @@ private static final long serialVersionUID = 0L;
       if (!getPlayer()
           .equals(other.getPlayer())) return false;
     }
+    if (!getInstallationID()
+        .equals(other.getInstallationID())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -239,6 +292,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PLAYER_FIELD_NUMBER;
       hash = (53 * hash) + getPlayer().hashCode();
     }
+    hash = (37 * hash) + INSTALLATIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getInstallationID().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -335,11 +390,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code JoinChallengeRequest}
+   * Protobuf type {@code org.inspirecenter.amazechallenge.proto.JoinChallengeRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:JoinChallengeRequest)
+      // @@protoc_insertion_point(builder_implements:org.inspirecenter.amazechallenge.proto.JoinChallengeRequest)
       JoinChallengeRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -354,7 +409,7 @@ private static final long serialVersionUID = 0L;
               JoinChallengeRequest.class, Builder.class);
     }
 
-    // Construct using JoinChallengeRequest.newBuilder()
+    // Construct using org.inspirecenter.amazechallenge.proto.JoinChallengeRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -380,6 +435,8 @@ private static final long serialVersionUID = 0L;
         player_ = null;
         playerBuilder_ = null;
       }
+      installationID_ = "";
+
       return this;
     }
 
@@ -412,6 +469,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.player_ = playerBuilder_.build();
       }
+      result.installationID_ = installationID_;
       onBuilt();
       return result;
     }
@@ -466,6 +524,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasPlayer()) {
         mergePlayer(other.getPlayer());
+      }
+      if (!other.getInstallationID().isEmpty()) {
+        installationID_ = other.installationID_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -576,14 +638,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCPlayerProto, AMCPlayerProto.Builder, AMCPlayerProtoOrBuilder> playerBuilder_;
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      * @return Whether the player field is set.
      */
     public boolean hasPlayer() {
       return playerBuilder_ != null || player_ != null;
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      * @return The player.
      */
     public AMCPlayerProto getPlayer() {
@@ -594,7 +656,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public Builder setPlayer(AMCPlayerProto value) {
       if (playerBuilder_ == null) {
@@ -610,7 +672,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public Builder setPlayer(
         AMCPlayerProto.Builder builderForValue) {
@@ -624,7 +686,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public Builder mergePlayer(AMCPlayerProto value) {
       if (playerBuilder_ == null) {
@@ -642,7 +704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public Builder clearPlayer() {
       if (playerBuilder_ == null) {
@@ -656,7 +718,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public AMCPlayerProto.Builder getPlayerBuilder() {
       
@@ -664,7 +726,7 @@ private static final long serialVersionUID = 0L;
       return getPlayerFieldBuilder().getBuilder();
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     public AMCPlayerProtoOrBuilder getPlayerOrBuilder() {
       if (playerBuilder_ != null) {
@@ -675,7 +737,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.AMCPlayerProto player = 2;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.AMCPlayerProto player = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         AMCPlayerProto, AMCPlayerProto.Builder, AMCPlayerProtoOrBuilder>
@@ -690,6 +752,82 @@ private static final long serialVersionUID = 0L;
       }
       return playerBuilder_;
     }
+
+    private Object installationID_ = "";
+    /**
+     * <code>string installationID = 3;</code>
+     * @return The installationID.
+     */
+    public String getInstallationID() {
+      Object ref = installationID_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        installationID_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string installationID = 3;</code>
+     * @return The bytes for installationID.
+     */
+    public com.google.protobuf.ByteString
+        getInstallationIDBytes() {
+      Object ref = installationID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        installationID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string installationID = 3;</code>
+     * @param value The installationID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInstallationID(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      installationID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string installationID = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInstallationID() {
+      
+      installationID_ = getDefaultInstance().getInstallationID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string installationID = 3;</code>
+     * @param value The bytes for installationID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInstallationIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      installationID_ = value;
+      onChanged();
+      return this;
+    }
     @Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -703,10 +841,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:JoinChallengeRequest)
+    // @@protoc_insertion_point(builder_scope:org.inspirecenter.amazechallenge.proto.JoinChallengeRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:JoinChallengeRequest)
+  // @@protoc_insertion_point(class_scope:org.inspirecenter.amazechallenge.proto.JoinChallengeRequest)
   private static final JoinChallengeRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new JoinChallengeRequest();

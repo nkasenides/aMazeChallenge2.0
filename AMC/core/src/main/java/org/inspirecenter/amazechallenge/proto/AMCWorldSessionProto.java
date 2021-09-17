@@ -3,14 +3,12 @@
 
 package org.inspirecenter.amazechallenge.proto;
 
-import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-
 /**
- * Protobuf type {@code AMCWorldSessionProto}
+ * Protobuf type {@code org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto}
  */
 public final class AMCWorldSessionProto extends
-    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<AMCWorldSession> , com.nkasenides.athlos.model.IWorldSession,
-    // @@protoc_insertion_point(message_implements:AMCWorldSessionProto)
+    com.google.protobuf.GeneratedMessageV3 implements com.nkasenides.athlos.proto.Modelable<org.inspirecenter.amazechallenge.model.AMCWorldSession> , com.nkasenides.athlos.model.IWorldSession, 
+    // @@protoc_insertion_point(message_implements:org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto)
     AMCWorldSessionProtoOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use AMCWorldSessionProto.newBuilder() to construct.
@@ -22,6 +20,7 @@ private static final long serialVersionUID = 0L;
     worldID_ = "";
     ipAddress_ = "";
     id_ = "";
+    installationID_ = "";
     playerID_ = "";
   }
 
@@ -110,18 +109,24 @@ private static final long serialVersionUID = 0L;
             id_ = s;
             break;
           }
-          case 64: {
+          case 66: {
+            String s = input.readStringRequireUtf8();
+
+            installationID_ = s;
+            break;
+          }
+          case 72: {
 
             createdOn_ = input.readUInt64();
             break;
           }
-          case 74: {
+          case 82: {
             String s = input.readStringRequireUtf8();
 
             playerID_ = s;
             break;
           }
-          case 80: {
+          case 88: {
 
             points_ = input.readInt32();
             break;
@@ -275,7 +280,7 @@ private static final long serialVersionUID = 0L;
   public static final int CAMERAPOSITION_FIELD_NUMBER = 4;
   private MatrixPositionProto cameraPosition_;
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return Whether the cameraPosition field is set.
    */
   @Override
@@ -283,7 +288,7 @@ private static final long serialVersionUID = 0L;
     return cameraPosition_ != null;
   }
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return The cameraPosition.
    */
   @Override
@@ -291,7 +296,7 @@ private static final long serialVersionUID = 0L;
     return cameraPosition_ == null ? MatrixPositionProto.getDefaultInstance() : cameraPosition_;
   }
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    */
   @Override
   public MatrixPositionProtoOrBuilder getCameraPositionOrBuilder() {
@@ -301,7 +306,7 @@ private static final long serialVersionUID = 0L;
   public static final int HEALTH_FIELD_NUMBER = 5;
   private HealthProto health_;
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    * @return Whether the health field is set.
    */
   @Override
@@ -309,7 +314,7 @@ private static final long serialVersionUID = 0L;
     return health_ != null;
   }
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    * @return The health.
    */
   @Override
@@ -317,7 +322,7 @@ private static final long serialVersionUID = 0L;
     return health_ == null ? HealthProto.getDefaultInstance() : health_;
   }
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    */
   @Override
   public HealthProtoOrBuilder getHealthOrBuilder() {
@@ -373,10 +378,48 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATEDON_FIELD_NUMBER = 8;
+  public static final int INSTALLATIONID_FIELD_NUMBER = 8;
+  private volatile Object installationID_;
+  /**
+   * <code>string installationID = 8;</code>
+   * @return The installationID.
+   */
+  @Override
+  public String getInstallationID() {
+    Object ref = installationID_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      installationID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string installationID = 8;</code>
+   * @return The bytes for installationID.
+   */
+  @Override
+  public com.google.protobuf.ByteString
+      getInstallationIDBytes() {
+    Object ref = installationID_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      installationID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CREATEDON_FIELD_NUMBER = 9;
   private long createdOn_;
   /**
-   * <code>uint64 createdOn = 8;</code>
+   * <code>uint64 createdOn = 9;</code>
    * @return The createdOn.
    */
   @Override
@@ -384,10 +427,10 @@ private static final long serialVersionUID = 0L;
     return createdOn_;
   }
 
-  public static final int PLAYERID_FIELD_NUMBER = 9;
+  public static final int PLAYERID_FIELD_NUMBER = 10;
   private volatile Object playerID_;
   /**
-   * <code>string playerID = 9;</code>
+   * <code>string playerID = 10;</code>
    * @return The playerID.
    */
   @Override
@@ -404,7 +447,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string playerID = 9;</code>
+   * <code>string playerID = 10;</code>
    * @return The bytes for playerID.
    */
   @Override
@@ -422,10 +465,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int POINTS_FIELD_NUMBER = 10;
+  public static final int POINTS_FIELD_NUMBER = 11;
   private int points_;
   /**
-   * <code>int32 points = 10;</code>
+   * <code>int32 points = 11;</code>
    * @return The points.
    */
   @Override
@@ -468,14 +511,17 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, id_);
     }
+    if (!getInstallationIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, installationID_);
+    }
     if (createdOn_ != 0L) {
-      output.writeUInt64(8, createdOn_);
+      output.writeUInt64(9, createdOn_);
     }
     if (!getPlayerIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, playerID_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, playerID_);
     }
     if (points_ != 0) {
-      output.writeInt32(10, points_);
+      output.writeInt32(11, points_);
     }
     unknownFields.writeTo(output);
   }
@@ -510,16 +556,19 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, id_);
     }
+    if (!getInstallationIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, installationID_);
+    }
     if (createdOn_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(8, createdOn_);
+        .computeUInt64Size(9, createdOn_);
     }
     if (!getPlayerIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, playerID_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, playerID_);
     }
     if (points_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(10, points_);
+        .computeInt32Size(11, points_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -556,6 +605,8 @@ private static final long serialVersionUID = 0L;
         != other.getExpiresOn()) return false;
     if (!getId()
         .equals(other.getId())) return false;
+    if (!getInstallationID()
+        .equals(other.getInstallationID())) return false;
     if (getCreatedOn()
         != other.getCreatedOn()) return false;
     if (!getPlayerID()
@@ -592,6 +643,8 @@ private static final long serialVersionUID = 0L;
         getExpiresOn());
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + INSTALLATIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getInstallationID().hashCode();
     hash = (37 * hash) + CREATEDON_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getCreatedOn());
@@ -695,14 +748,14 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code AMCWorldSessionProto}
+   * Protobuf type {@code org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto}
    */
   public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IWorldSession, com.nkasenides.athlos.proto.Modelable<AMCWorldSession>,
-      // @@protoc_insertion_point(builder_implements:AMCWorldSessionProto)
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements com.nkasenides.athlos.model.IWorldSession, com.nkasenides.athlos.proto.Modelable<org.inspirecenter.amazechallenge.model.AMCWorldSession>, 
+      // @@protoc_insertion_point(builder_implements:org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto)
       AMCWorldSessionProtoOrBuilder {    @Override
-    public AMCWorldSession toObject() {
-        AMCWorldSession item = new AMCWorldSession();
+    public org.inspirecenter.amazechallenge.model.AMCWorldSession toObject() {    
+        org.inspirecenter.amazechallenge.model.AMCWorldSession item = new org.inspirecenter.amazechallenge.model.AMCWorldSession();        
         item.setCode(getCode());        
         item.setWorldID(getWorldID());        
         item.setIpAddress(getIpAddress());        
@@ -710,6 +763,7 @@ private static final long serialVersionUID = 0L;
         item.setHealth(getHealth().toObject());        
         item.setExpiresOn(getExpiresOn());        
         item.setId(getId());        
+        item.setInstallationID(getInstallationID());        
         item.setCreatedOn(getCreatedOn());        
         item.setPlayerID(getPlayerID());        
         item.setPoints(getPoints());        
@@ -730,7 +784,7 @@ private static final long serialVersionUID = 0L;
               AMCWorldSessionProto.class, Builder.class);
     }
 
-    // Construct using AMCWorldSessionProto.newBuilder()
+    // Construct using org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -769,6 +823,8 @@ private static final long serialVersionUID = 0L;
       expiresOn_ = 0L;
 
       id_ = "";
+
+      installationID_ = "";
 
       createdOn_ = 0L;
 
@@ -817,6 +873,7 @@ private static final long serialVersionUID = 0L;
       }
       result.expiresOn_ = expiresOn_;
       result.id_ = id_;
+      result.installationID_ = installationID_;
       result.createdOn_ = createdOn_;
       result.playerID_ = playerID_;
       result.points_ = points_;
@@ -891,6 +948,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        onChanged();
+      }
+      if (!other.getInstallationID().isEmpty()) {
+        installationID_ = other.installationID_;
         onChanged();
       }
       if (other.getCreatedOn() != 0L) {
@@ -1164,14 +1225,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder> cameraPositionBuilder_;
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      * @return Whether the cameraPosition field is set.
      */
     public boolean hasCameraPosition() {
       return cameraPositionBuilder_ != null || cameraPosition_ != null;
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      * @return The cameraPosition.
      */
     public MatrixPositionProto getCameraPosition() {
@@ -1182,7 +1243,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder setCameraPosition(MatrixPositionProto value) {
       if (cameraPositionBuilder_ == null) {
@@ -1198,7 +1259,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder setCameraPosition(
         MatrixPositionProto.Builder builderForValue) {
@@ -1212,7 +1273,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder mergeCameraPosition(MatrixPositionProto value) {
       if (cameraPositionBuilder_ == null) {
@@ -1230,7 +1291,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public Builder clearCameraPosition() {
       if (cameraPositionBuilder_ == null) {
@@ -1244,7 +1305,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public MatrixPositionProto.Builder getCameraPositionBuilder() {
       
@@ -1252,7 +1313,7 @@ private static final long serialVersionUID = 0L;
       return getCameraPositionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     public MatrixPositionProtoOrBuilder getCameraPositionOrBuilder() {
       if (cameraPositionBuilder_ != null) {
@@ -1263,7 +1324,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.MatrixPositionProto cameraPosition = 4;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         MatrixPositionProto, MatrixPositionProto.Builder, MatrixPositionProtoOrBuilder>
@@ -1283,14 +1344,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         HealthProto, HealthProto.Builder, HealthProtoOrBuilder> healthBuilder_;
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      * @return Whether the health field is set.
      */
     public boolean hasHealth() {
       return healthBuilder_ != null || health_ != null;
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      * @return The health.
      */
     public HealthProto getHealth() {
@@ -1301,7 +1362,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public Builder setHealth(HealthProto value) {
       if (healthBuilder_ == null) {
@@ -1317,7 +1378,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public Builder setHealth(
         HealthProto.Builder builderForValue) {
@@ -1331,7 +1392,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public Builder mergeHealth(HealthProto value) {
       if (healthBuilder_ == null) {
@@ -1349,7 +1410,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public Builder clearHealth() {
       if (healthBuilder_ == null) {
@@ -1363,7 +1424,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public HealthProto.Builder getHealthBuilder() {
       
@@ -1371,7 +1432,7 @@ private static final long serialVersionUID = 0L;
       return getHealthFieldBuilder().getBuilder();
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     public HealthProtoOrBuilder getHealthOrBuilder() {
       if (healthBuilder_ != null) {
@@ -1382,7 +1443,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.HealthProto health = 5;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         HealthProto, HealthProto.Builder, HealthProtoOrBuilder>
@@ -1505,9 +1566,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private Object installationID_ = "";
+    /**
+     * <code>string installationID = 8;</code>
+     * @return The installationID.
+     */
+    public String getInstallationID() {
+      Object ref = installationID_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        installationID_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string installationID = 8;</code>
+     * @return The bytes for installationID.
+     */
+    public com.google.protobuf.ByteString
+        getInstallationIDBytes() {
+      Object ref = installationID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        installationID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string installationID = 8;</code>
+     * @param value The installationID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInstallationID(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      installationID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string installationID = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInstallationID() {
+      
+      installationID_ = getDefaultInstance().getInstallationID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string installationID = 8;</code>
+     * @param value The bytes for installationID to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInstallationIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      installationID_ = value;
+      onChanged();
+      return this;
+    }
+
     private long createdOn_ ;
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @return The createdOn.
      */
     @Override
@@ -1515,7 +1652,7 @@ private static final long serialVersionUID = 0L;
       return createdOn_;
     }
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @param value The createdOn to set.
      * @return This builder for chaining.
      */
@@ -1526,7 +1663,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 createdOn = 8;</code>
+     * <code>uint64 createdOn = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreatedOn() {
@@ -1538,7 +1675,7 @@ private static final long serialVersionUID = 0L;
 
     private Object playerID_ = "";
     /**
-     * <code>string playerID = 9;</code>
+     * <code>string playerID = 10;</code>
      * @return The playerID.
      */
     public String getPlayerID() {
@@ -1554,7 +1691,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 9;</code>
+     * <code>string playerID = 10;</code>
      * @return The bytes for playerID.
      */
     public com.google.protobuf.ByteString
@@ -1571,7 +1708,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string playerID = 9;</code>
+     * <code>string playerID = 10;</code>
      * @param value The playerID to set.
      * @return This builder for chaining.
      */
@@ -1586,7 +1723,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 9;</code>
+     * <code>string playerID = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearPlayerID() {
@@ -1596,7 +1733,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string playerID = 9;</code>
+     * <code>string playerID = 10;</code>
      * @param value The bytes for playerID to set.
      * @return This builder for chaining.
      */
@@ -1614,7 +1751,7 @@ private static final long serialVersionUID = 0L;
 
     private int points_ ;
     /**
-     * <code>int32 points = 10;</code>
+     * <code>int32 points = 11;</code>
      * @return The points.
      */
     @Override
@@ -1622,7 +1759,7 @@ private static final long serialVersionUID = 0L;
       return points_;
     }
     /**
-     * <code>int32 points = 10;</code>
+     * <code>int32 points = 11;</code>
      * @param value The points to set.
      * @return This builder for chaining.
      */
@@ -1633,7 +1770,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 points = 10;</code>
+     * <code>int32 points = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearPoints() {
@@ -1655,10 +1792,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:AMCWorldSessionProto)
+    // @@protoc_insertion_point(builder_scope:org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto)
   }
 
-  // @@protoc_insertion_point(class_scope:AMCWorldSessionProto)
+  // @@protoc_insertion_point(class_scope:org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto)
   private static final AMCWorldSessionProto DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new AMCWorldSessionProto();
@@ -1694,8 +1831,8 @@ private static final long serialVersionUID = 0L;
   }
 
     @Override
-    public AMCWorldSession toObject() {
-        AMCWorldSession item = new AMCWorldSession();
+    public org.inspirecenter.amazechallenge.model.AMCWorldSession toObject() {    
+        org.inspirecenter.amazechallenge.model.AMCWorldSession item = new org.inspirecenter.amazechallenge.model.AMCWorldSession();        
         item.setCode(getCode());        
         item.setWorldID(getWorldID());        
         item.setIpAddress(getIpAddress());        
@@ -1703,6 +1840,7 @@ private static final long serialVersionUID = 0L;
         item.setHealth(getHealth().toObject());        
         item.setExpiresOn(getExpiresOn());        
         item.setId(getId());        
+        item.setInstallationID(getInstallationID());        
         item.setCreatedOn(getCreatedOn());        
         item.setPlayerID(getPlayerID());        
         item.setPoints(getPoints());        

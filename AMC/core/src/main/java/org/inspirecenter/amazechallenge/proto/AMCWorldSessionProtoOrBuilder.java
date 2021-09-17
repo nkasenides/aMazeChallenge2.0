@@ -4,7 +4,7 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface AMCWorldSessionProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:AMCWorldSessionProto)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.AMCWorldSessionProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -44,32 +44,32 @@ public interface AMCWorldSessionProtoOrBuilder extends
       getIpAddressBytes();
 
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return Whether the cameraPosition field is set.
    */
   boolean hasCameraPosition();
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    * @return The cameraPosition.
    */
   MatrixPositionProto getCameraPosition();
   /**
-   * <code>.MatrixPositionProto cameraPosition = 4;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.MatrixPositionProto cameraPosition = 4;</code>
    */
   MatrixPositionProtoOrBuilder getCameraPositionOrBuilder();
 
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    * @return Whether the health field is set.
    */
   boolean hasHealth();
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    * @return The health.
    */
   HealthProto getHealth();
   /**
-   * <code>.HealthProto health = 5;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.HealthProto health = 5;</code>
    */
   HealthProtoOrBuilder getHealthOrBuilder();
 
@@ -92,25 +92,37 @@ public interface AMCWorldSessionProtoOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>uint64 createdOn = 8;</code>
+   * <code>string installationID = 8;</code>
+   * @return The installationID.
+   */
+  String getInstallationID();
+  /**
+   * <code>string installationID = 8;</code>
+   * @return The bytes for installationID.
+   */
+  com.google.protobuf.ByteString
+      getInstallationIDBytes();
+
+  /**
+   * <code>uint64 createdOn = 9;</code>
    * @return The createdOn.
    */
   long getCreatedOn();
 
   /**
-   * <code>string playerID = 9;</code>
+   * <code>string playerID = 10;</code>
    * @return The playerID.
    */
   String getPlayerID();
   /**
-   * <code>string playerID = 9;</code>
+   * <code>string playerID = 10;</code>
    * @return The bytes for playerID.
    */
   com.google.protobuf.ByteString
       getPlayerIDBytes();
 
   /**
-   * <code>int32 points = 10;</code>
+   * <code>int32 points = 11;</code>
    * @return The points.
    */
   int getPoints();

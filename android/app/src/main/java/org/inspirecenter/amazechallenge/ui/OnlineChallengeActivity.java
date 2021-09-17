@@ -219,6 +219,7 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
         JoinChallengeRequest requestMessage = JoinChallengeRequest.newBuilder()
                 .setChallengeID(challenge.getId())
                 .setPlayer(AMCClient.getInstance().getPlayer().toProto())
+                .setInstallationID(Installation.id(OnlineChallengeActivity.this))
                 .build();
 
         progressBar.setVisibility(View.VISIBLE);

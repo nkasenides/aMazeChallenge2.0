@@ -23,7 +23,8 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
     private MatrixPosition cameraPosition;    
     private Health health;    
     private long expiresOn;    
-    private String id;    
+    private String id;
+    private String installationID;
     private long createdOn;    
     private String playerID;    
     private int points;
@@ -72,8 +73,12 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
     
     public int getPoints() {    
         return points;        
-    }    
-    
+    }
+
+    public String getInstallationID() {
+        return installationID;
+    }
+
 
     public void setCode(String code) {    
         this.code = code;        
@@ -115,6 +120,10 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
         this.points = points;        
     }
 
+    public void setInstallationID(String installationID) {
+        this.installationID = installationID;
+    }
+
     public void changePointsBy(int amount) {
         if (points + amount < 0) points = 0;
         else points += amount;
@@ -143,7 +152,8 @@ public class AMCWorldSession implements Transmittable<AMCWorldSessionProto.Build
         protoBuilder.setCameraPosition(cameraPosition.toProto().build());        
         protoBuilder.setHealth(health.toProto().build());        
         protoBuilder.setExpiresOn(expiresOn);        
-        protoBuilder.setId(id);        
+        protoBuilder.setId(id);
+        protoBuilder.setInstallationID(installationID);
         protoBuilder.setCreatedOn(createdOn);        
         protoBuilder.setPlayerID(playerID);        
         protoBuilder.setPoints(points);        
