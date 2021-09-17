@@ -184,9 +184,11 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             System.out.println("Player reset: " + playerID);
         }
 
-        //For players who have finished, remove their entity from the player entities:
+        //For players who have finished, remove their entity from the player entities and update their data:
         for (String finishedPlayerID : game.getFinishedPlayers()) {
             game.getPlayerEntities().remove(finishedPlayerID + "_" + challenge.getId());
+            memcache.delete(getMazeSolverStateKey(game.getId(), finishedPlayerID));
+            memcache.delete(KeyUtils.getCodeKey(challenge.getId(), finishedPlayerID)); // reset submitted code
         }
 
         // update game with number of rounds executed

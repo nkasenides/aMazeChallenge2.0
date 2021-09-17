@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.cloud.firestore.annotation.Exclude;
+import org.inspirecenter.amazechallenge.algorithms.MazeSolver;
 import org.inspirecenter.amazechallenge.controller.AudioEventListener;
 import org.inspirecenter.amazechallenge.controller.GameEndListener;
 import com.nkasenides.athlos.proto.Transmittable;
@@ -223,6 +224,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         final String playerId = player.getId();
         allPlayers.put(playerId, player);
         playerWorldSessions.put(playerId, worldSession);
+        activePlayers.remove(playerId);
         finishedPlayers.remove(playerId);
         queuedPlayers.remove(playerId);
         if(!waitingPlayers.contains(playerId)) waitingPlayers.add(playerId);
@@ -238,6 +240,9 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
 
         //Add the player to the finished players list:
         finishedPlayers.add(playerId);
+
+        //Remove the player's entity:
+        playerEntities.remove(playerId + "_" + playerWorldSessions.get(playerId).getWorldID());
 
         //Reset:
 //        playerWorldSessions.get(playerId).setHealth(new Health());
@@ -277,7 +282,6 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
                 playerEntity.setWorldID(worldSession.getWorldID());
                 playerEntities.put(playerEntity.getId(), playerEntity);
             }
-
             return true;
         } else {
             return false;

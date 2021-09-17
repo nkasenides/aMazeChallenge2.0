@@ -46,12 +46,11 @@ public class RuntimeController {
             }
         }
 
-//        System.out.println("adjustedPlayerToMoveIDs = " + adjustedPlayerToMoveIDs); //TODO - Remove
-
         for (final String playerToMoveId : adjustedPlayerToMoveIDs) {
             final AMCPlayer player = game.getPlayerByID(playerToMoveId);
             final MazeSolver mazeSolver = playerIdsToMazeSolvers.get(playerToMoveId);
             final AMCWorldSession worldSession = game.getPlayerWorldSessions().get(playerToMoveId);
+
             final PlayerEntity playerEntity = game.getPlayerEntities().get(playerToMoveId + "_" + worldSession.getWorldID());
 
             // the player might have been deactivated (for instance if he had 2 moves and this one is the second)
