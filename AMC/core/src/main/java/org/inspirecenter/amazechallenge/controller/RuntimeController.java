@@ -49,8 +49,11 @@ public class RuntimeController {
             final AMCWorldSession worldSession = game.getPlayerWorldSessions().get(playerToMoveId);
 
             final PlayerEntity playerEntity = game.getPlayerEntities().get(playerToMoveId + "_" + worldSession.getWorldID());
+//            System.out.println("Player entity ID: " + playerToMoveId + "_" + worldSession.getWorldID());
+//            System.out.println("playerEntity = " + playerEntity);
 
             // the player might have been deactivated (for instance if he had 2 moves and this one is the second)
+
             if(game.getActivePlayers().contains(playerToMoveId)) {
                 final PlayerMove nextPlayerMove = mazeSolver == null ? PlayerMove.NO_MOVE : mazeSolver.getNextMove(game);
                 applyPlayerMove(grid, game, playerToMoveId, worldSession, playerEntity, nextPlayerMove);
