@@ -18,6 +18,7 @@ import org.inspirecenter.amazechallenge.controller.RuntimeController;
 import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
 import org.inspirecenter.amazechallenge.persistence.KeyUtils;
+import org.inspirecenter.amazechallenge.proto.Audio;
 import org.inspirecenter.amazechallenge.proto.RuntimeRequest;
 import org.inspirecenter.amazechallenge.auth.*;
 import org.inspirecenter.amazechallenge.proto.RuntimeResponse;
@@ -136,7 +137,6 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
         // now check if we can upgrade any players from 'queued' to 'active'
         while(game.getActivePlayers().size() < challenge.getMaxActivePlayers() && !game.getQueuedPlayers().isEmpty()) {
-            // activate players as needed
             game.activateNextPlayer(grid);
         }
 

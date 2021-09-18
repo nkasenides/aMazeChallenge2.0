@@ -37,6 +37,7 @@ import org.inspirecenter.amazechallenge.model.AMCPlayer;
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
 import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.PickableEntity;
+import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
 import org.inspirecenter.amazechallenge.proto.Audio;
 import org.inspirecenter.amazechallenge.proto.AudioFormat;
 import org.inspirecenter.amazechallenge.proto.AudioType;
@@ -507,6 +508,59 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 });
             }
         }
+    }
+
+    private void handleOnlineEvents(AMCStateUpdateProto stateUpdate) {
+        for (Audio audio : stateUpdate.getEventsList()) {
+            if (audio == Audio.EVENT_WIN_Audio) {
+                onGameEndAudioEvent(true);
+            }
+            else if (audio == Audio.EVENT_LOSE_Audio) {
+                onGameEndAudioEvent(false);
+            }
+            else {
+                switch (audio) {
+                    case EVENT_FOOD_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_FOOD_Audio.toString()).start();
+                        break;
+                    case EVENT_COIN5_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_COIN5_Audio.toString()).start();
+                        break;
+                    case EVENT_COIN10_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_COIN10_Audio.toString()).start();
+                        break;
+                    case EVENT_COIN20_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_COIN20_Audio.toString()).start();
+                        break;
+                    case EVENT_GIFTBOX_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_GIFTBOX_Audio.toString()).start();
+                        break;
+                    case EVENT_BOMB_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_BOMB_Audio.toString()).start();
+                        if (vibration) {
+                            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            if (v != null) v.vibrate(250);
+                        }
+                        break;
+                    case EVENT_SPEEDHACK_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_SPEEDHACK_Audio.toString()).start();
+                        if (vibration) {
+                            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            long[] pattern = {100, 100, 100};
+                            if (v != null) v.vibrate(pattern, -1);
+                        }
+                        break;
+                    case EVENT_TRAP_Audio:
+                        if (sound) audioEventsMap.get(Audio.EVENT_TRAP_Audio.toString()).start();
+                        if (vibration) {
+                            Vibrator vTrap = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            if (vTrap != null) vTrap.vibrate(250);
+                        }
+                        break;
+                }
+            }
+        }
+
     }
 
     private void showFABMenu() {

@@ -301,12 +301,12 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     }
 
     @Exclude
-    public void addPlayerEvent(String playerID, long eventTime, Audio eventType) {
+    public void addPlayerEvent(String playerID, Audio eventType) {
         HashMap<Long, Audio> eventsMap = playerEvents.get(playerID);
         if (eventsMap == null) {
             eventsMap = new HashMap<>();
         }
-        eventsMap.put(eventTime, eventType);
+        eventsMap.put(System.currentTimeMillis(), eventType);
         playerEvents.put(playerID, eventsMap);
     }
 
@@ -321,7 +321,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     }
 
     @Exclude
-    public void clearPlayerEvents(String playerID) {
+    public void clearAllPlayerEvents(String playerID) {
         playerEvents.remove(playerID);
     }
     

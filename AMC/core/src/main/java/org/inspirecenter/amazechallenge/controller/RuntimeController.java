@@ -3,10 +3,7 @@ package org.inspirecenter.amazechallenge.controller;
 import org.inspirecenter.amazechallenge.algorithms.MazeSolver;
 import org.inspirecenter.amazechallenge.algorithms.PlayerMove;
 import org.inspirecenter.amazechallenge.model.*;
-import org.inspirecenter.amazechallenge.proto.Bias;
-import org.inspirecenter.amazechallenge.proto.Direction4;
-import org.inspirecenter.amazechallenge.proto.PickableType;
-import org.inspirecenter.amazechallenge.proto.Rotation;
+import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.generation.AMCTerrainGenerator;
 import org.inspirecenter.amazechallenge.model.*;
 
@@ -68,6 +65,10 @@ public class RuntimeController {
                     if(audioEventListener != null) {
                         audioEventListener.onGameEndAudioEvent(false);
                     }
+
+                    //Dispatch online event:
+                    game.addPlayerEvent(playerToMoveId, Audio.EVENT_LOSE_Audio); //NEW 2.0 (Online events)
+
                 }
             }
 
@@ -111,7 +112,44 @@ public class RuntimeController {
                                     if (audioEventListener != null) audioEventListener.onAudioEvent(pickable);
                                 }
                             }
-                            else worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                            else {
+                                worldSession.getHealth().changeBy(pickable.getPickableType().getHealthChange());
+                            }
+
+                            switch (pickable.getPickableType()) { //NEW 2.0 (Online events)
+                                case GRAPES_PickableType:
+                                case ORANGE_PickableType:
+                                case STRAWBERRY_PickableType:
+                                case BANANA_PickableType:
+                                case PEACH_PickableType:
+                                case WATERMELON_PickableType:
+                                case APPLE_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_FOOD_Audio);
+                                    break;
+                                case TRAP_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_TRAP_Audio);
+                                    break;
+                                case SPEEDHACK_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_SPEEDHACK_Audio);
+                                    break;
+                                case COIN_10_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_COIN10_Audio);
+                                    break;
+                                case COIN_20_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_COIN20_Audio);
+                                    break;
+                                case GIFTBOX_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_GIFTBOX_Audio);
+                                    break;
+                                case COIN_5_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_COIN5_Audio);
+                                    break;
+                                case BOMB_PickableType:
+                                    game.addPlayerEvent(playerId, Audio.EVENT_BOMB_Audio);
+                                    break;
+                                case UNRECOGNIZED:
+                                    break;
+                            }
 
                             //Apply effects of point-related pickables:
                             worldSession.changePointsBy(pickable.getPickableType().getPointsChange());
@@ -139,7 +177,6 @@ public class RuntimeController {
         }
         playerEntity.setDirection(direction);
         playerEntity.setPosition(position);
-//        game.getPlayerEntities().put(playerId, playerEntity); //TODO - Perhaps not necessary to update this as it is a reference.
     }
 
     public static boolean hasSomeoneReachedTheTargetPosition(final Game game, final Grid grid) {
@@ -149,8 +186,9 @@ public class RuntimeController {
             final PlayerEntity playerEntity = game.getPlayerEntities().get(playerId + "_" + game.getPlayerWorldSessions().get(playerId).getWorldID());
             if (targetPosition.equals(playerEntity.getPosition())) {
                 if (grid.getTargetPosition().equals(playerEntity.getPosition())) {
-//                    game.getAudioEventListener().onGameEndAudioEvent(true); //TODO Remove, make for each player individually.
+                    game.getAudioEventListener().onGameEndAudioEvent(true); //TODO Remove, make for each player individually.
                     game.getGameEndListener().onPlayerHasWon(playerId);
+                    game.addPlayerEvent(playerId, Audio.EVENT_WIN_Audio); //NEW 2.0 (Online events)
                 }
                 someoneHasReachedTheTargetPosition = true;
                 resetTurnEffects();
@@ -363,7 +401,6 @@ public class RuntimeController {
             game.getPickables().get(i).reduceState();
             if (game.getPickables().get(i).getState() <= 0) {
                 game.removePickupItem(i);
-                System.out.println("Removing pickable");
             }
         }
     }

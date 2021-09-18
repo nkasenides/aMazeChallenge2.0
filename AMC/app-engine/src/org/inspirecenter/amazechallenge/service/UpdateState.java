@@ -14,8 +14,10 @@ import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
 import org.inspirecenter.amazechallenge.proto.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStateResponse> {
 
@@ -71,12 +73,16 @@ public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStat
             builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
         }
 
+        //Handle events:
+        final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
+        Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+        game.clearAllPlayerEvents(worldSession.getPlayerID());
 
         //Retrieve the partial state:
         builder
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
-                .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change.
+                .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change?
                 .addAllActivePlayers(game.getActivePlayers())
                 .addAllQueuedPlayers(game.getQueuedPlayers())
                 .addAllWaitingPlayers(game.getWaitingPlayers())
@@ -89,7 +95,9 @@ public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStat
                         .setPartialState(builder.build())
                         .setTimestamp(System.currentTimeMillis())
                         .setWorldSessionID(worldSession.getId())
-                        .build())
+                        .addAllEvents(dispatchedEvents)
+                        .build()
+                )
                 .build();
 
     }

@@ -136,61 +136,36 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
             }
         }
 
-        //If the player did not exist, create a new world session:
-        if (worldSession == null) {
-            newSession = true;
-            worldSession = new AMCWorldSession();
-            worldSession.setCameraPosition(challenge.getGrid().getStartingPosition());
-            worldSession.setWorldID(challengeID);
-            worldSession.setCode("");
-            worldSession.setHealth(new Health());
-            worldSession.setCreatedOn(System.currentTimeMillis());
-            worldSession.setExpiresOn(System.currentTimeMillis() + 3600 * 24); //24h
-            worldSession.setIpAddress((String) additionalParams[0]);
-            worldSession.setPlayerID(player.getName());
-            worldSession.setPoints(0);
-            worldSession.setInstallationID(installationID);
-            worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
-        }
+        synchronized (JoinChallenge.class) {
+            //If the player did not exist, create a new world session:
+            if (worldSession == null) {
+                newSession = true;
+                worldSession = new AMCWorldSession();
+                worldSession.setCameraPosition(challenge.getGrid().getStartingPosition());
+                worldSession.setWorldID(challengeID);
+                worldSession.setCode("");
+                worldSession.setHealth(new Health());
+                worldSession.setCreatedOn(System.currentTimeMillis());
+                worldSession.setExpiresOn(System.currentTimeMillis() + 3600 * 24); //24h
+                worldSession.setIpAddress((String) additionalParams[0]);
+                worldSession.setPlayerID(player.getName());
+                worldSession.setPoints(0);
+                worldSession.setInstallationID(installationID);
+                worldSession.setId(AMCWorldSession.getWorldSessionID(player.getId(), challengeID));
+            }
 
-        final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
-        Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
+            final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
+            Game game = (Game) memcache.get("game_" + worldSession.getWorldID());
 
-        //If the game does not exist, create and store it in  memcache:
-        if (game == null) {
-            game = new Game();
-            game.setId("game_" + worldSession.getWorldID());
-            game.setChallengeID(challengeID);
-            game.addPlayer(player.toObject(), worldSession);
-            game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
-            memcache.put(game.getId(), game);
+            //If the game does not exist, create and store it in  memcache:
+            if (game == null) {
+                game = new Game();
+                game.setId("game_" + worldSession.getWorldID());
+                game.setChallengeID(challengeID);
+                game.addPlayer(player.toObject(), worldSession);
+                game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+                memcache.put(game.getId(), game);
 
-            //Start the runtime task:
-            final Queue queue = QueueFactory.getDefaultQueue();
-            RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
-                    .setChallengeID(challengeID)
-                    .setGameID(game.getId())
-                    .setAdminKey(DBManager.adminKey.get().getId())
-                    .build();
-
-            TaskOptions taskOptions = TaskOptions.Builder
-                    .withUrl("/admin/runtime")
-                    .payload(runtimeRequest.toByteArray())
-                    .method(TaskOptions.Method.POST);
-
-            queue.add(taskOptions);
-        }
-
-        //If the game exists, just add the player:
-        else {
-            final int numOfPlayers = game.getActivePlayers().size() + game.getWaitingPlayers().size() + game.getQueuedPlayers().size();
-
-            game.addPlayer(player.toObject(), worldSession);
-            game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
-            memcache.put(game.getId(), game);
-
-            //If this is the first player to join, start the task queue:
-            if (numOfPlayers == 0) {
                 //Start the runtime task:
                 final Queue queue = QueueFactory.getDefaultQueue();
                 RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
@@ -206,11 +181,38 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
                 queue.add(taskOptions);
             }
-        }
 
-        //If this is a new session, create it in the DB:
-        if (newSession) {
-            DBManager.worldSession.create(worldSession);
+            //If the game exists, just add the player:
+            else {
+                final int numOfPlayers = game.getActivePlayers().size() + game.getWaitingPlayers().size() + game.getQueuedPlayers().size();
+
+                game.addPlayer(player.toObject(), worldSession);
+                game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+                memcache.put(game.getId(), game);
+
+                //If this is the first player to join, start the task queue:
+                if (numOfPlayers == 0) {
+                    //Start the runtime task:
+                    final Queue queue = QueueFactory.getDefaultQueue();
+                    RuntimeRequest runtimeRequest = RuntimeRequest.newBuilder()
+                            .setChallengeID(challengeID)
+                            .setGameID(game.getId())
+                            .setAdminKey(DBManager.adminKey.get().getId())
+                            .build();
+
+                    TaskOptions taskOptions = TaskOptions.Builder
+                            .withUrl("/admin/runtime")
+                            .payload(runtimeRequest.toByteArray())
+                            .method(TaskOptions.Method.POST);
+
+                    queue.add(taskOptions);
+                }
+            }
+
+            //If this is a new session, create it in the DB:
+            if (newSession) {
+                DBManager.worldSession.create(worldSession);
+            }
         }
 
         return JoinChallengeResponse.newBuilder()

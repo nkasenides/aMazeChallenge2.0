@@ -119,17 +119,46 @@ public interface AMCStateUpdateProtoOrBuilder extends
       String key);
 
   /**
-   * <code>uint64 timestamp = 6;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.Audio events = 6;</code>
+   * @return A list containing the events.
+   */
+  java.util.List<Audio> getEventsList();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.Audio events = 6;</code>
+   * @return The count of events.
+   */
+  int getEventsCount();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.Audio events = 6;</code>
+   * @param index The index of the element to return.
+   * @return The events at the given index.
+   */
+  Audio getEvents(int index);
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.Audio events = 6;</code>
+   * @return A list containing the enum numeric values on the wire for events.
+   */
+  java.util.List<Integer>
+  getEventsValueList();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.Audio events = 6;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of events at the given index.
+   */
+  int getEventsValue(int index);
+
+  /**
+   * <code>uint64 timestamp = 7;</code>
    * @return The timestamp.
    */
   long getTimestamp();
 
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 8;</code>
    */
   int getAllPlayersCount();
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 8;</code>
    */
   boolean containsAllPlayers(
       String key);
@@ -140,19 +169,19 @@ public interface AMCStateUpdateProtoOrBuilder extends
   java.util.Map<String, AMCPlayerProto>
   getAllPlayers();
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 8;</code>
    */
   java.util.Map<String, AMCPlayerProto>
   getAllPlayersMap();
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 8;</code>
    */
 
   AMCPlayerProto getAllPlayersOrDefault(
       String key,
       AMCPlayerProto defaultValue);
   /**
-   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 7;</code>
+   * <code>map&lt;string, .org.inspirecenter.amazechallenge.proto.AMCPlayerProto&gt; allPlayers = 8;</code>
    */
 
   AMCPlayerProto getAllPlayersOrThrow(
