@@ -174,6 +174,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             // for any players that were moved in 'inactive' status, reset their state and code so they are not restarted automatically
             if(playerPosition != null && playerPosition.equals(targetPosition)) {
                 playersToDeactivate.add(activePlayerId);
+                game.addPlayerEvent(activePlayerId, Audio.EVENT_WIN_Audio); //NEW 2.0 (Online events)
             }
         }
 
@@ -181,7 +182,6 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             memcache.delete(getMazeSolverStateKey(game.getId(), playerID)); // reset algorithm's state
             memcache.delete(KeyUtils.getCodeKey(challenge.getId(), playerID)); // reset submitted code
             game.resetPlayerById(playerID);
-            System.out.println("Player reset: " + playerID);
         }
 
         //For players who have finished, remove their entity from the player entities and update their data:

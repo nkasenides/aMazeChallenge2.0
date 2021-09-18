@@ -390,8 +390,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private void getStateHTTP() {
 
-        System.out.println("getStateHTTP()"); //TODO - Remove
-
         RequestQueue queue = Volley.newRequestQueue(this);
         final String url = Stubs.BASE_URL + "/api/state/get";
 
@@ -450,8 +448,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private void updateStateHTTP() {
 
-        System.out.println("updateStateHTTP()"); //TODO - Remove
-
         RequestQueue queue = Volley.newRequestQueue(this);
         final String url = Stubs.BASE_URL + "/api/state/update";
 
@@ -465,7 +461,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
                     if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) {
                         gameView.update(updateStateResponse.getStateUpdate());
-
+                        handleOnlineEvents(updateStateResponse.getStateUpdate());
                         onlinePlayerAdapter.clear();
                         onlinePlayerAdapter.update(updateStateResponse.getStateUpdate().getPartialState());
                         onlinePlayerAdapter.notifyDataSetChanged();
@@ -511,6 +507,9 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     }
 
     private void handleOnlineEvents(AMCStateUpdateProto stateUpdate) {
+
+        System.out.println("Events: " + stateUpdate.getEventsList());
+
         for (Audio audio : stateUpdate.getEventsList()) {
             if (audio == Audio.EVENT_WIN_Audio) {
                 onGameEndAudioEvent(true);

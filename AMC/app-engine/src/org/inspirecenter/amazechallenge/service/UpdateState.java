@@ -77,6 +77,7 @@ public class UpdateState implements AthlosService<UpdateStateRequest, UpdateStat
         final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
         Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
         game.clearAllPlayerEvents(worldSession.getPlayerID());
+        memcache.put(game.getId(), game);
 
         //Retrieve the partial state:
         builder

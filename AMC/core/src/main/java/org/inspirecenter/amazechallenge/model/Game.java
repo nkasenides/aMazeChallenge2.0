@@ -322,7 +322,9 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
 
     @Exclude
     public void clearAllPlayerEvents(String playerID) {
-        playerEvents.remove(playerID);
+        if (playerEvents.containsKey(playerID)) {
+            playerEvents.get(playerID).clear();
+        }
     }
     
 
