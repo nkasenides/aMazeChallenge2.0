@@ -81,16 +81,10 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
         Game game = (Game) o;
 
-        //TODO - Ensure consistency with other servlets and across instances by locking on a memcache object?
-        //Lock start?
-
-        //Implement game logic:
-        implementGameLogic(challenge, game);
-
-        //Update the game state:
-        memcache.put(gameID, game);
-
-        //Lock end?
+        synchronized (Runtime.class) {
+            implementGameLogic(challenge, game);
+            memcache.put(gameID, game);
+        }
 
         //Schedule the next task for running, only if there are active players:
         if (game.getQueuedPlayers().size() != 0 || game.getWaitingPlayers().size() != 0 || game.getActivePlayers().size() != 0) {

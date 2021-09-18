@@ -72,9 +72,10 @@ public class RuntimeController {
                 }
             }
 
-            generateItems(game, challenge, grid); // generate pickables etc.
-            handlePickableState(game); // handle stateful pickables
         }
+
+        generateItems(game, challenge, grid); // generate pickables etc.
+        handlePickableState(game); // handle stateful pickables
     }
 
     private static void applyPlayerMove(final Grid grid, final Game game, final String playerId, final AMCWorldSession worldSession, final PlayerEntity playerEntity, final PlayerMove playerMove) {
@@ -145,7 +146,9 @@ public class RuntimeController {
                                     game.addPlayerEvent(playerId, Audio.EVENT_COIN5_Audio);
                                     break;
                                 case BOMB_PickableType:
-                                    game.addPlayerEvent(playerId, Audio.EVENT_BOMB_Audio);
+                                    if (pickable.getState() == 0) {
+                                        game.addPlayerEvent(playerId, Audio.EVENT_BOMB_Audio);
+                                    }
                                     break;
                                 case UNRECOGNIZED:
                                     break;
