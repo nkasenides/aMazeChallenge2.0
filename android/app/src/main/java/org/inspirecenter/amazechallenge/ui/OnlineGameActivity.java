@@ -1,11 +1,13 @@
 package org.inspirecenter.amazechallenge.ui;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -16,28 +18,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.inspirecenter.amazechallenge.controller.AudioEventListener;
 import org.inspirecenter.amazechallenge.controller.GameEndListener;
 import org.inspirecenter.amazechallenge.model.AMCPlayer;
 import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.PickableEntity;
 import org.inspirecenter.amazechallenge.proto.AMCStateUpdateProto;
 import org.inspirecenter.amazechallenge.proto.Audio;
@@ -46,8 +44,6 @@ import org.inspirecenter.amazechallenge.proto.AudioType;
 import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.proto.GetStateRequest;
 import org.inspirecenter.amazechallenge.proto.GetStateResponse;
-import org.inspirecenter.amazechallenge.proto.JoinChallengeRequest;
-import org.inspirecenter.amazechallenge.proto.JoinChallengeResponse;
 import org.inspirecenter.amazechallenge.proto.LeaveChallengeRequest;
 import org.inspirecenter.amazechallenge.proto.LeaveChallengeResponse;
 import org.inspirecenter.amazechallenge.proto.SubmitCodeRequest;
@@ -55,19 +51,14 @@ import org.inspirecenter.amazechallenge.proto.SubmitCodeResponse;
 import org.inspirecenter.amazechallenge.proto.UpdateStateRequest;
 import org.inspirecenter.amazechallenge.proto.UpdateStateResponse;
 
-import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.stubs.AMCClient;
 import org.inspirecenter.amazechallenge.stubs.BinaryRequest;
 import org.inspirecenter.amazechallenge.stubs.Stubs;
+import org.inspirecenter.amazechallenge.ui.discovery.DiscoveryView;
 import org.inspirecenter.amazechallenge.utils.Emoji;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Timer;
@@ -78,11 +69,11 @@ import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_AMBIENT_V
 import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_EVENTS_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_KEY;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_WORLD_SESSION_KEY;
+import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_DISCOVER_CODE_EDITOR_ONLINE;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_SOUND;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_VIBRATION;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 import static org.inspirecenter.amazechallenge.ui.OnlineChallengeActivity.PREFERENCE_KEY_CHALLENGE;
-import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PERMISSIONS_REQUEST_GET_ACCOUNT;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_EMAIL;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_NAME;
 
@@ -110,6 +101,12 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     private HashMap<String, MediaPlayer> audioEventsMap = new HashMap<>();
 
     private AMCWorldSession currentPlayerWorldSession;
+
+    private ChallengeProto challenge;
+    private String email = null;
+
+    private Handler handler;
+    private Timer timer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,13 +164,32 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         sound = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(KEY_PREF_SOUND, true);
         vibration = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(KEY_PREF_VIBRATION, true);
 
+        boolean discoveredCodeEditor = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(KEY_DISCOVER_CODE_EDITOR_ONLINE, false);
+
+        if (!discoveredCodeEditor) {
+            mainFAB.post(() -> {
+                DiscoveryView discoveryView = new DiscoveryView.Builder(OnlineGameActivity.this, mainFAB)
+                        .setPrimaryText(R.string.discovery_code)
+                        .setSecondaryText("")
+                        .setBackgroundColor(getColor(R.color.colorPrimaryDark))
+                        .setPrimaryTextColor(getColor(R.color.colorAccentLight))
+                        .setOnClickListener(new DiscoveryView.OnDiscoveryViewClickListener() {
+                            @Override
+                            public void onDiscoveryViewClicked(DiscoveryView discoveryView) {
+                                discoveryView.dismiss();
+                            }
+
+                            @Override
+                            public void onDiscoveryViewDismissed(DiscoveryView discoveryView) {
+                                discoveryView.dismiss();
+                            }
+                        })
+                        .build();
+                discoveryView.show();
+                PreferenceManager.getDefaultSharedPreferences(OnlineGameActivity.this).edit().putBoolean(KEY_DISCOVER_CODE_EDITOR_ONLINE, true).apply();
+            });
+        }
     }
-
-    private ChallengeProto challenge;
-    private String email = null;
-
-    private Handler handler;
-    private Timer timer = null;
 
     @Override
     protected void onResume() {
@@ -198,10 +214,10 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         super.onPause();
         if (backgroundAudio != null) backgroundAudio.stop();
         if (timer != null) timer.cancel();
-        // todo ask user to confirm and withdraw
+        leaveChallengeHTTP();
     }
 
-    private void leaveChallengeHTTP(boolean exitActivity) {
+    private void leaveChallengeHTTP() {
         RequestQueue queue = Volley.newRequestQueue(OnlineGameActivity.this);
         final String url = Stubs.BASE_URL + "/api/challenge/leave";
 
@@ -214,33 +230,31 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
             try {
                 LeaveChallengeResponse leaveChallengeResponse = LeaveChallengeResponse.parseFrom(response);
                 if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
-                    if (exitActivity) {
-                        finish();
-                    }
+                    finish();
                 }
                 else {
                     Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
                     System.err.println(leaveChallengeResponse.getMessage());
-                    if (exitActivity) {
-                        finish();
-                    }
+                    finish();
                 }
             } catch (InvalidProtocolBufferException e) {
                 Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
                 e.printStackTrace();
-                if (exitActivity) {
-                    finish();
-                }
+                finish();
             }
         }, error -> {
             Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
             error.printStackTrace();
-            if (exitActivity) {
-                finish();
-            }
+            finish();
         });
 
         queue.add(leaveChallengeRequest);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        leaveChallengeHTTP();
     }
 
     @Override
@@ -255,7 +269,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     .setPositiveButton(R.string.exit, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            leaveChallengeHTTP(true);
+                            leaveChallengeHTTP();
                         }
                     });
 
@@ -625,7 +639,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP(true);
+                        leaveChallengeHTTP();
                     }
                 })
                 .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
@@ -637,8 +651,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP(false);
-                        rejoinChallengeHTTP();
+                        startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                        finish();
                     }
                 })
                 .setCancelable(false);
@@ -652,7 +666,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP(true);
+                        leaveChallengeHTTP();
                     }
                 })
                 .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
@@ -664,77 +678,12 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP(false);
-                        rejoinChallengeHTTP();
+                        startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                        finish();
                     }
                 })
                 .setCancelable(false);
         dialogBuilder.create().show();
-    }
-
-    private void rejoinChallengeHTTP() {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        final String url = Stubs.BASE_URL + "/api/challenge/join";
-        JoinChallengeRequest requestMessage = JoinChallengeRequest.newBuilder()
-                .setChallengeID(challenge.getId())
-                .setPlayer(AMCClient.getInstance().getPlayer().toProto())
-                .setInstallationID(Installation.id(OnlineGameActivity.this))
-                .build();
-
-        Snackbar rejoinSnackbar = Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.rejoining), Snackbar.LENGTH_INDEFINITE);
-        rejoinSnackbar.show();
-
-        BinaryRequest rejoinChallengeRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
-            try {
-                JoinChallengeResponse joinChallengeResponse = JoinChallengeResponse.parseFrom(response);
-                if (joinChallengeResponse.getStatus() == JoinChallengeResponse.Status.OK) {
-                    Toast.makeText(OnlineGameActivity.this, R.string.join_success, Toast.LENGTH_SHORT).show();
-                    rejoinSnackbar.dismiss();
-                    AMCClient.getInstance().setWorldSession(joinChallengeResponse.getWorldSession().toObject());
-
-                    final Intent intent = new Intent(OnlineGameActivity.this, OnlineGameActivity.class);
-                    intent.putExtra(PREFERENCE_KEY_CHALLENGE, challenge);
-                    intent.putExtra(SELECTED_PLAYER_WORLD_SESSION_KEY, joinChallengeResponse.getWorldSession().toObject());
-                    startActivity(intent);
-                    finish();
-
-                } else {
-                    switch (joinChallengeResponse.getMessage()) {
-                        case "INVALID_PLAYER_NAME":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_name, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        case "INVALID_PLAYER_EMAIL":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_email, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        case "INVALID_CHALLENGE_ID":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_challenge, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        case "CHALLENGE_NOT_STARTED":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.challenge_not_started, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        case "CHALLENGE_OVER":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.challenge_finished, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        case "PLAYER_NAME_EXISTS":
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.name_exists, Snackbar.LENGTH_SHORT).show();
-                            break;
-                        default:
-                            Snackbar.make(findViewById(R.id.activity_online_challenge), getString(R.string.join_failure) + " '" + challenge.getName() + "'.", Snackbar.LENGTH_SHORT).show();
-                            break;
-                    }
-                    rejoinSnackbar.dismiss();
-                    System.err.println(joinChallengeResponse.getMessage());
-                }
-            } catch (InvalidProtocolBufferException e) {
-                Toast.makeText(OnlineGameActivity.this, getString(R.string.load_challenges_fail), Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-            }
-        }, error -> {
-            Toast.makeText(OnlineGameActivity.this, getString(R.string.load_challenges_fail), Toast.LENGTH_LONG).show();
-            error.printStackTrace();
-        });
-
-        queue.add(rejoinChallengeRequest);
     }
 
 }

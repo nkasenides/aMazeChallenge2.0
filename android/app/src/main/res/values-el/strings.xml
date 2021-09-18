@@ -314,6 +314,7 @@
     <string name="watch">Παρακολούθηση</string>
     <string name="lost">Χάσατε!</string>
     <string name="lost_message">Χάσατε! Θα θέλατε να δοκιμάσετε ξανά για υψηλότερη βαθμολογία ή να παρακολουθήσετε το παιχνίδι;</string>
-    <string name="rejoining">Rejoining challenge...</string>
+    <string name="rejoining">Επανασύνδεση...</string>
+    <string name="discovery_code">Πατήστε εδώ για επεξεργασία ή μεταφόρτωση του κώδικά σας.</string>
 
 </resources>

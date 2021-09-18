@@ -338,5 +338,6 @@
     <string name="lost">You lost!</string>
     <string name="lost_message">You lost. Would you like to try again for a higher score or watch the game?</string>
     <string name="rejoining">Rejoining challenge...</string>
+    <string name="discovery_code">Click to upload or edit your code</string>
 
 </resources>

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY_PREF_SOUND = "pref-sound";
     public static final String KEY_PREF_LANG = "pref-lang";
     public static final String KEY_PREF_VIBRATION = "pref-vibration";
+    public static final String KEY_DISCOVER_CODE_EDITOR_ONLINE = "pref-discover-code-editor-online";
 
     private Button buttonLearn;
     private Button buttonPersonalize;
