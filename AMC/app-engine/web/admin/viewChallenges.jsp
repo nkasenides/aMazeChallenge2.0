@@ -80,7 +80,7 @@
                             </td>
                             <td><%=dateFormat.format(new Date(challenge.getEndTime()))%>
                             </td>
-                            <td><input type="button" onclick="deleteChallenge('<%=challenge.getId()%>')" value="Delete" class="btn red darken-3 white-text"/></td>
+                            <td><input type="button" onclick="if (confirm('Are you sure?')) deleteChallenge('<%=challenge.getId()%>')" value="Delete" class="btn red darken-3 white-text"/></td>
                         </tr>
                         <%
                                 }
@@ -115,46 +115,82 @@
 
                     <h4>Add challenge</h4>
 
-                    <p><label>Name: <input type="text" name="name" id="name" required/></label></p>
+                    <div class="col s12">
+                        <p><label>Name: <input type="text" name="name" id="name" required/></label></p>
+                    </div>
 
-                    <p>Description: </p>
-                    <p>
-                        <textarea maxlength="255" name="description" id="description" form="add-challenge-form"
-                                  required></textarea>
-                    </p>
+                    <div class="col s12">
+                        <p>Description: </p>
+                        <p>
+                            <textarea maxlength="255" name="description" id="description" form="add-challenge-form"
+                                      required></textarea>
+                        </p>
+                    </div>
 
-                    <p>Algorithm: </p>
-                    <p>
-                        <select name="algorithm" id="algorithm" class="browser-default">
-                            <option value="EMPTY_Algorithm">Empty</option>
-                            <option value="SPARSE_Algorithm">Sparse</option>
-                            <option value="SINGLE_SOLUTION_Algorithm">Single solution</option>
-                            <option value="MANY_SOLUTIONS_Algorithm">Many solutions</option>
-                        </select>
-                    </p>
+                    <div class="col s12">
+                        <p><label>Grid size: <input type="number" id="gridSize" name="gridSize" min="5" max="30"
+                                                    onchange="startingPositionRowField.max = gridSizeField.max - 1; startingPositionColField.max = gridSizeField - 1;
+                                                        targetPositionRowField.max = gridSizeField.max - 1; targetPositionColField.max = gridSizeField - 1"
+                                                    required/></label></p>
+                    </div>
 
-                    <p><label>Grid size: <input type="number" id="gridSize" name="gridSize" min="5" max="30"
-                                                onchange="startingPositionRowField.max = gridSizeField.max - 1; startingPositionColField.max = gridSizeField - 1;
-                                                    targetPositionRowField.max = gridSizeField.max - 1; targetPositionColField.max = gridSizeField - 1"
-                                                required/></label></p>
+                    <div class="col s12 m6">
+                        <p><label>Starting position | Row:
+                            <input type="number" id="startingPositionRow" name="startingPositionRow" min="0" required/></label>
+                        </p>
+                    </div>
 
-                    <p><label>Starting position | Row:
-                        <input type="number" id="startingPositionRow" name="startingPositionRow" min="0" required/></label>
-                        <label>Starting position | Col: <input type="number" id="startingPositionCol" min="0"
-                                                               name="startingPositionCol"
-                                                               required/></label>
-                    </p>
+                    <div class="col s12 m6">
+                        <p>
+                            <label>Starting position | Col: <input type="number" id="startingPositionCol" min="0"
+                                                                   name="startingPositionCol"
+                                                                   required/></label>
+                        </p>
+                    </div>
 
-                    <p><label>Target position | Row:
-                        <input type="number" id="targetPositionRow" name="targetPositionRow" min="0" required/></label>
-                        <label>Target position | Col: <input type="number" id="targetPositionCol" name="targetPositionCol"
-                                                             min="0" required/></label>
-                    </p>
+                    <div class="col s12 m6">
+                        <p><label>Target position | Row:
+                            <input type="number" id="targetPositionRow" name="targetPositionRow" min="0" required/></label>
+                        </p>
+                    </div>
 
-                    <p>Grid hex data:</p>
-                    <p>
-                        <textarea rows="4" cols="80" name="gridData" id="gridData" form="add-challenge-form" required></textarea>
-                    </p>
+                    <div class="col s12 m6">
+                        <p>
+                            <label>Target position | Col: <input type="number" id="targetPositionCol" name="targetPositionCol"
+                                                                 min="0" required/></label>
+                        </p>
+                    </div>
+
+                    <div class="col s12">
+                        <p>Algorithm: </p>
+                        <p>
+                            <select name="algorithm" id="algorithm" class="browser-default">
+                                <option value="EMPTY_Algorithm">Empty</option>
+                                <option value="SPARSE_Algorithm">Sparse</option>
+                                <option value="SINGLE_SOLUTION_Algorithm">Single solution</option>
+                                <option value="MANY_SOLUTIONS_Algorithm">Many solutions</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12">
+                        <p>Starting direction: </p>
+                        <p>
+                            <select name="startingDirection" id="startingDirection" class="browser-default">
+                                <option value="NORTH">North</option>
+                                <option value="EAST">East</option>
+                                <option value="SOUTH">South</option>
+                                <option value="WEST">West</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12">
+                        <p>Grid hex data:</p>
+                        <p>
+                            <textarea rows="4" cols="80" name="gridData" id="gridData" form="add-challenge-form" required></textarea>
+                        </p>
+                    </div>
 
                     <div class="right">
                         <input onclick="generateGrid()" type="button" class="btn-small black white-text" value="Generate grid" id="generateGridButton" />
@@ -162,7 +198,148 @@
 
                     <div class="clearfix"></div>
 
+                    <div class="col s12">
+                        <p>Difficulty</p>
+                        <p>
+                            <select name="difficulty" id="difficulty" class="browser-default">
+                                <option value="VERY_EASY_Difficulty">Very easy</option>
+                                <option value="EASY_Difficulty" selected>Easy</option>
+                                <option value="MEDIUM_Difficulty">Medium</option>
+                                <option value="HARD_Difficulty">Hard</option>
+                                <option value="VERY_HARD_Difficulty">Very hard</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Rewards</p>
+                        <p>
+                            <select name="rewards" id="rewards" class="browser-default">
+                                <option value="NONE_PickableIntensity">None</option>
+                                <option value="LOW_PickableIntensity" selected>Low</option>
+                                <option value="MEDIUM_PickableIntensity">Medium</option>
+                                <option value="HIGH_PickableIntensity">High</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Penalties</p>
+                        <p>
+                            <select name="penalties" id="penalties" class="browser-default">
+                                <option value="NONE_PickableIntensity">None</option>
+                                <option value="LOW_PickableIntensity" selected>Low</option>
+                                <option value="MEDIUM_PickableIntensity">Medium</option>
+                                <option value="HIGH_PickableIntensity">High</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Start time:
+                            <input type="datetime-local" name="startTime" id="startTime" required />
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>End time:
+                            <input type="datetime-local" name="startTime" id="endTime" required />
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Minimum active players:
+                            <input type="number" step="1" name="minActivePlayers" id="minActivePlayers" value="1" required />
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Maximum active players:
+                            <input type="number" step="1" name="maxActivePlayers" id="maxActivePlayers" value="30" required />
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Background image</p>
+                        <p>
+                            <select name="backgroundImage" id="backgroundImage" class="browser-default">
+                                <option value="TEXTURE_WATER_BackgroundImage">Water</option>
+                                <option value="TEXTURE_ROCKY_BackgroundImage">Rocky</option>
+                                <option value="TEXTURE_SPACE_BackgroundImage">Space</option>
+                                <option value="TEXTURE_METAL_BackgroundImage">Metal</option>
+                                <option value="TEXTURE_MOON_BackgroundImage">Moon</option>
+                                <option value="TEXTURE_LAVA_BackgroundImage">Lava</option>
+                                <option value="TEXTURE_GRAVEL_BackgroundImage">Gravel</option>
+                                <option value="TEXTURE_WOOD_BackgroundImage">Wood</option>
+                                <option value="TEXTURE_GRASS_BackgroundImage">Grass</option>
+                                <option value="TEXTURE_TILES_BackgroundImage">Tiles</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <p>Background audio</p>
+                        <p>
+                            <select name="backgroundAudio" id="backgroundAudio" class="browser-default" required>
+                                <option value="AMBIENT_STORM_Audio">Storm</option>
+                                <option value="AMBIENT_NIGHT_Audio">Night</option>
+                                <option value="AMBIENT_SNOW_Audio">Snow</option>
+                                <option value="AMBIENT_ALPINE_FOREST_Audio">Alpine forest</option>
+                                <option value="AMBIENT_RIVER_Audio">River</option>
+                                <option value="AMBIENT_CAVE_Audio">Cave</option>
+                                <option value="AMBIENT_PRISON_Audio">Prison</option>
+                                <option value="AMBIENT_SANDSTORM_Audio">Sandstorm</option>
+                                <option value="AMBIENT_CITY_Audio">City</option>
+                                <option value="AMBIENT_STREET_Audio">Street</option>
+                                <option value="AMBIENT_TROPICAL_FOREST_Audio">Tropical forest</option>
+                                <option value="AMBIENT_FIRE_Audio">Fire</option>
+                                <option value="AMBIENT_HIGHTECH_Audio">High-tech</option>
+                                <option value="AMBIENT_UNDERWATER_Audio">Underwater</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <div class="col s12 ">
+                        <p>Line/Wall color</p>
+                        <p>
+                            <input type="color" name="lineColor" id="lineColor" value="#000000" required />
+                        </p>
+                    </div>
+
+                    <div class="clearfix"></div>
                     <div style="height: 20px"></div>
+
+                    <div class="col s4">
+                        <p>
+                            <input type="checkbox" class="filled-in" name="canJoinAfterStart" id="canJoinAfterStart" checked="checked" required />
+                            <span>Can join after start</span>
+                        </p>
+                    </div>
+
+                    <div class="col s4">
+                        <p>
+                            <input type="checkbox" class="filled-in" name="canRepeat" id="canRepeat" checked required />
+                            <span>Can repeat</span>
+                        </p>
+                    </div>
+
+                    <div class="col s4">
+                        <p>
+                            <input type="checkbox" class="filled-in" name="canStepOnEachOther" id="canStepOnEachOther" checked required />
+                            <span>Can step on each other</span>
+                        </p>
+                    </div>
+
+                    <div class="col s4">
+                        <p>
+                            <input type="checkbox" class="filled-in" name="questionnaire" id="questionnaire" checked required />
+                            <span>Questionnaire</span>
+                        </p>
+                    </div>
+
+                    <div style="height: 20px"></div>
+                    <div class="clearfix"></div>
+                    <div style="height: 30px"></div>
 
                     <div class="center-align">
                         <input class="btn btn-large indigo darken-3 white-text" type="submit" id="createChallengeButton" value="Add Challenge" onclick="createChallenge()"/>
@@ -218,29 +395,29 @@
         const body =
             "name=" + nameField.value +
             "&description=" + descriptionField.value +
-            "&algorithm=" + "SINGLE_SOLUTION_Algorithm" +
+            "&algorithm=" + algorithmSelect.selectedOptions[0].value +
             "&apiVersion=" + "1" +
-            "&canJoinAfterStart=" + "true" +
-            "&canRepeat=" + "true" +
-            "&canStepOnEachOther=" + "true" +
+            "&canJoinAfterStart=" + "true" + //TODO
+            "&canRepeat=" + "true" + //TODO
+            "&canStepOnEachOther=" + "true" + //TODO
             "&createdOn=" + new Date().getTime() +
             "&createdByID=" + "admin" +
             "&id=" + "" +
-            "&endTime=" + new Date().getTime() + 24 * 3600 +
-            "&difficulty=" + "MEDIUM_Difficulty" +
-            "&lineColor=" + "#FFFFFF" +
-            "&maxActivePlayers=" + "30" +
-            "&minActivePlayers=" + "1" +
-            "&rewards=" + "MEDIUM_PickableIntensity" +
-            "&penalties=" + "MEDIUM_PickableIntensity" +
-            "&hasQuestionnaire=" + "true" +
-            "&backgroundImage=" + "TEXTURE_GRASS_BackgroundImage" +
-            "&backgroundAudio=" + "AUDIO_NONE_Audio" +
-            "&startTime=" + new Date().getTime() +
+            "&endTime=" + new Date().getTime() + 24 * 3600 + //TODO
+            "&difficulty=" + "MEDIUM_Difficulty" + //TODO
+            "&lineColor=" + "#FFFFFF" + //TODO
+            "&maxActivePlayers=" + "30" + //TODO
+            "&minActivePlayers=" + "1" + //TODO
+            "&rewards=" + "MEDIUM_PickableIntensity" + //TODO
+            "&penalties=" + "MEDIUM_PickableIntensity" + //TODO
+            "&hasQuestionnaire=" + "true" + //TODO
+            "&backgroundImage=" + "TEXTURE_GRASS_BackgroundImage" + //TODO
+            "&backgroundAudio=" + "AUDIO_NONE_Audio" + //TODO
+            "&startTime=" + new Date().getTime() + //TODO
 
             "&gridSize=" + gridSizeField.value +
             "&gridData=" + gridDataField.value +
-            "&gridStartingDirection=" + "NORTH" +
+            "&gridStartingDirection=" + "NORTH" + //TODO
             "&gridStartingPositionRow=" + startingPositionRowField.value +
             "&gridStartingPositionCol=" + startingPositionColField.value +
             "&gridTargetPositionRow=" + targetPositionRowField.value +
