@@ -305,5 +305,15 @@
     <string name="confirm_leave_challenge_msg">Είστε βέβαιοι ότι θέλετε να βγείτε απο αυτό το παιχνίδι; Η πρόοδός σας θα χαθεί.</string>
     <string name="exit">Έξοδος</string>
     <string name="could_not_leave_challenge">Δεν ήταν δυνατή η αποχώρηση από το παιχνίδι.</string>
+    <string name="bomb">Έκρηξη βόμβας!</string>
+    <string name="speedhack">Χακάρισμα ταχύτητας!</string>
+    <string name="trap">Παγίδα!</string>
+    <string name="win">Συγχαρητήρια!</string>
+    <string name="win_message">Συγχαρητήρια, καταφέρατε να βγείτε από τον λαβύρινθο! Θα θέλατε να δοκιμάσετε ξανά για υψηλότερη βαθμολογία ή να παρακολουθήσετε το παιχνίδι;</string>
+    <string name="leave">Έξοδος</string>
+    <string name="watch">Παρακολούθηση</string>
+    <string name="lost">Χάσατε!</string>
+    <string name="lost_message">Χάσατε! Θα θέλατε να δοκιμάσετε ξανά για υψηλότερη βαθμολογία ή να παρακολουθήσετε το παιχνίδι;</string>
+    <string name="rejoining">Rejoining challenge...</string>
 
 </resources>

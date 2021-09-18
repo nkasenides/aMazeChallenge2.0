@@ -16,10 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -58,6 +60,7 @@ import org.inspirecenter.amazechallenge.R;
 import org.inspirecenter.amazechallenge.stubs.AMCClient;
 import org.inspirecenter.amazechallenge.stubs.BinaryRequest;
 import org.inspirecenter.amazechallenge.stubs.Stubs;
+import org.inspirecenter.amazechallenge.utils.Emoji;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -78,6 +81,7 @@ import static org.inspirecenter.amazechallenge.ui.GameActivity.SELECTED_PLAYER_W
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_SOUND;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.KEY_PREF_VIBRATION;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
+import static org.inspirecenter.amazechallenge.ui.OnlineChallengeActivity.PREFERENCE_KEY_CHALLENGE;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PERMISSIONS_REQUEST_GET_ACCOUNT;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_EMAIL;
 import static org.inspirecenter.amazechallenge.ui.PersonalizeActivity.PREFERENCE_KEY_NAME;
@@ -179,7 +183,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, getString(R.string.Guest_email));
 
         // get challenge from intent
-        challenge = (ChallengeProto) getIntent().getSerializableExtra(OnlineChallengeActivity.PREFERENCE_KEY_CHALLENGE);
+        challenge = (ChallengeProto) getIntent().getSerializableExtra(PREFERENCE_KEY_CHALLENGE);
         if (challenge == null) {
             Log.e(TAG, "Invalid null argument 'challenge' in Intent");
             finish();
@@ -197,6 +201,48 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         // todo ask user to confirm and withdraw
     }
 
+    private void leaveChallengeHTTP(boolean exitActivity) {
+        RequestQueue queue = Volley.newRequestQueue(OnlineGameActivity.this);
+        final String url = Stubs.BASE_URL + "/api/challenge/leave";
+
+        LeaveChallengeRequest requestMessage = LeaveChallengeRequest.newBuilder()
+                .setChallengeID(challenge.getId())
+                .setWorldSessionID(currentPlayerWorldSession.getId())
+                .build();
+
+        BinaryRequest leaveChallengeRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
+            try {
+                LeaveChallengeResponse leaveChallengeResponse = LeaveChallengeResponse.parseFrom(response);
+                if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
+                    if (exitActivity) {
+                        finish();
+                    }
+                }
+                else {
+                    Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+                    System.err.println(leaveChallengeResponse.getMessage());
+                    if (exitActivity) {
+                        finish();
+                    }
+                }
+            } catch (InvalidProtocolBufferException e) {
+                Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+                e.printStackTrace();
+                if (exitActivity) {
+                    finish();
+                }
+            }
+        }, error -> {
+            Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
+            error.printStackTrace();
+            if (exitActivity) {
+                finish();
+            }
+        });
+
+        queue.add(leaveChallengeRequest);
+    }
+
     @Override
     public void onBackPressed() {
         if (!isFABOpen) {
@@ -209,37 +255,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     .setPositiveButton(R.string.exit, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
-                            //Do request:
-                            RequestQueue queue = Volley.newRequestQueue(OnlineGameActivity.this);
-                            final String url = Stubs.BASE_URL + "/api/challenge/leave";
-
-                            LeaveChallengeRequest requestMessage = LeaveChallengeRequest.newBuilder()
-                                    .setChallengeID(challenge.getId())
-                                    .setWorldSessionID(currentPlayerWorldSession.getId())
-                                    .build();
-
-                            BinaryRequest leaveChallengeRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
-                                try {
-                                    LeaveChallengeResponse leaveChallengeResponse = LeaveChallengeResponse.parseFrom(response);
-                                    if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
-                                        finish();
-                                    }
-                                    else {
-                                        Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
-                                        System.err.println(leaveChallengeResponse.getMessage());
-                                    }
-                                } catch (InvalidProtocolBufferException e) {
-                                    Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
-                                    e.printStackTrace();
-                                }
-                            }, error -> {
-                                Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
-                                error.printStackTrace();
-                            });
-
-                            queue.add(leaveChallengeRequest);
-
+                            leaveChallengeHTTP(true);
                         }
                     });
 
@@ -508,31 +524,36 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private void handleOnlineEvents(AMCStateUpdateProto stateUpdate) {
 
-        System.out.println("Events: " + stateUpdate.getEventsList());
-
         for (Audio audio : stateUpdate.getEventsList()) {
             if (audio == Audio.EVENT_WIN_Audio) {
                 onGameEndAudioEvent(true);
+                onWin();
             }
             else if (audio == Audio.EVENT_LOSE_Audio) {
                 onGameEndAudioEvent(false);
+                onLose();
             }
             else {
                 switch (audio) {
                     case EVENT_FOOD_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_FOOD_Audio.toString()).start();
+                        Toast.makeText(OnlineGameActivity.this, Emoji.getEmojiAsString(Emoji.FOOD) + " " + "Nom nom nom" + " " + Emoji.getEmojiAsString(Emoji.STRONG), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_COIN5_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_COIN5_Audio.toString()).start();
+                        Toast.makeText(OnlineGameActivity.this, Emoji.getEmojiAsString(Emoji.COINS), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_COIN10_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_COIN10_Audio.toString()).start();
+                        Toast.makeText(OnlineGameActivity.this, Emoji.getEmojiAsString(Emoji.COINS), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_COIN20_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_COIN20_Audio.toString()).start();
+                        Toast.makeText(OnlineGameActivity.this, Emoji.getEmojiAsString(Emoji.COINS), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_GIFTBOX_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_GIFTBOX_Audio.toString()).start();
+                        Toast.makeText(OnlineGameActivity.this, Emoji.getEmojiAsString(Emoji.COINS), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_BOMB_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_BOMB_Audio.toString()).start();
@@ -540,6 +561,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                             Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                             if (v != null) v.vibrate(250);
                         }
+                        Toast.makeText(OnlineGameActivity.this, getString(R.string.bomb) + " " + Emoji.getEmojiAsString(Emoji.BOMB), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_SPEEDHACK_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_SPEEDHACK_Audio.toString()).start();
@@ -548,6 +570,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                             long[] pattern = {100, 100, 100};
                             if (v != null) v.vibrate(pattern, -1);
                         }
+                        Toast.makeText(OnlineGameActivity.this, getString(R.string.speedhack) + " " + Emoji.getEmojiAsString(Emoji.SPEEDHACK), Toast.LENGTH_SHORT).show();
                         break;
                     case EVENT_TRAP_Audio:
                         if (sound) audioEventsMap.get(Audio.EVENT_TRAP_Audio.toString()).start();
@@ -555,6 +578,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                             Vibrator vTrap = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                             if (vTrap != null) vTrap.vibrate(250);
                         }
+                        Toast.makeText(OnlineGameActivity.this, getString(R.string.trap) + " " + Emoji.getEmojiAsString(Emoji.TRAP), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -593,4 +617,124 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
             backgroundAudio.release();
         }
     }
+
+    private void onWin() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                .setTitle(R.string.win)
+                .setMessage(R.string.win_message)
+                .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        leaveChallengeHTTP(true);
+                    }
+                })
+                .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        leaveChallengeHTTP(false);
+                        rejoinChallengeHTTP();
+                    }
+                })
+                .setCancelable(false);
+        dialogBuilder.create().show();
+    }
+
+    private void onLose() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                .setTitle(R.string.lost)
+                .setMessage(R.string.lost_message)
+                .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        leaveChallengeHTTP(true);
+                    }
+                })
+                .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        leaveChallengeHTTP(false);
+                        rejoinChallengeHTTP();
+                    }
+                })
+                .setCancelable(false);
+        dialogBuilder.create().show();
+    }
+
+    private void rejoinChallengeHTTP() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        final String url = Stubs.BASE_URL + "/api/challenge/join";
+        JoinChallengeRequest requestMessage = JoinChallengeRequest.newBuilder()
+                .setChallengeID(challenge.getId())
+                .setPlayer(AMCClient.getInstance().getPlayer().toProto())
+                .setInstallationID(Installation.id(OnlineGameActivity.this))
+                .build();
+
+        Snackbar rejoinSnackbar = Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.rejoining), Snackbar.LENGTH_INDEFINITE);
+        rejoinSnackbar.show();
+
+        BinaryRequest rejoinChallengeRequest = new BinaryRequest(Request.Method.POST, url, requestMessage, response -> {
+            try {
+                JoinChallengeResponse joinChallengeResponse = JoinChallengeResponse.parseFrom(response);
+                if (joinChallengeResponse.getStatus() == JoinChallengeResponse.Status.OK) {
+                    Toast.makeText(OnlineGameActivity.this, R.string.join_success, Toast.LENGTH_SHORT).show();
+                    rejoinSnackbar.dismiss();
+                    AMCClient.getInstance().setWorldSession(joinChallengeResponse.getWorldSession().toObject());
+
+                    final Intent intent = new Intent(OnlineGameActivity.this, OnlineGameActivity.class);
+                    intent.putExtra(PREFERENCE_KEY_CHALLENGE, challenge);
+                    intent.putExtra(SELECTED_PLAYER_WORLD_SESSION_KEY, joinChallengeResponse.getWorldSession().toObject());
+                    startActivity(intent);
+                    finish();
+
+                } else {
+                    switch (joinChallengeResponse.getMessage()) {
+                        case "INVALID_PLAYER_NAME":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_name, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        case "INVALID_PLAYER_EMAIL":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_email, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        case "INVALID_CHALLENGE_ID":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.invalid_challenge, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        case "CHALLENGE_NOT_STARTED":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.challenge_not_started, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        case "CHALLENGE_OVER":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.challenge_finished, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        case "PLAYER_NAME_EXISTS":
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), R.string.name_exists, Snackbar.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            Snackbar.make(findViewById(R.id.activity_online_challenge), getString(R.string.join_failure) + " '" + challenge.getName() + "'.", Snackbar.LENGTH_SHORT).show();
+                            break;
+                    }
+                    rejoinSnackbar.dismiss();
+                    System.err.println(joinChallengeResponse.getMessage());
+                }
+            } catch (InvalidProtocolBufferException e) {
+                Toast.makeText(OnlineGameActivity.this, getString(R.string.load_challenges_fail), Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+        }, error -> {
+            Toast.makeText(OnlineGameActivity.this, getString(R.string.load_challenges_fail), Toast.LENGTH_LONG).show();
+            error.printStackTrace();
+        });
+
+        queue.add(rejoinChallengeRequest);
+    }
+
 }

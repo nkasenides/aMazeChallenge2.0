@@ -328,5 +328,15 @@
     <string name="confirm_leave_challenge_msg">Are you sure you would like to leave this challenge? Your progress will be lost.</string>
     <string name="exit">Exit</string>
     <string name="could_not_leave_challenge">Could not leave challenge.</string>
+    <string name="bomb">You walked into a bomb!</string>
+    <string name="speedhack">Speed hack!</string>
+    <string name="trap">You walked into a trap!</string>
+    <string name="win">Win!</string>
+    <string name="win_message">Congratulations, you managed to exit the maze! Would you like to try again for a higher score or watch the game?</string>
+    <string name="leave">Leave</string>
+    <string name="watch">Watch the game</string>
+    <string name="lost">You lost!</string>
+    <string name="lost_message">You lost. Would you like to try again for a higher score or watch the game?</string>
+    <string name="rejoining">Rejoining challenge...</string>
 
 </resources>
