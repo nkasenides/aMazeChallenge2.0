@@ -84,16 +84,6 @@ public class AMCEntityDAO implements WorldBasedDAO<AMCEntity> {
         amcEntities.addAll(pickableEntities);
         return amcEntities;
     }
-//    /**
-//     * Retrieves the entities in a world which are not belonging to a particular player.
-//     * @param worldID The world ID
-//     * @param excludedPlayerID The excluded player ID.
-//     * @return Returns a collection of entities.
-//     */
-//    public Collection<AMCEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
-//        //TODO - Implement
-//        return null;
-//    }
 
 }
 

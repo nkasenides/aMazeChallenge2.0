@@ -84,16 +84,6 @@ public class PickableEntityDAO implements WorldBasedDAO<PickableEntity> {
                 .whereEqualTo("playerID", playerID)
                 .fetch().getItems();
     }
-//    /**
-//     * Retrieves the entities in a world which are not belonging to a particular player.
-//     * @param worldID The world ID
-//     * @param excludedPlayerID The excluded player ID.
-//     * @return Returns a collection of entities.
-//     */
-//    public Collection<PickableEntity> listForWorldExcludingPlayer(String worldID, String excludedPlayerID) {
-//        //TODO - Implement
-//        return null;
-//    }
 
 }
 

@@ -294,7 +294,6 @@ public class WorldContext {
                 .putAllTerrain(getTerrain(position, radius))
                 .setTimestamp(System.currentTimeMillis())
                 .setWorldSession(worldSession.toProto())
-                //TODO - Set custom partial state attributes here.
                 .build();
     }
 

@@ -72,7 +72,6 @@ public class State {
 
     /**
      * Filters the sessions that should be updated based on game-specific criteria.
-     * TODO - Change this function based on your game-specific needs for custom filtering of state updates.
      * @param areaOfEffect The area of effect of the action.
      * @param actionPosition The action position.
      * @param worldID The ID of the world.

@@ -192,7 +192,9 @@ public class RuntimeController {
             final PlayerEntity playerEntity = game.getPlayerEntities().get(playerId + "_" + game.getPlayerWorldSessions().get(playerId).getWorldID());
             if (targetPosition.equals(playerEntity.getPosition())) {
                 if (grid.getTargetPosition().equals(playerEntity.getPosition())) {
-                    game.getAudioEventListener().onGameEndAudioEvent(true); //TODO Remove, make for each player individually.
+                    if (playerId.equals(playerEntity.getPlayerID())) {
+                        game.getAudioEventListener().onGameEndAudioEvent(true); //Local sound
+                    }
                     game.getGameEndListener().onPlayerHasWon(playerId);
                     game.addPlayerEvent(playerId, Audio.EVENT_WIN_Audio); //NEW 2.0 (Online events)
                 }
