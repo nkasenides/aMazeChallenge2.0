@@ -59,7 +59,6 @@ public class AddChallengeServlet extends HttpServlet {
             return;
         }
 
-
         final String name = parametersMap.get("name");
         final String description = parametersMap.get("description");
         final Algorithm algorithm = Algorithm.valueOf(parametersMap.get("algorithm"));
@@ -70,7 +69,6 @@ public class AddChallengeServlet extends HttpServlet {
         final long createdOn = Long.parseLong(parametersMap.get("createdOn"));
         final String createdByID = parametersMap.get("createdByID");
         final long endTime = Long.parseLong(parametersMap.get("endTime"));
-        final Difficulty difficulty = Difficulty.valueOf(parametersMap.get("difficulty"));
         final String lineColor = parametersMap.get("lineColor");
         final int maxActivePlayers = Integer.parseInt(parametersMap.get("maxActivePlayers"));
         final int minActivePlayers = Integer.parseInt(parametersMap.get("minActivePlayers"));
@@ -85,6 +83,7 @@ public class AddChallengeServlet extends HttpServlet {
         final MatrixPosition gridTargetPosition = new MatrixPosition(Integer.parseInt(parametersMap.get("gridTargetPositionRow")), Integer.parseInt(parametersMap.get("gridTargetPositionCol")));
         final String gridData = parametersMap.get("gridData");
         final long startTime = Long.parseLong(parametersMap.get("startTime"));
+        final Difficulty difficulty = calculateDifficulty(rewards, penalties);
 
         Grid grid = new Grid();
         grid.setData(gridData);
@@ -108,6 +107,7 @@ public class AddChallengeServlet extends HttpServlet {
         challenge.setDifficulty(difficulty);
         challenge.setEndTime(endTime);
         challenge.setGrid(grid);
+        challenge.setCreatedOn(createdOn);
         challenge.setHasQuestionnaire(hasQuestionnaire);
         challenge.setLineColor(lineColor);
         challenge.setMaxActivePlayers(maxActivePlayers);
@@ -125,7 +125,6 @@ public class AddChallengeServlet extends HttpServlet {
             }
         }
 
-
         final boolean result = DBManager.challenge.create(challenge);
         if (result) {
             resp.getWriter().write("OK");
@@ -133,7 +132,18 @@ public class AddChallengeServlet extends HttpServlet {
         else {
             resp.getWriter().write("Error: Could not create challenge.");
         }
-
-
     }
+
+    private Difficulty calculateDifficulty(PickableIntensity rewardsIntensity, PickableIntensity penaltiesIntensity) {
+        if (rewardsIntensity == penaltiesIntensity) return Difficulty.MEDIUM_Difficulty;
+        else {
+            if (rewardsIntensity == PickableIntensity.LOW_PickableIntensity && penaltiesIntensity == PickableIntensity.HIGH_PickableIntensity) return Difficulty.VERY_HARD_Difficulty;
+            else if (rewardsIntensity == PickableIntensity.HIGH_PickableIntensity && penaltiesIntensity == PickableIntensity.LOW_PickableIntensity) return Difficulty.VERY_EASY_Difficulty;
+            else if (rewardsIntensity == PickableIntensity.MEDIUM_PickableIntensity && penaltiesIntensity == PickableIntensity.LOW_PickableIntensity) return Difficulty.EASY_Difficulty;
+            else if (rewardsIntensity == PickableIntensity.LOW_PickableIntensity && penaltiesIntensity == PickableIntensity.MEDIUM_PickableIntensity) return Difficulty.HARD_Difficulty;
+            else if (rewardsIntensity == PickableIntensity.MEDIUM_PickableIntensity && penaltiesIntensity == PickableIntensity.HIGH_PickableIntensity) return Difficulty.HARD_Difficulty;
+            else /*if (rewardsIntensity == PickableIntensity.HIGH && penaltiesIntensity == PickableIntensity.MEDIUM)*/ return Difficulty.EASY_Difficulty;
+        }
+    }
+
 }

@@ -74,7 +74,7 @@
                             </td>
                             <td><%=challenge.getGrid().getWidth()%>x<%=challenge.getGrid().getWidth()%>
                             </td>
-                            <td><%=challenge.getDifficulty().toString().split("_")[0]%>
+                            <td><%=challenge.getDifficulty().toString().split("_").length == 1 ? challenge.getDifficulty().toString().split("_")[0] : challenge.getDifficulty().toString().split("_")[0] + " " + challenge.getDifficulty().toString().split("_")[1]%>
                             </td>
                             <td><%=dateFormat.format(new Date(challenge.getStartTime()))%>
                             </td>
@@ -198,19 +198,6 @@
 
                     <div class="clearfix"></div>
 
-                    <div class="col s12">
-                        <p>Difficulty</p>
-                        <p>
-                            <select name="difficulty" id="difficulty" class="browser-default">
-                                <option value="VERY_EASY_Difficulty">Very easy</option>
-                                <option value="EASY_Difficulty" selected>Easy</option>
-                                <option value="MEDIUM_Difficulty">Medium</option>
-                                <option value="HARD_Difficulty">Hard</option>
-                                <option value="VERY_HARD_Difficulty">Very hard</option>
-                            </select>
-                        </p>
-                    </div>
-
                     <div class="col s12 m6">
                         <p>Rewards</p>
                         <p>
@@ -243,7 +230,7 @@
 
                     <div class="col s12 m6">
                         <p>End time:
-                            <input type="datetime-local" name="startTime" id="endTime" required />
+                            <input type="datetime-local" name="endTime" id="endTime" required />
                         </p>
                     </div>
 
@@ -311,29 +298,37 @@
 
                     <div class="col s4">
                         <p>
-                            <input type="checkbox" class="filled-in" name="canJoinAfterStart" id="canJoinAfterStart" checked="checked" required />
-                            <span>Can join after start</span>
+                            <label class="black-text">
+                                <input type="checkbox" class="filled-in" name="canJoinAfterStart" id="canJoinAfterStart" checked="checked" required />
+                                <span>Can join after start</span>
+                            </label>
                         </p>
                     </div>
 
                     <div class="col s4">
                         <p>
-                            <input type="checkbox" class="filled-in" name="canRepeat" id="canRepeat" checked required />
-                            <span>Can repeat</span>
+                            <label class="black-text">
+                                <input type="checkbox" class="filled-in" name="canRepeat" id="canRepeat" checked required />
+                                <span>Can repeat</span>
+                            </label>
                         </p>
                     </div>
 
                     <div class="col s4">
                         <p>
-                            <input type="checkbox" class="filled-in" name="canStepOnEachOther" id="canStepOnEachOther" checked required />
-                            <span>Can step on each other</span>
+                            <label class="black-text">
+                                <input type="checkbox" class="filled-in" name="canStepOnEachOther" id="canStepOnEachOther" checked required />
+                                <span>Can step on each other</span>
+                            </label>
                         </p>
                     </div>
 
                     <div class="col s4">
                         <p>
-                            <input type="checkbox" class="filled-in" name="questionnaire" id="questionnaire" checked required />
-                            <span>Questionnaire</span>
+                            <label class="black-text">
+                                <input type="checkbox" class="filled-in" name="questionnaire" id="questionnaire" checked required />
+                                <span>Questionnaire</span>
+                            </label>
                         </p>
                     </div>
 
@@ -342,7 +337,8 @@
                     <div style="height: 30px"></div>
 
                     <div class="center-align">
-                        <input class="btn btn-large indigo darken-3 white-text" type="submit" id="createChallengeButton" value="Add Challenge" onclick="createChallenge()"/>
+                            <input class="btn btn-large indigo darken-3 white-text s12 m6" type="submit" id="createChallengeButton" value="Add Challenge" onclick="createChallenge(false)"/>
+                            <input class="btn btn-large indigo darken-3 white-text s12 m6" type="submit" id="toJsonButton" value="Export to JSON" onclick="createChallenge(true)"/>
                     </div>
                 </form>
 
@@ -366,86 +362,223 @@
     const createChallengeButton = document.getElementById("createChallengeButton");
     const generateGridButton = document.getElementById("generateGridButton");
     const algorithmSelect = document.getElementById("algorithm");
+    const rewardsSelect = document.getElementById("rewards");
+    const penaltiesSelect = document.getElementById("penalties");
+    const startTimeField = document.getElementById("startTime");
+    const endTimeField = document.getElementById("endTime");
+    const minActivePlayersField = document.getElementById("minActivePlayers");
+    const maxActivePlayersField = document.getElementById("maxActivePlayers");
+    const backgroundImageSelect = document.getElementById("backgroundImage");
+    const backgroundAudioSelect = document.getElementById("backgroundAudio");
+    const lineColorField = document.getElementById("lineColor");
+    const canJoinAfterStartField = document.getElementById("canJoinAfterStart");
+    const canRepeatField = document.getElementById("canRepeat");
+    const canStepOnEachOtherField = document.getElementById("canStepOnEachOther");
+    const questionnaireField = document.getElementById("questionnaire");
+    const startingDirectionSelect = document.getElementById("startingDirection");
 
     function deleteChallenge(challengeID) {
         let adminKey = Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
         document.location.href = "../api/challenge/delete?challengeID=" + challengeID + "&adminKey=" + adminKey;
     }
 
-    function createChallenge() {
-        createChallengeButton.style.visibility = "hidden";
+    function createChallenge(toJson) {
 
         if (nameField.value.length < 1) {
             alert("Please provide a challenge name.")
+            nameField.focus();
             return false;
         }
 
         if (Number(startingPositionRowField.value) === Number(targetPositionRowField.value) && Number(startingPositionColField.value) === Number(targetPositionColField.value)) {
             alert("Starting and target position must not be the same.")
+            startingPositionRowField.focus();
             return false;
         }
 
         if (gridDataField.value.length < 1) {
+            gridDataField.focus();
             alert("Please provide grid data");
             return false;
         }
 
+        if (startTimeField.value.length < 1) {
+            startTimeField.focus();
+            alert("Please provide a start date/time.");
+            return false;
+        }
+
+        if (endTimeField.value.length < 1) {
+            endTimeField.focus();
+            alert("Please provide an end date/time.");
+            return false;
+        }
+
+        const startTime = new Date(startTimeField.value).getTime();
+        const endTime = new Date(endTimeField.value).getTime();
+        const timeNow = new Date().getTime();
+
+        if (startTime >= endTime) {
+            endTimeField.focus();
+            alert("End time must be after start time.")
+            return false;
+        }
+
+        if (startTime <= timeNow) {
+            startTimeField.focus();
+            alert("The start time must be in the future.")
+            return false;
+        }
+
+        const minPlayers = Number(minActivePlayersField.value);
+        const maxPlayers = Number(maxActivePlayersField.value);
+
+        if (!Number.isInteger(minPlayers) || minPlayers < 1) {
+            minActivePlayersField.focus();
+            alert("The minimum active players must be an integer >= 1.");
+            return false;
+        }
+
+        if (!Number.isInteger(maxPlayers) || minPlayers > maxPlayers) {
+            maxActivePlayersField.focus();
+            alert("The maximum active players must be an integer >= minPlayers.");
+            return false;
+        }
+
+        const canJoinAfterStart = canJoinAfterStartField.checked;
+        const canRepeat = canRepeatField.checked;
+        const canStepOnEachOther = canStepOnEachOtherField.checked;
+        const questionnaire = questionnaireField.checked;
+
         //HTTP:
-        const url = "../api/challenge/add";
-        const body =
-            "name=" + nameField.value +
-            "&description=" + descriptionField.value +
-            "&algorithm=" + algorithmSelect.selectedOptions[0].value +
-            "&apiVersion=" + "1" +
-            "&canJoinAfterStart=" + "true" + //TODO
-            "&canRepeat=" + "true" + //TODO
-            "&canStepOnEachOther=" + "true" + //TODO
-            "&createdOn=" + new Date().getTime() +
-            "&createdByID=" + "admin" +
-            "&id=" + "" +
-            "&endTime=" + new Date().getTime() + 24 * 3600 + //TODO
-            "&difficulty=" + "MEDIUM_Difficulty" + //TODO
-            "&lineColor=" + "#FFFFFF" + //TODO
-            "&maxActivePlayers=" + "30" + //TODO
-            "&minActivePlayers=" + "1" + //TODO
-            "&rewards=" + "MEDIUM_PickableIntensity" + //TODO
-            "&penalties=" + "MEDIUM_PickableIntensity" + //TODO
-            "&hasQuestionnaire=" + "true" + //TODO
-            "&backgroundImage=" + "TEXTURE_GRASS_BackgroundImage" + //TODO
-            "&backgroundAudio=" + "AUDIO_NONE_Audio" + //TODO
-            "&startTime=" + new Date().getTime() + //TODO
+        if (!toJson) {
+            createChallengeButton.style.visibility = "hidden";
+            const url = "../api/challenge/add";
+            const body =
+                "name=" + nameField.value +
+                "&description=" + descriptionField.value +
+                "&algorithm=" + algorithmSelect.selectedOptions[0].value +
+                "&apiVersion=" + "1" +
+                "&canJoinAfterStart=" + canJoinAfterStart +
+                "&canRepeat=" + canRepeat +
+                "&canStepOnEachOther=" + canStepOnEachOther +
+                "&createdOn=" + new Date().getTime() +
+                "&createdByID=" + "admin" +
+                "&id=" + "" +
+                "&endTime=" + endTime +
+                "&lineColor=" + lineColorField.value +
+                "&maxActivePlayers=" + maxPlayers +
+                "&minActivePlayers=" + minPlayers +
+                "&rewards=" + rewardsSelect.selectedOptions[0].value +
+                "&penalties=" + penaltiesSelect.selectedOptions[0].value +
+                "&hasQuestionnaire=" + questionnaire +
+                "&backgroundImage=" + backgroundImageSelect.selectedOptions[0].value +
+                "&backgroundAudio=" + backgroundAudioSelect.selectedOptions[0].value +
+                "&startTime=" + startTime +
 
-            "&gridSize=" + gridSizeField.value +
-            "&gridData=" + gridDataField.value +
-            "&gridStartingDirection=" + "NORTH" + //TODO
-            "&gridStartingPositionRow=" + startingPositionRowField.value +
-            "&gridStartingPositionCol=" + startingPositionColField.value +
-            "&gridTargetPositionRow=" + targetPositionRowField.value +
-            "&gridTargetPositionCol=" + targetPositionColField.value +
+                "&gridSize=" + gridSizeField.value +
+                "&gridData=" + gridDataField.value +
+                "&gridStartingDirection=" + startingDirectionSelect.selectedOptions[0].value +
+                "&gridStartingPositionRow=" + startingPositionRowField.value +
+                "&gridStartingPositionCol=" + startingPositionColField.value +
+                "&gridTargetPositionRow=" + targetPositionRowField.value +
+                "&gridTargetPositionCol=" + targetPositionColField.value +
 
-            "&adminKey=" + Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE)
+                "&adminKey=" + Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE)
+            ;
 
-        ;
 
+            const httpOptions = {
+                method: "POST",
+                body: body
+            };
 
-        const httpOptions = {
-            method: "POST",
-            body: body
-        };
+            fetch(url, httpOptions)
+                .then(response => response.text())
+                .then(text => {
+                    createChallengeButton.style.visibility = "visible";
+                    if (text.includes("Error")) {
+                        alert(text);
+                    } else {
+                        document.location.href = "viewChallenges.jsp";
+                    }
+                })
 
-        fetch(url, httpOptions)
-            .then(response => response.text())
-            .then(text => {
-                createChallengeButton.style.visibility = "visible";
-                if (text.includes("Error")) {
-                    alert(text);
-                }
-                else {
-                    document.location.href = "viewChallenges.jsp";
-                }
-            })
+        }
+
+        //To JSON file:
+        else {
+            const challenge = {
+                "name": nameField.value,
+                "description": descriptionField.value,
+                "algorithm": algorithmSelect.selectedOptions[0].value,
+                "apiVersion": 1,
+                "canJoinAfterStart": canJoinAfterStart,
+                "canRepeat": canRepeat,
+                "canStepOnEachOther": canStepOnEachOther,
+                "createdOn": new Date().getTime(),
+                "createdByID": "admin",
+                "endTime": endTime,
+                "lineColor": lineColorField.value,
+                "maxActivePlayers": maxPlayers,
+                "minActivePlayers": minPlayers,
+                "rewards": rewardsSelect.selectedOptions[0].value,
+                "penalties": penaltiesSelect.selectedOptions[0].value,
+                "hasQuestionnaire": questionnaire,
+                "backgroundImage": backgroundImageSelect.selectedOptions[0].value,
+                "backgroundAudio": backgroundAudioSelect.selectedOptions[0].value,
+                "grid": {
+                  "data": gridDataField.value,
+                  "height": gridSizeField.value,
+                  "width": gridSizeField.value,
+                  "startingDirection": startingDirectionSelect.selectedOptions[0].value,
+                  "startingPosition": {
+                      "col": startingPositionColField.value,
+                      "row": startingPositionRowField.value
+                  },
+                    "targetPosition": {
+                      "col": targetPositionColField.value,
+                        "row": targetPositionRowField.value
+                    },
+                },
+                "startTime": startTime,
+                "difficulty": calculateDifficulty(rewardsSelect.selectedOptions[0].value, penaltiesSelect.selectedOptions[0].value)
+            }
+
+            const challengeJSON = JSON.stringify(challenge);
+            console.log(challengeJSON);
+            downloadFile(challengeJSON, challenge.name + ".json", "application/json");
+        }
 
         return true;
+    }
+
+    function calculateDifficulty(rewards, penalties) {
+        if (rewards === penalties) return "MEDIUM_Difficulty";
+        if (rewards === "LOW_PickableIntensity" && penalties === "HIGH_PickableIntensity") return "VERY_HARD_Difficulty";
+        else if (rewards === "HIGH_PickableIntensity" && penalties === "LOW_PickableIntensity") return "VERY_EASY_Difficulty";
+        else if (rewards === "MEDIUM_PickableIntensity" && penalties === "LOW_PickableIntensity") return "EASY_Difficulty";
+        else if (rewards === "LOW_PickableIntensity" && penalties === "MEDIUM_PickableIntensity") return "HARD_Difficulty";
+        else if (rewards === "MEDIUM_PickableIntensity" && penalties === "HIGH_PickableIntensity") return "HARD_Difficulty";
+        else return "EASY_Difficulty";
+    }
+
+    function downloadFile(data, filename, type) {
+        let file = new Blob([data], {type: type});
+        if (window.navigator.msSaveOrOpenBlob) // IE10+
+            window.navigator.msSaveOrOpenBlob(file, filename);
+        else { // Others
+            let a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        }
     }
 
     function generateGrid() {
