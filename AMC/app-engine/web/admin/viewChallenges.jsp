@@ -109,6 +109,16 @@
 
                 <form method="post" id="add-challenge-form" class="col s12" onsubmit="event.preventDefault()">
 
+                    <div class="file-field input-field right">
+                        <div class="btn btn-flat blue-text white">
+                            <span>Import from JSON</span>
+                            <input type="file" accept="application/json" id="jsonFileField">
+                            <div class="file-path-wrapper hiddendiv">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+
                     <h4>Add challenge</h4>
 
                     <div class="col s12">
@@ -372,6 +382,47 @@
     const canStepOnEachOtherField = document.getElementById("canStepOnEachOther");
     const questionnaireField = document.getElementById("questionnaire");
     const startingDirectionSelect = document.getElementById("startingDirection");
+    const fileField = document.getElementById("jsonFileField");
+    fileField.addEventListener("change", handleJSONFile, false);
+
+    function handleJSONFile() {
+        const file = this.files[0];
+        const fileReader = new FileReader();
+        fileReader.onload = function() {
+            const text = fileReader.result;
+            const challenge = JSON.parse(text);
+            nameField.value = challenge.name;
+            descriptionField.value = challenge.description;
+            gridSizeField.value = challenge.grid.height;
+            startingPositionRowField.value = challenge.grid.startingPosition.row;
+            startingPositionColField.value = challenge.grid.startingPosition.col;
+            targetPositionRowField.value = challenge.grid.targetPosition.row;
+            targetPositionColField.value = challenge.grid.targetPosition.col;
+            algorithmSelect.value = challenge.algorithm;
+            startingDirectionSelect.value = challenge.grid.startingDirection;
+            gridDataField.value = challenge.grid.data;
+            rewardsSelect.value = challenge.rewards;
+            penaltiesSelect.value = challenge.penalties;
+
+            const startTime = new Date(challenge.startTime);
+            const endTime = new Date(challenge.endTIme);
+            startTimeField.value = startTime.getFullYear() + "-" + startTime.getMonth() + "-" + startTime.getDay() + "T" + startTime.getHours() + ":" + startTime.getMinutes();
+            endTimeField.value = endTime.getFullYear() + "-" + endTime.getMonth() + "-" + endTime.getDay() + "T" + endTime.getHours() + ":" + endTime.getMinutes();
+
+            minActivePlayersField.value = challenge.minActivePlayers;
+            maxActivePlayersField.value = challenge.maxActivePlayers;
+            backgroundImageSelect.value = challenge.backgroundImage;
+            backgroundAudioSelect.value = challenge.backgroundAudio;
+            lineColorField.value = challenge.lineColor;
+
+            canJoinAfterStartField.checked = challenge.canJoinAfterStart;
+            canRepeatField.checked = challenge.canRepeat;
+            canStepOnEachOtherField.checked = challenge.canStepOnEachOther;
+            questionnaireField.checked = challenge.hasQuestionnaire;
+        }
+
+        fileReader.readAsText(file);
+    }
 
     function deleteChallenge(challengeID) {
         let adminKey = Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
@@ -616,6 +667,10 @@
         .catch(error => {
             alert(error);
         });
+
+    }
+
+    function importJSON() {
 
     }
 

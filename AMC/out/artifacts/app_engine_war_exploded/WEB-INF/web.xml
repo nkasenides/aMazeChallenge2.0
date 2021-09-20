@@ -48,6 +48,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>EditChallengeServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.EditChallengeServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>DeleteChallengeServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.DeleteChallengeServlet</servlet-class>
     </servlet>
@@ -117,6 +122,11 @@
     <servlet-mapping>
         <servlet-name>AddChallengeServlet</servlet-name>
         <url-pattern>/api/challenge/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EditChallengeServlet</servlet-name>
+        <url-pattern>/api/challenge/edit</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
