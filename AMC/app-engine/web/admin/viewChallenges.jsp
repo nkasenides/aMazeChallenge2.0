@@ -49,7 +49,6 @@
                         <tr>
         <%--                    <td>ID</td>--%>
                             <td>Name</td>
-                            <td>Description</td>
                             <td>Grid size</td>
                             <td>Difficulty</td>
                             <td>Start on</td>
@@ -68,19 +67,16 @@
                         <tr>
         <%--                    <td><%=challenge.getId()%>--%>
         <%--                    </td>--%>
-                            <td><%=challenge.getName()%>
-                            </td>
-                            <td><%=challenge.getDescription()%>
-                            </td>
+                            <td><a href="editChallenge.jsp?challengeID=<%=challenge.getId()%>"><%=challenge.getName()%></a></td>
                             <td><%=challenge.getGrid().getWidth()%>x<%=challenge.getGrid().getWidth()%>
                             </td>
-                            <td><%=challenge.getDifficulty().toString().split("_").length == 1 ? challenge.getDifficulty().toString().split("_")[0] : challenge.getDifficulty().toString().split("_")[0] + " " + challenge.getDifficulty().toString().split("_")[1]%>
+                            <td><%=challenge.getDifficulty().toString().split("_").length == 2 ? challenge.getDifficulty().toString().split("_")[0] : challenge.getDifficulty().toString().split("_")[0] + " " + challenge.getDifficulty().toString().split("_")[1]%>
                             </td>
                             <td><%=dateFormat.format(new Date(challenge.getStartTime()))%>
                             </td>
                             <td><%=dateFormat.format(new Date(challenge.getEndTime()))%>
                             </td>
-                            <td><input type="button" onclick="if (confirm('Are you sure?')) deleteChallenge('<%=challenge.getId()%>')" value="Delete" class="btn red darken-3 white-text"/></td>
+                            <td><a onclick="if (confirm('Are you sure?')) deleteChallenge('<%=challenge.getId()%>')" class="red-text"><i style="cursor: pointer" class="material-icons">delete</i></a></td>
                         </tr>
                         <%
                                 }
@@ -299,7 +295,7 @@
                     <div class="col s4">
                         <p>
                             <label class="black-text">
-                                <input type="checkbox" class="filled-in" name="canJoinAfterStart" id="canJoinAfterStart" checked="checked" required />
+                                <input type="checkbox" class="filled-in" name="canJoinAfterStart" id="canJoinAfterStart" checked="checked" />
                                 <span>Can join after start</span>
                             </label>
                         </p>
@@ -308,7 +304,7 @@
                     <div class="col s4">
                         <p>
                             <label class="black-text">
-                                <input type="checkbox" class="filled-in" name="canRepeat" id="canRepeat" checked required />
+                                <input type="checkbox" class="filled-in" name="canRepeat" id="canRepeat" checked />
                                 <span>Can repeat</span>
                             </label>
                         </p>
@@ -317,7 +313,7 @@
                     <div class="col s4">
                         <p>
                             <label class="black-text">
-                                <input type="checkbox" class="filled-in" name="canStepOnEachOther" id="canStepOnEachOther" checked required />
+                                <input type="checkbox" class="filled-in" name="canStepOnEachOther" id="canStepOnEachOther" checked />
                                 <span>Can step on each other</span>
                             </label>
                         </p>
@@ -326,7 +322,7 @@
                     <div class="col s4">
                         <p>
                             <label class="black-text">
-                                <input type="checkbox" class="filled-in" name="questionnaire" id="questionnaire" checked required />
+                                <input type="checkbox" class="filled-in" name="questionnaire" id="questionnaire" checked />
                                 <span>Questionnaire</span>
                             </label>
                         </p>
