@@ -113,6 +113,9 @@ public class AMCWorldSessionDAO implements WorldBasedDAO<AMCWorldSession> {
         return Firestorm.getMany(AMCWorldSession.class, ids);
     }
 
+    public List<AMCWorldSession> list() {
+        return Firestorm.listAll(AMCWorldSession.class);
+    }
 
 }
 

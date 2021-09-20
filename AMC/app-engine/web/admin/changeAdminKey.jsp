@@ -37,11 +37,11 @@
                     <a href="index.jsp"><i class="material-icons indigo-text">arrow_back</i></a>
 
                     <div class="center-align">
-                        <h4>Change admin key</h4>
+                        <h4>Admin key</h4>
                     </div>
 
                     <form onsubmit="event.preventDefault();">
-                        <p>New admin key: <input type="text" id="newAdminKey" required /></p>
+                        <p>Admin key: <input type="text" id="newAdminKey" required /></p>
                         <script>
                             const newAdminKeyField = document.getElementById("newAdminKey");
                             newAdminKeyField.value = Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
