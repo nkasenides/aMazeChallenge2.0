@@ -10,11 +10,14 @@
 
     <ProgressBar
         android:id="@+id/activity_online_challenge_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/activity_online_challenge_list_view"
+        android:background="@drawable/app_background"
+        android:backgroundTint="@color/ditheredGray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

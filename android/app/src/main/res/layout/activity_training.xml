@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ditheredGray"
+    android:background="@drawable/app_background"
+    android:backgroundTint="@color/ditheredGray"
     tools:context="org.inspirecenter.amazechallenge.ui.TrainingActivity">
 
     <android.support.v7.widget.CardView

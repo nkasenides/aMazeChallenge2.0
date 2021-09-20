@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/ditheredGray"
+    android:background="@drawable/app_background"
+    android:backgroundTint="@color/ditheredGray"
     tools:context="org.inspirecenter.amazechallenge.ui.GameActivity">
 
     <org.inspirecenter.amazechallenge.ui.GameView
@@ -21,6 +22,7 @@
 
     <LinearLayout
         android:baselineAligned="true"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
@@ -124,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Reset"
                     android:padding="5dp"
-                    android:background="@color/materialViolet"
+                    android:background="@color/materialRed"
                     android:textColor="@color/white" />
 
                 <ToggleButton
@@ -168,7 +170,7 @@
                     android:drawableTint="@color/white"
                     android:layout_width="0dp"
                     android:layout_weight="3"
-                    android:background="@color/materialOrange"
+                    android:background="@color/materialYellow"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content" />
 
