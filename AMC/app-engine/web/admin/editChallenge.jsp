@@ -373,12 +373,6 @@
             return false;
         }
 
-        if (startTime <= timeNow) {
-            startTimeField.focus();
-            alert("The start time must be in the future.")
-            return false;
-        }
-
         const minPlayers = Number(minActivePlayersField.value);
         const maxPlayers = Number(maxActivePlayersField.value);
 

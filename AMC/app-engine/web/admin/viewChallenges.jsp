@@ -405,9 +405,20 @@
             penaltiesSelect.value = challenge.penalties;
 
             const startTime = new Date(challenge.startTime);
-            const endTime = new Date(challenge.endTIme);
-            startTimeField.value = startTime.getFullYear() + "-" + startTime.getMonth() + "-" + startTime.getDay() + "T" + startTime.getHours() + ":" + startTime.getMinutes();
-            endTimeField.value = endTime.getFullYear() + "-" + endTime.getMonth() + "-" + endTime.getDay() + "T" + endTime.getHours() + ":" + endTime.getMinutes();
+            const endTime = new Date(challenge.endTime);
+
+            const startMonth = String(startTime.getMonth()).length === 1 ? "0" + startTime.getMonth() : startTime.getMonth();
+            const startDay = String(startTime.getDay()).length === 1 ? "0" + startTime.getDay() : startTime.getDay();
+            const startHour = String(startTime.getHours()).length === 1 ? "0" + startTime.getHours() : startTime.getHours();
+            const startMinutes = String(startTime.getMinutes()).length === 1 ? "0" + startTime.getMinutes() : startTime.getMinutes();
+
+            const endMonth = String(endTime.getMonth()).length === 1 ? "0" + endTime.getMonth() : endTime.getMonth();
+            const endDay = String(endTime.getDay()).length === 1 ? "0" + endTime.getDay() : endTime.getDay();
+            const endHour = String(endTime.getHours()).length === 1 ? "0" + endTime.getHours() : endTime.getHours();
+            const endMinutes = String(endTime.getMinutes()).length === 1 ? "0" + endTime.getMinutes() : endTime.getMinutes();
+
+            startTimeField.value = startTime.getFullYear() + "-" + startMonth + "-" + startDay + "T" + startHour + ":" + startMinutes;
+            endTimeField.value = endTime.getFullYear() + "-" + endMonth + "-" + endDay + "T" + endHour + ":" + endMinutes;
 
             minActivePlayersField.value = challenge.minActivePlayers;
             maxActivePlayersField.value = challenge.maxActivePlayers;
@@ -468,12 +479,6 @@
         if (startTime >= endTime) {
             endTimeField.focus();
             alert("End time must be after start time.")
-            return false;
-        }
-
-        if (startTime <= timeNow) {
-            startTimeField.focus();
-            alert("The start time must be in the future.")
             return false;
         }
 
