@@ -63,7 +63,11 @@
                     <div style="height: 20px"></div>
                     <a href="index.jsp"><i class="material-icons indigo-text">arrow_back</i></a>
 
-                    <h4>Edit challenge</h4>
+                    <div class="file-field input-field right">
+                        <input type="button" onclick="exportJSON()" value="Export JSON" class="btn btn-flat blue-text white" />
+                    </div>
+
+                    <h4>Manage challenge</h4>
 
                     <div class="col s12">
                         <p><label>Name: <input type="text" name="name" id="name" value="<%= challenge.getName() %>" required/></label></p>
@@ -240,7 +244,7 @@
                     <div class="col s12 ">
                         <p>Line/Wall color</p>
                         <p>
-                            <input type="color" name="lineColor" id="lineColor" value="<%=challenge.getLineColor()%>>" required />
+                            <input type="color" name="lineColor" id="lineColor" value="<%=challenge.getLineColor()%>" required />
                         </p>
                     </div>
 
@@ -489,6 +493,145 @@
             alert(error);
         });
 
+    }
+
+    function exportJSON() {
+
+            if (nameField.value.length < 1) {
+                alert("Please provide a challenge name.")
+                nameField.focus();
+                return false;
+            }
+
+            if (Number(startingPositionRowField.value) === Number(targetPositionRowField.value) && Number(startingPositionColField.value) === Number(targetPositionColField.value)) {
+                alert("Starting and target position must not be the same.")
+                startingPositionRowField.focus();
+                return false;
+            }
+
+            if (gridDataField.value.length < 1) {
+                gridDataField.focus();
+                alert("Please provide grid data");
+                return false;
+            }
+
+            if (startTimeField.value.length < 1) {
+                startTimeField.focus();
+                alert("Please provide a start date/time.");
+                return false;
+            }
+
+            if (endTimeField.value.length < 1) {
+                endTimeField.focus();
+                alert("Please provide an end date/time.");
+                return false;
+            }
+
+            const startTime = new Date(startTimeField.value).getTime();
+            const endTime = new Date(endTimeField.value).getTime();
+            const timeNow = new Date().getTime();
+
+            if (startTime >= endTime) {
+                endTimeField.focus();
+                alert("End time must be after start time.")
+                return false;
+            }
+
+            if (startTime <= timeNow) {
+                startTimeField.focus();
+                alert("The start time must be in the future.")
+                return false;
+            }
+
+            const minPlayers = Number(minActivePlayersField.value);
+            const maxPlayers = Number(maxActivePlayersField.value);
+
+            if (!Number.isInteger(minPlayers) || minPlayers < 1) {
+                minActivePlayersField.focus();
+                alert("The minimum active players must be an integer >= 1.");
+                return false;
+            }
+
+            if (!Number.isInteger(maxPlayers) || minPlayers > maxPlayers) {
+                maxActivePlayersField.focus();
+                alert("The maximum active players must be an integer >= minPlayers.");
+                return false;
+            }
+
+            const canJoinAfterStart = canJoinAfterStartField.checked;
+            const canRepeat = canRepeatField.checked;
+            const canStepOnEachOther = canStepOnEachOtherField.checked;
+            const questionnaire = questionnaireField.checked;
+
+            const challenge = {
+                "name": nameField.value,
+                "description": descriptionField.value,
+                "algorithm": algorithmSelect.selectedOptions[0].value,
+                "apiVersion": 1,
+                "canJoinAfterStart": canJoinAfterStart,
+                "canRepeat": canRepeat,
+                "canStepOnEachOther": canStepOnEachOther,
+                "createdOn": new Date().getTime(),
+                "createdByID": "admin",
+                "endTime": endTime,
+                "lineColor": lineColorField.value,
+                "maxActivePlayers": maxPlayers,
+                "minActivePlayers": minPlayers,
+                "rewards": rewardsSelect.selectedOptions[0].value,
+                "penalties": penaltiesSelect.selectedOptions[0].value,
+                "hasQuestionnaire": questionnaire,
+                "backgroundImage": backgroundImageSelect.selectedOptions[0].value,
+                "backgroundAudio": backgroundAudioSelect.selectedOptions[0].value,
+                "grid": {
+                    "data": gridDataField.value,
+                    "height": gridSizeField.value,
+                    "width": gridSizeField.value,
+                    "startingDirection": startingDirectionSelect.selectedOptions[0].value,
+                    "startingPosition": {
+                        "col": startingPositionColField.value,
+                        "row": startingPositionRowField.value
+                    },
+                    "targetPosition": {
+                        "col": targetPositionColField.value,
+                        "row": targetPositionRowField.value
+                    },
+                },
+                "startTime": startTime,
+                "difficulty": calculateDifficulty(rewardsSelect.selectedOptions[0].value, penaltiesSelect.selectedOptions[0].value)
+            }
+
+            const challengeJSON = JSON.stringify(challenge);
+            console.log(challengeJSON);
+            downloadFile(challengeJSON, challenge.name + ".json", "application/json");
+
+    }
+
+    function downloadFile(data, filename, type) {
+        let file = new Blob([data], {type: type});
+        if (window.navigator.msSaveOrOpenBlob) // IE10+
+            window.navigator.msSaveOrOpenBlob(file, filename);
+        else { // Others
+            let a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        }
+    }
+
+    function calculateDifficulty(rewards, penalties) {
+        if (rewards === penalties) return "MEDIUM_Difficulty";
+        if (rewards === "LOW_PickableIntensity" && penalties === "HIGH_PickableIntensity") return "VERY_HARD_Difficulty";
+        else if (rewards === "HIGH_PickableIntensity" && penalties === "LOW_PickableIntensity") return "VERY_EASY_Difficulty";
+        else if (rewards === "MEDIUM_PickableIntensity" && penalties === "LOW_PickableIntensity") return "EASY_Difficulty";
+        else if (rewards === "LOW_PickableIntensity" && penalties === "MEDIUM_PickableIntensity") return "HARD_Difficulty";
+        else if (rewards === "MEDIUM_PickableIntensity" && penalties === "HIGH_PickableIntensity") return "HARD_Difficulty";
+        else return "EASY_Difficulty";
     }
 
 </script>
