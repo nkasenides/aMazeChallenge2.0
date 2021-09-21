@@ -90,7 +90,7 @@
                     }
                     else {
                         Cookies.setCookie(Cookies.ADMIN_KEY_COOKIE, adminKey);
-                        document.location.href = "viewChallenges.jsp";
+                        document.location.href = "index.jsp";
                     }
                 })
 
