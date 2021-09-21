@@ -7,7 +7,7 @@
 
 package org.inspirecenter.amazechallenge.client.stubs;
 
-import org.inspirecenter.amazechallenge.client.AMCClient;
+import org.inspirecenter.amazechallenge.client.SimulationClient;
 
 import java.util.HashMap;
 
@@ -21,7 +21,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, SubmitQuestionnaire> submitQuestionnaireStubMap = new HashMap<>();
-    public static SubmitQuestionnaire submitQuestionnaireStub(AMCClient client) {
+    public static SubmitQuestionnaire submitQuestionnaireStub(SimulationClient client) {
         if (submitQuestionnaireStubMap.get(client.getPlayer().getId()) == null) {
                 final SubmitQuestionnaire stub = new SubmitQuestionnaire();
                 submitQuestionnaireStubMap.put(client.getPlayer().getId(), stub);
@@ -33,7 +33,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, ListChallenges> listChallengesStubMap = new HashMap<>();
-    public static ListChallenges listChallengesStub(AMCClient client) {
+    public static ListChallenges listChallengesStub(SimulationClient client) {
         if (listChallengesStubMap.get(client.getPlayer().getId()) == null) {
                 final ListChallenges stub = new ListChallenges();
                 listChallengesStubMap.put(client.getPlayer().getId(), stub);
@@ -45,7 +45,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, SubmitCode> submitCodeStubMap = new HashMap<>();
-    public static SubmitCode submitCodeStub(AMCClient client) {
+    public static SubmitCode submitCodeStub(SimulationClient client) {
         if (submitCodeStubMap.get(client.getPlayer().getId()) == null) {
                 final SubmitCode stub = new SubmitCode();
                 submitCodeStubMap.put(client.getPlayer().getId(), stub);
@@ -57,7 +57,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, JoinChallenge> joinChallengeStubMap = new HashMap<>();
-    public static JoinChallenge joinChallengeStub(AMCClient client) {
+    public static JoinChallenge joinChallengeStub(SimulationClient client) {
         if (joinChallengeStubMap.get(client.getPlayer().getId()) == null) {
                 final JoinChallenge stub = new JoinChallenge();
                 joinChallengeStubMap.put(client.getPlayer().getId(), stub);
@@ -69,7 +69,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, GetState> getStateStubMap = new HashMap<>();
-    public static GetState getStateStub(AMCClient client) {
+    public static GetState getStateStub(SimulationClient client) {
         if (getStateStubMap.get(client.getPlayer().getId()) == null) {
                 final GetState stub = new GetState();
                 getStateStubMap.put(client.getPlayer().getId(), stub);
@@ -93,7 +93,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, Subscribe> subscribeStubMap = new HashMap<>();
-    public static Subscribe subscribeStub(AMCClient client) {
+    public static Subscribe subscribeStub(SimulationClient client) {
         if (subscribeStubMap.get(client.getPlayer().getId()) == null) {
                 final Subscribe stub = new Subscribe();
                 subscribeStubMap.put(client.getPlayer().getId(), stub);
@@ -105,7 +105,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, Unsubscribe> unsubscribeStubMap = new HashMap<>();
-    public static Unsubscribe unsubscribeStub(AMCClient client) {
+    public static Unsubscribe unsubscribeStub(SimulationClient client) {
         if (unsubscribeStubMap.get(client.getPlayer().getId()) == null) {
                 final Unsubscribe stub = new Unsubscribe();
                 unsubscribeStubMap.put(client.getPlayer().getId(), stub);
@@ -117,7 +117,7 @@ public final class Stubs {
     
 
     private static final HashMap<String, AddChallenge> addChallengeStubMap = new HashMap<>();
-    public static AddChallenge addChallengeStub(AMCClient client) {
+    public static AddChallenge addChallengeStub(SimulationClient client) {
         if (addChallengeStubMap.get(client.getPlayer().getId()) == null) {
                 final AddChallenge stub = new AddChallenge();
                 addChallengeStubMap.put(client.getPlayer().getId(), stub);
