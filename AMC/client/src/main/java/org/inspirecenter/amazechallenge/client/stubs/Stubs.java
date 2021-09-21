@@ -48,6 +48,7 @@ public final class Stubs {
         if (submitCodeStubMap.get(client.getPlayer().getId()) == null) {
             final SubmitCode stub = new SubmitCode();
             submitCodeStubMap.put(client.getPlayer().getId(), stub);
+            return stub;
         }
         return submitCodeStubMap.get(client.getPlayer().getId());
     }

@@ -205,6 +205,24 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
             finish();
         }
 
+        //NEW in 2.0, sets the correct background image based on the challenge.
+        this.gameView.setBackgroundDrawable(challenge.getBackgroundImage());
+
+        //NEW in 2.0, plays background audio:
+        final Audio audioResource = challenge.getBackgroundAudio();
+        System.out.println("Sound is: " + sound);
+        if (audioResource.getAudioFormat() != AudioFormat.UNDEFINED_FORMAT_AudioFormat && !audioResource.getName().equals(Audio.AUDIO_NONE_Audio.getSoundResourceName())) {
+            backgroundAudio = MediaPlayer.create(this, getResources().getIdentifier(audioResource.getSoundResourceName(), "raw", getPackageName()));
+            if (backgroundAudio != null && sound) {
+                backgroundAudio.setLooping(true);
+                backgroundAudio.setVolume(DEFAULT_AMBIENT_VOLUME, DEFAULT_AMBIENT_VOLUME);
+                backgroundAudio.start();
+            }
+        }
+
+        //NEW in 2.0, adjusts the line color based on the challenge:
+        this.gameView.setLineColor(challenge.getLineColor());
+
         getStateHTTP();
 
     }
