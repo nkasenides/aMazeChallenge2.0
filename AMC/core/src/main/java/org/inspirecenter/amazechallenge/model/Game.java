@@ -245,8 +245,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         playerEntities.remove(playerId + "_" + playerWorldSessions.get(playerId).getWorldID());
 
         //Reset:
-//        playerWorldSessions.get(playerId).setHealth(new Health());
-//        playerWorldSessions.get(playerId).setPoints(0);
+//        playerWorldSessions.remove(playerId);
     }
 
     @Exclude
@@ -264,6 +263,8 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     public boolean activateNextPlayer(final Grid grid) {
         if(!queuedPlayers.isEmpty()) {
             final String nextPlayerId = queuedPlayers.remove(0); // get first in line from 'queued'
+            finishedPlayers.remove(nextPlayerId);
+            waitingPlayers.remove(nextPlayerId);
             activePlayers.add(nextPlayerId);
             System.out.println("Activated: " + nextPlayerId);
             final AMCWorldSession worldSession = getPlayerWorldSessions().get(nextPlayerId);
