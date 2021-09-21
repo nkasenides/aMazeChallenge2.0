@@ -214,7 +214,7 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
 
                         //Performance:
                         final Vector<Long> latencies = SimulationClient.latencies.get(name);
-                        System.out.println(name + ": " + latencies);
+                        System.out.println(name + "," + latencies.toString().replace("[", "").replace("]", ""));
 
                         stop();
                     }

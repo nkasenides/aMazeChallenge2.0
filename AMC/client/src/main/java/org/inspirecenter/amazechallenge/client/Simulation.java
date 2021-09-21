@@ -37,7 +37,7 @@ public class Simulation {
     }
 
     public static void main(String[] args) {
-        new Simulation(2, true);
+        new Simulation(10, true);
     }
 
 }

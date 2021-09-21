@@ -49,6 +49,7 @@ public class SubmitCode implements AthlosService<SubmitCodeRequest, SubmitCodeRe
                     .build();
         }
 
+//        System.out.println(code);
         worldSession.setCode(code);
 
         //Save world session with code:
