@@ -62,6 +62,10 @@ dependencies {
     implementation fileTree(dir: '..\\libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.raylabz:java-http:2.0.1'
     implementation 'com.android.volley:volley:1.2.1'
+    implementation ('io.ably:ably-android:1.2.8') {
+        exclude group: "org.slf4j"
+        exclude group: "com.google.code.gson"
+    }
     compileOnly 'com.googlecode.objectify:objectify:5.1.13'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

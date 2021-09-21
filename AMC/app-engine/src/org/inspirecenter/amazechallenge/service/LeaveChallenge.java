@@ -9,18 +9,31 @@ package org.inspirecenter.amazechallenge.service;
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import com.nkasenides.athlos.backend.AthlosService;
-import org.inspirecenter.amazechallenge.model.AMCWorldSession;
-import org.inspirecenter.amazechallenge.model.Challenge;
-import org.inspirecenter.amazechallenge.model.Game;
+import io.ably.lib.realtime.AblyRealtime;
+import io.ably.lib.realtime.Channel;
+import io.ably.lib.types.AblyException;
+import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
 import org.inspirecenter.amazechallenge.persistence.KeyUtils;
-import org.inspirecenter.amazechallenge.proto.GetStateResponse;
-import org.inspirecenter.amazechallenge.proto.LeaveChallengeRequest;
+import org.inspirecenter.amazechallenge.proto.*;
 import org.inspirecenter.amazechallenge.auth.*;
-import org.inspirecenter.amazechallenge.proto.LeaveChallengeResponse;
-import org.inspirecenter.amazechallenge.proto.RuntimeResponse;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 public class LeaveChallenge implements AthlosService<LeaveChallengeRequest, LeaveChallengeResponse> {
+
+    private static AblyRealtime ably;
+
+    static {
+        try {
+            ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
+        } catch (AblyException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override    
     public LeaveChallengeResponse serve(LeaveChallengeRequest request, Object... additionalParams) {
@@ -84,6 +97,74 @@ public class LeaveChallenge implements AthlosService<LeaveChallengeRequest, Leav
 
         game.resetPlayerById(playerID);
         game.clearAllPlayerEvents(playerID);
+
+        //Update client states:
+        for (String activePlayerID : game.getAllPlayers().keySet()) {
+            AMCWorldSession activePlayerSession = game.getPlayerWorldSessions().get(activePlayerID);
+            Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
+            try {
+
+                //Compose state:
+                final List<PickableEntity> pickables = game.getPickables();
+                final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+
+                final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+
+                //Pickable entities:
+                for (PickableEntity pickable : pickables) {
+                    builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+                }
+
+                //Player entities:
+                for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+                    builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+                }
+
+                //Players:
+                for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+                    builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+                }
+
+                //World sessions:
+                for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+                    builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+                }
+
+                //Handle events:
+                final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(activePlayerSession.getPlayerID());
+                Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+                game.clearAllPlayerEvents(activePlayerSession.getPlayerID());
+                memcache.put(game.getId(), game);
+
+                //Retrieve the partial state:
+                builder
+                        .setTimestamp(System.currentTimeMillis())
+                        .setWorldSession(activePlayerSession.toProto())
+                        .addAllActivePlayers(game.getActivePlayers())
+                        .addAllQueuedPlayers(game.getQueuedPlayers())
+                        .addAllWaitingPlayers(game.getWaitingPlayers())
+                        .build();
+
+                final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
+                        .setStatus(UpdateStateResponse.Status.OK)
+                        .setMessage("OK")
+                        .setStateUpdate(AMCStateUpdateProto.newBuilder()
+                                .setPartialState(builder.build())
+                                .setTimestamp(System.currentTimeMillis())
+                                .setWorldSessionID(activePlayerSession.getId())
+                                .addAllEvents(dispatchedEvents)
+                                .build()
+                        )
+                        .build();
+
+
+                //Send message:
+                channel.publish("stateUpdate", updateStateResponse.toByteArray());
+
+            } catch (AblyException e) {
+                e.printStackTrace();
+            }
+        }
 
         memcache.put(game.getId(), game);
 

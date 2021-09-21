@@ -31,5 +31,6 @@
     <orderEntry type="library" name="Maven: com.raylabz:java-http:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.raylabz:mocha:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: com.neovisionaries:nv-websocket-client:2.9" level="project" />
+    <orderEntry type="library" name="io.ably:ably-java:1.2.7" level="project" />
   </component>
 </module>

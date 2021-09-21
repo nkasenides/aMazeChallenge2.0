@@ -11,18 +11,28 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import com.google.appengine.api.taskqueue.Queue;
 import com.google.appengine.api.taskqueue.QueueFactory;
 import com.google.appengine.api.taskqueue.TaskOptions;
+import io.ably.lib.realtime.AblyRealtime;
+import io.ably.lib.realtime.Channel;
+import io.ably.lib.types.AblyException;
 import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
 import org.inspirecenter.amazechallenge.proto.*;
 import com.nkasenides.athlos.backend.AthlosService;
 import org.inspirecenter.amazechallenge.auth.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinChallengeResponse> {
+
+    private static AblyRealtime ably;
+
+    static {
+        try {
+            ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
+        } catch (AblyException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override    
     public JoinChallengeResponse serve(JoinChallengeRequest request, Object... additionalParams) {
@@ -164,6 +174,75 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
                 game.setChallengeID(challengeID);
                 game.addPlayer(player.toObject(), worldSession);
                 game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+
+                //Update client states:
+                for (String activePlayerID : game.getActivePlayers()) {
+                    AMCWorldSession activePlayerSession = game.getPlayerWorldSessions().get(activePlayerID);
+                    Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
+                    try {
+
+                        //Compose state:
+                        final List<PickableEntity> pickables = game.getPickables();
+                        final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+
+                        final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+
+                        //Pickable entities:
+                        for (PickableEntity pickable : pickables) {
+                            builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+                        }
+
+                        //Player entities:
+                        for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+                            builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+                        }
+
+                        //Players:
+                        for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+                            builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+                        }
+
+                        //World sessions:
+                        for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+                            builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+                        }
+
+                        //Handle events:
+                        final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(activePlayerSession.getPlayerID());
+                        Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+                        game.clearAllPlayerEvents(activePlayerSession.getPlayerID());
+                        memcache.put(game.getId(), game);
+
+                        //Retrieve the partial state:
+                        builder
+                                .setTimestamp(System.currentTimeMillis())
+                                .setWorldSession(activePlayerSession.toProto())
+                                .addAllActivePlayers(game.getActivePlayers())
+                                .addAllQueuedPlayers(game.getQueuedPlayers())
+                                .addAllWaitingPlayers(game.getWaitingPlayers())
+                                .build();
+
+                        final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
+                                .setStatus(UpdateStateResponse.Status.OK)
+                                .setMessage("OK")
+                                .setStateUpdate(AMCStateUpdateProto.newBuilder()
+                                        .setPartialState(builder.build())
+                                        .setTimestamp(System.currentTimeMillis())
+                                        .setWorldSessionID(activePlayerSession.getId())
+                                        .addAllEvents(dispatchedEvents)
+                                        .build()
+                                )
+                                .build();
+
+
+                        //Send message:
+                        channel.publish("stateUpdate", updateStateResponse.toByteArray());
+
+                    } catch (AblyException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 memcache.put(game.getId(), game);
 
                 //Start the runtime task:
@@ -188,6 +267,75 @@ public class JoinChallenge implements AthlosService<JoinChallengeRequest, JoinCh
 
                 game.addPlayer(player.toObject(), worldSession);
                 game.getPlayerWorldSessions().put(worldSession.getId(), worldSession);
+
+                //Update client states:
+                for (String activePlayerID : game.getActivePlayers()) {
+                    AMCWorldSession activePlayerSession = game.getPlayerWorldSessions().get(activePlayerID);
+                    Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
+                    try {
+
+                        //Compose state:
+                        final List<PickableEntity> pickables = game.getPickables();
+                        final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+
+                        final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+
+                        //Pickable entities:
+                        for (PickableEntity pickable : pickables) {
+                            builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+                        }
+
+                        //Player entities:
+                        for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+                            builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+                        }
+
+                        //Players:
+                        for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+                            builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+                        }
+
+                        //World sessions:
+                        for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+                            builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+                        }
+
+                        //Handle events:
+                        final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(activePlayerSession.getPlayerID());
+                        Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+                        game.clearAllPlayerEvents(activePlayerSession.getPlayerID());
+                        memcache.put(game.getId(), game);
+
+                        //Retrieve the partial state:
+                        builder
+                                .setTimestamp(System.currentTimeMillis())
+                                .setWorldSession(activePlayerSession.toProto())
+                                .addAllActivePlayers(game.getActivePlayers())
+                                .addAllQueuedPlayers(game.getQueuedPlayers())
+                                .addAllWaitingPlayers(game.getWaitingPlayers())
+                                .build();
+
+                        final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
+                                .setStatus(UpdateStateResponse.Status.OK)
+                                .setMessage("OK")
+                                .setStateUpdate(AMCStateUpdateProto.newBuilder()
+                                        .setPartialState(builder.build())
+                                        .setTimestamp(System.currentTimeMillis())
+                                        .setWorldSessionID(activePlayerSession.getId())
+                                        .addAllEvents(dispatchedEvents)
+                                        .build()
+                                )
+                                .build();
+
+
+                        //Send message:
+                        channel.publish("stateUpdate", updateStateResponse.toByteArray());
+
+                    } catch (AblyException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 memcache.put(game.getId(), game);
 
                 //If this is the first player to join, start the task queue:

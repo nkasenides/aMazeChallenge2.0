@@ -64,6 +64,12 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import io.ably.lib.realtime.AblyRealtime;
+import io.ably.lib.realtime.Channel;
+import io.ably.lib.realtime.ChannelBase;
+import io.ably.lib.types.AblyException;
+import io.ably.lib.types.Message;
+
 import static org.inspirecenter.amazechallenge.ui.BlocklyActivity.INTENT_KEY_NEXT_ACTIVITY;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_AMBIENT_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_EVENTS_VOLUME;
@@ -108,6 +114,9 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     private Handler handler;
     private Timer timer = null;
 
+    AblyRealtime ably;
+    Channel channel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +140,14 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         final String name = sharedPreferences.getString(PREFERENCE_KEY_NAME, getString(R.string.Guest));
         currentPlayerWorldSession = (AMCWorldSession) getIntent().getSerializableExtra(SELECTED_PLAYER_WORLD_SESSION_KEY);
+
+        //Set up Ably:
+        try {
+            ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
+        } catch (AblyException e) {
+            e.printStackTrace();
+        }
+        channel = ably.channels.get("stateUpdate-" + currentPlayerWorldSession.getPlayerID());
 
         // specify and set an adapter
         onlinePlayerAdapter = new OnlinePlayerAdapter(name);
@@ -236,6 +253,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     }
 
     private void leaveChallengeHTTP() {
+        finish();
         RequestQueue queue = Volley.newRequestQueue(OnlineGameActivity.this);
         final String url = Stubs.BASE_URL + "/api/challenge/leave";
 
@@ -248,22 +266,19 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
             try {
                 LeaveChallengeResponse leaveChallengeResponse = LeaveChallengeResponse.parseFrom(response);
                 if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
-                    finish();
+
                 }
                 else {
                     Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
                     System.err.println(leaveChallengeResponse.getMessage());
-                    finish();
                 }
             } catch (InvalidProtocolBufferException e) {
                 Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
                 e.printStackTrace();
-                finish();
             }
         }, error -> {
             Snackbar.make(findViewById(R.id.activity_online_game), R.string.could_not_leave_challenge, Snackbar.LENGTH_SHORT).show();
             error.printStackTrace();
-            finish();
         });
 
         queue.add(leaveChallengeRequest);
@@ -462,7 +477,39 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     if (timer == null) {
                         timer = new Timer();
                     }
-                    timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND); // todo
+//                    timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND); // todo
+
+                    ChannelBase.MessageListener listener = new ChannelBase.MessageListener() {
+                        @Override
+                        public void onMessage(Message message) {
+                            byte[] responseData = (byte[]) message.data;
+                            try {
+                                UpdateStateResponse updateStateResponse = UpdateStateResponse.parseFrom(responseData);
+                                if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+                                    if (updateStateResponse.getStateUpdate().getTimestamp() > lastUpdateTimestamp) {
+                                        runOnUiThread(() -> {
+                                            gameView.update(updateStateResponse.getStateUpdate());
+                                            handleOnlineEvents(updateStateResponse.getStateUpdate());
+                                            onlinePlayerAdapter.clear();
+                                            onlinePlayerAdapter.update(updateStateResponse.getStateUpdate().getPartialState());
+                                            onlinePlayerAdapter.notifyDataSetChanged();
+                                        });
+                                    }
+                                }
+                                else {
+                                    Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.state_update_failed), Snackbar.LENGTH_SHORT).show();
+                                    System.err.println(updateStateResponse.getMessage());
+                                }
+                            } catch (InvalidProtocolBufferException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    try {
+                        channel.subscribe("stateUpdate", listener);
+                    } catch (AblyException e) {
+                        e.printStackTrace();
+                    }
 
                     //Play background audio:
                     final Audio audioResource = challenge.getBackgroundAudio();
