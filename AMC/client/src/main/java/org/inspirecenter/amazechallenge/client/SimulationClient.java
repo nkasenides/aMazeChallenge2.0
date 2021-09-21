@@ -7,14 +7,14 @@
 
 package org.inspirecenter.amazechallenge.client;
 import com.nkasenides.athlos.client.ServerlessGameClient;
+import com.raylabz.javahttp.OnFailureListener;
+import org.inspirecenter.amazechallenge.client.stubs.ListChallenges;
 import org.inspirecenter.amazechallenge.client.stubs.Stubs;
 import org.inspirecenter.amazechallenge.model.*;
 import org.inspirecenter.amazechallenge.proto.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto, AMCGameSession, AMCWorldSession, AMCPlayer, AMCWorld, AMCEntityProto, AMCTerrainCellProto> {
@@ -27,7 +27,8 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
     private ChallengeProto selectedChallenge;
     private AMCWorldSessionProto worldSession;
     private boolean codeSubmitted = false;
-    private AMCPartialStateProto state;
+
+    private static final ConcurrentHashMap<String, Vector<Long>> latencies = new ConcurrentHashMap<>();
 
     public SimulationClient(Simulation simulation, String name) {
         this.name = name;
@@ -53,11 +54,16 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
             selectChallenge();
             joinChallenge();
             submitCode();
+            updateState();
         }).start();
     }
 
     private void listAvailableChallenges() {
-        Stubs.listChallengesStub(this).sendAndWait(
+        final ListChallenges stub = Stubs.listChallengesStub(this);
+        if (stub == null) {
+            System.err.println(name + "  --- NULL STUB! ---");
+        }
+        stub.sendAndWait(
                 ListChallengesRequest.newBuilder()
                         .build(),
                 listChallengesResponse -> {
@@ -140,12 +146,17 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
                             .build(),
                     getStateResponse -> {
                         if (getStateResponse.getStatus() == GetStateResponse.Status.OK) {
-                            this.state = getStateResponse.getPartialState();
-                            updateState();
-                        }
-                        else {
+//                            this.state = getStateResponse.getPartialState();
+                        } else {
                             System.err.println("[ERROR]");
                             System.err.println(getStateResponse.getMessage());
+                        }
+                    },
+                    new OnFailureListener() {
+                        @Override
+                        public void onFailure(Throwable error) {
+                            System.err.println("Error in get state");
+                            System.err.println(error.getMessage());
                         }
                     }
             );
@@ -154,21 +165,36 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
 
     private void updateState() {
         boolean[] gameEnd = new boolean[1];
+        latencies.put(name, new Vector<>());
         do {
+            long timeSent = System.currentTimeMillis();
             Stubs.updateStateStub(this).sendAndWait(
                     UpdateStateRequest.newBuilder()
                             .setWorldSessionID(worldSession.getId())
                             .build(),
                     updateStateResponse -> {
+
+                        //Performance
+                        long latency = System.currentTimeMillis() - timeSent;
+                        final Vector<Long> latencies = SimulationClient.latencies.get(name);
+                        latencies.add(latency);
+                        SimulationClient.latencies.put(name, latencies);
+
                         if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
                             final AMCStateUpdateProto stateUpdate = updateStateResponse.getStateUpdate();
                             if (stateUpdate.getEventsList().contains(Audio.EVENT_LOSE_Audio) || stateUpdate.getEventsList().contains(Audio.EVENT_WIN_Audio)) {
                                 gameEnd[0] = true;
                             }
-                        }
-                        else {
+                        } else {
                             System.err.println("[ERROR]");
                             System.err.println(updateStateResponse.getMessage());
+                        }
+                    },
+                    new OnFailureListener() {
+                        @Override
+                        public void onFailure(Throwable error) {
+                            System.err.println("Error in update state");
+                            System.err.println(error.getMessage());
                         }
                     }
             );
@@ -185,6 +211,11 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
                 leaveChallengeResponse -> {
                     if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
                         System.out.println("'" + name + "' stopped.");
+
+                        //Performance:
+                        final Vector<Long> latencies = SimulationClient.latencies.get(name);
+                        System.out.println(name + ": " + latencies);
+
                         stop();
                     }
                     else {
