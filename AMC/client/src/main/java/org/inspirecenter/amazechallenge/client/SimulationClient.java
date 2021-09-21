@@ -26,6 +26,8 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
     private List<ChallengeProto> challenges;
     private ChallengeProto selectedChallenge;
     private AMCWorldSessionProto worldSession;
+    private boolean codeSubmitted = false;
+    private AMCPartialStateProto state;
 
     public SimulationClient(Simulation simulation, String name) {
         this.name = name;
@@ -45,10 +47,13 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
 
     @Override
     protected void onStart() {
-        System.out.println("'" + name + "' started");
-        listAvailableChallenges();
-        selectChallenge();
-        joinChallenge();
+        new Thread(() -> {
+            System.out.println("'" + name + "' started");
+            listAvailableChallenges();
+            selectChallenge();
+            joinChallenge();
+            submitCode();
+        }).start();
     }
 
     private void listAvailableChallenges() {
@@ -104,6 +109,90 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
                     }
             );
         }
+    }
+
+    private void submitCode() {
+        final String playerCode = Code.getRandomCode();
+        Stubs.submitCodeStub(this).sendAndWait(
+                SubmitCodeRequest.newBuilder()
+                        .setCode(playerCode)
+                        .setWorldSessionID(worldSession.getId())
+                        .build(),
+                submitCodeResponse -> {
+                    if (submitCodeResponse.getStatus() == SubmitCodeResponse.Status.OK) {
+                        System.out.println("'" + name + "' submitted code.");
+                        this.codeSubmitted = true;
+                        getState();
+                    }
+                    else {
+                        System.err.println("[ERROR]");
+                        System.err.println(submitCodeResponse.getMessage());
+                    }
+                }
+        );
+    }
+
+    private void getState() {
+        if (codeSubmitted) {
+            Stubs.getStateStub(this).sendAndWait(
+                    GetStateRequest.newBuilder()
+                            .setWorldSessionID(worldSession.getId())
+                            .build(),
+                    getStateResponse -> {
+                        if (getStateResponse.getStatus() == GetStateResponse.Status.OK) {
+                            this.state = getStateResponse.getPartialState();
+                            updateState();
+                        }
+                        else {
+                            System.err.println("[ERROR]");
+                            System.err.println(getStateResponse.getMessage());
+                        }
+                    }
+            );
+        }
+    }
+
+    private void updateState() {
+        boolean[] gameEnd = new boolean[1];
+        do {
+            Stubs.updateStateStub(this).sendAndWait(
+                    UpdateStateRequest.newBuilder()
+                            .setWorldSessionID(worldSession.getId())
+                            .build(),
+                    updateStateResponse -> {
+                        if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+                            final AMCStateUpdateProto stateUpdate = updateStateResponse.getStateUpdate();
+                            if (stateUpdate.getEventsList().contains(Audio.EVENT_LOSE_Audio) || stateUpdate.getEventsList().contains(Audio.EVENT_WIN_Audio)) {
+                                gameEnd[0] = true;
+                            }
+                        }
+                        else {
+                            System.err.println("[ERROR]");
+                            System.err.println(updateStateResponse.getMessage());
+                        }
+                    }
+            );
+        } while (!gameEnd[0]);
+        leaveChallenge();
+    }
+
+    private void leaveChallenge() {
+        Stubs.leaveChallengeStub(this).sendAndWait(
+                LeaveChallengeRequest.newBuilder()
+                        .setChallengeID(selectedChallenge.getId())
+                        .setWorldSessionID(worldSession.getId())
+                        .build(),
+                leaveChallengeResponse -> {
+                    if (leaveChallengeResponse.getStatus() == LeaveChallengeResponse.Status.OK) {
+                        System.out.println("'" + name + "' stopped.");
+                        stop();
+                    }
+                    else {
+                        System.err.println("[ERROR]");
+                        System.err.println(leaveChallengeResponse.getMessage());
+                    }
+                }
+        );
     }
 
     private AmazeColor selectRandomColor() {

@@ -41,7 +41,8 @@
 
                     <p><a class="btn indigo darken-3 white-text" href="viewChallenges.jsp">Manage challenges</a></p>
                     <p><a class="btn indigo darken-3 white-text" href="changeAdminKey.jsp">Change admin key</a></p>
-                    <p><input type="button" class="btn indigo darken-3 white-text" value="Reset all data" id="resetAllData" onclick="if (confirm('Are you sure you would like to reset all data? This will delete all challenges and associated sessions!')) resetData()"/></p>
+                    <p><input type="button" class="btn indigo darken-3 white-text" value="Reset sessions" id="resetSessions" onclick="if (confirm('Are you sure you would like to reset session data?')) resetSessions()"/></p>
+                    <p><input type="button" class="btn indigo darken-3 white-text" value="Reset all data" id="resetAllData" onclick="if (confirm('Are you sure you would like to reset all data? This will delete all challenges and associated sessions!')) resetAllData()"/></p>
                     <p><input onclick="logout()" class="btn indigo darken-3 white-text" value="Log out" type="button" /></p>
 
                     <div style="height: 20px"></div>
@@ -56,7 +57,7 @@
                     document.location.href = "auth.jsp";
                 }
 
-                function resetData() {
+                function resetAllData() {
                     const url = "../api/reset?adminKey=" + Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
 
                     fetch(url)
@@ -66,6 +67,20 @@
                                 alert(text);
                             } else {
                                 alert("Data reset!");
+                            }
+                        })
+                }
+
+                function resetSessions() {
+                    const url = "../api/resetSessions?adminKey=" + Cookies.getCookie(Cookies.ADMIN_KEY_COOKIE);
+
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(text => {
+                            if (text.includes("Error")) {
+                                alert(text);
+                            } else {
+                                alert("Sessions reset!");
                             }
                         })
                 }

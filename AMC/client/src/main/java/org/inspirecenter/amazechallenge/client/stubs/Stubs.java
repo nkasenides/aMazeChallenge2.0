@@ -80,16 +80,23 @@ public final class Stubs {
     
     
 
-//    private static final HashMap<String, UpdateState> updateStateStubMap = new HashMap<>();
-//    public static UpdateState updateStateStub(AMCClient client) {
-//        if (updateStateStubMap.get(client.getPlayer().getId()) == null) {
-//                final UpdateState stub = new UpdateState();
-//                updateStateStubMap.put(client.getPlayer().getId(), stub);
-//        }
-//        return updateStateStubMap.get(client.getPlayer().getId());
-//    }
-    
-    
+    private static final HashMap<String, UpdateState> updateStateStubMap = new HashMap<>();
+    public static UpdateState updateStateStub(SimulationClient client) {
+        if (updateStateStubMap.get(client.getPlayer().getId()) == null) {
+                final UpdateState stub = new UpdateState();
+                updateStateStubMap.put(client.getPlayer().getId(), stub);
+        }
+        return updateStateStubMap.get(client.getPlayer().getId());
+    }
+
+    private static final HashMap<String, LeaveChallenge> leaveChallengeStubMap = new HashMap<>();
+    public static LeaveChallenge leaveChallengeStub(SimulationClient client) {
+        if (leaveChallengeStubMap.get(client.getPlayer().getId()) == null) {
+            final LeaveChallenge stub = new LeaveChallenge();
+            leaveChallengeStubMap.put(client.getPlayer().getId(), stub);
+        }
+        return leaveChallengeStubMap.get(client.getPlayer().getId());
+    }
     
 
     private static final HashMap<String, Subscribe> subscribeStubMap = new HashMap<>();

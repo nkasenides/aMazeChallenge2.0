@@ -58,6 +58,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>ResetSessionsServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.ResetSessionsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>DeleteChallengeServlet</servlet-name>
         <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.DeleteChallengeServlet</servlet-class>
     </servlet>
@@ -137,6 +142,11 @@
     <servlet-mapping>
         <servlet-name>ResetAllDataServlet</servlet-name>
         <url-pattern>/api/reset</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ResetSessionsServlet</servlet-name>
+        <url-pattern>/api/resetSessions</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
