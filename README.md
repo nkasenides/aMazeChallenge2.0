@@ -1,7 +1,17 @@
 # aMazeChallenge 2.0
 A game-like, distributed application for learning code by playing.
 
-Get it from [Google Play](https://play.google.com/store/apps/details?id=org.inspirecenter.amazechallenge).
+Version 2.0:
+* Upgraded to utilize the Athlos framework
+* New admin panel with various features (data management, performance, view feedback etc.)
+* Improved UI design
+* Functioning questionnaires
+* Lots of bug fixes & optimizations
+
+[comment]: <> (Get it from [Google Play]&#40;https://play.google.com/store/apps/details?id=org.inspirecenter.amazechallenge&#41;.)
+
+[Download Beta version 2.0.0 here](https://github.com/nkasenides/aMazeChallenge2.0/raw/main/android/apks/aMazeChallenge-2.0.0.apk)
+(Use at own risk, bugs may still exist!!!)
 
 ![aMazeChallenge app icon](https://raw.githubusercontent.com/nearchos/aMazeChallenge/master/artwork/amaze_logo-web.png)
 
