@@ -235,8 +235,8 @@ public class Code {
         String[] codes = {
                 RIGHT_WALL_FOLLOWER,
                 LEFT_WALL_FOLLOWER,
-//                COMPASS_SOLVER,
-//                RANDOM_WALK_SOLVER
+                COMPASS_SOLVER,
+                RANDOM_WALK_SOLVER
         };
         return codes[random.nextInt(codes.length)];
     }

@@ -8,10 +8,7 @@
 package org.inspirecenter.amazechallenge.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import com.google.cloud.firestore.annotation.Exclude;
 import org.inspirecenter.amazechallenge.algorithms.MazeSolver;
@@ -35,6 +32,8 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     private String id;    
     private long lastExecutionTime;    
     private HashMap<String, AMCWorldSession> playerWorldSessions = new HashMap<>();
+
+    private Vector<Long> stateUpdateLatencies = new Vector<>();
 
     //NEW in 2.0
     //Note: The map below is not converted into protobuf objects or persisted in the DB. Only for caching during gameplay.
@@ -143,10 +142,17 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     
     public void setPlayerWorldSessions(HashMap<String, AMCWorldSession> playerWorldSessions) {
         this.playerWorldSessions = playerWorldSessions;        
-    }    
-    
+    }
 
-    @Override    
+    public void addStateUpdateLatency(long latency) {
+        stateUpdateLatencies.add(latency);
+    }
+
+    public Vector<Long> getStateUpdateLatencies() {
+        return stateUpdateLatencies;
+    }
+
+    @Override
     public GameProto.Builder toProto() {
         GameProto.Builder protoBuilder = GameProto.newBuilder();
         protoBuilder.addAllFinishedPlayers(finishedPlayers);        

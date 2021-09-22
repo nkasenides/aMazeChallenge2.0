@@ -220,21 +220,21 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
                                 System.out.println("Simulation finished!");
                                 simulation.setEndTime(System.currentTimeMillis());
 
-                                long latencySum = 0;
-                                long latencyEntries = 0;
-                                for (SimulationClient client : simulation.getClients()) {
-                                    final Vector<Long> clientLatencies = SimulationClient.latencies.get(client.getPlayer().getName());
-                                    for (Long clientLatency : clientLatencies) {
-                                        latencySum += clientLatency;
-                                        latencyEntries++;
-                                    }
-                                }
+//                                long latencySum = 0;
+//                                long latencyEntries = 0;
+//                                for (SimulationClient client : simulation.getClients()) {
+//                                    final Vector<Long> clientLatencies = SimulationClient.latencies.get(client.getPlayer().getName());
+//                                    for (Long clientLatency : clientLatencies) {
+//                                        latencySum += clientLatency;
+//                                        latencyEntries++;
+//                                    }
+//                                }
 
-                                double averageLatency = latencySum / (float) latencyEntries;
+//                                double averageLatency = latencySum / (float) latencyEntries;
 
                                 System.out.println("Number of players: " + simulation.getNumOfPlayers());
                                 System.out.println("Simulation duration (ms): " + (simulation.getEndTime() - simulation.getStartTime()));
-                                System.out.println("Average latency (ms): " + averageLatency);
+//                                System.out.println("Average latency (ms): " + averageLatency);
                             }
                         }
 

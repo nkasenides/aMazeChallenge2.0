@@ -48,6 +48,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
     public RuntimeResponse serve(RuntimeRequest request, Object... additionalParams) {
 
         System.out.println("~~~~~ Runtime exec ~~~~~");
+        long startTime = System.currentTimeMillis();
 
         final String adminKey = request.getAdminKey();
         final String challengeID = request.getChallengeID();
@@ -293,7 +294,6 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
                     final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
                     Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
                     game.clearAllPlayerEvents(worldSession.getPlayerID());
-                    memcache.put(game.getId(), game);
 
                     //Retrieve the partial state:
                     builder
@@ -326,6 +326,9 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
                 }
             }
         }
+
+        long latency = System.currentTimeMillis() - startTime;
+        game.addStateUpdateLatency(latency);
 
         // update game with number of rounds executed
         game.touch(System.currentTimeMillis() - startTime);

@@ -87,6 +87,11 @@
         <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.ChangeAdminKeyServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>PerformanceServlet</servlet-name>
+        <servlet-class>org.inspirecenter.amazechallenge.servlet.admin.PerformanceServlet</servlet-class>
+    </servlet>
+
     <!-- Mappings -->
     <servlet-mapping>
         <servlet-name>SubmitQuestionnaireServlet</servlet-name>
@@ -170,6 +175,10 @@
         <url-pattern>/api/challenge/generateGrid</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>PerformanceServlet</servlet-name>
+        <url-pattern>/api/admin/performance</url-pattern>
+    </servlet-mapping>
 
     <listener>
         <listener-class>org.inspirecenter.amazechallenge.contextlistener.FirestoreContextListener</listener-class>
