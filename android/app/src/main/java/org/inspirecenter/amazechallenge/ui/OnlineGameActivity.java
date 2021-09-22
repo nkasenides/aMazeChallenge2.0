@@ -485,7 +485,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     if (timer == null) {
                         timer = new Timer();
                     }
-//                    timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND); // todo
+                    timer.schedule(new OnlineMazeRunner(), 0L, ONE_SECOND);
 
                     ChannelBase.MessageListener listener = new ChannelBase.MessageListener() {
                         @Override
@@ -550,8 +550,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private long lastUpdateTimestamp = 0;
 
-    //Note: Unused, but kept for debugging. Long-polling approach for state updates has been replaced by Ably.
-    @Deprecated
     private void updateStateHTTP() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -597,8 +595,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         return scanner.hasNext() ? scanner.next() : "";
     }
 
-    //Unused, replaced by long polling. (v2.0)
-    @Deprecated
     private class OnlineMazeRunner extends TimerTask {
         @Override
         public void run() {

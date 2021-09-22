@@ -233,10 +233,10 @@ public class Code {
     public static String getRandomCode() {
         Random random = new Random();
         String[] codes = {
-                RIGHT_WALL_FOLLOWER,
+//                RIGHT_WALL_FOLLOWER,
                 LEFT_WALL_FOLLOWER,
-                COMPASS_SOLVER,
-                RANDOM_WALK_SOLVER
+//                COMPASS_SOLVER,
+//                RANDOM_WALK_SOLVER
         };
         return codes[random.nextInt(codes.length)];
     }

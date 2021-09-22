@@ -115,9 +115,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
     //Response values:
     float question1Response = -1;
     DichotomousResponse question2Response = null;
-    int question3Response = -1;
+    DichotomousResponse question3Response = null;
     LikertResponse question4Response = null;
-    int question5Response = -1;
+    DichotomousResponse question5Response = null;
     DichotomousResponse question6Response = null;
     LikertResponse question7Response = null;
     DichotomousResponse question8Response = null;
@@ -214,21 +214,21 @@ public class QuestionnaireActivity extends AppCompatActivity {
         question3_high.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question3Response = 10;
+                question3Response = DichotomousResponse.YES_DichotomousResponse;
             }
         });
 
         question3_medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question3Response = 5;
+                question3Response = DichotomousResponse.MAYBE_DichotomousResponse;
             }
         });
 
         question3_low.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question3Response = 0;
+                question3Response = DichotomousResponse.NO_DichotomousResponse;
             }
         });
 
@@ -272,21 +272,21 @@ public class QuestionnaireActivity extends AppCompatActivity {
         question5_high.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question5Response = 10;
+                question5Response = DichotomousResponse.YES_DichotomousResponse;
             }
         });
 
         question5_medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question5Response = 5;
+                question5Response = DichotomousResponse.MAYBE_DichotomousResponse;
             }
         });
 
         question5_low.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                question5Response = 0;
+                question5Response = DichotomousResponse.NO_DichotomousResponse;
             }
         });
 
@@ -460,9 +460,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
             final QuestionEntry[] questionEntries = {
                     new QuestionEntry("Q1", Float.toString(question1Response)),
                     new QuestionEntry("Q2", question2Response.toString()),
-                    new QuestionEntry("Q3", Integer.toString(question3Response)),
+                    new QuestionEntry("Q3", question3Response.toString()),
                     new QuestionEntry("Q4", question4Response.toString()),
-                    new QuestionEntry("Q5", Integer.toString(question5Response)),
+                    new QuestionEntry("Q5", question5Response.toString()),
                     new QuestionEntry("Q6", question6Response.toString()),
                     new QuestionEntry("Q7", question7Response.toString()),
                     new QuestionEntry("Q8", question8Response.toString()),
@@ -497,7 +497,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         } else question2_yes.setError(null);
 
         //Q3
-        if (question3Response < 0) {
+        if (question3Response == null) {
             question3_high.setError(getString(R.string.no_response));
             question3_high.requestFocus();
             return false;
@@ -511,7 +511,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         } else question4_veryHigh.setError(null);
 
         //Q5
-        if (question5Response < 0) {
+        if (question5Response == null) {
             question5_high.setError(getString(R.string.no_response));
             question5_high.requestFocus();
             return false;

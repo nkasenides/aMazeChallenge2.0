@@ -34,15 +34,15 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
     private static final long ONE_SECOND = 1000L;
 
     private final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
-    private static AblyRealtime ably;
+//    private static AblyRealtime ably;
 
-    static {
-        try {
-            ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
-        } catch (AblyException e) {
-            e.printStackTrace();
-        }
-    }
+//    static {
+//        try {
+//            ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
+//        } catch (AblyException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public RuntimeResponse serve(RuntimeRequest request, Object... additionalParams) {
@@ -171,73 +171,73 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         }
 
         //Publish the state to all connected channels:
-        for (String activePlayerID : game.getAllPlayers().keySet()) {
-            AMCWorldSession worldSession = game.getPlayerWorldSessions().get(activePlayerID);
-            Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
-            try {
-
-                //Compose state:
-                final List<PickableEntity> pickables = game.getPickables();
-                final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
-
-                final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
-
-                //Pickable entities:
-                for (PickableEntity pickable : pickables) {
-                    builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
-                }
-
-                //Player entities:
-                for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
-                    builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
-                }
-
-                //Players:
-                for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
-                    builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
-                }
-
-                //World sessions:
-                for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
-                    builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
-                }
-
-                //Handle events:
-                final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
-                Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
-                game.clearAllPlayerEvents(worldSession.getPlayerID());
-                memcache.put(game.getId(), game);
-
-                //Retrieve the partial state:
-                builder
-                        .setTimestamp(System.currentTimeMillis())
-                        .setWorldSession(worldSession.toProto())
-                        .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change?
-                        .addAllActivePlayers(game.getActivePlayers())
-                        .addAllQueuedPlayers(game.getQueuedPlayers())
-                        .addAllWaitingPlayers(game.getWaitingPlayers())
-                        .build();
-
-                final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
-                        .setStatus(UpdateStateResponse.Status.OK)
-                        .setMessage("OK")
-                        .setStateUpdate(AMCStateUpdateProto.newBuilder()
-                                .setPartialState(builder.build())
-                                .setTimestamp(System.currentTimeMillis())
-                                .setWorldSessionID(worldSession.getId())
-                                .addAllEvents(dispatchedEvents)
-                                .build()
-                        )
-                        .build();
-
-
-                //Send message:
-                channel.publish("stateUpdate", updateStateResponse.toByteArray());
-
-            } catch (AblyException e) {
-                e.printStackTrace();
-            }
-        }
+//        for (String activePlayerID : game.getAllPlayers().keySet()) {
+//            AMCWorldSession worldSession = game.getPlayerWorldSessions().get(activePlayerID);
+//            Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
+//            try {
+//
+//                //Compose state:
+//                final List<PickableEntity> pickables = game.getPickables();
+//                final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+//
+//                final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+//
+//                //Pickable entities:
+//                for (PickableEntity pickable : pickables) {
+//                    builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+//                }
+//
+//                //Player entities:
+//                for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+//                    builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+//                }
+//
+//                //Players:
+//                for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+//                    builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+//                }
+//
+//                //World sessions:
+//                for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+//                    builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+//                }
+//
+//                //Handle events:
+//                final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
+//                Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+//                game.clearAllPlayerEvents(worldSession.getPlayerID());
+//                memcache.put(game.getId(), game);
+//
+//                //Retrieve the partial state:
+//                builder
+//                        .setTimestamp(System.currentTimeMillis())
+//                        .setWorldSession(worldSession.toProto())
+//                        .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change?
+//                        .addAllActivePlayers(game.getActivePlayers())
+//                        .addAllQueuedPlayers(game.getQueuedPlayers())
+//                        .addAllWaitingPlayers(game.getWaitingPlayers())
+//                        .build();
+//
+//                final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
+//                        .setStatus(UpdateStateResponse.Status.OK)
+//                        .setMessage("OK")
+//                        .setStateUpdate(AMCStateUpdateProto.newBuilder()
+//                                .setPartialState(builder.build())
+//                                .setTimestamp(System.currentTimeMillis())
+//                                .setWorldSessionID(worldSession.getId())
+//                                .addAllEvents(dispatchedEvents)
+//                                .build()
+//                        )
+//                        .build();
+//
+//
+//                //Send message:
+//                channel.publish("stateUpdate", updateStateResponse.toByteArray());
+//
+//            } catch (AblyException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         // remove completed players (move from 'active' to 'finished')
         final MatrixPosition targetPosition = challenge.getGrid().getTargetPosition();
@@ -259,72 +259,72 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             memcache.put(game.getId(), game);
 
             //Update state:
-            for (String activePlayerID : game.getAllPlayers().keySet()) {
-                AMCWorldSession worldSession = game.getPlayerWorldSessions().get(activePlayerID);
-                Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
-                try {
-
-                    //Compose state:
-                    final List<PickableEntity> pickables = game.getPickables();
-                    final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
-
-                    final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
-
-                    //Pickable entities:
-                    for (PickableEntity pickable : pickables) {
-                        builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
-                    }
-
-                    //Player entities:
-                    for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
-                        builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
-                    }
-
-                    //Players:
-                    for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
-                        builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
-                    }
-
-                    //World sessions:
-                    for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
-                        builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
-                    }
-
-                    //Handle events:
-                    final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
-                    Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
-                    game.clearAllPlayerEvents(worldSession.getPlayerID());
-
-                    //Retrieve the partial state:
-                    builder
-                            .setTimestamp(System.currentTimeMillis())
-                            .setWorldSession(worldSession.toProto())
-                            .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change?
-                            .addAllActivePlayers(game.getActivePlayers())
-                            .addAllQueuedPlayers(game.getQueuedPlayers())
-                            .addAllWaitingPlayers(game.getWaitingPlayers())
-                            .build();
-
-                    final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
-                            .setStatus(UpdateStateResponse.Status.OK)
-                            .setMessage("OK")
-                            .setStateUpdate(AMCStateUpdateProto.newBuilder()
-                                    .setPartialState(builder.build())
-                                    .setTimestamp(System.currentTimeMillis())
-                                    .setWorldSessionID(worldSession.getId())
-                                    .addAllEvents(dispatchedEvents)
-                                    .build()
-                            )
-                            .build();
-
-
-                    //Send message:
-                    channel.publish("stateUpdate", updateStateResponse.toByteArray());
-
-                } catch (AblyException e) {
-                    e.printStackTrace();
-                }
-            }
+//            for (String activePlayerID : game.getAllPlayers().keySet()) {
+//                AMCWorldSession worldSession = game.getPlayerWorldSessions().get(activePlayerID);
+//                Channel channel = ably.channels.get("stateUpdate-" + activePlayerID);
+//                try {
+//
+//                    //Compose state:
+//                    final List<PickableEntity> pickables = game.getPickables();
+//                    final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
+//
+//                    final AMCPartialStateProto.Builder builder = AMCPartialStateProto.newBuilder();
+//
+//                    //Pickable entities:
+//                    for (PickableEntity pickable : pickables) {
+//                        builder.putEntities(pickable.getId(), pickable.toGenericProto().build());
+//                    }
+//
+//                    //Player entities:
+//                    for (Map.Entry<String, PlayerEntity> entry : playerEntities.entrySet()) {
+//                        builder.putEntities(entry.getKey(), entry.getValue().toGenericProto().build());
+//                    }
+//
+//                    //Players:
+//                    for (Map.Entry<String, AMCPlayer> entry : game.getAllPlayers().entrySet()) {
+//                        builder.putPlayers(entry.getKey(), entry.getValue().toProto().build());
+//                    }
+//
+//                    //World sessions:
+//                    for (Map.Entry<String, AMCWorldSession> entry : game.getPlayerWorldSessions().entrySet()) {
+//                        builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
+//                    }
+//
+//                    //Handle events:
+//                    final HashMap<Long, Audio> playerEvents = game.getPlayerEvents(worldSession.getPlayerID());
+//                    Vector<Audio> dispatchedEvents = new Vector<>(playerEvents.values());
+//                    game.clearAllPlayerEvents(worldSession.getPlayerID());
+//
+//                    //Retrieve the partial state:
+//                    builder
+//                            .setTimestamp(System.currentTimeMillis())
+//                            .setWorldSession(worldSession.toProto())
+//                            .setGrid(grid.toProto()) //Optimize: Perhaps not necessary to include the grid, since its state does not change?
+//                            .addAllActivePlayers(game.getActivePlayers())
+//                            .addAllQueuedPlayers(game.getQueuedPlayers())
+//                            .addAllWaitingPlayers(game.getWaitingPlayers())
+//                            .build();
+//
+//                    final UpdateStateResponse updateStateResponse = UpdateStateResponse.newBuilder()
+//                            .setStatus(UpdateStateResponse.Status.OK)
+//                            .setMessage("OK")
+//                            .setStateUpdate(AMCStateUpdateProto.newBuilder()
+//                                    .setPartialState(builder.build())
+//                                    .setTimestamp(System.currentTimeMillis())
+//                                    .setWorldSessionID(worldSession.getId())
+//                                    .addAllEvents(dispatchedEvents)
+//                                    .build()
+//                            )
+//                            .build();
+//
+//
+//                    //Send message:
+//                    channel.publish("stateUpdate", updateStateResponse.toByteArray());
+//
+//                } catch (AblyException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
 
         long latency = System.currentTimeMillis() - startTime;

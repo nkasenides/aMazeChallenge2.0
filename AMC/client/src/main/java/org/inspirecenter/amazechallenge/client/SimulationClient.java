@@ -86,7 +86,7 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
     }
 
     private void selectChallenge() {
-        if (challenges.size() == 0) {
+        if (challenges == null) {
             System.err.println("[ERROR]");
             System.err.println("No challenges available.");
             stop();
@@ -170,31 +170,78 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
     }
 
     private void updateState() {
-        try {
-            AblyRealtime ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
-            Channel channel = ably.channels.get("stateUpdate-" + worldSession.getPlayerID());
-            Channel.MessageListener listener = message -> {
 
-                byte[] responseData = (byte[]) message.data;
-                try {
-                    UpdateStateResponse updateStateResponse = UpdateStateResponse.parseFrom(responseData);
-                    if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
-                        final AMCStateUpdateProto stateUpdate = updateStateResponse.getStateUpdate();
-                        if (stateUpdate.getEventsList().contains(Audio.EVENT_LOSE_Audio) || stateUpdate.getEventsList().contains(Audio.EVENT_WIN_Audio)) {
-                            leaveChallenge();
+        boolean[] gameEnd = new boolean[1];
+        latencies.put(name, new Vector<>());
+        do {
+            long timeSent = System.currentTimeMillis();
+            Stubs.updateStateStub(this).sendAndWait(
+                    UpdateStateRequest.newBuilder()
+                            .setWorldSessionID(worldSession.getId())
+                            .build(),
+                    updateStateResponse -> {
+
+                        //Performance
+                        long latency = System.currentTimeMillis() - timeSent;
+                        final Vector<Long> latencies = SimulationClient.latencies.get(name);
+                        latencies.add(latency);
+                        SimulationClient.latencies.put(name, latencies);
+
+                        if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+                            final AMCStateUpdateProto stateUpdate = updateStateResponse.getStateUpdate();
+                            if (stateUpdate.getEventsList().contains(Audio.EVENT_LOSE_Audio) || stateUpdate.getEventsList().contains(Audio.EVENT_WIN_Audio)) {
+                                gameEnd[0] = true;
+                            }
+                        } else {
+                            System.err.println("[ERROR]");
+                            System.err.println(updateStateResponse.getMessage());
                         }
-                    } else {
-                        System.err.println("[ERROR]");
-                        System.err.println(updateStateResponse.getMessage());
+                    },
+                    new OnFailureListener() {
+                        @Override
+                        public void onFailure(Throwable error) {
+                            System.err.println("Error in update state");
+                            System.err.println(error.getMessage());
+                        }
                     }
-                } catch (InvalidProtocolBufferException e) {
-                    e.printStackTrace();
-                }
-            };
-            channel.subscribe("stateUpdate", listener);
-        } catch (AblyException e) {
-            e.printStackTrace();
-        }
+            );
+            //1s delay between updates:
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } while (!gameEnd[0]);
+        leaveChallenge();
+
+//        try {
+//            AblyRealtime ably = new AblyRealtime("KC5T5A.vG4G5Q:kpD9gGw44EERYqI-");
+//            Channel channel = ably.channels.get("stateUpdate-" + worldSession.getPlayerID());
+//            Channel.MessageListener listener = message -> {
+//
+//                byte[] responseData = (byte[]) message.data;
+//                try {
+//                    UpdateStateResponse updateStateResponse = UpdateStateResponse.parseFrom(responseData);
+//                    if (updateStateResponse.getStatus() == UpdateStateResponse.Status.OK) {
+//                        final AMCStateUpdateProto stateUpdate = updateStateResponse.getStateUpdate();
+//                        if (stateUpdate.getEventsList().contains(Audio.EVENT_LOSE_Audio) || stateUpdate.getEventsList().contains(Audio.EVENT_WIN_Audio)) {
+//                            leaveChallenge();
+//                        }
+//                    } else {
+//                        System.err.println("[ERROR]");
+//                        System.err.println(updateStateResponse.getMessage());
+//                    }
+//                } catch (InvalidProtocolBufferException e) {
+//                    e.printStackTrace();
+//                }
+//            };
+//            channel.subscribe("stateUpdate", listener);
+//        } catch (AblyException e) {
+//            e.printStackTrace();
+//        }
+
+
+
     }
 
     private void leaveChallenge() {
@@ -208,10 +255,24 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
 
                         synchronized (SimulationClient.class) {
                             finished = true;
-                            boolean allClientsFinished = false;
+                            System.out.println(name + " finished!");
+
+                            double average = 0;
+                            int latencyEntries = 0;
+                            for (Map.Entry<String, Vector<Long>> entry : SimulationClient.latencies.entrySet()) {
+                                for (Long latency : entry.getValue()) {
+                                    average += latency;
+                                    latencyEntries++;
+                                }
+                            }
+                            average = average / (double) latencyEntries;
+
+                            System.out.println("Average latency so far (ms): " + average);
+
+                            boolean allClientsFinished = true;
                             for (SimulationClient client : simulation.getClients()) {
                                 if (!client.finished) {
-                                    allClientsFinished = true;
+                                    allClientsFinished = false;
                                     break;
                                 }
                             }
@@ -220,21 +281,9 @@ public class SimulationClient extends ServerlessGameClient<AMCPartialStateProto,
                                 System.out.println("Simulation finished!");
                                 simulation.setEndTime(System.currentTimeMillis());
 
-//                                long latencySum = 0;
-//                                long latencyEntries = 0;
-//                                for (SimulationClient client : simulation.getClients()) {
-//                                    final Vector<Long> clientLatencies = SimulationClient.latencies.get(client.getPlayer().getName());
-//                                    for (Long clientLatency : clientLatencies) {
-//                                        latencySum += clientLatency;
-//                                        latencyEntries++;
-//                                    }
-//                                }
-
-//                                double averageLatency = latencySum / (float) latencyEntries;
-
                                 System.out.println("Number of players: " + simulation.getNumOfPlayers());
                                 System.out.println("Simulation duration (ms): " + (simulation.getEndTime() - simulation.getStartTime()));
-//                                System.out.println("Average latency (ms): " + averageLatency);
+                                System.exit(0);
                             }
                         }
 
