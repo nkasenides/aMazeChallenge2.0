@@ -14,6 +14,7 @@ import com.nkasenides.athlos.model.*;
 import com.raylabz.firestorm.annotation.FirestormObject;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @FirestormObject
 public class QuestionEntry implements Transmittable<QuestionEntryProto.Builder>, Serializable {
@@ -25,6 +26,7 @@ public class QuestionEntry implements Transmittable<QuestionEntryProto.Builder>,
     }
 
     public QuestionEntry(String questionText, String answerText) {
+        this.id = UUID.randomUUID().toString();
         this.questionText = questionText;
         this.answerText = answerText;
     }

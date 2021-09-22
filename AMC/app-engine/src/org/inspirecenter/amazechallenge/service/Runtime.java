@@ -31,7 +31,7 @@ import java.util.Vector;
 
 public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
 
-    private static final long ONE_SECOND = 1000L;
+    private static final long ONE_SECOND = 500L; //TODO - Set to 1000L!!!!
 
     private final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
     private static AblyRealtime ably;

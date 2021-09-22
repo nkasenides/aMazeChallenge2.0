@@ -405,12 +405,20 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     @Override
     public void onGameEndAudioEvent(boolean win) {
-        if (win) {
-            winAudio = MediaPlayer.create(this, getResources().getIdentifier(Audio.EVENT_WIN_Audio.getSoundResourceName(), "raw", getPackageName()));
-            winAudio.start();
-        } else {
-            loseAudio = MediaPlayer.create(this, getResources().getIdentifier(Audio.EVENT_LOSE_Audio.getSoundResourceName(), "raw", getPackageName()));
-            loseAudio.start();
+        if (sound) {
+            if (win) {
+                winAudio = MediaPlayer.create(this, getResources().getIdentifier(Audio.EVENT_WIN_Audio.getSoundResourceName(), "raw", getPackageName()));
+                winAudio.start();
+            } else {
+                loseAudio = MediaPlayer.create(this, getResources().getIdentifier(Audio.EVENT_LOSE_Audio.getSoundResourceName(), "raw", getPackageName()));
+                loseAudio.start();
+            }
+        }
+        if (!win) {
+            if (vibration) {
+                Vibrator vTrap = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if (vTrap != null) vTrap.vibrate(250);
+            }
         }
     }
 
@@ -518,6 +526,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                         backgroundAudio = MediaPlayer.create(this, getResources().getIdentifier(audioResource.getSoundResourceName(), "raw", getPackageName()));
                         if (backgroundAudio != null && sound) {
                             backgroundAudio.setLooping(true);
+                            backgroundAudio.setLooping(true);
                             backgroundAudio.setVolume(DEFAULT_AMBIENT_VOLUME, DEFAULT_AMBIENT_VOLUME);
                             backgroundAudio.start();
                         }
@@ -541,6 +550,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
 
     private long lastUpdateTimestamp = 0;
 
+    //Note: Unused, but kept for debugging. Long-polling approach for state updates has been replaced by Ably.
+    @Deprecated
     private void updateStateHTTP() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -586,6 +597,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         return scanner.hasNext() ? scanner.next() : "";
     }
 
+    //Unused, replaced by long polling. (v2.0)
+    @Deprecated
     private class OnlineMazeRunner extends TimerTask {
         @Override
         public void run() {
@@ -698,29 +711,60 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     }
 
     private void onWin() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
-                .setTitle(R.string.win)
-                .setMessage(R.string.win_message)
-                .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP();
-                    }
-                })
-                .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
-                        finish();
-                    }
-                })
-                .setCancelable(false);
+        AlertDialog.Builder dialogBuilder;
+        if (challenge.getHasQuestionnaire()) {
+            dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                    .setTitle(R.string.win)
+                    .setMessage(R.string.win_message_questionnaire)
+                    .setPositiveButton(R.string.questionnaire, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(OnlineGameActivity.this, QuestionnaireActivity.class);
+                            intent.putExtra("challenge", challenge);
+                            intent.putExtra("worldSessionID", currentPlayerWorldSession.getId());
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                            finish();
+                        }
+                    })
+                    .setCancelable(false);
+        }
+        else {
+            dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                    .setTitle(R.string.win)
+                    .setMessage(R.string.win_message)
+                    .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
+                        }
+                    })
+                    .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                            finish();
+                        }
+                    })
+                    .setCancelable(false);
+        }
         dialogBuilder.create().show();
     }
 

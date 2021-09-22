@@ -316,5 +316,9 @@
     <string name="lost_message">Χάσατε! Θα θέλατε να δοκιμάσετε ξανά για υψηλότερη βαθμολογία ή να παρακολουθήσετε το παιχνίδι;</string>
     <string name="rejoining">Επανασύνδεση...</string>
     <string name="discovery_code">Πατήστε εδώ για επεξεργασία ή μεταφόρτωση του κώδικά σας.</string>
+    <string name="win_message_questionnaire">Συγχαρητήρια, καταφέρατε να βγείτε από τον λαβύρινθο! Θα θέλατε να συμπληρώσετε το ερωτηματολόγιο;</string>
+    <string name="thank_feedback">Ευχαριστούμε για την ανταπόκρισή σας!</string>
+    <string name="questionnaire_upload_fail">Δεν μπορέσαμε να αποθηκεύσουμε την απάντησή σας.</string>
+    <string name="go_back">Πίσω</string>
 
 </resources>

@@ -1,7 +1,12 @@
 package org.inspirecenter.amazechallenge.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,14 +21,32 @@ import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.protobuf.InvalidProtocolBufferException;
+
+import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.QuestionEntry;
 import org.inspirecenter.amazechallenge.model.QuestionnaireEntry;
+import org.inspirecenter.amazechallenge.proto.Audio;
+import org.inspirecenter.amazechallenge.proto.AudioFormat;
+import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.proto.DichotomousResponse;
+import org.inspirecenter.amazechallenge.proto.GetStateRequest;
+import org.inspirecenter.amazechallenge.proto.GetStateResponse;
 import org.inspirecenter.amazechallenge.proto.LikertResponse;
 
 import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
+import org.inspirecenter.amazechallenge.proto.SubmitCodeRequest;
+import org.inspirecenter.amazechallenge.proto.SubmitQuestionnaireRequest;
+import org.inspirecenter.amazechallenge.proto.SubmitQuestionnaireResponse;
+import org.inspirecenter.amazechallenge.proto.UpdateStateResponse;
+import org.inspirecenter.amazechallenge.stubs.AMCClient;
+import org.inspirecenter.amazechallenge.stubs.BinaryRequest;
+import org.inspirecenter.amazechallenge.stubs.Stubs;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -32,7 +55,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Timer;
 
+import io.ably.lib.realtime.ChannelBase;
+import io.ably.lib.types.AblyException;
+import io.ably.lib.types.Message;
+
+import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_AMBIENT_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
 import static org.inspirecenter.amazechallenge.ui.OnlineGameActivity.convertStreamToString;
 
@@ -95,6 +124,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
     String question9Response = null;
     String question10Response = null;
 
+    private ChallengeProto challenge;
+    private String worldSessionID;
+
     @Override
     public void onBackPressed() {
         //DO NOTHING - Do not allow player to return to the game unless they skip or finish the questionnaire.
@@ -108,6 +140,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setLanguage(this);
         setContentView(R.layout.activity_questionnaire);
+
+        this.challenge = (ChallengeProto) getIntent().getSerializableExtra("challenge");
+        this.worldSessionID = getIntent().getStringExtra("worldSessionID");
 
         //Controls:
         question_1_ratingBar = findViewById(R.id.answer_1);
@@ -434,17 +469,13 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     new QuestionEntry("Q9", question9Response),
                     new QuestionEntry("Q10", question10Response)
             };
-            final String challengeId = getIntent().getStringExtra(CHALLENGE_KEY);
-            System.out.println("ID:" + challengeId);
-            final QuestionnaireEntry questionnaireEntry = new QuestionnaireEntry();
-            //Installation.id(this), challengeId, questionEntries
-            questionnaireEntry.setChallengeID(challengeId);
-            questionnaireEntry.setId(Installation.id(this));
-            questionnaireEntry.setQuestionEntry(new ArrayList<>(Arrays.asList(questionEntries)));
-            final String json = new Gson().toJson(questionnaireEntry);
 
-            // use a standard asynctask to submit the JSON as a post to /api/json/submit-questionnaire?magic=...
-            new SubmitQuestionnaireAsyncTask(this, json, getString(R.string.api_url), getString(R.string.magic)).execute();
+            final QuestionnaireEntry questionnaireEntry = new QuestionnaireEntry();
+            questionnaireEntry.setChallengeID(challenge.getId());
+            questionnaireEntry.setId(worldSessionID);
+            questionnaireEntry.setQuestionEntry(new ArrayList<>(Arrays.asList(questionEntries)));
+
+            submitQuestionnaireHTTP(questionnaireEntry);
 
         }
         else Toast.makeText(this, R.string.invalid_questionnaire_response, Toast.LENGTH_LONG).show();
@@ -520,60 +551,53 @@ public class QuestionnaireActivity extends AppCompatActivity {
         return true;
     }
 
-    static class SubmitQuestionnaireAsyncTask extends AsyncTask<Void, Void, String> {
+    private void submitQuestionnaireHTTP(QuestionnaireEntry questionnaireEntry) {
 
-        private final Activity activity;
-        private final String answers;
-        private final String apiUrlBase;
-        private final String magic;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        final String url = Stubs.BASE_URL + "/api/submitQuestionnaire";
 
-        SubmitQuestionnaireAsyncTask(final Activity activity, final String answers, final String apiUrlBase, final String magic) {
-            this.activity = activity;
-            this.answers = answers;
-            this.apiUrlBase = apiUrlBase;
-            this.magic = magic;
-        }
+        SubmitQuestionnaireRequest submitQuestionnaireRequest = SubmitQuestionnaireRequest.newBuilder()
+                .setWorldSessionID(worldSessionID)
+                .setQuestionnaireEntry(questionnaireEntry.toProto())
+                .build();
 
-        @Override
-        protected String doInBackground(final Void... ignore) {
-            DataOutputStream dataOutputStream = null;
-            InputStream inputStream = null;
+        BinaryRequest request = new BinaryRequest(Request.Method.POST, url, submitQuestionnaireRequest, response -> {
             try {
-                final URL apiURL = new URL(apiUrlBase + "/submit-questionnaire?magic=" + magic);
-                final HttpURLConnection httpURLConnection  = (HttpURLConnection) apiURL.openConnection();
-                httpURLConnection.setDoInput(true); // Allow Inputs
-                httpURLConnection.setDoOutput(true); // Allow Outputs
-                httpURLConnection.setUseCaches(false); // Don't use a Cached Copy
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
-                httpURLConnection.setRequestProperty("Content-Type", "application/json");
-
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                dataOutputStream.write(answers.getBytes());
-                dataOutputStream.close();
-
-                inputStream = httpURLConnection.getInputStream();
-                final String reply = convertStreamToString(inputStream);
-                return reply;
-            } catch (IOException e) {
-                // log error
-                Log.e(TAG, "Error: " + e.getMessage() +"\n" + Arrays.toString(e.getStackTrace()));
-                return "Error: " + e.getMessage();
-            } finally {
-                try { if(dataOutputStream != null) dataOutputStream.close(); } catch (IOException ioe) { Log.e(TAG, "Error while closing dataOutputStream: " + ioe.getMessage()); }
-                try { if(inputStream != null) inputStream.close(); } catch (IOException ioe) { Log.e(TAG, "Error while closing inputStream: " + ioe.getMessage()); }
+                SubmitQuestionnaireResponse submitQuestionnaireResponse = SubmitQuestionnaireResponse.parseFrom(response);
+                if (submitQuestionnaireResponse.getStatus() == SubmitQuestionnaireResponse.Status.OK) {
+                    Toast.makeText(QuestionnaireActivity.this, R.string.thank_feedback, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                else {
+                    showUploadFailDialog(questionnaireEntry);
+                }
+            } catch (InvalidProtocolBufferException e) {
+                showUploadFailDialog(questionnaireEntry);
             }
-        }
+        }, error -> {
+            showUploadFailDialog(questionnaireEntry);
+        });
 
-        @Override
-        protected void onPostExecute(final String reply) {
-            super.onPostExecute(reply);
-            if(reply.startsWith("Error")) {
-                Toast.makeText(activity, R.string.Error_while_uploading_answers, Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(activity, R.string.Thank_you_for_your_feedback, Toast.LENGTH_SHORT).show();
-            }
-            activity.finish();
-        }
+        queue.add(request);
     }
+
+    private void showUploadFailDialog(QuestionnaireEntry questionnaireEntry) {
+        new AlertDialog.Builder(QuestionnaireActivity.this)
+                .setTitle(R.string.error)
+                .setMessage(R.string.questionnaire_upload_fail)
+                .setPositiveButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        submitQuestionnaireHTTP(questionnaireEntry);
+                    }
+                })
+                .setNegativeButton(R.string.go_back, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                })
+                .create().show();
+    }
+
 }

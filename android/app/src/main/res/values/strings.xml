@@ -339,5 +339,9 @@
     <string name="lost_message">You lost. Would you like to try again for a higher score or watch the game?</string>
     <string name="rejoining">Rejoining challenge...</string>
     <string name="discovery_code">Click to upload or edit your code</string>
+    <string name="win_message_questionnaire">Congratulations, you managed to exit the maze! Would you like to give some feedback?</string>
+    <string name="thank_feedback">Thank you for your feedback!</string>
+    <string name="questionnaire_upload_fail">We could not save your response.</string>
+    <string name="go_back">Go back</string>
 
 </resources>
