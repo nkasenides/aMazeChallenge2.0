@@ -42,6 +42,7 @@
                     <p><a class="btn indigo darken-3 white-text" href="viewChallenges.jsp">Manage challenges</a></p>
                     <p><a class="btn indigo darken-3 white-text" href="changeAdminKey.jsp">Change admin key</a></p>
                     <p><a class="btn indigo darken-3 white-text" href="performance.jsp">Performance</a></p>
+                    <p><a class="btn indigo darken-3 white-text" href="feedback.jsp">Feedback</a></p>
                     <p><input type="button" class="btn indigo darken-3 white-text" value="Reset sessions" id="resetSessions" onclick="if (confirm('Are you sure you would like to reset session data?')) resetSessions()"/></p>
                     <p><input type="button" class="btn indigo darken-3 white-text" value="Reset all data" id="resetAllData" onclick="if (confirm('Are you sure you would like to reset all data? This will delete all challenges and associated sessions!')) resetAllData()"/></p>
                     <p><input onclick="logout()" class="btn indigo darken-3 white-text" value="Log out" type="button" /></p>
