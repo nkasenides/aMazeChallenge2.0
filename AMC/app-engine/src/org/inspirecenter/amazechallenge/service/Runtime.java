@@ -6,6 +6,7 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
+import com.google.appengine.api.ThreadManager;
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import com.google.appengine.api.taskqueue.Queue;
@@ -161,7 +162,6 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             playerIDsToMazeSolvers.put(activePlayerId, mazeSolver);
         }
 
-        //Optimize: ... consider revising to make multi-threaded and with deadlines? [e.g. check out: com.google.appengine.api.ThreadManager]
         RuntimeController.makeMove(challenge, game, playerIDsToMazeSolvers);
 
         // store maze solvers' state to memcache

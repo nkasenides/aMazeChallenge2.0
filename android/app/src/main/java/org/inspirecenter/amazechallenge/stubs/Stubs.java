@@ -11,8 +11,8 @@ import java.util.HashMap;
 
 public final class Stubs {
 
-//    public static final String BASE_URL = "http://10.0.2.2:8080"; //Testing ONLY!
-    public static final String BASE_URL = "https://amazechallenge2.oa.r.appspot.com"; //Deployment
+    public static final String BASE_URL = "http://10.0.2.2:8080"; //Testing ONLY!
+//    public static final String BASE_URL = "https://amazechallenge2.oa.r.appspot.com"; //Deployment
 
     public static class Actions {    
     }    

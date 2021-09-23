@@ -9,14 +9,73 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000" />
-    <link rel="shortcut icon" href="#" />
+    <meta name="theme-color" content="#3F51B5"/>
+    <link rel="shortcut icon" href="admin/img/amaze_logo.png"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="admin/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <title>aMazeChallenge</title>
   </head>
-  <body>
-    <h1>AMC</h1>
-    <p>Hello World!</p>
+
+  <body style="background-image: url('admin/img/maze_background_pattern.png'); background-repeat: repeat">
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12">
+
+        <div class="center-align">
+          <img class="responsive-img" src="admin/img/maze_banner_transparent.png" style="max-height: 200px"/>
+        </div>
+
+        <div class="white card row">
+
+          <div class="col s12">
+
+            <div style="height: 20px"></div>
+<%--            <a href="index.jsp"><i class="material-icons indigo-text">arrow_back</i></a>--%>
+
+            <div class="center-align">
+              <h4>Welcome</h4>
+              <br/>
+              <img src="admin/img/amaze_logo.png" alt="logo" class="circle" height="100" />
+              <h5>A game-like, distributed application for learning code by playing.</h5>
+              <br/>
+            </div>
+
+            <p style="text-align: justify">
+              aMazeChallenge is a turn-based game in which the player codes their avatar in order to escape from mazes
+              full of different hazards and rewards. Players need to write their own code, which determines how their avatar will act in the game using simple
+              commands. But be careful! The mazes are unpredictable and will spawn traps or bombs that you need to avoid
+              to make it to the end. Various rewards will give you more points or improve your health status.
+              The first player to escape the maze wins, but points will give you an advantage too.
+            </p>
+
+            <p style="text-align: justify">
+              aMazeChallenge is all about programming. You will code in a visual programming language
+              called <a target="_blank" href="https://en.wikipedia.org/wiki/Blockly">Blockly</a> and you will learn the basic
+              concepts of programming while you play. But before trying to tackle more difficult mazes and play with others,
+              you need to think about how to write your code!
+            </p>
+
+            <br/><br/>
+
+            <div class="center-align">
+              <!--TODO To be replaced by Google Play Store button -->
+              <a class="btn btn-large orange darken-4 white-text" href="https://github.com/nkasenides/aMazeChallenge2.0/raw/main/android/apks/aMazeChallenge-2.0.0.apk">Download app beta</a>
+            </div>
+
+            <br/><br/>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   </body>
+
+
 </html>
