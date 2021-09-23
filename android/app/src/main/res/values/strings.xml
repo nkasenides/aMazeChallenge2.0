@@ -343,5 +343,6 @@
     <string name="thank_feedback">Thank you for your feedback!</string>
     <string name="questionnaire_upload_fail">We could not save your response.</string>
     <string name="go_back">Go back</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

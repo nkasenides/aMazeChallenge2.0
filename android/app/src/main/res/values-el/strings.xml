@@ -320,5 +320,6 @@
     <string name="thank_feedback">Ευχαριστούμε για την ανταπόκρισή σας!</string>
     <string name="questionnaire_upload_fail">Δεν μπορέσαμε να αποθηκεύσουμε την απάντησή σας.</string>
     <string name="go_back">Πίσω</string>
+    <string name="refresh">Ανανέωση</string>
 
 </resources>
