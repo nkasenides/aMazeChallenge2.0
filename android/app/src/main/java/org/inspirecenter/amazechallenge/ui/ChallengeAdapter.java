@@ -14,6 +14,7 @@ import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.R;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Vector;
 
 /**
@@ -32,6 +33,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
     }
 
     private final Vector<ChallengeProto> challenges;
+    private final HashMap<String, Integer> playersPerChallenge;
 
     /**
      * Provide a reference to the views for each data item. Complex data items may need more than
@@ -43,6 +45,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         final TextView challengeDescriptionTextView;
         final TextView challengeDimensionsTextView;
         final TextView challengeDifficultyTextView;
+        final TextView challengePlayersTextView;
         ChallengeProto challenge;
 
         ViewHolder(final View view, final OnChallengeSelectedListener onChallengeSelectedListener, final OnChallengeLongSelectionListener onChallengeLongSelectionListener) {
@@ -51,6 +54,8 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
             this.challengeDescriptionTextView = view.findViewById(R.id.item_challenge_description);
             this.challengeDimensionsTextView = view.findViewById(R.id.item_challenge_dimensions);
             this.challengeDifficultyTextView = view.findViewById(R.id.item_challenge_difficulty);
+            this.challengePlayersTextView = view.findViewById(R.id.item_challenge_players);
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View view) {
                     onChallengeSelectedListener.onChallengeSelected(challenge);
@@ -71,6 +76,7 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
 
     ChallengeAdapter(final OnChallengeSelectedListener onChallengeSelectedListener, OnChallengeLongSelectionListener onChallengeLongSelectionListener) {
         this.challenges = new Vector<>();
+        this.playersPerChallenge = new HashMap<>();
         this.onChallengeSelectedListener = onChallengeSelectedListener;
         this.onChallengeLongSelectionListener = onChallengeLongSelectionListener;
     }
@@ -117,8 +123,11 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final ChallengeProto challenge = challenges.elementAt(position);
+        final int totalPlayers = challenge.getMaxActivePlayers();
+        final int currentPlayers = playersPerChallenge.get(challenge.getId()) != null ? playersPerChallenge.get(challenge.getId()) : 0;
         holder.challenge = challenge;
         holder.challengeNameTextView.setText(challenge.getName());
+        holder.challengePlayersTextView.setText(currentPlayers + "/" + totalPlayers);
         holder.challengeDescriptionTextView.setText(challenge.getDescription());
         holder.challengeDimensionsTextView.setText(challenge.getGrid().getWidth() + " x " + challenge.getGrid().getHeight());
         switch(challenge.getDifficulty()) {
@@ -142,6 +151,16 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
                 holder.challengeDifficultyTextView.setText(R.string.very_hard);
                 holder.challengeDifficultyTextView.setTextColor(Color.parseColor("#9e295f"));
                 break;
+        }
+        if (currentPlayers >= totalPlayers) {
+            holder.challengePlayersTextView.setText(R.string.full);
+            holder.challengePlayersTextView.setTextColor(Color.RED);
+        }
+        else if (currentPlayers >= (totalPlayers / 3 * 2)) {
+            holder.challengePlayersTextView.setTextColor(Color.parseColor("#b36200"));
+        }
+        else {
+            holder.challengePlayersTextView.setTextColor(Color.parseColor("#00b362"));
         }
     }
 
