@@ -23,7 +23,7 @@ android {
     buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "org.inspirecenter.amazechallenge"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 5
         versionName "2.0.0"
