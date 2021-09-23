@@ -7,8 +7,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="#"/>
+    <meta name="theme-color" content="#3F51B5"/>
+    <link rel="shortcut icon" href="img/amaze_logo.png"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <title>aMazeChallenge | Admin</title>

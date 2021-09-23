@@ -458,16 +458,16 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
             // first convert to JSON
             final QuestionEntry[] questionEntries = {
-                    new QuestionEntry("Q1", Float.toString(question1Response)),
-                    new QuestionEntry("Q2", question2Response.toString()),
-                    new QuestionEntry("Q3", question3Response.toString()),
-                    new QuestionEntry("Q4", question4Response.toString()),
-                    new QuestionEntry("Q5", question5Response.toString()),
-                    new QuestionEntry("Q6", question6Response.toString()),
-                    new QuestionEntry("Q7", question7Response.toString()),
-                    new QuestionEntry("Q8", question8Response.toString()),
-                    new QuestionEntry("Q9", question9Response),
-                    new QuestionEntry("Q10", question10Response)
+                    new QuestionEntry(getString(R.string.question_1), Float.toString(question1Response)),
+                    new QuestionEntry(getString(R.string.question_2), question2Response.toString()),
+                    new QuestionEntry(getString(R.string.question_3), question3Response.toString()),
+                    new QuestionEntry(getString(R.string.question_4), question4Response.toString()),
+                    new QuestionEntry(getString(R.string.question_5), question5Response.toString()),
+                    new QuestionEntry(getString(R.string.question_6), question6Response.toString()),
+                    new QuestionEntry(getString(R.string.question_7), question7Response.toString()),
+                    new QuestionEntry(getString(R.string.question_8), question8Response.toString()),
+                    new QuestionEntry(getString(R.string.question_9), question9Response),
+                    new QuestionEntry(getString(R.string.question_10), question10Response)
             };
 
             final QuestionnaireEntry questionnaireEntry = new QuestionnaireEntry();

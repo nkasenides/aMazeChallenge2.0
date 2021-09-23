@@ -11,16 +11,22 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="theme-color" content="#3F51B5"/>
+    <link rel="shortcut icon" href="img/amaze_logo.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <%--    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>--%>
     <title>aMazeChallenge - Feedback</title>
+    <script src="js/materialize.min.js"></script>
     <script src="js/Cookies.js"></script>
     <script>
         if (!Cookies.cookieExists(Cookies.ADMIN_KEY_COOKIE)) {
             document.location.href = "index.jsp";
         }
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {});
+        });
     </script>
 </head>
 <body style="background-image: url('img/maze_background_pattern.png'); background-repeat: repeat">
@@ -240,7 +246,7 @@
                         int entryIndex = 1;
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(8).getAnswerText();
-                            question9Answers += "Entry " + entryIndex + ":" + "\\n" + answerText + "\\n\\n";
+                            question9Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
                             entryIndex++;
                         }
 
@@ -248,7 +254,7 @@
                         entryIndex = 1;
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(9).getAnswerText();
-                            question10Answers += "Entry " + entryIndex + ":" + "\\n" + answerText + "\\n\\n";
+                            question10Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
                             entryIndex++;
                         }
 
@@ -346,13 +352,6 @@
                         </div>
                     </div>
 
-                    <script>
-
-                        function showModal(question, responses) {
-                            alert(question + "\n\n" + responses);
-                        }
-                    </script>
-
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 9</h5>
@@ -366,6 +365,29 @@
                             <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 10', '<%= question10Answers%>')">See responses</button>
                         </div>
                     </div>
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4 id="questionText"></h4>
+                            <p id="responses"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                        </div>
+                    </div>
+
+                    <script>
+                        const questionTextElement = document.getElementById("questionText");
+                        const responseElement = document.getElementById("responses");
+
+                        function showModal(question, responses) {
+                            questionTextElement.innerHTML = question;
+                            responseElement.innerHTML = responses;
+                            var instance = M.Modal.getInstance(document.getElementById("modal1"));
+                            instance.open();
+                        }
+                    </script>
 
 
                 </div>

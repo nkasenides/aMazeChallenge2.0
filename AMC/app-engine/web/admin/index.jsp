@@ -7,8 +7,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="#"/>
+    <meta name="theme-color" content="#3F51B5"/>
+    <link rel="shortcut icon" href="img/amaze_logo.png"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <title>aMazeChallenge | Admin panel</title>
@@ -39,13 +39,15 @@
 
                     <div style="height: 20px"></div>
 
-                    <p><a class="btn indigo darken-3 white-text" href="viewChallenges.jsp">Manage challenges</a></p>
-                    <p><a class="btn indigo darken-3 white-text" href="changeAdminKey.jsp">Change admin key</a></p>
-                    <p><a class="btn indigo darken-3 white-text" href="performance.jsp">Performance</a></p>
-                    <p><a class="btn indigo darken-3 white-text" href="feedback.jsp">Feedback</a></p>
-                    <p><input type="button" class="btn indigo darken-3 white-text" value="Reset sessions" id="resetSessions" onclick="if (confirm('Are you sure you would like to reset session data?')) resetSessions()"/></p>
-                    <p><input type="button" class="btn indigo darken-3 white-text" value="Reset all data" id="resetAllData" onclick="if (confirm('Are you sure you would like to reset all data? This will delete all challenges and associated sessions!')) resetAllData()"/></p>
-                    <p><input onclick="logout()" class="btn indigo darken-3 white-text" value="Log out" type="button" /></p>
+                    <div class="center-align">
+                        <p><a class="btn btn-large indigo darken-3 white-text" href="viewChallenges.jsp">Manage challenges</a></p>
+                        <p><a class="btn btn-large indigo darken-3 white-text" href="changeAdminKey.jsp">Change admin key</a></p>
+                        <p><a class="btn btn-large indigo darken-3 white-text" href="performance.jsp">Performance</a></p>
+                        <p><a class="btn btn-large indigo darken-3 white-text" href="feedback.jsp">Feedback</a></p>
+                        <p><input type="button" class="btn btn-large indigo darken-3 white-text" value="Reset sessions" id="resetSessions" onclick="if (confirm('Are you sure you would like to reset session data?')) resetSessions()"/></p>
+                        <p><input type="button" class="btn btn-large red white-text" value="Reset all data" id="resetAllData" onclick="if (confirm('Are you sure you would like to reset all data? This will delete all challenges and associated sessions!')) resetAllData()"/></p>
+                        <p><input onclick="logout()" class="btn btn-large indigo darken-3 white-text" value="Log out" type="button" /></p>
+                    </div>
 
                     <div style="height: 20px"></div>
 
