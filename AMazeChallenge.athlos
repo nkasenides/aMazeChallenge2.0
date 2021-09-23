@@ -1,0 +1,2155 @@
+{
+  "gameAbbreviation": "AMC",
+  "gameName": "AMazeChallenge",
+  "projectName": "AMazeChallenge",
+  "worldType": "GRID4",
+  "runtimeEnvironmentType": "SERVERLESS",
+  "serverEnvironmentType": "JAVA_8",
+  "clientEnvironmentTypes": [
+    "JAVA_8"
+  ],
+  "createdOn": 1628751241477,
+  "savedOn": 1631883525056,
+  "containerName": "org.inspirecenter.amazechallenge",
+  "protoBufClassName": "AMCProto",
+  "enumTypes": {
+    "LikertResponse": {
+      "name": "LikertResponse",
+      "values": [
+        "POSITIVE",
+        "NEGATIVE",
+        "NEUTRAL",
+        "VERY_POSITIVE",
+        "VERY_NEGATIVE"
+      ]
+    },
+    "Shape": {
+      "name": "Shape",
+      "values": [
+        "TRIANGLE",
+        "EMPTY_CIRCLE",
+        "CIRCLE"
+      ]
+    },
+    "AmazeIcon": {
+      "name": "AmazeIcon",
+      "values": [
+        "ICON_9",
+        "ICON_8",
+        "ICON_7",
+        "ICON_6",
+        "ICON_5",
+        "ICON_4",
+        "ICON_3",
+        "ICON_2",
+        "ICON_1",
+        "ICON_10"
+      ]
+    },
+    "Difficulty": {
+      "name": "Difficulty",
+      "values": [
+        "EASY",
+        "MEDIUM",
+        "HARD",
+        "VERY_EASY",
+        "VERY_HARD"
+      ]
+    },
+    "Bias": {
+      "name": "Bias",
+      "values": [
+        "PENALTY",
+        "NONE",
+        "REWARD"
+      ]
+    },
+    "DichotomousResponse": {
+      "name": "DichotomousResponse",
+      "values": [
+        "NO",
+        "MAYBE",
+        "YES"
+      ]
+    },
+    "PickableCategory": {
+      "name": "PickableCategory",
+      "values": [
+        "FRUIT",
+        "SNACK",
+        "NONE"
+      ]
+    },
+    "Algorithm": {
+      "name": "Algorithm",
+      "values": [
+        "MANY_SOLUTIONS",
+        "SPARSE",
+        "SINGLE_SOLUTION",
+        "EMPTY"
+      ]
+    },
+    "AmazeColor": {
+      "name": "AmazeColor",
+      "values": [
+        "GOLD",
+        "BLUE",
+        "PURPLE",
+        "GREEN",
+        "DARK_BLUE",
+        "INDIGO",
+        "RED",
+        "LIGHT_GREY",
+        "PINK",
+        "LIME",
+        "DARK_RED",
+        "DARK_GREY",
+        "BLACK",
+        "MAGENTA",
+        "YELLOW",
+        "DARK_GREEN",
+        "TEAL",
+        "CYAN",
+        "GREY",
+        "ORANGE"
+      ]
+    },
+    "BackgroundImage": {
+      "name": "BackgroundImage",
+      "values": [
+        "TEXTURE_WATER",
+        "TEXTURE_ROCKY",
+        "TEXTURE_SPACE",
+        "TEXTURE_METAL",
+        "TEXTURE_MOON",
+        "TEXTURE_LAVA",
+        "TEXTURE_GRAVEL",
+        "TEXTURE_WOOD",
+        "TEXTURE_GRASS",
+        "TEXTURE_TILES"
+      ]
+    },
+    "Language": {
+      "name": "Language",
+      "values": [
+        "ENGLISH",
+        "GREEK"
+      ]
+    },
+    "AudioType": {
+      "name": "AudioType",
+      "values": [
+        "AMBIENT",
+        "NONE",
+        "EVENT"
+      ]
+    },
+    "AudioFormat": {
+      "name": "AudioFormat",
+      "values": [
+        "MP4",
+        "MP3",
+        "UNDEFINED_FORMAT",
+        "WAV",
+        "OGG"
+      ]
+    },
+    "Audio": {
+      "name": "Audio",
+      "values": [
+        "EVENT_GIFTBOX",
+        "EVENT_COIN20",
+        "AMBIENT_STORM",
+        "EVENT_TRAP",
+        "AMBIENT_NIGHT",
+        "AMBIENT_SNOW",
+        "AMBIENT_ALPINE_FOREST",
+        "EVENT_FOOD",
+        "AMBIENT_RIVER",
+        "EVENT_BOMB",
+        "EVENT_SPEEDHACK",
+        "AUDIO_NONE",
+        "EVENT_COIN5",
+        "EVENT_COIN10",
+        "AMBIENT_CAVE",
+        "AMBIENT_PRISON",
+        "AMBIENT_SANDSTORM",
+        "EVENT_LOSE",
+        "AMBIENT_CITY",
+        "AMBIENT_STREET",
+        "AMBIENT_TROPICAL_FOREST",
+        "AMBIENT_FIRE",
+        "EVENT_WIN",
+        "AMBIENT_HIGHTECH",
+        "AMBIENT_UNDERWATER"
+      ]
+    },
+    "PickableType": {
+      "name": "PickableType",
+      "values": [
+        "GRAPES",
+        "APPLE",
+        "TRAP",
+        "WATERMELON",
+        "SPEEDHACK",
+        "COIN_10",
+        "COIN_20",
+        "PEACH",
+        "GIFTBOX",
+        "COIN_5",
+        "BANANA",
+        "BOMB",
+        "STRAWBERRY",
+        "ORANGE"
+      ]
+    },
+    "MultipleChoiceResponse": {
+      "name": "MultipleChoiceResponse",
+      "values": [
+        "CHOICE_1",
+        "CHOICE_4",
+        "CHOICE_2",
+        "CHOICE_3"
+      ]
+    },
+    "BackgroundImageType": {
+      "name": "BackgroundImageType",
+      "values": [
+        "JPG",
+        "GIF",
+        "PNG"
+      ]
+    },
+    "PickableIntensity": {
+      "name": "PickableIntensity",
+      "values": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "NONE"
+      ]
+    }
+  },
+  "customTypes": {
+    "Game": {
+      "name": "Game",
+      "fields": {
+        "finishedPlayers": {
+          "__metaType__": "ListDataType",
+          "dataType": "string"
+        },
+        "activePlayers": {
+          "__metaType__": "ListDataType",
+          "dataType": "string"
+        },
+        "pickables": {
+          "__metaType__": "ListDataType",
+          "dataType": "PickableEntity"
+        },
+        "queuedPlayers": {
+          "__metaType__": "ListDataType",
+          "dataType": "string"
+        },
+        "counter": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "waitingPlayers": {
+          "__metaType__": "ListDataType",
+          "dataType": "string"
+        },
+        "allPlayers": {
+          "__metaType__": "MapDataType",
+          "dataType": "string",
+          "valueType": "AMCPlayer"
+        },
+        "lastUpdated": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "playerEntities": {
+          "__metaType__": "MapDataType",
+          "dataType": "string",
+          "valueType": "PlayerEntity"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "lastExecutionTime": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "playerWorldSessions": {
+          "__metaType__": "MapDataType",
+          "dataType": "string",
+          "valueType": "AMCWorldSession"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "Health": {
+      "name": "Health",
+      "fields": {
+        "health": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false
+    },
+    "AdminKey": {
+      "name": "AdminKey",
+      "fields": {
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "UNIQUE",
+      "isWorldSpecific": false
+    },
+    "QuestionnaireEntry": {
+      "name": "QuestionnaireEntry",
+      "fields": {
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "questionEntry": {
+          "__metaType__": "ListDataType",
+          "dataType": "QuestionEntry"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "Grid": {
+      "name": "Grid",
+      "fields": {
+        "startingDirection": {
+          "__metaType__": "AthlosType",
+          "name": "Direction4"
+        },
+        "data": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "targetPosition": {
+          "__metaType__": "AthlosType",
+          "name": "MatrixPosition"
+        },
+        "width": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        },
+        "startingPosition": {
+          "__metaType__": "AthlosType",
+          "name": "MatrixPosition"
+        },
+        "height": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "QuestionEntry": {
+      "name": "QuestionEntry",
+      "fields": {
+        "answerText": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "questionText": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "EventQueue": {
+      "name": "EventQueue",
+      "fields": {
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "events": {
+          "__metaType__": "MapDataType",
+          "dataType": "uint64",
+          "valueType": "Audio"
+        },
+        "playerID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "Challenge": {
+      "name": "Challenge",
+      "fields": {
+        "canJoinAfterStart": {
+          "__metaType__": "BasicDataType",
+          "name": "bool"
+        },
+        "canStepOnEachOther": {
+          "__metaType__": "BasicDataType",
+          "name": "bool"
+        },
+        "penalties": {
+          "__metaType__": "EnumType",
+          "name": "PickableIntensity"
+        },
+        "backgroundImage": {
+          "__metaType__": "EnumType",
+          "name": "BackgroundImage"
+        },
+        "description": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "lineColor": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "canRepeat": {
+          "__metaType__": "BasicDataType",
+          "name": "bool"
+        },
+        "createdOn": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "hasQuestionnaire": {
+          "__metaType__": "BasicDataType",
+          "name": "bool"
+        },
+        "difficulty": {
+          "__metaType__": "EnumType",
+          "name": "Difficulty"
+        },
+        "apiVersion": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        },
+        "maxActivePlayers": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        },
+        "grid": {
+          "__metaType__": "CustomDataType",
+          "name": "Grid",
+          "isEntity": false
+        },
+        "backgroundAudio": {
+          "__metaType__": "EnumType",
+          "name": "Audio"
+        },
+        "minActivePlayers": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        },
+        "name": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "startTime": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "endTime": {
+          "__metaType__": "BasicDataType",
+          "name": "uint64"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "rewards": {
+          "__metaType__": "EnumType",
+          "name": "PickableIntensity"
+        },
+        "createdByID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "algorithm": {
+          "__metaType__": "EnumType",
+          "name": "Algorithm"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    }
+  },
+  "worldModel": {
+    "worldType": "GRID4",
+    "fields": {
+      "maxRows": {
+        "__metaType__": "BasicDataType",
+        "name": "sint64"
+      },
+      "heightLimit": {
+        "__metaType__": "BasicDataType",
+        "name": "uint32"
+      },
+      "seed": {
+        "__metaType__": "BasicDataType",
+        "name": "sint64"
+      },
+      "grid": {
+        "__metaType__": "CustomDataType",
+        "name": "Grid",
+        "isEntity": false
+      },
+      "name": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "chunkIDs": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "id": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "ownerID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "createdOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "maxCols": {
+        "__metaType__": "BasicDataType",
+        "name": "sint64"
+      },
+      "subscribedSessionIDs": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      }
+    },
+    "daoPolicy": "MULTIPLE",
+    "isWorldSpecific": false,
+    "isModelable": true
+  },
+  "gameSessionModel": {
+    "fields": {
+      "ipAddress": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "expiresOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "id": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "createdOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "playerID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      }
+    },
+    "daoPolicy": "MULTIPLE",
+    "isWorldSpecific": false,
+    "isModelable": true
+  },
+  "worldSessionModel": {
+    "fields": {
+      "code": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "worldID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "ipAddress": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "cameraPosition": {
+        "__metaType__": "AthlosType",
+        "name": "MatrixPosition"
+      },
+      "health": {
+        "__metaType__": "CustomDataType",
+        "name": "Health",
+        "isEntity": false
+      },
+      "expiresOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "id": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "installationID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "createdOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "playerID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "points": {
+        "__metaType__": "BasicDataType",
+        "name": "int32"
+      }
+    },
+    "daoPolicy": "MULTIPLE",
+    "isWorldSpecific": true,
+    "isModelable": true
+  },
+  "playerModel": {
+    "fields": {
+      "password": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "color": {
+        "__metaType__": "EnumType",
+        "name": "AmazeColor"
+      },
+      "teamID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "name": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "icon": {
+        "__metaType__": "EnumType",
+        "name": "AmazeIcon"
+      },
+      "id": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "createdOn": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "email": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      }
+    },
+    "daoPolicy": "MULTIPLE",
+    "isWorldSpecific": false,
+    "isModelable": true
+  },
+  "teamModel": {
+    "fields": {
+      "name": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "id": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "ownerID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "playerIDs": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "playerLimit": {
+        "__metaType__": "BasicDataType",
+        "name": "uint32"
+      }
+    },
+    "daoPolicy": "MULTIPLE",
+    "isWorldSpecific": false,
+    "isModelable": true
+  },
+  "terrainCellModel": {
+    "fields": {
+      "position": {
+        "__metaType__": "AthlosType",
+        "name": "MatrixPosition"
+      },
+      "rightWall": {
+        "__metaType__": "BasicDataType",
+        "name": "bool"
+      },
+      "downWall": {
+        "__metaType__": "BasicDataType",
+        "name": "bool"
+      },
+      "upWall": {
+        "__metaType__": "BasicDataType",
+        "name": "bool"
+      },
+      "leftWall": {
+        "__metaType__": "BasicDataType",
+        "name": "bool"
+      }
+    },
+    "daoPolicy": "NONE",
+    "isWorldSpecific": true,
+    "isModelable": true
+  },
+  "partialStateModel": {
+    "fields": {
+      "activePlayers": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "entities": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCEntity"
+      },
+      "grid": {
+        "__metaType__": "CustomDataType",
+        "name": "Grid",
+        "isEntity": false
+      },
+      "players": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCPlayer"
+      },
+      "worldSessions": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCWorldSession"
+      },
+      "worldSession": {
+        "__metaType__": "AthlosType",
+        "name": "AMCWorldSession"
+      },
+      "queuedPlayers": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "waitingPlayers": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "terrain": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCTerrainCell"
+      },
+      "events": {
+        "__metaType__": "MapDataType",
+        "dataType": "uint64",
+        "valueType": "Audio"
+      },
+      "timestamp": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      }
+    },
+    "daoPolicy": "NONE",
+    "isWorldSpecific": true,
+    "isModelable": false
+  },
+  "stateUpdateModel": {
+    "fields": {
+      "partialState": {
+        "__metaType__": "AthlosType",
+        "name": "AMCPartialState"
+      },
+      "worldSessionID": {
+        "__metaType__": "BasicDataType",
+        "name": "string"
+      },
+      "removedEntities": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "removedTerrain": {
+        "__metaType__": "ListDataType",
+        "dataType": "string"
+      },
+      "worldSessions": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCWorldSession"
+      },
+      "events": {
+        "__metaType__": "ListDataType",
+        "dataType": "Audio"
+      },
+      "timestamp": {
+        "__metaType__": "BasicDataType",
+        "name": "uint64"
+      },
+      "allPlayers": {
+        "__metaType__": "MapDataType",
+        "dataType": "string",
+        "valueType": "AMCPlayer"
+      }
+    },
+    "daoPolicy": "NONE",
+    "isWorldSpecific": false,
+    "isModelable": false
+  },
+  "actionModels": {},
+  "entityModels": {
+    "PickableEntity": {
+      "worldType": "GRID4",
+      "className": "PickableEntity",
+      "fields": {
+        "worldID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "areaOfInterest": {
+          "__metaType__": "BasicDataType",
+          "name": "float"
+        },
+        "pickableType": {
+          "__metaType__": "EnumType",
+          "name": "PickableType"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "position": {
+          "__metaType__": "AthlosType",
+          "name": "MatrixPosition"
+        },
+        "state": {
+          "__metaType__": "BasicDataType",
+          "name": "int32"
+        },
+        "playerID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "direction": {
+          "__metaType__": "AthlosType",
+          "name": "Direction4"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": true,
+      "isModelable": false
+    },
+    "PlayerEntity": {
+      "worldType": "GRID4",
+      "className": "PlayerEntity",
+      "fields": {
+        "worldID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "areaOfInterest": {
+          "__metaType__": "BasicDataType",
+          "name": "float"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "position": {
+          "__metaType__": "AthlosType",
+          "name": "MatrixPosition"
+        },
+        "playerID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "direction": {
+          "__metaType__": "AthlosType",
+          "name": "Direction4"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": true,
+      "isModelable": false
+    }
+  },
+  "requestModels": {
+    "AddChallengeRequest": {
+      "className": "AddChallengeRequest",
+      "fields": {
+        "challenge": {
+          "__metaType__": "CustomDataType",
+          "name": "Challenge",
+          "isEntity": false
+        },
+        "adminKey": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "GetStateRequest": {
+      "className": "GetStateRequest",
+      "fields": {
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "RuntimeRequest": {
+      "className": "RuntimeRequest",
+      "fields": {
+        "gameID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "adminKey": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "SubscribeRequest": {
+      "className": "SubscribeRequest",
+      "fields": {
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "LeaveChallengeRequest": {
+      "className": "LeaveChallengeRequest",
+      "fields": {
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "ListChallengesRequest": {
+      "className": "ListChallengesRequest",
+      "fields": {},
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "UnsubscribeRequest": {
+      "className": "UnsubscribeRequest",
+      "fields": {
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "SubmitCodeRequest": {
+      "className": "SubmitCodeRequest",
+      "fields": {
+        "code": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "UpdateStateRequest": {
+      "className": "UpdateStateRequest",
+      "fields": {
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "JoinChallengeRequest": {
+      "className": "JoinChallengeRequest",
+      "fields": {
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "player": {
+          "__metaType__": "AthlosType",
+          "name": "AMCPlayer"
+        },
+        "installationID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "SubmitQuestionnaireRequest": {
+      "className": "SubmitQuestionnaireRequest",
+      "fields": {
+        "worldSessionID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "questionnaireEntry": {
+          "__metaType__": "CustomDataType",
+          "name": "QuestionnaireEntry",
+          "isEntity": false
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    }
+  },
+  "responseModels": {
+    "SubmitQuestionnaireResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "CANNOT_SUBMIT",
+          "DATA_ERROR",
+          "OK"
+        ]
+      },
+      "className": "SubmitQuestionnaireResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "GetStateResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_SUCH_WORLD_SESSION",
+          "INVALID_DATA",
+          "NOT_AUTHORIZED",
+          "CANNOT_COMPOSE_STATE",
+          "OK"
+        ]
+      },
+      "className": "GetStateResponse",
+      "fields": {
+        "partialState": {
+          "__metaType__": "AthlosType",
+          "name": "AMCPartialState"
+        },
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "JoinChallengeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "INVALID_CHALLENGE",
+          "CHALLENGE_NOT_STARTED",
+          "INVALID_PLAYER",
+          "PLAYER_NAME_EXISTS",
+          "CHALLENGE_OVER",
+          "OK",
+          "CHALLENGE_FULL"
+        ]
+      },
+      "className": "JoinChallengeResponse",
+      "fields": {
+        "challenge": {
+          "__metaType__": "CustomDataType",
+          "name": "Challenge",
+          "isEntity": false
+        },
+        "worldSession": {
+          "__metaType__": "AthlosType",
+          "name": "AMCWorldSession"
+        },
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "UpdateStateResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_SUCH_WORLD_SESSION",
+          "INVALID_DATA",
+          "NOT_AUTHORIZED",
+          "CANNOT_COMPOSE_STATE",
+          "OK"
+        ]
+      },
+      "className": "UpdateStateResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "stateUpdate": {
+          "__metaType__": "AthlosType",
+          "name": "AMCStateUpdate"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "SubmitCodeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "INVALID_WORLD_SESSION",
+          "INVALID_CODE",
+          "OK",
+          "CANNOT_SUBMIT_CODE"
+        ]
+      },
+      "className": "SubmitCodeResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "SubscribeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_SUCH_WORLD_SESSION",
+          "INVALID_DATA",
+          "NOT_AUTHORIZED",
+          "CANNOT_COMPOSE_STATE",
+          "OK"
+        ]
+      },
+      "className": "SubscribeResponse",
+      "fields": {
+        "partialState": {
+          "__metaType__": "AthlosType",
+          "name": "AMCPartialState"
+        },
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "UnsubscribeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_SUCH_WORLD_SESSION",
+          "INVALID_DATA",
+          "NOT_AUTHORIZED",
+          "OK"
+        ]
+      },
+      "className": "UnsubscribeResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "ListChallengesResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_CHALLENGES",
+          "OK"
+        ]
+      },
+      "className": "ListChallengesResponse",
+      "fields": {
+        "challenges": {
+          "__metaType__": "ListDataType",
+          "dataType": "Challenge"
+        },
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "RuntimeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "INVALID_GAME",
+          "INVALID_CHALLENGE",
+          "INVALID_ADMIN_KEY",
+          "ERROR",
+          "OK"
+        ]
+      },
+      "className": "RuntimeResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "LeaveChallengeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "INVALID_WORLD_SESSION",
+          "INVALID_CHALLENGE",
+          "CANNOT_LEAVE_CHALLENGE",
+          "OK"
+        ]
+      },
+      "className": "LeaveChallengeResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "AddChallengeResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "INVALID_CHALLENGE",
+          "SERVER_ERROR",
+          "OK",
+          "INVALID_CREDENTIALS"
+        ]
+      },
+      "className": "AddChallengeResponse",
+      "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    }
+  },
+  "serviceModels": {
+    "SubmitQuestionnaire": {
+      "name": "SubmitQuestionnaire",
+      "requestModel": {
+        "className": "SubmitQuestionnaireRequest",
+        "fields": {
+          "questionnaireEntry": {
+            "__metaType__": "CustomDataType",
+            "name": "QuestionnaireEntry",
+            "isEntity": false
+          },
+          "worldSession": {
+            "__metaType__": "AthlosType",
+            "name": "AMCWorldSession"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "CANNOT_SUBMIT",
+            "DATA_ERROR",
+            "OK"
+          ]
+        },
+        "className": "SubmitQuestionnaireResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/submitQuestionnaire"
+    },
+    "Runtime": {
+      "name": "Runtime",
+      "requestModel": {
+        "className": "RuntimeRequest",
+        "fields": {
+          "gameID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "challengeID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "adminKey": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "INVALID_GAME",
+            "INVALID_CHALLENGE",
+            "INVALID_ADMIN_KEY",
+            "ERROR",
+            "OK"
+          ]
+        },
+        "className": "RuntimeResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/admin/runtime"
+    },
+    "ListChallenges": {
+      "name": "ListChallenges",
+      "requestModel": {
+        "className": "ListChallengesRequest",
+        "fields": {},
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "SERVER_ERROR",
+            "NO_CHALLENGES",
+            "OK"
+          ]
+        },
+        "className": "ListChallengesResponse",
+        "fields": {
+          "challenges": {
+            "__metaType__": "ListDataType",
+            "dataType": "Challenge"
+          },
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/challenge/list"
+    },
+    "SubmitCode": {
+      "name": "SubmitCode",
+      "requestModel": {
+        "className": "SubmitCodeRequest",
+        "fields": {
+          "code": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "worldSession": {
+            "__metaType__": "AthlosType",
+            "name": "AMCWorldSession"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "INVALID_WORLD_SESSION",
+            "INVALID_CODE",
+            "OK",
+            "CANNOT_SUBMIT_CODE"
+          ]
+        },
+        "className": "SubmitCodeResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/submitCode"
+    },
+    "LeaveChallenge": {
+      "name": "LeaveChallenge",
+      "requestModel": {
+        "className": "LeaveChallengeRequest",
+        "fields": {
+          "challengeID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "worldSessionID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "INVALID_WORLD_SESSION",
+            "INVALID_CHALLENGE",
+            "CANNOT_LEAVE_CHALLENGE",
+            "OK"
+          ]
+        },
+        "className": "LeaveChallengeResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/challenge/leave"
+    },
+    "JoinChallenge": {
+      "name": "JoinChallenge",
+      "requestModel": {
+        "className": "JoinChallengeRequest",
+        "fields": {
+          "challengeID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "player": {
+            "__metaType__": "AthlosType",
+            "name": "AMCPlayer"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "INVALID_CHALLENGE",
+            "CHALLENGE_NOT_STARTED",
+            "INVALID_PLAYER",
+            "PLAYER_NAME_EXISTS",
+            "CHALLENGE_OVER",
+            "OK",
+            "CHALLENGE_FULL"
+          ]
+        },
+        "className": "JoinChallengeResponse",
+        "fields": {
+          "challenge": {
+            "__metaType__": "CustomDataType",
+            "name": "Challenge",
+            "isEntity": false
+          },
+          "worldSession": {
+            "__metaType__": "AthlosType",
+            "name": "AMCWorldSession"
+          },
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/challenge/join"
+    },
+    "GetState": {
+      "name": "GetState",
+      "requestModel": {
+        "className": "GetStateRequest",
+        "fields": {
+          "worldSessionID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "SERVER_ERROR",
+            "NO_SUCH_WORLD_SESSION",
+            "INVALID_DATA",
+            "NOT_AUTHORIZED",
+            "CANNOT_COMPOSE_STATE",
+            "OK"
+          ]
+        },
+        "className": "GetStateResponse",
+        "fields": {
+          "partialState": {
+            "__metaType__": "AthlosType",
+            "name": "AMCPartialState"
+          },
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/state/get"
+    },
+    "UpdateState": {
+      "name": "UpdateState",
+      "requestModel": {
+        "className": "UpdateStateRequest",
+        "fields": {
+          "worldSessionID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "SERVER_ERROR",
+            "NO_SUCH_WORLD_SESSION",
+            "INVALID_DATA",
+            "NOT_AUTHORIZED",
+            "CANNOT_COMPOSE_STATE",
+            "OK"
+          ]
+        },
+        "className": "UpdateStateResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "stateUpdate": {
+            "__metaType__": "AthlosType",
+            "name": "AMCStateUpdate"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/state/update"
+    },
+    "Subscribe": {
+      "name": "Subscribe",
+      "requestModel": {
+        "className": "SubscribeRequest",
+        "fields": {
+          "worldSessionID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "SERVER_ERROR",
+            "NO_SUCH_WORLD_SESSION",
+            "INVALID_DATA",
+            "NOT_AUTHORIZED",
+            "CANNOT_COMPOSE_STATE",
+            "OK"
+          ]
+        },
+        "className": "SubscribeResponse",
+        "fields": {
+          "partialState": {
+            "__metaType__": "AthlosType",
+            "name": "AMCPartialState"
+          },
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/state/subscribe"
+    },
+    "Unsubscribe": {
+      "name": "Unsubscribe",
+      "requestModel": {
+        "className": "UnsubscribeRequest",
+        "fields": {
+          "worldSessionID": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "SERVER_ERROR",
+            "NO_SUCH_WORLD_SESSION",
+            "INVALID_DATA",
+            "NOT_AUTHORIZED",
+            "OK"
+          ]
+        },
+        "className": "UnsubscribeResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/state/unsubscribe"
+    },
+    "AddChallenge": {
+      "name": "AddChallenge",
+      "requestModel": {
+        "className": "AddChallengeRequest",
+        "fields": {
+          "challenge": {
+            "__metaType__": "CustomDataType",
+            "name": "Challenge",
+            "isEntity": false
+          },
+          "adminKey": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "responseModel": {
+        "statusTypeDefinition": {
+          "name": "Status",
+          "values": [
+            "INVALID_CHALLENGE",
+            "SERVER_ERROR",
+            "OK",
+            "INVALID_CREDENTIALS"
+          ]
+        },
+        "className": "AddChallengeResponse",
+        "fields": {
+          "message": {
+            "__metaType__": "BasicDataType",
+            "name": "string"
+          },
+          "status": {
+            "__metaType__": "EnumType",
+            "name": "Status"
+          }
+        },
+        "daoPolicy": "NONE",
+        "isWorldSpecific": false,
+        "isModelable": false
+      },
+      "serviceType": "M_TO_M",
+      "urlPattern": "/api/challenge/add"
+    }
+  },
+  "serverAddress": "http://localhost:8080",
+  "serverName": "",
+  "serverPortNumber": 25000,
+  "chunkSize": 30,
+  "cameraRange": 50.0,
+  "preferredServerless": "APP_ENGINE_STANDARD",
+  "baseURL": "http://localhost:8080",
+  "currentVersion": {
+    "majorVersion": 0,
+    "minorVersion": 0,
+    "buildVersion": 49
+  },
+  "versionHistoryMap": {
+    "1628756385709": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 1
+    },
+    "1628757202794": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 2
+    },
+    "1628757826908": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 3
+    },
+    "1628758442988": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 4
+    },
+    "1628758565451": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 5
+    },
+    "1628760565229": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 6
+    },
+    "1629193045595": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 7
+    },
+    "1629193975586": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 8
+    },
+    "1629204339200": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 9
+    },
+    "1629205144710": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 10
+    },
+    "1629408080527": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 11
+    },
+    "1629438887743": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 12
+    },
+    "1629439064544": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 13
+    },
+    "1629439161215": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 14
+    },
+    "1629439274948": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 15
+    },
+    "1629439897738": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 16
+    },
+    "1629440398540": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 17
+    },
+    "1629440963908": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 18
+    },
+    "1629441043872": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 19
+    },
+    "1629464470230": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 20
+    },
+    "1629464569380": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 21
+    },
+    "1629464813967": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 22
+    },
+    "1629464947908": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 23
+    },
+    "1629465430375": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 24
+    },
+    "1629465535114": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 25
+    },
+    "1629465723617": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 26
+    },
+    "1629465929104": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 27
+    },
+    "1629466103484": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 28
+    },
+    "1629466314297": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 29
+    },
+    "1629466405942": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 30
+    },
+    "1629468872081": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 31
+    },
+    "1629469169726": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 32
+    },
+    "1629469720564": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 33
+    },
+    "1629797519458": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 34
+    },
+    "1629797795330": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 35
+    },
+    "1629798667964": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 36
+    },
+    "1629873813859": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 37
+    },
+    "1629966313250": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 38
+    },
+    "1629986294615": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 39
+    },
+    "1630397442139": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 40
+    },
+    "1630397719548": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 41
+    },
+    "1630417789648": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 42
+    },
+    "1630589707473": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 43
+    },
+    "1630749304003": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 44
+    },
+    "1631867661924": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 45
+    },
+    "1631867922237": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 46
+    },
+    "1631883355970": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 47
+    },
+    "1631883523756": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 48
+    }
+  }
+}
