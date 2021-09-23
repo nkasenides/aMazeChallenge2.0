@@ -4,52 +4,86 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface ListChallengesResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ListChallengesResponse)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.ListChallengesResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  java.util.List<ChallengeProto>
-      getChallengesList();
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  ChallengeProto getChallenges(int index);
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  int getChallengesCount();
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  java.util.List<? extends ChallengeProtoOrBuilder>
-      getChallengesOrBuilderList();
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  ChallengeProtoOrBuilder getChallengesOrBuilder(
-      int index);
-
-  /**
-   * <code>string message = 2;</code>
+   * <code>string message = 1;</code>
    * @return The message.
    */
   String getMessage();
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 1;</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
-   * <code>.ListChallengesResponse.Status status = 3;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  java.util.List<ChallengeProto>
+      getChallengesList();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  ChallengeProto getChallenges(int index);
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  int getChallengesCount();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  java.util.List<? extends ChallengeProtoOrBuilder>
+      getChallengesOrBuilderList();
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  ChallengeProtoOrBuilder getChallengesOrBuilder(
+      int index);
+
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  int getActivePlayersByChallengeCount();
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  boolean containsActivePlayersByChallenge(
+      String key);
+  /**
+   * Use {@link #getActivePlayersByChallengeMap()} instead.
+   */
+  @Deprecated
+  java.util.Map<String, Integer>
+  getActivePlayersByChallenge();
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  java.util.Map<String, Integer>
+  getActivePlayersByChallengeMap();
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+
+  int getActivePlayersByChallengeOrDefault(
+      String key,
+      int defaultValue);
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+
+  int getActivePlayersByChallengeOrThrow(
+      String key);
+
+  /**
+   * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
-   * <code>.ListChallengesResponse.Status status = 3;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
    * @return The status.
    */
   ListChallengesResponse.Status getStatus();

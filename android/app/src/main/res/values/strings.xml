@@ -344,5 +344,8 @@
     <string name="questionnaire_upload_fail">We could not save your response.</string>
     <string name="go_back">Go back</string>
     <string name="refresh">Refresh</string>
+    <string name="export_to_file">Export to file</string>
+    <string name="full">Full</string>
+    <string name="no_challenges_available">No challenges available</string>
 
 </resources>

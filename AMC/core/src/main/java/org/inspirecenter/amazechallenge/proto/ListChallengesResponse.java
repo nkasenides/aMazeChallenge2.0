@@ -4,11 +4,11 @@
 package org.inspirecenter.amazechallenge.proto;
 
 /**
- * Protobuf type {@code ListChallengesResponse}
+ * Protobuf type {@code org.inspirecenter.amazechallenge.proto.ListChallengesResponse}
  */
 public final class ListChallengesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:ListChallengesResponse)
+    // @@protoc_insertion_point(message_implements:org.inspirecenter.amazechallenge.proto.ListChallengesResponse)
     ListChallengesResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ListChallengesResponse.newBuilder() to construct.
@@ -16,8 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListChallengesResponse() {
-    challenges_ = java.util.Collections.emptyList();
     message_ = "";
+    challenges_ = java.util.Collections.emptyList();
     status_ = 0;
   }
 
@@ -53,6 +53,12 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            String s = input.readStringRequireUtf8();
+
+            message_ = s;
+            break;
+          }
+          case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               challenges_ = new java.util.ArrayList<ChallengeProto>();
               mutable_bitField0_ |= 0x00000001;
@@ -61,13 +67,20 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(ChallengeProto.parser(), extensionRegistry));
             break;
           }
-          case 18: {
-            String s = input.readStringRequireUtf8();
-
-            message_ = s;
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              activePlayersByChallenge_ = com.google.protobuf.MapField.newMapField(
+                  ActivePlayersByChallengeDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000002;
+            }
+            com.google.protobuf.MapEntry<String, Integer>
+            activePlayersByChallenge__ = input.readMessage(
+                ActivePlayersByChallengeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            activePlayersByChallenge_.getMutableMap().put(
+                activePlayersByChallenge__.getKey(), activePlayersByChallenge__.getValue());
             break;
           }
-          case 24: {
+          case 32: {
             int rawValue = input.readEnum();
 
             status_ = rawValue;
@@ -100,6 +113,18 @@ private static final long serialVersionUID = 0L;
     return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 3:
+        return internalGetActivePlayersByChallenge();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -109,7 +134,7 @@ private static final long serialVersionUID = 0L;
   }
 
   /**
-   * Protobuf enum {@code ListChallengesResponse.Status}
+   * Protobuf enum {@code org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status}
    */
   public enum Status
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -222,53 +247,13 @@ private static final long serialVersionUID = 0L;
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:ListChallengesResponse.Status)
+    // @@protoc_insertion_point(enum_scope:org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status)
   }
 
-  public static final int CHALLENGES_FIELD_NUMBER = 1;
-  private java.util.List<ChallengeProto> challenges_;
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  @Override
-  public java.util.List<ChallengeProto> getChallengesList() {
-    return challenges_;
-  }
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  @Override
-  public java.util.List<? extends ChallengeProtoOrBuilder>
-      getChallengesOrBuilderList() {
-    return challenges_;
-  }
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  @Override
-  public int getChallengesCount() {
-    return challenges_.size();
-  }
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  @Override
-  public ChallengeProto getChallenges(int index) {
-    return challenges_.get(index);
-  }
-  /**
-   * <code>repeated .ChallengeProto challenges = 1;</code>
-   */
-  @Override
-  public ChallengeProtoOrBuilder getChallengesOrBuilder(
-      int index) {
-    return challenges_.get(index);
-  }
-
-  public static final int MESSAGE_FIELD_NUMBER = 2;
+  public static final int MESSAGE_FIELD_NUMBER = 1;
   private volatile Object message_;
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 1;</code>
    * @return The message.
    */
   @Override
@@ -285,7 +270,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string message = 2;</code>
+   * <code>string message = 1;</code>
    * @return The bytes for message.
    */
   @Override
@@ -303,17 +288,138 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STATUS_FIELD_NUMBER = 3;
+  public static final int CHALLENGES_FIELD_NUMBER = 2;
+  private java.util.List<ChallengeProto> challenges_;
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  @Override
+  public java.util.List<ChallengeProto> getChallengesList() {
+    return challenges_;
+  }
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  @Override
+  public java.util.List<? extends ChallengeProtoOrBuilder>
+      getChallengesOrBuilderList() {
+    return challenges_;
+  }
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  @Override
+  public int getChallengesCount() {
+    return challenges_.size();
+  }
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  @Override
+  public ChallengeProto getChallenges(int index) {
+    return challenges_.get(index);
+  }
+  /**
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
+   */
+  @Override
+  public ChallengeProtoOrBuilder getChallengesOrBuilder(
+      int index) {
+    return challenges_.get(index);
+  }
+
+  public static final int ACTIVEPLAYERSBYCHALLENGE_FIELD_NUMBER = 3;
+  private static final class ActivePlayersByChallengeDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, Integer> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, Integer>newDefaultInstance(
+                AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.UINT32,
+                0);
+  }
+  private com.google.protobuf.MapField<
+      String, Integer> activePlayersByChallenge_;
+  private com.google.protobuf.MapField<String, Integer>
+  internalGetActivePlayersByChallenge() {
+    if (activePlayersByChallenge_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          ActivePlayersByChallengeDefaultEntryHolder.defaultEntry);
+    }
+    return activePlayersByChallenge_;
+  }
+
+  public int getActivePlayersByChallengeCount() {
+    return internalGetActivePlayersByChallenge().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+
+  @Override
+  public boolean containsActivePlayersByChallenge(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    return internalGetActivePlayersByChallenge().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getActivePlayersByChallengeMap()} instead.
+   */
+  @Override
+  @Deprecated
+  public java.util.Map<String, Integer> getActivePlayersByChallenge() {
+    return getActivePlayersByChallengeMap();
+  }
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  @Override
+
+  public java.util.Map<String, Integer> getActivePlayersByChallengeMap() {
+    return internalGetActivePlayersByChallenge().getMap();
+  }
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  @Override
+
+  public int getActivePlayersByChallengeOrDefault(
+      String key,
+      int defaultValue) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, Integer> map =
+        internalGetActivePlayersByChallenge().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+   */
+  @Override
+
+  public int getActivePlayersByChallengeOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException(); }
+    java.util.Map<String, Integer> map =
+        internalGetActivePlayersByChallenge().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 4;
   private int status_;
   /**
-   * <code>.ListChallengesResponse.Status status = 3;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
    * @return The enum numeric value on the wire for status.
    */
   @Override public int getStatusValue() {
     return status_;
   }
   /**
-   * <code>.ListChallengesResponse.Status status = 3;</code>
+   * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
    * @return The status.
    */
   @Override public Status getStatus() {
@@ -336,14 +442,20 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < challenges_.size(); i++) {
-      output.writeMessage(1, challenges_.get(i));
-    }
     if (!getMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
+    for (int i = 0; i < challenges_.size(); i++) {
+      output.writeMessage(2, challenges_.get(i));
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetActivePlayersByChallenge(),
+        ActivePlayersByChallengeDefaultEntryHolder.defaultEntry,
+        3);
     if (status_ != Status.SERVER_ERROR.getNumber()) {
-      output.writeEnum(3, status_);
+      output.writeEnum(4, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -354,16 +466,26 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+    }
     for (int i = 0; i < challenges_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, challenges_.get(i));
+        .computeMessageSize(2, challenges_.get(i));
     }
-    if (!getMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+    for (java.util.Map.Entry<String, Integer> entry
+         : internalGetActivePlayersByChallenge().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, Integer>
+      activePlayersByChallenge__ = ActivePlayersByChallengeDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, activePlayersByChallenge__);
     }
     if (status_ != Status.SERVER_ERROR.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, status_);
+        .computeEnumSize(4, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -380,10 +502,12 @@ private static final long serialVersionUID = 0L;
     }
     ListChallengesResponse other = (ListChallengesResponse) obj;
 
-    if (!getChallengesList()
-        .equals(other.getChallengesList())) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
+    if (!getChallengesList()
+        .equals(other.getChallengesList())) return false;
+    if (!internalGetActivePlayersByChallenge().equals(
+        other.internalGetActivePlayersByChallenge())) return false;
     if (status_ != other.status_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -396,12 +520,16 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     if (getChallengesCount() > 0) {
       hash = (37 * hash) + CHALLENGES_FIELD_NUMBER;
       hash = (53 * hash) + getChallengesList().hashCode();
     }
-    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessage().hashCode();
+    if (!internalGetActivePlayersByChallenge().getMap().isEmpty()) {
+      hash = (37 * hash) + ACTIVEPLAYERSBYCHALLENGE_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetActivePlayersByChallenge().hashCode();
+    }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -500,17 +628,39 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code ListChallengesResponse}
+   * Protobuf type {@code org.inspirecenter.amazechallenge.proto.ListChallengesResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ListChallengesResponse)
+      // @@protoc_insertion_point(builder_implements:org.inspirecenter.amazechallenge.proto.ListChallengesResponse)
       ListChallengesResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return AMCProto.internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 3:
+          return internalGetActivePlayersByChallenge();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 3:
+          return internalGetMutableActivePlayersByChallenge();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -519,7 +669,7 @@ private static final long serialVersionUID = 0L;
               ListChallengesResponse.class, Builder.class);
     }
 
-    // Construct using ListChallengesResponse.newBuilder()
+    // Construct using org.inspirecenter.amazechallenge.proto.ListChallengesResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -538,14 +688,15 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
+      message_ = "";
+
       if (challengesBuilder_ == null) {
         challenges_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         challengesBuilder_.clear();
       }
-      message_ = "";
-
+      internalGetMutableActivePlayersByChallenge().clear();
       status_ = 0;
 
       return this;
@@ -575,6 +726,7 @@ private static final long serialVersionUID = 0L;
     public ListChallengesResponse buildPartial() {
       ListChallengesResponse result = new ListChallengesResponse(this);
       int from_bitField0_ = bitField0_;
+      result.message_ = message_;
       if (challengesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           challenges_ = java.util.Collections.unmodifiableList(challenges_);
@@ -584,7 +736,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.challenges_ = challengesBuilder_.build();
       }
-      result.message_ = message_;
+      result.activePlayersByChallenge_ = internalGetActivePlayersByChallenge();
+      result.activePlayersByChallenge_.makeImmutable();
       result.status_ = status_;
       onBuilt();
       return result;
@@ -634,6 +787,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ListChallengesResponse other) {
       if (other == ListChallengesResponse.getDefaultInstance()) return this;
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
+        onChanged();
+      }
       if (challengesBuilder_ == null) {
         if (!other.challenges_.isEmpty()) {
           if (challenges_.isEmpty()) {
@@ -660,10 +817,8 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
-        onChanged();
-      }
+      internalGetMutableActivePlayersByChallenge().mergeFrom(
+          other.internalGetActivePlayersByChallenge());
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
@@ -697,6 +852,82 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private Object message_ = "";
+    /**
+     * <code>string message = 1;</code>
+     * @return The message.
+     */
+    public String getMessage() {
+      Object ref = message_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      } else {
+        return (String) ref;
+      }
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @param value The message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMessage(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      message_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMessage() {
+      
+      message_ = getDefaultInstance().getMessage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @param value The bytes for message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      message_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<ChallengeProto> challenges_ =
       java.util.Collections.emptyList();
     private void ensureChallengesIsMutable() {
@@ -710,7 +941,7 @@ private static final long serialVersionUID = 0L;
         ChallengeProto, ChallengeProto.Builder, ChallengeProtoOrBuilder> challengesBuilder_;
 
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public java.util.List<ChallengeProto> getChallengesList() {
       if (challengesBuilder_ == null) {
@@ -720,7 +951,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public int getChallengesCount() {
       if (challengesBuilder_ == null) {
@@ -730,7 +961,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public ChallengeProto getChallenges(int index) {
       if (challengesBuilder_ == null) {
@@ -740,7 +971,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder setChallenges(
         int index, ChallengeProto value) {
@@ -757,7 +988,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder setChallenges(
         int index, ChallengeProto.Builder builderForValue) {
@@ -771,7 +1002,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder addChallenges(ChallengeProto value) {
       if (challengesBuilder_ == null) {
@@ -787,7 +1018,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder addChallenges(
         int index, ChallengeProto value) {
@@ -804,7 +1035,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder addChallenges(
         ChallengeProto.Builder builderForValue) {
@@ -818,7 +1049,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder addChallenges(
         int index, ChallengeProto.Builder builderForValue) {
@@ -832,7 +1063,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder addAllChallenges(
         Iterable<? extends ChallengeProto> values) {
@@ -847,7 +1078,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder clearChallenges() {
       if (challengesBuilder_ == null) {
@@ -860,7 +1091,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public Builder removeChallenges(int index) {
       if (challengesBuilder_ == null) {
@@ -873,14 +1104,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public ChallengeProto.Builder getChallengesBuilder(
         int index) {
       return getChallengesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public ChallengeProtoOrBuilder getChallengesOrBuilder(
         int index) {
@@ -890,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public java.util.List<? extends ChallengeProtoOrBuilder>
          getChallengesOrBuilderList() {
@@ -901,14 +1132,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public ChallengeProto.Builder addChallengesBuilder() {
       return getChallengesFieldBuilder().addBuilder(
           ChallengeProto.getDefaultInstance());
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public ChallengeProto.Builder addChallengesBuilder(
         int index) {
@@ -916,7 +1147,7 @@ private static final long serialVersionUID = 0L;
           index, ChallengeProto.getDefaultInstance());
     }
     /**
-     * <code>repeated .ChallengeProto challenges = 1;</code>
+     * <code>repeated .org.inspirecenter.amazechallenge.proto.ChallengeProto challenges = 2;</code>
      */
     public java.util.List<ChallengeProto.Builder>
          getChallengesBuilderList() {
@@ -937,92 +1168,144 @@ private static final long serialVersionUID = 0L;
       return challengesBuilder_;
     }
 
-    private Object message_ = "";
-    /**
-     * <code>string message = 2;</code>
-     * @return The message.
-     */
-    public String getMessage() {
-      Object ref = message_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      } else {
-        return (String) ref;
+    private com.google.protobuf.MapField<
+        String, Integer> activePlayersByChallenge_;
+    private com.google.protobuf.MapField<String, Integer>
+    internalGetActivePlayersByChallenge() {
+      if (activePlayersByChallenge_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ActivePlayersByChallengeDefaultEntryHolder.defaultEntry);
       }
+      return activePlayersByChallenge_;
+    }
+    private com.google.protobuf.MapField<String, Integer>
+    internalGetMutableActivePlayersByChallenge() {
+      onChanged();;
+      if (activePlayersByChallenge_ == null) {
+        activePlayersByChallenge_ = com.google.protobuf.MapField.newMapField(
+            ActivePlayersByChallengeDefaultEntryHolder.defaultEntry);
+      }
+      if (!activePlayersByChallenge_.isMutable()) {
+        activePlayersByChallenge_ = activePlayersByChallenge_.copy();
+      }
+      return activePlayersByChallenge_;
+    }
+
+    public int getActivePlayersByChallengeCount() {
+      return internalGetActivePlayersByChallenge().getMap().size();
     }
     /**
-     * <code>string message = 2;</code>
-     * @return The bytes for message.
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      Object ref = message_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+
+    @Override
+    public boolean containsActivePlayersByChallenge(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      return internalGetActivePlayersByChallenge().getMap().containsKey(key);
     }
     /**
-     * <code>string message = 2;</code>
-     * @param value The message to set.
-     * @return This builder for chaining.
+     * Use {@link #getActivePlayersByChallengeMap()} instead.
      */
-    public Builder setMessage(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      message_ = value;
-      onChanged();
+    @Override
+    @Deprecated
+    public java.util.Map<String, Integer> getActivePlayersByChallenge() {
+      return getActivePlayersByChallengeMap();
+    }
+    /**
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+     */
+    @Override
+
+    public java.util.Map<String, Integer> getActivePlayersByChallengeMap() {
+      return internalGetActivePlayersByChallenge().getMap();
+    }
+    /**
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+     */
+    @Override
+
+    public int getActivePlayersByChallengeOrDefault(
+        String key,
+        int defaultValue) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, Integer> map =
+          internalGetActivePlayersByChallenge().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+     */
+    @Override
+
+    public int getActivePlayersByChallengeOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, Integer> map =
+          internalGetActivePlayersByChallenge().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearActivePlayersByChallenge() {
+      internalGetMutableActivePlayersByChallenge().getMutableMap()
+          .clear();
       return this;
     }
     /**
-     * <code>string message = 2;</code>
-     * @return This builder for chaining.
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
      */
-    public Builder clearMessage() {
-      
-      message_ = getDefaultInstance().getMessage();
-      onChanged();
+
+    public Builder removeActivePlayersByChallenge(
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      internalGetMutableActivePlayersByChallenge().getMutableMap()
+          .remove(key);
       return this;
     }
     /**
-     * <code>string message = 2;</code>
-     * @param value The bytes for message to set.
-     * @return This builder for chaining.
+     * Use alternate mutation accessors instead.
      */
-    public Builder setMessageBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    @Deprecated
+    public java.util.Map<String, Integer>
+    getMutableActivePlayersByChallenge() {
+      return internalGetMutableActivePlayersByChallenge().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+     */
+    public Builder putActivePlayersByChallenge(
+        String key,
+        int value) {
+      if (key == null) { throw new NullPointerException(); }
       
-      message_ = value;
-      onChanged();
+      internalGetMutableActivePlayersByChallenge().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, uint32&gt; activePlayersByChallenge = 3;</code>
+     */
+
+    public Builder putAllActivePlayersByChallenge(
+        java.util.Map<String, Integer> values) {
+      internalGetMutableActivePlayersByChallenge().getMutableMap()
+          .putAll(values);
       return this;
     }
 
     private int status_ = 0;
     /**
-     * <code>.ListChallengesResponse.Status status = 3;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
      * @return The enum numeric value on the wire for status.
      */
     @Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.ListChallengesResponse.Status status = 3;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
      * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
      */
@@ -1033,7 +1316,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.ListChallengesResponse.Status status = 3;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
      * @return The status.
      */
     @Override
@@ -1043,7 +1326,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? Status.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ListChallengesResponse.Status status = 3;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
@@ -1057,7 +1340,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.ListChallengesResponse.Status status = 3;</code>
+     * <code>.org.inspirecenter.amazechallenge.proto.ListChallengesResponse.Status status = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
@@ -1079,10 +1362,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:ListChallengesResponse)
+    // @@protoc_insertion_point(builder_scope:org.inspirecenter.amazechallenge.proto.ListChallengesResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:ListChallengesResponse)
+  // @@protoc_insertion_point(class_scope:org.inspirecenter.amazechallenge.proto.ListChallengesResponse)
   private static final ListChallengesResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new ListChallengesResponse();

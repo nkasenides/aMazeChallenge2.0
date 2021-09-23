@@ -295,11 +295,6 @@ public final class AMCProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_inspirecenter_amazechallenge_proto_RuntimeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -309,6 +304,16 @@ public final class AMCProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_inspirecenter_amazechallenge_proto_LeaveChallengeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_descriptor;
   static final 
@@ -395,369 +400,375 @@ public final class AMCProto {
       "\003col\030\002 \001(\021\022\020\n\010cellHash\030\003 \001(\t\022\021\n\tchunkHas" +
       "h\030\004 \001(\t\"l\n\023AMCGameSessionProto\022\021\n\tipAddr" +
       "ess\030\001 \001(\t\022\021\n\texpiresOn\030\002 \001(\004\022\n\n\002id\030\003 \001(\t" +
-      "\022\021\n\tcreatedOn\030\004 \001(\004\022\020\n\010playerID\030\005 \001(\t\"\266\002" +
+      "\022\021\n\tcreatedOn\030\004 \001(\004\022\020\n\010playerID\030\005 \001(\t\"\316\002" +
       "\n\024AMCWorldSessionProto\022\014\n\004code\030\001 \001(\t\022\017\n\007" +
       "worldID\030\002 \001(\t\022\021\n\tipAddress\030\003 \001(\t\022S\n\016came" +
       "raPosition\030\004 \001(\0132;.org.inspirecenter.ama" +
       "zechallenge.proto.MatrixPositionProto\022C\n" +
       "\006health\030\005 \001(\01323.org.inspirecenter.amazec" +
       "hallenge.proto.HealthProto\022\021\n\texpiresOn\030" +
-      "\006 \001(\004\022\n\n\002id\030\007 \001(\t\022\021\n\tcreatedOn\030\010 \001(\004\022\020\n\010" +
-      "playerID\030\t \001(\t\022\016\n\006points\030\n \001(\005\"\362\001\n\016AMCPl" +
-      "ayerProto\022\020\n\010password\030\001 \001(\t\022A\n\005color\030\002 \001" +
-      "(\01622.org.inspirecenter.amazechallenge.pr" +
-      "oto.AmazeColor\022\016\n\006teamID\030\003 \001(\t\022\014\n\004name\030\004" +
-      " \001(\t\022?\n\004icon\030\005 \001(\01621.org.inspirecenter.a" +
-      "mazechallenge.proto.AmazeIcon\022\n\n\002id\030\006 \001(" +
-      "\t\022\021\n\tcreatedOn\030\007 \001(\004\022\r\n\005email\030\010 \001(\t\"a\n\014A" +
-      "MCTeamProto\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\017\n" +
-      "\007ownerID\030\003 \001(\t\022\021\n\tplayerIDs\030\004 \003(\t\022\023\n\013pla" +
-      "yerLimit\030\005 \001(\r\"\241\003\n\016AMCEntityProto\022\017\n\007wor" +
-      "ldID\030\001 \001(\t\022\026\n\016areaOfInterest\030\002 \001(\002\022\n\n\002id" +
-      "\030\003 \001(\t\022M\n\010position\030\004 \001(\0132;.org.inspirece" +
-      "nter.amazechallenge.proto.MatrixPosition" +
-      "Proto\022\020\n\010playerID\030\005 \001(\t\022E\n\tdirection\030\006 \001" +
-      "(\01622.org.inspirecenter.amazechallenge.pr" +
-      "oto.Direction4\022U\n\016pickableEntity\030\007 \001(\0132;" +
-      ".org.inspirecenter.amazechallenge.proto." +
-      "PickableEntityProtoH\000\022Q\n\014playerEntity\030\010 " +
-      "\001(\01329.org.inspirecenter.amazechallenge.p" +
-      "roto.PlayerEntityProtoH\000B\010\n\006entity\"\315\002\n\023P" +
-      "ickableEntityProto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016a" +
-      "reaOfInterest\030\002 \001(\002\022J\n\014pickableType\030\003 \001(" +
-      "\01624.org.inspirecenter.amazechallenge.pro" +
-      "to.PickableType\022\n\n\002id\030\004 \001(\t\022M\n\010position\030" +
-      "\005 \001(\0132;.org.inspirecenter.amazechallenge" +
-      ".proto.MatrixPositionProto\022\r\n\005state\030\006 \001(" +
-      "\005\022\020\n\010playerID\030\007 \001(\t\022E\n\tdirection\030\010 \001(\01622" +
-      ".org.inspirecenter.amazechallenge.proto." +
-      "Direction4\"\360\001\n\021PlayerEntityProto\022\017\n\007worl" +
-      "dID\030\t \001(\t\022\026\n\016areaOfInterest\030\n \001(\002\022\n\n\002id\030" +
-      "\013 \001(\t\022M\n\010position\030\014 \001(\0132;.org.inspirecen" +
-      "ter.amazechallenge.proto.MatrixPositionP" +
-      "roto\022\020\n\010playerID\030\r \001(\t\022E\n\tdirection\030\016 \001(" +
-      "\01622.org.inspirecenter.amazechallenge.pro" +
-      "to.Direction4\"\020\n\016AMCActionProto\"\253\001\n\023AMCT" +
-      "errainCellProto\022M\n\010position\030\001 \001(\0132;.org." +
-      "inspirecenter.amazechallenge.proto.Matri" +
-      "xPositionProto\022\021\n\trightWall\030\002 \001(\010\022\020\n\010dow" +
-      "nWall\030\003 \001(\010\022\016\n\006upWall\030\004 \001(\010\022\020\n\010leftWall\030" +
-      "\005 \001(\010\"\253\005\n\023AMCStateUpdateProto\022R\n\014partial" +
-      "State\030\001 \001(\0132<.org.inspirecenter.amazecha" +
-      "llenge.proto.AMCPartialStateProto\022\026\n\016wor" +
-      "ldSessionID\030\002 \001(\t\022\027\n\017removedEntities\030\003 \003" +
-      "(\t\022\026\n\016removedTerrain\030\004 \003(\t\022e\n\rworldSessi" +
-      "ons\030\005 \003(\0132N.org.inspirecenter.amazechall" +
-      "enge.proto.AMCStateUpdateProto.WorldSess" +
-      "ionsEntry\022=\n\006events\030\006 \003(\0162-.org.inspirec" +
-      "enter.amazechallenge.proto.Audio\022\021\n\ttime" +
-      "stamp\030\007 \001(\004\022_\n\nallPlayers\030\010 \003(\0132K.org.in" +
-      "spirecenter.amazechallenge.proto.AMCStat" +
-      "eUpdateProto.AllPlayersEntry\032r\n\022WorldSes" +
-      "sionsEntry\022\013\n\003key\030\001 \001(\t\022K\n\005value\030\002 \001(\0132<" +
-      ".org.inspirecenter.amazechallenge.proto." +
-      "AMCWorldSessionProto:\0028\001\032i\n\017AllPlayersEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022E\n\005value\030\002 \001(\01326.org.in" +
-      "spirecenter.amazechallenge.proto.AMCPlay" +
-      "erProto:\0028\001\"\305\002\n\024AMCTerrainChunkProto\022\n\n\002" +
-      "id\030\001 \001(\t\022\017\n\007worldID\030\002 \001(\t\022M\n\010position\030\003 " +
-      "\001(\0132;.org.inspirecenter.amazechallenge.p" +
-      "roto.MatrixPositionProto\022V\n\005cells\030\004 \003(\0132" +
-      "G.org.inspirecenter.amazechallenge.proto" +
-      ".AMCTerrainChunkProto.CellsEntry\032i\n\nCell" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022J\n\005value\030\002 \001(\0132;.org" +
-      ".inspirecenter.amazechallenge.proto.AMCT" +
-      "errainCellProto:\0028\001\"\235\001\n\031AMCTerrainIdenti" +
-      "fierProto\022\n\n\002id\030\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017" +
-      "\n\007worldID\030\003 \001(\t\022R\n\rchunkPosition\030\004 \001(\0132;" +
-      ".org.inspirecenter.amazechallenge.proto." +
-      "MatrixPositionProto\"\354\t\n\024AMCPartialStateP" +
-      "roto\022\025\n\ractivePlayers\030\001 \003(\t\022\\\n\010entities\030" +
-      "\002 \003(\0132J.org.inspirecenter.amazechallenge" +
-      ".proto.AMCPartialStateProto.EntitiesEntr" +
-      "y\022?\n\004grid\030\003 \001(\01321.org.inspirecenter.amaz" +
-      "echallenge.proto.GridProto\022Z\n\007players\030\004 " +
-      "\003(\0132I.org.inspirecenter.amazechallenge.p" +
-      "roto.AMCPartialStateProto.PlayersEntry\022f" +
-      "\n\rworldSessions\030\005 \003(\0132O.org.inspirecente" +
-      "r.amazechallenge.proto.AMCPartialStatePr" +
-      "oto.WorldSessionsEntry\022R\n\014worldSession\030\006" +
-      " \001(\0132<.org.inspirecenter.amazechallenge." +
-      "proto.AMCWorldSessionProto\022\025\n\rqueuedPlay" +
-      "ers\030\007 \003(\t\022\026\n\016waitingPlayers\030\010 \003(\t\022Z\n\007ter" +
-      "rain\030\t \003(\0132I.org.inspirecenter.amazechal" +
-      "lenge.proto.AMCPartialStateProto.Terrain" +
-      "Entry\022X\n\006events\030\n \003(\0132H.org.inspirecente" +
-      "r.amazechallenge.proto.AMCPartialStatePr" +
-      "oto.EventsEntry\022\021\n\ttimestamp\030\013 \001(\004\032g\n\rEn" +
-      "titiesEntry\022\013\n\003key\030\001 \001(\t\022E\n\005value\030\002 \001(\0132" +
-      "6.org.inspirecenter.amazechallenge.proto" +
-      ".AMCEntityProto:\0028\001\032f\n\014PlayersEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022E\n\005value\030\002 \001(\01326.org.inspirecen" +
-      "ter.amazechallenge.proto.AMCPlayerProto:" +
-      "\0028\001\032r\n\022WorldSessionsEntry\022\013\n\003key\030\001 \001(\t\022K" +
-      "\n\005value\030\002 \001(\0132<.org.inspirecenter.amazec" +
-      "hallenge.proto.AMCWorldSessionProto:\0028\001\032" +
-      "k\n\014TerrainEntry\022\013\n\003key\030\001 \001(\t\022J\n\005value\030\002 " +
-      "\001(\0132;.org.inspirecenter.amazechallenge.p" +
-      "roto.AMCTerrainCellProto:\0028\001\032\\\n\013EventsEn" +
-      "try\022\013\n\003key\030\001 \001(\004\022<\n\005value\030\002 \001(\0162-.org.in" +
-      "spirecenter.amazechallenge.proto.Audio:\002" +
-      "8\001\"\203\002\n\rAMCWorldProto\022\017\n\007maxRows\030\001 \001(\022\022\023\n" +
-      "\013heightLimit\030\002 \001(\r\022\014\n\004seed\030\003 \001(\022\022?\n\004grid" +
-      "\030\004 \001(\01321.org.inspirecenter.amazechalleng" +
-      "e.proto.GridProto\022\014\n\004name\030\005 \001(\t\022\020\n\010chunk" +
-      "IDs\030\006 \003(\t\022\n\n\002id\030\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t\022\021" +
-      "\n\tcreatedOn\030\t \001(\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024su" +
-      "bscribedSessionIDs\030\013 \003(\t\"\200\010\n\007Request\022Z\n\023" +
-      "addChallengeRequest\030\001 \001(\0132;.org.inspirec" +
-      "enter.amazechallenge.proto.AddChallengeR" +
-      "equestH\000\022R\n\017getStateRequest\030\002 \001(\01327.org." +
-      "inspirecenter.amazechallenge.proto.GetSt" +
-      "ateRequestH\000\022P\n\016runtimeRequest\030\003 \001(\01326.o" +
-      "rg.inspirecenter.amazechallenge.proto.Ru" +
-      "ntimeRequestH\000\022T\n\020subscribeRequest\030\004 \001(\013" +
-      "28.org.inspirecenter.amazechallenge.prot" +
-      "o.SubscribeRequestH\000\022^\n\025leaveChallengeRe" +
-      "quest\030\005 \001(\0132=.org.inspirecenter.amazecha" +
-      "llenge.proto.LeaveChallengeRequestH\000\022^\n\025" +
-      "listChallengesRequest\030\006 \001(\0132=.org.inspir" +
-      "ecenter.amazechallenge.proto.ListChallen" +
-      "gesRequestH\000\022X\n\022unsubscribeRequest\030\007 \001(\013" +
-      "2:.org.inspirecenter.amazechallenge.prot" +
-      "o.UnsubscribeRequestH\000\022V\n\021submitCodeRequ" +
-      "est\030\010 \001(\01329.org.inspirecenter.amazechall" +
-      "enge.proto.SubmitCodeRequestH\000\022X\n\022update" +
-      "StateRequest\030\t \001(\0132:.org.inspirecenter.a" +
-      "mazechallenge.proto.UpdateStateRequestH\000" +
-      "\022\\\n\024joinChallengeRequest\030\n \001(\0132<.org.ins" +
-      "pirecenter.amazechallenge.proto.JoinChal" +
-      "lengeRequestH\000\022h\n\032submitQuestionnaireReq" +
-      "uest\030\013 \001(\0132B.org.inspirecenter.amazechal" +
-      "lenge.proto.SubmitQuestionnaireRequestH\000" +
-      "B\t\n\007request\"r\n\023AddChallengeRequest\022I\n\tch" +
-      "allenge\030\001 \001(\01326.org.inspirecenter.amazec" +
-      "hallenge.proto.ChallengeProto\022\020\n\010adminKe" +
-      "y\030\002 \001(\t\")\n\017GetStateRequest\022\026\n\016worldSessi" +
-      "onID\030\001 \001(\t\"G\n\016RuntimeRequest\022\016\n\006gameID\030\001" +
-      " \001(\t\022\023\n\013challengeID\030\002 \001(\t\022\020\n\010adminKey\030\003 " +
-      "\001(\t\"*\n\020SubscribeRequest\022\026\n\016worldSessionI" +
-      "D\030\001 \001(\t\"D\n\025LeaveChallengeRequest\022\023\n\013chal" +
-      "lengeID\030\001 \001(\t\022\026\n\016worldSessionID\030\002 \001(\t\"\027\n" +
-      "\025ListChallengesRequest\",\n\022UnsubscribeReq" +
-      "uest\022\026\n\016worldSessionID\030\001 \001(\t\"9\n\021SubmitCo" +
-      "deRequest\022\014\n\004code\030\001 \001(\t\022\026\n\016worldSessionI" +
-      "D\030\002 \001(\t\",\n\022UpdateStateRequest\022\026\n\016worldSe" +
-      "ssionID\030\001 \001(\t\"s\n\024JoinChallengeRequest\022\023\n" +
-      "\013challengeID\030\001 \001(\t\022F\n\006player\030\002 \001(\01326.org" +
+      "\006 \001(\004\022\n\n\002id\030\007 \001(\t\022\026\n\016installationID\030\010 \001(" +
+      "\t\022\021\n\tcreatedOn\030\t \001(\004\022\020\n\010playerID\030\n \001(\t\022\016" +
+      "\n\006points\030\013 \001(\005\"\362\001\n\016AMCPlayerProto\022\020\n\010pas" +
+      "sword\030\001 \001(\t\022A\n\005color\030\002 \001(\01622.org.inspire" +
+      "center.amazechallenge.proto.AmazeColor\022\016" +
+      "\n\006teamID\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022?\n\004icon\030\005 \001" +
+      "(\01621.org.inspirecenter.amazechallenge.pr" +
+      "oto.AmazeIcon\022\n\n\002id\030\006 \001(\t\022\021\n\tcreatedOn\030\007" +
+      " \001(\004\022\r\n\005email\030\010 \001(\t\"a\n\014AMCTeamProto\022\014\n\004n" +
+      "ame\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\017\n\007ownerID\030\003 \001(\t\022\021" +
+      "\n\tplayerIDs\030\004 \003(\t\022\023\n\013playerLimit\030\005 \001(\r\"\241" +
+      "\003\n\016AMCEntityProto\022\017\n\007worldID\030\001 \001(\t\022\026\n\016ar" +
+      "eaOfInterest\030\002 \001(\002\022\n\n\002id\030\003 \001(\t\022M\n\010positi" +
+      "on\030\004 \001(\0132;.org.inspirecenter.amazechalle" +
+      "nge.proto.MatrixPositionProto\022\020\n\010playerI" +
+      "D\030\005 \001(\t\022E\n\tdirection\030\006 \001(\01622.org.inspire" +
+      "center.amazechallenge.proto.Direction4\022U" +
+      "\n\016pickableEntity\030\007 \001(\0132;.org.inspirecent" +
+      "er.amazechallenge.proto.PickableEntityPr" +
+      "otoH\000\022Q\n\014playerEntity\030\010 \001(\01329.org.inspir" +
+      "ecenter.amazechallenge.proto.PlayerEntit" +
+      "yProtoH\000B\010\n\006entity\"\315\002\n\023PickableEntityPro" +
+      "to\022\017\n\007worldID\030\001 \001(\t\022\026\n\016areaOfInterest\030\002 " +
+      "\001(\002\022J\n\014pickableType\030\003 \001(\01624.org.inspirec" +
+      "enter.amazechallenge.proto.PickableType\022" +
+      "\n\n\002id\030\004 \001(\t\022M\n\010position\030\005 \001(\0132;.org.insp" +
+      "irecenter.amazechallenge.proto.MatrixPos" +
+      "itionProto\022\r\n\005state\030\006 \001(\005\022\020\n\010playerID\030\007 " +
+      "\001(\t\022E\n\tdirection\030\010 \001(\01622.org.inspirecent" +
+      "er.amazechallenge.proto.Direction4\"\360\001\n\021P" +
+      "layerEntityProto\022\017\n\007worldID\030\t \001(\t\022\026\n\016are" +
+      "aOfInterest\030\n \001(\002\022\n\n\002id\030\013 \001(\t\022M\n\010positio" +
+      "n\030\014 \001(\0132;.org.inspirecenter.amazechallen" +
+      "ge.proto.MatrixPositionProto\022\020\n\010playerID" +
+      "\030\r \001(\t\022E\n\tdirection\030\016 \001(\01622.org.inspirec" +
+      "enter.amazechallenge.proto.Direction4\"\020\n" +
+      "\016AMCActionProto\"\253\001\n\023AMCTerrainCellProto\022" +
+      "M\n\010position\030\001 \001(\0132;.org.inspirecenter.am" +
+      "azechallenge.proto.MatrixPositionProto\022\021" +
+      "\n\trightWall\030\002 \001(\010\022\020\n\010downWall\030\003 \001(\010\022\016\n\006u" +
+      "pWall\030\004 \001(\010\022\020\n\010leftWall\030\005 \001(\010\"\253\005\n\023AMCSta" +
+      "teUpdateProto\022R\n\014partialState\030\001 \001(\0132<.or" +
+      "g.inspirecenter.amazechallenge.proto.AMC" +
+      "PartialStateProto\022\026\n\016worldSessionID\030\002 \001(" +
+      "\t\022\027\n\017removedEntities\030\003 \003(\t\022\026\n\016removedTer" +
+      "rain\030\004 \003(\t\022e\n\rworldSessions\030\005 \003(\0132N.org." +
+      "inspirecenter.amazechallenge.proto.AMCSt" +
+      "ateUpdateProto.WorldSessionsEntry\022=\n\006eve" +
+      "nts\030\006 \003(\0162-.org.inspirecenter.amazechall" +
+      "enge.proto.Audio\022\021\n\ttimestamp\030\007 \001(\004\022_\n\na" +
+      "llPlayers\030\010 \003(\0132K.org.inspirecenter.amaz" +
+      "echallenge.proto.AMCStateUpdateProto.All" +
+      "PlayersEntry\032r\n\022WorldSessionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022K\n\005value\030\002 \001(\0132<.org.inspirecent" +
+      "er.amazechallenge.proto.AMCWorldSessionP" +
+      "roto:\0028\001\032i\n\017AllPlayersEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022E\n\005value\030\002 \001(\01326.org.inspirecenter.amaz" +
+      "echallenge.proto.AMCPlayerProto:\0028\001\"\305\002\n\024" +
+      "AMCTerrainChunkProto\022\n\n\002id\030\001 \001(\t\022\017\n\007worl" +
+      "dID\030\002 \001(\t\022M\n\010position\030\003 \001(\0132;.org.inspir" +
+      "ecenter.amazechallenge.proto.MatrixPosit" +
+      "ionProto\022V\n\005cells\030\004 \003(\0132G.org.inspirecen" +
+      "ter.amazechallenge.proto.AMCTerrainChunk" +
+      "Proto.CellsEntry\032i\n\nCellsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022J\n\005value\030\002 \001(\0132;.org.inspirecenter.a" +
+      "mazechallenge.proto.AMCTerrainCellProto:" +
+      "\0028\001\"\235\001\n\031AMCTerrainIdentifierProto\022\n\n\002id\030" +
+      "\001 \001(\t\022\017\n\007chunkID\030\002 \001(\t\022\017\n\007worldID\030\003 \001(\t\022" +
+      "R\n\rchunkPosition\030\004 \001(\0132;.org.inspirecent" +
+      "er.amazechallenge.proto.MatrixPositionPr" +
+      "oto\"\354\t\n\024AMCPartialStateProto\022\025\n\ractivePl" +
+      "ayers\030\001 \003(\t\022\\\n\010entities\030\002 \003(\0132J.org.insp" +
+      "irecenter.amazechallenge.proto.AMCPartia" +
+      "lStateProto.EntitiesEntry\022?\n\004grid\030\003 \001(\0132" +
+      "1.org.inspirecenter.amazechallenge.proto" +
+      ".GridProto\022Z\n\007players\030\004 \003(\0132I.org.inspir" +
+      "ecenter.amazechallenge.proto.AMCPartialS" +
+      "tateProto.PlayersEntry\022f\n\rworldSessions\030" +
+      "\005 \003(\0132O.org.inspirecenter.amazechallenge" +
+      ".proto.AMCPartialStateProto.WorldSession" +
+      "sEntry\022R\n\014worldSession\030\006 \001(\0132<.org.inspi" +
+      "recenter.amazechallenge.proto.AMCWorldSe" +
+      "ssionProto\022\025\n\rqueuedPlayers\030\007 \003(\t\022\026\n\016wai" +
+      "tingPlayers\030\010 \003(\t\022Z\n\007terrain\030\t \003(\0132I.org" +
       ".inspirecenter.amazechallenge.proto.AMCP" +
-      "layerProto\"\221\001\n\032SubmitQuestionnaireReques" +
-      "t\022\026\n\016worldSessionID\030\001 \001(\t\022[\n\022questionnai" +
-      "reEntry\030\002 \001(\0132?.org.inspirecenter.amazec" +
-      "hallenge.proto.QuestionnaireEntryProto\"\230" +
-      "\010\n\010Response\022j\n\033submitQuestionnaireRespon" +
-      "se\030\001 \001(\0132C.org.inspirecenter.amazechalle" +
-      "nge.proto.SubmitQuestionnaireResponseH\000\022" +
-      "T\n\020getStateResponse\030\002 \001(\01328.org.inspirec" +
-      "enter.amazechallenge.proto.GetStateRespo" +
-      "nseH\000\022^\n\025joinChallengeResponse\030\003 \001(\0132=.o" +
-      "rg.inspirecenter.amazechallenge.proto.Jo" +
-      "inChallengeResponseH\000\022Z\n\023updateStateResp" +
-      "onse\030\004 \001(\0132;.org.inspirecenter.amazechal" +
-      "lenge.proto.UpdateStateResponseH\000\022X\n\022sub" +
-      "mitCodeResponse\030\005 \001(\0132:.org.inspirecente" +
-      "r.amazechallenge.proto.SubmitCodeRespons" +
-      "eH\000\022V\n\021subscribeResponse\030\006 \001(\01329.org.ins" +
-      "pirecenter.amazechallenge.proto.Subscrib" +
-      "eResponseH\000\022Z\n\023unsubscribeResponse\030\007 \001(\013" +
-      "2;.org.inspirecenter.amazechallenge.prot" +
-      "o.UnsubscribeResponseH\000\022`\n\026listChallenge" +
-      "sResponse\030\010 \001(\0132>.org.inspirecenter.amaz" +
-      "echallenge.proto.ListChallengesResponseH" +
-      "\000\022R\n\017runtimeResponse\030\t \001(\01327.org.inspire" +
-      "center.amazechallenge.proto.RuntimeRespo" +
-      "nseH\000\022`\n\026leaveChallengeResponse\030\n \001(\0132>." +
-      "org.inspirecenter.amazechallenge.proto.L" +
-      "eaveChallengeResponseH\000\022\\\n\024addChallengeR" +
-      "esponse\030\013 \001(\0132<.org.inspirecenter.amazec" +
-      "hallenge.proto.AddChallengeResponseH\000B\n\n" +
-      "\010response\"\277\001\n\033SubmitQuestionnaireRespons" +
-      "e\022\017\n\007message\030\001 \001(\t\022Z\n\006status\030\002 \001(\0162J.org" +
+      "artialStateProto.TerrainEntry\022X\n\006events\030" +
+      "\n \003(\0132H.org.inspirecenter.amazechallenge" +
+      ".proto.AMCPartialStateProto.EventsEntry\022" +
+      "\021\n\ttimestamp\030\013 \001(\004\032g\n\rEntitiesEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022E\n\005value\030\002 \001(\01326.org.inspirecen" +
+      "ter.amazechallenge.proto.AMCEntityProto:" +
+      "\0028\001\032f\n\014PlayersEntry\022\013\n\003key\030\001 \001(\t\022E\n\005valu" +
+      "e\030\002 \001(\01326.org.inspirecenter.amazechallen" +
+      "ge.proto.AMCPlayerProto:\0028\001\032r\n\022WorldSess" +
+      "ionsEntry\022\013\n\003key\030\001 \001(\t\022K\n\005value\030\002 \001(\0132<." +
+      "org.inspirecenter.amazechallenge.proto.A" +
+      "MCWorldSessionProto:\0028\001\032k\n\014TerrainEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022J\n\005value\030\002 \001(\0132;.org.inspir" +
+      "ecenter.amazechallenge.proto.AMCTerrainC" +
+      "ellProto:\0028\001\032\\\n\013EventsEntry\022\013\n\003key\030\001 \001(\004" +
+      "\022<\n\005value\030\002 \001(\0162-.org.inspirecenter.amaz" +
+      "echallenge.proto.Audio:\0028\001\"\203\002\n\rAMCWorldP" +
+      "roto\022\017\n\007maxRows\030\001 \001(\022\022\023\n\013heightLimit\030\002 \001" +
+      "(\r\022\014\n\004seed\030\003 \001(\022\022?\n\004grid\030\004 \001(\01321.org.ins" +
+      "pirecenter.amazechallenge.proto.GridProt" +
+      "o\022\014\n\004name\030\005 \001(\t\022\020\n\010chunkIDs\030\006 \003(\t\022\n\n\002id\030" +
+      "\007 \001(\t\022\017\n\007ownerID\030\010 \001(\t\022\021\n\tcreatedOn\030\t \001(" +
+      "\004\022\017\n\007maxCols\030\n \001(\022\022\034\n\024subscribedSessionI" +
+      "Ds\030\013 \003(\t\"\200\010\n\007Request\022Z\n\023addChallengeRequ" +
+      "est\030\001 \001(\0132;.org.inspirecenter.amazechall" +
+      "enge.proto.AddChallengeRequestH\000\022R\n\017getS" +
+      "tateRequest\030\002 \001(\01327.org.inspirecenter.am" +
+      "azechallenge.proto.GetStateRequestH\000\022P\n\016" +
+      "runtimeRequest\030\003 \001(\01326.org.inspirecenter" +
+      ".amazechallenge.proto.RuntimeRequestH\000\022T" +
+      "\n\020subscribeRequest\030\004 \001(\01328.org.inspirece" +
+      "nter.amazechallenge.proto.SubscribeReque" +
+      "stH\000\022^\n\025leaveChallengeRequest\030\005 \001(\0132=.or" +
+      "g.inspirecenter.amazechallenge.proto.Lea" +
+      "veChallengeRequestH\000\022^\n\025listChallengesRe" +
+      "quest\030\006 \001(\0132=.org.inspirecenter.amazecha" +
+      "llenge.proto.ListChallengesRequestH\000\022X\n\022" +
+      "unsubscribeRequest\030\007 \001(\0132:.org.inspirece" +
+      "nter.amazechallenge.proto.UnsubscribeReq" +
+      "uestH\000\022V\n\021submitCodeRequest\030\010 \001(\01329.org." +
+      "inspirecenter.amazechallenge.proto.Submi" +
+      "tCodeRequestH\000\022X\n\022updateStateRequest\030\t \001" +
+      "(\0132:.org.inspirecenter.amazechallenge.pr" +
+      "oto.UpdateStateRequestH\000\022\\\n\024joinChalleng" +
+      "eRequest\030\n \001(\0132<.org.inspirecenter.amaze" +
+      "challenge.proto.JoinChallengeRequestH\000\022h" +
+      "\n\032submitQuestionnaireRequest\030\013 \001(\0132B.org" +
       ".inspirecenter.amazechallenge.proto.Subm" +
-      "itQuestionnaireResponse.Status\"3\n\006Status" +
-      "\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERROR\020\001\022\006\n\002O" +
-      "K\020\002\"\307\002\n\020GetStateResponse\022R\n\014partialState" +
-      "\030\001 \001(\0132<.org.inspirecenter.amazechalleng" +
-      "e.proto.AMCPartialStateProto\022\017\n\007message\030" +
-      "\002 \001(\t\022O\n\006status\030\003 \001(\0162?.org.inspirecente" +
-      "r.amazechallenge.proto.GetStateResponse." +
-      "Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO" +
-      "_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022" +
-      "\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE_ST" +
-      "ATE\020\004\022\006\n\002OK\020\005\"\266\003\n\025JoinChallengeResponse\022" +
-      "I\n\tchallenge\030\001 \001(\01326.org.inspirecenter.a" +
-      "mazechallenge.proto.ChallengeProto\022R\n\014wo" +
-      "rldSession\030\002 \001(\0132<.org.inspirecenter.ama" +
-      "zechallenge.proto.AMCWorldSessionProto\022\017" +
-      "\n\007message\030\003 \001(\t\022T\n\006status\030\004 \001(\0162D.org.in" +
-      "spirecenter.amazechallenge.proto.JoinCha" +
-      "llengeResponse.Status\"\226\001\n\006Status\022\025\n\021INVA" +
-      "LID_CHALLENGE\020\000\022\031\n\025CHALLENGE_NOT_STARTED" +
-      "\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022PLAYER_NAME_EX" +
-      "ISTS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022\006\n\002OK\020\005\022\022\n\016CH" +
-      "ALLENGE_FULL\020\006\"\313\002\n\023UpdateStateResponse\022\017" +
-      "\n\007message\030\001 \001(\t\022P\n\013stateUpdate\030\002 \001(\0132;.o" +
-      "rg.inspirecenter.amazechallenge.proto.AM" +
-      "CStateUpdateProto\022R\n\006status\030\003 \001(\0162B.org." +
-      "inspirecenter.amazechallenge.proto.Updat" +
-      "eStateResponse.Status\"}\n\006Status\022\020\n\014SERVE" +
-      "R_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014" +
-      "INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CA" +
-      "NNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\317\001\n\022SubmitC" +
-      "odeResponse\022\017\n\007message\030\001 \001(\t\022Q\n\006status\030\002" +
-      " \001(\0162A.org.inspirecenter.amazechallenge." +
-      "proto.SubmitCodeResponse.Status\"U\n\006Statu" +
-      "s\022\031\n\025INVALID_WORLD_SESSION\020\000\022\020\n\014INVALID_" +
-      "CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBMIT_CODE\020\003\"\311" +
-      "\002\n\021SubscribeResponse\022R\n\014partialState\030\001 \001" +
-      "(\0132<.org.inspirecenter.amazechallenge.pr" +
-      "oto.AMCPartialStateProto\022\017\n\007message\030\002 \001(" +
-      "\t\022P\n\006status\030\003 \001(\0162@.org.inspirecenter.am" +
-      "azechallenge.proto.SubscribeResponse.Sta" +
-      "tus\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SU" +
-      "CH_WORLD_SESSION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016" +
-      "NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMPOSE_STATE" +
-      "\020\004\022\006\n\002OK\020\005\"\337\001\n\023UnsubscribeResponse\022\017\n\007me" +
-      "ssage\030\001 \001(\t\022R\n\006status\030\002 \001(\0162B.org.inspir" +
-      "ecenter.amazechallenge.proto.Unsubscribe" +
-      "Response.Status\"c\n\006Status\022\020\n\014SERVER_ERRO" +
+      "itQuestionnaireRequestH\000B\t\n\007request\"r\n\023A" +
+      "ddChallengeRequest\022I\n\tchallenge\030\001 \001(\01326." +
+      "org.inspirecenter.amazechallenge.proto.C" +
+      "hallengeProto\022\020\n\010adminKey\030\002 \001(\t\")\n\017GetSt" +
+      "ateRequest\022\026\n\016worldSessionID\030\001 \001(\t\"G\n\016Ru" +
+      "ntimeRequest\022\016\n\006gameID\030\001 \001(\t\022\023\n\013challeng" +
+      "eID\030\002 \001(\t\022\020\n\010adminKey\030\003 \001(\t\"*\n\020Subscribe" +
+      "Request\022\026\n\016worldSessionID\030\001 \001(\t\"D\n\025Leave" +
+      "ChallengeRequest\022\023\n\013challengeID\030\001 \001(\t\022\026\n" +
+      "\016worldSessionID\030\002 \001(\t\"\027\n\025ListChallengesR" +
+      "equest\",\n\022UnsubscribeRequest\022\026\n\016worldSes" +
+      "sionID\030\001 \001(\t\"9\n\021SubmitCodeRequest\022\014\n\004cod" +
+      "e\030\001 \001(\t\022\026\n\016worldSessionID\030\002 \001(\t\",\n\022Updat" +
+      "eStateRequest\022\026\n\016worldSessionID\030\001 \001(\t\"\213\001" +
+      "\n\024JoinChallengeRequest\022\023\n\013challengeID\030\001 " +
+      "\001(\t\022\026\n\016installationID\030\002 \001(\t\022F\n\006player\030\003 " +
+      "\001(\01326.org.inspirecenter.amazechallenge.p" +
+      "roto.AMCPlayerProto\"\221\001\n\032SubmitQuestionna" +
+      "ireRequest\022\026\n\016worldSessionID\030\001 \001(\t\022[\n\022qu" +
+      "estionnaireEntry\030\002 \001(\0132?.org.inspirecent" +
+      "er.amazechallenge.proto.QuestionnaireEnt" +
+      "ryProto\"\230\010\n\010Response\022j\n\033submitQuestionna" +
+      "ireResponse\030\001 \001(\0132C.org.inspirecenter.am" +
+      "azechallenge.proto.SubmitQuestionnaireRe" +
+      "sponseH\000\022T\n\020getStateResponse\030\002 \001(\01328.org" +
+      ".inspirecenter.amazechallenge.proto.GetS" +
+      "tateResponseH\000\022^\n\025joinChallengeResponse\030" +
+      "\003 \001(\0132=.org.inspirecenter.amazechallenge" +
+      ".proto.JoinChallengeResponseH\000\022Z\n\023update" +
+      "StateResponse\030\004 \001(\0132;.org.inspirecenter." +
+      "amazechallenge.proto.UpdateStateResponse" +
+      "H\000\022X\n\022submitCodeResponse\030\005 \001(\0132:.org.ins" +
+      "pirecenter.amazechallenge.proto.SubmitCo" +
+      "deResponseH\000\022V\n\021subscribeResponse\030\006 \001(\0132" +
+      "9.org.inspirecenter.amazechallenge.proto" +
+      ".SubscribeResponseH\000\022Z\n\023unsubscribeRespo" +
+      "nse\030\007 \001(\0132;.org.inspirecenter.amazechall" +
+      "enge.proto.UnsubscribeResponseH\000\022R\n\017runt" +
+      "imeResponse\030\010 \001(\01327.org.inspirecenter.am" +
+      "azechallenge.proto.RuntimeResponseH\000\022`\n\026" +
+      "leaveChallengeResponse\030\t \001(\0132>.org.inspi" +
+      "recenter.amazechallenge.proto.LeaveChall" +
+      "engeResponseH\000\022`\n\026listChallengesResponse" +
+      "\030\n \001(\0132>.org.inspirecenter.amazechalleng" +
+      "e.proto.ListChallengesResponseH\000\022\\\n\024addC" +
+      "hallengeResponse\030\013 \001(\0132<.org.inspirecent" +
+      "er.amazechallenge.proto.AddChallengeResp" +
+      "onseH\000B\n\n\010response\"\277\001\n\033SubmitQuestionnai" +
+      "reResponse\022\017\n\007message\030\001 \001(\t\022Z\n\006status\030\002 " +
+      "\001(\0162J.org.inspirecenter.amazechallenge.p" +
+      "roto.SubmitQuestionnaireResponse.Status\"" +
+      "3\n\006Status\022\021\n\rCANNOT_SUBMIT\020\000\022\016\n\nDATA_ERR" +
+      "OR\020\001\022\006\n\002OK\020\002\"\307\002\n\020GetStateResponse\022R\n\014par" +
+      "tialState\030\001 \001(\0132<.org.inspirecenter.amaz" +
+      "echallenge.proto.AMCPartialStateProto\022\017\n" +
+      "\007message\030\002 \001(\t\022O\n\006status\030\003 \001(\0162?.org.ins" +
+      "pirecenter.amazechallenge.proto.GetState" +
+      "Response.Status\"}\n\006Status\022\020\n\014SERVER_ERRO" +
       "R\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALI" +
-      "D_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n\002OK\020\004\"\203\002\n" +
-      "\026ListChallengesResponse\022J\n\nchallenges\030\001 " +
-      "\003(\01326.org.inspirecenter.amazechallenge.p" +
-      "roto.ChallengeProto\022\017\n\007message\030\002 \001(\t\022U\n\006" +
-      "status\030\003 \001(\0162E.org.inspirecenter.amazech" +
-      "allenge.proto.ListChallengesResponse.Sta" +
-      "tus\"5\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\021\n\rNO_CH" +
-      "ALLENGES\020\001\022\006\n\002OK\020\002\"\317\001\n\017RuntimeResponse\022\017" +
-      "\n\007message\030\001 \001(\t\022N\n\006status\030\002 \001(\0162>.org.in" +
-      "spirecenter.amazechallenge.proto.Runtime" +
-      "Response.Status\"[\n\006Status\022\020\n\014INVALID_GAM" +
-      "E\020\000\022\025\n\021INVALID_CHALLENGE\020\001\022\025\n\021INVALID_AD" +
-      "MIN_KEY\020\002\022\t\n\005ERROR\020\003\022\006\n\002OK\020\004\"\340\001\n\026LeaveCh" +
-      "allengeResponse\022\017\n\007message\030\001 \001(\t\022U\n\006stat" +
-      "us\030\002 \001(\0162E.org.inspirecenter.amazechalle" +
-      "nge.proto.LeaveChallengeResponse.Status\"" +
-      "^\n\006Status\022\031\n\025INVALID_WORLD_SESSION\020\000\022\025\n\021" +
-      "INVALID_CHALLENGE\020\001\022\032\n\026CANNOT_LEAVE_CHAL" +
-      "LENGE\020\002\022\006\n\002OK\020\003\"\320\001\n\024AddChallengeResponse" +
-      "\022\017\n\007message\030\001 \001(\t\022S\n\006status\030\002 \001(\0162C.org." +
-      "inspirecenter.amazechallenge.proto.AddCh" +
-      "allengeResponse.Status\"R\n\006Status\022\025\n\021INVA" +
-      "LID_CHALLENGE\020\000\022\020\n\014SERVER_ERROR\020\001\022\006\n\002OK\020" +
-      "\002\022\027\n\023INVALID_CREDENTIALS\020\003*\252\001\n\016LikertRes" +
-      "ponse\022\033\n\027POSITIVE_LikertResponse\020\000\022\033\n\027NE" +
-      "GATIVE_LikertResponse\020\001\022\032\n\026NEUTRAL_Liker" +
-      "tResponse\020\002\022 \n\034VERY_POSITIVE_LikertRespo" +
-      "nse\020\003\022 \n\034VERY_NEGATIVE_LikertResponse\020\004*" +
-      "E\n\005Shape\022\022\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_CI" +
-      "RCLE_Shape\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAmaze" +
-      "Icon\022\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020ICON_8_Ama" +
-      "zeIcon\020\001\022\024\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON_6" +
-      "_AmazeIcon\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020IC" +
-      "ON_4_AmazeIcon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006\022\024" +
-      "\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICON_1_AmazeIcon" +
-      "\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201\001\n\nDifficulty" +
-      "\022\023\n\017EASY_Difficulty\020\000\022\025\n\021MEDIUM_Difficul" +
-      "ty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030\n\024VERY_EASY_D" +
-      "ifficulty\020\003\022\030\n\024VERY_HARD_Difficulty\020\004*8\n" +
-      "\004Bias\022\020\n\014PENALTY_Bias\020\000\022\r\n\tNONE_Bias\020\001\022\017" +
-      "\n\013REWARD_Bias\020\002*m\n\023DichotomousResponse\022\032" +
-      "\n\026NO_DichotomousResponse\020\000\022\035\n\031MAYBE_Dich" +
-      "otomousResponse\020\001\022\033\n\027YES_DichotomousResp" +
-      "onse\020\002*e\n\020PickableCategory\022\032\n\026FRUIT_Pick" +
-      "ableCategory\020\000\022\032\n\026SNACK_PickableCategory" +
-      "\020\001\022\031\n\025NONE_PickableCategory\020\002*s\n\tAlgorit" +
-      "hm\022\034\n\030MANY_SOLUTIONS_Algorithm\020\000\022\024\n\020SPAR" +
-      "SE_Algorithm\020\001\022\035\n\031SINGLE_SOLUTION_Algori" +
-      "thm\020\002\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\nAmazeColo" +
-      "r\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017BLUE_AmazeColo" +
-      "r\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022\024\n\020GREEN_Amaz" +
-      "eColor\020\003\022\030\n\024DARK_BLUE_AmazeColor\020\004\022\025\n\021IN" +
-      "DIGO_AmazeColor\020\005\022\022\n\016RED_AmazeColor\020\006\022\031\n" +
-      "\025LIGHT_GREY_AmazeColor\020\007\022\023\n\017PINK_AmazeCo" +
-      "lor\020\010\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023DARK_RED_A" +
-      "mazeColor\020\n\022\030\n\024DARK_GREY_AmazeColor\020\013\022\024\n" +
-      "\020BLACK_AmazeColor\020\014\022\026\n\022MAGENTA_AmazeColo" +
-      "r\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022\031\n\025DARK_GREEN" +
-      "_AmazeColor\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017CY" +
-      "AN_AmazeColor\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025\n\021" +
-      "ORANGE_AmazeColor\020\023*\355\002\n\017BackgroundImage\022" +
-      "!\n\035TEXTURE_WATER_BackgroundImage\020\000\022!\n\035TE" +
-      "XTURE_ROCKY_BackgroundImage\020\001\022!\n\035TEXTURE" +
-      "_SPACE_BackgroundImage\020\002\022!\n\035TEXTURE_META" +
-      "L_BackgroundImage\020\003\022 \n\034TEXTURE_MOON_Back" +
-      "groundImage\020\004\022 \n\034TEXTURE_LAVA_Background" +
-      "Image\020\005\022\"\n\036TEXTURE_GRAVEL_BackgroundImag" +
-      "e\020\006\022 \n\034TEXTURE_WOOD_BackgroundImage\020\007\022!\n" +
-      "\035TEXTURE_GRASS_BackgroundImage\020\010\022!\n\035TEXT" +
-      "URE_TILES_BackgroundImage\020\t*4\n\010Language\022" +
-      "\024\n\020ENGLISH_Language\020\000\022\022\n\016GREEK_Language\020" +
-      "\001*K\n\tAudioType\022\025\n\021AMBIENT_AudioType\020\000\022\022\n" +
-      "\016NONE_AudioType\020\001\022\023\n\017EVENT_AudioType\020\002*\203" +
-      "\001\n\013AudioFormat\022\023\n\017MP4_AudioFormat\020\000\022\023\n\017M" +
-      "P3_AudioFormat\020\001\022 \n\034UNDEFINED_FORMAT_Aud" +
-      "ioFormat\020\002\022\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG_A" +
-      "udioFormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBOX_" +
-      "Audio\020\000\022\026\n\022EVENT_COIN20_Audio\020\001\022\027\n\023AMBIE" +
-      "NT_STORM_Audio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003\022\027" +
-      "\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022AMBIENT_SNOW_" +
-      "Audio\020\005\022\037\n\033AMBIENT_ALPINE_FOREST_Audio\020\006" +
-      "\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023AMBIENT_RIVER_" +
-      "Audio\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031\n\025EVENT_S" +
-      "PEEDHACK_Audio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013\022\025" +
-      "\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EVENT_COIN10_Au" +
-      "dio\020\r\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030\n\024AMBIENT" +
-      "_PRISON_Audio\020\017\022\033\n\027AMBIENT_SANDSTORM_Aud" +
-      "io\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022AMBIENT_CI" +
-      "TY_Audio\020\022\022\030\n\024AMBIENT_STREET_Audio\020\023\022!\n\035" +
-      "AMBIENT_TROPICAL_FOREST_Audio\020\024\022\026\n\022AMBIE" +
-      "NT_FIRE_Audio\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032\n\026",
-      "AMBIENT_HIGHTECH_Audio\020\027\022\034\n\030AMBIENT_UNDE" +
-      "RWATER_Audio\020\030*\364\002\n\014PickableType\022\027\n\023GRAPE" +
-      "S_PickableType\020\000\022\026\n\022APPLE_PickableType\020\001" +
-      "\022\025\n\021TRAP_PickableType\020\002\022\033\n\027WATERMELON_Pi" +
-      "ckableType\020\003\022\032\n\026SPEEDHACK_PickableType\020\004" +
-      "\022\030\n\024COIN_10_PickableType\020\005\022\030\n\024COIN_20_Pi" +
-      "ckableType\020\006\022\026\n\022PEACH_PickableType\020\007\022\030\n\024" +
-      "GIFTBOX_PickableType\020\010\022\027\n\023COIN_5_Pickabl" +
-      "eType\020\t\022\027\n\023BANANA_PickableType\020\n\022\025\n\021BOMB" +
-      "_PickableType\020\013\022\033\n\027STRAWBERRY_PickableTy" +
-      "pe\020\014\022\027\n\023ORANGE_PickableType\020\r*\254\001\n\026Multip" +
-      "leChoiceResponse\022#\n\037CHOICE_1_MultipleCho" +
-      "iceResponse\020\000\022#\n\037CHOICE_4_MultipleChoice" +
-      "Response\020\001\022#\n\037CHOICE_2_MultipleChoiceRes" +
-      "ponse\020\002\022#\n\037CHOICE_3_MultipleChoiceRespon" +
-      "se\020\003*l\n\023BackgroundImageType\022\033\n\027JPG_Backg" +
-      "roundImageType\020\000\022\033\n\027GIF_BackgroundImageT" +
-      "ype\020\001\022\033\n\027PNG_BackgroundImageType\020\002*\204\001\n\021P" +
-      "ickableIntensity\022\032\n\026HIGH_PickableIntensi" +
-      "ty\020\000\022\034\n\030MEDIUM_PickableIntensity\020\001\022\031\n\025LO" +
-      "W_PickableIntensity\020\002\022\032\n\026NONE_PickableIn" +
-      "tensity\020\003*6\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004EA" +
-      "ST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDirection6\022" +
-      "\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_EAS" +
-      "T\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNORTH" +
-      "_WEST\020\005*0\n\010Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021CO" +
-      "UNTER_CLOCKWISE\020\001*C\n\tMovement4\022\013\n\007FORWAR" +
-      "D\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIGHT" +
-      "WARD\020\003*t\n\tMovement6\022\014\n\010FORWARD6\020\000\022\021\n\rFOR" +
-      "WARD_RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBACK" +
-      "WARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014FORWARD_LE" +
-      "FT\020\005*7\n\tWorldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE_S" +
-      "QUARE\020\001\022\014\n\010TILE_HEX\020\002B4\n&org.inspirecent" +
-      "er.amazechallenge.protoB\010AMCProtoP\001b\006pro" +
-      "to3"
+      "D_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_C" +
+      "OMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\266\003\n\025JoinChallenge" +
+      "Response\022I\n\tchallenge\030\001 \001(\01326.org.inspir" +
+      "ecenter.amazechallenge.proto.ChallengePr" +
+      "oto\022R\n\014worldSession\030\002 \001(\0132<.org.inspirec" +
+      "enter.amazechallenge.proto.AMCWorldSessi" +
+      "onProto\022\017\n\007message\030\003 \001(\t\022T\n\006status\030\004 \001(\016" +
+      "2D.org.inspirecenter.amazechallenge.prot" +
+      "o.JoinChallengeResponse.Status\"\226\001\n\006Statu" +
+      "s\022\025\n\021INVALID_CHALLENGE\020\000\022\031\n\025CHALLENGE_NO" +
+      "T_STARTED\020\001\022\022\n\016INVALID_PLAYER\020\002\022\026\n\022PLAYE" +
+      "R_NAME_EXISTS\020\003\022\022\n\016CHALLENGE_OVER\020\004\022\006\n\002O" +
+      "K\020\005\022\022\n\016CHALLENGE_FULL\020\006\"\313\002\n\023UpdateStateR" +
+      "esponse\022\017\n\007message\030\001 \001(\t\022P\n\013stateUpdate\030" +
+      "\002 \001(\0132;.org.inspirecenter.amazechallenge" +
+      ".proto.AMCStateUpdateProto\022R\n\006status\030\003 \001" +
+      "(\0162B.org.inspirecenter.amazechallenge.pr" +
+      "oto.UpdateStateResponse.Status\"}\n\006Status" +
+      "\022\020\n\014SERVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESS" +
+      "ION\020\001\022\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZE" +
+      "D\020\003\022\030\n\024CANNOT_COMPOSE_STATE\020\004\022\006\n\002OK\020\005\"\317\001" +
+      "\n\022SubmitCodeResponse\022\017\n\007message\030\001 \001(\t\022Q\n" +
+      "\006status\030\002 \001(\0162A.org.inspirecenter.amazec" +
+      "hallenge.proto.SubmitCodeResponse.Status" +
+      "\"U\n\006Status\022\031\n\025INVALID_WORLD_SESSION\020\000\022\020\n" +
+      "\014INVALID_CODE\020\001\022\006\n\002OK\020\002\022\026\n\022CANNOT_SUBMIT" +
+      "_CODE\020\003\"\311\002\n\021SubscribeResponse\022R\n\014partial" +
+      "State\030\001 \001(\0132<.org.inspirecenter.amazecha" +
+      "llenge.proto.AMCPartialStateProto\022\017\n\007mes" +
+      "sage\030\002 \001(\t\022P\n\006status\030\003 \001(\0162@.org.inspire" +
+      "center.amazechallenge.proto.SubscribeRes" +
+      "ponse.Status\"}\n\006Status\022\020\n\014SERVER_ERROR\020\000" +
+      "\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022\020\n\014INVALID_D" +
+      "ATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\030\n\024CANNOT_COMP" +
+      "OSE_STATE\020\004\022\006\n\002OK\020\005\"\337\001\n\023UnsubscribeRespo" +
+      "nse\022\017\n\007message\030\001 \001(\t\022R\n\006status\030\002 \001(\0162B.o" +
+      "rg.inspirecenter.amazechallenge.proto.Un" +
+      "subscribeResponse.Status\"c\n\006Status\022\020\n\014SE" +
+      "RVER_ERROR\020\000\022\031\n\025NO_SUCH_WORLD_SESSION\020\001\022" +
+      "\020\n\014INVALID_DATA\020\002\022\022\n\016NOT_AUTHORIZED\020\003\022\006\n" +
+      "\002OK\020\004\"\317\001\n\017RuntimeResponse\022\017\n\007message\030\001 \001" +
+      "(\t\022N\n\006status\030\002 \001(\0162>.org.inspirecenter.a" +
+      "mazechallenge.proto.RuntimeResponse.Stat" +
+      "us\"[\n\006Status\022\020\n\014INVALID_GAME\020\000\022\025\n\021INVALI" +
+      "D_CHALLENGE\020\001\022\025\n\021INVALID_ADMIN_KEY\020\002\022\t\n\005" +
+      "ERROR\020\003\022\006\n\002OK\020\004\"\340\001\n\026LeaveChallengeRespon" +
+      "se\022\017\n\007message\030\001 \001(\t\022U\n\006status\030\002 \001(\0162E.or" +
+      "g.inspirecenter.amazechallenge.proto.Lea" +
+      "veChallengeResponse.Status\"^\n\006Status\022\031\n\025" +
+      "INVALID_WORLD_SESSION\020\000\022\025\n\021INVALID_CHALL" +
+      "ENGE\020\001\022\032\n\026CANNOT_LEAVE_CHALLENGE\020\002\022\006\n\002OK" +
+      "\020\003\"\304\003\n\026ListChallengesResponse\022\017\n\007message" +
+      "\030\001 \001(\t\022J\n\nchallenges\030\002 \003(\01326.org.inspire" +
+      "center.amazechallenge.proto.ChallengePro" +
+      "to\022~\n\030activePlayersByChallenge\030\003 \003(\0132\\.o" +
+      "rg.inspirecenter.amazechallenge.proto.Li" +
+      "stChallengesResponse.ActivePlayersByChal" +
+      "lengeEntry\022U\n\006status\030\004 \001(\0162E.org.inspire" +
+      "center.amazechallenge.proto.ListChalleng" +
+      "esResponse.Status\032?\n\035ActivePlayersByChal" +
+      "lengeEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002" +
+      "8\001\"5\n\006Status\022\020\n\014SERVER_ERROR\020\000\022\021\n\rNO_CHA" +
+      "LLENGES\020\001\022\006\n\002OK\020\002\"\320\001\n\024AddChallengeRespon" +
+      "se\022\017\n\007message\030\001 \001(\t\022S\n\006status\030\002 \001(\0162C.or" +
+      "g.inspirecenter.amazechallenge.proto.Add" +
+      "ChallengeResponse.Status\"R\n\006Status\022\025\n\021IN" +
+      "VALID_CHALLENGE\020\000\022\020\n\014SERVER_ERROR\020\001\022\006\n\002O" +
+      "K\020\002\022\027\n\023INVALID_CREDENTIALS\020\003*\252\001\n\016LikertR" +
+      "esponse\022\033\n\027POSITIVE_LikertResponse\020\000\022\033\n\027" +
+      "NEGATIVE_LikertResponse\020\001\022\032\n\026NEUTRAL_Lik" +
+      "ertResponse\020\002\022 \n\034VERY_POSITIVE_LikertRes" +
+      "ponse\020\003\022 \n\034VERY_NEGATIVE_LikertResponse\020" +
+      "\004*E\n\005Shape\022\022\n\016TRIANGLE_Shape\020\000\022\026\n\022EMPTY_" +
+      "CIRCLE_Shape\020\001\022\020\n\014CIRCLE_Shape\020\002*\350\001\n\tAma" +
+      "zeIcon\022\024\n\020ICON_9_AmazeIcon\020\000\022\024\n\020ICON_8_A" +
+      "mazeIcon\020\001\022\024\n\020ICON_7_AmazeIcon\020\002\022\024\n\020ICON" +
+      "_6_AmazeIcon\020\003\022\024\n\020ICON_5_AmazeIcon\020\004\022\024\n\020" +
+      "ICON_4_AmazeIcon\020\005\022\024\n\020ICON_3_AmazeIcon\020\006" +
+      "\022\024\n\020ICON_2_AmazeIcon\020\007\022\024\n\020ICON_1_AmazeIc" +
+      "on\020\010\022\025\n\021ICON_10_AmazeIcon\020\t*\201\001\n\nDifficul" +
+      "ty\022\023\n\017EASY_Difficulty\020\000\022\025\n\021MEDIUM_Diffic" +
+      "ulty\020\001\022\023\n\017HARD_Difficulty\020\002\022\030\n\024VERY_EASY" +
+      "_Difficulty\020\003\022\030\n\024VERY_HARD_Difficulty\020\004*" +
+      "8\n\004Bias\022\020\n\014PENALTY_Bias\020\000\022\r\n\tNONE_Bias\020\001" +
+      "\022\017\n\013REWARD_Bias\020\002*m\n\023DichotomousResponse" +
+      "\022\032\n\026NO_DichotomousResponse\020\000\022\035\n\031MAYBE_Di" +
+      "chotomousResponse\020\001\022\033\n\027YES_DichotomousRe" +
+      "sponse\020\002*e\n\020PickableCategory\022\032\n\026FRUIT_Pi" +
+      "ckableCategory\020\000\022\032\n\026SNACK_PickableCatego" +
+      "ry\020\001\022\031\n\025NONE_PickableCategory\020\002*s\n\tAlgor" +
+      "ithm\022\034\n\030MANY_SOLUTIONS_Algorithm\020\000\022\024\n\020SP" +
+      "ARSE_Algorithm\020\001\022\035\n\031SINGLE_SOLUTION_Algo" +
+      "rithm\020\002\022\023\n\017EMPTY_Algorithm\020\003*\326\003\n\nAmazeCo" +
+      "lor\022\023\n\017GOLD_AmazeColor\020\000\022\023\n\017BLUE_AmazeCo" +
+      "lor\020\001\022\025\n\021PURPLE_AmazeColor\020\002\022\024\n\020GREEN_Am" +
+      "azeColor\020\003\022\030\n\024DARK_BLUE_AmazeColor\020\004\022\025\n\021" +
+      "INDIGO_AmazeColor\020\005\022\022\n\016RED_AmazeColor\020\006\022" +
+      "\031\n\025LIGHT_GREY_AmazeColor\020\007\022\023\n\017PINK_Amaze" +
+      "Color\020\010\022\023\n\017LIME_AmazeColor\020\t\022\027\n\023DARK_RED" +
+      "_AmazeColor\020\n\022\030\n\024DARK_GREY_AmazeColor\020\013\022" +
+      "\024\n\020BLACK_AmazeColor\020\014\022\026\n\022MAGENTA_AmazeCo" +
+      "lor\020\r\022\025\n\021YELLOW_AmazeColor\020\016\022\031\n\025DARK_GRE" +
+      "EN_AmazeColor\020\017\022\023\n\017TEAL_AmazeColor\020\020\022\023\n\017" +
+      "CYAN_AmazeColor\020\021\022\023\n\017GREY_AmazeColor\020\022\022\025" +
+      "\n\021ORANGE_AmazeColor\020\023*\355\002\n\017BackgroundImag" +
+      "e\022!\n\035TEXTURE_WATER_BackgroundImage\020\000\022!\n\035" +
+      "TEXTURE_ROCKY_BackgroundImage\020\001\022!\n\035TEXTU" +
+      "RE_SPACE_BackgroundImage\020\002\022!\n\035TEXTURE_ME" +
+      "TAL_BackgroundImage\020\003\022 \n\034TEXTURE_MOON_Ba" +
+      "ckgroundImage\020\004\022 \n\034TEXTURE_LAVA_Backgrou" +
+      "ndImage\020\005\022\"\n\036TEXTURE_GRAVEL_BackgroundIm" +
+      "age\020\006\022 \n\034TEXTURE_WOOD_BackgroundImage\020\007\022" +
+      "!\n\035TEXTURE_GRASS_BackgroundImage\020\010\022!\n\035TE" +
+      "XTURE_TILES_BackgroundImage\020\t*4\n\010Languag" +
+      "e\022\024\n\020ENGLISH_Language\020\000\022\022\n\016GREEK_Languag" +
+      "e\020\001*K\n\tAudioType\022\025\n\021AMBIENT_AudioType\020\000\022" +
+      "\022\n\016NONE_AudioType\020\001\022\023\n\017EVENT_AudioType\020\002" +
+      "*\203\001\n\013AudioFormat\022\023\n\017MP4_AudioFormat\020\000\022\023\n" +
+      "\017MP3_AudioFormat\020\001\022 \n\034UNDEFINED_FORMAT_A" +
+      "udioFormat\020\002\022\023\n\017WAV_AudioFormat\020\003\022\023\n\017OGG" +
+      "_AudioFormat\020\004*\377\004\n\005Audio\022\027\n\023EVENT_GIFTBO" +
+      "X_Audio\020\000\022\026\n\022EVENT_COIN20_Audio\020\001\022\027\n\023AMB" +
+      "IENT_STORM_Audio\020\002\022\024\n\020EVENT_TRAP_Audio\020\003" +
+      "\022\027\n\023AMBIENT_NIGHT_Audio\020\004\022\026\n\022AMBIENT_SNO" +
+      "W_Audio\020\005\022\037\n\033AMBIENT_ALPINE_FOREST_Audio" +
+      "\020\006\022\024\n\020EVENT_FOOD_Audio\020\007\022\027\n\023AMBIENT_RIVE" +
+      "R_Audio\020\010\022\024\n\020EVENT_BOMB_Audio\020\t\022\031\n\025EVENT" +
+      "_SPEEDHACK_Audio\020\n\022\024\n\020AUDIO_NONE_Audio\020\013" +
+      "\022\025\n\021EVENT_COIN5_Audio\020\014\022\026\n\022EVENT_COIN10_",
+      "Audio\020\r\022\026\n\022AMBIENT_CAVE_Audio\020\016\022\030\n\024AMBIE" +
+      "NT_PRISON_Audio\020\017\022\033\n\027AMBIENT_SANDSTORM_A" +
+      "udio\020\020\022\024\n\020EVENT_LOSE_Audio\020\021\022\026\n\022AMBIENT_" +
+      "CITY_Audio\020\022\022\030\n\024AMBIENT_STREET_Audio\020\023\022!" +
+      "\n\035AMBIENT_TROPICAL_FOREST_Audio\020\024\022\026\n\022AMB" +
+      "IENT_FIRE_Audio\020\025\022\023\n\017EVENT_WIN_Audio\020\026\022\032" +
+      "\n\026AMBIENT_HIGHTECH_Audio\020\027\022\034\n\030AMBIENT_UN" +
+      "DERWATER_Audio\020\030*\364\002\n\014PickableType\022\027\n\023GRA" +
+      "PES_PickableType\020\000\022\026\n\022APPLE_PickableType" +
+      "\020\001\022\025\n\021TRAP_PickableType\020\002\022\033\n\027WATERMELON_" +
+      "PickableType\020\003\022\032\n\026SPEEDHACK_PickableType" +
+      "\020\004\022\030\n\024COIN_10_PickableType\020\005\022\030\n\024COIN_20_" +
+      "PickableType\020\006\022\026\n\022PEACH_PickableType\020\007\022\030" +
+      "\n\024GIFTBOX_PickableType\020\010\022\027\n\023COIN_5_Picka" +
+      "bleType\020\t\022\027\n\023BANANA_PickableType\020\n\022\025\n\021BO" +
+      "MB_PickableType\020\013\022\033\n\027STRAWBERRY_Pickable" +
+      "Type\020\014\022\027\n\023ORANGE_PickableType\020\r*\254\001\n\026Mult" +
+      "ipleChoiceResponse\022#\n\037CHOICE_1_MultipleC" +
+      "hoiceResponse\020\000\022#\n\037CHOICE_4_MultipleChoi" +
+      "ceResponse\020\001\022#\n\037CHOICE_2_MultipleChoiceR" +
+      "esponse\020\002\022#\n\037CHOICE_3_MultipleChoiceResp" +
+      "onse\020\003*l\n\023BackgroundImageType\022\033\n\027JPG_Bac" +
+      "kgroundImageType\020\000\022\033\n\027GIF_BackgroundImag" +
+      "eType\020\001\022\033\n\027PNG_BackgroundImageType\020\002*\204\001\n" +
+      "\021PickableIntensity\022\032\n\026HIGH_PickableInten" +
+      "sity\020\000\022\034\n\030MEDIUM_PickableIntensity\020\001\022\031\n\025" +
+      "LOW_PickableIntensity\020\002\022\032\n\026NONE_Pickable" +
+      "Intensity\020\003*6\n\nDirection4\022\t\n\005NORTH\020\000\022\010\n\004" +
+      "EAST\020\001\022\t\n\005SOUTH\020\002\022\010\n\004WEST\020\003*d\n\nDirection" +
+      "6\022\n\n\006NORTH6\020\000\022\016\n\nNORTH_EAST\020\001\022\016\n\nSOUTH_E" +
+      "AST\020\002\022\n\n\006SOUTH6\020\003\022\016\n\nSOUTH_WEST\020\004\022\016\n\nNOR" +
+      "TH_WEST\020\005*0\n\010Rotation\022\r\n\tCLOCKWISE\020\000\022\025\n\021" +
+      "COUNTER_CLOCKWISE\020\001*C\n\tMovement4\022\013\n\007FORW" +
+      "ARD\020\000\022\014\n\010BACKWARD\020\001\022\014\n\010LEFTWARD\020\002\022\r\n\tRIG" +
+      "HTWARD\020\003*t\n\tMovement6\022\014\n\010FORWARD6\020\000\022\021\n\rF" +
+      "ORWARD_RIGHT\020\001\022\022\n\016BACKWARD_RIGHT\020\002\022\r\n\tBA" +
+      "CKWARD6\020\003\022\021\n\rBACKWARD_LEFT\020\004\022\020\n\014FORWARD_" +
+      "LEFT\020\005*7\n\tWorldType\022\013\n\007UNIFORM\020\000\022\017\n\013TILE" +
+      "_SQUARE\020\001\022\014\n\010TILE_HEX\020\002B4\n&org.inspirece" +
+      "nter.amazechallenge.protoB\010AMCProtoP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -858,7 +869,7 @@ public final class AMCProto {
     internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_AMCWorldSessionProto_descriptor,
-        new String[] { "Code", "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "CreatedOn", "PlayerID", "Points", });
+        new String[] { "Code", "WorldID", "IpAddress", "CameraPosition", "Health", "ExpiresOn", "Id", "InstallationID", "CreatedOn", "PlayerID", "Points", });
     internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_org_inspirecenter_amazechallenge_proto_AMCPlayerProto_fieldAccessorTable = new
@@ -1044,7 +1055,7 @@ public final class AMCProto {
     internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_JoinChallengeRequest_descriptor,
-        new String[] { "ChallengeID", "Player", });
+        new String[] { "ChallengeID", "InstallationID", "Player", });
     internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_descriptor =
       getDescriptor().getMessageTypes().get(35);
     internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireRequest_fieldAccessorTable = new
@@ -1056,7 +1067,7 @@ public final class AMCProto {
     internal_static_org_inspirecenter_amazechallenge_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_Response_descriptor,
-        new String[] { "SubmitQuestionnaireResponse", "GetStateResponse", "JoinChallengeResponse", "UpdateStateResponse", "SubmitCodeResponse", "SubscribeResponse", "UnsubscribeResponse", "ListChallengesResponse", "RuntimeResponse", "LeaveChallengeResponse", "AddChallengeResponse", "Response", });
+        new String[] { "SubmitQuestionnaireResponse", "GetStateResponse", "JoinChallengeResponse", "UpdateStateResponse", "SubmitCodeResponse", "SubscribeResponse", "UnsubscribeResponse", "RuntimeResponse", "LeaveChallengeResponse", "ListChallengesResponse", "AddChallengeResponse", "Response", });
     internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_descriptor =
       getDescriptor().getMessageTypes().get(37);
     internal_static_org_inspirecenter_amazechallenge_proto_SubmitQuestionnaireResponse_fieldAccessorTable = new
@@ -1099,24 +1110,30 @@ public final class AMCProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_UnsubscribeResponse_descriptor,
         new String[] { "Message", "Status", });
-    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(44);
-    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor,
-        new String[] { "Challenges", "Message", "Status", });
     internal_static_org_inspirecenter_amazechallenge_proto_RuntimeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_org_inspirecenter_amazechallenge_proto_RuntimeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_RuntimeResponse_descriptor,
         new String[] { "Message", "Status", });
     internal_static_org_inspirecenter_amazechallenge_proto_LeaveChallengeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_org_inspirecenter_amazechallenge_proto_LeaveChallengeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_inspirecenter_amazechallenge_proto_LeaveChallengeResponse_descriptor,
         new String[] { "Message", "Status", });
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(46);
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor,
+        new String[] { "Message", "Challenges", "ActivePlayersByChallenge", "Status", });
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_descriptor =
+      internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_descriptor.getNestedTypes().get(0);
+    internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_inspirecenter_amazechallenge_proto_ListChallengesResponse_ActivePlayersByChallengeEntry_descriptor,
+        new String[] { "Key", "Value", });
     internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_descriptor =
       getDescriptor().getMessageTypes().get(47);
     internal_static_org_inspirecenter_amazechallenge_proto_AddChallengeResponse_fieldAccessorTable = new

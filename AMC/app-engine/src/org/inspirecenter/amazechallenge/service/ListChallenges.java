@@ -6,6 +6,8 @@
 -------------------------------------------------------------------------------- */
 
 package org.inspirecenter.amazechallenge.service;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+import org.inspirecenter.amazechallenge.model.Game;
 import org.inspirecenter.amazechallenge.persistence.DBManager;
 import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import com.nkasenides.athlos.backend.AthlosService;
@@ -14,6 +16,7 @@ import org.inspirecenter.amazechallenge.auth.*;
 import org.inspirecenter.amazechallenge.proto.ListChallengesResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ListChallenges implements AthlosService<ListChallengesRequest, ListChallengesResponse> {
 
@@ -21,12 +24,27 @@ public class ListChallenges implements AthlosService<ListChallengesRequest, List
     public ListChallengesResponse serve(ListChallengesRequest request, Object... additionalParams) {
 
         ArrayList<ChallengeProto> challenges = new ArrayList<>();
-        DBManager.challenge.list().forEach(challenge -> challenges.add(challenge.toProto().build()));
+        HashMap<String, Integer> playersByChallenge = new HashMap<>();
+
+        DBManager.challenge.list().forEach(challenge -> {
+            final Object o = MemcacheServiceFactory.getMemcacheService().get("game_" + challenge.getId());
+            if (o != null) {
+                Game game = (Game) o;
+                final int totalPlayers = game.getAllPlayers().size();
+                playersByChallenge.put(challenge.getId(), totalPlayers);
+            }
+
+            if (challenge.getStartTime() <= System.currentTimeMillis() && challenge.getEndTime() >= System.currentTimeMillis()) {
+                challenges.add(challenge.toProto().build());
+            }
+        });
+
 
         return ListChallengesResponse.newBuilder()
                 .setStatus(ListChallengesResponse.Status.OK)
                 .setMessage("OK")
                 .addAllChallenges(challenges)
+                .putAllActivePlayersByChallenge(playersByChallenge)
                 .build();
 
     }    

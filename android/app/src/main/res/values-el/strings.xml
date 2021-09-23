@@ -321,5 +321,8 @@
     <string name="questionnaire_upload_fail">Δεν μπορέσαμε να αποθηκεύσουμε την απάντησή σας.</string>
     <string name="go_back">Πίσω</string>
     <string name="refresh">Ανανέωση</string>
+    <string name="export_to_file">Εξαγωγή σε αρχείο</string>
+    <string name="full">Γεμάτο</string>
+    <string name="no_challenges_available">Δεν υπάρχουν διαθέσημα παιχνίδια</string>
 
 </resources>

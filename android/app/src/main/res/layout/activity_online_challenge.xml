@@ -21,4 +21,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <TextView
+        android:id="@+id/activity_online_challenge_nothing_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/no_challenges_available"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:textSize="18sp" />
+
 </android.support.design.widget.CoordinatorLayout>

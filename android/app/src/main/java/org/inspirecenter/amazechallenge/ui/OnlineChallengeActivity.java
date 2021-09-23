@@ -25,6 +25,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
@@ -86,6 +87,7 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
 
     private ProgressBar progressBar;
     private RecyclerView challengesRecyclerView;
+    private TextView noChallengesTextView;
     private ChallengeAdapter challengeAdapter;
 
     @Override
@@ -101,6 +103,7 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         progressBar = findViewById(R.id.activity_online_challenge_progress_bar);
+        noChallengesTextView = findViewById(R.id.activity_online_challenge_nothing_textview);
 
         challengesRecyclerView = findViewById(R.id.activity_online_challenge_list_view);
         challengesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -131,7 +134,6 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
     protected void onResume() {
         super.onResume();
 
-        //TODO - Move this piece of code above the line that will execute the join challenge operation.
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         final String code = sharedPreferences.getString(BlocklyActivity.KEY_ALGORITHM_ACTIVITY_CODE, "");
         if (code.isEmpty()) {
@@ -213,7 +215,14 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                     progressBar.setVisibility(View.GONE);
                     challengeAdapter.clear();
                     challengeAdapter.addAll(listChallengesResponse.getChallengesList());
-                    challengesRecyclerView.setVisibility(View.VISIBLE);
+                    if (listChallengesResponse.getChallengesList().isEmpty()) {
+                        noChallengesTextView.setVisibility(View.VISIBLE);
+                        challengesRecyclerView.setVisibility(View.GONE);
+                    }
+                    else {
+                        noChallengesTextView.setVisibility(View.GONE);
+                        challengesRecyclerView.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     Snackbar.make(findViewById(R.id.activity_online_challenge), getString(R.string.load_challenges_fail), Snackbar.LENGTH_SHORT).show();
                     System.err.println(listChallengesResponse.getMessage());
