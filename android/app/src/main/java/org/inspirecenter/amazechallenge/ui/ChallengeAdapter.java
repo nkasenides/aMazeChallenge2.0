@@ -15,6 +15,7 @@ import org.inspirecenter.amazechallenge.R;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -85,12 +86,19 @@ class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.ViewHolder>
         challenges.add(challenge);
     }
 
+    void addAllPlayersPerChallenge(Map<String, Integer> map) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            playersPerChallenge.put(entry.getKey(), entry.getValue());
+        }
+    }
+
     void addAll(final Collection<ChallengeProto> challenges) {
         this.challenges.addAll(challenges);
     }
 
     void clear() {
         this.challenges.clear();
+        this.playersPerChallenge.clear();
     }
 
     Vector<ChallengeProto> getChallenges() {

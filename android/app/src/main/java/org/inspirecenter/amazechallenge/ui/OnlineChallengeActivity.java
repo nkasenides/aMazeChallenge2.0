@@ -213,8 +213,12 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                 ListChallengesResponse listChallengesResponse = ListChallengesResponse.parseFrom(response);
                 if (listChallengesResponse.getStatus() == ListChallengesResponse.Status.OK) {
                     progressBar.setVisibility(View.GONE);
+
                     challengeAdapter.clear();
                     challengeAdapter.addAll(listChallengesResponse.getChallengesList());
+                    challengeAdapter.addAllPlayersPerChallenge(listChallengesResponse.getActivePlayersByChallengeMap());
+
+
                     if (listChallengesResponse.getChallengesList().isEmpty()) {
                         noChallengesTextView.setVisibility(View.VISIBLE);
                         challengesRecyclerView.setVisibility(View.GONE);
@@ -223,6 +227,8 @@ public class OnlineChallengeActivity extends AppCompatActivity implements Challe
                         noChallengesTextView.setVisibility(View.GONE);
                         challengesRecyclerView.setVisibility(View.VISIBLE);
                     }
+
+                    challengeAdapter.notifyDataSetChanged();
                 } else {
                     Snackbar.make(findViewById(R.id.activity_online_challenge), getString(R.string.load_challenges_fail), Snackbar.LENGTH_SHORT).show();
                     System.err.println(listChallengesResponse.getMessage());

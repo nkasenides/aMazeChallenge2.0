@@ -30,7 +30,7 @@ public class ListChallenges implements AthlosService<ListChallengesRequest, List
             final Object o = MemcacheServiceFactory.getMemcacheService().get("game_" + challenge.getId());
             if (o != null) {
                 Game game = (Game) o;
-                final int totalPlayers = game.getAllPlayers().size();
+                final int totalPlayers = game.getActivePlayers().size() + game.getWaitingPlayers().size() + game.getQueuedPlayers().size();
                 playersByChallenge.put(challenge.getId(), totalPlayers);
             }
 
