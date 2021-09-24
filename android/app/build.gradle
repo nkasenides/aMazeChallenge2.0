@@ -23,7 +23,7 @@ android {
     buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "org.inspirecenter.amazechallenge"
-        minSdkVersion 26
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 5
         versionName "2.0.0"
@@ -37,11 +37,17 @@ android {
 //        }
 //    }
     sourceSets {
-        main.java.srcDirs += '../../AMC/core/src'
+        main.java.srcDirs += '../../AMC/core/src/main/java'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/io.netty.versions.properties'
     }
 }
 
@@ -59,7 +65,7 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:27.1.0'
     implementation 'com.android.support:support-v4:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation fileTree(dir: '..\\libs', include: ['*.aar', '*.jar'], exclude: [])
+//    implementation fileTree(dir: '..\\libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.raylabz:java-http:2.0.1'
     implementation 'com.android.volley:volley:1.2.1'
     implementation ('io.ably:ably-android:1.2.8') {
@@ -71,9 +77,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+    implementation 'org.mozilla:rhino:1.7.7.2'
+    implementation 'com.raylabz:athlos-core:0.0.33'
+    implementation 'com.raylabz:athlos-client:0.0.35'
+    implementation 'com.raylabz:firestorm:1.2.0'
 
-    //These libraries are now included in the 'core' package, located in the \libs folder:
-
-    //    implementation 'org.mozilla:rhino:1.7.7.2'
-    //    implementation 'com.google.code.gson:gson:2.8.2'
 }

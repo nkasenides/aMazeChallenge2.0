@@ -5,9 +5,6 @@
       <element id="module-output" name="core" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/raylabz/jsec/1.0.0/jsec-1.0.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/core/lib/rhino-1.7.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/core/lib/rhino-1.7.7-javadoc.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/core/lib/rhino-1.7.7-sources.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.12.2/protobuf-java-3.12.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/raylabz/firestorm/1.2.0/firestorm-1.2.0.jar" path-in-jar="/" />
