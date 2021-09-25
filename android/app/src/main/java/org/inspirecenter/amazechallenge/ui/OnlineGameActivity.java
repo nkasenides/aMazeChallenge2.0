@@ -316,9 +316,19 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     public void editCode(final View view) {
         closeFABMenu();
 
-        final Intent intent = new Intent(OnlineGameActivity.this, BlocklyActivity.class);
-        intent.putExtra(INTENT_KEY_NEXT_ACTIVITY, OnlineGameActivity.class.getCanonicalName());
-        startActivity(intent);
+        //Confirm leaving the game:
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                .setTitle(R.string.leave_challenge)
+                .setMessage(R.string.warn_edit_code)
+                .setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton(R.string.exit, (dialogInterface, i) -> {
+                    leaveChallengeHTTP();
+                    final Intent intent = new Intent(OnlineGameActivity.this, BlocklyActivity.class);
+                    intent.putExtra(INTENT_KEY_NEXT_ACTIVITY, OnlineGameActivity.class.getCanonicalName());
+                    startActivity(intent);
+                });
+
+        dialogBuilder.create().show();
     }
 
     public void submitCode(final View view) {
@@ -329,7 +339,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
         final String email = sharedPreferences.getString(PREFERENCE_KEY_EMAIL, getString(R.string.Guest_email));
         final String code = sharedPreferences.getString(BlocklyActivity.KEY_ALGORITHM_ACTIVITY_CODE, "");
 
-//        new SubmitCodeAsyncTask(email, code, challenge, getString(R.string.api_url), getString(R.string.magic)).execute();
         submitCodeHTTP(code);
     }
 
@@ -732,6 +741,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
                             startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
                             finish();
                         }
@@ -757,6 +767,7 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
                             startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
                             finish();
                         }
@@ -767,29 +778,61 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
     }
 
     private void onLose() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
-                .setTitle(R.string.lost)
-                .setMessage(R.string.lost_message)
-                .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        leaveChallengeHTTP();
-                    }
-                })
-                .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
-                        finish();
-                    }
-                })
-                .setCancelable(false);
+
+        AlertDialog.Builder dialogBuilder;
+        if (challenge.getHasQuestionnaire()) {
+            dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                    .setTitle(R.string.lost)
+                    .setMessage(R.string.lost_message)
+                    .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
+                        }
+                    })
+                    .setNegativeButton(R.string.questionnaire, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(OnlineGameActivity.this, QuestionnaireActivity.class);
+                            intent.putExtra("challenge", challenge);
+                            intent.putExtra("worldSessionID", currentPlayerWorldSession.getId());
+                            startActivity(intent);
+                        }
+                    })
+                    .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
+                            startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                            finish();
+                        }
+                    });
+        }
+        else {
+            dialogBuilder = new AlertDialog.Builder(OnlineGameActivity.this)
+                    .setTitle(R.string.lost)
+                    .setMessage(R.string.lost_message)
+                    .setPositiveButton(R.string.leave, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
+                        }
+                    })
+                    .setNegativeButton(R.string.watch, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .setNeutralButton(R.string.try_again, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            leaveChallengeHTTP();
+                            startActivity(new Intent(OnlineGameActivity.this, OnlineChallengeActivity.class));
+                            finish();
+                        }
+                    });
+        }
         dialogBuilder.create().show();
     }
 

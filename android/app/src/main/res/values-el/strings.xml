@@ -324,5 +324,6 @@
     <string name="export_to_file">Εξαγωγή σε αρχείο</string>
     <string name="full">Γεμάτο</string>
     <string name="no_challenges_available">Δεν υπάρχουν διαθέσημα παιχνίδια</string>
+    <string name="warn_edit_code">Η επεξεργασία κώδικα θα προκαλέσει απώλεια της προόδου σας σε αυτό το παιχνίδι. Είστε σίγουροι?</string>
 
 </resources>

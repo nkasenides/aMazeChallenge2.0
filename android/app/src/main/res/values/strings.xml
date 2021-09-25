@@ -347,5 +347,6 @@
     <string name="export_to_file">Export to file</string>
     <string name="full">Full</string>
     <string name="no_challenges_available">No challenges available</string>
+    <string name="warn_edit_code">Editing your code will cause your progress in this game to be lost. Are you sure?</string>
 
 </resources>
