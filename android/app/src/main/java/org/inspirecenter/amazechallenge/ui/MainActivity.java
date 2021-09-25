@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY_PREF_EDITED_CODE = "pref-code-edited";
     public static final String KEY_PREF_LOCALLY_TESTED = "pref-local-tested";
     public static final String KEY_PREF_PLAYED_ONLINE = "pref-played-online";
+    public static final String KEY_PREF_MAZE_DESIGNER = "pref-maze-designer";
+    public static final String KEY_PREF_ABOUT = "pref-maze-about";
+
     public static final String KEY_PREF_SOUND = "pref-sound";
     public static final String KEY_PREF_LANG = "pref-lang";
     public static final String KEY_PREF_VIBRATION = "pref-vibration";
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         final boolean hasEditedCode = sharedPreferences.getBoolean(KEY_PREF_EDITED_CODE, false);
         final boolean hasLocallyTested = sharedPreferences.getBoolean(KEY_PREF_LOCALLY_TESTED, false);
         final boolean hasPlayedOnline = sharedPreferences.getBoolean(KEY_PREF_PLAYED_ONLINE, false);
+        final boolean hasUsedMazeDesigner = sharedPreferences.getBoolean(KEY_PREF_MAZE_DESIGNER, false);
+        final boolean hasVisitedAbout = sharedPreferences.getBoolean(KEY_PREF_ABOUT, false);
 
         // edit buttons
         buttonLearn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_help_black_24dp, 0, hasLearned ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
@@ -87,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         buttonEditYourCode.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_code_black_24dp, 0, hasEditedCode ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
         buttonTestLocally.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_play_circle_filled_black_24dp, 0, hasLocallyTested ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
         buttonPlayOnline.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cloud_upload_black_24dp, 0, hasPlayedOnline ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
+        buttonGenerator.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_create_white_24dp, 0, hasUsedMazeDesigner ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
+        buttonAbout.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info_black_24dp, 0, hasVisitedAbout ? R.drawable.ic_check_black_24dp : R.drawable.ic_check_box_outline_blank_black_24dp, 0);
     }
 
     @Override

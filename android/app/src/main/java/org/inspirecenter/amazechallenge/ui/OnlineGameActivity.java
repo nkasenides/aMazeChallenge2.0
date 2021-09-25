@@ -437,6 +437,8 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                 SubmitCodeResponse submitCodeResponse = SubmitCodeResponse.parseFrom(response);
                 if (submitCodeResponse.getStatus() == SubmitCodeResponse.Status.OK) {
                     Snackbar.make(findViewById(R.id.activity_online_game), R.string.code_uploaded, Snackbar.LENGTH_SHORT).show();
+                    final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+                    sharedPreferences.edit().putBoolean(MainActivity.KEY_PREF_PLAYED_ONLINE, true).apply();
                 } else {
                     switch (submitCodeResponse.getMessage()) {
                         case "INVALID_WORLD_SESSION":

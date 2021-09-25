@@ -2,8 +2,10 @@ package org.inspirecenter.amazechallenge.ui;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -400,7 +402,9 @@ public class MazeDesignerActivity extends AppCompatActivity {
                 finish();
             });
 
-            generateButton.setOnClickListener(view -> finish());
+            generateButton.setOnClickListener(view -> {
+                finish();
+            });
 
 
         }
@@ -436,6 +440,10 @@ public class MazeDesignerActivity extends AppCompatActivity {
             }).create().show();
         }
         else {
+
+            final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            sharedPreferences.edit().putBoolean(MainActivity.KEY_PREF_MAZE_DESIGNER, true).apply();
+
             mazeGridData = MazeGenerator.generate(selectedAlgorithm, size, startingPosition, targetPosition);
             final Grid grid = new Grid();
             grid.setWidth(size);

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -45,6 +46,8 @@ public class AboutActivity extends AppCompatActivity {
         public void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
+
+            PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putBoolean(MainActivity.KEY_PREF_ABOUT, true).apply();
 
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.about);
