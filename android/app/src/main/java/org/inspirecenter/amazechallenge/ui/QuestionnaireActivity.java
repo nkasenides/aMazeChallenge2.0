@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -470,11 +471,15 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     new QuestionEntry(getString(R.string.question_10), question10Response)
             };
 
+            final String name = PreferenceManager.getDefaultSharedPreferences(this).getString(PersonalizeActivity.PREFERENCE_KEY_NAME, "");
+            final String email = PreferenceManager.getDefaultSharedPreferences(this).getString(PersonalizeActivity.PREFERENCE_KEY_EMAIL, "");
+
             final QuestionnaireEntry questionnaireEntry = new QuestionnaireEntry();
             questionnaireEntry.setChallengeID(challenge.getId());
             questionnaireEntry.setId(worldSessionID);
             questionnaireEntry.setQuestionEntry(new ArrayList<>(Arrays.asList(questionEntries)));
-
+            questionnaireEntry.setParticipantEmail(email);
+            questionnaireEntry.setParticipantName(name);
             submitQuestionnaireHTTP(questionnaireEntry);
 
         }

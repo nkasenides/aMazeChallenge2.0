@@ -4,7 +4,7 @@
 package org.inspirecenter.amazechallenge.proto;
 
 public interface QuestionnaireEntryProtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:QuestionnaireEntryProto)
+    // @@protoc_insertion_point(interface_extends:org.inspirecenter.amazechallenge.proto.QuestionnaireEntryProto)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -20,25 +20,25 @@ public interface QuestionnaireEntryProtoOrBuilder extends
       getChallengeIDBytes();
 
   /**
-   * <code>repeated .QuestionEntryProto questionEntry = 2;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.QuestionEntryProto questionEntry = 2;</code>
    */
   java.util.List<QuestionEntryProto>
       getQuestionEntryList();
   /**
-   * <code>repeated .QuestionEntryProto questionEntry = 2;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.QuestionEntryProto questionEntry = 2;</code>
    */
   QuestionEntryProto getQuestionEntry(int index);
   /**
-   * <code>repeated .QuestionEntryProto questionEntry = 2;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.QuestionEntryProto questionEntry = 2;</code>
    */
   int getQuestionEntryCount();
   /**
-   * <code>repeated .QuestionEntryProto questionEntry = 2;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.QuestionEntryProto questionEntry = 2;</code>
    */
   java.util.List<? extends QuestionEntryProtoOrBuilder>
       getQuestionEntryOrBuilderList();
   /**
-   * <code>repeated .QuestionEntryProto questionEntry = 2;</code>
+   * <code>repeated .org.inspirecenter.amazechallenge.proto.QuestionEntryProto questionEntry = 2;</code>
    */
   QuestionEntryProtoOrBuilder getQuestionEntryOrBuilder(
       int index);
@@ -54,4 +54,28 @@ public interface QuestionnaireEntryProtoOrBuilder extends
    */
   com.google.protobuf.ByteString
       getIdBytes();
+
+  /**
+   * <code>string participantName = 4;</code>
+   * @return The participantName.
+   */
+  String getParticipantName();
+  /**
+   * <code>string participantName = 4;</code>
+   * @return The bytes for participantName.
+   */
+  com.google.protobuf.ByteString
+      getParticipantNameBytes();
+
+  /**
+   * <code>string participantEmail = 5;</code>
+   * @return The participantEmail.
+   */
+  String getParticipantEmail();
+  /**
+   * <code>string participantEmail = 5;</code>
+   * @return The bytes for participantEmail.
+   */
+  com.google.protobuf.ByteString
+      getParticipantEmailBytes();
 }
