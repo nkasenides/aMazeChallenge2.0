@@ -9,7 +9,7 @@
     "JAVA_8"
   ],
   "createdOn": 1628751241477,
-  "savedOn": 1631883525056,
+  "savedOn": 1632567175695,
   "containerName": "org.inspirecenter.amazechallenge",
   "protoBufClassName": "AMCProto",
   "enumTypes": {
@@ -315,25 +315,6 @@
       "daoPolicy": "UNIQUE",
       "isWorldSpecific": false
     },
-    "QuestionnaireEntry": {
-      "name": "QuestionnaireEntry",
-      "fields": {
-        "challengeID": {
-          "__metaType__": "BasicDataType",
-          "name": "string"
-        },
-        "questionEntry": {
-          "__metaType__": "ListDataType",
-          "dataType": "QuestionEntry"
-        },
-        "id": {
-          "__metaType__": "BasicDataType",
-          "name": "string"
-        }
-      },
-      "daoPolicy": "MULTIPLE",
-      "isWorldSpecific": false
-    },
     "Grid": {
       "name": "Grid",
       "fields": {
@@ -360,6 +341,33 @@
         "height": {
           "__metaType__": "BasicDataType",
           "name": "int32"
+        }
+      },
+      "daoPolicy": "MULTIPLE",
+      "isWorldSpecific": false
+    },
+    "QuestionnaireEntry": {
+      "name": "QuestionnaireEntry",
+      "fields": {
+        "challengeID": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "questionEntry": {
+          "__metaType__": "ListDataType",
+          "dataType": "QuestionEntry"
+        },
+        "id": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "participantName": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "participantEmail": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
         }
       },
       "daoPolicy": "MULTIPLE",
@@ -1033,13 +1041,13 @@
           "__metaType__": "BasicDataType",
           "name": "string"
         },
-        "player": {
-          "__metaType__": "AthlosType",
-          "name": "AMCPlayer"
-        },
         "installationID": {
           "__metaType__": "BasicDataType",
           "name": "string"
+        },
+        "player": {
+          "__metaType__": "AthlosType",
+          "name": "AMCPlayer"
         }
       },
       "daoPolicy": "NONE",
@@ -1270,34 +1278,6 @@
       "isWorldSpecific": false,
       "isModelable": false
     },
-    "ListChallengesResponse": {
-      "statusTypeDefinition": {
-        "name": "Status",
-        "values": [
-          "SERVER_ERROR",
-          "NO_CHALLENGES",
-          "OK"
-        ]
-      },
-      "className": "ListChallengesResponse",
-      "fields": {
-        "challenges": {
-          "__metaType__": "ListDataType",
-          "dataType": "Challenge"
-        },
-        "message": {
-          "__metaType__": "BasicDataType",
-          "name": "string"
-        },
-        "status": {
-          "__metaType__": "EnumType",
-          "name": "Status"
-        }
-      },
-      "daoPolicy": "NONE",
-      "isWorldSpecific": false,
-      "isModelable": false
-    },
     "RuntimeResponse": {
       "statusTypeDefinition": {
         "name": "Status",
@@ -1336,6 +1316,39 @@
       },
       "className": "LeaveChallengeResponse",
       "fields": {
+        "message": {
+          "__metaType__": "BasicDataType",
+          "name": "string"
+        },
+        "status": {
+          "__metaType__": "EnumType",
+          "name": "Status"
+        }
+      },
+      "daoPolicy": "NONE",
+      "isWorldSpecific": false,
+      "isModelable": false
+    },
+    "ListChallengesResponse": {
+      "statusTypeDefinition": {
+        "name": "Status",
+        "values": [
+          "SERVER_ERROR",
+          "NO_CHALLENGES",
+          "OK"
+        ]
+      },
+      "className": "ListChallengesResponse",
+      "fields": {
+        "challenges": {
+          "__metaType__": "ListDataType",
+          "dataType": "Challenge"
+        },
+        "activePlayersByChallenge": {
+          "__metaType__": "MapDataType",
+          "dataType": "string",
+          "valueType": "uint32"
+        },
         "message": {
           "__metaType__": "BasicDataType",
           "name": "string"
@@ -1908,7 +1921,7 @@
   "currentVersion": {
     "majorVersion": 0,
     "minorVersion": 0,
-    "buildVersion": 49
+    "buildVersion": 51
   },
   "versionHistoryMap": {
     "1628756385709": {
@@ -2150,6 +2163,16 @@
       "majorVersion": 0,
       "minorVersion": 0,
       "buildVersion": 48
+    },
+    "1632401355867": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 49
+    },
+    "1632567172910": {
+      "majorVersion": 0,
+      "minorVersion": 0,
+      "buildVersion": 50
     }
   }
 }
