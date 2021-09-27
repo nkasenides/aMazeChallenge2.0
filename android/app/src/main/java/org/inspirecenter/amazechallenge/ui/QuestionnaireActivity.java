@@ -1,70 +1,43 @@
 package org.inspirecenter.amazechallenge.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 import com.google.protobuf.InvalidProtocolBufferException;
 
-import org.inspirecenter.amazechallenge.model.Challenge;
 import org.inspirecenter.amazechallenge.model.QuestionEntry;
 import org.inspirecenter.amazechallenge.model.QuestionnaireEntry;
-import org.inspirecenter.amazechallenge.proto.Audio;
-import org.inspirecenter.amazechallenge.proto.AudioFormat;
 import org.inspirecenter.amazechallenge.proto.ChallengeProto;
 import org.inspirecenter.amazechallenge.proto.DichotomousResponse;
-import org.inspirecenter.amazechallenge.proto.GetStateRequest;
-import org.inspirecenter.amazechallenge.proto.GetStateResponse;
 import org.inspirecenter.amazechallenge.proto.LikertResponse;
 
-import org.inspirecenter.amazechallenge.Installation;
 import org.inspirecenter.amazechallenge.R;
-import org.inspirecenter.amazechallenge.proto.SubmitCodeRequest;
 import org.inspirecenter.amazechallenge.proto.SubmitQuestionnaireRequest;
 import org.inspirecenter.amazechallenge.proto.SubmitQuestionnaireResponse;
-import org.inspirecenter.amazechallenge.proto.UpdateStateResponse;
-import org.inspirecenter.amazechallenge.stubs.AMCClient;
 import org.inspirecenter.amazechallenge.stubs.BinaryRequest;
 import org.inspirecenter.amazechallenge.stubs.Stubs;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Timer;
 
-import io.ably.lib.realtime.ChannelBase;
-import io.ably.lib.types.AblyException;
-import io.ably.lib.types.Message;
-
-import static org.inspirecenter.amazechallenge.ui.GameActivity.DEFAULT_AMBIENT_VOLUME;
 import static org.inspirecenter.amazechallenge.ui.MainActivity.setLanguage;
-import static org.inspirecenter.amazechallenge.ui.OnlineGameActivity.convertStreamToString;
 
 public class QuestionnaireActivity extends AppCompatActivity {
 
@@ -76,62 +49,73 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private Button skipButton;
     private Button submitButton;
 
-    private RatingBar question_1_ratingBar;
+    private RatingBar overallExperienceRatingBar;
+    private RatingBar singleplayerExperienceRatingBar;
+    private RatingBar multiplayerExperienceRatingBar;
 
-    private RadioButton question2_no;
-    private RadioButton question2_maybe;
-    private RadioButton question2_yes;
+    private RadioButton currentExperience_Novice_RadioButton;
+    private RadioButton currentExperience_Intermediate_RadioButton;
+    private RadioButton currentExperience_Confident_RadioButton;
+    private RadioButton currentExperience_Expert_RadioButton;
+    private RadioButton currentExperience_NotSure_RadioButton;
 
-    private RadioButton question3_high;
-    private RadioButton question3_medium;
-    private RadioButton question3_low;
+    private RadioButton opinion_VeryInteresting_RadioButton;
+    private RadioButton opinion_Interesting_RadioButton;
+    private RadioButton opinion_Neutral_RadioButton;
+    private RadioButton opinion_Boring_RadioButton;
+    private RadioButton opinion_VeryBoring_RadioButton;
 
-    private RadioButton question4_veryHigh;
-    private RadioButton question4_high;
-    private RadioButton question4_medium;
-    private RadioButton question4_low;
-    private RadioButton question4_veryLow;
+    private RadioButton difficulty_VeryEasy_RadioButton;
+    private RadioButton difficulty_Easy_RadioButton;
+    private RadioButton difficulty_Difficult_RadioButton;
+    private RadioButton difficulty_VeryDifficult_RadioButton;
+    private RadioButton difficulty_NotSure_RadioButton;
 
-    private RadioButton question5_high;
-    private RadioButton question5_medium;
-    private RadioButton question5_low;
+    private RadioButton helpful_ExtremelyHelpful_RadioButton;
+    private RadioButton helpful_Helpful_RadioButton;
+    private RadioButton helpful_Neutral_RadioButton;
+    private RadioButton helpful_NotHelpful_RadioButton;
+    private RadioButton helpful_Ineffective_RadioButton;
 
-    private RadioButton question6_no;
-    private RadioButton question6_notsure;
-    private RadioButton question6_yes;
+    private RadioButton skillsAffected_SignificantlyImproved_RadioButton;
+    private RadioButton skillsAffected_SlightlyImproved_RadioButton;
+    private RadioButton skillsAffected_NoChange_RadioButton;
+    private RadioButton skillsAffected_Reduced_RadioButton;
+    private RadioButton skillsAffected_SeverelyReduced_RadioButton;
 
-    private RadioButton question7_veryHigh;
-    private RadioButton question7_high;
-    private RadioButton question7_medium;
-    private RadioButton question7_low;
-    private RadioButton question7_veryLow;
+    private RadioButton competition_DefinitelyGood_RadioButton;
+    private RadioButton competition_Good_RadioButton;
+    private RadioButton competition_Neutral_RadioButton;
+    private RadioButton competition_Bad_RadioButton;
+    private RadioButton competition_DefinitelyBad_RadioButton;
 
-    private RadioButton question8_no;
-    private RadioButton question8_maybe;
-    private RadioButton question8_yes;
+    private RadioButton playAgain_VeryLikely_RadioButton;
+    private RadioButton playAgain_Likely_RadioButton;
+    private RadioButton playAgain_Unlikely_RadioButton;
+    private RadioButton playAgain_VeryUnlikely_RadioButton;
+    private RadioButton playAgain_NotSure_RadioButton;
 
-    private EditText question9_answer;
-    private EditText question10_answer;
+    private EditText bestFeaturesEditText;
+    private EditText worstFeaturesEditText;
+    private EditText extraCommentsEditText;
 
-    //Response values:
-    float question1Response = -1;
-    DichotomousResponse question2Response = null;
-    DichotomousResponse question3Response = null;
-    LikertResponse question4Response = null;
-    DichotomousResponse question5Response = null;
-    DichotomousResponse question6Response = null;
-    LikertResponse question7Response = null;
-    DichotomousResponse question8Response = null;
-    String question9Response = null;
-    String question10Response = null;
+    //Answers:
+    private float q1Answer;
+    private float q2Answer;
+    private float q3Answer;
+    private int q4Answer;
+    private int q5Answer;
+    private int q6Answer;
+    private int q7Answer;
+    private int q8Answer;
+    private int q9Answer;
+    private int q10Answer;
+    private String q11Answer;
+    private String q12Answer;
+    private String q13Answer;
 
     private ChallengeProto challenge;
     private String worldSessionID;
-
-    @Override
-    public void onBackPressed() {
-        //DO NOTHING - Do not allow player to return to the game unless they skip or finish the questionnaire.
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,329 +130,186 @@ public class QuestionnaireActivity extends AppCompatActivity {
         this.worldSessionID = getIntent().getStringExtra("worldSessionID");
 
         //Controls:
-        question_1_ratingBar = findViewById(R.id.answer_1);
-        question2_no = findViewById(R.id.question_2_no);
-        question2_maybe = findViewById(R.id.question_2_maybe);
-        question2_yes = findViewById(R.id.question_2_yes);
-        question3_high = findViewById(R.id.q3_high);
-        question3_medium = findViewById(R.id.q3_medium);
-        question3_low = findViewById(R.id.q3_low);
-        question4_veryHigh = findViewById(R.id.q4_veryhigh);
-        question4_high = findViewById(R.id.q4_high);
-        question4_medium = findViewById(R.id.q4_medium);
-        question4_low = findViewById(R.id.q4_low);
-        question4_veryLow = findViewById(R.id.q4_verylow);
-        question5_high = findViewById(R.id.q5_high);
-        question5_medium = findViewById(R.id.q5_medium);
-        question5_low = findViewById(R.id.q5_low);
-        question6_no = findViewById(R.id.question_6_no);
-        question6_notsure = findViewById(R.id.question_6_notsure);
-        question6_yes = findViewById(R.id.question_6_yes);
-        question7_veryHigh = findViewById(R.id.q7_veryhigh);
-        question7_high = findViewById(R.id.q7_high);
-        question7_medium = findViewById(R.id.q7_medium);
-        question7_low = findViewById(R.id.q7_low);
-        question7_veryLow = findViewById(R.id.q7_verylow);
-        question8_no = findViewById(R.id.q8_low);
-        question8_maybe = findViewById(R.id.q8_medium);
-        question8_yes = findViewById(R.id.q8_high);
-        question9_answer = findViewById(R.id.question9_answer);
-        question10_answer = findViewById(R.id.question10_answer);
+        overallExperienceRatingBar = findViewById(R.id.answerOverallExperience);
+        singleplayerExperienceRatingBar = findViewById(R.id.answerSinglePlayerExperience);
+        multiplayerExperienceRatingBar = findViewById(R.id.answerMultiplayerExperience);
+
+        currentExperience_Novice_RadioButton = findViewById(R.id.levelOfProgrammingRadio1);
+        currentExperience_Intermediate_RadioButton = findViewById(R.id.levelOfProgrammingRadio2);
+        currentExperience_Confident_RadioButton = findViewById(R.id.levelOfProgrammingRadio3);
+        currentExperience_Expert_RadioButton = findViewById(R.id.levelOfProgrammingRadio4);
+        currentExperience_NotSure_RadioButton = findViewById(R.id.levelOfProgrammingRadio5);
+
+        opinion_VeryInteresting_RadioButton = findViewById(R.id.programmingOpinionRadio1);
+        opinion_Interesting_RadioButton = findViewById(R.id.programmingOpinionRadio2);
+        opinion_Neutral_RadioButton = findViewById(R.id.programmingOpinionRadio3);
+        opinion_Boring_RadioButton = findViewById(R.id.programmingOpinionRadio4);
+        opinion_VeryBoring_RadioButton = findViewById(R.id.programmingOpinionRadio5);
+
+        difficulty_VeryEasy_RadioButton = findViewById(R.id.difficultyRadio1);
+        difficulty_Easy_RadioButton = findViewById(R.id.difficultyRadio2);
+        difficulty_Difficult_RadioButton = findViewById(R.id.difficultyRadio3);
+        difficulty_VeryDifficult_RadioButton = findViewById(R.id.difficultyRadio4);
+        difficulty_NotSure_RadioButton = findViewById(R.id.difficultyRadio5);
+
+        helpful_ExtremelyHelpful_RadioButton = findViewById(R.id.helpfulnessRadio1);
+        helpful_Helpful_RadioButton = findViewById(R.id.helpfulnessRadio2);
+        helpful_Neutral_RadioButton = findViewById(R.id.helpfulnessRadio3);
+        helpful_NotHelpful_RadioButton = findViewById(R.id.helpfulnessRadio4);
+        helpful_Ineffective_RadioButton = findViewById(R.id.helpfulnessRadio5);
+
+        skillsAffected_SignificantlyImproved_RadioButton = findViewById(R.id.skillsAffectedRadio1);
+        skillsAffected_SlightlyImproved_RadioButton = findViewById(R.id.skillsAffectedRadio2);
+        skillsAffected_NoChange_RadioButton = findViewById(R.id.skillsAffectedRadio3);
+        skillsAffected_Reduced_RadioButton = findViewById(R.id.skillsAffectedRadio4);
+        skillsAffected_SeverelyReduced_RadioButton = findViewById(R.id.skillsAffectedRadio5);
+
+        competition_DefinitelyGood_RadioButton = findViewById(R.id.competitionRadio1);
+        competition_Good_RadioButton = findViewById(R.id.competitionRadio2);
+        competition_Neutral_RadioButton = findViewById(R.id.competitionRadio3);
+        competition_Bad_RadioButton = findViewById(R.id.competitionRadio4);
+        competition_DefinitelyBad_RadioButton = findViewById(R.id.competitionRadio5);
+
+        playAgain_VeryLikely_RadioButton = findViewById(R.id.playAgainRadio1);
+        playAgain_Likely_RadioButton = findViewById(R.id.playAgainRadio2);
+        playAgain_Unlikely_RadioButton = findViewById(R.id.playAgainRadio3);
+        playAgain_VeryUnlikely_RadioButton = findViewById(R.id.playAgainRadio4);
+        playAgain_NotSure_RadioButton = findViewById(R.id.playAgainRadio5);
+
+        bestFeaturesEditText = findViewById(R.id.bestFeaturesAnswer);
+        worstFeaturesEditText = findViewById(R.id.worstFeaturesAnswer);
+        extraCommentsEditText = findViewById(R.id.extraCommentsAnswer);
 
         submitButton = findViewById(R.id.submit_button);
         skipButton = findViewById(R.id.skip_button);
 
-
-        //--LISTENERS:
-
-        //Q1:
-        question_1_ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                question1Response = v;
-            }
-        });
-
-        //Q2:
-        question2_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question2Response = DichotomousResponse.NO_DichotomousResponse;
-            }
-        });
-
-        question2_maybe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question2Response = DichotomousResponse.MAYBE_DichotomousResponse;
-            }
-        });
-
-        question2_yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question2Response = DichotomousResponse.YES_DichotomousResponse;
-            }
-        });
-
-        //Q3:
-        question3_high.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question3Response = DichotomousResponse.YES_DichotomousResponse;
-            }
-        });
-
-        question3_medium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question3Response = DichotomousResponse.MAYBE_DichotomousResponse;
-            }
-        });
-
-        question3_low.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question3Response = DichotomousResponse.NO_DichotomousResponse;
-            }
-        });
-
-        //Q4:
-        question4_veryHigh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question4Response = LikertResponse.VERY_POSITIVE_LikertResponse;
-            }
-        });
-
-        question4_high.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question4Response = LikertResponse.POSITIVE_LikertResponse;
-            }
-        });
-
-        question4_medium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question4Response = LikertResponse.NEUTRAL_LikertResponse;
-            }
-        });
-
-        question4_low.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question4Response = LikertResponse.NEGATIVE_LikertResponse;
-            }
-        });
-
-        question4_veryLow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question4Response = LikertResponse.VERY_NEGATIVE_LikertResponse;
-            }
-        });
-
-        //Q5:
-        question5_high.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question5Response = DichotomousResponse.YES_DichotomousResponse;
-            }
-        });
-
-        question5_medium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question5Response = DichotomousResponse.MAYBE_DichotomousResponse;
-            }
-        });
-
-        question5_low.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question5Response = DichotomousResponse.NO_DichotomousResponse;
-            }
-        });
-
-        //Q6:
-        question6_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question6Response = DichotomousResponse.NO_DichotomousResponse;
-            }
-        });
-
-        question6_notsure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question6Response = DichotomousResponse.MAYBE_DichotomousResponse;
-            }
-        });
-
-        question6_yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question6Response = DichotomousResponse.YES_DichotomousResponse;
-            }
-        });
-
-        //Q7:
-        question7_veryHigh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question7Response = LikertResponse.VERY_POSITIVE_LikertResponse;
-            }
-        });
-
-        question7_high.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question7Response = LikertResponse.POSITIVE_LikertResponse;
-            }
-        });
-
-        question7_medium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question7Response = LikertResponse.NEUTRAL_LikertResponse;
-            }
-        });
-
-        question7_low.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question7Response = LikertResponse.NEGATIVE_LikertResponse;
-            }
-        });
-
-        question7_veryLow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question7Response = LikertResponse.VERY_NEGATIVE_LikertResponse;
-            }
-        });
-
-        //Q8:
-        question8_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question8Response = DichotomousResponse.NO_DichotomousResponse;
-            }
-        });
-
-        question8_maybe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question8Response = DichotomousResponse.MAYBE_DichotomousResponse;
-            }
-        });
-
-        question8_yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                question8Response = DichotomousResponse.YES_DichotomousResponse;
-            }
-        });
-
-        //Q9:
-        question9_answer.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().trim().isEmpty()) question9Response = null;
-                else question9Response = charSequence.toString();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) { }
-        });
-
-        //Q10:
-        question10_answer.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().trim().isEmpty()) question10Response = null;
-                else question10Response = charSequence.toString();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) { }
-        });
-
-        question_1_ratingBar.setFocusable(true);
-        question_1_ratingBar.setFocusableInTouchMode(true);
-        question2_yes.setFocusable(true);
-        question2_yes.setFocusableInTouchMode(true);
-        question3_high.setFocusable(true);
-        question3_high.setFocusableInTouchMode(true);
-        question4_veryHigh.setFocusable(true);
-        question4_veryHigh.setFocusableInTouchMode(true);
-        question5_high.setFocusable(true);
-        question5_high.setFocusableInTouchMode(true);
-        question6_yes.setFocusable(true);
-        question6_yes.setFocusableInTouchMode(true);
-        question7_veryHigh.setFocusable(true);
-        question7_veryHigh.setFocusableInTouchMode(true);
-        question8_yes.setFocusable(true);
-        question8_yes.setFocusableInTouchMode(true);
-        question9_answer.setFocusable(true);
-        question9_answer.setFocusableInTouchMode(true);
-        question10_answer.setFocusable(true);
-        question10_answer.setFocusableInTouchMode(true);
-
         //Submit Button:
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submitAnswers();
-            }
-        });
+        submitButton.setOnClickListener(view -> submitAnswers());
 
         //Skip Button:
-        skipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        skipButton.setOnClickListener(view -> finish());
 
     }
 
+    private int getActiveIndex(boolean[] entries) {
+        if (entries.length == 0) {
+            return -1;
+        }
+        for (int i = 0; i < entries.length; i++) {
+            if (entries[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void getAnswers() {
+        q1Answer = overallExperienceRatingBar.getRating();
+        q2Answer = singleplayerExperienceRatingBar.getRating();
+        q3Answer = multiplayerExperienceRatingBar.getRating();
+
+        //Q4:
+        boolean[] q4 = {
+                currentExperience_Novice_RadioButton.isChecked(),
+                currentExperience_Intermediate_RadioButton.isChecked(),
+                currentExperience_Confident_RadioButton.isChecked(),
+                currentExperience_Expert_RadioButton.isChecked(),
+                currentExperience_NotSure_RadioButton.isChecked()
+        };
+        q4Answer = getActiveIndex(q4);
+
+        //Q5:
+        boolean[] q5 = {
+                opinion_VeryInteresting_RadioButton.isChecked(),
+                opinion_Interesting_RadioButton.isChecked(),
+                opinion_Neutral_RadioButton.isChecked(),
+                opinion_Boring_RadioButton.isChecked(),
+                opinion_VeryBoring_RadioButton.isChecked()
+        };
+        q5Answer = getActiveIndex(q5);
+
+        //Q6:
+        boolean[] q6 = {
+                difficulty_VeryEasy_RadioButton.isChecked(),
+                difficulty_Easy_RadioButton.isChecked(),
+                difficulty_Difficult_RadioButton.isChecked(),
+                difficulty_VeryDifficult_RadioButton.isChecked(),
+                difficulty_NotSure_RadioButton.isChecked()
+        };
+        q6Answer = getActiveIndex(q6);
+
+        //Q7:
+        boolean[] q7 = {
+                helpful_ExtremelyHelpful_RadioButton.isChecked(),
+                helpful_Helpful_RadioButton.isChecked(),
+                helpful_Neutral_RadioButton.isChecked(),
+                helpful_NotHelpful_RadioButton.isChecked(),
+                helpful_Ineffective_RadioButton.isChecked()
+        };
+        q7Answer = getActiveIndex(q7);
+
+        //Q8:
+        boolean[] q8 = {
+                skillsAffected_SignificantlyImproved_RadioButton.isChecked(),
+                skillsAffected_SlightlyImproved_RadioButton.isChecked(),
+                skillsAffected_NoChange_RadioButton.isChecked(),
+                skillsAffected_Reduced_RadioButton.isChecked(),
+                skillsAffected_SeverelyReduced_RadioButton.isChecked()
+        };
+        q8Answer = getActiveIndex(q8);
+
+        //Q9:
+        boolean[] q9 = {
+                competition_DefinitelyGood_RadioButton.isChecked(),
+                competition_Good_RadioButton.isChecked(),
+                competition_Neutral_RadioButton.isChecked(),
+                competition_Bad_RadioButton.isChecked(),
+                competition_DefinitelyBad_RadioButton.isChecked()
+        };
+        q9Answer = getActiveIndex(q9);
+
+        //Q10:
+        boolean[] q10 = {
+                playAgain_VeryLikely_RadioButton.isChecked(),
+                playAgain_Likely_RadioButton.isChecked(),
+                playAgain_Unlikely_RadioButton.isChecked(),
+                playAgain_VeryUnlikely_RadioButton.isChecked(),
+                playAgain_NotSure_RadioButton.isChecked()
+        };
+        q10Answer = getActiveIndex(q10);
+
+        //Q11:
+        q11Answer = bestFeaturesEditText.getText().toString();
+
+        //Q12:
+        q12Answer = worstFeaturesEditText.getText().toString();
+
+        //Q13:
+        q13Answer = extraCommentsEditText.getText().toString();
+
+    }
 
     private void submitAnswers() {
 
+        getAnswers();
+
         if (checkAnswers()) {
 
-            System.out.println("Answers:");
-            System.out.println("Q1: " + question1Response);
-            System.out.println("Q2: " + question2Response);
-            System.out.println("Q3: " + question3Response);
-            System.out.println("Q4: " + question4Response);
-            System.out.println("Q5: " + question5Response);
-            System.out.println("Q6: " + question6Response);
-            System.out.println("Q7: " + question7Response);
-            System.out.println("Q8: " + question8Response);
-            System.out.println("Q9: " + question9Response);
-            System.out.println("Q10: " + question10Response);
-
-            // first convert to JSON
+            //Create the entry:
             final QuestionEntry[] questionEntries = {
-                    new QuestionEntry(getString(R.string.question_1), Float.toString(question1Response)),
-                    new QuestionEntry(getString(R.string.question_2), question2Response.toString()),
-                    new QuestionEntry(getString(R.string.question_3), question3Response.toString()),
-                    new QuestionEntry(getString(R.string.question_4), question4Response.toString()),
-                    new QuestionEntry(getString(R.string.question_5), question5Response.toString()),
-                    new QuestionEntry(getString(R.string.question_6), question6Response.toString()),
-                    new QuestionEntry(getString(R.string.question_7), question7Response.toString()),
-                    new QuestionEntry(getString(R.string.question_8), question8Response.toString()),
-                    new QuestionEntry(getString(R.string.question_9), question9Response),
-                    new QuestionEntry(getString(R.string.question_10), question10Response)
+                    new QuestionEntry(getString(R.string.questionOverallExperience), Float.toString(q1Answer)),
+                    new QuestionEntry(getString(R.string.questionSingleplayerExperience), Float.toString(q2Answer)),
+                    new QuestionEntry(getString(R.string.questionMultiplayerExperience), Float.toString(q3Answer)),
+                    new QuestionEntry(getString(R.string.questionLevelOfProgramming), Integer.toString(q4Answer)),
+                    new QuestionEntry(getString(R.string.what_is_your_opinion_about_programming), Integer.toString(q5Answer)),
+                    new QuestionEntry(getString(R.string.how_easy_or_difficult_is_it_to_play_amazechallenge), Integer.toString(q6Answer)),
+                    new QuestionEntry(getString(R.string.how_helpful_was_amazechallenge_to_teach_you_programming), Integer.toString(q7Answer)),
+                    new QuestionEntry(getString(R.string.how_are_your_programming_skills_affected_by_playing_amazechallenge), Integer.toString(q8Answer)),
+                    new QuestionEntry(getString(R.string.do_you_believe_competition_is_good_or_bad_when_learning_programming), Integer.toString(q9Answer)),
+                    new QuestionEntry(getString(R.string.how_likely_is_it_to_play_this_game_again_in_the_future), Integer.toString(q10Answer)),
+                    new QuestionEntry(getString(R.string.best_features), q11Answer),
+                    new QuestionEntry(getString(R.string.worst_features), q12Answer),
+                    new QuestionEntry(getString(R.string.extra_comments_question), q13Answer),
             };
 
             final String name = PreferenceManager.getDefaultSharedPreferences(this).getString(PersonalizeActivity.PREFERENCE_KEY_NAME, "");
@@ -489,68 +330,63 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private boolean checkAnswers() {
 
         //Q1
-        if (question1Response < 0) {
-            question_1_ratingBar.requestFocus();
+        if (q1Answer < 0) {
+            overallExperienceRatingBar.requestFocus();
             return false;
         }
 
         //Q2
-        if (question2Response == null) {
-            question2_yes.setError(getString(R.string.no_response));
-            question2_yes.requestFocus();
+        if (q2Answer < 0) {
+            singleplayerExperienceRatingBar.requestFocus();
             return false;
-        } else question2_yes.setError(null);
-
-        //Q3
-        if (question3Response == null) {
-            question3_high.setError(getString(R.string.no_response));
-            question3_high.requestFocus();
-            return false;
-        } else question3_high.setError(null);
-
-        //Q4
-        if (question4Response == null) {
-            question4_veryHigh.setError(getString(R.string.no_response));
-            question4_veryHigh.requestFocus();
-            return false;
-        } else question4_veryHigh.setError(null);
-
-        //Q5
-        if (question5Response == null) {
-            question5_high.setError(getString(R.string.no_response));
-            question5_high.requestFocus();
-            return false;
-        } else question5_high.setError(null);
-
-        //Q6
-        if (question6Response == null) {
-            question6_yes.setError(getString(R.string.no_response));
-            question6_yes.requestFocus();
-            return false;
-        } else question6_yes.setError(null);
-
-        //Q7
-        if (question7Response == null) {
-            question7_veryHigh.setError(getString(R.string.no_response));
-            question7_veryHigh.requestFocus();
-            return false;
-        } else question7_veryHigh.setError(null);
-
-        //Q7
-        if (question8Response == null) {
-            question8_yes.setError(getString(R.string.no_response));
-            question8_yes.requestFocus();
-            return false;
-        } else question8_yes.setError(null);
-
-        //Q9
-        if (question9Response == null) {
-            question9Response = "No response";
         }
 
-        //Q10 - OPTIONAL
-        if (question10Response == null) {
-            question10Response = "No response";
+        //Q3
+        if (q3Answer < 0) {
+            multiplayerExperienceRatingBar.requestFocus();
+            return false;
+        }
+
+        //Q4
+        if (q4Answer < 0) {
+            currentExperience_Novice_RadioButton.requestFocus();
+            currentExperience_Novice_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q5
+        if (q5Answer < 0) {
+            opinion_VeryInteresting_RadioButton.requestFocus();
+            opinion_VeryInteresting_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q6
+        if (q6Answer < 0) {
+            difficulty_VeryEasy_RadioButton.requestFocus();
+            difficulty_VeryEasy_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q7
+        if (q7Answer < 0) {
+            helpful_ExtremelyHelpful_RadioButton.requestFocus();
+            helpful_ExtremelyHelpful_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q8
+        if (q8Answer < 0) {
+            skillsAffected_SignificantlyImproved_RadioButton.requestFocus();
+            skillsAffected_SignificantlyImproved_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q9
+        if (q9Answer < 0) {
+            competition_DefinitelyGood_RadioButton.requestFocus();
+            competition_DefinitelyGood_RadioButton.setError(getString(R.string.no_response));
+        }
+
+        //Q10
+        if (q10Answer < 0) {
+            playAgain_VeryLikely_RadioButton.requestFocus();
+            playAgain_VeryLikely_RadioButton.setError(getString(R.string.no_response));
         }
 
         return true;

@@ -163,7 +163,7 @@
     <string name="questionnaire">Ερωτηματολόγιο</string>
     <string name="questionnaire_instructions_body">Παρακαλώ απαντήστε τις ερωτήσεις τίμια, χωρίς να παρέχετε περισσότερες πληροφορίες απο ότι χρειάζεται. Εαν δέν είστε σίγουροι τι ρώτα μία ερώτηση, μιλήστε με κάποιον που μπορεί να σας βοηθήσει. Μπορείτε να παραλήψετε αυτό το ερωτηματολόγιο, όμως οι γνώμες σας είναι πολύτιμες.</string>
     <string name="questionnaire_instructions_title">Οδηγίες</string>
-    <string name="question_1">Πώς ήταν η εμπειρία σας παίζοντας το aMazeChallenge;</string>
+    <string name="questionOverallExperience">Αξιολογήστε τη συνολική σας εμπειρία με το aMazeChallenge.</string>
     <string name="answer_1_no">Καθόλου</string>
     <string name="answer_1_yes">Σίγουρα</string>
     <string name="Skip">Παραληψη</string>
@@ -176,7 +176,7 @@
     <string name="question_4">Ποιά είναι η γνώμη σας για τον προγραμματισμό;</string>
     <string name="question_5">Πιστεύετε οτι παιχνίδια όπως αυτό θα σας βοηθούσαν να μάθετε προγραμματισμό πιο εύκολα;</string>
     <string name="question_6">Πιστεύετε οτι o ανταγωνισμός είναι καλός ή κακός σε αυτού του είδους τα παιχνίδια;</string>
-    <string name="Not_sure">Δεν είμαι σίγουρος</string>
+    <string name="Not_sure">Δεν είμαι σίγουρος/η</string>
     <string name="invalid_questionnaire_response">Παρακαλώ απαντήστε όλες τις ερωτήσεις.</string>
     <string name="no_response">Παρακαλώ δώστε απάντηση</string>
     <string name="pick_language">Επιλέξτε γλώσσα</string>
@@ -325,5 +325,39 @@
     <string name="full">Γεμάτο</string>
     <string name="no_challenges_available">Δεν υπάρχουν διαθέσημα παιχνίδια</string>
     <string name="warn_edit_code">Η επεξεργασία κώδικα θα προκαλέσει απώλεια της προόδου σας σε αυτό το παιχνίδι. Είστε σίγουροι?</string>
+    <string name="questionSingleplayerExperience">Αξιολογήστε την εμπειρία σας με τη λειτουργία single-player (εκπαίδευση) του aMazeChallenge.</string>
+    <string name="questionMultiplayerExperience">Αξιολογήστε την εμπειρία σας με τη λειτουργία πολλαπλών παικτών (online) του aMazeChallenge.</string>
+    <string name="questionLevelOfProgramming">Ποιο είναι το επίπεδο γνώσεων σας στον προγραμματισμό;</string>
+    <string name="novice_beginner">Αρχάριος/α</string>
+    <string name="intermediate">Μέτριος/α</string>
+    <string name="confident">Άνετος/η</string>
+    <string name="expert">Έμπειρος/η</string>
+    <string name="what_is_your_opinion_about_programming">Ποια είναι η γνώμη σας για τον προγραμματισμό;</string>
+    <string name="neutral">Ουδέτερο</string>
+    <string name="boring">Βαρετό</string>
+    <string name="very_boring">Πολύ βαρετό</string>
+    <string name="how_easy_or_difficult_is_it_to_play_amazechallenge">Πόσο εύκολο ή δύσκολο είναι να παίξεις το aMazeChallenge;</string>
+    <string name="difficult">Δύσκολο</string>
+    <string name="very_difficult">Πολύ δύσκολο</string>
+    <string name="how_helpful_was_amazechallenge_to_teach_you_programming">Πόσο χρήσιμο ήταν το aMazeChallenge για να σας διδάξει προγραμματισμό;</string>
+    <string name="extremely_helpful">Πολύ χρήσιμο</string>
+    <string name="helpful">Χρήσιμο</string>
+    <string name="completely_ineffective">Καθόλου χρήσιμο</string>
+    <string name="how_are_your_programming_skills_affected_by_playing_amazechallenge">Πώς επηρεάζονται οι ικανότητες σας στον προγραμματισμό παίζοντας το aMazeChallenge;</string>
+    <string name="no_change">Καμία αλλαγή</string>
+    <string name="do_you_believe_competition_is_good_or_bad_when_learning_programming">Πιστεύετε ότι ο ανταγωνισμός είναι καλός ή κακός όταν μαθαίνετε προγραμματισμό;</string>
+    <string name="definitely_good">Σίγουρα καλός</string>
+    <string name="good">Καλός</string>
+    <string name="bad">Κακός</string>
+    <string name="definitely_bad">Σίγουρα κακός</string>
+    <string name="how_likely_is_it_to_play_this_game_again_in_the_future">Πόσο πιθανό είναι να ξαναπαίξεις αυτό το παιχνίδι στο μέλλον;</string>
+    <string name="very_likely">Πολύ πιθανό</string>
+    <string name="likely">Πιθανό</string>
+    <string name="unlikely">Απίθανο</string>
+    <string name="very_unlikely">Πολύ απίθανο</string>
+    <string name="best_features">Ποια είναι τα καλύτερα χαρακτηριστικά του aMazeChallenge;</string>
+    <string name="write_here">Γράψε εδώ...</string>
+    <string name="worst_features">Ποια είναι τα χειρότερα χαρακτηριστικά του aMazeChallenge;</string>
+    <string name="extra_comments_question">Υπάρχει κάτι άλλο που θα θέλατε να προσθέσετε; (Δώστε προτάσεις για βελτίωση, τυχόν προβλήματα που αντιμετωπίσατε ή επιπλέον σχόλια)</string>
 
 </resources>
