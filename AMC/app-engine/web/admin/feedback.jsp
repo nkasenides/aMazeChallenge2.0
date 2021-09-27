@@ -69,6 +69,10 @@
                         </div>
                     </div>
 
+                    <div class="col s12 l6">
+                        <a class="right" href="feedbackDetailed.jsp">View more details</a>
+                    </div>
+
                     <div class="clearfix"></div>
                     <hr />
 
@@ -88,6 +92,7 @@
                             usedEntries.addAll(allEntries);
                         }
 
+                        //Question 1:
                         double question1Average = 0;
                         double question1Min = Double.MAX_VALUE;
                         double question1Max = Double.MIN_VALUE;
@@ -107,154 +112,274 @@
                             question1Average = question1Average / (double) usedEntries.size();
                         }
 
-                        int question2Yes = 0;
-                        int question2No = 0;
-                        int question2Maybe = 0;
-
+                        //Question 2:
+                        double question2Average = 0;
+                        double question2Min = Double.MAX_VALUE;
+                        double question2Max = Double.MIN_VALUE;
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(1).getAnswerText();
-                            if (answerText.contains("YES")) {
-                                question2Yes++;
+                            final double v = Double.parseDouble(answerText);
+                            question2Average += v;
+                            if (v < question2Min) {
+                                question2Min = v;
                             }
-                            else if (answerText.contains("NO")) {
-                                question2No++;
-                            }
-                            else if (answerText.contains("MAYBE")) {
-                                question2Maybe++;
+                            if (v > question2Max) {
+                                question2Max = v;
                             }
                         }
 
-                        int question3Yes = 0;
-                        int question3No = 0;
-                        int question3Maybe = 0;
+                        if (usedEntries.size() > 0) {
+                            question2Average = question2Average / (double) usedEntries.size();
+                        }
 
+                        //Question 3:
+                        double question3Average = 0;
+                        double question3Min = Double.MAX_VALUE;
+                        double question3Max = Double.MIN_VALUE;
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(2).getAnswerText();
-                            if (answerText.contains("YES")) {
-                                question3Yes++;
+                            final double v = Double.parseDouble(answerText);
+                            question3Average += v;
+                            if (v < question3Min) {
+                                question3Min = v;
                             }
-                            else if (answerText.contains("NO")) {
-                                question3No++;
-                            }
-                            else if (answerText.contains("MAYBE")) {
-                                question3Maybe++;
+                            if (v > question3Max) {
+                                question3Max = v;
                             }
                         }
 
-                        int question4VeryPositive = 0;
-                        int question4VeryNegative = 0;
-                        int question4Neutral = 0;
-                        int question4Positive = 0;
-                        int question4Negative = 0;
+                        if (usedEntries.size() > 0) {
+                            question3Average = question3Average / (double) usedEntries.size();
+                        }
+
+                        //Question 4:
+                        int q4Novice = 0;
+                        int q4Intermediate = 0;
+                        int q4Confident = 0;
+                        int q4Expert = 0;
+                        int q4NotSure = 0;
 
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(3).getAnswerText();
-                            if (answerText.contains("VERY_POSITIVE")) {
-                                question4VeryPositive++;
-                            }
-                            else if (answerText.contains("VERY_NEGATIVE")) {
-                                question4VeryNegative++;
-                            }
-                            else if (answerText.contains("NEUTRAL")) {
-                                question4Neutral++;
-                            }
-                            else if (answerText.contains("POSITIVE")) {
-                                question4Positive++;
-                            }
-                            else if (answerText.contains("NEGATIVE")) {
-                                question4Negative++;
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q4Novice++;
+                                    break;
+                                case 1:
+                                    q4Intermediate++;
+                                    break;
+                                case 2:
+                                    q4Confident++;
+                                    break;
+                                case 3:
+                                    q4Expert++;
+                                    break;
+                                case 4:
+                                    q4NotSure++;
+                                    break;
                             }
                         }
 
-                        int question5Yes = 0;
-                        int question5No = 0;
-                        int question5Maybe = 0;
+                        //Question 5:
+                        int q5VeryInteresting = 0;
+                        int q5Interesting = 0;
+                        int q5Neutral = 0;
+                        int q5Boring = 0;
+                        int q5VeryBoring = 0;
 
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(4).getAnswerText();
-                            if (answerText.contains("YES")) {
-                                question5Yes++;
-                            }
-                            else if (answerText.contains("NO")) {
-                                question5No++;
-                            }
-                            else if (answerText.contains("MAYBE")) {
-                                question5Maybe++;
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q5VeryInteresting++;
+                                    break;
+                                case 1:
+                                    q5Interesting++;
+                                    break;
+                                case 2:
+                                    q5Neutral++;
+                                    break;
+                                case 3:
+                                    q5Boring++;
+                                    break;
+                                case 4:
+                                    q5VeryBoring++;
+                                    break;
                             }
                         }
 
-                        int question6Yes = 0;
-                        int question6No = 0;
-                        int question6Maybe = 0;
+                        //Question 6:
+                        int q6VeryEasy = 0;
+                        int q6Easy = 0;
+                        int q6IDoNotKnow = 0;
+                        int q6Difficult = 0;
+                        int q6VeryDifficult = 0;
 
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(5).getAnswerText();
-                            if (answerText.contains("YES")) {
-                                question6Yes++;
-                            }
-                            else if (answerText.contains("NO")) {
-                                question6No++;
-                            }
-                            else if (answerText.contains("MAYBE")) {
-                                question6Maybe++;
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q6VeryEasy++;
+                                    break;
+                                case 1:
+                                    q6Easy++;
+                                    break;
+                                case 2:
+                                    q6IDoNotKnow++;
+                                    break;
+                                case 3:
+                                    q6Difficult++;
+                                    break;
+                                case 4:
+                                    q6VeryDifficult++;
+                                    break;
                             }
                         }
 
-                        int question7VeryPositive = 0;
-                        int question7VeryNegative = 0;
-                        int question7Neutral = 0;
-                        int question7Positive = 0;
-                        int question7Negative = 0;
+                        //Question 7:
+                        int q7ExtremelyHelpful = 0;
+                        int q7Helpful = 0;
+                        int q7Neutral = 0;
+                        int q7NotHelpful = 0;
+                        int q7Ineffective = 0;
 
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(6).getAnswerText();
-                            if (answerText.contains("VERY_POSITIVE")) {
-                                question7VeryPositive++;
-                            }
-                            else if (answerText.contains("VERY_NEGATIVE")) {
-                                question7VeryNegative++;
-                            }
-                            else if (answerText.contains("NEUTRAL")) {
-                                question7Neutral++;
-                            }
-                            else if (answerText.contains("POSITIVE")) {
-                                question7Positive++;
-                            }
-                            else if (answerText.contains("NEGATIVE")) {
-                                question7Negative++;
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q7ExtremelyHelpful++;
+                                    break;
+                                case 1:
+                                    q7Helpful++;
+                                    break;
+                                case 2:
+                                    q7Neutral++;
+                                    break;
+                                case 3:
+                                    q7NotHelpful++;
+                                    break;
+                                case 4:
+                                    q7Ineffective++;
+                                    break;
                             }
                         }
 
-                        int question8Yes = 0;
-                        int question8No = 0;
-                        int question8Maybe = 0;
+                        //Question 8:
+                        int q8SignImproved = 0;
+                        int q8SlightImproved = 0;
+                        int q8NoChange = 0;
+                        int q8Reduced = 0;
+                        int q8SevReduced = 0;
 
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(7).getAnswerText();
-                            if (answerText.contains("YES")) {
-                                question8Yes++;
-                            }
-                            else if (answerText.contains("NO")) {
-                                question8No++;
-                            }
-                            else if (answerText.contains("MAYBE")) {
-                                question8Maybe++;
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q8SignImproved++;
+                                    break;
+                                case 1:
+                                    q8SlightImproved++;
+                                    break;
+                                case 2:
+                                    q8NoChange++;
+                                    break;
+                                case 3:
+                                    q8Reduced++;
+                                    break;
+                                case 4:
+                                    q8SevReduced++;
+                                    break;
                             }
                         }
 
-                        String question9Answers = "";
-                        int entryIndex = 1;
+                        //Question 9:
+                        int q9DefGood = 0;
+                        int q9Good = 0;
+                        int q9Neutral = 0;
+                        int q9Bad = 0;
+                        int q9DefBad = 0;
+
                         for (QuestionnaireEntry usedEntry : usedEntries) {
                             final String answerText = usedEntry.getQuestionEntry().get(8).getAnswerText();
-                            question9Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q9DefGood++;
+                                    break;
+                                case 1:
+                                    q9Good++;
+                                    break;
+                                case 2:
+                                    q9Neutral++;
+                                    break;
+                                case 3:
+                                    q9Bad++;
+                                    break;
+                                case 4:
+                                    q9DefBad++;
+                                    break;
+                            }
+                        }
+
+
+                        //Question 10:
+                        int q10VeryLikely = 0;
+                        int q10Likely = 0;
+                        int q10NotSure = 0;
+                        int q10Unlikely = 0;
+                        int q10VeryUnlikely = 0;
+
+                        for (QuestionnaireEntry usedEntry : usedEntries) {
+                            final String answerText = usedEntry.getQuestionEntry().get(9).getAnswerText();
+                            final int v = Integer.parseInt(answerText);
+                            switch (v) {
+                                case 0:
+                                    q10VeryLikely++;
+                                    break;
+                                case 1:
+                                    q10Likely++;
+                                    break;
+                                case 2:
+                                    q10NotSure++;
+                                    break;
+                                case 3:
+                                    q10Unlikely++;
+                                    break;
+                                case 4:
+                                    q10VeryUnlikely++;
+                                    break;
+                            }
+                        }
+
+                        //Question 11:
+                        String question11Answers = "";
+                        int entryIndex = 1;
+                        for (QuestionnaireEntry usedEntry : usedEntries) {
+                            final String answerText = usedEntry.getQuestionEntry().get(10).getAnswerText();
+                            question11Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
                             entryIndex++;
                         }
 
-                        String question10Answers = "";
+                        //Question 12:
+                        String question12Answers = "";
                         entryIndex = 1;
                         for (QuestionnaireEntry usedEntry : usedEntries) {
-                            final String answerText = usedEntry.getQuestionEntry().get(9).getAnswerText();
-                            question10Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
+                            final String answerText = usedEntry.getQuestionEntry().get(11).getAnswerText();
+                            question12Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
+                            entryIndex++;
+                        }
+
+                        //Question 13:
+                        String question13Answers = "";
+                        entryIndex = 1;
+                        for (QuestionnaireEntry usedEntry : usedEntries) {
+                            final String answerText = usedEntry.getQuestionEntry().get(12).getAnswerText();
+                            question13Answers += "Entry " + entryIndex + ":<br/>" + answerText + "<br/><br/>";
                             entryIndex++;
                         }
 
@@ -263,6 +388,7 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 1</h5>
+                            <p>Rate your overall experience with aMazeChallenge.</p>
                             <p>
                                 Min response: <%= question1Min == Double.MAX_VALUE ? "N/A" : String.format("%1.0f/5", question1Min) %> <br/>
                             Max response: <%= question1Max == Double.MIN_VALUE ? "N/A" : String.format("%1.0f/5", question1Max) %><br/>
@@ -274,10 +400,11 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 2</h5>
+                            <p>Rate your experience with the single-player (training) mode of aMazeChallenge.</p>
                             <p>
-                                Yes: <%= question2Yes%> <br/>
-                                Maybe: <%= question2Maybe%> <br/>
-                                No: <%= question2No%> <br/>
+                                Min response: <%= question2Min == Double.MAX_VALUE ? "N/A" : String.format("%1.0f/5", question2Min) %> <br/>
+                                Max response: <%= question2Max == Double.MIN_VALUE ? "N/A" : String.format("%1.0f/5", question2Max) %><br/>
+                                Average response: <%= String.format("%1.2f/5", question2Average) %>
                             </p>
                         </div>
                     </div>
@@ -285,10 +412,11 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 3</h5>
+                            <p>Rate your experience with the multi-player (online) mode of aMazeChallenge.</p>
                             <p>
-                                Very helpful: <%= question3Yes%> <br/>
-                                Somewhat helpful: <%= question3Maybe%> <br/>
-                                Not helpful: <%= question3No%> <br/>
+                                Min response: <%= question3Min == Double.MAX_VALUE ? "N/A" : String.format("%1.0f/5", question3Min) %> <br/>
+                                Max response: <%= question3Max == Double.MIN_VALUE ? "N/A" : String.format("%1.0f/5", question3Max) %><br/>
+                                Average response: <%= String.format("%1.2f/5", question3Average) %>
                             </p>
                         </div>
                     </div>
@@ -296,12 +424,13 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 4</h5>
+                            <p>What is the current level of your programming experience?</p>
                             <p>
-                                Very positive: <%= question4VeryPositive%> <br/>
-                                Positive: <%= question4Positive%> <br/>
-                                Neutral: <%= question4Neutral%> <br/>
-                                Negative: <%= question4Negative%> <br/>
-                                Very negative: <%= question4VeryNegative%> <br/>
+                                Novice: <%= q4Novice %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q4Novice / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Intermediate: <%= q4Intermediate %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q4Intermediate / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Confident: <%= q4Confident %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q4Confident / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Expert: <%= q4Expert %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q4Expert / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Not sure: <%= q4NotSure %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q4NotSure / (float) usedEntries.size() * 100) : 0 %>%) <br/>
                             </p>
                         </div>
                     </div>
@@ -309,10 +438,13 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 5</h5>
+                            <p>What is your opinion about programming?</p>
                             <p>
-                                Very helpful: <%= question5Yes%> <br/>
-                                Somewhat helpful: <%= question5Maybe%> <br/>
-                                Not helpful: <%= question5No%> <br/>
+                                Very interesting: <%= q5VeryInteresting %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q5VeryInteresting / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Interesting: <%= q5Interesting %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q5Interesting / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Neutral: <%= q5Neutral %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q5Neutral / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Boring: <%= q5Boring %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q5Boring / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Very boring: <%= q5VeryBoring %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q5VeryBoring / (float) usedEntries.size() * 100) : 0 %>%) <br/>
                             </p>
                         </div>
                     </div>
@@ -320,10 +452,13 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 6</h5>
+                            <p>How easy or difficult is it to play aMazeChallenge?</p>
                             <p>
-                                Yes: <%= question6Yes%> <br/>
-                                Not sure: <%= question6Maybe%> <br/>
-                                No: <%= question6No%> <br/>
+                                Very easy: <%= q6VeryEasy %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q6VeryEasy / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Easy: <%= q6Easy %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q6Easy / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                I do not know: <%= q6IDoNotKnow %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q6IDoNotKnow / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Difficult: <%= q6Difficult %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q6Difficult / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Very difficulty: <%= q6VeryDifficult %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q6VeryDifficult / (float) usedEntries.size() * 100) : 0 %>%) <br/>
                             </p>
                         </div>
                     </div>
@@ -331,12 +466,13 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 7</h5>
+                            <p>How helpful was aMazeChallenge to teach you programming?</p>
                             <p>
-                                Significantly improved: <%= question7VeryPositive%> <br/>
-                                Slightly improved: <%= question7Positive%> <br/>
-                                The same: <%= question7Neutral%> <br/>
-                                Reduced: <%= question7Negative%> <br/>
-                                Significantly reduced: <%= question7VeryNegative%> <br/>
+                                Extremely helpful: <%= q7ExtremelyHelpful %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q7ExtremelyHelpful / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Helpful: <%= q7Helpful %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q7Helpful / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Neutral: <%= q7Neutral %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q7Neutral / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Not helpful: <%= q7NotHelpful %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q7NotHelpful / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Completely ineffective: <%= q7Ineffective %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q7Ineffective / (float) usedEntries.size() * 100) : 0 %>%) <br/>
                             </p>
                         </div>
                     </div>
@@ -344,10 +480,13 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 8</h5>
+                            <p>How are your programming skills affected by playing aMazeChallenge?</p>
                             <p>
-                                Would like to play again: <%= question8Yes%> <br/>
-                                Not sure: <%= question8Maybe%> <br/>
-                                Won't play again: <%= question8No%> <br/>
+                                Significantly improved: <%= q8SignImproved %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q8SignImproved / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Slightly improved: <%= q8SlightImproved %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q8SlightImproved / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                No change: <%= q8NoChange %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q8NoChange / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Reduced: <%= q8Reduced %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q8Reduced / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Severely reduced: <%= q8SevReduced %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q8SevReduced / (float) usedEntries.size() * 100) : 0 %>%) <br/>
                             </p>
                         </div>
                     </div>
@@ -355,14 +494,52 @@
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 9</h5>
-                            <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 9', '<%= question9Answers%>')">See responses</button>
+                            <p>Do you believe competition is good or bad when learning programming?</p>
+                            <p>
+                                Definitely good: <%= q9DefGood %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q9DefGood / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Good: <%= q9Good %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q9Good / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Neutral: <%= q9Neutral %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q9Neutral / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Bad: <%= q9Bad %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q9Bad / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Definitely bad: <%= q9DefBad %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q9DefBad / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                            </p>
                         </div>
                     </div>
 
                     <div class="col s12">
                         <div class="card-panel yellow lighten-4">
                             <h5>Question 10</h5>
-                            <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 10', '<%= question10Answers%>')">See responses</button>
+                            <p>How likely is it to play this game again in the future?</p>
+                            <p>
+                                Very likely: <%= q10VeryLikely %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q10VeryLikely / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Likely: <%= q10Likely %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q10Likely / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Not sure: <%= q10NotSure %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q10NotSure / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Unlikely: <%= q10Unlikely %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q10Unlikely / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                                Very unlikely: <%= q10VeryUnlikely %> (<%= !usedEntries.isEmpty() ? String.format("%.2f", q10VeryUnlikely / (float) usedEntries.size() * 100) : 0 %>%) <br/>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="card-panel yellow lighten-4">
+                            <h5>Question 11</h5>
+                            <p>What are the best features of aMazeChallenge?</p>
+                            <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 11', '<%= question11Answers %>')">See responses</button>
+                        </div>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="card-panel yellow lighten-4">
+                            <h5>Question 12</h5>
+                            <p>What are the worst features of aMazeChallenge?</p>
+                            <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 12', '<%= question12Answers %>')">See responses</button>
+                        </div>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="card-panel yellow lighten-4">
+                            <h5>Question 13</h5>
+                            <p>Is there anything else you would like to add? (Please provide suggestions for improvement, any issues you faced, or additional comments)</p>
+                            <button class="btn btn-flat transparent blue-text" onclick="showModal('Question 13', '<%= question13Answers %>')">See responses</button>
                         </div>
                     </div>
 
