@@ -529,19 +529,6 @@ public class OnlineGameActivity extends AppCompatActivity implements GameEndList
                     } catch (AblyException e) {
                         e.printStackTrace();
                     }
-
-                    //Play background audio:
-                    final Audio audioResource = challenge.getBackgroundAudio();
-                    System.out.println("Sound is: " + sound);
-                    if (audioResource.getAudioFormat() != AudioFormat.UNDEFINED_FORMAT_AudioFormat && !audioResource.getName().equals(Audio.AUDIO_NONE_Audio.getSoundResourceName())) {
-                        backgroundAudio = MediaPlayer.create(this, getResources().getIdentifier(audioResource.getSoundResourceName(), "raw", getPackageName()));
-                        if (backgroundAudio != null && sound) {
-                            backgroundAudio.setLooping(true);
-                            backgroundAudio.setLooping(true);
-                            backgroundAudio.setVolume(DEFAULT_AMBIENT_VOLUME, DEFAULT_AMBIENT_VOLUME);
-                            backgroundAudio.start();
-                        }
-                    }
                 }
                 else {
                     Snackbar.make(findViewById(R.id.activity_online_game), getString(R.string.gamestate_getting_error), Snackbar.LENGTH_SHORT).show();
