@@ -58,10 +58,15 @@
 
             <br/><br/>
 
-            <div class="center-align">
-              <!--TODO To be replaced by Google Play Store button -->
-              <a class="btn btn-large orange darken-4 white-text" href="https://github.com/nkasenides/aMazeChallenge2.0/raw/main/android/apks/aMazeChallenge-2.0.0.apk">Download app beta</a>
-            </div>
+<%--            <div class="center-align">--%>
+<%--              <!--TODO To be replaced by Google Play Store button -->--%>
+<%--              <a class="btn btn-large orange darken-4 white-text" href="https://github.com/nkasenides/aMazeChallenge2.0/raw/main/android/apks/aMazeChallenge-2.0.0.apk">Download app beta</a>--%>
+<%--            </div>--%>
+
+              <div class="center-align">
+                  <p>Click to download:</p>
+                  <a href='https://play.google.com/store/apps/details?id=org.inspirecenter.amazechallenge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img style="max-width: 400px;" class="responsive-img" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+              </div>
 
             <br/><br/>
 
