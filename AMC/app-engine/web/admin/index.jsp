@@ -41,6 +41,7 @@
 
                     <div class="center-align">
                         <p><a class="btn btn-large indigo darken-3 white-text" href="viewChallenges.jsp">Manage challenges</a></p>
+                        <p><a class="btn btn-large indigo darken-3 white-text" href="scoreboards.jsp">Scoreboards</a></p>
                         <p><a class="btn btn-large indigo darken-3 white-text" href="changeAdminKey.jsp">Change admin key</a></p>
                         <p><a class="btn btn-large indigo darken-3 white-text" href="performance.jsp">Performance</a></p>
                         <p><a class="btn btn-large indigo darken-3 white-text" href="feedback.jsp">Feedback</a></p>

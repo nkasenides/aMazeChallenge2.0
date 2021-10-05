@@ -32,6 +32,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     private String id;    
     private long lastExecutionTime;    
     private HashMap<String, AMCWorldSession> playerWorldSessions = new HashMap<>();
+    private Scoreboard scoreboard = new Scoreboard();
 
     private Vector<Long> stateUpdateLatencies = new Vector<>();
 
@@ -89,8 +90,7 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     
     public Map<String, AMCWorldSession> getPlayerWorldSessions() {
         return playerWorldSessions;        
-    }    
-    
+    }
 
     public void setFinishedPlayers(ArrayList<String> finishedPlayers) {
         this.finishedPlayers = finishedPlayers;        
@@ -125,7 +125,8 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
     }    
     
     public void setChallengeID(String challengeID) {    
-        this.challengeID = challengeID;        
+        this.challengeID = challengeID;
+        this.scoreboard.setChallengeID(challengeID);
     }    
     
     public void setPlayerEntities(HashMap<String, PlayerEntity> playerEntities) {
@@ -333,6 +334,17 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
             playerEvents.get(playerID).clear();
         }
     }
-    
+
+    public Scoreboard getScoreboard() {
+        return scoreboard;
+    }
+
+    public void setScoreboard(Scoreboard scoreboard) {
+        this.scoreboard = scoreboard;
+    }
+
+    public void addToScoreboard(String worldSessionID, long exitTime) {
+        this.scoreboard.addEntry(worldSessionID, exitTime);
+    }
 
 }

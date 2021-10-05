@@ -160,6 +160,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
             final byte [] state = (byte[]) memcache.get(getMazeSolverStateKey(game.getId(), activePlayerId));
             mazeSolver.setState(state);
             playerIDsToMazeSolvers.put(activePlayerId, mazeSolver);
+            game.addToScoreboard(game.getPlayerWorldSessions().get(activePlayerId).getId(), -1);
         }
 
         RuntimeController.makeMove(challenge, game, playerIDsToMazeSolvers);
@@ -255,6 +256,7 @@ public class Runtime implements AthlosService<RuntimeRequest, RuntimeResponse> {
         for (String playerID : playersToDeactivate) {
             memcache.delete(getMazeSolverStateKey(game.getId(), playerID)); // reset algorithm's state
             memcache.delete(KeyUtils.getCodeKey(challenge.getId(), playerID)); // reset submitted code
+            game.addToScoreboard(game.getPlayerWorldSessions().get(playerID).getId(), System.currentTimeMillis());
             game.resetPlayerById(playerID);
             memcache.put(game.getId(), game);
 
