@@ -60,7 +60,7 @@ public class Simulation {
     }
 
     public static void main(String[] args) {
-        new Simulation(16, true);
+        new Simulation(8, true);
     }
 
 }

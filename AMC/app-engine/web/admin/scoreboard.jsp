@@ -6,7 +6,8 @@
 <%@ page import="com.google.appengine.api.memcache.MemcacheServiceFactory" %>
 <%@ page import="com.google.appengine.api.memcache.MemcacheService" %>
 <%@ page import="org.inspirecenter.amazechallenge.model.AMCWorldSession" %>
-<%@ page import="java.util.*" %><%--
+<%@ page import="java.util.*" %>
+<%@ page import="java.util.function.Consumer" %><%--
   User: hfnov
   Date: 02-Sep-21
   Time: 12:26
@@ -109,9 +110,6 @@
                             sortedScoreboardList.sort(new Comparator<Map.Entry<String, Long>>() {
                                 @Override
                                 public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
-                                    if (o1.getValue() == -1) {
-                                        return 1;
-                                    }
                                     if (o1.getValue() < o2.getValue()) {
                                         return -1;
                                     } else if (o1.getValue() > o2.getValue()) {
@@ -122,11 +120,32 @@
                                         } else if (worldSessions.get(o1.getKey()).getPoints() < worldSessions.get(o2.getKey()).getPoints()) {
                                             return 1;
                                         } else {
-                                            return Integer.compare(worldSessions.get(o1.getKey()).getHealth().getHealth(), worldSessions.get(o2.getKey()).getHealth().getHealth());
+                                            if (worldSessions.get(o1.getKey()).getHealth().getHealth() > worldSessions.get(o2.getKey()).getHealth().getHealth()) {
+                                                return -1;
+                                            }
+                                            else if (worldSessions.get(o1.getKey()).getHealth().getHealth() > worldSessions.get(o2.getKey()).getHealth().getHealth()) {
+                                                return 1;
+                                            }
+                                            else {
+                                                return o1.getKey().compareTo(o2.getKey());
+                                            }
                                         }
                                     }
                                 }
                             });
+
+                            //Remove all -1 entries (not finished) and add them to the back:
+                            ArrayList<Map.Entry<String, Long>> notFinishedEntries = new ArrayList<>();
+                            for (Map.Entry<String, Long> entry : sortedScoreboardList) {
+                                if (entry.getValue() == -1) {
+                                    notFinishedEntries.add(entry);
+                                }
+                            }
+                            for (Map.Entry<String, Long> notFinishedEntry : notFinishedEntries) {
+                                sortedScoreboardList.remove(notFinishedEntry);
+                                sortedScoreboardList.add(notFinishedEntry);
+                            }
+
 
                             if (!sortedScoreboardList.isEmpty()) {
                                 int position = 1;
@@ -140,7 +159,7 @@
 
                                     name = worldSession.getPlayerID();
                                     points = worldSession.getPoints();
-                                    health = worldSession.getPoints();
+                                    health = worldSession.getHealth().getHealth();
                                     finishTime = entry.getValue();
 
                                     String color = "style='background-color: %COLOR'";
@@ -188,7 +207,7 @@
                                 <th></th>
                                 <th>Name</th>
                                 <th>Elapsed time</th>
-                                <th>Points</th>
+                                <th>Coins</th>
                                 <th>Health</th>
                             </tr>
                         </thead>

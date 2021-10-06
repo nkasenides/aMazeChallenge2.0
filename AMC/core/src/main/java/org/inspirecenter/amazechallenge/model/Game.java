@@ -343,8 +343,8 @@ public class Game implements Transmittable<GameProto.Builder>, Serializable {
         this.scoreboard = scoreboard;
     }
 
-    public void addToScoreboard(String worldSessionID, long exitTime) {
-        this.scoreboard.addEntry(worldSessionID, exitTime);
+    public void addToScoreboard(String playerName, long exitTime) {
+        this.scoreboard.addEntry(playerName, exitTime);
     }
 
 }

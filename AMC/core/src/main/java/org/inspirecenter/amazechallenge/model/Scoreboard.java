@@ -46,8 +46,8 @@ public class Scoreboard implements Serializable {
         this.entries = entries;
     }
 
-    public void addEntry(String worldSessionID, long exitTime) {
-        this.entries.put(worldSessionID, exitTime);
+    public void addEntry(String playerName, long exitTime) {
+        this.entries.put(playerName, exitTime);
     }
 
 }
