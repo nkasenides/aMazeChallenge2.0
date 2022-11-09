@@ -5,8 +5,7 @@ A game-like, distributed application for learning code by playing.
 
 ### Links
 
-[Download app Beta](https://github.com/nkasenides/aMazeChallenge2.0/raw/main/android/apks/aMazeChallenge-2.0.0.apk)
-(Use at own risk, bugs may still exist!!!)
+[Download app](https://play.google.com/store/apps/details?id=org.inspirecenter.amazechallenge)
 
 [Main page](https://amazechallenge2.oa.r.appspot.com/)
 
