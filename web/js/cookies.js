@@ -9,6 +9,11 @@ class Cookies {
     static MAZE_DESIGNER_ITEM_CHECK = "MAZE_DESIGNER_ITEM_CHECK";
     static ABOUT_ITEM_CHECK = "ABOUT_ITEM_CHECK";
 
+    static PREF_NAME = "PREF_NAME";
+    static PREF_EMAIL = "PREF_EMAIL";
+    static PREF_ICON = "PREF_ICON";
+    static PREF_COLOR = "PREF_COLOR";
+
     //----------------------------------------------------------------------------------------------------------------//
 
     /**

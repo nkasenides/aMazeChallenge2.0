@@ -17,6 +17,10 @@
     background: url("../images/maze_background_pattern.png");
 }
 
+.patterned-transparent {
+    background: url("../images/maze_background_pattern_transparent.png");
+}
+
 #mainPageHeader {
     background-color: rgba(48, 63, 159, 0.98);
     padding: 0 15px;

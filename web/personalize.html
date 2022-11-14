@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The web app for aMazeChallenge">
+    <meta name="keywords"
+          content="aMazeChallenge, UCLan, Cyprus, Nicos, Kasenides, Nearchos, Paspallis, Computer, Science, Computing, Programming, Educational, Game, Maze">
+    <meta name="author" content="Nicos Kasenides & Nearchos Paspallis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/cookies.js"></script>
+    <script defer src="js/materialize.js"></script>
+    <script defer src="js/init.js"></script>
+
+    <script>
+        Cookies.setCookie(Cookies.LEARN_ITEM_CHECK, true);
+    </script>
+
+    <link rel="icon" href="images/amaze_logo-web.png">
+    <title>aMazeChallenge</title>
+</head>
+<body class="patterned-transparent">
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel white">
+                    <div class="center-align">
+                        <img id="iconElement" class="responsive-img" src="images/avatars/icon_1.gif" alt="avatar" /><br/>
+                        <a id="colorElement" class="btn black white-text" href="selectAvatar.html">Select color and icon</a>
+                        <form style="margin-top: 20px" onsubmit="return save();">
+                            <input type="text" id="name" pattern="[a-zA-Z0-9]+" placeholder="Enter your name..." minlength="2" maxlength="50" />
+                            <input type="email" id="email" placeholder="Enter your email address..." /> <br/><br/>
+                            <a class="btn-flat left" href="index.html">Back</a>
+                            <input type="submit" class="btn-flat right" value="Save" />
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/colorsAndIcons.js"></script>
+
+    <script>
+        const form = document.getElementById("form");
+        const nameElement = document.getElementById("name");
+        const emailElement = document.getElementById("email");
+        const iconElement = document.getElementById("iconElement");
+        const colorElement = document.getElementById("colorElement");
+
+        let selectedIcon = Cookies.getCookie(Cookies.PREF_ICON);
+        if (selectedIcon == null) {
+            selectedIcon = 1;
+        }
+        let selectedColor = Cookies.getCookie(Cookies.PREF_COLOR);
+        if (selectedColor == null) {
+            selectedColor = 0;
+        }
+
+        let name = Cookies.getCookie(Cookies.PREF_NAME);
+        nameElement.value = name;
+
+        let email = Cookies.getCookie(Cookies.PREF_EMAIL);
+        emailElement.value = email;
+
+        iconElement.src = "images/avatars/icon_" + selectedIcon + ".gif";
+        colorElement.setAttribute("style", "background-color:" + colors[selectedColor] + " !important;");
+        if (colors[selectedColor] == "yellow" || colors[selectedColor] == "lightgray" || colors[selectedColor] == "pink") {
+            let style = colorElement.getAttribute("style");
+            colorElement.setAttribute("style", style += "color: black !important;");
+        }
+
+
+        function save() {
+            const name = nameElement.value;
+            const email = emailElement.value;
+
+            if (name === null || name.length === 0) {
+                alert("Please provide a valid name.");
+                return false;
+            }
+
+            if (email === null || email.length === 0) {
+                alert("Please provide a valid email address.");
+                return false;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Please specify a valid email address in the format 'name@example.com'");
+                return false;
+            }
+
+            Cookies.setCookie(Cookies.PREF_NAME, name);
+            Cookies.setCookie(Cookies.PREF_EMAIL, email);
+            Cookies.setCookie(Cookies.PERSONALIZE_ITEM_CHECK, true);
+
+            window.location.href = "index.html";
+            return false;
+        }
+
+        function validateEmail(mail) {
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail);
+        }
+    </script>
+
+</body>
+
+</html>

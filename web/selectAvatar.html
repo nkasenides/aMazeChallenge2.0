@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="The web app for aMazeChallenge">
+  <meta name="keywords"
+        content="aMazeChallenge, UCLan, Cyprus, Nicos, Kasenides, Nearchos, Paspallis, Computer, Science, Computing, Programming, Educational, Game, Maze">
+  <meta name="author" content="Nicos Kasenides & Nearchos Paspallis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/cookies.js"></script>
+  <script defer src="js/materialize.js"></script>
+  <script defer src="js/init.js"></script>
+
+  <style>
+    #colorElement {
+      width: 100%;
+      height: 100px;
+      display: block;
+      border: 1px solid grey;
+    }
+  </style>
+
+  <link rel="icon" href="images/amaze_logo-web.png">
+  <title>aMazeChallenge</title>
+</head>
+<body class="patterned-transparent">
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel white">
+        <div class="center-align">
+          <h5>Select your avatar</h5>
+          <img class="responsive-img" id="iconElement" src="images/avatars/icon_1.gif" alt="avatar" />
+          <button id="iconPrevious" onclick="iconPrevious()" class="btn black black-text white-text left"><i class="material-icons">chevron_left</i></button>
+          <button id="iconNext" onclick="iconNext()" class="btn black black-text white-text right"><i class="material-icons">chevron_right</i></button>
+          <div class="clearfix"></div>
+          <br/>
+          <hr>
+
+          <h5>Select your color</h5>
+          <div id="colorElement">
+            <p id="colorElementText" style="background-color: rgba(255, 255, 255, 0.65);">White</p>
+          </div>
+          <br/>
+          <button id="colorPrevious" onclick="colorPrevious()" class="btn black black-text white-text left"><i class="material-icons">chevron_left</i></button>
+          <button id="colorNext" onclick="colorNext()" class="btn black black-text white-text right"><i class="material-icons">chevron_right</i></button>
+          <div class="clearfix"></div>
+
+          <br/><br/>
+
+          <a href="personalize.html" class="btn-flat black-text">OK</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/colorsAndIcons.js"></script>
+
+<script>
+  const iconElement = document.getElementById("iconElement");
+  const colorElement = document.getElementById("colorElement");
+  const colorText = document.getElementById("colorElementText");
+
+  const numOfIcons = 10;
+  const numOfColors = 20;
+
+  let selectedIcon = Cookies.getCookie(Cookies.PREF_ICON);
+  if (selectedIcon == null) {
+    selectedIcon = 1;
+  }
+  let selectedColor = Cookies.getCookie(Cookies.PREF_COLOR);
+  if (selectedColor == null) {
+    selectedColor = 0;
+  }
+
+  updateIcon();
+  updateColor();
+
+  function iconPrevious() {
+    if (selectedIcon == 1) {
+      selectedIcon = numOfIcons;
+    }
+    else {
+      selectedIcon--;
+    }
+    updateIcon();
+  }
+
+  function iconNext() {
+    if (selectedIcon == numOfIcons) {
+      selectedIcon = 1;
+    }
+    else {
+      selectedIcon++;
+    }
+    updateIcon();
+  }
+
+  function colorPrevious() {
+    if (selectedColor == 0) {
+      selectedColor = numOfColors - 1;
+    }
+    else {
+      selectedColor--;
+    }
+    updateColor();
+  }
+
+  function colorNext() {
+    if (selectedColor == numOfColors - 1) {
+      selectedColor = 0;
+    }
+    else {
+      selectedColor++;
+    }
+    updateColor();
+  }
+
+  function updateIcon() {
+    iconElement.src = "images/avatars/icon_" + selectedIcon + ".gif";
+    Cookies.setCookie(Cookies.PREF_ICON, selectedIcon);
+  }
+
+  function updateColor() {
+    colorElement.style.backgroundColor = colors[selectedColor];
+    colorText.innerText = colorNames[selectedColor];
+    Cookies.setCookie(Cookies.PREF_COLOR, selectedColor);
+  }
+
+</script>
+
+</body>
+
+</html>
