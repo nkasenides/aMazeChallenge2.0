@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 public class GetState implements AthlosService<GetStateRequest, GetStateResponse> {
-
     @Override    
     public GetStateResponse serve(GetStateRequest request, Object... additionalParams) {
 
@@ -43,11 +42,13 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
                     .build();
         }
 
+        //Get the challenge grid:
         final Challenge challenge = DBManager.challenge.get(worldSession.getWorldID());
         final Grid grid = challenge.getGrid();
 
         final MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
+        //Get the game state:
         Game game = (Game) memcache.get("game_" + challenge.getId());
         final List<PickableEntity> pickables = game.getPickables();
         final Map<String, PlayerEntity> playerEntities = game.getPlayerEntities();
@@ -74,7 +75,6 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
             builder.putWorldSessions(entry.getKey(), entry.getValue().toProto().build());
         }
 
-
         //Retrieve the partial state:
         builder
                 .setTimestamp(System.currentTimeMillis())
@@ -90,8 +90,6 @@ public class GetState implements AthlosService<GetStateRequest, GetStateResponse
                 .setMessage("OK")
                 .setPartialState(builder.build())
                 .build();
-
-    }    
-    
+    }
 }
 

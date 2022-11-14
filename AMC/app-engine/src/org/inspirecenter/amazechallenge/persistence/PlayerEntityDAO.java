@@ -18,8 +18,6 @@ import java.util.Collection;
 
 
 public class PlayerEntityDAO implements WorldBasedDAO<PlayerEntity> {
-
-
     @Override
     public boolean create(PlayerEntity object) {
         return Firestorm.create(object) != null;
@@ -62,29 +60,18 @@ public class PlayerEntityDAO implements WorldBasedDAO<PlayerEntity> {
                 .fetch().getItems();
     }
 
-    /**
-     * Retrieves a player's entities within a specific world.
-     * @param playerID The player's ID.
-     * @param worldID The world ID.
-     * @return Returns a collection of entities.
-     */
     public Collection<PlayerEntity> listForPlayerAndWorld(String playerID, String worldID) {
         return Firestorm.filter(PlayerEntity.class)
                 .whereEqualTo("worldID", worldID)
                 .whereEqualTo("playerID", playerID)
                 .fetch().getItems();
     }
-    /**
-     * Retrieves a player's entities.
-     * @param playerID The player.
-     * @return Returns a collection of entities.
-     */
+
     public Collection<PlayerEntity> listForPlayer(String playerID) {
         return Firestorm.filter(PlayerEntity.class)
                 .whereEqualTo("playerID", playerID)
                 .fetch().getItems();
     }
-
 }
 
 

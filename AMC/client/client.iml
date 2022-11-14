@@ -19,16 +19,6 @@
     <orderEntry type="library" name="Maven: com.raylabz:jsec:1.0.0" level="project" />
     <orderEntry type="module" module-name="core" />
     <orderEntry type="library" name="Maven: com.raylabz:athlos-client:0.0.36" level="project" />
-    <orderEntry type="library" name="Maven: io.grpc:grpc-api:1.34.0" level="project" />
-    <orderEntry type="library" name="Maven: io.grpc:grpc-context:1.34.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.guava:guava:29.0-android" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-compat-qual:2.5.5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.j2objc:j2objc-annotations:1.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.errorprone:error_prone_annotations:2.3.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.18" level="project" />
     <orderEntry type="library" name="Maven: com.raylabz:java-http:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.raylabz:mocha:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: com.neovisionaries:nv-websocket-client:2.9" level="project" />

@@ -1,0 +1,62 @@
+<div >
+
+    <h3>Writing your code (1/3)</h3>
+
+    <h4 style="text-align: center;">The functions</h4>
+
+    <p>There are two functions you need to use in your code:</p>
+
+    <h5>Initialize function</h5>
+    <div style="text-align: center;"><img class="styledImage"  src="../../images/initialize.jpg"/></div>
+    <p>The initialize function runs its instructions only once, before anything else is executed. It is used to declare variables
+    that will be used in the rest of the code.</p>
+
+    <h5>Run function</h5>
+    <div style="text-align: center;"><img class="styledImage"  src="../../images/run.jpg"/></div>
+    <p>The run function runs its instructions continuously (at every turn). It is used to contain the algorithm that will
+    move the player inside the maze and allow them to reach the end.</p>
+
+    <p>The run function should be "linked" to the initialize function. An empty code structure should look like this:</p>
+    <div style="text-align: center;"><img class="styledImage"  src="../../images/structure.jpg"/></div>
+
+    <h5>Useful hints</h5>
+    <ul>
+        <li>Do not place code outside the initialize and run functions. It will not be executed.</li>
+        <li>Try to include both initialize and run functions in your code. The run function is mandatory but initialize can be omitted, although better code will need to use both.</li>
+        <li>Do not declare any variables inside the run function. This will reset their values each time the algorithm is executed. Declare them in initialize instead.</li>
+        <li>Each block's structure indicates what its output or input is. If something does not fit, it was not meant to fit.</li>
+        <li>Saving your code after you have made some changes will avoid any accidental losses.</li>
+    </ul>
+
+    <hr/>
+
+    <h5 style="text-align: center;">Moving &amp; Turning</h5>
+    <p>Your avatar can perform one of the following actions at each turn. When one of these commands is executed, your turn is completed.</p>
+
+    <h6>Move Forward</h6>
+    <p>This will advance your avatar one step forward in the direction it is facing.</p>
+    <div style="text-align: center;"><img src="../../images/move_forward.jpg"/></div>
+
+    <h6>Turn Clockwise</h6>
+    <p>Your avatar will turn clockwise (to its right hand side), according to the direction it is facing.</p>
+    <div style="text-align: center;"><img src="../../images/turn_clockwise.jpg"/></div>
+
+    <h6>Turn Counter-Clockwise</h6>
+    <p>Your avatar will turn counter-clockwise (to its left hand side), according to the direction it is facing.</p>
+    <div style="text-align: center;"><img src="../../images/turn_counterclockwise.jpg"/></div>
+
+    <hr/>
+
+    <h5 style="text-align: center;">Checking for possible moves</h5>
+    <p>The following set of functions allows you to check if your avatar can move in a certain direction, so that you avoid missing any turns.
+        They will return <b>true</b> if your avatar can move in a certain position or <b>false</b> if it cannot.</p>
+    <div style="text-align: center;"><img src="../../images/movecheck_functions.jpg"/></div>
+
+    <br>
+
+    <div class="center-align">
+        <a style="color: white; font-weight: bold; font-size: 20px" href="learn.html?page=writingCode_part2">Next &gt;</a>
+    </div>
+
+
+</div>

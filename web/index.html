@@ -14,9 +14,11 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/cookies.js"></script>
     <script defer src="js/materialize.js"></script>
     <script defer src="js/init.js"></script>
 
+    <link rel="icon" href="images/amaze_logo-web.png">
     <title>aMazeChallenge</title>
 </head>
 <body class="patterned">
@@ -184,10 +186,6 @@
                     const heightOfItem = (bodyHeight - headerHeight) / 7;
                     const paddingOfItem = heightOfItem / 3;
 
-                    console.log(bodyHeight);
-                    console.log(headerHeight);
-                    console.log(heightOfItem);
-
                     const menuItems = document.getElementsByClassName("mainMenuItem");
                     for (let i = 0; i < menuItems.length; i++) {
                         menuItems[i].style.height = heightOfItem + "px";
@@ -198,12 +196,33 @@
         }
 
         const learnItem = document.getElementById("learnItem");
+        const learnCheckbox = document.getElementById("learnCheckbox");
+
         const personalizeItem = document.getElementById("personalizeItem");
+        const personalizeCheckbox = document.getElementById("personalizeCheckbox");
+
         const editCodeItem = document.getElementById("editCodeItem");
+        const editCodeCheckbox = document.getElementById("editCodeCheckbox");
+
         const trainingItem = document.getElementById("trainingItem");
+        const trainingCheckbox = document.getElementById("trainingCheckbox");
+
         const playOnlineItem = document.getElementById("playOnlineItem");
+        const playOnlineCheckbox = document.getElementById("playOnlineCheckbox");
+
         const mazeDesignerItem = document.getElementById("mazeDesignerItem");
+        const mazeDesignerCheckbox = document.getElementById("mazeDesignerCheckbox");
+
         const aboutItem = document.getElementById("aboutItem");
+        const aboutCheckbox = document.getElementById("aboutCheckbox");
+
+        learnCheckbox.checked = Cookies.cookieExists(Cookies.LEARN_ITEM_CHECK);
+        personalizeCheckbox.checked = Cookies.cookieExists(Cookies.PERSONALIZE_ITEM_CHECK);
+        editCodeCheckbox.checked = Cookies.cookieExists(Cookies.EDIT_CODE_ITEM_CHECK);
+        trainingCheckbox.checked = Cookies.cookieExists(Cookies.TRAINING_ITEM_CHECK);
+        playOnlineCheckbox.checked = Cookies.cookieExists(Cookies.PLAY_ONLINE_ITEM_CHECK);
+        mazeDesignerCheckbox.checked = Cookies.cookieExists(Cookies.MAZE_DESIGNER_ITEM_CHECK);
+        aboutCheckbox.checked = Cookies.cookieExists(Cookies.ABOUT_ITEM_CHECK);
 
         learnItem.onclick = function() {
             window.location.href = "learn.html";

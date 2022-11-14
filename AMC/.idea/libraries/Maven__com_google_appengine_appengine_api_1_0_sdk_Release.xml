@@ -2,14 +2,11 @@
   <library name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" type="repository">
     <properties maven-id="com.google.appengine:appengine-api-1.0-sdk:RELEASE" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-api-1.0-sdk/1.9.91/appengine-api-1.0-sdk-1.9.91.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-api-1.0-sdk/2.0.5/appengine-api-1.0-sdk-2.0.5.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-api-1.0-sdk/2.0.5/appengine-api-1.0-sdk-2.0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
