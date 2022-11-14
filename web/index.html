@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The web app for aMazeChallenge">
+    <meta name="keywords" content="aMazeChallenge, UCLan, Cyprus, Nicos, Kasenides, Nearchos, Paspallis, Computer, Science, Computing, Programming, Educational, Game, Maze">
+    <meta name="author" content="Nicos Kasenides & Nearchos Paspallis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script defer src="js/materialize.js"></script>
+    <script defer src="js/init.js"></script>
+
+    <title>aMazeChallenge</title>
+</head>
+<body class="patterned">
+
+    <div id="mainPageHeader" class="center-align">
+        <img class="responsive-img" id="headerImg" src="images/maze_banner_transparent.png" alt="aMazeChallenge logo" />
+    </div>
+
+    <div id="mainPageBody">
+
+        <!--LEARN-->
+        <div class="mainMenuItem" id="learnItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">book</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">LEARN</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="learnCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--PERSONALIZE-->
+        <div class="mainMenuItem" id="personalizeItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">person_pin</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">PERSONALIZE</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="personalizeCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--EDIT CODE-->
+        <div class="mainMenuItem" id="editCodeItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">code</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">EDIT CODE</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="editCodeCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--TRAINING-->
+        <div class="mainMenuItem" id="trainingItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">play_arrow</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">TRAINING</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="trainingCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--PLAY ONLINE-->
+        <div class="mainMenuItem" id="playOnlineItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">people</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">PLAY ONLINE</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="playOnlineCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--MAZE DESIGNER-->
+        <div class="mainMenuItem" id="mazeDesignerItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">edit</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">MAZE DESIGNER</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="mazeDesignerCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--ABOUT-->
+        <div class="mainMenuItem" id="aboutItem">
+            <div class="row noMarginBottom">
+                <div class="col s2">
+                    <i class="material-icons white-text">info</i>
+                </div>
+                <div class="col s8">
+                    <p class="white-text center-align" style="margin: auto">ABOUT</p>
+                </div>
+                <div class="col s2">
+                    <label>
+                        <input class="checkbox-white" disabled type="checkbox" id="aboutCheckbox" />
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        fixLayout();
+
+        $(window).on("resize", fixLayout);
+
+        function fixLayout() {
+
+            var imgs = document.images,
+                len = imgs.length,
+                counter = 0;
+
+            [].forEach.call( imgs, function( img ) {
+                if(img.complete)
+                    incrementCounter();
+                else
+                    img.addEventListener( 'load', incrementCounter, false );
+            } );
+
+            function incrementCounter() {
+                counter++;
+                if ( counter === len ) {
+                    const body = document.body;
+                    const html = document.documentElement;
+                    const bodyHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+                    const headerHeight = document.getElementById("mainPageHeader").offsetHeight;
+                    const heightOfItem = (bodyHeight - headerHeight) / 7;
+                    const paddingOfItem = heightOfItem / 3;
+
+                    console.log(bodyHeight);
+                    console.log(headerHeight);
+                    console.log(heightOfItem);
+
+                    const menuItems = document.getElementsByClassName("mainMenuItem");
+                    for (let i = 0; i < menuItems.length; i++) {
+                        menuItems[i].style.height = heightOfItem + "px";
+                        menuItems[i].style.paddingTop = paddingOfItem + "px";
+                    }
+                }
+            }
+        }
+
+        const learnItem = document.getElementById("learnItem");
+        const personalizeItem = document.getElementById("personalizeItem");
+        const editCodeItem = document.getElementById("editCodeItem");
+        const trainingItem = document.getElementById("trainingItem");
+        const playOnlineItem = document.getElementById("playOnlineItem");
+        const mazeDesignerItem = document.getElementById("mazeDesignerItem");
+        const aboutItem = document.getElementById("aboutItem");
+
+        learnItem.onclick = function() {
+            window.location.href = "learn.html";
+        }
+
+        personalizeItem.onclick = function() {
+            window.location.href = "personalize.html";
+        }
+
+        editCodeItem.onclick = function() {
+            window.location.href = "editCode.html";
+        }
+
+        trainingItem.onclick = function() {
+            window.location.href = "training.html";
+        }
+
+        playOnlineItem.onclick = function() {
+            window.location.href = "playOnline.html";
+        }
+
+        mazeDesignerItem.onclick = function() {
+            window.location.href = "mazeDesigner.html";
+        }
+
+        aboutItem.onclick = function() {
+            window.location.href = "aboutItem.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

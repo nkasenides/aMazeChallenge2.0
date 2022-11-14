@@ -1,0 +1,100 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.patterned {
+    background: url("../images/maze_background_pattern.png");
+}
+
+#mainPageHeader {
+    background-color: rgba(48, 63, 159, 0.98);
+    padding: 0 15px;
+}
+
+.headerButton {
+    background-color: #FF9800;
+    position: absolute;
+}
+
+.headerButton:hover {
+    background-color: #FF9800;
+}
+
+.headerButton:active {
+    background-color: #FF9800;
+}
+
+.headerButton:focus {
+    background-color: #FF9800;
+}
+
+.mainMenuItem {
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+#learnItem {
+    background-color: rgba(244, 67, 54, 0.98);
+}
+
+#personalizeItem {
+    background-color: rgba(255, 109, 0, 0.98)
+}
+
+#editCodeItem {
+   background-color: rgba(175, 180, 43, 0.98)
+}
+
+#trainingItem {
+    background-color: rgba(0, 200, 83, 0.98);
+}
+
+#playOnlineItem {
+    background-color: rgba(41, 121, 255, 0.98)
+}
+
+#mazeDesignerItem {
+    background-color: rgba(170, 0, 255, 0.98);
+}
+
+#aboutItem {
+    background-color: rgba(197, 17, 98, 0.98);
+}
+
+.noMarginBottom {
+    margin-bottom: 0;
+}
+
+#headerImg {
+    max-height: 200px;
+}
+
+/* Main menu checkboxes */
+
+.checkbox-white[type="checkbox"] + span:not(.lever):before, [type="checkbox"]:not(.filled-in) + span:not(.lever):after{
+    border: 2px solid #FFF;
+}
+
+.checkbox-white[type="checkbox"]:checked + span:not(.lever):before {
+    border-top: unset;
+    border-left: unset;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.checkbox-white[type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
+    border: 2px solid #FFF;
+    background-color: transparent;
+}
