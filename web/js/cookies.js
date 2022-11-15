@@ -14,6 +14,8 @@ class Cookies {
     static PREF_ICON = "PREF_ICON";
     static PREF_COLOR = "PREF_COLOR";
 
+    static COMPILED_CODE = "COMPILED_CODE";
+
     //----------------------------------------------------------------------------------------------------------------//
 
     /**
@@ -24,7 +26,8 @@ class Cookies {
      */
     static setCookie(cookieName, cookieValue) {
         cookieValue += "";
-        cookieValue = cookieValue.replace(/;/g, '%3B');
+        cookieValue = cookieValue.replaceAll(/;/g, '%3B');
+        cookieValue = cookieValue.replaceAll("\n", "%n%");
         const date = new Date();
         date.setTime(date.getTime() + (30*24*60*60*1000));
         const expires = "expires=" + date.toUTCString();
@@ -58,7 +61,11 @@ class Cookies {
         for(let i = 0; i <cookieArray.length; i++) {
             let currentCookie = cookieArray[i];
             while (currentCookie.charAt(0) === ' ') currentCookie = currentCookie.substring(1);
-            if (currentCookie.indexOf(name) === 0) return currentCookie.substring(name.length,currentCookie.length).replace(/%3B/g, ";");
+            if (currentCookie.indexOf(name) === 0)
+                return currentCookie.substring(name.length,currentCookie.length)
+                    .replaceAll(/%3B/g, ";")
+                    .replaceAll("%n%", "\n")
+                    ;
         }
         return null;
     }
