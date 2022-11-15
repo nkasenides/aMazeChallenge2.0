@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The web app for aMazeChallenge">
+    <meta name="keywords"
+          content="aMazeChallenge, UCLan, Cyprus, Nicos, Kasenides, Nearchos, Paspallis, Computer, Science, Computing, Programming, Educational, Game, Maze">
+    <meta name="author" content="Nicos Kasenides & Nearchos Paspallis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/cookies.js"></script>
+    <script defer src="js/materialize.js"></script>
+    <script defer src="js/init.js"></script>
+    <script src="js/colorsAndIcons.js"></script>
+
+    <link rel="icon" href="images/amaze_logo-web.png">
+    <title>aMazeChallenge</title>
+</head>
+<body class="patterned-transparent">
+
+    <canvas id="playCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("playCanvas");
+        canvas.style.backgroundColor = "white";
+        canvas.style.height = window.outerHeight / 2 + "px";
+        canvas.style.width = window.outerWidth + 'px';
+
+        //TODO Handle landscape mode and refreshing
+
+    </script>
+
+</body>
+
+</html>
