@@ -92,6 +92,16 @@
     max-height: 200px;
 }
 
+.codeEditorNav {
+    background-color: rgba(48, 63, 159);
+    color: white;
+}
+
+.navButton {
+    padding: 0;
+    margin: 0;
+}
+
 /* Main menu checkboxes */
 
 .checkbox-white[type="checkbox"] + span:not(.lever):before, [type="checkbox"]:not(.filled-in) + span:not(.lever):after{

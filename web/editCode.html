@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The web app for aMazeChallenge">
+    <meta name="keywords"
+          content="aMazeChallenge, UCLan, Cyprus, Nicos, Kasenides, Nearchos, Paspallis, Computer, Science, Computing, Programming, Educational, Game, Maze">
+    <meta name="author" content="Nicos Kasenides & Nearchos Paspallis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/cookies.js"></script>
+    <script defer src="js/materialize.js"></script>
+    <script defer src="js/init.js"></script>
+    <script src="blockly/blockly_compressed.js"></script>
+    <script src="blockly/blocks_compressed.js"></script>
+    <script src="blockly/javascript_compressed.js"></script>
+    <script src="blockly/msg/js/en.js"></script>
+
+
+    <script>
+        Cookies.setCookie(Cookies.EDIT_CODE_ITEM_CHECK, true);
+    </script>
+
+    <link rel="icon" href="images/amaze_logo-web.png">
+    <title>aMazeChallenge</title>
+</head>
+<body class="patterned-transparent">
+
+<xml id="workspace"></xml>
+
+<header id="editCodeHeader">
+    <nav>
+        <div class="nav-wrapper codeEditorNav" id="nav">
+            <button class="brand-logo btn-flat white-text left" onclick="history.back();"><i class="material-icons">arrow_back</i></button>
+            <ul class="right">
+                <li><a id="clearBtn" class="btn-flat white-text navButton" onclick=""><i class="material-icons">layers_clear</i></a></li>
+                <li><a id="loadBtn" class="btn-flat white-text navButton" onclick=""><i class="material-icons">file_download</i></a></li>
+                <li><a id="saveBtn" class="btn-flat white-text navButton" onclick="saveCode();"><i class="material-icons">save</i></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+</main>
+
+<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+
+    <category name="aMaze" colour="260">
+        <block type="maze_move_forward"></block>
+        <block type="maze_turn_cw"></block>
+        <block type="maze_turn_ccw"></block>
+        <block type="maze_init_function"></block>
+        <block type="maze_run_function"></block>
+        <block type="maze_canmove_forward"></block>
+        <block type="maze_canmove_left"></block>
+        <block type="maze_canmove_right"></block>
+        <block type="maze_canmove_backward"></block>
+        <block type="maze_look"></block>
+        <block type="maze_get_direction"></block>
+        <block type="maze_compass"></block>
+        <block type="maze_onmove"></block>
+        <block type="maze_direction_north"></block>
+        <block type="maze_direction_south"></block>
+        <block type="maze_direction_east"></block>
+        <block type="maze_direction_west"></block>
+        <block type="maze_pickabletype_reward"></block>
+        <block type="maze_pickabletype_penalty"></block>
+        <block type="maze_pickabletype_none"></block>
+        <block type="maze_literal_move_forward"></block>
+        <block type="maze_literal_turn_clockwise"></block>
+        <block type="maze_literal_turn_counterclockwise"></block>
+    </category>
+
+    <category name="Logic" colour="210">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="maze_math_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+    </category>
+    <category name="Loops" colour="120">
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_whileUntil">
+            <value name="BOOL">
+                <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="controls_flow_statements"></block>
+    </category>
+    <category name="Math" colour="230">
+        <block type="math_number"></block>
+        <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">9</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">45</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constant"></block>
+        <block type="math_number_property"></block>
+        <block type="math_change">
+            <value name="DELTA">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_constrain">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="LOW">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="HIGH">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="maze_randomint">
+            <value name="min">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="max">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="math_random_float"></block>
+    </category>
+
+    <category name="Variables" colour="330" custom="VARIABLE"/>
+
+</xml>
+
+<script>
+
+    const navElement = document.getElementById("nav");
+    const blocklyElement = document.getElementById("blocklyDiv");
+
+    const body = document.body;
+    const html = document.documentElement;
+    const bodyHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    const bodyWidth = body.offsetWidth;
+    const headerHeight = document.getElementById("editCodeHeader").offsetHeight;
+    const heightOfBlockly = bodyHeight - headerHeight;
+
+    blocklyElement.setAttribute("height", heightOfBlockly + "px");
+    blocklyElement.setAttribute("width", bodyWidth + "px");
+    blocklyElement.setAttribute("style", "width: " + bodyWidth + "px; height: " + heightOfBlockly + "px;");
+
+    let blocks = "";
+    fetch ("blocks/maze_blocks.json")
+        .then((res) => res.json())
+        .then((response) => {
+            blocks = response.blocks;
+            Blockly.defineBlocksWithJsonArray(blocks);
+            var workspace = Blockly.inject('blocklyDiv', {toolbox: document.getElementById("toolbox")});
+        })
+        .catch((error) => {
+            alert("Unable to import Blockly workspace.");
+        });
+
+    function saveCode() {
+        const jsCode = Blockly.JavaScript.workspaceToCode(workspace);
+        console.log(jsCode);
+    }
+
+
+</script>
+
+</body>
+
+</html>

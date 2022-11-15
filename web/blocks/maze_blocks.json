@@ -1,0 +1,293 @@
+{
+  "blocks": [{
+    "type": "maze_move_forward",
+    "message0": "Move Forward",
+    "previousStatement": null,
+    "colour": 260,
+    "tooltip": "Move the player forward.",
+    "helpUrl": ""
+  },
+    {
+      "type": "maze_turn_cw",
+      "message0": "Turn Clockwise",
+      "previousStatement": null,
+      "colour": 260,
+      "tooltip": "Turn the player clockwise.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_turn_ccw",
+      "message0": "Turn Counter-Clockwise",
+      "previousStatement": null,
+      "colour": 260,
+      "tooltip": "Turn the player counterclockwise.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_look",
+      "message0": "look %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "playerDirection",
+          "check": "Direction"
+        }
+      ],
+      "output": "PickableTypeBias",
+      "colour": 65,
+      "tooltip": "Returns the type of object that exists in the given direction.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_canmove_left",
+      "message0": "can move left",
+      "output": "Boolean",
+      "colour": 65,
+      "tooltip": "Returns true if the position left of the player is passable.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_canmove_right",
+      "message0": "can move right",
+      "output": "Boolean",
+      "colour": 65,
+      "tooltip": "Returns true if the position right of the player is passable.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_canmove_forward",
+      "message0": "can move forward",
+      "output": "Boolean",
+      "colour": 65,
+      "tooltip": "Returns true if the position ahead of the player is passable.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_canmove_backward",
+      "message0": "can move backward",
+      "output": "Boolean",
+      "colour": 65,
+      "tooltip": "Returns true if the position behind the player is passable.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_direction_north",
+      "message0": "North",
+      "output": "Direction",
+      "colour": 150,
+      "tooltip": "North",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_direction_south",
+      "message0": "South",
+      "output": "Direction",
+      "colour": 150,
+      "tooltip": "South.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_direction_east",
+      "message0": "East",
+      "output": "Direction",
+      "colour": 150,
+      "tooltip": "East",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_direction_west",
+      "message0": "West",
+      "output": "Direction",
+      "colour": 150,
+      "tooltip": "West",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_init_function",
+      "message0": "Initialize() %1 %2",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_statement",
+          "name": "init"
+        }
+      ],
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Initializes the maze variables.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_run_function",
+      "message0": "Run() %1  %2",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_statement",
+          "name": "run"
+        }
+      ],
+      "previousStatement": null,
+      "colour": 230,
+      "tooltip": "Runs at each turn of the player to solve the maze.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_randomint",
+      "message0": "random integer from %1 %2 %3 to %4",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "min",
+          "check": "Number"
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "max",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 225,
+      "tooltip": "Returns a random integer in the range provided.",
+      "helpUrl": ""
+    },
+
+    {
+      "type": "maze_pickabletype_reward",
+      "message0": "Reward item",
+      "output": "PickableTypeBias",
+      "colour": 0,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_pickabletype_penalty",
+      "message0": "Penalty item",
+      "output": "PickableTypeBias",
+      "colour": 0,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_pickabletype_none",
+      "message0": "No item",
+      "output": "PickableTypeBias",
+      "colour": 0,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_get_direction",
+      "message0": "get Direction",
+      "output": "Direction",
+      "colour": 60,
+      "tooltip": "Returns the current direction of the player",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_compass",
+      "message0": "compass",
+      "inputsInline": true,
+      "output": "Direction",
+      "colour": 60,
+      "tooltip": "Gets the direction the player needs to go to find the exit.",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_onmove",
+      "message0": "on move %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "move",
+          "check": "PlayerMove"
+        }
+      ],
+      "inputsInline": false,
+      "output": "Direction",
+      "colour": 65,
+      "tooltip": "Returns the direction the player will be facing when turning toward a certain direction",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_literal_move_forward",
+      "message0": "Move Forward",
+      "output": "PlayerMove",
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_literal_turn_clockwise",
+      "message0": "Turn Clockwise",
+      "output": "PlayerMove",
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_literal_turn_counterclockwise",
+      "message0": "Turn Counter-Clockwise",
+      "output": "PlayerMove",
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    },
+    {
+      "type": "maze_math_compare",
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "number1",
+          "check": "Number"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "operator",
+          "options": [
+            [
+              ">",
+              "more"
+            ],
+            [
+              ">=",
+              "more_equal"
+            ],
+            [
+              "<",
+              "less"
+            ],
+            [
+              "<=",
+              "less_equal"
+            ]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "number2",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "colour": 210,
+      "tooltip": "Compares two numbers.",
+      "helpUrl": ""
+    }
+
+  ]
+}
